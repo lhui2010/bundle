@@ -17,7 +17,8 @@ while(<>)
         &init_read;
         next;
     }
-    if(/^LOCUS/)
+    #if(/^LOCUS/)
+    if(/\/\//)
     {
         &end_read;
     }
