@@ -6,9 +6,10 @@ my $start = 2;
 
 while(<>)
 {
-#	/size([0-9]*)/;
+    chomp;
+    next if ($_ eq "");
 	my @e=split;
-#	$sum+=$e[$column];
 	$sum+=$e[$end] - $e[$start];
 }
-print $sum, "\n";
+
+print "Clean sum:  ", $sum, "\n";

@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+#Function: Extract start and end of syntenic blocks identified using MCScanX
+#Author: lhui2010@gmail.com
 ################ Parameters ###############
 ## MATCH_SCORE: 50
 ## MATCH_SIZE: 5
@@ -41,11 +43,15 @@ while(<BED>)
 my $gene_key_word = "pilon";
 my $mark_read = 0;
 
+my $count_block = 0;
+my $count_ortholog = 0;
+
 my ($ref_ctg, $qry_ctg);
 while(<SYN>)
 {
     if (/Alignment/)
     {
+        $count_block++;
         $mark_read =1 ;
         my @e=split;
         $ref_ctg = $e[6];
@@ -58,6 +64,8 @@ while(<SYN>)
 #to avoid syntenic block with gene number > 99
 #eg: 322-100:
     s/-/\t/;
+#we dont do it within species
+    next if (substr($qry_ctg, 0, 2) eq substr($ref_ctg, 0, 2));
     my ($aln_id, $gene_id, $ref_gene, $qry_gene, $eval)=split;
     $aln_id=~s/-//;
     my $counto=0;
@@ -79,6 +87,7 @@ while(<SYN>)
     $start_syn{$aln_id} = $start{$this_gene} if (!exists $start_syn{$aln_id});
     $end_syn{$aln_id} = $end{$this_gene};
     $ctg_syn{$aln_id} = $this_ctg;
+    $count_ortholog++;
 }
 
 open OUT, ">$prefix.syn_block" or die;
@@ -89,4 +98,6 @@ for my $k(sort {$a<=>$b} keys %start_syn)
     print OUT "$k\t$ctg_syn{$k}\t$start_syn{$k}\t$end_syn{$k}\n";
 }
 
-print "$sum\n";
+print "Raw pairs:  $count_ortholog\n";
+print "Raw sum:    $sum\n";
+print "Raw count:  $count_block\n";
