@@ -38,6 +38,6 @@ while(<IN>)
 
 for my $g (sort keys %seq)
 {
-    print "$g\n$seq{$g}";
+    print ">$g\n$seq{$g}";
 }
 
