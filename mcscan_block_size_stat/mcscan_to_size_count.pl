@@ -45,6 +45,9 @@ my $mark_read = 0;
 
 my $count_block = 0;
 my $count_ortholog = 0;
+my $count_ortholog_uniq = 0;
+#a hash storing orthologous depth of a gene
+my %is_ortho;
 
 my ($ref_ctg, $qry_ctg);
 while(<SYN>)
@@ -88,6 +91,12 @@ while(<SYN>)
     $end_syn{$aln_id} = $end{$this_gene};
     $ctg_syn{$aln_id} = $this_ctg;
     $count_ortholog++;
+
+    unless (exists $is_ortho{$this_gene})
+    {
+        $count_ortholog_uniq++;
+    }
+    $is_ortho{$this_gene}++;
 }
 
 open OUT, ">$prefix.syn_block" or die;
@@ -99,5 +108,6 @@ for my $k(sort {$a<=>$b} keys %start_syn)
 }
 
 print "Raw pairs:  $count_ortholog\n";
+print "Uniq pairs: $count_ortholog_uniq\n";
 print "Raw sum:    $sum\n";
 print "Raw count:  $count_block\n";
