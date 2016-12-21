@@ -641,7 +641,8 @@ sub ReadSeqs(){
 			#remove >
 			$name =~ s/>//g;
 			#remove blank character
-			$name =~ s/\s//g;
+#			$name =~ s/\s//g;
+			$name =~ s/\s.*$//;
 			#remove version, e.g., NP_049009.1 to NP_049009
 #			$name =~ s/\.[0-9]+$//g;
 			#$name = substr($name, 0, index($name, "."));
@@ -739,11 +740,11 @@ sub GenerateSequenceFiles(){
 			if (defined $aa_seqs{$genes[$j]} && defined $nuc_seqs{$genes[$j]}) {
 				$aa_seq .= ">".$genes[$j]."\n";
 				$aa_seq .= $aa_seqs{$genes[$j]}."\n";
-				delete ( $aa_seqs{$genes[$j]} );
+#				delete ( $aa_seqs{$genes[$j]} );
 			
 				$nuc_seq .= ">".$genes[$j]."\n";
 				$nuc_seq .= $nuc_seqs{$genes[$j]}."\n";
-				delete ( $nuc_seqs{$genes[$j]} );
+#				delete ( $nuc_seqs{$genes[$j]} );
 			}
 			else {
 				$flag = 0;

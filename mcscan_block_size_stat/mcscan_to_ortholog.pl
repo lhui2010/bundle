@@ -31,6 +31,11 @@ open SYN, "$prefix.collinearity" or die;
 
 my $mark_read = 0;
 
+open OUT1, ">$prefix.$gene_key_word" or die;
+open OUT2, ">$prefix.cross" or die;
+open OUT3, ">$prefix.ref" or die;
+
+
 while(<SYN>)
 {
     if (/Alignment/)
@@ -57,6 +62,14 @@ while(<SYN>)
     my ($this_gene, $this_ctg);
     if($ref_gene =~ /$gene_key_word/ and $qry_gene =~ /$gene_key_word/)
     {
-        print $ref_gene,"\t",$qry_gene,"\n";
+        print OUT1 $ref_gene,"\t",$qry_gene,"\n";
+    }
+    elsif($ref_gene =~ /$gene_key_word/ or $qry_gene =~ /$gene_key_word/)
+    {
+        print OUT2 $ref_gene,"\t",$qry_gene,"\n";
+    }
+    else
+    {
+        print  OUT3 $ref_gene,"\t",$qry_gene,"\n";
     }
 }
