@@ -5,3 +5,4 @@ CDS=solly.cds
 PEP=solly.pep
 
 ParaAT.pl -h $ORTHO -n $CDS -a $PEP -p proc -o ParaAT.out -f axt -k
+join_kaks.pl ParaAT.out/*.kaks >kaks_result
