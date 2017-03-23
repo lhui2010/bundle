@@ -24,7 +24,9 @@
 #  0-  7:	Solyc01g009170.2.1	Solyc01g096810.2.1	      0
 
 
+#example so_cu
 $prefix=shift;
+my ($sp1, $sp2) = split /_/, $prefix;
 
 open SYN, "$prefix.collinearity" or die;
 open BED, "$prefix.gff" or die;
@@ -40,7 +42,8 @@ while(<BED>)
     $end{$gene} = $end;
 }
 
-my $gene_key_word = "pilon";
+#my $gene_key_word = "pilon";
+my $gene_key_word = $sp1;
 my $mark_read = 0;
 
 my $count_block = 0;
