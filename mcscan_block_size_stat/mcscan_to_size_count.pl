@@ -106,8 +106,13 @@ open OUT, ">$prefix.syn_block" or die;
 my $sum;
 for my $k(sort {$a<=>$b} keys %start_syn)
 {
-    $sum+=($end_syn{$k} - $start_syn{$k});
+    $sum+=abs($end_syn{$k} - $start_syn{$k});
     print OUT "$k\t$ctg_syn{$k}\t$start_syn{$k}\t$end_syn{$k}\n";
+}
+
+for my $number ($count_ortholog, $count_ortholog_uniq, $sum, $count_block)
+{
+    $number =~ s/(?<=\d)(?=(?:\d\d\d)+\b)/,/g;
 }
 
 print "Raw pairs:  $count_ortholog\n";

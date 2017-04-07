@@ -12,4 +12,9 @@ while(<>)
 	$sum+=$e[$end] - $e[$start];
 }
 
+for my $number ($sum)
+{
+    $number =~ s/(?<=\d)(?=(?:\d\d\d)+\b)/,/g;
+}
+
 print "Clean sum:  ", $sum, "\n";

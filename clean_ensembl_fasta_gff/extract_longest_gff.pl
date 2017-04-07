@@ -40,16 +40,16 @@ shift @ARGV;
 
 while(<>)
 {
-    if(/chromosome/)
+    if(/\tchromosome/)
     {
         print;
     }
-    elsif(/gene/)
+    elsif(/\tgene/)
     {
         /ID=(.*?);/;
         print if (exists $gene{$1});
     }
-    elsif(/transcript/)
+    elsif(/\ttranscript/)
     {
         /ID=(.*?);/;
         print if (exists $transcript{$1});
