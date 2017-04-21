@@ -9,6 +9,7 @@ use strict;
 # a hash storing everything
 my %func;
 
+#InterproScan
 open IPR, "IPRSCAN.result" or die;
 while(<IPR>)
 {
@@ -17,8 +18,19 @@ while(<IPR>)
     $func{$pep_id}.="IPR:$func_desc//";
 }
 
+#NR
 open NR, "NR.result" or die;
 while(<NR>)
+{
+    chomp;
+    my ($QueryId, $QueryLen, $QueryStart, $QueryEnd, $SubjectId, $SubjectLen, $SubjectStart, $SubjectEnd, $Identities, $Positives, $QueryCovery, $BitScore, $Evalue, $SubjectDescription) = split /\t/, $_;
+    $func{$QueryId} .= "$SubjectDescription//";
+}
+
+#KEGG
+#Query_id	Query_length	Query_start	Query_end	Subject_id	Subject_length	Subject_start	Subject_end	Identity	Positive	Gap	Align_length	Score	E_value	Query_annotation	Subject_annotation
+open KEGG, "KEGG.result" or die;
+while(<KEGG>)
 {
     chomp;
     my ($QueryId, $QueryLen, $QueryStart, $QueryEnd, $SubjectId, $SubjectLen, $SubjectStart, $SubjectEnd, $Identities, $Positives, $QueryCovery, $BitScore, $Evalue, $SubjectDescription) = split /\t/, $_;

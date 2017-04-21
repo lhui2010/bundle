@@ -43,7 +43,7 @@ while(<BED>)
 }
 
 #my $gene_key_word = "pilon";
-my $gene_key_word = $sp1;
+my $gene_key_word = $sp2;
 my $mark_read = 0;
 
 my $count_block = 0;
@@ -76,16 +76,21 @@ while(<SYN>)
     $aln_id=~s/-//;
     my $counto=0;
     my ($this_gene, $this_ctg);
-    if($ref_gene =~ /$gene_key_word/)
+    my ($that_gene, $that_ctg);
+    if($ref_gene =~ /^$gene_key_word/)
     {
         $this_gene = $ref_gene;
         $this_ctg = $ref_ctg;
+        $that_gene = $qry_gene;
+        $that_ctg = $qry_ctg;
         $counto++;
     }
-    if($qry_gene =~ /$gene_key_word/)
+    if($qry_gene =~ /^$gene_key_word/)
     {
         $this_gene = $qry_gene;
         $this_ctg = $qry_ctg;
+        $that_gene = $ref_gene;
+        $that_ctg = $ref_ctg;
         $counto++;
     }
     next if ($counto !=1);
@@ -93,6 +98,10 @@ while(<SYN>)
     $start_syn{$aln_id} = $start{$this_gene} if (!exists $start_syn{$aln_id});
     $end_syn{$aln_id} = $end{$this_gene};
     $ctg_syn{$aln_id} = $this_ctg;
+
+    $start_syn2{$aln_id} = $start{$that_gene} if (!exists $start_syn2{$aln_id});
+    $end_syn2{$aln_id} = $end{$that_gene};
+    $ctg_syn2{$aln_id} = $that_ctg;
     $count_ortholog++;
 
     unless (exists $is_ortho{$this_gene})
@@ -107,7 +116,8 @@ my $sum;
 for my $k(sort {$a<=>$b} keys %start_syn)
 {
     $sum+=abs($end_syn{$k} - $start_syn{$k});
-    print OUT "$k\t$ctg_syn{$k}\t$start_syn{$k}\t$end_syn{$k}\n";
+    print OUT "$k\t$ctg_syn{$k}\t$start_syn{$k}\t$end_syn{$k}";
+    print OUT "\t$ctg_syn2{$k}\t$start_syn2{$k}\t$end_syn2{$k}\n";
 }
 
 for my $number ($count_ortholog, $count_ortholog_uniq, $sum, $count_block)
