@@ -28,7 +28,7 @@ my $prefix=shift;
 
 my ($sp1, $sp2) = split /_/, $prefix;
 
-my $gene_key_word = $sp1; #"pilon";
+my $gene_key_word = $sp2; #"pilon";
 
 open SYN, "$prefix.collinearity" or die;
 
@@ -63,16 +63,16 @@ while(<SYN>)
     $aln_id=~s/-//;
     my $counto=0;
     my ($this_gene, $this_ctg);
-    if($ref_gene =~ /$gene_key_word/ and $qry_gene =~ /$gene_key_word/)
-    {
-        print OUT1 $ref_gene,"\t",$qry_gene,"\t$aln_id\n";
-    }
-    elsif($ref_gene =~ /$gene_key_word/ or $qry_gene =~ /$gene_key_word/)
-    {
+#    if($ref_gene =~ /$gene_key_word/ and $qry_gene =~ /$gene_key_word/)
+#    {
+#        print OUT1 $ref_gene,"\t",$qry_gene,"\t$aln_id\n";
+#    }
+#    elsif($ref_gene =~ /$gene_key_word/ or $qry_gene =~ /$gene_key_word/)
+#    {
         print OUT2 $ref_gene,"\t",$qry_gene,"\t$aln_id\n";
-    }
-    else
-    {
-        print  OUT3 $ref_gene,"\t",$qry_gene,"\t$aln_id\n";
-    }
+#    }
+#    else
+#    {
+#        print  OUT3 $ref_gene,"\t",$qry_gene,"\t$aln_id\n";
+#    }
 }

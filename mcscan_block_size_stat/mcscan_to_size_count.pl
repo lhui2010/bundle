@@ -70,14 +70,15 @@ while(<SYN>)
 #to avoid syntenic block with gene number > 99
 #eg: 322-100:
     s/-/\t/;
-#we dont do it within species
-    next if (substr($qry_ctg, 0, 2) eq substr($ref_ctg, 0, 2));
+#we dont do it within species in previous version
+#    next if (substr($qry_ctg, 0, 2) eq substr($ref_ctg, 0, 2));
     my ($aln_id, $gene_id, $ref_gene, $qry_gene, $eval)=split;
     $aln_id=~s/-//;
     my $counto=0;
     my ($this_gene, $this_ctg);
     my ($that_gene, $that_ctg);
-    if($ref_gene =~ /^$gene_key_word/)
+    #if($ref_gene =~ /^$gene_key_word/)
+    if($ref_gene =~ /^$sp1/ and $qry_gene =~ /^$sp2/)
     {
         $this_gene = $ref_gene;
         $this_ctg = $ref_ctg;
@@ -85,7 +86,8 @@ while(<SYN>)
         $that_ctg = $qry_ctg;
         $counto++;
     }
-    if($qry_gene =~ /^$gene_key_word/)
+    #if($qry_gene =~ /^$gene_key_word/)
+    if($qry_gene =~ /^$sp1/ and $ref_gene =~/^$sp2/)
     {
         $this_gene = $qry_gene;
         $this_ctg = $qry_ctg;
@@ -93,7 +95,7 @@ while(<SYN>)
         $that_ctg = $ref_ctg;
         $counto++;
     }
-    next if ($counto !=1);
+#    next if ($counto !=1);
 
     $start_syn{$aln_id} = $start{$this_gene} if (!exists $start_syn{$aln_id});
     $end_syn{$aln_id} = $end{$this_gene};
@@ -120,6 +122,7 @@ for my $k(sort {$a<=>$b} keys %start_syn)
     print OUT "\t$ctg_syn2{$k}\t$start_syn2{$k}\t$end_syn2{$k}\n";
 }
 
+#add thousand delimit
 for my $number ($count_ortholog, $count_ortholog_uniq, $sum, $count_block)
 {
     $number =~ s/(?<=\d)(?=(?:\d\d\d)+\b)/,/g;
