@@ -1,4 +1,4 @@
-#!/lustre/home/gaoxiaoyang/Program/python/bin/python
+#!/usr/bin/env python
 
 #Extract longest transcript of a gene from GFF using GFF parser
 #Author: Hui Liu
@@ -48,9 +48,9 @@ for rec in GFF.parse(in_handle):
         if(len(feat.sub_features) > 0):
             for sub_index in range(len(feat.sub_features)):
                 length = feat.sub_features[sub_index].location.end.position - feat.sub_features[sub_index].location.start.position
-                if ( not(len_dict.has_key(gene_name)) or length > len_dict[gene_name]):
+                if ( not(len_dict.__contains__(gene_name)) or length > len_dict[gene_name]):
                     len_dict[gene_name] = length
                     id_dict[gene_name] = feat.sub_features[sub_index].id
             
 for gene in list(id_dict):
-    print id_dict[gene], "\t", gene
+    print (id_dict[gene], "\t", gene)
