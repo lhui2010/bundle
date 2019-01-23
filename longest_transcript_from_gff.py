@@ -51,6 +51,7 @@ for rec in GFF.parse(in_handle):
                 if ( not(len_dict.__contains__(gene_name)) or length > len_dict[gene_name]):
                     len_dict[gene_name] = length
                     id_dict[gene_name] = feat.sub_features[sub_index].id
-            
+in_handle.close()
+
 for gene in list(id_dict):
     print (id_dict[gene], "\t", gene)
