@@ -41,28 +41,25 @@ in_handle = open(args.in_file)
 for rec in GFF.parse(in_handle):
     for feat in rec.features:
         gene_name = feat.id
-#        print type(feat.sub_features)
-#        print len(feat.sub_features)
-#        continue
-        if(feat.type != "gene"):
-            continue
+#IRGSP gff only contains mRNA feature, manual get gene_name
+        gene_name = re.sub(r'-\d\d$', '', gene_name)
+
+#Get cds length
+        length=0
 
         if(len(feat.sub_features) > 0):
 
             for sub_index in range(len(feat.sub_features)):
 
-                length=0
+                if(feat.sub_features[sub_index].type == 'CDS'):
 
-                for sub_index2 in range(len(feat.sub_features[sub_index].sub_features)):
+                    length += feat.sub_features[sub_index].location.end.position - feat.sub_features[sub_index].location.start.position
+#Update dictionary
+        if ( not(len_dict.__contains__(gene_name)) or length > len_dict[gene_name]):
 
-                    if(feat.sub_features[sub_index].sub_features[sub_index2].type == 'CDS'):
+            len_dict[gene_name] = length
 
-                        length += feat.sub_features[sub_index].sub_features[sub_index2].location.end.position - feat.sub_features[sub_index].sub_features[sub_index2].location.start.position
-                if ( not(len_dict.__contains__(gene_name)) or length > len_dict[gene_name]):
-
-                    len_dict[gene_name] = length
-
-                    id_dict[gene_name] = feat.sub_features[sub_index].id
+            id_dict[gene_name] = feat.id
 in_handle.close()
 
 for gene in list(id_dict):
