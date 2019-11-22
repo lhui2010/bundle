@@ -39,7 +39,7 @@ def main():
         else:
             genome_dict[old_key] = raw_dict[old_key]
 
-    with open(ffasta + "filterStop.fa", "w") as output_handle:
+    with open(ffasta + "noStop.fa", "w") as output_handle:
         for k in genome_dict.keys():
             SeqIO.write(genome_dict[k], output_handle, "fasta")
 

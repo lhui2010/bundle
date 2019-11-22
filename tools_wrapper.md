@@ -20,4 +20,7 @@ blastp -subject sub.fa -query qry.fa -out out.bln -evalue 1e-5 -outfmt 6 -num_th
 #Note the prediction do not include the last stop codon
 genewise -cdna -pseudo Zm00001d042922_T002.pep target.fa >Zm00001d042922_T002.fa.vs.target.gene_wise
 ```
-
+#### bwa
+bwa index consensus.fasta
+bwa mem consensus.fasta -t 40 read1.gz read2.gz >bwa.sam 2>bwa.err
+bwa mem consensus.fasta -t 40 read1.gz >bwa.sam 2>bwa.err
