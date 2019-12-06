@@ -24,3 +24,6 @@ genewise -cdna -pseudo Zm00001d042922_T002.pep target.fa >Zm00001d042922_T002.fa
 bwa index consensus.fasta
 bwa mem consensus.fasta -t 40 read1.gz read2.gz >bwa.sam 2>bwa.err
 bwa mem consensus.fasta -t 40 read1.gz >bwa.sam 2>bwa.err
+
+### fastqc
+$bsub512 -J QC  'mkdir fastqc_dir && perl  /ds3200_1/proc/FastQC/fastqc -t 60 *gz -o fastqc_dir'
