@@ -1,0 +1,92 @@
+#!/ds3200_1/users_root/yitingshuang/lh/bin/ActivePerl-5.24/bin/perl-static 
+#
+##Modified from tophat2gff3
+#used to format gtf file produced by hisat2 to gff3
+
+use warnings;
+use strict;
+
+my $usage = "
+Usage:
+     gtf2gff3 <stringtie.gff3>
+
+Description:
+     This script conversts the gtf file producted by stringtie into
+     GFF3 format for use with MAKER.
+
+
+";
+
+#M441_5_ctg000000	StringTie	transcript	13705	14524	1000	-	.	gene_id "MSTRG.1"; transcript_id "MSTRG.1.1"; 
+#M441_5_ctg000000	StringTie	exon	13705	14524	1000	-	.	gene_id "MSTRG.1"; transcript_id "MSTRG.1.1"; exon_number "1"; 
+#M441_5_ctg000000	StringTie	transcript	16679	22865	1000	-	.	gene_id "MSTRG.2"; transcript_id "MSTRG.2.1"; 
+#M441_5_ctg000000	StringTie	exon	16679	17345	1000	-	.	gene_id "MSTRG.2"; transcript_id "MSTRG.2.1"; exon_number "1"; 
+#M441_5_ctg000000	StringTie	exon	17634	17773	1000	-	.	gene_id "MSTRG.2"; transcript_id "MSTRG.2.1"; exon_number "2"; 
+#M441_5_ctg000000	StringTie	exon	18065	18135	1000	-	.	gene_id "MSTRG.2"; transcript_id "MSTRG.2.1"; exon_number "3"; 
+#M441_5_ctg000000	StringTie	exon	18979	19039	1000	-	.	gene_id "MSTRG.2"; transcript_id "MSTRG.2.1"; exon_number "4"; 
+#M441_5_ctg000000	StringTie	exon	19195	19300	1000	-	.	gene_id "MSTRG.2"; transcript_id "MSTRG.2.1"; exon_number "5"; 
+#M441_5_ctg000000	StringTie	exon	19394	19455	1000	-	.	gene_id "MSTRG.2"; transcript_id "MSTRG.2.1"; exon_number "6"; 
+#M441_5_ctg000000	StringTie	exon	19556	19634	1000	-	.	gene_id "MSTRG.2"; transcript_id "MSTRG.2.1"; exon_number "7"; 
+
+
+my @infiles = @ARGV;
+
+if(! @infiles){
+    print $usage;
+    exit(1);
+}
+
+my $error;
+foreach my $file (@infiles){
+    if(! -e $file){
+	$error .= "ERROR: The file $file does not exist\n";
+    }
+}
+die $error if($error);
+
+my $prefix = 1;
+foreach my $file (@infiles){
+    open(IN, "< $file") or die "ERROR: Could not open the file $file\n";
+    while(my $line = <IN>){
+	#jnext if($line =~ /^#/);
+	chomp $line;
+	my ($seqid, $method, $type, $start, $stop, $score, $strand,
+	    undef, $feature) = split("\t", $line);
+
+	#scipt header lines
+    #
+    my @feat_list = split /;/, $feature;
+    my $gene_id = $feat_list[0];
+    $gene_id =~ s/.*\s//;
+    $gene_id =~ s/"//g;
+    my $transcript_id = $feat_list[1];
+    $transcript_id =~ s/.*\s//;
+    $transcript_id =~ s/"//g;
+    my $feat_id ;
+    if($type eq "transcript"){
+        $feat_id = $transcript_id;
+        $feature = "ID=$feat_id;Name=$gene_id";
+        $type = "match";
+    }
+    elsif($type eq "exon"){
+        $feat_id = $feat_list[2];
+        $feat_id =~ s/.*\s//;
+        $feat_id =~ s/"//g;
+        $feature = "ID=$transcript_id\:exon-$feat_id;Name=$gene_id;Parent=$transcript_id";
+        $type = "match_part";
+    }
+
+    print join("\t", ($seqid, $method, $type, $start, $stop, $score, $strand, 
+        ".", $feature)), "\n";
+#	print "$seqid\tTopHat\tmatch\t$start\t$stop\t$score\t$strand\t.\tID=$ID\:0;Name=$ID;\n";
+#	
+#	#print match_parts
+#	print "$seqid\tTopHat\tmatch_part\t$m1_s\t$m1_e\t$score\t$strand\t.\t".
+#	    "ID=$ID\:exon-1;Name=$ID;Parent=$ID\:0;Target=$ID $t1_s $t1_e +;\n";
+#	print "$seqid\tTopHat\tmatch_part\t$m2_s\t$m2_e\t$score\t$strand\t.\t".
+#	    "ID=$ID\:exon-2;Name=$ID;Parent=$ID\:0;Target=$ID $t2_s $t2_e +;\n";
+#	
+#    }
+#    close(IN);
+#    $prefix++;
+}}

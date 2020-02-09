@@ -27,3 +27,20 @@ bwa mem consensus.fasta -t 40 read1.gz >bwa.sam 2>bwa.err
 
 ### fastqc
 $bsub512 -J QC  'mkdir fastqc_dir && perl  /ds3200_1/proc/FastQC/fastqc -t 60 *gz -o fastqc_dir'
+
+### snpEFF
+
+GENOME=/lustre/home/liuhui/project/A188/maize_ortho/A188.genome
+GFF=/lustre/home/liuhui/project/A188/maize_ortho/A188.gff
+DBNAME=A188
+
+set -euxo pipefail
+
+mkdir -p ${SE_HOME}/data/${DBNAME}
+cp ${GFF} ${SE_HOME}/data/${DBNAME}/genes.gff
+cp ${GENOME} ${SE_HOME}/data/${DBNAME}/sequences.fa
+cd ${SE_HOME}
+echo ${DBNAME}.genome : ${DBNAME} >>snpEff.config
+java -jar ${SE_HOME}/snpEff.jar build -gff3 -v ${DBNAME}
+
+java -jar ${SE_HOME}/snpEff.jar eff Gossypium_arborium /ds3200_1/users_root/yitingshuang/lh/projects/polyploid_evol/03.GO_enrichment/Ga09G1341.pep.vcf >snpEff_genes.txt.info
