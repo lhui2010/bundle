@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 #Zm00001d013095_T001|000154F|arrow|arrow|pilon:1448735..1452656|-|gene cover:1065(100%)|score:532.754|rank:1
 #HSP_ID[6]:(1452571-1452656);query:(1-86); pid: 100
 #HSP_ID[4]:(1452369-1452481);query:(85-197); pid: 100
@@ -19,7 +20,12 @@ from Bio import SeqIO
 
 #TODO replace sys with parse arg
 
-ortholog_prefix = "Or_"
+
+import argparse
+
+
+
+ortholog_prefix = ""
 
 def parse_hsp(line):
     this_array = re.split('\(|\)|-', line)
@@ -30,7 +36,7 @@ def parse_hsp(line):
 
 def compile_bed(line, hsp, genome_dict):
     this_array = re.split('\||:|\.\.', line)
-    gene_id = this_array[0]
+    gene_id = re.sub(r'-t\d+$', '', this_array[0])
     contig_name = re.sub(r',.*', '', this_array[1])
     start = this_array[2]
     end = this_array[3]
@@ -42,20 +48,30 @@ def compile_bed(line, hsp, genome_dict):
 #    strand = this_array[7]
 #    score = this_array[11]
     bed_compile = "\t".join((contig_name, start, end, ortholog_prefix +gene_id, score, strand))
+    feat= "ID=" + gene_id + ";Name=" + gene_id +";\n"
+    gff_compile = "\t".join((contig_name, ".", "gene", start, end, ".", strand, ".", feat))
+    mRNA_id=gene_id + "-t1"
+    mRNAfeat= "ID=" + mRNA_id + ";Parent=" + gene_id +";Name=" + mRNA_id + ";\n"
+    gff_compile += "\t".join((contig_name, ".", "mRNA", start, end, ".", strand, ".", mRNAfeat))
 
 ##Zm00001d009939_T001|001704F|arrow|arrow|pilon:30526..31453|+|gene cover:618(100%)|score:308.975|rank
 ##HSP_ID[2]:(31217-31453);query:(382-618); pid: 100
 #HSP_ID[3]:(30895-31050);query:(237-392); pid: 99.359
 #HSP_ID[1]:(30526-30763);query:(1-238); pid: 100
     hsp_string = ""
+    CDSfeat = "ID=" + mRNA_id+":cds;Parent=" + mRNA_id + ";\n"
+    cds_compile = ""
     for h in hsp:
         (hsp_id, rstart, rend, qry, qstart, qend, pid) = parse_hsp(h)
         h_seq = genome_dict[contig_name].seq[int(rstart)-1:int(rend)]
         if(strand == '-'):
             hsp_string += h_seq.reverse_complement()
+            cds_compile += "\t".join((contig_name, ".", "CDS", rstart, rend, ".", strand, ".", CDSfeat)) 
         else:
+            cds_compile = "\t".join((contig_name, ".", "CDS", rstart, rend, ".", strand, ".", CDSfeat)) +cds_compile
             hsp_string = h_seq + hsp_string
-    return (gene_id, bed_compile, hsp_string)
+    gff_compile += cds_compile
+    return (gene_id, bed_compile, gff_compile, hsp_string)
 
 
 #strip suffix of fasta headers like ,123,fragm6c1
@@ -64,8 +80,23 @@ def rename_dict(cur_dict):
 
 
 def main():
-    fgenblast=sys.argv[1]
-    ffasta=sys.argv[2]
+
+    parser = argparse.ArgumentParser(description='Extract cds, bed, and gff from genblasta result')
+    parser.add_argument('GBLAST', type=str, nargs = 1,
+                        help='out.gblast')
+    parser.add_argument('FA', type=str, nargs = 1,
+                        help='Genome.fasta')
+    parser.add_argument('--version', action='version', version='%(prog)s 0.1')
+
+
+    args = parser.parse_args()
+
+#if args.pos_arg > 10:
+#        parser.error("pos_arg cannot be larger than 10")
+
+
+    fgenblast=args.GBLAST[0]
+    ffasta=args.FA[0]
 
     raw_dict = SeqIO.to_dict(SeqIO.parse(ffasta, "fasta"))            
     genome_dict = {}
@@ -76,6 +107,7 @@ def main():
 
     bed_dict={}
     cds_dict={}
+    gff_dict={}
 
     with open (fgenblast) as fh:
         for line in fh:
@@ -88,14 +120,18 @@ def main():
 #process cds    
                     hsp.append(line)
                     line = fh.readline()
-                (gene_id, bed_compile, cds_compile) = compile_bed(rank_line, hsp, genome_dict)
+                (gene_id, bed_compile, gff_compile, cds_compile) = compile_bed(rank_line, hsp, genome_dict)
                 bed_dict[gene_id] = bed_compile
 #TODO:Create a sequence object here, with name in it ,so it's easier to write to file
                 cds_dict[gene_id] = cds_compile
+                gff_dict[gene_id] = gff_compile
 
-    with open(fgenblast+".bed", 'w') as fh_bed, open (fgenblast + ".cds", 'w') as fh_cds:
+    with open(fgenblast+".bed", 'w') as fh_bed, \
+        open (fgenblast + ".cds", 'w') as fh_cds, \
+        open (fgenblast + ".gff", 'w') as fh_gff:
         for gene in bed_dict:
             fh_bed.write('{}\n'.format(bed_dict[gene]))
+            fh_gff.write('{}'.format(gff_dict[gene]))
             fh_cds.write('>' + ortholog_prefix + gene + '\n' + cds_dict[gene].__str__() + '\n')
 
 main()
