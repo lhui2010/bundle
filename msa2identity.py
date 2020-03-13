@@ -21,6 +21,7 @@ print_buf = ""
 #First we need to determin the ref sequence used to calculate identity
 REF_TAG = "A188"
 REF_LEN = 0
+QRY_LEN = 0
 match = {}
 for qry_id in qry_dict.keys():
     if(qry_id.startswith(REF_TAG)):
@@ -28,7 +29,9 @@ for qry_id in qry_dict.keys():
 #        print(len(qry_dict[qry_id].seq))
 #        print(len(qry_dict[qry_id].seq.__str__().replace("-", "")))
 #        print(qry_dict[qry_id].seq.__str__().replace("-", ""))
-        REF_LEN=len(qry_dict[qry_id].seq.__str__().replace("-", ""))
+        REF_LEN = len(qry_dict[qry_id].seq.__str__().replace("-", ""))
+    else:
+        QRY_LEN = len(qry_dict[qry_id].seq.__str__().replace("-", ""))
 
 for qry_id in qry_dict.keys():
     match[qry_id] = 0
@@ -43,6 +46,7 @@ for qry_id in qry_dict.keys():
 #        sys.stderr.write("Searching in " + qry_id + "..\n")
 
 for k in match:
-    div = match[k] / REF_LEN
-    print("{}\t{}\t{}\t{}".format(k, match[k], REF_LEN, div))
+    div1 = match[k] / REF_LEN
+    div2 = match[k] / QRY_LEN
+    print("{}\t{}\t{}\t{}\t{}\t{}".format(k, match[k], REF_LEN, div1, QRY_LEN, div2))
 
