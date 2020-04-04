@@ -33,34 +33,35 @@ genblast_bin = "/lustre/home/liuhui/bin/genblast_v139/genblast"
 with open(file_bedpe) as fh:
     for line in fh:
         mylist = line.rstrip().split()
-        gene_id = mylist[9]
-        (refchr_id, start, end) = mylist[3:6]
+        for gene_id in mylist[0].rstrip(',').split(','):
+            (refchr_id, start, end) = mylist[1:4]
 #My bed is 1-based
-        start = int(start) - 1
-        if start < 0 :
-            start = 0
-        end = int(end)
-        gene_seq = gene_dict[gene_id].seq
-        genome_seq = genome_dict[refchr_id].seq[start:end]
+            start = int(start) - 1
+            if start < 0 :
+                start = 0
+            end = int(end)
+            gene_seq = gene_dict[gene_id].seq
+            genome_seq = genome_dict[refchr_id].seq[start:end]
 #Write gene_seq and genome_seq
-        qry_file = gene_id + ".fa"
-        ref_file = gene_id + ".genome"
-        out_file = qry_file + ".genblast"
-        new_dir = os.path.join(root, gene_id)
+            qry_file = gene_id + ".fa"
+            ref_file = gene_id + ".genome"
+            out_file = qry_file + ".genblast"
+            new_dir = os.path.join(root, args.BEDPE[0] + ".genblast", gene_id)
 
 #change directory
-        os.system("mkdir -p {}".format(new_dir))
-        os.chdir(new_dir)
-        
-        with open(qry_file, "w") as fh_gene, \
-            open(ref_file, "w") as fh_genome:
-            fh_gene.write(">" + gene_id + "\n" + gene_seq.__str__())
-            fh_genome.write(">" + "_".join([refchr_id, str(start+1), str(end)]) + "\n" + genome_seq.__str__())
+            print("mkdir -p {}".format(new_dir))
+            os.system("mkdir -p {}".format(new_dir))
+            os.chdir(new_dir)
+            
+            with open(qry_file, "w") as fh_gene, \
+                open(ref_file, "w") as fh_genome:
+                fh_gene.write(">" + gene_id + "\n" + gene_seq.__str__())
+                fh_genome.write(">" + "_".join([refchr_id, str(start+1), str(end)]) + "\n" + genome_seq.__str__())
 
-        qsub_cmd = "qsub -V -b y -cwd -N " + gene_id + " "
-        genblast_cmd = "{} -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 10 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 2 -h 0 -j 3 -norepair -gff -cdna -pro -o {}".format(genblast_bin, qry_file, ref_file, out_file)
+            qsub_cmd = "qsub -V -b y -cwd -N " + gene_id + " "
+            genblast_cmd = "{} -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 10 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 2 -h 0 -j 3 -norepair -gff -cdna -pro -o {}".format(genblast_bin, qry_file, ref_file, out_file)
 
-        os.system(qsub_cmd + genblast_cmd)
+            os.system(qsub_cmd + genblast_cmd)
 #        exit()
 
 
