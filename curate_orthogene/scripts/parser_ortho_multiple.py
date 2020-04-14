@@ -3,14 +3,36 @@ import logging
 import os
 import sys
 from multiprocessing import Pool
+from optparse import OptionParser  
 
 #TODO
 #Add argparser
 
+def main():
+    usage = """Calculate Identity from orthologs 
+Usage: 
+    {} REF_TAG fasta A188 A188.pep >A188.rename.pep
+    {} bed A188 A188.bed > A188.rename.bed
+    """.format(__file__, __file__)
+    parser = OptionParser(usage=usage)
+      
+    (options, args) = parser.parse_args()  
+
+REF_ID = sys.argv.pop(1)
 QRY_FA = sys.argv[2]
 REF_FA = sys.argv[3]
+
+parser = OptionParser()
+parser.add_option("-f", "--file", dest="filename",
+                  help="write report to FILE", metavar="FILE")
+parser.add_option("-q", "--quiet",
+                  action="store_false", dest="verbose", default=True,
+                  help="don't print status messages to stdout")
+
 workdir = "workdir"
 threads = 55
+
+SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__)) + "/"
 
 #Required several scripts:
 #1. /lustre/home/liuhui/bin/lh_bin/select_fasta.pl
@@ -32,13 +54,13 @@ def os_run(input_str, qry_fa = QRY_FA, ref_fa = REF_FA, workdir="workdir"):
     output_fa = os.path.join(workdir, qry_name + ".fa")
     output_aln = os.path.join(workdir, qry_name + ".aln")
     output_identity = os.path.join(workdir, qry_name + ".identity")
-    logging.warning("{} {} {} > {} ".format("perl select_fasta.pl", qry_name, qry_fa, output_fa))
-    os.system("{} {} {} > {} ".format("perl select_fasta.pl", qry_name, qry_fa, output_fa))
+    logging.warning("{} {} {} > {} ".format("perl " + SCRIPT_DIR + "select_fasta.pl", qry_name, qry_fa, output_fa))
+    os.system("{} {} {} > {} ".format("perl " + SCRIPT_DIR + "select_fasta.pl", qry_name, qry_fa, output_fa))
     for ref_name in ref_names:
         logging.warning(ref_name)
-        os.system("{} {} {} >> {} ".format("perl select_fasta.pl", ref_name, ref_fa, output_fa))
+        os.system("{} {} {} >> {} ".format("perl " + SCRIPT_DIR + "select_fasta.pl", ref_name, ref_fa, output_fa))
     os.system("{} {} > {} ".format("muscle -in ",  output_fa, output_aln))
-    os.system("{} {} > {} ".format("python msa2identity.py ", output_aln, output_identity))
+    os.system("{} {} {} > {} ".format("python " + SCRIPT_DIR + "msa2identity.py ",  REF_ID, output_aln, output_identity))
 
 
 if __name__ == "__main__":

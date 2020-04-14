@@ -4,6 +4,7 @@ import argparse
 from Bio import SeqIO
 import sys
 import os
+from multiprocessing import Pool
 
 #Args
 parser = argparse.ArgumentParser(description='Check whether PAV were real PAV by genblast against collinearity region')
@@ -15,6 +16,9 @@ parser.add_argument('BEDPE', type=str, nargs = 1,
                     help='BEDPE file of gene id and corresponding genome range')
 parser.add_argument('--version', action='version', version='%(prog)s 0.1')
 args = parser.parse_args()
+
+#TODO add argparse
+threads = 50
 
 #Prepare fasta
 sys.stderr.write("Reading fasta sequences..\n")
@@ -30,6 +34,7 @@ root = os.getcwd()
 #1       5259930 5344428 1       35397   119888  1       5268826 5274393 A188G29359-t1   0       +       5567    A188G29359-t1   B73_Zm00001d027230_T001
 #1,2,3,10
 genblast_bin = "/lustre/home/liuhui/bin/genblast_v139/genblast"
+genblast_cmd_list = []
 with open(file_bedpe) as fh:
     for line in fh:
         mylist = line.rstrip().split()
@@ -58,10 +63,15 @@ with open(file_bedpe) as fh:
                 fh_gene.write(">" + gene_id + "\n" + gene_seq.__str__())
                 fh_genome.write(">" + "_".join([refchr_id, str(start+1), str(end)]) + "\n" + genome_seq.__str__())
 
-            qsub_cmd = "qsub -V -b y -cwd -N " + gene_id + " "
-            genblast_cmd = "{} -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 10 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 2 -h 0 -j 3 -norepair -gff -cdna -pro -o {}".format(genblast_bin, qry_file, ref_file, out_file)
+            #qsub_cmd = "qsub -V -b y -cwd -N " + gene_id + " "
+            genblast_cmd = "cd {} && {} -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 10 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 2 -h 0 -j 3 -norepair -gff -cdna -pro -o {}".format(new_dir, genblast_bin, qry_file, ref_file, out_file)
+            genblast_cmd_list.append(genblast_cmd)
 
-            os.system(qsub_cmd + genblast_cmd)
+            #os.system(qsub_cmd + genblast_cmd)
+
+with Pool(threads) as p:
+    p.map(os.system, genblast_cmd_list)
+
 #        exit()
 
 

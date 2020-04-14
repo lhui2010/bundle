@@ -18,6 +18,10 @@ class BedIO():
             for line in fh:
                 mylist = line.rstrip('\n').split('\t')
         #print(mylist)
+                if len(mylist) < 6:
+#Some times bed_field is not complete, use '.' to fill them
+                    short = 6 - len(mylist)
+                    mylist += ["."]*short
                 (self.chr, self.start, self.end, self.gene, self.this_score, self.this_strand) = mylist[0:6]
                 self.bed_line[self.gene] = "\t".join(mylist[0:6])
                 self.strand[self.gene] = self.this_strand
@@ -32,7 +36,9 @@ class BedIO():
         new_chr_start_end = {}
         for k in self.bed_line:
             new_key = re.sub(re_tobesub, re_subto, k)
-            new_bed_line[new_key] = self.bed_line[k]
+#            print(k)
+#            print(new_key)
+            new_bed_line[new_key] = "\t".join([self.chr_start_end[k], new_key, self.score[k], self.strand[k]])
             new_strand[new_key] = self.strand[k]
             new_score[new_key] = self.score[k]
             new_chr_start_end[new_key] = self.chr_start_end[k]
@@ -40,6 +46,13 @@ class BedIO():
         self.strand = new_strand
         self.score = new_score
         self.chr_start_end = new_chr_start_end
+
+    def print(self):
+        """Print entire bed in to a str"""
+        print_buf = ""
+        for k in self.bed_line:
+            print_buf += self.bed_line[k] + "\n"
+        return print_buf
 
 def main():
     """ Input example

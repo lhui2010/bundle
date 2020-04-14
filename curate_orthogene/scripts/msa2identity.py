@@ -6,6 +6,8 @@ import sys
 
 #Args
 parser = argparse.ArgumentParser(description='MSA To Identity ')
+parser.add_argument('REF_ID', type=str, nargs = 1,
+                    help='fasta of query sequences')
 parser.add_argument('QRY', type=str, nargs = 1,
                     help='fasta of query sequences')
 parser.add_argument('--version', action='version', version='%(prog)s 0.1')
@@ -13,14 +15,14 @@ args = parser.parse_args()
 
 #Prepare fasta
 sys.stderr.write("Reading fasta sequences..\n")
+REF_TAG = args.REF_ID[0]
 qry_dict = SeqIO.to_dict(SeqIO.parse(args.QRY[0], "fasta"))
 ref_dict_reverse = {}
 print_buf = ""
 
 #Loop
 #First we need to determin the ref sequence used to calculate identity
-REF_TAG = "A188"
-REF_TAG = "B73"
+#REF_TAG = "B73"
 REF_LEN = 0
 QRY_LEN = 0
 match = {}
