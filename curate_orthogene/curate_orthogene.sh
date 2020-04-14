@@ -28,6 +28,8 @@ set -euxo pipefail
 # Generated online by https://argbash.io/generate
 
 
+#TODO 规范基因命名
+
 die()
 {
     local _ret=$2
@@ -216,8 +218,22 @@ ORTHO_FILE=${QRY_PREFIX}.${REF_PREFIX}.ortho
 #A188_pep_B73_genome.bed
 
 #The directory storing python and perl scripts
-SCRIPT_DIR=scripts
 ROOT=$PWD
+SCRIPT_DIR=${ROOT}/scripts
+
+#Format gene ID's into B73_Zm00001d010100
+if [ ! -f rename.success ];then
+    sleep 10s
+    RND=`date +%s`
+    for sp in ${QRY_PREFIX} ${REF_PREFIX}
+    do
+        mv ${sp}.pep ${sp}.pep.${RND}
+        mv ${sp}.gene.bed ${sp}.gene.bed.${RND}
+        python ${SCRIPT_DIR}/format.py fasta ${sp} ${sp}.pep.${RND} >      ${sp}.pep
+        python ${SCRIPT_DIR}/format.py bed   ${sp} ${sp}.gene.bed.${RND} > ${sp}.gene.bed
+    done
+    touch rename.success
+fi
 
 for chr_id in `seq 10`
 do
@@ -233,7 +249,7 @@ do
     perl ${SCRIPT_DIR}/replace.pl ortho.left_side.txt.pair ${QRY_BED} >${QRY_PREFIX}.rename.bed
 #    perl addItem.pl 0 6 ortho.A188_side.txt.feature A188.rename.bed > A188.rename.bed.add_feature
 #bedtools sort -i A188.rename.bed.add_feature > A188.rename.bed.add_feature.sort.bed
-    for i in ${QRY_PREFIX}.rename.bed ${REF_BED}; do grep -P "^${chr_id}\t" ${i} >${i}.chr${chr_id}; done
+    for bed_ite in ${QRY_PREFIX}.rename.bed ${REF_BED}; do grep -P "^${chr_id}\t" ${bed_ite} >${bed_ite}.chr${chr_id}; done
     python ${SCRIPT_DIR}/enrich_diff.py ${QRY_PREFIX}.rename.bed.chr${chr_id} ${REF_BED}.chr${chr_id} 4 >chr${chr_id}_gene_diff.tab
     python ${SCRIPT_DIR}/get_unsyntenic_genes_syntenic_loci.py chr${chr_id}_gene_diff.tab >chr${chr_id}_gene_diff.tab.out
     grep ${QRY_PREFIX} chr${chr_id}_gene_diff.tab.out >chr${chr_id}_gene_diff.tab.out.${QRY_PREFIX}
@@ -262,6 +278,8 @@ for i in ${QRY_PREFIX} ${REF_PREFIX}
 do
     for j in ${QRY_PREFIX} ${REF_PREFIX}
     do
+        cd ${ROOT}
+#${i}.pep vs ${j}.gneome
         if [ ${i} == ${j} ]
         then
             continue
@@ -269,23 +287,28 @@ do
 
         grep ${i} ${DIFF_TABLE} >${DIFF_TABLE}.${i}
 #TODO fix this scripts (do not use qsub)
-        python ${SCRIPT_DIR}/check_pav_bed.py ${i}.pep ${j}.genome ${DIFF_TABLE}.${i}
+        if [ ! -d ${DIFF_TABLE}.${i}.genblast ]; then
+            python ${SCRIPT_DIR}/check_pav_bed.py ${i}.pep ${j}.genome ${DIFF_TABLE}.${i}
+        fi
 #Results will be written to ${DIFF_TABLE}.${i}.genblast
         cd ${ROOT}/${DIFF_TABLE}.${i}.genblast
         sed -e 's/,\t.*//; s/,/\n/g' ../${DIFF_TABLE} > unsyntenic_genes.total
 #Gather all protein files predicted by genblastg
         cat */*pro >total_genblast.pro
-        cat */*gff >total_genblast.gff
+        cat */*gff | grep -v "^#" >total_genblast.gff
 #TODO No this script yet
         perl ${SCRIPT_DIR}/gff2bed.pl total_genblast.gff >total_genblast.bed
         python ${SCRIPT_DIR}/genblast_fasta2ortho.py total_genblast.pro >total_genblast.ortho
 #Compute coverage of those predicted genes
 #TODO fix this scripts
-        python ${SCRIPT_DIR}/parser_ortho_multiple.py total.ortho  ${i}.pep  total.pro
+        if [ ! -d workdir ]; then
+            python ${SCRIPT_DIR}/parser_ortho_multiple.py ${i} total_genblast.ortho  ../${i}.pep  total_genblast.pro
+        fi
 #Gather all identity files
         touch total.identity && rm total.identity
-        for i in workdir/*identity; do sort -k4,4g ${i} |sed -n '1p;$p' >>total.identity; done
+        for iden_ite in workdir/*identity; do sort -k4,4g ${iden_ite} |sed -n '1p;$p' >>total.identity; done
 #Make sure your gene ID's do not contain '-R', or will be accidentally removed
+        cat total.identity |awk '$4 != "null" && $4 > 0.5'  > total.identity.good
         cut -f1 total.identity.good | sed 's/-R.*//' > unsyntenic_genes.FP.part1
 #return
         perl ${SCRIPT_DIR}/selectItem.pl 0 3 unsyntenic_genes.FP.part1 total_genblast.bed >  unsyntenic_genes_can_be_found_in_syntenic_loci.bed
@@ -314,33 +337,46 @@ do
 #Still in the loop
         perl ${SCRIPT_DIR}/unselectItem.pl unsyntenic_genes.FP.part1  unsyntenic_genes.total >unsyntenic_genes.part2
 #Use for flowchart
+        touch NS1.0 && rm NS*
         ln -s unsyntenic_genes.part2  NS1.0
         if [ ! -d ${ROOT}/${i}.pep_${j}.genome ]; then
             wait
-        elif [ ! -d ${ROOT}/${i}.pep_${j}.genome.pro ]; then
+            sleep 1m
+        elif [ ! -f ${ROOT}/${i}_pep_${j}_genome.pro ]; then
             wait
+            sleep 1m
         else
-#Genblast has been ran and results have been concatenated. 
+#Genblast has been ran and results have been concatenated. (DNA pro gff)
+            touch ${i}.pep_${j}.genome  && rm ${i}.pep_${j}.genome*
+            touch ${i}_pep_${j}_genome  && rm ${i}_pep_${j}_genome*
             ln -s ${ROOT}/${i}.pep_${j}.genome
-            ln -s ${ROOT}/${i}.pep_${j}.genome.pro
+#            ln -s ${ROOT}/${i}.pep_${j}.genome/${i}_pep_${j}_genome.pro
+#            ln -s ${ROOT}/${i}.pep_${j}.genome/${i}_pep_${j}_genome.bed
+#            ln -s ${ROOT}/${i}.pep_${j}.genome/${i}_pep_${j}_genome.ortho
+#            ln -s ${ROOT}/${i}.pep_${j}.genome/${i}_pep_${j}_genome.identity
+            ln -s ${ROOT}/${i}_pep_${j}_genome.pro
+            python ${SCRIPT_DIR}/genblast_fasta2ortho.py ${ROOT}/${i}_pep_${j}_genome.pro > ${i}_pep_${j}_genome.ortho
+            perl ${SCRIPT_DIR}/gff2bed.pl ${ROOT}/${i}_pep_${j}_genome.gff > ${i}_pep_${j}_genome.bed
+#            ln -s ${ROOT}/${i}_pep_${j}_genome.ortho
+#            ln -s ${ROOT}/${i}_pep_${j}_genome.identity
         fi
 
 #Now compute identity similar to above
 #TODO
         GENBLAST_BED=${i}_pep_${j}_genome.bed
-        if [ ! -f ${ROOT}/${GENBLAST_BED} ]; then
-#Change
-            python ${SCRIPT_DIR}/genblast_fasta2ortho.py ${i}_pep_${j}_genome.pro >${i}_pep_${j}_genome.ortho
-        else
-            ln -s ${ROOT}/${GENBLAST_BED}
-        fi
+#        if [ ! -f ${ROOT}/${GENBLAST_BED} ]; then
+##Change
+#            python ${SCRIPT_DIR}/genblast_fasta2ortho.py ${i}_pep_${j}_genome.pro >${i}_pep_${j}_genome.ortho
+#        else
+#            ln -s ${ROOT}/${GENBLAST_BED}
+#        fi
 
         IDENTITY_FILE=${i}_pep_${j}_genome.identity
         if [ ! -f ${ROOT}/${IDENTITY_FILE} ]; then
-            python ${SCRIPT_DIR}/parser_ortho_multiple.py ${i}_pep_${j}_genome.ortho ${ROOT}/${i}.pep ${i}_pep_${j}_genome.pro
+            python ${SCRIPT_DIR}/parser_ortho_multiple.py ${i} ${i}_pep_${j}_genome.ortho ${ROOT}/${i}.pep ${i}_pep_${j}_genome.pro
             touch ${IDENTITY_FILE} && rm ${IDENTITY_FILE}
-#@#Get best Rank; TODO consider multiple best hit?
-            for i in workdir/*identity; do sort -k4,4g ${i} |sed -n '1p;$p' >>${IDENTITY_FILE}; done
+##@#Get best Rank; TODO consider multiple best hit?
+            for iden_ite in workdir_total/*identity; do sort -k4,4g ${iden_ite} |sed -n '1p;$p' >>${IDENTITY_FILE}; done
         else
             ln -s ${ROOT}/${IDENTITY_FILE}
         fi
@@ -360,7 +396,7 @@ do
 #@#Genblast has greater hits, use it
         python ${SCRIPT_DIR}/filter_identity.py compare_identity |grep "\-R"  >genblast_replace.ortholog
         ln -s genblast_replace.ortholog NS1.3.1
-        perl unselectItem.pl genblast_replace.ortholog compare_identity > NS1.3.2
+        perl ${SCRIPT_DIR}/unselectItem.pl genblast_replace.ortholog compare_identity > NS1.3.2
 
 #TODO why use 0.5 as threshold
         bedtools intersect -a ${GENBLAST_BED}  -b ${ROOT}/${j}.gene.bed  -f 0.5 -wo >genblast_intersect.bed
