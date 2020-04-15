@@ -3,34 +3,37 @@ import logging
 import os
 import sys
 from multiprocessing import Pool
-from optparse import OptionParser  
+import argparse
 
 #TODO
-#Add argparser
+#Remove global variable
 
-def main():
-    usage = """Calculate Identity from orthologs 
+#OptParser
+usage = """Calculate Identity from orthologs 
 Usage: 
-    {} REF_TAG fasta A188 A188.pep >A188.rename.pep
-    {} bed A188 A188.bed > A188.rename.bed
-    """.format(__file__, __file__)
-    parser = OptionParser(usage=usage)
-      
-    (options, args) = parser.parse_args()  
+    {} -o workdir REF_TAG Ortho_File QRY.fa REF.fa >A188.identity
+""".format(__file__)
 
-REF_ID = sys.argv.pop(1)
-QRY_FA = sys.argv[2]
-REF_FA = sys.argv[3]
+parser = argparse.ArgumentParser()
+parser.add_argument("REF_TAG", help="The unique keyword in gene IDs of reference genes")
+parser.add_argument("OrthoFile", help="The tab deliminated ortholog file of orthologs: Eg: A188_A188G12312    B73_Zm00001d001012")
+parser.add_argument("QRY_FA", help="Fasta of query fasta files")
+parser.add_argument("REF_FA", help="Fasta of reference fasta files")
+parser.add_argument("-o", "--output_dir", default='workdir',
+                  help="specifying output directory")
+parser.add_argument("-t", "--threads", default=55, type=int,
+                  help="specifying threads")
+args = parser.parse_args()  
 
-parser = OptionParser()
-parser.add_option("-f", "--file", dest="filename",
-                  help="write report to FILE", metavar="FILE")
-parser.add_option("-q", "--quiet",
-                  action="store_false", dest="verbose", default=True,
-                  help="don't print status messages to stdout")
+WORKDIR = args.output_dir
+THREADS = args.threads
+REF_ID = args.REF_TAG
+ORTHO_FILE = args.OrthoFile
+QRY_FA = args.QRY_FA
+REF_FA = args.REF_FA
 
-workdir = "workdir"
-threads = 55
+#print([WORKDIR, THREADS, ORTHO_FILE, REF_ID, QRY_FA, REF_FA])
+#exit()
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__)) + "/"
 
@@ -47,7 +50,7 @@ def os_run_test(input_str, qry_fa = "A188.pep", ref_fa = "B73.pep", workdir="wor
 
 #def os_run(input_str, qry_fa, ref_fa, workdir="workdir"):
 #def os_run(input_str, qry_fa = "A188.pep", ref_fa = "B73.pep", workdir="workdir"):
-def os_run(input_str, qry_fa = QRY_FA, ref_fa = REF_FA, workdir="workdir"):
+def os_run(input_str, qry_fa = QRY_FA, ref_fa = REF_FA, workdir=WORKDIR):
     mylist = input_str.rstrip().split()
     qry_name = mylist[0]
     ref_names = mylist[1].split(',')
@@ -64,18 +67,18 @@ def os_run(input_str, qry_fa = QRY_FA, ref_fa = REF_FA, workdir="workdir"):
 
 
 if __name__ == "__main__":
-    os.system("mkdir -p {}".format(workdir))
+    os.system("mkdir -p {}".format(WORKDIR))
     
     file_lines = []
-    with open(sys.argv[1]) as fh:
+    with open(ORTHO_FILE) as fh:
         file_lines = fh.readlines()
 
     #print(file_lines)
 
-    qry_fa = sys.argv[2]
-    ref_fa = sys.argv[3]
+#    qry_fa = sys.argv[2]
+#    ref_fa = sys.argv[3]
 
-    with Pool(threads) as p:
+    with Pool(THREADS) as p:
         #p.apply_async(os_run, (file_lines, qry_fa, ref_fa,))
 #        p.map(os_run_test, file_lines)
         p.map(os_run, file_lines)
