@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys
 
 def intersect_loci(a,b,c,d):
