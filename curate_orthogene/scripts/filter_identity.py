@@ -6,6 +6,9 @@ import sys
 
 identity_cutoff = 0.3
 
+if(len(sys.argv) > 2):
+    identity_cutoff = float(sys.argv.pop(1))
+
 with open(sys.argv[1]) as fh:
     for line in fh:
         (REF_gene, ortho_genblast, iden_genblast, 

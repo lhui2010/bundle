@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -euxo pipefail
+DEBUG="True"
 #
 # This is a rather minimal example Argbash potential
 # Example taken from http://argbash.readthedocs.io/en/stable/example.html
@@ -50,7 +51,7 @@ begins_with_short_option()
 # THE DEFAULTS INITIALIZATION - POSITIONALS
 _positionals=()
 # THE DEFAULTS INITIALIZATION - OPTIONALS
-_arg_genblastg_threshold_syntenic="0.8"
+_arg_genblastg_threshold_syntenic="0.5"
 _arg_genblastg_threshold_whole="0.8"
 _arg_genblastg_identity_increase="0.5"
 
@@ -212,6 +213,8 @@ REF_BED=${REF_PREFIX}.gene.bed
 
 ORTHO_FILE=${QRY_PREFIX}.${REF_PREFIX}.ortho
 
+awk '{print $2"\t"$1"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7"\t"$8"\t"$9"\t"$10"\t"$11"\t"$12}' ${ORTHO_FILE} > ${REF_PREFIX}.${QRY_PREFIX}.ortho
+
 #A188_pep_B73_genome
 #A188_pep_B73_genome.identity
 #A188_pep_B73_genome.pro
@@ -237,6 +240,8 @@ fi
 
 for chr_id in `seq 10`
 do
+    cd ${ROOT}
+    ORTHO_FILE=${QRY_PREFIX}.${REF_PREFIX}.ortho
     DIFF_TABLE=chr${chr_id}_gene_diff.tab.out
 ##--Get unsyntenic genes--##
 #Input:
@@ -274,16 +279,17 @@ do
 #   2. compute identity
 #   3. filter and get bed file
 
-for i in ${QRY_PREFIX} ${REF_PREFIX}
-do
+    for i in ${QRY_PREFIX} ${REF_PREFIX}
+    do
     for j in ${QRY_PREFIX} ${REF_PREFIX}
     do
-        cd ${ROOT}
 #${i}.pep vs ${j}.gneome
-        if [ ${i} == ${j} ]
-        then
+        if [ ${i} == ${j} ];then
             continue
         fi
+
+        cd ${ROOT}
+        ORTHO_FILE=${i}.${j}.ortho
 
         grep ${i} ${DIFF_TABLE} >${DIFF_TABLE}.${i}
 #TODO fix this scripts (do not use qsub)
@@ -292,7 +298,7 @@ do
         fi
 #Results will be written to ${DIFF_TABLE}.${i}.genblast
         cd ${ROOT}/${DIFF_TABLE}.${i}.genblast
-        sed -e 's/,\t.*//; s/,/\n/g' ../${DIFF_TABLE} > unsyntenic_genes.total
+        sed -e 's/,\t.*//; s/,/\n/g' ../${DIFF_TABLE}.${i} > unsyntenic_genes.total
 #Gather all protein files predicted by genblastg
         cat */*pro >total_genblast.pro
         cat */*gff | grep -v "^#" >total_genblast.gff
@@ -308,13 +314,16 @@ do
         touch total.identity && rm total.identity
         for iden_ite in workdir/*identity; do sort -k4,4g ${iden_ite} |sed -n '1p;$p' >>total.identity; done
 #Make sure your gene ID's do not contain '-R', or will be accidentally removed
-        cat total.identity |awk '$4 != "null" && $4 > 0.5'  > total.identity.good
+        #cat total.identity |awk '$4 != "null" && $4 > 0.5'  > total.identity.good
+        cat total.identity |perl ${SCRIPT_DIR}/filter_identity_file.pl ${GENBLASTG_THRESHOLD_SYNTENIC}  > total.identity.good
         cut -f1 total.identity.good | sed 's/-R.*//' > unsyntenic_genes.FP.part1
 #return
         perl ${SCRIPT_DIR}/selectItem.pl 0 3 unsyntenic_genes.FP.part1 total_genblast.bed >  unsyntenic_genes_can_be_found_in_syntenic_loci.bed
 ##--End Recheck unsyntenic genes in syntenic loci with genblast--##
+###################################################################
 
 
+#######################################################
 ##-Now check those unsyntenic genes on whole genome--##
 #Theory:
 #   If a gene's genblast hit locate apart from the best hit
@@ -381,20 +390,21 @@ do
             ln -s ${ROOT}/${IDENTITY_FILE}
         fi
 
-        cat ${IDENTITY_FILE} |awk '$4 != "null" && $4 > 0.5'  > ${IDENTITY_FILE}.good
+        #cat ${IDENTITY_FILE} |awk '$4 != "null" && $4 > 0.5'  > ${IDENTITY_FILE}.good
+        cat ${IDENTITY_FILE} |perl ${SCRIPT_DIR}/filter_identity_file.pl ${GENBLASTG_THRESHOLD_WHOLE}  > ${IDENTITY_FILE}.good
         perl ${SCRIPT_DIR}/selectItem.pl unsyntenic_genes.part2 ${IDENTITY_FILE}.good |cut -f1,2,5 > unsyntenic_genes.part2.genblast
         ln -s unsyntenic_genes.part2.genblast NS1.1.1
         perl ${SCRIPT_DIR}/unselectItem.pl unsyntenic_genes.part2.genblast unsyntenic_genes.part2 > NS1.1.2
 
 #Assuming identity already calculated in ORTHO_FILE
-        grep -v "m-to-m.${i}" ${ROOT}/${ORTHO_FILE} |cut -f1,2,10  > orthogene.identity
+        grep -v "m-to-m.${j}" ${ROOT}/${ORTHO_FILE} |cut -f1,2,10  > orthogene.identity
 #COmment
         perl ${SCRIPT_DIR}/selectItem.pl unsyntenic_genes.part2.genblast orthogene.identity >compare_identity
         ln -s compare_identity NS1.2.1
         perl ${SCRIPT_DIR}/unselectItem.pl compare_identity unsyntenic_genes.part2.genblast > NS1.2.2
 
 #@#Genblast has greater hits, use it
-        python ${SCRIPT_DIR}/filter_identity.py compare_identity |grep "\-R"  >genblast_replace.ortholog
+        python ${SCRIPT_DIR}/filter_identity.py 0.5 compare_identity |grep "\-R"  >genblast_replace.ortholog
         ln -s genblast_replace.ortholog NS1.3.1
         perl ${SCRIPT_DIR}/unselectItem.pl genblast_replace.ortholog compare_identity > NS1.3.2
 
@@ -410,7 +420,13 @@ do
         cat NS1.3.2 NS1.4.2 > NS2.0
 #End iterating i and j
     done
-done
+    if [ ${DEBUG} == "True" ]; then
+        break
+    fi
+    done
 
+    if [ ${DEBUG} == "True" ]; then
+        break
+    fi
 #End iterating chr_id 
 done
