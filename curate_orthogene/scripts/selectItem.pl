@@ -9,11 +9,24 @@ if(@ARGV <2)
     Selece with keywords in 0-column in Query and 0-column in Ref
         $0 0 0 list input >output
     Selece with keywords in 0-column and 1-column in Query and 0-column and 1-column in Ref
+        $0 0,1 0,1 list input >output
+    Do not copy
         $0 0,1 0,1 list input >output\n";
         exit;
 }
 
-if(@ARGV>2)
+my $copy=1;
+
+for my $i (0..$#ARGV)
+{
+    if($ARGV[$i] eq "-n")
+    {
+        $copy=0;
+        splice @ARGV, $i, 1;
+
+    }
+}
+if(int(@ARGV)>2)
 {
     $source_pos = shift;
     $target_pos = shift;
@@ -65,7 +78,8 @@ while(<>)
     if(exists $name{$t})
     {
 #        print $name{$t},"\t",  $_ , "\n" ; # if(exists $name{$t});
-        print $name{$t}, "\t", $_,"\n";
+        print $name{$t}, "\t" if $copy;
+        print $_,"\n";
 #        delete $name{$t};
     }
 }

@@ -2,6 +2,7 @@
 
 set -euxo pipefail
 DEBUG="True"
+DEBUG="False"
 #
 # This is a rather minimal example Argbash potential
 # Example taken from http://argbash.readthedocs.io/en/stable/example.html
@@ -213,7 +214,8 @@ REF_BED=${REF_PREFIX}.gene.bed
 
 ORTHO_FILE=${QRY_PREFIX}.${REF_PREFIX}.ortho
 
-awk '{print $2"\t"$1"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7"\t"$8"\t"$9"\t"$10"\t"$11"\t"$12}' ${ORTHO_FILE} > ${REF_PREFIX}.${QRY_PREFIX}.ortho
+#Switch Qry and Ref Name, switch qry and ref identity
+awk -F '\t' '{print $2"\t"$1"\t"$3"\t"$4"\t"$5"\t"$6"\t"$7"\t"$8"\t"$9"\t"$12"\t"$11"\t"$10}' ${ORTHO_FILE} > ${REF_PREFIX}.${QRY_PREFIX}.ortho
 
 #A188_pep_B73_genome
 #A188_pep_B73_genome.identity
@@ -348,6 +350,9 @@ do
 #Use for flowchart
         touch NS1.0 && rm NS*
         ln -s unsyntenic_genes.part2  NS1.0
+
+################################
+##-GeneBlast Prepration Start-##
         if [ ! -d ${ROOT}/${i}.pep_${j}.genome ]; then
             wait
             sleep 1m
@@ -369,17 +374,9 @@ do
 #            ln -s ${ROOT}/${i}_pep_${j}_genome.ortho
 #            ln -s ${ROOT}/${i}_pep_${j}_genome.identity
         fi
-
 #Now compute identity similar to above
 #TODO
         GENBLAST_BED=${i}_pep_${j}_genome.bed
-#        if [ ! -f ${ROOT}/${GENBLAST_BED} ]; then
-##Change
-#            python ${SCRIPT_DIR}/genblast_fasta2ortho.py ${i}_pep_${j}_genome.pro >${i}_pep_${j}_genome.ortho
-#        else
-#            ln -s ${ROOT}/${GENBLAST_BED}
-#        fi
-
         IDENTITY_FILE=${i}_pep_${j}_genome.identity
         if [ ! -f ${ROOT}/${IDENTITY_FILE} ]; then
             python ${SCRIPT_DIR}/parser_ortho_multiple.py -o workdir_total ${i} ${i}_pep_${j}_genome.ortho ${ROOT}/${i}.pep ${i}_pep_${j}_genome.pro
@@ -389,35 +386,47 @@ do
         else
             ln -s ${ROOT}/${IDENTITY_FILE}
         fi
-
-        #cat ${IDENTITY_FILE} |awk '$4 != "null" && $4 > 0.5'  > ${IDENTITY_FILE}.good
-        cat ${IDENTITY_FILE} |perl ${SCRIPT_DIR}/filter_identity_file.pl ${GENBLASTG_THRESHOLD_WHOLE}  > ${IDENTITY_FILE}.good
-        perl ${SCRIPT_DIR}/selectItem.pl unsyntenic_genes.part2 ${IDENTITY_FILE}.good |cut -f1,2,5 > unsyntenic_genes.part2.genblast
-        ln -s unsyntenic_genes.part2.genblast NS1.1.1
-        perl ${SCRIPT_DIR}/unselectItem.pl unsyntenic_genes.part2.genblast unsyntenic_genes.part2 > NS1.1.2
-
-#Assuming identity already calculated in ORTHO_FILE
-        grep -v "m-to-m.${j}" ${ROOT}/${ORTHO_FILE} |cut -f1,2,10  > orthogene.identity
-#COmment
-        perl ${SCRIPT_DIR}/selectItem.pl unsyntenic_genes.part2.genblast orthogene.identity >compare_identity
-        ln -s compare_identity NS1.2.1
-        perl ${SCRIPT_DIR}/unselectItem.pl compare_identity unsyntenic_genes.part2.genblast > NS1.2.2
-
-#@#Genblast has greater hits, use it
-        python ${SCRIPT_DIR}/filter_identity.py 0.5 compare_identity |grep "\-R"  >genblast_replace.ortholog
-        ln -s genblast_replace.ortholog NS1.3.1
-        perl ${SCRIPT_DIR}/unselectItem.pl genblast_replace.ortholog compare_identity > NS1.3.2
-
+#Check whether predicted  genblast overlapped with previous locut
 #TODO why use 0.5 as threshold
         bedtools intersect -a ${GENBLAST_BED}  -b ${ROOT}/${j}.gene.bed  -f 0.5 -wo >genblast_intersect.bed
         bedtools intersect -a ${GENBLAST_BED}  -b ${ROOT}/${j}.gene.bed  -F 0.5 -wo >>genblast_intersect.bed
         sort genblast_intersect.bed |uniq >genblast_intersect.unique.bed
+##-GeneBlast Prepration End-##
+################################
+
+#First check whether this gene has ortholog in OrthoGene
+#TODO bug here
+        grep -v "m-to-m.${j}" ${ROOT}/${ORTHO_FILE} |cut -f1,2,10  > orthogene.identity
+        perl ${SCRIPT_DIR}/selectItem.pl -n NS1.0 orthogene.identity > NS1.1.1
+        perl ${SCRIPT_DIR}/unselectItem.pl NS1.1.1 NS1.0  > NS1.1.2
+
+        #cat ${IDENTITY_FILE} |awk '$4 != "null" && $4 > 0.5'  > ${IDENTITY_FILE}.good
+        cat ${IDENTITY_FILE} |perl ${SCRIPT_DIR}/filter_identity_file.pl ${GENBLASTG_THRESHOLD_WHOLE}  > ${IDENTITY_FILE}.good
+        perl ${SCRIPT_DIR}/selectItem.pl NS1.1.2 ${IDENTITY_FILE}.good |cut -f1,2,5 > NS1.1.2.2
+#NS1.3.3 is PAV genes
+        perl ${SCRIPT_DIR}/unselectItem.pl NS1.1.2.2 NS1.1.2 |cut -f1,2,5 > NS1.1.2.3
+#Assuming identity already calculated in ORTHO_FILE
+        perl ${SCRIPT_DIR}/selectItem.pl NS1.1.1 ${IDENTITY_FILE}.good |awk '{print $1"\t"$4"\t"$7"\t"$1"\t"$2"\t"$3}' > compare_identity
+#        ln -s compare_identity NS1.2.1
+#        perl ${SCRIPT_DIR}/unselectItem.pl compare_identity unsyntenic_genes.part2.genblast > NS1.2.2
+#@#Genblast has greater hits, use it
+        python ${SCRIPT_DIR}/filter_identity.py 0.5 compare_identity |grep "\-R"  >genblast_replace.ortholog
+#NS1.2.1
+#        perl ${SCRIPT_DIR}/unselectItem.pl NS1.3.2 NS1.1.1 > NS1.2.2
 
 #@--Now check whether overlapped with annotation set--
-        perl ${SCRIPT_DIR}/unselectItem.pl  3 1 genblast_intersect.unique.bed  genblast_replace.ortholog >genblast_replace.ortholog.non-overlapped
-        ln -s genblast_replace.ortholog.non-overlapped NS1.4.1
-        perl ${SCRIPT_DIR}/selectItem.pl 3 1 genblast_intersect.unique.bed  genblast_replace.ortholog >NS1.4.2
-        cat NS1.3.2 NS1.4.2 > NS2.0
+        perl ${SCRIPT_DIR}/unselectItem.pl  3 1 genblast_intersect.unique.bed  genblast_replace.ortholog >NS1.2.2
+        cat NS1.1.2.2 NS1.2.2 >NS1.3
+        perl ${SCRIPT_DIR}/unselectItem.pl NS1.2.2 NS1.1.1 > NS1.2.1
+        awk '$3>0.8' NS1.2.1 >NS1.4
+        perl ${SCRIPT_DIR}/selectItem.pl -n 0,1 0,1 NS1.4 ${ROOT}/${ORTHO_FILE} >annotateNS1.4
+        awk '/Tandem/' annotateNS1.4 >NS1.4.tandem
+        awk '/Local/' annotateNS1.4 >NS1.4.local
+        awk '/Disperse/' annotateNS1.4 >NS1.4.dispersed
+        awk '/1-to-1/' annotateNS1.4 >NS1.4.1-to-1
+#        ln -s genblast_replace.ortholog.non-overlapped NS1.4.1
+#        perl ${SCRIPT_DIR}/selectItem.pl 3 1 genblast_intersect.unique.bed  genblast_replace.ortholog >NS1.4.2
+#        cat NS1.3.2 NS1.4.2 > NS2.0
 #End iterating i and j
     done
     if [ ${DEBUG} == "True" ]; then
