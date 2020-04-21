@@ -3,10 +3,9 @@
 GENE_ID=$1
 #M445T00004237
 
-if [ -f ${GENE_ID}.combine.fa.aln ];then
-    echo "Already  exist ${GENE_ID}, exiting.."
-    exit
-fi
+#if [ -f ${GENE_ID}.combine.fa.aln ];then
+#    echo "Already  exist ${GENE_ID}, exiting.."
+#else
 CHR=`grep ${GENE_ID} annotation/M445.bed|awk '{print $1}'`
 START=`grep ${GENE_ID} annotation/M445.bed|awk '{print $2}'`
 START=$((START - 2000))
@@ -32,5 +31,8 @@ if [ ${QRY_LEN} -ne ${ORTHO_LEN} ]; then
 Qry length (${QRY_LEN}) is different than Ortho length (${ORTHO_LEN}) "
 fi
 fa_pos.pl M441-5.chr.fa  ${ORTHO_CHR} ${ORTHO_START} ${ORTHO_END}  > ${GENE_ID}.gene.ortho_M441.fa
-cat ${GENE_ID}.gene.fa ${GENE_ID}.gene.ortho_M441.fa >${GENE_ID}.combine.fa
-muscle -in ${GENE_ID}.combine.fa  -clw  > ${GENE_ID}.combine.fa.aln
+#cat ${GENE_ID}.gene.fa ${GENE_ID}.gene.ortho_M441.fa >${GENE_ID}.combine.fa
+#muscle -in ${GENE_ID}.combine.fa  -clw  > ${GENE_ID}.combine.fa.aln
+#fi
+
+minimap2 -ax asm5 --eqx M445-4.chr.fa ${GENE_ID}.gene.ortho_M441.fa | samtools sort  > M445.${GENE_ID}.bam
