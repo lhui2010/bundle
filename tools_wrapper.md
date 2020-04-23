@@ -27,6 +27,16 @@ blastp -subject sub.fa -query qry.fa -out out.bln -evalue 1e-5 -outfmt 6 -num_th
 genewise -cdna -pseudo Zm00001d042922_T002.pep target.fa >Zm00001d042922_T002.fa.vs.target.gene_wise
 ```
 #### bwa
+REF=xx
+FASTQ1=xx
+FASTQ2=xx
+THREADS=80
+bwa index $REF
+bwa mem -t ${THREADS} $REF ${FASTQ1} ${FASTQ2} \
+| samtools view -@ ${THREADS} -bS - | samtools sort -@ 80 - > ${REF}.bam
+samtools index input/${REF}.bam
+samtools flagstat -@ ${THREADS} ${REF}.bam >${REF}.bam.stat
+
 bwa index consensus.fasta
 bwa mem consensus.fasta -t 40 read1.gz read2.gz >bwa.sam 2>bwa.err
 bwa mem consensus.fasta -t 40 read1.gz >bwa.sam 2>bwa.err

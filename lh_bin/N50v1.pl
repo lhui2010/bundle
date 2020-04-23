@@ -62,7 +62,7 @@ for my $i (@indices)
 {
 		print "N$i\t", $Nx{$i}, "\t", $Cx{$i}, "\n";
 }
-print "Total Length\t", $total."\t".$total_count."\n";
-print "Maximum Length\t", $max, "\n";
-print "Minimum Length\t", $min, "\n";
+print "TotalLength\t", $total."\t".$total_count."\n";
+print "MaximumLength\t", $max, "\n";
+print "MinimumLength\t", $min, "\n";
 
