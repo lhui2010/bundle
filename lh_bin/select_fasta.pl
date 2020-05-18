@@ -29,7 +29,8 @@ if (fileno LIST)
 {
 while (<LIST>)
 {
-        s/transcript://;
+        #s/transcript://;
+        s/[a-z]*?://i;
         chomp;
         $list{(split)[0]} = 1 if($_ ne "");
 }

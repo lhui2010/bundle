@@ -74,6 +74,7 @@ https://www.ibm.com/support/knowledgecenter/en/SSETD4_9.1.3/lsf_admin/job_view_a
 bjobs -u all
 bqueues -u yitingshuang
 bqueues -l Q104C512G_X4 |grep HOSTS
+    HOSTS:  node10 node11 node12 node13
 bqueues -l Q64C1T_X4 |grep HOSTS
 bqueues -l Q48C2T_X1 |grep HOSTS
 bqueues -l Q64C3T_X1 |grep HOSTS
