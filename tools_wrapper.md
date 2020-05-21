@@ -102,5 +102,15 @@ java -jar ${SE_HOME}/snpEff.jar build -gff3 -v ${DBNAME}
 
 java -jar ${SE_HOME}/snpEff.jar eff Gossypium_arborium /ds3200_1/users_root/yitingshuang/lh/projects/polyploid_evol/03.GO_enrichment/Ga09G1341.pep.vcf >snpEff_genes.txt.info
 
+### minimap2
+
+#### ALign isoseq
+
+minimap2 -t 30 -ax splice -uf --secondary=no -C5 -O6,24 -B4 \
+   hg38.fasta hq_isoforms.fasta \
+   > hq_isoforms.fasta.sam \
+   2> hq_isoforms.fasta.sam.log
+
+
 ### R devtools
 devtools::install_deps(dependencies = TRUE)
