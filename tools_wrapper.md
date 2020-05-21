@@ -4,6 +4,26 @@ export PS1="(base) \[\033]2;\h:\u $PWD\007\033[33;1m\]\u@\h \033[35;1m\t\n\033[0
 source ~/lh/anaconda2/etc/profile.d/conda.sh
 conda activate jcvi
 
+#### conda env
+$conda env list
+# conda environments:
+#
+                         /ds3200_1/users_root/yitingshuang/lh/anaconda2
+                         /ds3200_1/users_root/yitingshuang/lh/anaconda2/envs/jcvi
+                         /ds3200_1/users_root/yitingshuang/lh/anaconda2/envs/jitterbug
+                         /ds3200_1/users_root/yitingshuang/lh/anaconda2/envs/longshot
+base                     /ds3200_1/users_root/yitingshuang/lh/anaconda3
+EDTA                     /ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/EDTA
+busco                    /ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/busco
+deepvariant              /ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/deepvariant
+falcon                   /ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/falcon
+hyphy                    /ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/hyphy
+longshot                 /ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/longshot
+r_env                 *  /ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/r_env (Used for smudge_plot)
+syri                     /ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/syri
+trinity                  /ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/trinity
+
+
 
 #### last align cds
 lastdb sorghum sorghum.cds
@@ -54,6 +74,7 @@ https://www.ibm.com/support/knowledgecenter/en/SSETD4_9.1.3/lsf_admin/job_view_a
 bjobs -u all
 bqueues -u yitingshuang
 bqueues -l Q104C512G_X4 |grep HOSTS
+    HOSTS:  node10 node11 node12 node13
 bqueues -l Q64C1T_X4 |grep HOSTS
 bqueues -l Q48C2T_X1 |grep HOSTS
 bqueues -l Q64C3T_X1 |grep HOSTS
@@ -80,3 +101,6 @@ echo ${DBNAME}.genome : ${DBNAME} >>snpEff.config
 java -jar ${SE_HOME}/snpEff.jar build -gff3 -v ${DBNAME}
 
 java -jar ${SE_HOME}/snpEff.jar eff Gossypium_arborium /ds3200_1/users_root/yitingshuang/lh/projects/polyploid_evol/03.GO_enrichment/Ga09G1341.pep.vcf >snpEff_genes.txt.info
+
+### R devtools
+devtools::install_deps(dependencies = TRUE)

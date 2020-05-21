@@ -4,14 +4,11 @@
 #Author: Hui Liu
 #lhui2010@gmail.com
 
-#pip install bcbio-gff
-
 from BCBio import GFF
 from Bio import SeqIO
 from Bio import SeqFeature
 from Bio.SeqRecord import SeqRecord
 import sys
-import re
 #import pprint
 
 import argparse
@@ -48,25 +45,12 @@ for rec in GFF.parse(in_handle):
 #        continue
         if(feat.type != "gene"):
             continue
-
         if(len(feat.sub_features) > 0):
-
             for sub_index in range(len(feat.sub_features)):
-
-                length=0
-
-                for sub_index2 in range(len(feat.sub_features[sub_index].sub_features)):
-
-                    if(feat.sub_features[sub_index].sub_features[sub_index2].type == 'CDS'):
-
-                        length += feat.sub_features[sub_index].sub_features[sub_index2].location.end.position - feat.sub_features[sub_index].sub_features[sub_index2].location.start.position
+                length = feat.sub_features[sub_index].location.end.position - feat.sub_features[sub_index].location.start.position
                 if ( not(len_dict.__contains__(gene_name)) or length > len_dict[gene_name]):
-
                     len_dict[gene_name] = length
-
                     id_dict[gene_name] = feat.sub_features[sub_index].id
-in_handle.close()
-
+            
 for gene in list(id_dict):
-
     print (id_dict[gene], "\t", gene)

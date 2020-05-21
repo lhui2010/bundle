@@ -37,6 +37,7 @@ open Fgenome, $fnames[1] or die $!;
 $_=<Fgenome>;
 chomp;
 $chr_no=substr $_, 1;
+$chr_no=~s/\s.*//;
 
 my %sequence;
 
@@ -49,6 +50,7 @@ while(<Fgenome>)
 		$sequence{$chr_no} = $buffer;
 		undef $buffer;
 		$chr_no = substr $_, 1;
+        $chr_no=~s/\s.*//;
 	}
 	else
 	{
@@ -91,16 +93,21 @@ while(<Fgff>)
 
 	@tmp = split /;/, $gene_name;#incase of xx
 	$gene_name = $tmp[0];
+	$gene_name =~ s/[a-z]+://i;
 
 	my $start = $e[3]-1;
 	my $length = $e[4]-$start;
 	my $seq_tmp = substr $sequence{$e[0]}, $start, $length;
+
+#    print $start, "\t", $length, "\t", $e[0], "\t";
+#    print $seq_tmp, "\n";exit;
 	
 	if($e[6] eq "-")
     {
         &rc(\$seq_tmp) ;
     }
     $gene_seq{$gene_name}.=$seq_tmp;
+    print STDERR $gene_name, "\n";
 }
 
 for my $key(sort keys %gene_seq)
