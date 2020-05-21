@@ -17,7 +17,7 @@ def rename_fasta(prefix, file_name):
 def rename_bed(prefix, file_name):
     this_bed = BedIO(file_name)
     this_bed.rename(r'^', prefix + "_")
-    print_buff = this_bed.print()
+    print_buff = this_bed.print_bed()
     return print_buff
 
 def main():

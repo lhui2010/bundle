@@ -2,6 +2,8 @@
 import re
 import argparse
 import sys
+import collections
+
 
 
 class BedIO():
@@ -47,12 +49,21 @@ class BedIO():
         self.score = new_score
         self.chr_start_end = new_chr_start_end
 
-    def print(self):
+    def print_bed(self):
         """Print entire bed in to a str"""
         print_buf = ""
         for k in self.bed_line:
             print_buf += self.bed_line[k] + "\n"
         return print_buf
+
+def read_ortho(ortho_file):
+    this_dict = collections.OrderedDict()
+    with open(ortho_file) as fh:
+        for line in fh:
+            mylist = line.rstrip().split()
+            this_dict[mylist[0]] = mylist[1]
+    return this_dict
+
 
 def main():
     """ Input example
@@ -69,30 +80,49 @@ def main():
     4	47177984	47178744	A188G19853-t1-R2-2-A1	23.9494	-
     """
 
-    parser = argparse.ArgumentParser(description='Regex based exact sequence alignment tool\nResult is 1-based')
-    parser.add_argument('QRYBED', type=str, nargs = 1,
-                        help='BED of query')
-    parser.add_argument('REFBED', type=str, nargs = 1,
-                        help='BED of reference')
-    parser.add_argument('--version', action='version', version='%(prog)s 0.1')
-    args = parser.parse_args()
+    parser = argparse.ArgumentParser(description='Merge two bed into one bedpe')
+    parser.add_argument("QRY_BED", help="Fasta of query fasta files")
+    parser.add_argument("REF_BED", help="Fasta of reference fasta files")
+    parser.add_argument("-o", "--ortho", default='', help="specifying output directory")
+    args = parser.parse_args()  
 
-    qry_bed = BedIO(args.QRYBED[0])
-    ref_bed = BedIO(args.REFBED[0])
+    QRY_BED = args.QRY_BED
+    REF_BED = args.REF_BED
+    ORTHO = args.ortho
+    ortho_applied = 0
 
-    ref_tobesub = re.compile(r'-R.*')
-    ref_subto = ""
+    qry_bed = BedIO(QRY_BED)
+    ref_bed = BedIO(REF_BED)
+    key_list = []
 
-    ref_bed.rename(ref_tobesub, ref_subto)
+    if(ORTHO):
+        get_ref_by_qry = read_ortho(ORTHO)
+        ortho_applied = 1
+        key_list = get_ref_by_qry.keys()
+    else:
+        key_list = qry_bed.chr_start_end.keys()
 
-    for k in qry_bed.chr_start_end.keys():
-        loci_qry = qry_bed.chr_start_end[k]
-        loci_ref = ref_bed.chr_start_end[k]
-        name = k
-        score = qry_bed.score[k]
-        strand_qry = qry_bed.strand[k]
-        strand_ref = ref_bed.strand[k]
-        line = "\t".join([loci_qry, loci_ref, name, score, strand_qry, strand_ref])
+#    ref_tobesub = re.compile(r'-R.*')
+#    ref_subto = ""
+#    ref_bed.rename(ref_tobesub, ref_subto)
+
+    for k in key_list:
+        qry_name = k
+        assert qry_bed.chr_start_end[qry_name], "No bed_infor for qry {}".format(qry)
+        loci_qry = qry_bed.chr_start_end[qry_name]
+        score = qry_bed.score[qry_name]
+        strand_qry = qry_bed.strand[qry_name]
+
+        if(ortho_applied):
+            assert get_ref_by_qry[k], "No orthologs for {}".format(k)
+            ref_name = get_ref_by_qry[k]
+        else:
+            ref_name = k
+        assert ref_bed.chr_start_end[ref_name], "No bed_infor for ref {}".format(ref)
+        loci_ref = ref_bed.chr_start_end[ref_name]
+        strand_ref = ref_bed.strand[ref_name]
+
+        line = "\t".join([loci_qry, loci_ref, qry_name, score, strand_qry, strand_ref, ref_name])
         print(line)
 
 

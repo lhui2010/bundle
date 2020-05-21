@@ -259,8 +259,8 @@ do
     for bed_ite in ${QRY_PREFIX}.rename.bed ${REF_BED}; do grep -P "^${chr_id}\t" ${bed_ite} >${bed_ite}.chr${chr_id}; done
     python ${SCRIPT_DIR}/enrich_diff.py ${QRY_PREFIX}.rename.bed.chr${chr_id} ${REF_BED}.chr${chr_id} 4 >chr${chr_id}_gene_diff.tab
     python ${SCRIPT_DIR}/get_unsyntenic_genes_syntenic_loci.py chr${chr_id}_gene_diff.tab >chr${chr_id}_gene_diff.tab.out
-    grep ${QRY_PREFIX} chr${chr_id}_gene_diff.tab.out >chr${chr_id}_gene_diff.tab.out.${QRY_PREFIX}
-    grep ${REF_PREFIX} chr${chr_id}_gene_diff.tab.out >chr${chr_id}_gene_diff.tab.out.${REF_PREFIX}
+    grep ${QRY_PREFIX} chr${chr_id}_gene_diff.tab.out >chr${chr_id}_gene_diff.tab.out.${QRY_PREFIX}.raw
+    grep ${REF_PREFIX} chr${chr_id}_gene_diff.tab.out >chr${chr_id}_gene_diff.tab.out.${REF_PREFIX}.raw
 ##--End get diff table--##
 
 
@@ -293,8 +293,12 @@ do
         cd ${ROOT}
         ORTHO_FILE=${i}.${j}.ortho
 
-        grep ${i} ${DIFF_TABLE} >${DIFF_TABLE}.${i}
+        python ${SCRIPT_DIR}/add_flank_on_bed.py ${DIFF_TABLE}.${i}.raw  >${DIFF_TABLE}.${i}
 #TODO fix this scripts (do not use qsub)
+#DEBUG
+        if [ -d ${DIFF_TABLE}.${i}.genblast ]; then
+            rm -r ${DIFF_TABLE}.${i}
+        fi
         if [ ! -d ${DIFF_TABLE}.${i}.genblast ]; then
             python ${SCRIPT_DIR}/check_pav_bed.py ${i}.pep ${j}.genome ${DIFF_TABLE}.${i}
         fi
@@ -302,25 +306,27 @@ do
         cd ${ROOT}/${DIFF_TABLE}.${i}.genblast
         sed -e 's/,\t.*//; s/,/\n/g' ../${DIFF_TABLE}.${i} > unsyntenic_genes.total
 #Gather all protein files predicted by genblastg
-        cat */*pro >total_genblast.pro
-        cat */*gff | grep -v "^#" >total_genblast.gff
-#TODO No this script yet
-        perl ${SCRIPT_DIR}/gff2bed.pl total_genblast.gff >total_genblast.bed
-        python ${SCRIPT_DIR}/genblast_fasta2ortho.py total_genblast.pro >total_genblast.ortho
+        cat */*pro >syn_genblast.pro
+        cat */*gff | grep -v "^#" >syn_genblast.gff.raw
+#DEBUG
+        python ${SCRIPT_DIR}/scripts/lift_gbgff.py  syn_genblast.gff.raw > syn_genblast.gff
+#syn_genblast.gff is ready to integrate into existing annotation
+        perl ${SCRIPT_DIR}/gff2bed.pl syn_genblast.gff >syn_genblast.bed
+        python ${SCRIPT_DIR}/genblast_fasta2ortho.py syn_genblast.pro >syn_genblast.ortho
 #Compute coverage of those predicted genes
 #TODO fix this scripts
         if [ ! -d workdir ]; then
-            python ${SCRIPT_DIR}/parser_ortho_multiple.py ${i} total_genblast.ortho  ../${i}.pep  total_genblast.pro
+            python ${SCRIPT_DIR}/parser_ortho_multiple.py ${i} syn_genblast.ortho  ../${i}.pep  syn_genblast.pro
         fi
 #Gather all identity files
-        touch total.identity && rm total.identity
-        for iden_ite in workdir/*identity; do sort -k4,4g ${iden_ite} |sed -n '1p;$p' >>total.identity; done
+        touch syn.identity && rm syn.identity
+        for iden_ite in workdir/*identity; do sort -k4,4g ${iden_ite} |sed -n '1p;$p' >>syn.identity; done
 #Make sure your gene ID's do not contain '-R', or will be accidentally removed
         #cat total.identity |awk '$4 != "null" && $4 > 0.5'  > total.identity.good
-        cat total.identity |perl ${SCRIPT_DIR}/filter_identity_file.pl ${GENBLASTG_THRESHOLD_SYNTENIC}  > total.identity.good
-        cut -f1 total.identity.good | sed 's/-R.*//' > unsyntenic_genes.FP.part1
+        cat syn.identity |perl ${SCRIPT_DIR}/filter_identity_file.pl ${GENBLASTG_THRESHOLD_SYNTENIC}  > syn.identity.good
+        cut -f1 syn.identity.good | sed 's/-R.*//' > unsyntenic_genes.FP.part1
 #return
-        perl ${SCRIPT_DIR}/selectItem.pl 0 3 unsyntenic_genes.FP.part1 total_genblast.bed >  unsyntenic_genes_can_be_found_in_syntenic_loci.bed
+        perl ${SCRIPT_DIR}/selectItem.pl 0 3 unsyntenic_genes.FP.part1 syn_genblast.bed >  unsyntenic_genes_can_be_found_in_syntenic_loci.bed
 ##--End Recheck unsyntenic genes in syntenic loci with genblast--##
 ###################################################################
 

@@ -1,5 +1,6 @@
 import sys
 import os
+import argparse
 #from get_unsyntenic_genes_syntenic_loci import Bedpe
 
 class Bedpe_original():
@@ -15,7 +16,10 @@ class Bedpe_original():
         self.gene_left = mylist[6]
         (self.chr_left, self.start_left, self.end_left) = mylist[0:3]
         self.strand_left = mylist[8]
-        self.gene_right = mylist[6]
+        if(len(mylist) > 10):
+            self.gene_right = mylist[10]
+        else:
+            self.gene_right = mylist[6]
         (self.chr_right, self.start_right, self.end_right) = mylist[3:6]
         self.strand_right = mylist[9]
         self.score = mylist[7]
@@ -48,11 +52,24 @@ class Bedpe_original():
 
 
 def main():
-    flanking_distance = 10000
+    usage = """Plot genome track from bedpe file"""
+
+    parser = argparse.ArgumentParser(usage)
+    parser.add_argument("bed_pe", help="bed pe file")
+    parser.add_argument("bed_left", help="bed file for left gene list")
+    parser.add_argument("bed_right", help="bed file for right gene list")
+    parser.add_argument("-f", "--flanking", default=10000, type=int, help="flanking distance default (1000)")
+    args = parser.parse_args()  
+
+    bedpe_file = args.bed_pe
+    bedleft_file = args.bed_left
+    bedright_file = args.bed_right
+    flanking_distance = args.flanking
+
     file_bed_total = {}
-    file_bed_total["left"] = sys.argv[2]
-    file_bed_total["right"] = sys.argv[3]
-    with open(sys.argv[1]) as fh:
+    file_bed_total["left"] = bedleft_file
+    file_bed_total["right"] = bedright_file
+    with open(bedpe_file) as fh:
         for line in fh:
             this_bedpe = Bedpe_original(line)
             this_gene = this_bedpe.gene_left
