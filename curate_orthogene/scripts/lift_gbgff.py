@@ -16,6 +16,7 @@ class GFFIO():
             (newchrid, cut_start, cut_end) = mylist[0].split('_')
             mylist[0] = newchrid
             mylist[3] = str(int(mylist[3]) + int(cut_start) - 1)
+            mylist[4] = str(int(mylist[4]) + int(cut_start) - 1)
             self.GFF_list[line_id] = "\t".join(mylist) + "\n"
     def print_gff(self):
         for line in self.GFF_list:

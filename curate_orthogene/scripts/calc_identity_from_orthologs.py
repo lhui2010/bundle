@@ -4,6 +4,7 @@ import os
 import sys
 from multiprocessing import Pool
 import argparse
+import subprocess
 
 #TODO
 #Remove global variable
@@ -82,5 +83,10 @@ if __name__ == "__main__":
         #p.apply_async(os_run, (file_lines, qry_fa, ref_fa,))
 #        p.map(os_run_test, file_lines)
         p.map(os_run, file_lines)
+
+    output = subprocess.check_output("for iden_ite in {}/*identity; do sort -k4,4g $iden_ite |sed -n '1p;$p' ; done".format(WORKDIR), shell=True)
+    print(output.decode())
+#    os.system("touch syn.identity && rm syn.identity")
+#    output = os.system("for iden_ite in {}/*identity; do sort -k4,4g ${iden_ite} |sed -n '1p;$p' >>syn.identity; done".format(WORKDIR))
 
 

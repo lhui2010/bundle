@@ -19,6 +19,7 @@ my $copy=1;
 
 for my $i (0..$#ARGV)
 {
+#    print STDERR ($ARGV[$i], "\n");
     if($ARGV[$i] eq "-n")
     {
         $copy=0;

@@ -310,8 +310,6 @@ do
         mkdir -p ${ROOT}/chr${chr_id}_${i}_workdir
         cd ${ROOT}/chr${chr_id}_${i}_workdir
 
-        touch ${i}.pep ${j}.genome
-        rm ${i}.pep ${j}.genome
         ln -s ../${i}.pep
         ln -s ../${j}.genome
 
@@ -328,7 +326,6 @@ do
         sed -e 's/,\t.*//; s/,/\n/g' ./${DIFF_TABLE}.${i} > unsyntenic_genes.total
 #Gather all protein files predicted by genblastg
         #cd ${ROOT}/${DIFF_TABLE}.${i}.genblast
-        cat ${DIFF_TABLE}.${i}.genblast/*/*DNA >syn_genblast.DNA
         cat ${DIFF_TABLE}.${i}.genblast/*/*pro >syn_genblast.pro
         cat ${DIFF_TABLE}.${i}.genblast/*/*gff | grep -v "^#" >syn_genblast.gff.raw
 #DEBUG
@@ -336,8 +333,6 @@ do
 #syn_genblast.gff is ready to integrate into existing annotation
         perl ${SCRIPT_DIR}/gff2bed.pl syn_genblast.gff >syn_genblast.bed
         python ${SCRIPT_DIR}/genblast_fasta2ortho.py syn_genblast.pro >syn_genblast.ortho
-
-
 #Compute coverage of those predicted genes
 #TODO fix this scripts
         if [ ! -d syn_identity_workdir ]; then
@@ -352,16 +347,6 @@ do
         cut -f1 syn.identity.good | sed 's/-R.*//' > unsyntenic_genes.FP.part1
 #return
         perl ${SCRIPT_DIR}/selectItem.pl 0 3 unsyntenic_genes.FP.part1 syn_genblast.bed >  unsyntenic_genes_can_be_found_in_syntenic_loci.bed
-        ln -s syn_genblast.bed NS0.1
-        bedtools intersect -s -a syn_genblast.bed -b ../${j}.gene.bed -wo | cut -f4 > NS0.1.1
-        unselectItem.pl NS0.1.1  syn_genblast.bed >NS0.1.2
-#Not written
-        python ${SCRIPT_DIR}/compare_iden.py  $GENBLASTG_IDENTITY_INCREASE syn_genblast.bed ${ORTHO_FILE} > NS0.2.2
-        cut -f1 NS0.1.2 NS0.2.2 >patch_GFF.syn.id
-        python ${SCRIPT_DIR}/selectGFF.pl -n patch_GFF.syn.id syn_genblast.gff > patch_GFF.syn.gff
-        python ${SCRIPT_DIR}/selectItem.pl 0 3 -n patch_GFF.syn.id syn_genblast.bed > patch_GFF.syn.bed
-        python ${SCRIPT_DIR}/select_fasta.pl patch_GFF.syn.id syn_genblast.DNA > patch_GFF.syn.cds
-        python ${SCRIPT_DIR}/select_fasta.pl patch_GFF.syn.id syn_genblast.pro > patch_GFF.syn.pep
 ##--End Recheck unsyntenic genes in syntenic loci with genblast--##
 ###################################################################
 
@@ -423,8 +408,7 @@ do
             python ${SCRIPT_DIR}/calc_identity_from_orthologs.py -o workdir_total ${i} ${i}_pep_${j}_genome.ortho ${ROOT}/${i}.pep ${i}_pep_${j}_genome.pro
             touch ${IDENTITY_FILE} && rm ${IDENTITY_FILE}
 ##@#Get best Rank; TODO consider multiple best hit?
-            #for iden_ite in workdir_total/*identity; do sort -k4,4g ${iden_ite} |sed -n '1p;$p' >>${IDENTITY_FILE}; done
-            for iden_ite in workdir_total/*identity; do sort -k4,4g ${iden_ite} |sed -n '$p' >>${IDENTITY_FILE}; done
+            for iden_ite in workdir_total/*identity; do sort -k4,4g ${iden_ite} |sed -n '1p;$p' >>${IDENTITY_FILE}; done
         else
             ln -s ${ROOT}/${IDENTITY_FILE}
         fi

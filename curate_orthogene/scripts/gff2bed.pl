@@ -5,7 +5,7 @@ while(<>)
 {
 	chomp;
 	@e=split/\t/, $_;
-#	next unless ($e[2] eq 'mRNA' or $e[2] eq 'transcript');
+	next unless ($e[2] eq 'mRNA' or $e[2] eq 'transcript');
 	next if(/^#/);
 	/ID=(.*?);/;
 	$name = $1;
