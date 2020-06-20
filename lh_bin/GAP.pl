@@ -23,7 +23,8 @@ while(<>)
 
         my $r=()= $seq =~ /N/g;
 
-		my $r2=()=$seq =~ /[atcgn]/g;
+#		my $r2=()=$seq =~ /[atcgn]/g;
+		my $r2=()=$seq =~ /n/g;
 
         $sumN+=$r+$r2;
         $sum+=length($seq);

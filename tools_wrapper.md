@@ -41,6 +41,11 @@ done
 makeblastdb -in input.fa -dbtype nucl   prot
 blastp -subject sub.fa -query qry.fa -out out.bln -evalue 1e-5 -outfmt 6 -num_threads 16
 
+#### maker mapid
+cp assemblyv1.est2genome.gff assemblyv1.est2genome.gff.bak
+maker_map_ids --prefix "corv1" --suffix '-t' --iterate 1 assemblyv1.est2genome.gff >corv1.id.map
+map_gff_ids corv1.id.map  assemblyv1.est2genome.gff
+
 #### genewise 
 ```
 #Note the prediction do not include the last stop codon
@@ -66,6 +71,9 @@ samtools view -hbS xx.sam >ss.bam
 samtools mpileup -uvf M445.chr.fa M441_sequences_to_M445_genome.bam  >tmp.vcf
 samtools tview -d T -p chr01:2473903 subset.bam
 
+#### Get unmapped
+samtools view -f 4 falcon_v340.fasta.bam |head -4000 |sam2fq.pl  |fq2fa.pl - >unmapped.fa
+
 ### bsub
 
 bswitch target_quename 5309(job_id)
@@ -76,8 +84,12 @@ bqueues -u yitingshuang
 bqueues -l Q104C512G_X4 |grep HOSTS
     HOSTS:  node10 node11 node12 node13
 bqueues -l Q64C1T_X4 |grep HOSTS
+    HOSTS:  node02 node03 node04 node05
 bqueues -l Q48C2T_X1 |grep HOSTS
+    HOSTS:  node07
 bqueues -l Q64C3T_X1 |grep HOSTS
+    HOSTS:  node06
+
 
 #### Monitor jobs
 while true; do date; lsload |grep "HOST\|node02\|node03\|node04\|node05"; sleep 1m; done
@@ -114,3 +126,7 @@ minimap2 -t 30 -ax splice -uf --secondary=no -C5 -O6,24 -B4 \
 
 ### R devtools
 devtools::install_deps(dependencies = TRUE)
+
+### dotPlot
+minimap2 -t 10 -x asm5 ${REF} ${contig} > ${contig}.paf
+/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/nextdenovo/dotPlotly/pafCoordsDotPlotly.R  -i ${contig}.paf -o ${contig}  -l -p 6 -k 12
