@@ -90,9 +90,21 @@ bqueues -l Q48C2T_X1 |grep HOSTS
 bqueues -l Q64C3T_X1 |grep HOSTS
     HOSTS:  node06
 
+#### unavalable queues
+bqueues -l Q104C512G_X2 |grep HOSTS
+    HOSTS:  node08 node09
+bqueues -l Q88C6T_X1 |grep HOSTS
+    HOSTS:  node01
+bqueues -l Q224C12T_X1 |grep HOSTS
+    HOSTS:  node15
+bqueues -l QGPU |grep HOSTS
+    HOSTS:  node14
+
+
 
 #### Monitor jobs
 while true; do date; lsload |grep "HOST\|node02\|node03\|node04\|node05"; sleep 1m; done
+while [ `bjobs 127421 2>/dev/null |head -1 |awk '{print $1}'` == JOBID ]; do sleep 1m; done
 
 ### fastqc
 $bsub512 -J QC  'mkdir fastqc_dir && perl  /ds3200_1/proc/FastQC/fastqc -t 60 *gz -o fastqc_dir'
@@ -116,6 +128,9 @@ java -jar ${SE_HOME}/snpEff.jar eff Gossypium_arborium /ds3200_1/users_root/yiti
 
 ### minimap2
 
+#### Error correction
+minimap2 -t${THREADS} -ax map-pb -r2k ${REF} ${READS} | samtools sort -@${THREADS} >subreads_on_mt.bam
+
 #### ALign isoseq
 
 minimap2 -t 30 -ax splice -uf --secondary=no -C5 -O6,24 -B4 \
@@ -130,3 +145,56 @@ devtools::install_deps(dependencies = TRUE)
 ### dotPlot
 minimap2 -t 10 -x asm5 ${REF} ${contig} > ${contig}.paf
 /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/nextdenovo/dotPlotly/pafCoordsDotPlotly.R  -i ${contig}.paf -o ${contig}  -l -p 6 -k 12
+
+
+### lastz
+lastz --gfextend --chain --gapped --ambiguous=n --format=mapping --identity=97  --continuity=1  ${REF} ${QRY}
+
+### trf
+trf yoursequence.txt 2 7 7 80 10 50 500 -f -d -m 
+
+### canu
+
+ROOT=$PWD
+CANU=/ds3200_1/users_root/yitingshuang/lh/bin/canu/canu-2.0/Linux-amd64/bin/canu
+PREFIX=Coriaria_unmapped
+WORKDIR="workdir_"${PREFIX}
+INPUT=${ROOT}/correads_on_purged.bam.unmap.sam.fa
+#pacbio or nanopore
+TYPE=pacbio-hifi
+
+mkdir -p ${WORKDIR}
+#polyploid_param
+# corOutCoverage=200 "batOptions=-dg 3 -db 3 -dr 1 -ca 500 -cp 50" \
+
+${CANU} \
+ -d ${WORKDIR} -p ${PREFIX}  \
+ -s threads.config \
+genomeSize=1m \
+useGrid=true \
+minReadLength=1000 \
+minOverlapLength=500 \
+-${TYPE} \
+${INPUT} \
+  >>${WORKDIR}/assemble.log 2>>${WORKDIR}/assemble.err
+
+#### canu threads.config
+more threads.config 
+
+maxMemory=500g
+maxThreads=64
+
+merylThreads=64
+merylMemory=200
+
+cormhapThreads=8
+cormhapConcurrency=1
+obtmhapThreads=8
+utgmhapThreads=8
+
+cnsThreads=8
+corThreads=8
+
+corovlThreads=8
+obtovlThreads=8
+utgovlThreads=8

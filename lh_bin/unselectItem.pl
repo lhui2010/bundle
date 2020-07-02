@@ -32,7 +32,7 @@ while(<IN>)
         unless(exists $name{$e[$target_pos]})
         {
                 print $_ ;#if ($mark);
-                $name{$e[$target_pos]} = 1
+#                $name{$e[$target_pos]} = 1
         }
 }
 
