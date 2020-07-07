@@ -6,7 +6,7 @@ pdf(paste(args[1], ".pdf", sep=""))
 
 fname = args[1]
 
-test<-read.table(fname, header=TRUE)
+test<-read.table(fname, header=TRUE,comment.char = "")
 
 forward <- subset(test, test$strand2 == '+')
 backward <- subset(test, test$strand2 == '-')

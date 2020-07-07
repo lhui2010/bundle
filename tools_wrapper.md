@@ -198,3 +198,24 @@ corThreads=8
 corovlThreads=8
 obtovlThreads=8
 utgovlThreads=8
+
+### docker
+sudo yum install -y yum-utils
+sudo yum-config-manager \
+    --add-repo \
+        https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io
+sudo echo "{
+      "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/"]
+}" >> /etc/docker/daemon.json
+sudo systemctl start docker
+sudo docker run hello-world
+
+### apollo
+docker pull gmod/apollo
+docker run -d -it --privileged --rm -p 9999:8080 -v /tmp/apollo_data gmod/apollo
+
+#### To visit
+ServerIP:9999
+user: admin@local.host
+pw: password
