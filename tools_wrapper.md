@@ -219,3 +219,19 @@ docker run -d -it --privileged --rm -p 9999:8080 -v /tmp/apollo_data gmod/apollo
 ServerIP:9999
 user: admin@local.host
 pw: password
+#### New organism
+faToTwoBit genome.fa genome.2bit
+
+
+### LTR_retriever
+gt suffixerator -db genome.fa -indexname genome.fa -tis -suf -lcp -des -ssp -sds -dna
+gt ltrharvest -index genome.fa -minlenltr 100 -maxlenltr 7000 -mintsd 4 -maxtsd 6 -motif TGCA -motifmis 1 -similar 85 -vic 10 -seed 20 -seqids yes > genome.fa.harvest.scn
+LTR_FINDER_parallel -seq genome.fa -threads 10 -harvest_out -size 1000000 -time 300
+cat genome.fa.harvest.scn genome.fa.finder.combine.scn > genome.fa.rawLTR.scn
+
+#### To run LTR_retriever:
+LTR_retriever -genome genome.fa -inharvest genome.fa.rawLTR.scn -threads 10 [options]
+
+#### To run LAI:
+LAI -genome genome.fa -intact genome.fa.pass.list -all genome.fa.out [options]
+
