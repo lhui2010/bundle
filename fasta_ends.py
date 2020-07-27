@@ -13,13 +13,12 @@ def main():
         description=textwrap.dedent(usage), 
         epilog="")
     parser.add_argument("qry1", help="qry1 file")
-#    parser.add_argument("-f", "--flanking", default=10000, type=int, help="flanking distance default (1000)")
+    parser.add_argument("-f", "--flanking", default=100, type=int, help="flanking distance default (100)")
     args = parser.parse_args()  
 
     qry1_file = args.qry1
-    chunk_size=200
+    chunk_size = args.flanking
     rend = chunk_size * -1
-#    flanking_distance = args.flanking
     with open(qry1_file) as fh:
         for line in fh:
             mylist = line.rstrip().split()
