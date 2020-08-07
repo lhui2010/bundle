@@ -235,3 +235,8 @@ LTR_retriever -genome genome.fa -inharvest genome.fa.rawLTR.scn -threads 10 [opt
 #### To run LAI:
 LAI -genome genome.fa -intact genome.fa.pass.list -all genome.fa.out [options]
 
+
+#### novogene
+lnd -u -p
+lnd list 
+lnd cp -d oss://CP2019100800080/H101SC20072349/KY_nuohe_JK/X101SC20072349-Z01/X101SC20072349-Z01-J001/2.cleandata .
