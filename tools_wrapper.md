@@ -246,3 +246,20 @@ lnd cp -d oss://CP2019100800080/H101SC20072349/KY_nuohe_JK/X101SC20072349-Z01/X1
 
 [link](https://edwards.sdsu.edu/research/fastq-dump/)
 fastq-dump --outdir fastq --gzip --skip-technical  --readids --read-filter pass --dumpbase --split-3 --clip SRR_ID
+
+### slurm
+
+#### submit jobs
+sbatch submit.sh
+
+head ~/Test_kmer/submit.sh 
+#!/bin/bash
+#SBATCH -p amd_256
+#SBATCH -N 1
+#SBATCH -n 64
+
+#### view jobs
+squeue
+
+#### view  node stat
+$sinfo -n p2407 -o '%c %m %O %T'
