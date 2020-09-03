@@ -240,3 +240,9 @@ LAI -genome genome.fa -intact genome.fa.pass.list -all genome.fa.out [options]
 lnd -u -p
 lnd list 
 lnd cp -d oss://CP2019100800080/H101SC20072349/KY_nuohe_JK/X101SC20072349-Z01/X101SC20072349-Z01-J001/2.cleandata .
+
+
+### fastqdump
+
+[link](https://edwards.sdsu.edu/research/fastq-dump/)
+fastq-dump --outdir fastq --gzip --skip-technical  --readids --read-filter pass --dumpbase --split-3 --clip SRR_ID
