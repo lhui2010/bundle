@@ -6,20 +6,20 @@ import re
 
 def detect_telomere(seq):
     motif = [
-    re.compile(r'(AACCCTA){5}', re.IGNORECASE), 
-    re.compile(r'(ACCCTAA){5}', re.IGNORECASE), 
-    re.compile(r'(CCCTAAA){5}', re.IGNORECASE), 
-    re.compile(r'(CCTAAAC){5}', re.IGNORECASE),
-    re.compile(r'(CTAAACC){5}', re.IGNORECASE),
-    re.compile(r'(TAAACCC){5}', re.IGNORECASE),
-    re.compile(r'(AAACCCT){5}', re.IGNORECASE),
-    re.compile(r'(TAGGGTT){5}', re.IGNORECASE),
-    re.compile(r'(AGGGTTT){5}', re.IGNORECASE),
-    re.compile(r'(GGGTTTA){5}', re.IGNORECASE),
-    re.compile(r'(GGTTTAG){5}', re.IGNORECASE),
-    re.compile(r'(GTTTAGG){5}', re.IGNORECASE),
-    re.compile(r'(TTTAGGG){5}', re.IGNORECASE),
-    re.compile(r'(TTAGGGT){5}', re.IGNORECASE)]
+    re.compile(r'(AACCCTA){10}', re.IGNORECASE), 
+    re.compile(r'(ACCCTAA){10}', re.IGNORECASE), 
+    re.compile(r'(CCCTAAA){10}', re.IGNORECASE), 
+    re.compile(r'(CCTAAAC){10}', re.IGNORECASE),
+    re.compile(r'(CTAAACC){10}', re.IGNORECASE),
+    re.compile(r'(TAAACCC){10}', re.IGNORECASE),
+    re.compile(r'(AAACCCT){10}', re.IGNORECASE),
+    re.compile(r'(TAGGGTT){10}', re.IGNORECASE),
+    re.compile(r'(AGGGTTT){10}', re.IGNORECASE),
+    re.compile(r'(GGGTTTA){10}', re.IGNORECASE),
+    re.compile(r'(GGTTTAG){10}', re.IGNORECASE),
+    re.compile(r'(GTTTAGG){10}', re.IGNORECASE),
+    re.compile(r'(TTTAGGG){10}', re.IGNORECASE),
+    re.compile(r'(TTAGGGT){10}', re.IGNORECASE)]
 
     repeat_seq_len = len('AAACCCT')
     repeat_times_cutoff = 6
@@ -39,7 +39,10 @@ def detect_telomere(seq):
 
 def main():
     prog_name = "Another python program"
-    usage = "Another python program"
+    usage = """fasta_ends.py -f 1000 ${REF} > ${REF}.ends
+find_telomere.py ${REF}.ends > ${REF}.ends.telo
+grep '(' ${REF}.ends.telo  |wc -l > ${REF}.ends.telo.count
+"""
 
     parser = argparse.ArgumentParser(
         prog=prog_name, 

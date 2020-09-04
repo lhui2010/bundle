@@ -2,6 +2,7 @@
 
 import argparse
 import textwrap
+from Bio import SeqIO
 
 def main():
     prog_name = "Another python program"
@@ -19,13 +20,9 @@ def main():
     qry1_file = args.qry1
     chunk_size = args.flanking
     rend = chunk_size * -1
-    with open(qry1_file) as fh:
-        for line in fh:
-            mylist = line.rstrip().split()
-            if(line.startswith('>')):
-                print(line.rstrip(), end ="")
-            else:
-                print("\t" + line[:chunk_size] + "\t" + line.rstrip()[rend:])
+    for record in SeqIO.parse(qry1_file, "fasta"):
+        print("%s\t%s\t%s" % (record.id, record.seq[:chunk_size], 
+            record.seq[rend:]))
 
 if __name__ == "__main__":
     main()
