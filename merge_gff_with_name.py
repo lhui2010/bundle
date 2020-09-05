@@ -40,17 +40,25 @@ def main():
 #    flanking_distance = args.flanking
     for q in qry1_file:
         with open(q) as fh:
-            bs_name=os.path.splitext(q)[0]
+            bsname=os.path.splitext(q)[0]
+            count = 1
+            tt_name = ''
             for line in fh:
                 mylist = line.rstrip().split(maxsplit=8)
-                if('"g' in  mylist[-1]):
-                    mylist[-1] = re.sub(r'"g', '"' + bs_name + 'g' , mylist[-1])
+#    000017F|arrow_np1212    AUGUSTUS        transcript      4073034 4074064 0.28    -       .       g1.t1
+#    000017F|arrow_np1212    AUGUSTUS        intron  4073034 4073049 0.82    -       .       transcript_id   "g1.t1";        gene_id "g1";
+                if(mylist[2] == "transcript"):
+                    mylist[2] = re.sub('transcript', 'match', mylist[2])
+                    count = 1
+                    tt_name = bsname + mylist[-1]
+                    mylist[-1] = "ID=" + tt_name + ";" + "Name=" + tt_name
+                elif(mylist[2] == "CDS"):
+                    mylist[2] = re.sub('CDS', 'match_part', mylist[2])
+                    mylist[-1] = "ID=" + tt_name + ":" +str(count) + ";Parent=" + tt_name
+                    count += 1
                 else:
-                    mylist[-1] = re.sub(r'^g', bs_name + "g", mylist[-1])
+                    continue
                 print("\t".join(mylist))
-
-
-
 
 if __name__ == "__main__":
     main()
