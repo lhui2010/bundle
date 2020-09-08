@@ -263,3 +263,7 @@ squeue
 
 #### view  node stat
 $sinfo -n p2407 -o '%c %m %O %T'
+
+#### gff2bed
+GFF=falcon_peps.gff
+grep -v "^#" ${GFF} |sed 's/;.*//; s/ID=//' | awk '$3=="protein_match"'| awk '{print $1"\t"$4"\t"$5"\t"$9"\t"$6"\t"$7}' >${GFF}.bed
