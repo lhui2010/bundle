@@ -10,8 +10,11 @@ while(<LIST>)
 
 while(<IN>)
 {
-	/ID=(.*)-..;Name/;
-	$name=$1;
+    my $name = "";
+	if(/ID=(.*);Name/ or /Parent=(.*)/)
+    {
+        $name=$1;
+    }
 	@e=split;
 	if(exists $name{$e[0]})
 	{
