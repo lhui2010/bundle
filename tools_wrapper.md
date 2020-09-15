@@ -267,3 +267,45 @@ $sinfo -n p2407 -o '%c %m %O %T'
 #### gff2bed
 GFF=falcon_peps.gff
 grep -v "^#" ${GFF} |sed 's/;.*//; s/ID=//' | awk '$3=="protein_match"'| awk '{print $1"\t"$4"\t"$5"\t"$9"\t"$6"\t"$7}' >${GFF}.bed
+
+#### HYPHY
+
+##### Command
+
+HYPHYMP OG0008766.bs > OG0008766.hyphy_log"
+
+##### FileType
+
+==============================
+
+$more *.bs
+fileToExe = "/lustre/home/liuhui/bin/anaconda3/lib/hyphy/TemplateBatchFiles/SelectionAnalyses/aBSREL.bf";
+
+
+inputRedirect = {};
+inputRedirect["01"]="Universal";
+inputRedirect["02"]="/lustre/home/liuhui/project/buzzo/OrthoFinder/running/maize_v1.1/Alignments/OG0008766/OG0008766.fna";
+inputRedirect["03"]="/lustre/home/liuhui/project/buzzo/OrthoFinder/running/maize_v1.1/Alignments/OG0008766/OG0008766.nwk";
+inputRedirect["04"]="All";
+
+ExecuteAFile( fileToExe, inputRedirect);
+
+==============================
+
+$head /lustre/home/liuhui/project/buzzo/OrthoFinder/running/maize_v1.1/Alignments/OG0008766/OG0008766.fna /lustre/home/liuhui/project/buzzo/OrthoFinder/running/maize_v1.1/Alignments/OG0008766/OG0008766.nwk
+==> /lustre/home/liuhui/project/buzzo/OrthoFinder/running/maize_v1.1/Alignments/OG0008766/OG0008766.fna <==
+>A188G21859-t1
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------ATGTCCACCGCCGGGGACCCTTCC
+CGCCTCTCCGGCGAGTCCTCGCCGTCGTCCTCCACGTCCTCCGGCTCCTCCTCCCACTCC
+---TCTGGCGCCGCCGATGCCGCCGCCACCAACCTCGCCCTGACAGCACCAACCTCCGCC
+CTCGCCGATGACACAGACGCCGATGCCCCCACCTCCCCGCGCGTGGGGACGTACTTTGAG
+ACCGAGGACGACGCGTACGAGTTCTACAAGGCCTACGCGGCCCGTCTCGGCTTCGTCGTC
+CGCAAGTCCAACAAGTCCAAGAACTCACGGCACACCGTCACCCGCCGCCTCTTCGTCTGC
+TCCAAGCAGGGCTTCCGCCAGGAGCCCAAGAAGCCCCAGGACGAAACCGCAGGCTCCGGA
+
+==> /lustre/home/liuhui/project/buzzo/OrthoFinder/running/maize_v1.1/Alignments/OG0008766/OG0008766.nwk <==
+(Zm00008a028894_P01:0.014261724,sorghum|KXG36267:0.054149033,(Zm00001d021545_T006:0.000000005,(A188G21859-t1:0.003568854,(PWZ14309.1:0.0,Zm00004b036824_P001:0.0):0.018688784)0.944:0.011343172)0.000:0.000000005);
+
+==============================
