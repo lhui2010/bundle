@@ -7,13 +7,12 @@
 =head1 AGP example:
 
     AGP_eg
-    Pseudo-chromosome       Start   End     Scaffold        Orientation
-    chr1    1       6893269 BDFN01003030    U
-    chr1    6893271 9144699 BDFN01000019    U
-    chr1    9144701 12478763        BDFN01002165    U
-    chr1    12478765        14983719        BDFN01000179    +
-    chr1    14983721        17784955        BDFN01000191    U
-    chr1    17784957        18667630        BDFN01001830    U
+    ## AGP-version 2.0
+    ## AGP constructed by RaGOO
+    chr01_RaGOO	1	638245	1	W	000055F|arrow_np1212	1	638245	+
+    chr01_RaGOO	638246	638345	2	N	100	scaffold	yes	align_genus
+    chr01_RaGOO	638346	765055	3	W	000098F|arrow_np1212	1	126710	-
+    chr01_RaGOO	765056	765155	4	N	100	scaffold	yes	align_genus
 
 =cut
 
@@ -41,33 +40,33 @@ $/="\n";
 select STDOUT;
 
 #length of pseudo-gaps between scaffolds;
-$len_gap=2;
+#$len_gap=100;
 
 my %chr_seq;
 my $print;
 while(<AGP>)
 {
-#Pseudo-chromosome       Start   End     Scaffold        Orientation
-#chr1    1       6893269 BDFN01003030    U
-#chr1    6893271 9144699 BDFN01000019    U
-#chr1    9144701 12478763        BDFN01002165    U
-#chr1    12478765        14983719        BDFN01000179    +
-#chr1    14983721        17784955        BDFN01000191    U
-#chr1    17784957        18667630        BDFN01001830    U
-    next if (/^Pseudo-chromosome/);
+##Ragoo AGP v2.0
+#chr01_RaGOO	1	    638245	1	W	000055F|arrow_np1212	1	638245	+
+#chr01_RaGOO	638246	638345	2	N	100	                scaffold	yes	align_genus
+#chr01_RaGOO	638346	765055	3	W	000098F|arrow_np1212	1	126710	-
+    next if (/^#/);
 
-    my ($chr, $start, $end, $scaff_id, $strand)=split;
+    my ($chr, $start, $end, undef, $type, $scaff_id, undef, $scaff_len, $strand)=split;
 
-    my $seq;
-
-    $seq=$hash{$scaff_id};
-
-    if($strand eq "-")
+    if($type eq "W")
     {
-        &rc (\$seq);
+        my $seq=$hash{$scaff_id};
+        if($strand eq "-")
+        {
+            &rc (\$seq);
+        }
+        $chr_seq{$chr}.=$seq;
     }
-    $chr_seq{$chr}.=$seq;
-    $chr_seq{$chr}.="N"x$len_gap;
+    elsif($type eq "N")
+    {
+        $chr_seq{$chr}.="N"x$scaff_id;
+    }
 }
 
 for my $chr( sort {substr($a, 3)<=>substr($b,3)} keys %chr_seq)

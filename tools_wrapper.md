@@ -276,6 +276,8 @@ HYPHYMP OG0008766.bs > OG0008766.hyphy_log"
 
 ##### FileType
 
+```
+
 ==============================
 
 $more *.bs
@@ -309,3 +311,13 @@ TCCAAGCAGGGCTTCCGCCAGGAGCCCAAGAAGCCCCAGGACGAAACCGCAGGCTCCGGA
 (Zm00008a028894_P01:0.014261724,sorghum|KXG36267:0.054149033,(Zm00001d021545_T006:0.000000005,(A188G21859-t1:0.003568854,(PWZ14309.1:0.0,Zm00004b036824_P001:0.0):0.018688784)0.944:0.011343172)0.000:0.000000005);
 
 ==============================
+
+```
+
+
+#### liftover gff, agp, and build chr.fa
+
+perl -w juicer_assembly_to_ragoo_ordering.pl falcon_v340_sgs_polish.1.review.assembly
+python make_agp.py orderings.fofn *fai 100 |sed 's/_RaGOO//' > CORNE_v1.0.agp
+python lift_over.py  ../CORNE.contig.gff orderings.fofn CORNE.contig.fa.fai |sed 's/_RaGOO//' > CORNE.chr.gff
+build_fa_from_agp.pl CORNE.contig.fa CORNE_v1.0.agp > CORNE_v1.0.chr.fa
