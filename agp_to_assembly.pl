@@ -1,3 +1,4 @@
+#!/usr/bin/perl -w
 
 my $count = -1;
 my $line = 0;
@@ -17,15 +18,19 @@ my @list;
 #Hic.fastq.gz.counts_GATC.20g10	3119840	3119939	8	U	100	contig	yes	map
 #Hic.fastq.gz.counts_GATC.20g10	3119940	3222148	9	W	000101F|arrow_np1212	1	102209	+
 #Hic.fastq.gz.counts_GATC.20g10	3222149	3222248	10	U	100	contig	yes	map
+#chr01   1       4682541 1       W       000016F|arrow_np1212    1       4682541 +
+#chr01   4682542 4682641 2       N       100     scaffold        yes     align_genus
 
 my %strand;
 $strand{'-'} = -1;
 $strand{'+'} = 1;
 
 my %hash;
+my %len;
 
 while(<>)
 {
+    next if(/^#/);
     chomp;
     my @e=split;
     next unless ($e[4] eq 'W');
@@ -35,7 +40,11 @@ while(<>)
         $hash{$e[0]} = 1;
     }
     $line ++;
+    #contig name into a list
     push @tigid, $e[5];
+
+    #length of contig
+    $len{$e[5]} = $e[-2];
 
     my $tmp_id = $line * $strand{$e[8]};
 #    print ($line, "\n", $e[1], '\n', $strand{$e[1]}, "\n", $tmp_id, "\n");

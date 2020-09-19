@@ -1,3 +1,4 @@
+#!/usr/bin/perl -w
 
 my $count = -1;
 my $line = 0;

@@ -1,3 +1,4 @@
+#!/usr/bin/perl -w
 
 #>000263F|arrow_np1212 268 2550
 #>000264F|arrow_np1212 269 2356
