@@ -3,10 +3,19 @@
 $source_pos = 0;
 $target_pos = 0;
 
+$keep = 0;
+
+
 if(@ARGV <2)
 {
-        print "Usage: \n\t$0 list input >output\n";
+        print "Usage: \n\t$0 [-k] list input >output\n";
         exit;
+}
+
+if($ARGV[0] eq "-k")
+{
+    $keep = 1;
+    shift @ARGV;
 }
 
 if(@ARGV>2)
@@ -38,8 +47,14 @@ while(<>)
 
         if(exists $name{$t})
         {
-#        print $name{$t},"\t",  $_ , "\n" ; # if(exists $name{$t});
-        print $_,"\n";
+            if($keep)
+            {
+                print $name{$t},"\t",  $_ , "\n" ; # if(exists $name{$t});
+            }
+            else
+            {
+                print $_,"\n";
+            }
 #        delete $name{$t};
         }
 }

@@ -317,7 +317,41 @@ TCCAAGCAGGGCTTCCGCCAGGAGCCCAAGAAGCCCCAGGACGAAACCGCAGGCTCCGGA
 
 #### liftover gff, agp, and build chr.fa
 
+```
 perl -w juicer_assembly_to_ragoo_ordering.pl falcon_v340_sgs_polish.1.review.assembly
 python make_agp.py orderings.fofn *fai 100 |sed 's/_RaGOO//' > CORNE_v1.0.agp
 python lift_over.py  ../CORNE.contig.gff orderings.fofn CORNE.contig.fa.fai |sed 's/_RaGOO//' > CORNE.chr.gff
 build_fa_from_agp.pl CORNE.contig.fa CORNE_v1.0.agp > CORNE_v1.0.chr.fa
+```
+
+#### mask fasta
+
+`bedtools maskfasta -soft -fi ../../input/falcon_ref.fa -bed full_mask.complex.reformat.gff3 -fo falcon_ref.masked.fa`
+
+#### genblast
+
+merge_genblast.sh */*.gff > ../new_genblast_0921.gff
+filter_genblast.py new_genblast_0921.gff > new_genblast_0921.slim.gff
+sed 's/transcript/protein_match/; s/coding_exon/match_part/' new_genblast_0921.slim.gff > new_genblast_0921.slim.MAKER.gff
+
+#### EVM
+
+```
+$EVM_HOME/EvmUtils/partition_EVM_inputs.pl --genome ${REF} --gene_predictions ${ROOT}/${GFF} \
+    --transcript_alignments ${EST} \
+    --segmentSize 100000 \
+    --overlapSize 10000 --partition_listing partitions_list.out
+
+
+    #--protein_alignments ${PEP} \
+$EVM_HOME/EvmUtils/write_EVM_commands.pl --genome ${REF} --weights `pwd`/weights.txt \
+    --gene_predictions $ROOT/${GFF}  \
+    --transcript_alignments ${EST} \
+    --output_file_name evm.out  --partitions partitions_list.out >  commands.list
+
+$EVM_HOME/EvmUtils/execute_EVM_commands.pl commands.list | tee run.log
+ #
+$EVM_HOME/EvmUtils/recombine_EVM_partial_outputs.pl --partitions partitions_list.out --output_file_name evm.out
+ #
+$EVM_HOME/EvmUtils/convert_EVM_outputs_to_GFF3.pl  --partitions partitions_list.out --output evm.out  --genome ${REF}
+```
