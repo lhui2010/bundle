@@ -3,6 +3,7 @@
 import argparse
 import textwrap
 import re
+import logging
 
 
 class Feat():
@@ -37,10 +38,16 @@ class GFF():
         with open(filename) as fh:
             transcript_id = ""
             score = 0
+            count=0
             for line in fh:
-                if(line.startswith('#')):
+                count+=1
+                if(line.startswith('#') or line.rstrip() == ""):
                     continue
                 mylist = line.rstrip().split()
+                if(len(mylist) < 6 or len(mylist) < 3):
+                    logging.warning("Error: Array element number is {} on \
+                            line {}".format(len(mylist), count))
+                    exit()
                 if(mylist[2] == transcript_key):
                     transcript_id = self.get_ID_from_last_feat(mylist[-1])
                     score = mylist[5]

@@ -5,22 +5,27 @@ open IN, $ARGV[1] or die;
 while(<LIST>)
 {
 	chomp;
+    s/\s.*//;
 	$name{$_} = 1;
 }
 
 while(<IN>)
 {
     my $name = "";
-	if(/ID=(.*);Name/ or /Parent=(.*)/)
+	if(/ID=(.*?);Name/ or /Parent=(.*)/)
     {
         $name=$1;
+    }
+	if(/Parent=(.*)/)
+    {
+        $name2=$1;
     }
 	@e=split;
 	if(exists $name{$e[0]})
 	{
 		print $_;
 	}
-	elsif(defined $name and exists $name{$name})
+	elsif(defined $name and (exists $name{$name} or exists $name{$name2}))
 	{
 		print $_;
 	}
