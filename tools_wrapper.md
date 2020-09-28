@@ -272,7 +272,13 @@ grep -v "^#" ${GFF} |sed 's/;.*//; s/ID=//' | awk '$3=="protein_match"'| awk '{p
 
 ##### Command
 
+```
+qsub -pe smp 5 -V -b y -N $g -cwd "cd $WORKDIR/$g && t_coffee ${g}.pep -mode fmcoffee > ${g}.aln.out && cp ${g}.aln ${g}.pep.aln &&  pal2nal.pl ${g}.pep.aln ${g}.cds   >${g}.paml_aln && trimal -in ${g}.paml_aln -out ${g}.fna     -fasta && trimal -in ${g}.pep.aln -out ${g}.pep.fna -fasta && fasttree ${g}.pep.fna >${g}.nwk && touch -a ${g}.fna.ABSREL.json && mv ${g}.fna.ABSREL.json ${g}.fna.ABSREL.json.bak && HYPHYMP ${g}.bs > ${g}.hyphy_log"
+```
+
 HYPHYMP OG0008766.bs > OG0008766.hyphy_log"
+
+grep "^* Zm00008" aBSREL.txt >aBSREL.txt.PH207
 
 ##### FileType
 
