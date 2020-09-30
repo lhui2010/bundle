@@ -361,3 +361,11 @@ $EVM_HOME/EvmUtils/recombine_EVM_partial_outputs.pl --partitions partitions_list
  #
 $EVM_HOME/EvmUtils/convert_EVM_outputs_to_GFF3.pl  --partitions partitions_list.out --output evm.out  --genome ${REF}
 ```
+
+#### lastz plot
+
+```
+echo "#name1	zstart1	end1	name2	strand2	zstart2+	end2+	identity	idPct	coverage	covPct	cigarx-	chr" > total.lastz.out
+for i in `seq 10`; do perl -e '$id = shift @ARGV;  while(<>){next if (/^#/); chomp; $_.="\tchr$id\n";print;}' $i lastz.$i.txt >> total.lastz.out; done
+lastz_ggplot.total.R total.lastz.out
+```

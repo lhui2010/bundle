@@ -68,8 +68,8 @@ scale_colour_Publication <- function(...){
 #---
 
 args = commandArgs(trailingOnly=TRUE)
-
-pdf(paste(args[1], ".gg.pdf", sep=""))
+output = paste(args[1], ".gg.pdf", sep="")
+#pdf(paste(args[1], ".gg.pdf", sep=""))
 
 fname = args[1]
 
@@ -78,20 +78,31 @@ test<-read.table(fname, header=TRUE,comment.char = "")
 forward <- subset(test, test$strand2 == '+')
 backward <- subset(test, test$strand2 == '-')
 
+neworder <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10")
+library(plyr)  ## or dplyr (transform -> mutate)
+test2 <- arrange(transform(test,
+             chr=factor(chr,levels=neworder)),chr)
 
-b <- ggplot(test, aes(x = zstart1, y = zstart2.))
+b <- ggplot(test2, aes(x = zstart1, y = zstart2.))
 
-b + geom_segment(aes(xend=end1, yend=end2., color = strand2), size=1) +
- scale_x_continuous(breaks = breaks_width(50000000), labels = label_number(scale = 1/1000000, suffix="Mb")) +
+b + geom_segment(aes(xend=end1, yend=end2., color = strand2), size=1, show.legend = FALSE) +
+ scale_x_continuous(breaks = breaks_width(200000000), labels = label_number(scale = 1/1000000, suffix="Mb")) +
  scale_y_continuous(breaks = breaks_width(50000000), labels = label_number(scale = 1/1000000, suffix="Mb")) +
  labs(x = "A188", y = "B73") + 
- theme_Publication()
+ #labs(x = "A188", y = "B73") + 
+ #facet_wrap(~ chr) +
+ facet_grid(cols = vars(chr)) +
+ theme_Publication() 
  #theme_custom()
+
+aspect_ratio <- 10
+height <- 7
+ggsave(output , height = 2 , width = 2 * aspect_ratio)
+
 
 ##plot(NA, xlim=c(0,max(test$end1)), ylim=c(0,max(test$end2.)),
 ##     xlab="ref", ylab="qry", main=fname)
 ##
 ##segments(forward$zstart1,forward$zstart2.,forward$end1, forward$end2., col='blue', lwd=1) 
 ##segments(backward$zstart1,backward$zstart2.,backward$end1, backward$end2., col='red', lwd=1 )
-
-dev.off()
+#dev.off()
