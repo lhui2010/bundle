@@ -153,6 +153,9 @@ lastz --gfextend --chain --gapped --ambiguous=n --format=mapping --identity=97  
 ### trf
 trf yoursequence.txt 2 7 7 80 10 50 500 -f -d -m 
 
+#### for telomere discovery
+trf CORNE_v1.0.chr.fa.ends.fa 2 9 9 80 10 1000 7 -h
+
 ### canu
 
 ROOT=$PWD
