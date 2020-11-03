@@ -372,3 +372,47 @@ echo "#name1	zstart1	end1	name2	strand2	zstart2+	end2+	identity	idPct	coverage	c
 for i in `seq 10`; do perl -e '$id = shift @ARGV;  while(<>){next if (/^#/); chomp; $_.="\tchr$id\n";print;}' $i lastz.$i.txt >> total.lastz.out; done
 lastz_ggplot.total.R total.lastz.out
 ```
+
+#### bam2fastq
+
+```
+bam2fastq -o myEcoliRuns m54008_160330_053509.subreads.bam m54008_160331_235636.subreads.bam
+```
+
+#### clean fastq
+
+```
+for SAMPLE in `cat total_sample.txt`
+do
+    LEFT=${SAMPLE}_1.fq
+    RIGHT=${SAMPLE}_2.fq
+    echo "$RIGHT
+$LEFT" > $SAMPLE.fastuniq
+   # fastuniq -i $SAMPLE.fastuniq -o $RIGHT.dedup -p $LEFT.dedup && \
+    fastx_trimmer -i $RIGHT.dedup -o ${RIGHT}.dedup.trim.gz -z -Q 33 -f 46 -l 145 && \
+    fastx_trimmer -i $LEFT.dedup -o ${LEFT}.dedup.trim.gz -z -Q 33 -f 4 && \
+    java -jar  /ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/trimmomatic-0.38.jar PE \
+  -phred33 ${LEFT}.dedup.trim.gz ${RIGHT}.dedup.trim.gz \
+   ${SAMPLE}_1.clean.fq ${SAMPLE}_1.clean.unpair.fq \
+   ${SAMPLE}_2.clean.fq ${SAMPLE}_2.clean.unpair.fq \
+   ILLUMINACLIP:/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/P5P7-PE.fa:0:30:10 \
+   LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:75 &
+done
+
+for SAMPLE in `cat total_sample.txt`
+do
+    LEFT=${SAMPLE}_1.fq
+    RIGHT=${SAMPLE}_2.fq
+    echo "$RIGHT
+$LEFT" > $SAMPLE.fastuniq
+   # fastuniq -i $SAMPLE.fastuniq -o $RIGHT.dedup -p $LEFT.dedup && \
+    fastx_trimmer -i $RIGHT.dedup -o ${RIGHT}.dedup.trim.gz -z -Q 33 -f 46 -l 145 && \
+    fastx_trimmer -i $LEFT.dedup -o ${LEFT}.dedup.trim.gz -z -Q 33 -f 4 && \
+    java -jar  /ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/trimmomatic-0.38.jar PE \
+  -phred33 ${LEFT}.dedup.trim.gz ${RIGHT}.dedup.trim.gz \
+   ${SAMPLE}_1.clean.fq ${SAMPLE}_1.clean.unpair.fq \
+   ${SAMPLE}_2.clean.fq ${SAMPLE}_2.clean.unpair.fq \
+   ILLUMINACLIP:/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/P5P7-PE.fa:0:30:10 \
+   LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:75 &
+done
+```
