@@ -17,11 +17,12 @@ import logging
 #1 PREFIX
 #2 threads
 #3 kmer_size
+#4 output
 genomescope_sh="""
 zcat {0} >{1}.cat.fq
 /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/jellyfish-linux count -C -m {3} -s 1000000000 -t {2} {1}.cat.fq -o {1}.jf 
 /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/jellyfish-linux histo -t {2} {1}.jf > {1}.reads.histo
-Rscript /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/genomescope/genomescope.R {1}.reads.histo {3} 150
+Rscript /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/genomescope/genomescope.R {1}.reads.histo {3} 150 {4}
 """
 
 """
@@ -39,7 +40,7 @@ def genomescope(fastq, prefix='', threads=64, kmer = 21, output= ''):
     if(output == ''):
         output ="workdir_genomescope" + prefix 
     fastq_text = ' '.join(fastq)
-    cmd = genomescope_sh.format(fastq_text, prefix, threads, kmer)
+    cmd = genomescope_sh.format(fastq_text, prefix, threads, kmer, output)
     cmd_log_and_execute(cmd)
     #subprocess.run(cmd, shell = True)
 
