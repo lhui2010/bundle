@@ -4,6 +4,10 @@ import argparse
 import textwrap
 import subprocess
 
+"""
+Unfinished
+"""
+
 #class CTL():
 
 
@@ -90,6 +94,8 @@ class CTF():
     """
     def __init__(self, type="falcon"):
         self.content = cfg[type]
+        self.value = {}
+        self.
 
     def change_val(self, args):
             template_name="Falcon", parse_args):

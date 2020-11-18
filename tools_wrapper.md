@@ -76,9 +76,14 @@ samtools view -f 4 falcon_v340.fasta.bam |head -4000 |sam2fq.pl  |fq2fa.pl - >un
 
 ### bsub
 
+```
 bswitch target_quename 5309(job_id)
 bsub -m "hostA hostD hostB" myjob
 https://www.ibm.com/support/knowledgecenter/en/SSETD4_9.1.3/lsf_admin/job_view_all.html
+
+#Display Detailed Job information (including finished)
+bjobs -l jobs_id
+#Display All jobs
 bjobs -u all
 bqueues -u yitingshuang
 bqueues -l Q104C512G_X4 |grep HOSTS
@@ -99,6 +104,7 @@ bqueues -l Q224C12T_X1 |grep HOSTS
     HOSTS:  node15
 bqueues -l QGPU |grep HOSTS
     HOSTS:  node14
+```
 
 
 
