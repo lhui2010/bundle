@@ -59,7 +59,7 @@ THREADS=80
 bwa index $REF
 bwa mem -t ${THREADS} $REF ${FASTQ1} ${FASTQ2} \
 | samtools view -@ ${THREADS} -bS - | samtools sort -@ 80 - > ${REF}.bam
-samtools index input/${REF}.bam
+samtools index ${REF}.bam
 samtools flagstat -@ ${THREADS} ${REF}.bam >${REF}.bam.stat
 
 bwa index consensus.fasta

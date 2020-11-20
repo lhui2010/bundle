@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+"""
+running busco assessement on genomes
+"""
+
 import argparse
 import textwrap
 import subprocess

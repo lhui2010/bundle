@@ -10,8 +10,10 @@ from collections import defaultdict
 import iga.apps.cfg 
 import coloredlogs, logging
 import os.path as op
-from jcvi.utils.natsort import natsorted
 import six
+import sys
+
+from jcvi.utils.natsort import natsorted
 
 """
 Unfinished
@@ -36,6 +38,15 @@ coloredlogs.install(level='DEBUG', logger=logger)
 #    logger.info(cmd)
 #    subprocess.run(cmd, shell = True)
 
+def splitall(path):
+    allparts = []
+    while True:
+        path, p1 = op.split(path)
+        if not p1:
+            break
+        allparts.append(p1)
+    allparts = allparts[::-1]
+    return allparts
 
 class ActionDispatcher(object):
     """
@@ -56,7 +67,7 @@ class ActionDispatcher(object):
         self.valid_actions, self.action_helps = zip(*actions)
 
     def get_meta(self):
-        args = splitall(sys.argv[0])[-3:]
+        args = sys.argv[0].split('/')[-3:]
         args[-1] = args[-1].replace(".py", "")
         if args[-2] == "iga":
             meta = "MODULE"
@@ -84,7 +95,7 @@ class ActionDispatcher(object):
             help += (
                 " | ".join((action, action_help[0].upper() + action_help[1:])) + "\n"
             )
-        help += "\n" + JCVIHELP
+        help += "\n" 
 
         sys.stderr.write(help)
         sys.exit(1)

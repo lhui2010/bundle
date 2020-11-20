@@ -1,0 +1,29 @@
+
+
+def run_juicer():
+#Input:
+#1. Genome file
+#2. HiC fastq file
+
+#Output:
+#1. .hic file
+
+def get_hic():
+    """ Use juicer and 3d-dna to obtain mnd and 0.hic file
+    """
+
+def post():
+    """ Use .mnd and curated .assembly file to get .agp and chr.fasta file
+    """
+
+def assembly2agp():
+    """ converts assembly file to agp file
+    """
+
+def liftover():
+    """ lift over gff annotation from contig to chromosome 
+    """
+
+def buildchr():
+    """ build chromosome based on .assembly or .agp
+    """
