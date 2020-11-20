@@ -81,6 +81,13 @@ bswitch target_quename 5309(job_id)
 bsub -m "hostA hostD hostB" myjob
 https://www.ibm.com/support/knowledgecenter/en/SSETD4_9.1.3/lsf_admin/job_view_all.html
 
+#Change Priority
+#You can move jobs that are pending with the btop command.
+btop job_ID | "job_ID[index_list]" [position]
+#If you add [position] it means that the job will be put at that place in the queue.
+#By default, LSF dispatches jobs in a queue in the order of their arrival (that is, first come, first served), subject to availability of suitable server hosts.
+
+
 #Display Detailed Job information (including finished)
 bjobs -l jobs_id
 #Display All jobs
