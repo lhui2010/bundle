@@ -59,7 +59,7 @@ def sh(cmd):
     prior_cmd = 'set -eo pipefail\n'
     subprocess.run(prior_cmd + cmd, shell=True)
 
-"""
+r"""
 export PS1="(base) \[\033]2;\h:\u $PWD\007\033[33;1m\]\u@\h \033[35;1m\t\n\033[0m\[\033[36;1m\]$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
 export CONDA_BACKUP_HOST=x86_64-conda_cos6-linux-gnu
 export CONDA_EXE=/ds3200_1/users_root/yitingshuang/lh/anaconda3/bin/conda
