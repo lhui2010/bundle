@@ -24,7 +24,7 @@ export PERL5LIB=""
 WORKDIR={1}
 ccs {0} ${{WORKDIR}}/ccs.bam --min-passes 0 --min-length 50 --max-length 21000 --min-rq 0.75
 cd ${{WORKDIR}}
-samtools view ccs.bam | awk '{print ">"$1"\n"$10}' > ccs.fa
+samtools view ccs.bam | awk '{{print ">"$1"\n"$10}}' > ccs.fa
 echo ">primer_F
 AAGCAGTGGTATCAACGCAGAGTACATGGGGGGGG
 >primer_S
@@ -38,7 +38,7 @@ isoseq3 cluster isoseq_flnc.bam unpolished.bam --split-bam 10
 pbindex subreads.bam
 for i in `seq 0 9`
 do
-    isoseq3 polish unpolished.${i}.bam ${ROOT}/input/*.subreads.bam polished.${i}.bam --verbose &
+    isoseq3 polish unpolished.${{i}}.bam ${{ROOT}}/input/*.subreads.bam polished.${{i}}.bam --verbose &
 done
 wait
 samtools merge -@ 20 polished_total.bam polished.*.bam
