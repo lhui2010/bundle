@@ -22,6 +22,7 @@ from iga.apps.base import ActionDispatcher, sh, conda_act
 isoseq_sh = r"""export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/isoseq3/BGI-Full-Length-RNA-Analysis-Pipeline/bin:$PATH
 export PERL5LIB=""
 WORKDIR={1}
+mkdir ${{WORKDIR}}
 ccs {0} ${{WORKDIR}}/ccs.bam --min-passes 0 --min-length 50 --max-length 21000 --min-rq 0.75
 cd ${{WORKDIR}}
 samtools view ccs.bam | awk '{{print ">"$1"\n"$10}}' > ccs.fa

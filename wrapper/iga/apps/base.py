@@ -56,7 +56,8 @@ def mkdir(dirname, overwrite=False):
 
 def sh(cmd):
     logger.info(cmd)
-    subprocess.run(cmd, shell=True)
+    prior_cmd = 'set -euxo pipefail'
+    subprocess.getoutput(prior_cmd + cmd)
 
 
 conda_act = r"""
