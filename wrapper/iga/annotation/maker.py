@@ -49,6 +49,11 @@ isoseq3 summarize polished_total.bam summary.csv
 
 
 def isoseq_(subreads, workdir=''):
+    """
+    %prog isoseq subreads.fasta
+
+    Wrapper for `isoseq`
+    """
     if (type(subreads) == list):
         subreads = " ".join(subreads)
     if (workdir == ''):
@@ -62,11 +67,7 @@ def str_to_class(str):
 
 
 def isoseq(args):
-    """
-    %prog isoseq subreads.fasta
 
-    Wrapper for `isoseq`
-    """
     # parser = argparse.ArgumentParser(
     #     prog=prog_name,
     #     formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -76,7 +77,7 @@ def isoseq(args):
     # parser.add_argument("-t", "--threads", default=64, type=int, help="flanking distance default (1000)")
     # args = parser.parse_args()
 
-    p = argparse.ArgumentParser(prog=func_name, usage=func_doc)
+    #p = argparse.ArgumentParser(prog=func_name, usage=func_doc)
     position_arg = []
     keyword_arg = {}
     number_args = 1
@@ -86,7 +87,9 @@ def isoseq(args):
     # func_name = sys._getframe().f_code.co_name
     # func_doc = sys._getframe().f_code.co_consts[0]
     # 下面命令用于把字符串的函数名称转换成对象
+    function_name = 'isoseq_'
     object_pointer = getattr(sys.modules[__name__], 'isoseq')
+    p = argparse.ArgumentParser(prog=func_name, usage=object_pointer.__doc__)
     # 下面的两个命令用于从函数对象中调取形参的名字和默认值（空值用Nonetype表示），用来转换成parse_args
     for kw, kw_defaults in zip(inspect.getfullargspec(object_pointer).args,
                                inspect.getfullargspec(object_pointer).defaults):
