@@ -72,7 +72,8 @@ def isoseq(args):
     # args = parser.parse_args()
     import sys
     func_name = sys._getframe().f_code.co_name
-    p = argparse.ArgumentParser(prog=func_name, usage=__doc__)
+    func_doc = locals()[func_name].__doc__
+    p = argparse.ArgumentParser(prog=func_name, usage=func_doc)
     p.add_argument("subreads", help="subreads bams from Isoseq", nargs='+')
     p.add_argument("-d", "--workdir", help="Name of working directory")
     p.add_argument("-o", "--output", help="Output file name")
