@@ -49,7 +49,7 @@ isoseq3 summarize polished_total.bam summary.csv
 """
 
 
-def isoseq_(subreads, workdir=''):
+def isoseq_(subreads=None, workdir=''):
     """
     %prog isoseq subreads.fasta
 
@@ -89,7 +89,7 @@ def isoseq(args):
     # func_doc = sys._getframe().f_code.co_consts[0]
     # 下面命令用于把字符串的函数名称转换成对象
     func_name = 'isoseq_'
-    object_pointer = getattr(sys.modules[__name__], 'isoseq')
+    object_pointer = getattr(sys.modules[__name__], func_name)
     p = argparse.ArgumentParser(prog=func_name, usage=object_pointer.__doc__)
     # 下面的两个命令用于从函数对象中调取形参的名字和默认值（空值用Nonetype表示），用来转换成parse_args
     for kw, kw_defaults in zip(inspect.getfullargspec(object_pointer).args,
