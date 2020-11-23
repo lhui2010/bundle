@@ -12,12 +12,14 @@ import subprocess
 
 
 gcpp_sh="""
-pbmm2 align --sort  {0} {1} aln.ctg_id.bam
-samtools index aln.ctg_id.bam
+set -euxo pipefail
+pbmm2 align --sort  {0} {1} {0}.bam
+samtools index {0}.bam
 nproc={2}
 gcpp --algorithm=arrow -x 5 -X 120 -q 0 -j $nproc \
-        -r {0} aln.ctg_id.bam \
-        -o output.fasta,output.fastq,output.vcf
+        -r {0} {0}.bam \
+        -o {0}.polish.fasta,{0}.polish.fastq,{0}.polish.vcf
+rm {0}.bam
 """
 
 def gcpp(ctg_file, bam_file, threads=20):
