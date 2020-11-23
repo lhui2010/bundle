@@ -118,7 +118,7 @@ def isoseq(args):
     for k in position_arg:
         position_result.append(getattr(real_arg, k))
 
-    object_pointer(**position_result, **keyword_result)
+    object_pointer(*position_result, **keyword_result)
 
     # if(number_args == 1):
     #     position_result = getattr(p, position_arg[0])
