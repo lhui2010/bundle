@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 
 import argparse
+import os
+import shutil
 import textwrap
 import subprocess
 from parse import *
 import re
 from collections import defaultdict
-#import base
-import iga.apps.cfg 
+# import base
+import iga.apps.cfg
 import coloredlogs, logging
 import os.path as op
 import six
@@ -16,27 +18,53 @@ import sys
 from jcvi.utils.natsort import natsorted
 
 """
-Unfinished
+The basic library for iga, some of the functions are from jcvi
 """
-
-__all__ = ['JSONDecoder', 'JSONDecodeError']
-
 
 # Create a logger object.
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
-## Some examples.
-#logger.debug("this is a debugging message")
-#logger.info("this is an informational message")
-#logger.warning("this is a warning message")
-#logger.error("this is an error message")
-#logger.critical("this is a critical message")
 
-#def cmd_log_and_execute(cmd):
-#    def prepare_workdir():
-#        pass
-#    logger.info(cmd)
-#    subprocess.run(cmd, shell = True)
+
+## Some examples.
+# logger.debug("this is a debugging message")
+# logger.info("this is an informational message")
+# logger.warning("this is a warning message")
+# logger.error("this is an error message")
+# logger.critical("this is a critical message")
+
+def mkdir(dirname, overwrite=False):
+    """
+    Wraps around os.mkdir(), but checks for existence first.
+    """
+    if op.isdir(dirname):
+        if overwrite:
+            shutil.rmtree(dirname)
+            os.mkdir(dirname)
+            logging.debug("Overwrite folder `{0}`.".format(dirname))
+        else:
+            return False  # Nothing is changed
+    else:
+        try:
+            os.mkdir(dirname)
+        except:
+            os.makedirs(dirname)
+        logging.debug("`{0}` not found. Creating new.".format(dirname))
+
+    return True
+
+
+def sh(cmd):
+    logger.info(cmd)
+    subprocess.run(cmd, shell=True)
+
+
+conda_act = r"""
+export PS1="(base) \[\033]2;\h:\u $PWD\007\033[33;1m\]\u@\h \033[35;1m\t\n\033[0m\[\033[36;1m\]$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
+source ~/lh/anaconda3/etc/profile.d/conda.sh
+conda activate {}
+"""
+
 
 def splitall(path):
     allparts = []
@@ -47,6 +75,7 @@ def splitall(path):
         allparts.append(p1)
     allparts = allparts[::-1]
     return allparts
+
 
 class ActionDispatcher(object):
     """
@@ -93,9 +122,9 @@ class ActionDispatcher(object):
         for action, action_help in sorted(self.actions):
             action = action.rjust(max_action_len + 4)
             help += (
-                " | ".join((action, action_help[0].upper() + action_help[1:])) + "\n"
+                    " | ".join((action, action_help[0].upper() + action_help[1:])) + "\n"
             )
-        help += "\n" 
+        help += "\n"
 
         sys.stderr.write(help)
         sys.exit(1)
@@ -152,6 +181,7 @@ def dmain(mainfile, type="action"):
     a = ActionDispatcher(actions)
     a.print_help()
 
+
 def get_module_docstring(filepath):
     "Get module-level docstring of Python module at filepath, e.g. 'path/to/file.py'."
     co = compile(open(filepath).read(), filepath, "exec")
@@ -160,6 +190,7 @@ def get_module_docstring(filepath):
     else:
         docstring = None
     return docstring
+
 
 def glob(pathname, pattern=None):
     """
@@ -171,10 +202,12 @@ def glob(pathname, pattern=None):
         pathname = op.join(pathname, pattern)
     return natsorted(gl.glob(pathname))
 
+
 class DictDb():
     """
     The data structure for storing ctf files
     """
+
     def __init__(self):
         self.dictdb = defaultdict(dict)
         """
@@ -185,21 +218,21 @@ class DictDb():
         """
         self.has_section = False
 
-    def append_val(self, key, val, section = ''):
+    def append_val(self, key, val, section=''):
         """
         Add tag, value to dict
         """
-        if(section != ''):
+        if (section != ''):
             self.dictdb[section][key] = val
             self.has_section = True
         else:
             self.dictdb[key] = val
 
-    def change_val(self, key, val, section = ''):
+    def change_val(self, key, val, section=''):
         """
         Add tag, value to dict
         """
-        if(section != ''):
+        if (section != ''):
             self.dictdb[section][key] = val
         else:
             self.dictdb[key] = val
@@ -226,45 +259,46 @@ class Config():
     Support Direct Print
     Support tag value change
     """
+
     def __init__(self, cfg_type=""):
         self.content = ''
         self.dictdb = DictDb()
         self.seperator = ''
-        if(cfg_type != ""):
+        if (cfg_type != ""):
             self.load(cfg_type)
 
-    def load(self, cfg_type='falcon', seperator = '='):
+    def load(self, cfg_type='falcon', seperator='='):
         try:
             self.content = cfg.cfg[cfg_type]
             self.seperator = cfg.seperator[cfg_type]
         except KeyError as e:
             logger.error("Unknown type of cfg file: {}".format(cfg_type))
 
-#Seperator for tag and value, like tag=value is default
+        # Seperator for tag and value, like tag=value is default
         this_list = self.content.splitlines()
         for line in this_list:
-            if(line.rstrip() == ''):
-#Skip blank lines
+            if (line.rstrip() == ''):
+                # Skip blank lines
                 continue
-            elif(line.startswith('[')):
-#Finding section definition
+            elif (line.startswith('[')):
+                # Finding section definition
                 section = parse('[{}]', line)[0]
-            elif(line.startswith('#')):
-#Finding section annotation
+            elif (line.startswith('#')):
+                # Finding section annotation
                 section_annotation = re.sub(r'^#+', '', line)
             else:
-#Findng value assignments
+                # Findng value assignments
                 trimmed_line = re.sub('#.*', '', line)
                 try:
                     (key, value) = trimmed_line.split(self.seperator)
                 except ValueError as e:
                     logger.error("Split error on line: {}".format(line))
                 (key, value) = (key.strip(), value.strip())
-                if(section != ''):
+                if (section != ''):
                     self.dictdb.append_val(key=key, val=value, section=section)
                 else:
                     self.dictdb.append_val(key, value)
-            
+
     def update(self, args):
         """
         Different from change_val in dictdb, this allows input like :
@@ -273,12 +307,12 @@ class Config():
         mylist = args.split(';')
         for this_arg in mylist:
             section = ''
-            if('[' in this_arg):
-                (section, key, value) = parse('[{}]{}'+self.seperator+'{}', this_arg)
+            if ('[' in this_arg):
+                (section, key, value) = parse('[{}]{}' + self.seperator + '{}', this_arg)
                 self.dictdb.change_val(key=key, val=value, section=section)
             else:
-                (key, value) = parse('{}'+self.seperator+'{}', this_arg)
-                self.dictdb.change_val(key,value)
+                (key, value) = parse('{}' + self.seperator + '{}', this_arg)
+                self.dictdb.change_val(key, value)
 
     def gettext(self):
         return self.dictdb.get_dict_text(self.seperator)
@@ -293,18 +327,20 @@ def main():
     usage = "Run Falcon With Fasta Input"
 
     parser = argparse.ArgumentParser(
-        prog=prog_name, 
+        prog=prog_name,
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        description=textwrap.dedent(usage), 
+        description=textwrap.dedent(usage),
         epilog="")
     parser.add_argument("fasta", help="Raw assembly")
-    args = parser.parse_args()  
+    args = parser.parse_args()
 
     cfg = Config('falcon')
     cfg.update('[General]genome_size=10')
     cfg.update('[General]input_fofn=/dev/zero')
     logger.info(cfg.gettext())
-    #falcon_run(args.fasta)
+    # falcon_run(args.fasta)
+
+
 #    flanking_distance = args.flanking
 
 if __name__ == "__main__":
