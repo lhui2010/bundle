@@ -56,7 +56,7 @@ def mkdir(dirname, overwrite=False):
 
 def sh(cmd):
     logger.info(cmd)
-    prior_cmd = 'set -euxo pipefail\n'
+    prior_cmd = 'set -euo pipefail\n'
     subprocess.run(prior_cmd + cmd, shell=True)
 
 
