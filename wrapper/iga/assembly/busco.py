@@ -28,9 +28,6 @@ busco -f -c {0} -m {1} -i {2} -o {3} -l {4}
 def busco(genome_fasta, mode='genome', lineage='embryophyta_odb10', threads=64, output = ''):
 #assembly, subreads
     conda_act = r"""
-    export PS1="(base) \[\033]2;\h:\u $PWD\007\033[33;1m\]\u@\h \033[35;1m\t\n\033[0m\[\033[36;1m\]$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
-    source ~/lh/anaconda3/etc/profile.d/conda.sh
-    conda activate falcon
     export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
     export BUSCO_CONFIG_FILE=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
     """
@@ -39,7 +36,7 @@ def busco(genome_fasta, mode='genome', lineage='embryophyta_odb10', threads=64, 
     """
     if(output == ''):
         output = os.path.basename(genome_fasta) + ".busco.embryophyta.v4.1.2"
-    cmd = conda_act + deploy_augustus + busco_sh.format(threads, mode, genome_fasta, output, lineage)
+    cmd = conda_act.format('busco') + deploy_augustus + busco_sh.format(threads, mode, genome_fasta, output, lineage)
 #    cmd = conda_act 
     subprocess.run(cmd, shell = True)
 

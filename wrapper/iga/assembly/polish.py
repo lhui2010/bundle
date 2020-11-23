@@ -11,6 +11,7 @@ import subprocess
 #Support tag value change
 
 
+
 gcpp_sh="""
 pbmm2 align --sort  {0} {1} aln.ctg_id.bam
 samtools index aln.ctg_id.bam
@@ -22,11 +23,7 @@ gcpp --algorithm=arrow -x 5 -X 120 -q 0 -j $nproc \
 
 def gcpp(ctg_file, bam_file, threads=20):
 #assembly, subreads
-    conda_act = r"""
-    export PS1="(base) \[\033]2;\h:\u $PWD\007\033[33;1m\]\u@\h \033[35;1m\t\n\033[0m\[\033[36;1m\]$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
-    source ~/lh/anaconda3/etc/profile.d/conda.sh
-    conda activate falcon
-    """
+
     cmd = conda_act + gcpp_sh.format(ctg_file, bam_file, threads)
 #    cmd = conda_act 
     subprocess.run(cmd, shell = True)
