@@ -2,6 +2,7 @@
 maker relevant utils
 """
 import argparse
+import sys
 from optparse import OptionParser
 
 from iga.apps.base import ActionDispatcher, sh, conda_act
@@ -87,7 +88,7 @@ def isoseq(args):
     # func_name = sys._getframe().f_code.co_name
     # func_doc = sys._getframe().f_code.co_consts[0]
     # 下面命令用于把字符串的函数名称转换成对象
-    function_name = 'isoseq_'
+    func_name = 'isoseq_'
     object_pointer = getattr(sys.modules[__name__], 'isoseq')
     p = argparse.ArgumentParser(prog=func_name, usage=object_pointer.__doc__)
     # 下面的两个命令用于从函数对象中调取形参的名字和默认值（空值用Nonetype表示），用来转换成parse_args
@@ -127,11 +128,11 @@ def isoseq(args):
     #         position_result.append(getattr(p, k))
     # object_pointer(p.__dict__)
 
-def minimap_rna(transcript, genome, threads=30, output=''):
-    if (output == ''):
-        output = transcript + ".sam"
-    cmd = minimap_rna_sh.format(threads, genome, transcript, output)
-    sh(cmd)
+# def minimap_rna(transcript, genome, threads=30, output=''):
+#     if (output == ''):
+#         output = transcript + ".sam"
+#     cmd = minimap_rna_sh.format(threads, genome, transcript, output)
+#     sh(cmd)
 
 
 # parallel run
