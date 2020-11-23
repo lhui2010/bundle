@@ -49,12 +49,17 @@ isoseq3 summarize polished_total.bam summary.csv
 
 
 def isoseq_(subreads, workdir=''):
-    if(type(subreads) == list):
+    if (type(subreads) == list):
         subreads = " ".join(subreads)
     if (workdir == ''):
         workdir = "workdir_isoseq_" + subreads.split()[0]
     cmd = conda_act.format('isoseq3') + isoseq_sh.format(subreads, workdir)
     sh(cmd)
+
+
+def str_to_class(str):
+    return getattr(sys.modules[__name__], str)
+
 
 def isoseq(args):
     """
@@ -70,19 +75,54 @@ def isoseq(args):
     # parser.add_argument("GENOME", help="Genome to be evalutated in fasta format")
     # parser.add_argument("-t", "--threads", default=64, type=int, help="flanking distance default (1000)")
     # args = parser.parse_args()
-    import sys
-    func_name = sys._getframe().f_code.co_name
-    func_doc = locals()[func_name].__doc__
+
     p = argparse.ArgumentParser(prog=func_name, usage=func_doc)
-    p.add_argument("subreads", help="subreads bams from Isoseq", nargs='+')
-    p.add_argument("-d", "--workdir", help="Name of working directory")
-    p.add_argument("-o", "--output", help="Output file name")
+    position_arg = []
+    keyword_arg = {}
+    number_args = 1
+    import sys
+    import inspect
+    # 下面两行命令用于在函数内部得到函数的名称和文档
+    # func_name = sys._getframe().f_code.co_name
+    # func_doc = sys._getframe().f_code.co_consts[0]
+    # 下面命令用于把字符串的函数名称转换成对象
+    object_pointer = getattr(sys.modules[__name__], 'isoseq')
+    # 下面的两个命令用于从函数对象中调取形参的名字和默认值（空值用Nonetype表示），用来转换成parse_args
+    for kw, kw_defaults in zip(inspect.getfullargspec(object_pointer).args,
+                               inspect.getfullargspec(object_pointer).defaults):
+        if (kw_defaults == None):
+            position_arg.append(kw)
+        else:
+            keyword_arg[kw] = kw_defaults
+    if (len(position_arg) == 1):
+        # If only one input arg is needed for the function, allow multiple files as input
+        number_args = '+'
+    for k in position_arg:
+        p.add_argument(k, help=k, nargs=number_args)
+    for k, v in keyword_arg.items():
+        p.add_argument("--" + k, default=v)
 
     p.parse_args(args)
 
-    subreads_files = p.subreads
-    isoseq_(subreads_files)
+#Results for storing arguments after running parse_args
+    position_result = []
+    keyword_result = {}
 
+    for k in keyword_result:
+        keyword_result.update(getattr(p, k))
+
+    for k in position_arg:
+        position_result.append(getattr(p, k))
+
+    object_pointer(**position_result, **keyword_result)
+
+    # if(number_args == 1):
+    #     position_result = getattr(p, position_arg[0])
+    #     object_pointer(**position_result, **keyword_result)
+    # else:
+    #     for k in position_arg:
+    #         position_result.append(getattr(p, k))
+    # object_pointer(p.__dict__)
 
 def minimap_rna(transcript, genome, threads=30, output=''):
     if (output == ''):
