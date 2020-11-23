@@ -50,8 +50,8 @@ isoseq3 summarize polished_total.bam summary.csv
 
 
 def isoseq_(subreads=None, workdir=''):
-    """
-    %prog isoseq subreads.fasta
+    r"""
+    isoseq subreads.fasta
 
     Wrapper for `isoseq`
     """
