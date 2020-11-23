@@ -106,20 +106,17 @@ def isoseq(args):
     for k, v in keyword_arg.items():
         p.add_argument("--" + k, default=v)
 
-    p.parse_args(args)
-
-    print(dir(p))
-    print(p.subreads)
+    real_arg = p.parse_args(args)
 
 #Results for storing arguments after running parse_args
     position_result = []
     keyword_result = {}
 
     for k in keyword_result:
-        keyword_result.update(getattr(p, k))
+        keyword_result.update(getattr(real_arg, k))
 
     for k in position_arg:
-        position_result.append(getattr(p, k))
+        position_result.append(getattr(real_arg, k))
 
     object_pointer(**position_result, **keyword_result)
 
