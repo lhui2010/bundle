@@ -108,6 +108,9 @@ def isoseq(args):
 
     p.parse_args(args)
 
+    print(dir(p))
+    print(p.subreads)
+
 #Results for storing arguments after running parse_args
     position_result = []
     keyword_result = {}
