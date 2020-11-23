@@ -62,6 +62,7 @@ def sh(cmd):
 
 conda_act = r"""
 export PS1="(base) \[\033]2;\h:\u $PWD\007\033[33;1m\]\u@\h \033[35;1m\t\n\033[0m\[\033[36;1m\]$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
+export _CONDA_PYTHON_SYSCONFIGDATA_NAME_USED="_sysconfigdata_x86_64_conda_cos6_linux_gnu"
 source ~/lh/anaconda3/etc/profile.d/conda.sh
 conda activate {}
 """
