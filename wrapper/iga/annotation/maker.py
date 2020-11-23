@@ -2,6 +2,8 @@
 maker relevant utils
 """
 import argparse
+from optparse import OptionParser
+
 from iga.apps.base import ActionDispatcher, sh, conda_act
 
 # def sam2gff(sam, gff=""):
@@ -46,11 +48,39 @@ isoseq3 summarize polished_total.bam summary.csv
 """
 
 
-def isoseq(subreads, workdir=''):
+def isoseq_(subreads, workdir=''):
+    if(type(subreads) == list):
+        subreads = " ".join(subreads)
     if (workdir == ''):
         workdir = "workdir_isoseq_" + subreads.split()[0]
     cmd = conda_act.format('isoseq3') + isoseq_sh.format(subreads, workdir)
     sh(cmd)
+
+def isoseq(args):
+    """
+    %prog isoseq subreads.fasta
+
+    Wrapper for `isoseq`
+    """
+    # parser = argparse.ArgumentParser(
+    #     prog=prog_name,
+    #     formatter_class=argparse.RawDescriptionHelpFormatter,
+    #     description=textwrap.dedent(usage),
+    #     epilog="")
+    # parser.add_argument("GENOME", help="Genome to be evalutated in fasta format")
+    # parser.add_argument("-t", "--threads", default=64, type=int, help="flanking distance default (1000)")
+    # args = parser.parse_args()
+    import sys
+    func_name = sys._getframe().f_code.co_name
+    p = argparse.ArgumentParser(prog=func_name, usage=__doc__)
+    p.add_argument("subreads", help="subreads bams from Isoseq", nargs='+')
+    p.add_argument("-d", "--workdir", help="Name of working directory")
+    p.add_argument("-o", "--output", help="Output file name")
+
+    p.parse_args(args)
+
+    subreads_files = p.subreads
+    isoseq_(subreads_files)
 
 
 def minimap_rna(transcript, genome, threads=30, output=''):
