@@ -74,7 +74,6 @@ fastq2gff_sh = """
 minimap2 -t20 -C5 -ax splice {0} {1} |samtools view -F 256 -b - \
 | bedtools bamtobed -split -i - > {1}.bed 
 gt bed_to_gff3 {1}.bed | sort -k9,9 -k1,1 -k7,7 -k4,4n > {1}.rawgff
-python add_match.py ${i}.rawgff > {1}.gff 2> {1}.intron_error
 """
 
 
@@ -85,8 +84,8 @@ def fastq2gff(fastq=None, genome=None, workdir=''):
     """
     # fastq = fastq)
     # genome = str(genome)
-    print(fastq)
-    print(genome)
+    logger.debug(fastq)
+    logger.debug(genome)
     if (workdir == ''):
         workdir = "workdir_fastq2gff_" + fastq
     cmd = conda_act.format('EDTA') + workdir_sh.format(workdir) + \
@@ -288,8 +287,8 @@ def emain(func_name, args):
     for k in position_arg:
         position_result.append(getattr(real_arg, k)[0])
 
-    print(position_result)
-    print(keyword_result)
+    logger.debug(position_result)
+    logger.debug(keyword_result)
     object_pointer(*position_result, **keyword_result)
 
     # if(number_args == 1):
