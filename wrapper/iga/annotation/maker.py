@@ -54,7 +54,7 @@ isoseq3 summarize polished_total.bam summary.csv
 """
 
 
-def isoseq_(subreads=None, workdir=''):
+def isoseq(subreads=None, workdir=''):
     r"""
     isoseq subreads.fasta
 
@@ -326,11 +326,13 @@ def main():
     actions = ['isoseq', 'fastq2gff']
     if(sys.argv[1] in actions):
         action = sys.argv[1]
-    if(len(sys.argv) > 2):
-        args = sys.argv[2:]
+        if(len(sys.argv) > 2):
+            args = sys.argv[2:]
+        else:
+            args = []
+        emain(action, args)
     else:
-        args = []
-    emain(action, args)
+        print('Possible actions:{}'.format('\n'.join(actions)))
     #p = ActionDispatcher(actions)
     #p.dispatch(globals())
 
