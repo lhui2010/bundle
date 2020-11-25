@@ -326,7 +326,7 @@ def main():
     actions = ['isoseq', 'fastq2gff']
     if(sys.argv[1] in actions):
         action = sys.argv[1]
-    if(len(sys.argv > 2)):
+    if(len(sys.argv) > 2):
         args = sys.argv[2:]
     else:
         args = []
