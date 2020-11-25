@@ -319,10 +319,11 @@ def liftover():
 def main():
     """
     """
-    actions = (
-        ('isoseq', 'extract isoseq flnc reads from subreads.bam')
-        ('fastq2gff', 'map fastq to reference genome and get gff files'),
-    )
+    # actions = (
+    #     ('isoseq', 'extract isoseq flnc reads from subreads.bam')
+    #     ('fastq2gff', 'map fastq to reference genome and get gff files'),
+    # )
+    actions = ['isoseq', 'fastq2gff']
     if(sys.argv[1] in actions):
         action = sys.argv[1]
     if(len(sys.argv > 2)):
