@@ -6,7 +6,7 @@ import re
 import sys
 from collections import defaultdict
 from parse import parse
-#from optparse import OptionParser
+# from optparse import OptionParser
 
 from iga.apps.base import ActionDispatcher, sh, conda_act, workdir_sh, logger
 
@@ -39,26 +39,61 @@ blastn -num_threads 32 -query ccs.fa -db primer.fa -outfmt 7 -word_size 5 > mapp
 classify_by_primer -blastm7 mapped.m7 -ccsfa ccs.fa -umilen 8 -min_primerlen 16 -min_isolen 200 -outdir ./
 flnc2sam ccs.sam isoseq_flnc.fasta > isoseq_flnc.sam
 samtools view -bS isoseq_flnc.sam > isoseq_flnc.bam
-isoseq3 cluster isoseq_flnc.bam unpolished.bam --split-bam 10
-pbindex subreads.bam
-for i in `seq 0 9`
-do
-    isoseq3 polish unpolished.${{i}}.bam ${{ROOT}}/input/*.subreads.bam polished.${{i}}.bam --verbose &
-done
-wait
-samtools merge -@ 20 polished_total.bam polished.*.bam
-isoseq3 summarize polished_total.bam summary.csv
-
+isoseq3 cluster isoseq_flnc.bam unpolished.bam --verbose --use-qvs
+#isoseq3 cluster isoseq_flnc.bam unpolished.bam --split-bam 10
+# pbindex subreads.bam
+# for i in `seq 0 9`
+# do
+#     isoseq3 polish unpolished.${{i}}.bam ${{ROOT}}/input/*.subreads.bam polished.${{i}}.bam --verbose &
+# done
+# wait
+# samtools merge -@ 20 polished_total.bam polished.*.bam
+# isoseq3 summarize polished_total.bam summary.csv
 # Result is polished_total.bam.fastq 
-
 """
 
 
+# TODO: allow multiple subreads input
 def isoseq(subreads=None, workdir=''):
     r"""
     isoseq subreads.fasta
 
     Wrapper for `isoseq`
+    """
+    if (type(subreads) == list):
+        subreads = " ".join(subreads)
+    if (workdir == ''):
+        workdir = "workdir_isoseq_" + subreads.split()[0]
+    cmd = conda_act.format('isoseq3') + isoseq_sh.format(subreads, workdir)
+    sh(cmd)
+
+
+# 0 workdir
+# 1 subreads.bam
+# 2 primer.fa
+isoseq_pb_sh = r"""mkdir -p {0}
+cd {0}
+ln -s ../{1}
+ln -s ../{2}
+ccs {1} {1}.ccs.bam --min-rq 0.9
+#lima is used to remove primer sequence
+#but can it be used to identify reads containing primer sequence as full length reads?
+lima {1}.ccs.bam {2} {1}.fl.bam --isoseq  --peek-guess
+#flnc equals full-length, non-concatemer
+INPUTBAM={1}
+PRIMER={2}
+isoseq3 refine ${{INPUTBAM%.bam}}.fl.*.bam ${{PRIMER}} ${{INPUTBAM%.bam}}.flnc.bam --require-polya
+isoseq3 cluster ${{INPUTBAM%.bam}}.flnc.bam ${{INPUTBAM%.bam}}.clustered.bam --verbose --use-qvs
+"""
+
+
+# TODO: allow multiple subreads input
+def isoseq_pb(subreads=None, workdir=''):
+    r"""
+    convert Isoseq(pacbio standard) subreads.bam to flnc.fastq
+    :param subreads:
+    :param workdir:
+    :return:
     """
     if (type(subreads) == list):
         subreads = " ".join(subreads)
@@ -86,10 +121,10 @@ def fastq2gff(fastq=None, genome=None, workdir=''):
     # genome = str(genome)
     logger.debug(fastq)
     logger.debug(genome)
-#    if (workdir == ''):
-#        workdir = "workdir_fastq2gff_" + fastq
-    #workdir_sh.format(workdir) +
-    cmd = conda_act.format('EDTA') +  \
+    #    if (workdir == ''):
+    #        workdir = "workdir_fastq2gff_" + fastq
+    # workdir_sh.format(workdir) +
+    cmd = conda_act.format('EDTA') + \
           fastq2gff_sh.format(genome, fastq)
     sh(cmd)
     rawgff = fastq + '.rawgff'
@@ -186,7 +221,7 @@ def format_gt_gff_to_maker_gff(gff=None):
                     [match_chr, match_type, source, match_start, match_end, match_score, match_strand, match_phase,
                      match_feat])
                 last_lines.insert(0, match_line)
-                #print("\n".join(last_lines))
+                # print("\n".join(last_lines))
                 output_buff += "\n".join(last_lines) + "\n"
                 # Initialize
                 count = 0
@@ -224,21 +259,19 @@ def format_gt_gff_to_maker_gff(gff=None):
                 [match_chr, match_type, source, match_start, match_end, match_score, match_strand, match_phase,
                  match_feat])
             last_lines.insert(0, match_line)
-            #print("\n".join(last_lines))
+            # print("\n".join(last_lines))
             output_buff += "\n".join(last_lines) + "\n"
     with open(output_file, 'w') as fh:
         fh.write(output_buff)
     return output_file
 
 
+def str_to_class(str1):
+    return getattr(sys.modules[__name__], str1)
 
 
-def str_to_class(str):
-    return getattr(sys.modules[__name__], str)
-
-
-#TODO: use it in the main
-def emain(func_name, args):
+# TODO: use it in the main
+def fmain(func_name, args):
     # parser = argparse.ArgumentParser(
     #     prog=prog_name,
     #     formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -258,7 +291,7 @@ def emain(func_name, args):
     # func_name = sys._getframe().f_code.co_name
     # func_doc = sys._getframe().f_code.co_consts[0]
     # 下面命令用于把字符串的函数名称转换成对象
-    #func_name = 'isoseq_'
+    # func_name = 'isoseq_'
     object_pointer = getattr(sys.modules[__name__], func_name)
     p = argparse.ArgumentParser(prog=func_name, usage=object_pointer.__doc__)
     # 下面的两个命令用于从函数对象中调取形参的名字和默认值（空值用Nonetype表示），用来转换成parse_args
@@ -329,18 +362,18 @@ def main():
     #     ('isoseq', 'extract isoseq flnc reads from subreads.bam')
     #     ('fastq2gff', 'map fastq to reference genome and get gff files'),
     # )
-    actions = ['isoseq', 'fastq2gff']
-    if(len(sys.argv) > 1 and sys.argv[1] in actions):
+    actions = ['isoseq', 'fastq2gff', 'isoseq_pb']
+    if (len(sys.argv) > 1 and sys.argv[1] in actions):
         action = sys.argv[1]
-        if(len(sys.argv) > 2):
+        if (len(sys.argv) > 2):
             args = sys.argv[2:]
         else:
             args = []
-        emain(action, args)
+        fmain(action, args)
     else:
         print('Possible actions:\n{}'.format('\n'.join(actions)))
-    #p = ActionDispatcher(actions)
-    #p.dispatch(globals())
+    # p = ActionDispatcher(actions)
+    # p.dispatch(globals())
 
     # print(__file__)
     # print(__doc__)

@@ -11,6 +11,9 @@ import subprocess
 #Support tag value change
 from iga.apps.base import conda_act
 
+#0 contig
+#1 bam
+#2 threads
 gcpp_sh="""
 set -euxo pipefail
 pbmm2 align --sort  {0} {1} {0}.bam
