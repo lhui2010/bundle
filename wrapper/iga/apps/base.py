@@ -65,8 +65,8 @@ conda activate {}
 """
 
 workdir_sh = r"""
-mkdir -p {}
-cd {}
+mkdir -p {0}
+cd {0}
 """
 
 
