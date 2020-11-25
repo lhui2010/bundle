@@ -324,7 +324,7 @@ def main():
     #     ('fastq2gff', 'map fastq to reference genome and get gff files'),
     # )
     actions = ['isoseq', 'fastq2gff']
-    if(sys.argv[1] in actions):
+    if(len(sys.argv) > 1 and sys.argv[1] in actions):
         action = sys.argv[1]
         if(len(sys.argv) > 2):
             args = sys.argv[2:]
@@ -332,7 +332,7 @@ def main():
             args = []
         emain(action, args)
     else:
-        print('Possible actions:{}'.format('\n'.join(actions)))
+        print('Possible actions:\n{}'.format('\n'.join(actions)))
     #p = ActionDispatcher(actions)
     #p.dispatch(globals())
 
