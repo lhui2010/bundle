@@ -107,10 +107,10 @@ alias big='ssh fat01'
 #alias qs='qsub  -V -b y -N output -cwd -l h_vmem=1G'
 alias qs='qsub  -V -b y -N output -cwd '
 alias ql='qstat -u "*" -f'
-alias bsub512='bsub -q Q104C512G_X4  -o output.%J -e error.%J'
-alias bsub1T='bsub -q Q64C1T_X4  -o output.%J -e error.%J'
-alias bsub2T='bsub -q Q48C2T_X1  -o output.%J -e error.%J'
-alias bsub3T='bsub -q Q64C3T_X1  -o output.%J -e error.%J'
+alias bsub512='bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J'
+alias bsub1T='bsub   -R "span[hosts=1]" -q Q64C1T_X4  -o output.%J -e error.%J'
+alias bsub2T='bsub   -R "span[hosts=1]" -q Q48C2T_X1  -o output.%J -e error.%J'
+alias bsub3T='bsub   -R "span[hosts=1]" -q Q64C3T_X1  -o output.%J -e error.%J'
 alias bsubI='bsub -q Q104C512G_X4  -Ip bash'
 alias bsubI1T='bsub -q Q64C1T_X4 -Ip bash'
 
@@ -123,7 +123,7 @@ alias newbsub='echo  "#!/bin/bash
 
 set -euxo pipefail 
 
-ROOT=$PWD"'
+ROOT=\$PWD"'
 
 body() {
     IFS= read -r header

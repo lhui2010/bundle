@@ -70,6 +70,8 @@ bwa mem consensus.fasta -t 40 read1.gz >bwa.sam 2>bwa.err
 samtools view -hbS xx.sam >ss.bam
 samtools mpileup -uvf M445.chr.fa M441_sequences_to_M445_genome.bam  >tmp.vcf
 samtools tview -d T -p chr01:2473903 subset.bam
+samtools view ccs.bam | awk '{print ">"$1"\n"$10}' > ccs.fa
+
 
 #### Get unmapped
 samtools view -f 4 falcon_v340.fasta.bam |head -4000 |sam2fq.pl  |fq2fa.pl - >unmapped.fa
