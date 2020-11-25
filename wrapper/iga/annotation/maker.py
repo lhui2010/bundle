@@ -288,8 +288,8 @@ def emain(func_name, args):
     for k in position_arg:
         position_result.append(getattr(real_arg, k)[0])
 
-    #print(*position_result)
-    #print(**keyword_result)
+    print(position_result)
+    print(keyword_result)
     object_pointer(*position_result, **keyword_result)
 
     # if(number_args == 1):
