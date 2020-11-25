@@ -25,7 +25,7 @@ rm {0}.bam
 def gcpp(ctg_file, bam_file, threads=20):
 #assembly, subreads
 
-    cmd = conda_act + gcpp_sh.format(ctg_file, bam_file, threads)
+    cmd = conda_act.format('falcon') + gcpp_sh.format(ctg_file, bam_file, threads)
 #    cmd = conda_act 
     subprocess.run(cmd, shell = True)
 
