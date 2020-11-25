@@ -87,7 +87,7 @@ def fastq2gff(fastq=None, genome=None, workdir=''):
     fastq = str(fastq)
     genome = str(genome)
     if (workdir == ''):
-        workdir = "workdir_isoseq_" + fastq
+        workdir = "workdir_fastq2gff_" + fastq
     cmd = conda_act.format('EDTA') + workdir_sh.format(workdir) + \
           fastq2gff_sh.format(genome, fastq)
     sh(cmd)
