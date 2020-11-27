@@ -306,6 +306,7 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     #   chunk.1/1.fa
     #   chunk.2/2.fa
     fa_list = split_fasta(genome, workdir, 100)
+    logger.debug(fa_list)
     # change estgff file name in to absolute path
     abspath_list([estgff, pepgff, rmgff])
     # Preparing cfg files
