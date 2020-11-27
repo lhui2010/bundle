@@ -33,6 +33,15 @@ coloredlogs.install(level='DEBUG', logger=logger)
 # logger.error("this is an error message")
 # logger.critical("this is a critical message")
 
+def mv(oldfile, new_file):
+    """
+    gnu move, support mv file into directory/
+    :param oldfile:
+    :param new_file:
+    :return:
+    """
+    return sh('mv {0} {1}'.format(oldfile, new_file))
+
 def mkdir(dirname, overwrite=False):
     """
     Wraps around os.mkdir(), but checks for existence first.

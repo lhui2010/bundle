@@ -10,7 +10,8 @@ import os.path as op
 
 from parse import parse
 
-from iga.apps.base import ActionDispatcher, sh, conda_act, workdir_sh, logger, Config, abspath_list, split_fasta
+from iga.apps.base import ActionDispatcher, sh, conda_act, workdir_sh, logger, Config, abspath_list, split_fasta, mkdir, \
+    mv
 
 # def sam2gff(sam, gff=""):
 #
@@ -306,6 +307,8 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     #   chunk.1/1.fa
     #   chunk.2/2.fa
     fa_list = split_fasta(genome, workdir, 100)
+    #default returned a string with file names, changing it into list type
+    fa_list = fa_list.split()
     logger.debug(fa_list)
     # change estgff file name in to absolute path
     abspath_list([estgff, pepgff, rmgff])
@@ -320,9 +323,12 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     cfg_exe = Config('maker_exe')
     cfg_bopts = Config('maker_bopts')
     for i in fa_list:
-        workdir = os.path.dirname(i)
-        fasta = i
-        cfg.update('genome={}'.format(fasta))
+        fa_name = op.basename(i)
+        workdir = i + '.run/'
+        mkdir(workdir)
+        mv(i, workdir)
+        #fasta = op.join(workdir, fa_name)
+        cfg.update('genome={}'.format(fa_name))
         cfg.write_to_file(op.join(workdir, "maker_opts.ctl"))
         cfg_exe.write_to_file(op.join(workdir, 'maker_exe.ctl'))
         cfg_bopts.write_to_file(op.join(workdir, 'maker_bopts.ctl'))
