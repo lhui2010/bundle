@@ -399,7 +399,7 @@ cd {}
 #000041F|arrow_np1212    9_datastore/6C/BE/000041F%7Carrow_np1212/       FINISHED
 for i in `*.fa.run/`;
 do
-    j=${{i%.fa.run}}
+    j=${{i%.fa.run/}}
     cat ${{i}}/${{j}}.maker.output/${{j}}_master_datastore_index.log |sed "s/\t/\t${{i}}\/${{j}}.maker.output\//" >>total_master_datastore_index.log
 done
 
