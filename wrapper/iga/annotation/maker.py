@@ -312,7 +312,6 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     #logger.debug(fa_list)
     # change estgff file name in to absolute path
     #logger.warning(os.getcwd())
-    fa_list = abspath_list(fa_list)
     [estgff, pepgff, rmgff] = abspath_list([estgff, pepgff, rmgff])
 #    logger.warning([estgff, pepgff, rmgff])
     # Preparing cfg files
@@ -325,6 +324,7 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     #
     # get abs path of all fasta files
     os.chdir(workdir)
+    fa_list = abspath_list(fa_list)
     #abspath_list(fa_list)
     #job list for storing submitted job IDs
     job_list = []
