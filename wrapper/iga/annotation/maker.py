@@ -268,17 +268,17 @@ def format_gt_gff_to_maker_gff(gff=None):
     return output_file
 
 
-#environment for maker
+# environment for maker
 maker_env_sh = r"""
 ZOE_HMM_DIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
 
 """
 
-#0 workdir
-#1 prev_round
-#2 current_round
-#3 cfg_file
-#4 cfg
+# 0 workdir
+# 1 prev_round
+# 2 current_round
+# 3 cfg_file
+# 4 cfg
 
 maker_round1_sh = r"""
 cd {}
@@ -301,20 +301,20 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     workdir = ''
     if (species == ''):
         workdir = genome + '_R' + round
-    #Split genome and placing into working directory like:
-    #coriaria_round1:
+    # Split genome and placing into working directory like:
+    # coriaria_round1:
     #   chunk.1/1.fa
     #   chunk.2/2.fa
     fa_list = split_fasta(genome, workdir, 100)
-    #change estgff file name in to absolute path
+    # change estgff file name in to absolute path
     abspath_list([estgff, pepgff, rmgff])
-    #Preparing cfg files
+    # Preparing cfg files
     cfg = Config('maker')
     cfg.update('est_gff={};pep_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
     if (round == 1):
         cfg.update('est2genome=1;protein2genome=1')
-#
-    #get abs path of all fasta files
+    #
+    # get abs path of all fasta files
     abspath_list(fa_list)
     cfg_exe = Config('maker_exe')
     cfg_bopts = Config('maker_bopts')
@@ -326,10 +326,11 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
         cfg_exe.write_to_file(op.join(workdir, 'maker_exe.ctl'))
         cfg_bopts.write_to_file(op.join(workdir, 'maker_bopts.ctl'))
         cmd = maker_round1_sh.format(workdir, cfg)
-        sh(cmd) # or bsub(cmd)
+        sh(cmd)  # or bsub(cmd)
 
 
 def collect_maker(workdir=None):
+    pass
 
 
 def str_to_class(str1):
