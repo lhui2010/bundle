@@ -350,8 +350,43 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     logger.warning("Submmited job finished, check log files to make sure they really finished")
 
 
+def check_maker(workdir=None):
+    """
+    check whether all partitions finished
+    :param workdir:
+    :return:
+    """
+    subdir = os.listdir(workdir)
+    error_list = []
+    unfinished_list = []
+
+    for sd in subdir:
+        if('run' in sd):
+            maker_log = op.join(workdir, sd, 'maker.err')
+            maker_log_buff = ''
+            fail_mark = 1
+            try:
+                with open(maker_log) as fh:
+                    maker_log_buff = fh.read()
+                if ('Maker is now finished!!!' in maker_log_buff):
+                    if(not 'ERROR' in maker_log_buff and not 'Fail' in maker_log_buff):
+                        pass
+                    else:
+                        error_list.append(sd)
+                else:
+                    unfinished_list.append(sd)
+            except FileNotFoundError:
+                logger.error("Can't find maker error log for {}".format(sd))
+                unfinished_list.append(sd)
+    logger.warning("Unfinished chunks are:")
+    [logger.warning(l) for l in unfinished_list]
+    logger.warning("Chunks with errors are:")
+    [logger.warning(l) for l in error_list]
+    return error_list + unfinished_list
+
 
 def collect_maker(workdir=None):
+    """"""
     pass
 
 
