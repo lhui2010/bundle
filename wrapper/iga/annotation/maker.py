@@ -309,12 +309,12 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     #   chunk.2/2.fa
     fa_list = split_fasta(genome, workdir, 100)
     #default returned a string with file names, changing it into list type
-    fa_list = fa_list.split()
-    logger.debug(fa_list)
+    #logger.debug(fa_list)
     # change estgff file name in to absolute path
-    logger.warning(os.getcwd())
+    #logger.warning(os.getcwd())
+    fa_list = abspath_list(fa_list)
     [estgff, pepgff, rmgff] = abspath_list([estgff, pepgff, rmgff])
-    logger.warning([estgff, pepgff, rmgff])
+#    logger.warning([estgff, pepgff, rmgff])
     # Preparing cfg files
     cfg_exe = Config('maker_exe')
     cfg_bopts = Config('maker_bopts')
@@ -339,6 +339,7 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
         cfg_exe.write_to_file(op.join(workdir_sep, 'maker_exe.ctl'))
         cfg_bopts.write_to_file(op.join(workdir_sep, 'maker_bopts.ctl'))
         cmd = maker_round1_sh.format(workdir_sep, cfg)
+        #sh(cmd)
         job_id = bsub(cmd)
         job_list.append(job_id)
 

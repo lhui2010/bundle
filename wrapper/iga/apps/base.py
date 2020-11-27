@@ -66,7 +66,7 @@ def mkdir(dirname, overwrite=False):
 
 def split_fasta(fasta, workdir, chunk=100):
     file_list = sh('split_fastav3.pl {0} {2} && mv {0}._ {1}'.format(
-        fasta, workdir, str(chunk)))
+        fasta, workdir, str(chunk))).split()
     return file_list
 
 
