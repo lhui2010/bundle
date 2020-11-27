@@ -309,12 +309,12 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     #   chunk.1/1.fa
     #   chunk.2/2.fa
     fa_list = split_fasta(genome, workdir, 100)
-    #default returned a string with file names, changing it into list type
-    #logger.debug(fa_list)
+    # default returned a string with file names, changing it into list type
+    # logger.debug(fa_list)
     # change estgff file name in to absolute path
-    #logger.warning(os.getcwd())
+    # logger.warning(os.getcwd())
     [estgff, pepgff, rmgff] = abspath_list([estgff, pepgff, rmgff])
-#    logger.warning([estgff, pepgff, rmgff])
+    #    logger.warning([estgff, pepgff, rmgff])
     # Preparing cfg files
     cfg_exe = Config('maker_exe')
     cfg_bopts = Config('maker_bopts')
@@ -326,21 +326,21 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     # get abs path of all fasta files
     os.chdir(workdir)
     fa_list = abspath_list(fa_list)
-    #abspath_list(fa_list)
-    #job list for storing submitted job IDs
+    # abspath_list(fa_list)
+    # job list for storing submitted job IDs
     job_list = []
     for i in fa_list:
         fa_name = op.basename(i)
         workdir_sep = i + '.run/'
         mkdir(workdir_sep)
         mv(i, workdir_sep)
-        #fasta = op.join(workdir, fa_name)
+        # fasta = op.join(workdir, fa_name)
         cfg.update('genome={}'.format(fa_name))
         cfg.write_to_file(op.join(workdir_sep, "maker_opts.ctl"))
         cfg_exe.write_to_file(op.join(workdir_sep, 'maker_exe.ctl'))
         cfg_bopts.write_to_file(op.join(workdir_sep, 'maker_bopts.ctl'))
         cmd = maker_round1_sh.format(workdir_sep, cfg)
-        #sh(cmd)
+        # sh(cmd)
         job_id = bsub(cmd)
         job_list.append(job_id)
 
@@ -361,7 +361,7 @@ def check_maker(workdir=None):
     unfinished_list = []
 
     for sd in subdir:
-        if('run' in sd):
+        if ('run' in sd):
             maker_log = op.join(workdir, sd, 'maker.err')
             maker_log_buff = ''
             fail_mark = 1
@@ -369,7 +369,7 @@ def check_maker(workdir=None):
                 with open(maker_log) as fh:
                     maker_log_buff = fh.read()
                 if ('Maker is now finished!!!' in maker_log_buff):
-                    if(not 'ERROR' in maker_log_buff and not 'Fail' in maker_log_buff):
+                    if (not 'ERROR' in maker_log_buff and not 'Fail' in maker_log_buff):
                         pass
                     else:
                         error_list.append(sd)
@@ -385,9 +385,37 @@ def check_maker(workdir=None):
     return error_list + unfinished_list
 
 
+# 0 working directory
+collect_maker_sh = r"""
+cd {}
+#9.fa.run/9.maker.output/9_master_datastore_index.log
+#000041F|arrow_np1212    9_datastore/6C/BE/000041F%7Carrow_np1212/       STARTED
+#000041F|arrow_np1212    9_datastore/6C/BE/000041F%7Carrow_np1212/       FINISHED
+for i in `*.fa.run/`;
+do
+    j=${{i%.fa.run}}
+    cat ${{i}}/${{j}}.maker.output/${{j}}_master_datastore_index.log |sed "s/\t/\t${{i}}\/${{j}}.maker.output\//" >>total_master_datastore_index.log
+done
+
+#b. Merge fasta
+fasta_merge -d total_master_datastore_index.log
+gff3_merge -o genome.all.gff -d total_master_datastore_index.log
+gff3_merge -n -o genome.all.noseq.gff -d total_master_datastore_index.log
+
+echo "Merge completed succefully:"
+date"""
+
+
 def collect_maker(workdir=None):
-    """"""
-    pass
+    """
+    Collect maker result from a paralleled run in workdir
+    :param workdir:
+    :return:
+    """
+    cmd = collect_maker_sh.format(workdir)
+    res = sh(cmd)
+    logger.warning(res)
+    return 0
 
 
 def str_to_class(str1):
@@ -445,8 +473,9 @@ def fmain(func_name, args):
     for k in position_arg:
         position_result.append(getattr(real_arg, k)[0])
 
-    logger.debug(position_result)
-    logger.debug(keyword_result)
+    # used to debug
+    # logger.debug(position_result)
+    # logger.debug(keyword_result)
     object_pointer(*position_result, **keyword_result)
 
     # if(number_args == 1):
@@ -492,7 +521,7 @@ def main():
     for f in functions_list:
         if (f[1].__module__ == "__main__"):
             actions.append(f[0])
-    #actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
+    # actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
     if (len(sys.argv) > 1 and sys.argv[1] in actions):
         action = sys.argv[1]
         if (len(sys.argv) > 2):
@@ -501,7 +530,7 @@ def main():
             args = []
         fmain(action, args)
     else:
-        print('Possible actions:\n{}'.format('\n\t\t'.join(actions)))
+        print('Possible actions:\n\t{}'.format('\n\t\t'.join(actions)))
     # p = ActionDispatcher(actions)
     # p.dispatch(globals())
 
