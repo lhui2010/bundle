@@ -73,5 +73,6 @@ for my $k (sort keys %seq)
         print OUT $seq{$k};
         close OUT;
     }
-    print "$dir_name/$k.fa ";
+    #print "$dir_name/$k.fa ";
+    print "$k.fa ";
 }
