@@ -378,10 +378,16 @@ def check_maker(workdir=None):
             except FileNotFoundError:
                 logger.error("Can't find maker error log for {}".format(sd))
                 unfinished_list.append(sd)
-    logger.warning("Unfinished chunks are:")
-    [logger.warning(l) for l in unfinished_list]
-    logger.warning("Chunks with errors are:")
-    [logger.warning(l) for l in error_list]
+    if(len(unfinished_list) + len(error_list) == 0):
+        logger.warning("Cheers! All finished without errors!")
+    else:
+        if(len(unfinished_list)>0):
+            logger.warning("Unfinished chunks are:")
+            [logger.warning(l) for l in unfinished_list]
+        if(len(error_list) > 0):
+            logger.warning("Chunks with errors are:")
+            [logger.warning(l) for l in error_list]
+
     return error_list + unfinished_list
 
 
