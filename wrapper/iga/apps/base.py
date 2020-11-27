@@ -8,17 +8,17 @@ import subprocess
 from parse import *
 import re
 from collections import defaultdict
-# import base
 import iga.apps.cfg
 import coloredlogs, logging
 import os.path as op
 import six
 import sys
 
-from jcvi.utils.natsort import natsorted
+from iga.apps import cfg
+from iga.utils.natsort import natsorted
 
 """
-The basic library for iga, some of the functions are from jcvi
+The basic library for iga, some of the functions are adapted from jcvi
 """
 
 # Create a logger object.
@@ -54,10 +54,32 @@ def mkdir(dirname, overwrite=False):
     return True
 
 
-def sh(cmd):
+def split_fasta(fasta, workdir, chunk=100):
+    file_list = sh('split_fastav3.pl {0} {2} && mv {0}._ {1}').format(
+        fasta, workdir, chunk)
+    return file_list
+
+def sh(cmd, debug=False):
+    """
+    run command directly with subprocess.run
+    :param cmd:
+    :return:
+    """
     logger.info(cmd)
     prior_cmd = 'set -eo pipefail\n'
-    subprocess.run(prior_cmd + cmd, shell=True)
+    if(debug == False):
+        subprocess.run(prior_cmd + cmd, shell=True)
+
+def bsub(cmd, queue='Q104C512G_X4'):
+    """
+    submit jobs via bsub
+    :param cmd:
+    :return:
+    """
+    logger.info(cmd)
+    bsub_cmd = 'bsub -q {}  -o output.%J -e error.%J '.format(queue)
+    prior_cmd = 'set -eo pipefail\n'
+    subprocess.run(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True)
 
 conda_act = r"""
 source ~/lh/anaconda3/etc/profile.d/conda.sh
@@ -210,6 +232,7 @@ def glob(pathname, pattern=None):
 class DictDb():
     """
     The data structure for storing ctf files
+    Could be understand as a sub class of Config class
     """
 
     def __init__(self):
@@ -274,7 +297,10 @@ class Config():
     def load(self, cfg_type='falcon', seperator='='):
         try:
             self.content = cfg.cfg[cfg_type]
-            self.seperator = cfg.seperator[cfg_type]
+            if cfg_type in cfg.seperator:
+                self.seperator = cfg.seperator[cfg_type]
+            else:
+                self.seperator = seperator
         except KeyError as e:
             logger.error("Unknown type of cfg file: {}".format(cfg_type))
 
@@ -318,13 +344,21 @@ class Config():
                 (key, value) = parse('{}' + self.seperator + '{}', this_arg)
                 self.dictdb.change_val(key, value)
 
-    def gettext(self):
+    def get_text(self):
         return self.dictdb.get_dict_text(self.seperator)
+
+    def write_to_file(self, output_file):
+        with open(output_file, 'w') as fh:
+            fh.write(self.dictdb.get_dict_text(self.seperator))
 
     @staticmethod
     def get_fofn(file_list, fofn_file):
         pass
 
+
+def abspath_list(file_list):
+    for i, v in enumerate(file_list):
+        file_list[i] = op.abspath(v)
 
 def main():
     prog_name = "RunFalcon"

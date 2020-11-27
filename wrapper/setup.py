@@ -10,7 +10,7 @@ name = "iga"
 setup_dir = op.abspath(op.dirname(__file__))
 requirements = [x.strip() for x in open(op.join(setup_dir, "requirements.txt"))]
 packages = [name] + [
-    ".".join((name, x)) for x in find_packages("jcvi", exclude=["test*.py"])
+    ".".join((name, x)) for x in find_packages("iga", exclude=["test*.py"])
 ]
 
 setup(
