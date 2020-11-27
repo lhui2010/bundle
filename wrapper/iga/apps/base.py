@@ -55,8 +55,8 @@ def mkdir(dirname, overwrite=False):
 
 
 def split_fasta(fasta, workdir, chunk=100):
-    file_list = sh('split_fastav3.pl {0} {2} && mv {0}._ {1}').format(
-        fasta, workdir, chunk)
+    file_list = sh('split_fastav3.pl {0} {2} && mv {0}._ {1}'.format(
+        fasta, workdir, str(chunk)))
     return file_list
 
 def sh(cmd, debug=False):
@@ -65,10 +65,12 @@ def sh(cmd, debug=False):
     :param cmd:
     :return:
     """
+    ret = ''
     logger.info(cmd)
     prior_cmd = 'set -eo pipefail\n'
     if(debug == False):
-        subprocess.run(prior_cmd + cmd, shell=True)
+        ret = subprocess.check_output(prior_cmd + cmd, shell=True).decode()
+    return ret
 
 def bsub(cmd, queue='Q104C512G_X4'):
     """
