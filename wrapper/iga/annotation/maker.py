@@ -12,7 +12,7 @@ import os.path as op
 from parse import parse
 
 from iga.apps.base import ActionDispatcher, sh, conda_act, workdir_sh, logger, Config, abspath_list, split_fasta, mkdir, \
-    mv
+    mv, wait_until_finish, bsub
 
 # def sam2gff(sam, gff=""):
 #
@@ -342,8 +342,7 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
         job_id = bsub(cmd)
         job_list.append(job_id)
 
-    while check_job_status(job_list):
-        time.sleep(1)
+    wait_until_finish(job_list)
     logger.warning("Submmited job finished, check log files to make sure they really finished")
 
 
