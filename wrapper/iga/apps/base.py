@@ -42,6 +42,7 @@ def mv(oldfile, new_file):
     """
     return sh('mv {0} {1}'.format(oldfile, new_file))
 
+
 def mkdir(dirname, overwrite=False):
     """
     Wraps around os.mkdir(), but checks for existence first.
@@ -68,6 +69,7 @@ def split_fasta(fasta, workdir, chunk=100):
         fasta, workdir, str(chunk)))
     return file_list
 
+
 def sh(cmd, debug=False):
     """
     run command directly with subprocess.run
@@ -77,9 +79,10 @@ def sh(cmd, debug=False):
     ret = ''
     logger.info(cmd)
     prior_cmd = 'set -eo pipefail\n'
-    if(debug == False):
+    if (debug == False):
         ret = subprocess.check_output(prior_cmd + cmd, shell=True).decode()
     return ret
+
 
 def bsub(cmd, queue='Q104C512G_X4'):
     """
@@ -91,13 +94,44 @@ def bsub(cmd, queue='Q104C512G_X4'):
     prior_cmd = 'set -eo pipefail;'
     cmd_full = bsub_cmd + '"' + prior_cmd + cmd + '"'
     logger.info(cmd_full)
-    #ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
+    # ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
     ret = subprocess.check_output(cmd_full, shell=True).decode()
     try:
         job_id = parse('Job <{}> is submitted to queue <' + queue + '>.', ret.rstrip())[0]
     except TypeError:
         logger.error('submission failed for: {}'.format(cmd_full))
     return job_id
+
+
+def is_job_finished(joblist):
+    """
+    job list in submited jobs in list format
+    will check whether job is finished,
+    if finished return 1
+    else return 0
+    :param joblist:
+    :return:
+    """
+    for j in joblist:
+        status = sh("bjobs {}".j)
+        if re.match(r'{}  yitings DONE'.format(j), status) or \
+                re.match(r'Job <{}> is not found'.format(j), status):
+            continue
+        else:
+            return 0
+    return 1
+
+
+def wait_until_finish(joblist):
+    """
+    a while loop for check_job_status,
+    won't leave unless all jobs are finished
+    :param joblist:
+    :return:
+    """
+    while not is_job_finished(joblist):
+        time.sleep(10)
+    return 1
 
 conda_act = r"""
 source ~/lh/anaconda3/etc/profile.d/conda.sh
@@ -379,6 +413,7 @@ def abspath_list(file_list):
     for i, v in enumerate(file_list):
         file_list[i] = op.abspath(v)
     return file_list
+
 
 def main():
     prog_name = "RunFalcon"

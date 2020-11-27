@@ -5,6 +5,7 @@ import argparse
 import os
 import re
 import sys
+import time
 from collections import defaultdict
 import os.path as op
 
@@ -315,6 +316,8 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     [estgff, pepgff, rmgff] = abspath_list([estgff, pepgff, rmgff])
     logger.warning([estgff, pepgff, rmgff])
     # Preparing cfg files
+    cfg_exe = Config('maker_exe')
+    cfg_bopts = Config('maker_bopts')
     cfg = Config('maker')
     cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
     if (round == 1):
@@ -323,8 +326,8 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     # get abs path of all fasta files
     os.chdir(workdir)
     #abspath_list(fa_list)
-    cfg_exe = Config('maker_exe')
-    cfg_bopts = Config('maker_bopts')
+    #job list for storing submitted job IDs
+    job_list = []
     for i in fa_list:
         fa_name = op.basename(i)
         workdir_sep = i + '.run/'
@@ -336,7 +339,13 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
         cfg_exe.write_to_file(op.join(workdir_sep, 'maker_exe.ctl'))
         cfg_bopts.write_to_file(op.join(workdir_sep, 'maker_bopts.ctl'))
         cmd = maker_round1_sh.format(workdir_sep, cfg)
-        sh(cmd)  # or bsub(cmd)
+        job_id = bsub(cmd)
+        job_list.append(job_id)
+
+    while check_job_status(job_list):
+        time.sleep(1)
+    logger.warning("Submmited job finished, check log files to make sure they really finished")
+
 
 
 def collect_maker(workdir=None):
