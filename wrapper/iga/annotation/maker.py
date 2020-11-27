@@ -316,7 +316,7 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     logger.warning([estgff, pepgff, rmgff])
     # Preparing cfg files
     cfg = Config('maker')
-    cfg.update('est_gff={};pep_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
+    cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
     if (round == 1):
         cfg.update('est2genome=1;protein2genome=1')
     #
