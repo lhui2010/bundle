@@ -87,15 +87,17 @@ def bsub(cmd, queue='Q104C512G_X4'):
     :param cmd:
     :return:
     """
-    ret = ''
     bsub_cmd = 'bsub -q {}  -o output.%J -e error.%J '.format(queue)
     prior_cmd = 'set -eo pipefail;'
     cmd_full = bsub_cmd + '"' + prior_cmd + cmd + '"'
     logger.info(cmd_full)
     #ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
     ret = subprocess.check_output(cmd_full, shell=True).decode()
-    job_id = parse('Job <{}> is submitted to queue <' + queue + '>.', ret.rstrip())[0]
-    return ret + "\n" + job_id
+    try:
+        job_id = parse('Job <{}> is submitted to queue <' + queue + '>.', ret.rstrip())[0]
+    except TypeError:
+        logger.error('submission failed for: {}'.format(cmd_full))
+    return job_id
 
 conda_act = r"""
 source ~/lh/anaconda3/etc/profile.d/conda.sh
