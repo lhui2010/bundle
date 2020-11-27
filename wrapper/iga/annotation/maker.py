@@ -312,7 +312,7 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     logger.debug(fa_list)
     # change estgff file name in to absolute path
     logger.warning(os.getcwd())
-    abspath_list([estgff, pepgff, rmgff])
+    [estgff, pepgff, rmgff] = abspath_list([estgff, pepgff, rmgff])
     logger.warning([estgff, pepgff, rmgff])
     # Preparing cfg files
     cfg = Config('maker')

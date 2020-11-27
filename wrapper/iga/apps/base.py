@@ -371,6 +371,7 @@ class Config():
 def abspath_list(file_list):
     for i, v in enumerate(file_list):
         file_list[i] = op.abspath(v)
+    return file_list
 
 def main():
     prog_name = "RunFalcon"
