@@ -319,14 +319,15 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
         cfg.update('est2genome=1;protein2genome=1')
     #
     # get abs path of all fasta files
-    abspath_list(fa_list)
+    os.chdir(workdir)
+    #abspath_list(fa_list)
     cfg_exe = Config('maker_exe')
     cfg_bopts = Config('maker_bopts')
     for i in fa_list:
         fa_name = op.basename(i)
-        workdir = i + '.run/'
-        mkdir(workdir)
-        mv(i, workdir)
+        workdir_sep = i + '.run/'
+        mkdir(workdir_sep)
+        mv(i, workdir_sep)
         #fasta = op.join(workdir, fa_name)
         cfg.update('genome={}'.format(fa_name))
         cfg.write_to_file(op.join(workdir, "maker_opts.ctl"))
