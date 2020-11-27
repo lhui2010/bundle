@@ -288,7 +288,7 @@ maker *ctl >> maker.out 2>> maker.err
 """
 
 
-def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, species=''):
+def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, species='', use_grid='T'):
     """
     Give genome and evidence, run maker gene prediction in parallel
     :param genome:
@@ -297,6 +297,7 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     :param rmgff:
     :param round:
     :param species:
+    :param use_grid: whether to use LSF to submit jobs
     :return:
     """
 
@@ -343,6 +344,8 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
         job_id = bsub(cmd)
         job_list.append(job_id)
 
+    logger.warning("Submitted jobs:")
+    logger.warning(job_list)
     wait_until_finish(job_list)
     logger.warning("Submmited job finished, check log files to make sure they really finished")
 
@@ -448,7 +451,13 @@ def main():
     #     ('isoseq', 'extract isoseq flnc reads from subreads.bam')
     #     ('fastq2gff', 'map fastq to reference genome and get gff files'),
     # )
-    actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
+    actions = []
+    from inspect import getmembers, isfunction
+    functions_list = [o for o in getmembers(sys.modules[__name__]) if isfunction(o[1])]
+    for f in functions_list:
+        if (f[1].__module__ == "__main__"):
+            actions.append(f[0])
+    #actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
     if (len(sys.argv) > 1 and sys.argv[1] in actions):
         action = sys.argv[1]
         if (len(sys.argv) > 2):
@@ -457,7 +466,7 @@ def main():
             args = []
         fmain(action, args)
     else:
-        print('Possible actions:\n{}'.format('\n'.join(actions)))
+        print('Possible actions:\n{}'.format('\n\t\t'.join(actions)))
     # p = ActionDispatcher(actions)
     # p.dispatch(globals())
 

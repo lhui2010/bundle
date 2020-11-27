@@ -113,7 +113,7 @@ def is_job_finished(joblist):
     :return:
     """
     for j in joblist:
-        status = sh("bjobs {}".j)
+        status = sh("bjobs {}".format(j))
         if re.match(r'{}  yitings DONE'.format(j), status) or \
                 re.match(r'Job <{}> is not found'.format(j), status):
             continue
