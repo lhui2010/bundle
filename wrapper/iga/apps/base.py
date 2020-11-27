@@ -89,7 +89,7 @@ def bsub(cmd, queue='Q104C512G_X4'):
     """
     ret = ''
     bsub_cmd = 'bsub -q {}  -o output.%J -e error.%J '.format(queue)
-    prior_cmd = 'set -eo pipefail\n'
+    prior_cmd = 'set -eo pipefail;'
     cmd_full = bsub_cmd + '"' + prior_cmd + cmd + '"'
     logger.info(cmd_full)
     #ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
