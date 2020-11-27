@@ -308,6 +308,7 @@ class Config():
 
         # Seperator for tag and value, like tag=value is default
         this_list = self.content.splitlines()
+        section = ''
         for line in this_list:
             if (line.rstrip() == ''):
                 # Skip blank lines
