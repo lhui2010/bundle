@@ -95,7 +95,7 @@ def bsub(cmd, queue='Q104C512G_X4'):
     #ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
     ret = subprocess.check_output(cmd_full, shell=True).decode()
     job_id = parse('Job < {} > is submitted to queue < ' + queue + ' >.', ret.rstrip())
-    return job_id
+    return ret + "\n" + job_id
 
 conda_act = r"""
 source ~/lh/anaconda3/etc/profile.d/conda.sh
