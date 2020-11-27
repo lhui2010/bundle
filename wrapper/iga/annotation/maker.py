@@ -300,7 +300,7 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
 
     workdir = ''
     if (species == ''):
-        workdir = genome + '_R' + round
+        workdir = genome + '_R' + str(round)
     # Split genome and placing into working directory like:
     # coriaria_round1:
     #   chunk.1/1.fa
