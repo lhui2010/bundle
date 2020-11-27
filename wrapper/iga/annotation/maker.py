@@ -10,7 +10,7 @@ import os.path as op
 
 from parse import parse
 
-from iga.apps.base import ActionDispatcher, sh, conda_act, workdir_sh, logger, Config, abspath_list
+from iga.apps.base import ActionDispatcher, sh, conda_act, workdir_sh, logger, Config, abspath_list, split_fasta
 
 # def sam2gff(sam, gff=""):
 #
@@ -429,7 +429,7 @@ def main():
     #     ('isoseq', 'extract isoseq flnc reads from subreads.bam')
     #     ('fastq2gff', 'map fastq to reference genome and get gff files'),
     # )
-    actions = ['isoseq', 'fastq2gff', 'isoseq_pb']
+    actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
     if (len(sys.argv) > 1 and sys.argv[1] in actions):
         action = sys.argv[1]
         if (len(sys.argv) > 2):
