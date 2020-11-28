@@ -470,8 +470,8 @@ date
 # 0 workdir
 # 1 prefix
 train_augustus_sh = r"""
-mkdir -p $DIR/train_augustus
-cd $DIR/train_augustus
+mkdir -p {0}/train_augustus
+cd {0}/train_augustus
 if [ ! -e genome.all.gff ]
 then
     ln -s ../genome.all.gff
@@ -532,10 +532,10 @@ def train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
     cmd = ''
     if (prefix == ''):
         prefix = workdir
-    if (augustus == 'T'):
-        cmd = train_augustus_sh.format(workdir, prefix)
     if (snap == 'T'):
         cmd += "\n" + train_snap_sh.format(workdir, prefix)
+    if (augustus == 'T'):
+        cmd += train_augustus_sh.format(workdir, prefix)
     if (use_grid == 'T'):
         joblist = bsub(cmd)
         wait_until_finish(joblist)
