@@ -136,6 +136,8 @@ def is_job_finished(joblist):
         if re.search(r'{}  yitings DONE'.format(j), status) or \
                 re.search(r'{}  yitings EXIT'.format(j), status) or \
                 re.search(r'Job .* is not found', status):
+            if('EXIT' in status):
+                logger.warning("Job {} finished with error!".format(j))
             continue
         else:
             return 0
