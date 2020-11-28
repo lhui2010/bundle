@@ -282,7 +282,7 @@ ZOE_HMM_DIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
 # 3 cfg_file
 # 4 cfg
 
-maker_round1_sh = r"""
+maker_run_sh = r"""
 cd {}
 maker *ctl >> maker.out 2>> maker.err
 """
@@ -353,7 +353,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         cfg.write_to_file(op.join(workdir_sep, "maker_opts.ctl"))
         cfg_exe.write_to_file(op.join(workdir_sep, 'maker_exe.ctl'))
         cfg_bopts.write_to_file(op.join(workdir_sep, 'maker_bopts.ctl'))
-        cmd = maker_round1_sh.format(workdir_sep, cfg)
+        cmd = maker_run_sh.format(workdir_sep, cfg)
         # sh(cmd)
         job_id = bsub(cmd)
         job_list.append(job_id)
