@@ -106,7 +106,8 @@ date
         bsub_sh = 'bsub.' + str(time.time()).replace('.', '') + '.sh'
         with open(bsub_sh, 'w') as fh:
             fh.write(bsub_buff)
-        cmd_full = bsub_cmd + '< ' + bsub_buff
+        cmd_full = bsub_cmd + '< ' + bsub_sh
+    #Prepare finished, now submit
     logger.info(cmd_full)
     # ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
     ret = subprocess.check_output(cmd_full, shell=True).decode()
