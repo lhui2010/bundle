@@ -499,9 +499,9 @@ def fmain(func_name, args):
     keyword_result = {}
 
     for k in keyword_arg:
-        logger.debug("{}\n{}\n{}".format(k, real_arg, getattr(real_arg, k)))
-        keyword_result.update(getattr(real_arg, k))
-        print(keyword_result)
+        #logger.debug("{}\n{}\n{}".format(k, real_arg, getattr(real_arg, k)))
+        keyword_result[k] = getattr(real_arg, k)
+        #print(keyword_result)
 
     for k in position_arg:
         position_result.append(getattr(real_arg, k)[0])
