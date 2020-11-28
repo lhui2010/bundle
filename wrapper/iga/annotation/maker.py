@@ -401,9 +401,17 @@ def check_maker(workdir=None):
         if (len(error_list) > 0):
             logger.warning("Chunks with errors are:")
             [logger.warning(l) for l in error_list]
+        exit(1)
 
     return error_list + unfinished_list
 
+
+def deploy_augustus():
+    r"""
+    deploy augustus config dir to /tmp/lh/ for maker use
+    :return:
+    """
+    bsub()
 
 # 0 working directory
 collect_maker_sh = r"""
@@ -412,7 +420,6 @@ cd {}
 #000041F|arrow_np1212    9_datastore/6C/BE/000041F%7Carrow_np1212/       STARTED
 #000041F|arrow_np1212    9_datastore/6C/BE/000041F%7Carrow_np1212/       FINISHED
 touch total_master_datastore_index.log
-rm total_master_datastore_index.log
 for i in `ls -d *.fa.run/`
 do
     echo $i
@@ -495,6 +502,11 @@ cd {0}/train_augustus
 if [ ! -e genome.all.gff ]
 then
     ln -s ../genome.all.gff
+fi
+
+if [ ! -e ref.fa ]
+then
+    ln -s ../ref.fa
 fi
 
 awk -v OFS="\t" '{{ if ($3 == "mRNA") print $1, $4, $5 }}' genome.all.gff | \
