@@ -540,7 +540,7 @@ def emain():
     else:
         print('{}\n  Possible actions:\n'.format(__file__))
         for act in actions_with_real_func:
-            print("    {}|{}".format(act[0], act[1].__doc__.replace('\n', ' ')[:50]))
+            print("    {}|{}".format(act[0], str(act[1].__doc__).replace('\n', ' ')[:50]))
 
 
 if __name__ == "__main__":
