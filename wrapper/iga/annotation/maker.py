@@ -12,7 +12,7 @@ import os.path as op
 from parse import parse
 
 from iga.apps.base import ActionDispatcher, sh, conda_act, workdir_sh, logger, Config, abspath_list, split_fasta, mkdir, \
-    mv, wait_until_finish, bsub
+    mv, wait_until_finish, bsub, emain
 
 # def sam2gff(sam, gff=""):
 #
@@ -582,100 +582,7 @@ def str_to_class(str1):
     return getattr(sys.modules[__name__], str1)
 
 
-# TODO: use it in the main
-def fmain(func_name, args):
-    """
-    execute functions directly via command line interface
-    :param func_name: the name of the function
-    :param args: the args, usually sys.argv[2:]
-    :return:
-    """
-    # parser = argparse.ArgumentParser(
-    #     prog=prog_name,
-    #     formatter_class=argparse.RawDescriptionHelpFormatter,
-    #     description=textwrap.dedent(usage),
-    #     epilog="")
-    # parser.add_argument("GENOME", help="Genome to be evalutated in fasta format")
-    # parser.add_argument("-t", "--threads", default=64, type=int, help="flanking distance default (1000)")
-    # args = parser.parse_args()
 
-    # p = argparse.ArgumentParser(prog=func_name, usage=func_doc)
-    position_arg = []
-    keyword_arg = {}
-    number_args = 1
-    import sys
-    import inspect
-    # 下面两行命令用于在函数内部得到函数的名称和文档
-    # func_name = sys._getframe().f_code.co_name
-    # func_doc = sys._getframe().f_code.co_consts[0]
-    # 下面命令用于把字符串的函数名称转换成对象
-    # func_name = 'isoseq_'
-    object_pointer = getattr(sys.modules[__name__], func_name)
-    p = argparse.ArgumentParser(prog=func_name, usage=object_pointer.__doc__)
-    # 下面的两个命令用于从函数对象中调取形参的名字和默认值（空值用Nonetype表示），用来转换成parse_args
-    for kw, kw_defaults in zip(inspect.getfullargspec(object_pointer).args,
-                               inspect.getfullargspec(object_pointer).defaults):
-        if (kw_defaults == None):
-            position_arg.append(kw)
-        else:
-            keyword_arg[kw] = kw_defaults
-    if (len(position_arg) == 1):
-        # If only one input arg is needed for the function, allow multiple files as input
-        number_args = '+'
-    for k in position_arg:
-        p.add_argument(k, help=k, nargs=number_args)
-    for k, v in keyword_arg.items():
-        p.add_argument("--" + k, default=v, help="default: '%(default)s'")
-
-    real_arg = p.parse_args(args)
-
-    # Results for storing arguments after running parse_args
-    position_result = []
-    keyword_result = {}
-
-    for k in keyword_result:
-        keyword_result.update(getattr(real_arg, k))
-
-    for k in position_arg:
-        position_result.append(getattr(real_arg, k)[0])
-
-    # used to debug
-    # logger.debug(position_result)
-    # logger.debug(keyword_result)
-    object_pointer(*position_result, **keyword_result)
-
-    # if(number_args == 1):
-    #     position_result = getattr(p, position_arg[0])
-    #     object_pointer(**position_result, **keyword_result)
-    # else:
-    #     for k in position_arg:
-    #         position_result.append(getattr(p, k))
-    # object_pointer(p.__dict__)
-
-def emain():
-    #iga_prior = 'iga v1.0'
-    #actions are available functions, like [maker, isoseq]
-    actions = []
-    #this list are available functions with function pointer like [[maker, pointerxxxx], [isoseq, pointerxxx]]
-    actions_with_real_func = []
-    from inspect import getmembers, isfunction
-    functions_list = [o for o in getmembers(sys.modules[__name__]) if isfunction(o[1])]
-    for f in functions_list:
-        if (f[1].__module__ == "__main__" and f[0] != 'main'):
-            actions.append(f[0])
-            actions_with_real_func.append([f[0], f[1]])
-    # actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
-    if (len(sys.argv) > 1 and sys.argv[1] in actions):
-        action = sys.argv[1]
-        if (len(sys.argv) > 2):
-            args = sys.argv[2:]
-        else:
-            args = []
-        fmain(action, args)
-    else:
-        print('{}\n  Possible actions:\n'.format(__file__))
-        for act in actions_with_real_func:
-            print("    {}|{}".format(act[0], act[1]))
 
 # def minimap_rna(transcript, genome, threads=30, output=''):
 #     if (output == ''):

@@ -93,7 +93,7 @@ def bsub(cmd, queue='Q104C512G_X4', direct_submit='T'):
     :return:
     """
     bsub_cmd = 'bsub -q {}  -o output.%J -e error.%J '.format(queue)
-    if(direct_submit == 'T'):
+    if (direct_submit == 'T'):
         prior_cmd = 'set -eo pipefail;'
         cmd_full = bsub_cmd + '"' + prior_cmd + cmd + '"'
     else:
@@ -107,7 +107,7 @@ date
         with open(bsub_sh, 'w') as fh:
             fh.write(bsub_buff)
         cmd_full = bsub_cmd + '< ' + bsub_sh
-    #Prepare finished, now submit
+    # Prepare finished, now submit
     logger.info(cmd_full)
     # ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
     ret = subprocess.check_output(cmd_full, shell=True).decode()
@@ -129,14 +129,14 @@ def is_job_finished(joblist):
     :param joblist:
     :return:
     """
-    if(type(joblist) == str):
+    if (type(joblist) == str):
         joblist = [joblist]
     for j in joblist:
         status = sh("bjobs {}".format(j))
         if re.search(r'{}  yitings DONE'.format(j), status) or \
                 re.search(r'{}  yitings EXIT'.format(j), status) or \
                 re.search(r'Job .* is not found', status):
-            if('EXIT' in status):
+            if ('EXIT' in status):
                 logger.error("Job {} finished with error!".format(j))
             continue
         else:
@@ -155,6 +155,7 @@ def wait_until_finish(joblist):
         time.sleep(10)
     return 1
 
+
 conda_act = r"""
 source ~/lh/anaconda3/etc/profile.d/conda.sh
 conda activate {}
@@ -165,6 +166,8 @@ mkdir -p {0}
 cd {0}
 """
 
+
+###JCVI code start
 
 def splitall(path):
     allparts = []
@@ -303,6 +306,8 @@ def glob(pathname, pattern=None):
     return natsorted(gl.glob(pathname))
 
 
+### jcvi code end
+
 class DictDb():
     """
     The data structure for storing ctf files
@@ -437,26 +442,104 @@ def abspath_list(file_list):
     return file_list
 
 
+def fmain(func_name, args):
+    """
+    execute functions directly via command line interface
+    :param func_name: the name of the function
+    :param args: the args, usually sys.argv[2:]
+    :return:
+    """
+    # parser = argparse.ArgumentParser(
+    #     prog=prog_name,
+    #     formatter_class=argparse.RawDescriptionHelpFormatter,
+    #     description=textwrap.dedent(usage),
+    #     epilog="")
+    # parser.add_argument("GENOME", help="Genome to be evalutated in fasta format")
+    # parser.add_argument("-t", "--threads", default=64, type=int, help="flanking distance default (1000)")
+    # args = parser.parse_args()
+
+    # p = argparse.ArgumentParser(prog=func_name, usage=func_doc)
+    position_arg = []
+    keyword_arg = {}
+    number_args = 1
+    import sys
+    import inspect
+    # 下面两行命令用于在函数内部得到函数的名称和文档
+    # func_name = sys._getframe().f_code.co_name
+    # func_doc = sys._getframe().f_code.co_consts[0]
+    # 下面命令用于把字符串的函数名称转换成对象
+    # func_name = 'isoseq_'
+    object_pointer = getattr(sys.modules[__name__], func_name)
+    p = argparse.ArgumentParser(prog=func_name, usage=object_pointer.__doc__)
+    # 下面的两个命令用于从函数对象中调取形参的名字和默认值（空值用Nonetype表示），用来转换成parse_args
+    for kw, kw_defaults in zip(inspect.getfullargspec(object_pointer).args,
+                               inspect.getfullargspec(object_pointer).defaults):
+        if (kw_defaults == None):
+            position_arg.append(kw)
+        else:
+            keyword_arg[kw] = kw_defaults
+    if (len(position_arg) == 1):
+        # If only one input arg is needed for the function, allow multiple files as input
+        number_args = '+'
+    for k in position_arg:
+        p.add_argument(k, help=k, nargs=number_args)
+    for k, v in keyword_arg.items():
+        p.add_argument("--" + k, default=v, help="default: '%(default)s'")
+
+    real_arg = p.parse_args(args)
+
+    # Results for storing arguments after running parse_args
+    position_result = []
+    keyword_result = {}
+
+    for k in keyword_result:
+        keyword_result.update(getattr(real_arg, k))
+
+    for k in position_arg:
+        position_result.append(getattr(real_arg, k)[0])
+
+    # used to debug
+    # logger.debug(position_result)
+    # logger.debug(keyword_result)
+    object_pointer(*position_result, **keyword_result)
+
+    # if(number_args == 1):
+    #     position_result = getattr(p, position_arg[0])
+    #     object_pointer(**position_result, **keyword_result)
+    # else:
+    #     for k in position_arg:
+    #         position_result.append(getattr(p, k))
+    # object_pointer(p.__dict__)
+
+
+def emain():
+    # iga_prior = 'iga v1.0'
+    # actions are available functions, like [maker, isoseq]
+    actions = []
+    # this list are available functions with function pointer like [[maker, pointerxxxx], [isoseq, pointerxxx]]
+    actions_with_real_func = []
+    from inspect import getmembers, isfunction
+    functions_list = [o for o in getmembers(sys.modules[__name__]) if isfunction(o[1])]
+    for f in functions_list:
+        if (f[1].__module__ == "__main__" and f[0] != 'main'):
+            actions.append(f[0])
+            actions_with_real_func.append([f[0], f[1]])
+    # actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
+    if (len(sys.argv) > 1 and sys.argv[1] in actions):
+        action = sys.argv[1]
+        if (len(sys.argv) > 2):
+            args = sys.argv[2:]
+        else:
+            args = []
+        fmain(action, args)
+    else:
+        print('{}\n  Possible actions:\n'.format(__file__))
+        for act in actions_with_real_func:
+            print("    {}|{}".format(act[0], act[1]))
+
+
 def main():
-    prog_name = "RunFalcon"
-    usage = "Run Falcon With Fasta Input"
-
-    parser = argparse.ArgumentParser(
-        prog=prog_name,
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        description=textwrap.dedent(usage),
-        epilog="")
-    parser.add_argument("fasta", help="Raw assembly")
-    args = parser.parse_args()
-
-    cfg = Config('falcon')
-    cfg.update('[General]genome_size=10')
-    cfg.update('[General]input_fofn=/dev/zero')
-    logger.info(cfg.gettext())
-    # falcon_run(args.fasta)
-
-
-#    flanking_distance = args.flanking
+    emain()
 
 if __name__ == "__main__":
     main()
