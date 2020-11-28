@@ -521,13 +521,14 @@ def emain():
     # actions are available functions, like [maker, isoseq]
     actions = []
     # this list are available functions with function pointer like [[maker, pointerxxxx], [isoseq, pointerxxx]]
-    actions_with_real_func = []
+    actions_with_help = []
     from inspect import getmembers, isfunction
     functions_list = [o for o in getmembers(sys.modules['__main__']) if isfunction(o[1])]
     #logger.warning(functions_list)
     for f in functions_list:
         if (f[1].__module__ == "__main__" and f[0] != 'main'):
-            actions.append([f[0], str(f[1].__doc__).replace('\n', ' ').lstrip()[:50]])
+            actions.append(f[0])
+            actions_with_help.append([f[0], str(f[1].__doc__).replace('\n', ' ').lstrip()[:50]])
     # actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
     if (len(sys.argv) > 1 and sys.argv[1] in actions):
         action = sys.argv[1]
@@ -540,8 +541,8 @@ def emain():
         #Print help, from jcvi
         help_print = "Usage:\n    python -m {0}\n\n\n".format(sys.argv[0].replace('.py', ''))
         help_print += "Available {0}s:\n".format('action')
-        max_action_len = max(len(action) for action, ah in actions)
-        for action, action_help in sorted(actions):
+        max_action_len = max(len(action) for action, ah in actions_with_help)
+        for action, action_help in sorted(actions_with_help):
             action = action.rjust(max_action_len + 4)
             help_print += (
                     " | ".join((action, action_help.title())) + "\n"
