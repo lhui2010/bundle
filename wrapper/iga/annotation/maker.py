@@ -434,7 +434,7 @@ def collect_maker(workdir=None):
 
 # 0 workdir
 # 1 PREFIX of this model
-train_snap_sh = r"""HMMDIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
+train_snap_sh = r"""export HMMDIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
 mkdir -p {0}/train_snap
 cd {0}/train_snap
 ln -s ../genome.all.gff
