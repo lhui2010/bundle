@@ -477,9 +477,9 @@ then
     ln -s ../genome.all.gff
 fi
 
-awk -v OFS="\t" '{ if ($3 == "mRNA") print $1, $4, $5 }' genome.all.gff | \
-  awk -v OFS="\t" '{ if ($2 < 1000) print $1, "0", $3+1000; else print $1, $2-1000, $3+1000 }' | \
-  bedtools getfasta -fi $REF -bed - -fo total_v${VERSION}.all.maker.transcripts1000.fasta
+awk -v OFS="\t" '{{ if ($3 == "mRNA") print $1, $4, $5 }}' genome.all.gff | \
+  awk -v OFS="\t" '{{ if ($2 < 1000) print $1, "0", $3+1000; else print $1, $2-1000, $3+1000 }}' | \
+  bedtools getfasta -fi $REF -bed - -fo total.all.maker.transcripts1000.fasta
 
 cp  /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/../busco/myconfig.ini  ./config.ini
 export BUSCO_CONFIG_FILE=$PWD/config.ini
@@ -488,7 +488,7 @@ export BUSCO_CONFIG_FILE=$PWD/config.ini
 LINEAGE=viridiplantae_odb10
 LINEAGE=embryophyta_odb10
 THREADS=104
-INPUT=total_v${VERSION}.all.maker.transcripts1000.fasta
+INPUT=total.all.maker.transcripts1000.fasta
 OUTPUT={1}
 NEWMODEL={1}
 #TODO
@@ -515,7 +515,7 @@ then
     mv $AUGUSTUS_CONFIG_PATH/species/$NEWMODEL $AUGUSTUS_CONFIG_PATH/species/${{NEWMODEL}}.$RND
 fi
 mkdir -p $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL
-cp ./${OUTPUT}*  $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/{1}/
+cp ./${{OUTPUT}}*  $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/{1}/
 #
 echo "Train Augustus completed succefully"
 echo "Augustus species: {1}"
@@ -524,17 +524,23 @@ date
 """
 
 
-def train(workdir=None, prefix='', augustus='T', snap='T'):
+def train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
     """
     :param workdir:
     :return:
     """
+    cmd = ''
     if (prefix == ''):
         prefix = workdir
     if (augustus == 'T'):
-        train_augustus_sh.format(workdir, prefix)
+        cmd = train_augustus_sh.format(workdir, prefix)
     if (snap == 'T'):
-        train_snap_sh.format(workdir, prefix)
+        cmd += "\n" + train_snap_sh.format(workdir, prefix)
+    if(use_grid == 'T'):
+        joblist = bsub(cmd)
+        wait_until_finish(joblist)
+    else:
+        sh(cmd)
     return 0
 
 
