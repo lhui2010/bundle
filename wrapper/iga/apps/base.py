@@ -110,6 +110,8 @@ date
     # Prepare finished, now submit
     logger.info(cmd_full)
     # ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
+    #Incase queue has trainling characters like -m 'node02'
+    queue = re.sub(r'\s.*', '', queue)
     ret = subprocess.check_output(cmd_full, shell=True).decode()
     try:
         logger.warning(ret)
