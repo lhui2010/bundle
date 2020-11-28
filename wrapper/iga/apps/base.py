@@ -472,6 +472,10 @@ def fmain(func_name, args):
     object_pointer = getattr(sys.modules['__main__'], func_name)
     p = argparse.ArgumentParser(prog=func_name, usage=object_pointer.__doc__)
     # 下面的两个命令用于从函数对象中调取形参的名字和默认值（空值用Nonetype表示），用来转换成parse_args
+    if(len(inspect.getfullargspec(object_pointer).args) == 0):
+        #Incase a function dont' have an arg
+        object_pointer()
+        return 0
     for kw, kw_defaults in zip(inspect.getfullargspec(object_pointer).args,
                                inspect.getfullargspec(object_pointer).defaults):
         if (kw_defaults == None):
