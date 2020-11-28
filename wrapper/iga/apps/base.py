@@ -527,7 +527,7 @@ def emain():
     #logger.warning(functions_list)
     for f in functions_list:
         if (f[1].__module__ == "__main__" and f[0] != 'main'):
-            actions.append([f[0], str(f[1].__doc__).replace('\n', ' ')[:50]])
+            actions.append([f[0], str(f[1].__doc__).replace('\n', ' ').lstrip()[:50]])
     # actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
     if (len(sys.argv) > 1 and sys.argv[1] in actions):
         action = sys.argv[1]
