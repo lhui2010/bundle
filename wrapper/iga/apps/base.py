@@ -134,6 +134,7 @@ def is_job_finished(joblist):
     for j in joblist:
         status = sh("bjobs {}".format(j))
         if re.search(r'{}  yitings DONE'.format(j), status) or \
+                re.search(r'{}  yitings EXIT'.format(j), status) or \
                 re.search(r'Job .* is not found', status):
             continue
         else:
