@@ -536,7 +536,7 @@ def train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
         cmd = train_augustus_sh.format(workdir, prefix)
     if (snap == 'T'):
         cmd += "\n" + train_snap_sh.format(workdir, prefix)
-    if(use_grid == 'T'):
+    if (use_grid == 'T'):
         joblist = bsub(cmd)
         wait_until_finish(joblist)
     else:
@@ -585,7 +585,7 @@ def fmain(func_name, args):
     for k in position_arg:
         p.add_argument(k, help=k, nargs=number_args)
     for k, v in keyword_arg.items():
-        p.add_argument("--" + k, default=v, help = "type (default: %(default)s)"))
+        p.add_argument("--" + k, default=v, help="type (default: %(default)s)")
 
     real_arg = p.parse_args(args)
 
