@@ -127,6 +127,8 @@ def is_job_finished(joblist):
     :param joblist:
     :return:
     """
+    if(type(joblist) == str):
+        joblist = [joblist]
     for j in joblist:
         status = sh("bjobs {}".format(j))
         if re.match(r'{}  yitings DONE'.format(j), status) or \
