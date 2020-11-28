@@ -327,10 +327,15 @@ def maker_round1(genome=None, estgff=None, pepgff=None,
     cfg = Config('maker')
     cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
     if (round == 1):
+        #Only first round will be ran in direct predict mode
         cfg.update('est2genome=1;protein2genome=1')
     else:
         cfg.update('est2genome=0;protein2genome=0')
-        cfg.update('snaphmm={0};augustus_species={1}'.format(op.join(snap_hmm_dir, snap_hmm), augustus_species))
+        if('.hmm' not in snap_hmm):
+            #In case .hmm extension was not added in input
+            snap_hmm = snap_hmm + '.hmm'
+        cfg.update('snaphmm={0};augustus_species={1}'.format(
+            op.join(snap_hmm_dir, snap_hmm), augustus_species))
     #
     # get abs path of all fasta files
     os.chdir(workdir)
@@ -425,6 +430,7 @@ echo "Merge completed succefully:"
 awk '$2=="maker"' genome.all.noseq.gff > genome.maker.gff
 # echo "##FASTA" >> genome.maker.gff
 # cat *.run/*.fa >> genome.maker.gff
+cat *.run/*.fa > ref.fa
 
 date"""
 
@@ -466,11 +472,11 @@ forge ../export.ann ../export.dna >../forge.log 2>&1
 cd ..
 hmm-assembler.pl snap_trained params > snap_trained.hmm
 
-if [ -d ${{HMMDIR}}/{1}.hmm ]
-then
-    RND=$(date +%s%N)
-    mv ${{HMMDIR}}/{1}.hmm ${{HMMDIR}}/{1}.hmm.$RND
-fi
+#if [ -d ${{HMMDIR}}/{1}.hmm ]
+#then
+#    RND=$(date +%s%N)
+#    mv ${{HMMDIR}}/{1}.hmm ${{HMMDIR}}/{1}.hmm.$RND
+#fi
 
 cp snap_trained.hmm ${{HMMDIR}}/{1}.hmm
 
@@ -491,7 +497,7 @@ fi
 
 awk -v OFS="\t" '{{ if ($3 == "mRNA") print $1, $4, $5 }}' genome.all.gff | \
   awk -v OFS="\t" '{{ if ($2 < 1000) print $1, "0", $3+1000; else print $1, $2-1000, $3+1000 }}' | \
-  bedtools getfasta -fi $REF -bed - -fo total.all.maker.transcripts1000.fasta
+  bedtools getfasta -fi ref.fa -bed - -fo total.all.maker.transcripts1000.fasta
 
 cp  /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/../busco/myconfig.ini  ./config.ini
 export BUSCO_CONFIG_FILE=$PWD/config.ini
