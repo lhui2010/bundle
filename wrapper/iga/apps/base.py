@@ -524,7 +524,7 @@ def emain():
     actions_with_real_func = []
     from inspect import getmembers, isfunction
     functions_list = [o for o in getmembers(sys.modules['__main__']) if isfunction(o[1])]
-    logger.warning(functions_list)
+    #logger.warning(functions_list)
     for f in functions_list:
         if (f[1].__module__ == "__main__" and f[0] != 'main'):
             actions.append(f[0])
@@ -543,9 +543,5 @@ def emain():
             print("    {}|{}".format(act[0], act[1].__doc__.replace('\n', ' ')[:50]))
 
 
-def main():
-    emain()
-
-
 if __name__ == "__main__":
-    main()
+    emain()
