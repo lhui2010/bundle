@@ -288,7 +288,7 @@ maker *ctl >> maker.out 2>> maker.err
 """
 
 
-def maker_round1(genome=None, estgff=None, pepgff=None,
+def maker_run(genome=None, estgff=None, pepgff=None,
                  rmgff=None, round=1, species='', use_grid='T',
                  augustus_species='', snap_hmm=''):
     """
