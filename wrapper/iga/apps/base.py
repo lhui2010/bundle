@@ -513,6 +513,10 @@ def fmain(func_name, args):
 
 
 def emain():
+    """
+    A common wrapper for all main function of xx.py under iga
+    :return:
+    """
     # iga_prior = 'iga v1.0'
     # actions are available functions, like [maker, isoseq]
     actions = []
@@ -541,6 +545,7 @@ def emain():
 
 def main():
     emain()
+
 
 if __name__ == "__main__":
     main()
