@@ -364,7 +364,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     logger.warning("Submmited job finished, check log files to make sure they really finished")
 
 
-def check_maker(workdir=None):
+def maker_check(workdir=None):
     """
     check whether all partitions finished
     :param workdir:
@@ -454,7 +454,7 @@ cat *.run/*.fa > ref.fa
 date"""
 
 
-def collect_maker(workdir=None):
+def maker_collect(workdir=None):
     """
     Collect maker result from a paralleled run in workdir
     :param workdir:
@@ -566,7 +566,7 @@ date
 """
 
 
-def train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
+def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
     """
     :param workdir:
     :return:
