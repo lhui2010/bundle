@@ -378,13 +378,13 @@ def check_maker(workdir=None):
             except FileNotFoundError:
                 logger.error("Can't find maker error log for {}".format(sd))
                 unfinished_list.append(sd)
-    if(len(unfinished_list) + len(error_list) == 0):
+    if (len(unfinished_list) + len(error_list) == 0):
         logger.warning("Cheers! All finished without errors!")
     else:
-        if(len(unfinished_list)>0):
+        if (len(unfinished_list) > 0):
             logger.warning("Unfinished chunks are:")
             [logger.warning(l) for l in unfinished_list]
-        if(len(error_list) > 0):
+        if (len(error_list) > 0):
             logger.warning("Chunks with errors are:")
             [logger.warning(l) for l in error_list]
 
@@ -412,6 +412,11 @@ gff3_merge -o genome.all.gff -d total_master_datastore_index.log
 gff3_merge -n -o genome.all.noseq.gff -d total_master_datastore_index.log
 
 echo "Merge completed succefully:"
+
+awk '$2=="maker"' genome.all.noseq.gff > genome.maker.gff
+# echo "##FASTA" >> genome.maker.gff
+# cat *.run/*.fa >> genome.maker.gff
+
 date"""
 
 
@@ -424,6 +429,112 @@ def collect_maker(workdir=None):
     cmd = collect_maker_sh.format(workdir)
     res = sh(cmd)
     logger.warning(res)
+    return 0
+
+
+# 0 workdir
+# 1 PREFIX of this model
+train_snap_sh = r"""HMMDIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
+mkdir -p {0}/train_snap
+cd {0}/train_snap
+ln -s ../genome.all.gff
+maker2zff -x 0.25 -l 50  genome.all.gff
+fathom -gene-stats genome.ann genome.dna >gene-stats.log 2>&1
+fathom -validate genome.ann genome.dna >validate.log 2>&1
+
+fathom -categorize 1000 genome.ann genome.dna
+fathom -export 1000 -plus uni.ann uni.dna
+
+mkdir -p params
+
+cd params
+
+forge ../export.ann ../export.dna >../forge.log 2>&1
+
+cd ..
+hmm-assembler.pl snap_trained params > snap_trained.hmm
+
+if [ -d ${{HMMDIR}}/{1}.hmm ]
+then
+    RND=$(date +%s%N)
+    mv ${{HMMDIR}}/{1}.hmm ${{HMMDIR}}/{1}.hmm.$RND
+fi
+
+cp snap_trained.hmm ${{HMMDIR}}/{1}.hmm
+
+echo "Train SNAP completed succefully:"
+echo "${{HMMDIR}}/{1}.hmm"
+date
+"""
+
+# 0 workdir
+# 1 prefix
+train_augustus_sh = r"""
+mkdir -p $DIR/train_augustus
+cd $DIR/train_augustus
+if [ ! -e genome.all.gff ]
+then
+    ln -s ../genome.all.gff
+fi
+
+awk -v OFS="\t" '{ if ($3 == "mRNA") print $1, $4, $5 }' genome.all.gff | \
+  awk -v OFS="\t" '{ if ($2 < 1000) print $1, "0", $3+1000; else print $1, $2-1000, $3+1000 }' | \
+  bedtools getfasta -fi $REF -bed - -fo total_v${VERSION}.all.maker.transcripts1000.fasta
+
+cp  /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/../busco/myconfig.ini  ./config.ini
+export BUSCO_CONFIG_FILE=$PWD/config.ini
+# export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
+
+LINEAGE=viridiplantae_odb10
+LINEAGE=embryophyta_odb10
+THREADS=104
+INPUT=total_v${VERSION}.all.maker.transcripts1000.fasta
+OUTPUT={1}
+NEWMODEL={1}
+#TODO
+AUGUSTUS_SPECIES=arabidopsis
+AUGUSTUS_CONFIG_PATH_ORIGINAL=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/config
+if [ -d $OUTPUT ]
+then
+    rm -rf $OUTPUT
+fi
+busco -i $INPUT  -o $OUTPUT  -l $LINEAGE \
+  -m genome -c $THREADS --long --augustus_species $AUGUSTUS_SPECIES \
+  --augustus_parameters='--progress=true' >busco.out 2>busco.err
+
+cd $OUTPUT/run_${{LINEAGE}}/augustus_output/retraining_parameters/BUSCO_${{OUTPUT}}/
+
+rename "BUSCO_" "" *
+
+sed -i 's/BUSCO_//g' {1}_parameters.cfg
+
+if [ -d $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL ]
+then
+    RND=$(date +%s%N)
+    $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL
+    mv $AUGUSTUS_CONFIG_PATH/species/$NEWMODEL $AUGUSTUS_CONFIG_PATH/species/${{NEWMODEL}}.$RND
+fi
+mkdir -p $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL
+cp ./${OUTPUT}*  $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/{1}/
+#
+echo "Train Augustus completed succefully"
+echo "Augustus species: {1}"
+date
+
+"""
+
+
+def train(workdir=None, prefix='', augustus='T', snap='T'):
+    """
+    :param workdir:
+    :return:
+    """
+    if (prefix == ''):
+        prefix = workdir
+    if (augustus == 'T'):
+        train_augustus_sh.format(workdir, prefix)
+    if (snap == 'T'):
+        train_snap_sh.format(workdir, prefix)
     return 0
 
 
