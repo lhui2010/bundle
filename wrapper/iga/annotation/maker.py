@@ -584,6 +584,12 @@ def str_to_class(str1):
 
 # TODO: use it in the main
 def fmain(func_name, args):
+    """
+    execute functions directly via command line interface
+    :param func_name: the name of the function
+    :param args: the args, usually sys.argv[2:]
+    :return:
+    """
     # parser = argparse.ArgumentParser(
     #     prog=prog_name,
     #     formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -646,6 +652,30 @@ def fmain(func_name, args):
     #         position_result.append(getattr(p, k))
     # object_pointer(p.__dict__)
 
+def emain():
+    #iga_prior = 'iga v1.0'
+    #actions are available functions, like [maker, isoseq]
+    actions = []
+    #this list are available functions with function pointer like [[maker, pointerxxxx], [isoseq, pointerxxx]]
+    actions_with_real_func = []
+    from inspect import getmembers, isfunction
+    functions_list = [o for o in getmembers(sys.modules[__name__]) if isfunction(o[1])]
+    for f in functions_list:
+        if (f[1].__module__ == "__main__" and f[0] != 'main'):
+            actions.append(f[0])
+            actions_with_real_func.append([f[0], f[1]])
+    # actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
+    if (len(sys.argv) > 1 and sys.argv[1] in actions):
+        action = sys.argv[1]
+        if (len(sys.argv) > 2):
+            args = sys.argv[2:]
+        else:
+            args = []
+        fmain(action, args)
+    else:
+        print('{}\n  Possible actions:\n'.format(__file__))
+        for act in actions_with_real_func:
+            print("    {}|{}".format(act[0], act[1]))
 
 # def minimap_rna(transcript, genome, threads=30, output=''):
 #     if (output == ''):
@@ -670,27 +700,15 @@ def liftover():
 
 def main():
     """
+    the main function
     """
+    emain()
     # actions = (
     #     ('isoseq', 'extract isoseq flnc reads from subreads.bam')
     #     ('fastq2gff', 'map fastq to reference genome and get gff files'),
     # )
-    actions = []
-    from inspect import getmembers, isfunction
-    functions_list = [o for o in getmembers(sys.modules[__name__]) if isfunction(o[1])]
-    for f in functions_list:
-        if (f[1].__module__ == "__main__"):
-            actions.append(f[0])
-    # actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
-    if (len(sys.argv) > 1 and sys.argv[1] in actions):
-        action = sys.argv[1]
-        if (len(sys.argv) > 2):
-            args = sys.argv[2:]
-        else:
-            args = []
-        fmain(action, args)
-    else:
-        print('Possible actions:\n\t{}'.format('\n\t\t'.join(actions)))
+
+
     # p = ActionDispatcher(actions)
     # p.dispatch(globals())
 
