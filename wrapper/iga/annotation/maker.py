@@ -533,12 +533,14 @@ def train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
     :return:
     """
     cmd = ''
+    workdir = op.abspath(workdir)
+    set_workdir = 'cd {};'.format(workdir)
     if (prefix == ''):
         prefix = workdir
     if (snap == 'T'):
-        cmd += "\n" + train_snap_sh.format(workdir, prefix)
+        cmd += set_workdir + "\n" + train_snap_sh.format(workdir, prefix)
     if (augustus == 'T'):
-        cmd += train_augustus_sh.format(workdir, prefix)
+        cmd += set_workdir + "\n" + train_augustus_sh.format(workdir, prefix)
     if (use_grid == 'T'):
         joblist = bsub(cmd, direct_submit='F')
         wait_until_finish(joblist)
