@@ -537,7 +537,7 @@ def train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
     if (augustus == 'T'):
         cmd += train_augustus_sh.format(workdir, prefix)
     if (use_grid == 'T'):
-        joblist = bsub(cmd)
+        joblist = bsub(cmd, direct_submit='F')
         wait_until_finish(joblist)
     else:
         sh(cmd)
