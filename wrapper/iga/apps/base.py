@@ -499,6 +499,7 @@ def fmain(func_name, args):
     keyword_result = {}
 
     for k in keyword_result:
+        logger.debug("{}\t{}".format(k, real_arg.k, getattr(real_arg, k)))
         keyword_result.update(getattr(real_arg, k))
 
     for k in position_arg:
