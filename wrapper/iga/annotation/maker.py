@@ -416,7 +416,7 @@ def deploy_augustus():
     node_list['Q104C512G_X4'] = ['node10', 'node11', 'node12', 'node13']
     augustus_config_dir = '/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/config'
     local_dir = '/tmp/lh_config'
-    cmd = 'touch {1} && rm -fr {1} && cp -fr {0} {1}'.format(local_dir, augustus_config_dir)
+    cmd = 'touch {0} && rm -fr {0} && cp -fr {1} {0}'.format(local_dir, augustus_config_dir)
     for q in node_list:
         for node in node_list[q]:
             bsub(cmd, q + ' -m {}'.format(node))
