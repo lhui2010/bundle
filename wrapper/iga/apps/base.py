@@ -88,6 +88,7 @@ def sh(cmd, debug=False):
 def bsub(cmd, queue='Q104C512G_X4', direct_submit='T'):
     """
     submit jobs via bsub
+    When using variable export in a cmd ,use direct_submit = 'F'
     :param cmd:
     :return:
     """
