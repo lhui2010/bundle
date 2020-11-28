@@ -288,7 +288,9 @@ maker *ctl >> maker.out 2>> maker.err
 """
 
 
-def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, species='', use_grid='T'):
+def maker_round1(genome=None, estgff=None, pepgff=None,
+                 rmgff=None, round=1, species='', use_grid='T',
+                 augustus_species='', snap_hmm=''):
     """
     Give genome and evidence, run maker gene prediction in parallel
     :param genome:
@@ -298,9 +300,13 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     :param round:
     :param species:
     :param use_grid: whether to use LSF to submit jobs
+    :param augustus_species: species for augustus, if
+        from round1, then it's directory name, like coriaria_contig.fa_R1
+    :param snap_hmm: hmm file for snap, if from round1,
+        then it's directory name, like coriaria_contig.fa_R1
     :return:
     """
-
+    snap_hmm_dir = '/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/'
     workdir = ''
     if (species == ''):
         workdir = genome + '_R' + str(round)
@@ -322,6 +328,9 @@ def maker_round1(genome=None, estgff=None, pepgff=None, rmgff=None, round=1, spe
     cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
     if (round == 1):
         cfg.update('est2genome=1;protein2genome=1')
+    else:
+        cfg.update('est2genome=0;protein2genome=0')
+        cfg.update('snaphmm={0};augustus_species={1}'.format(op.join(snap_hmm_dir, snap_hmm), augustus_species))
     #
     # get abs path of all fasta files
     os.chdir(workdir)
@@ -536,7 +545,7 @@ def train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
     workdir = op.abspath(workdir)
     set_workdir = 'cd {};'.format(workdir)
     if (prefix == ''):
-        prefix = workdir
+        prefix = op.basename(workdir)
     if (snap == 'T'):
         cmd += set_workdir + "\n" + train_snap_sh.format(workdir, prefix)
     if (augustus == 'T'):
