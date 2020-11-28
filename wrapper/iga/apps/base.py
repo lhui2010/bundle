@@ -120,7 +120,7 @@ date
     return job_id
 
 
-def is_job_finished(joblist):
+def is_job_finished(joblist=None):
     """
     job list in submited jobs in list format
     will check whether job is finished,
@@ -144,7 +144,7 @@ def is_job_finished(joblist):
     return 1
 
 
-def wait_until_finish(joblist):
+def wait_until_finish(joblist=None):
     """
     a while loop for check_job_status,
     won't leave unless all jobs are finished
