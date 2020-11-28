@@ -310,8 +310,8 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     workdir = ''
     if (species == ''):
         workdir = genome + '_R' + str(round)
-    logger.warning(workdir)
-    exit(1)
+    #logger.warning(workdir)
+    #exit(1)
     # Split genome and placing into working directory like:
     # coriaria_round1:
     #   chunk.1/1.fa
