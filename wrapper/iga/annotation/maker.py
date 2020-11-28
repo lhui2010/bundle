@@ -437,7 +437,10 @@ def collect_maker(workdir=None):
 train_snap_sh = r"""export HMMDIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
 mkdir -p {0}/train_snap
 cd {0}/train_snap
-ln -s ../genome.all.gff
+if [ ! -e genome.all.gff ]
+then
+    ln -s ../genome.all.gff
+fi
 maker2zff -x 0.25 -l 50  genome.all.gff
 fathom -gene-stats genome.ann genome.dna >gene-stats.log 2>&1
 fathom -validate genome.ann genome.dna >validate.log 2>&1
