@@ -411,7 +411,17 @@ def deploy_augustus():
     deploy augustus config dir to /tmp/lh/ for maker use
     :return:
     """
-    bsub()
+    node_list = {}
+    node_list['Q64C1T_X4'] = ['node02', 'node03', 'node04', 'node05']
+    node_list['Q104C512G_X4'] = ['node10', 'node11', 'node12', 'node13']
+    augustus_config_dir = '/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/config'
+    local_dir = '/tmp/lh_config'
+    cmd = 'touch {1} && rm -fr {1} && cp -fr {0} {1}'.format(local_dir, augustus_config_dir)
+    for q in node_list:
+        for node in node_list[q]:
+            bsub(cmd, q + ' -m {}'.format(node))
+    time.sleep(120)
+    return 0
 
 # 0 working directory
 collect_maker_sh = r"""
