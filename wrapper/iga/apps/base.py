@@ -81,7 +81,7 @@ def sh(cmd, debug=False):
     logger.info(cmd)
     prior_cmd = 'set -eo pipefail\n'
     if (debug == False):
-        ret = subprocess.check_output(prior_cmd + cmd,stderr=subprocess.STDOUT, shell=True).decode()
+        ret = subprocess.check_output(prior_cmd + cmd, stderr=subprocess.STDOUT, shell=True).decode()
     return ret
 
 

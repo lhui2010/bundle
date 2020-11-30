@@ -509,8 +509,8 @@ date
 # 0 workdir
 # 1 prefix
 train_augustus_sh = r"""
-mkdir -p {0}/train_augustus
-cd {0}/train_augustus
+mkdir -p {0}/train_augustus1
+cd {0}/train_augustus1
 if [ ! -e genome.all.gff ]
 then
     ln -s ../genome.all.gff
@@ -527,7 +527,7 @@ awk -v OFS="\t" '{{ if ($3 == "mRNA") print $1, $4, $5 }}' genome.all.gff | \
 
 cp  /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/../busco/myconfig.ini  ./config.ini
 export BUSCO_CONFIG_FILE=$PWD/config.ini
-# export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
+export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
 
 LINEAGE=viridiplantae_odb10
 LINEAGE=embryophyta_odb10
