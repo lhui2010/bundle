@@ -527,6 +527,7 @@ awk -v OFS="\t" '{{ if ($3 == "mRNA") print $1, $4, $5 }}' genome.all.gff | \
 
 cp  /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/../busco/myconfig.ini  ./config.ini
 export BUSCO_CONFIG_FILE=$PWD/config.ini
+#If not export to local dir, PREFIX_exon_probs.pbl will not be generated and maker will fail
 export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
 
 LINEAGE=viridiplantae_odb10
@@ -555,8 +556,8 @@ sed -i 's/BUSCO_//g' {1}_parameters.cfg
 if [ -d $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL ]
 then
     RND=$(date +%s%N)
-    $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL
-    mv $AUGUSTUS_CONFIG_PATH/species/$NEWMODEL $AUGUSTUS_CONFIG_PATH/species/${{NEWMODEL}}.$RND
+    mv $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL.$RND
+    #mv $AUGUSTUS_CONFIG_PATH/species/$NEWMODEL $AUGUSTUS_CONFIG_PATH/species/${{NEWMODEL}}.$RND
 fi
 mkdir -p $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL
 cp ./${{OUTPUT}}*  $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/{1}/
@@ -581,7 +582,7 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
     if (snap == 'T'):
         cmd += set_workdir + "\n" + train_snap_sh.format(workdir, prefix)
     if (augustus == 'T'):
-        cmd += set_workdir + "\n" + train_augustus_sh.format(workdir, prefix)
+        cmd += set_workdir + "\n" + conda_act.format('busco') + train_augustus_sh.format(workdir, prefix)
     if (use_grid == 'T'):
         joblist = bsub(cmd, direct_submit='F')
         wait_until_finish(joblist)
