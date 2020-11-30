@@ -310,6 +310,9 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     workdir = ''
     if (species == ''):
         workdir = genome + '_R' + str(round)
+    if(os.path.exists(workdir)):
+        rnd = str(time.time())
+        mv(workdir, workdir+rnd)
     #logger.warning(workdir)
     #exit(1)
     # Split genome and placing into working directory like:
