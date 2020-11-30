@@ -529,12 +529,8 @@ awk -v OFS="\t" '{{ if ($3 == "mRNA") print $1, $4, $5 }}' genome.all.gff | \
   awk -v OFS="\t" '{{ if ($2 < 1000) print $1, "0", $3+1000; else print $1, $2-1000, $3+1000 }}' | \
   bedtools getfasta -fi ref.fa -bed - -fo total.all.maker.transcripts1000.fasta
 
-cp  /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/../busco/myconfig.ini  ./config.ini
-export BUSCO_CONFIG_FILE=$PWD/config.ini
-#If not export to local dir, PREFIX_exon_probs.pbl will not be generated and maker will fail
 export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
 
-LINEAGE=viridiplantae_odb10
 LINEAGE=embryophyta_odb10
 THREADS=104
 INPUT=total.all.maker.transcripts1000.fasta
@@ -561,7 +557,6 @@ if [ -d $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL ]
 then
     RND=$(date +%s%N)
     mv $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL.$RND
-    #mv $AUGUSTUS_CONFIG_PATH/species/$NEWMODEL $AUGUSTUS_CONFIG_PATH/species/${{NEWMODEL}}.$RND
 fi
 mkdir -p $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL
 cp ./${{OUTPUT}}*  $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/{1}/
