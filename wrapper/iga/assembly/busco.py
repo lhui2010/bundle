@@ -28,7 +28,7 @@ busco -f -c {0} -m {1} -i {2} -o {3} -l {4}
 """
 
 
-def busco(genome_fasta, mode='genome', lineage='embryophyta_odb10', threads=64, output=''):
+def busco(genome_fasta=None, mode='genome', lineage='embryophyta_odb10', threads=64, output=''):
     # assembly, subreads
     conda_act = r"""
     export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
