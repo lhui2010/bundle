@@ -396,7 +396,7 @@ class Config():
             elif (line.startswith('[')):
                 # Finding section definition
                 section = parse('[{}]', line)[0]
-            elif (line.startswith('#')):
+            elif (line.startswith('#') or line.startswith(';')):
                 # Finding section annotation
                 section_annotation = re.sub(r'^#+', '', line)
             else:

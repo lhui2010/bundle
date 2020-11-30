@@ -468,6 +468,10 @@ def maker_collect(workdir=None):
     return 0
 
 
+busco_export_sh = r"""
+export BUSCO_CONFIG_FILE=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
+"""
+
 # 0 workdir
 # 1 PREFIX of this model
 train_snap_sh = r"""export HMMDIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
@@ -582,8 +586,11 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
     if (snap == 'T'):
         cmd += set_workdir + "\n" + train_snap_sh.format(workdir, prefix)
     if (augustus == 'T'):
+        #BUSCO 4.1.2 failed to retrain augustus, even specified augustus config dir to local
+        #The error was no exon_probs.pbl file produced.
+        #I don't know why. For now, I used busco v4.0.1(with bug manual fixed).
         #cmd += set_workdir + "\n" + conda_act.format('busco') + train_augustus_sh.format(workdir, prefix)
-        cmd += set_workdir + "\n" + train_augustus_sh.format(workdir, prefix)
+        cmd += set_workdir + "\n" + busco_export_sh + train_augustus_sh.format(workdir, prefix)
     if (use_grid == 'T'):
         joblist = bsub(cmd, direct_submit='F')
         wait_until_finish(joblist)
@@ -594,8 +601,6 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
 
 def str_to_class(str1):
     return getattr(sys.modules[__name__], str1)
-
-
 
 
 # def minimap_rna(transcript, genome, threads=30, output=''):
