@@ -38,17 +38,17 @@ def busco(genome_fasta=None, mode='genome', lineage='embryophyta_odb10', threads
     :param output:
     :return:
     """
-    # conda_act = r"""
-    # export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
-    # export BUSCO_CONFIG_FILE=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
-    # """
+    busco_export = r"""
+    export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
+    export BUSCO_CONFIG_FILE=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
+    """
     # deploy_augustus = r"""
     # touch /tmp/lh_config && rm -fr /tmp/lh_config && cp -fr  /ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/config /tmp/lh_config
     # """
     if (output == ''):
         output = os.path.basename(genome_fasta) + ".busco.embryophyta.v4.1.2"
     #cmd = conda_act.format('busco') + deploy_augustus + busco_sh.format(threads, mode, genome_fasta, output, lineage)
-    cmd = conda_act.format('busco') + busco_sh.format(threads, mode, genome_fasta, output, lineage)
+    cmd = conda_act.format('busco') + busco_export + busco_sh.format(threads, mode, genome_fasta, output, lineage)
     #    cmd = conda_act
     subprocess.run(cmd, shell=True)
 
