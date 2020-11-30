@@ -509,8 +509,8 @@ date
 # 0 workdir
 # 1 prefix
 train_augustus_sh = r"""
-mkdir -p {0}/train_augustus1
-cd {0}/train_augustus1
+mkdir -p {0}/train_augustus
+cd {0}/train_augustus
 if [ ! -e genome.all.gff ]
 then
     ln -s ../genome.all.gff
