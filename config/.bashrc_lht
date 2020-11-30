@@ -282,8 +282,9 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/2018/bin/x86_64-lin
 #Use this env_var to find formatdb and genblast
 export GBLAST_PATH=/ds3200_1/users_root/yitingshuang/lh/bin/genblast_v139
 
-####LH add end
-#####################################
+##BUSCO
+export BUSCO_CONFIG_FILE=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
+
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/htop:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/allHiC/bin/ALLHiC/bin:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/allHiC/bin/ALLHiC/scripts:$PATH
@@ -300,3 +301,6 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/fasta36-36.3.8h_04-May-2020
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/obsutil_linux_amd64_5.2.9:$PATH
 export LD_LIBRARY_PATH='/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:/ds3200_1/users_root/yitingshuang/lh/lib/lib64:/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib:/ds3200_1/lsf9/9.1/linux2.6-glibc2.3-x86_64/lib:/ds3200_1/proc/beagle/lib:/usr/local/lib:/usr/lib64:/ds3200_1/openmpi-3.1.0/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64:/ds3200_1/proc/NCBI-NGS/lib64:/ds3200_1/proc/ncbi-vdb/lib64:::/ds3200_1/proc/beagle/lib:/ds3200_1/proc/HTS_lib/lib:/usr/local/mpc-1.1.0/lib:/usr/local/gmp-6.1.2/lib:/usr/local/mpfr-4.0.1/lib:/ds3200_1/users_root/yitingshuang/.config/gscp/'
 export PATH=/ds3200_1/users_root/yitingshuang/.config/gscp:$PATH
+
+####LH add end
+#####################################
