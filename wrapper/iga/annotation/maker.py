@@ -358,12 +358,30 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         cfg.write_to_file(op.join(workdir_sep, "maker_opts.ctl"))
         cfg_exe.write_to_file(op.join(workdir_sep, 'maker_exe.ctl'))
         cfg_bopts.write_to_file(op.join(workdir_sep, 'maker_bopts.ctl'))
-        cmd = maker_run_sh.format(workdir_sep, cfg)
+        cmd = maker_run_sh.format(workdir_sep)
         # sh(cmd)
         job_id = bsub(cmd, queue=queue)
         job_list.append(job_id)
         time.sleep(30)
 
+    logger.warning("Submitted jobs:")
+    logger.warning(job_list)
+    wait_until_finish(job_list)
+    logger.warning("Submmited job finished, check log files to make sure they really finished")
+
+
+def maker_resub(dir_list=None, queue="Q104C512G_X4"):
+    r"""
+    Resubmit failed jobs by directory name
+    :param dir_list:
+    :param queue:
+    :return:
+    """
+    for i in dir_list:
+        cmd = maker_run_sh.format(i)
+        job_id = bsub(cmd, queue=queue)
+        job_list.append(job_id)
+        time.sleep(30)
     logger.warning("Submitted jobs:")
     logger.warning(job_list)
     wait_until_finish(job_list)
