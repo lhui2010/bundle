@@ -377,6 +377,8 @@ def maker_resub(dir_list=None, queue="Q104C512G_X4"):
     :param queue:
     :return:
     """
+    logger.warning(dir_list)
+    exit(1)
     job_list = []
     for i in dir_list:
         cmd = maker_run_sh.format(i)
