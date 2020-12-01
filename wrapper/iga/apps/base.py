@@ -507,12 +507,11 @@ def fmain(func_name, args):
 
     for k in position_arg:
         for kk in getattr(real_arg, k):
-            print(kk)
             position_result.append(kk)
 
     # used to debug
-    # logger.debug(position_result)
-    # logger.debug(keyword_result)
+    logger.debug(position_result)
+    logger.debug(keyword_result)
     object_pointer(*position_result, **keyword_result)
 
     # if(number_args == 1):
