@@ -378,6 +378,7 @@ def maker_resub(dir_list=None, queue="Q104C512G_X4"):
     :return:
     """
     logger.warning(dir_list)
+    logger.debug(queue)
     exit(1)
     job_list = []
     for i in dir_list:
