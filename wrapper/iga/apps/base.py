@@ -110,7 +110,7 @@ date
     # Prepare finished, now submit
     logger.info(cmd_full)
     # ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
-    #Incase queue has trainling characters like -m 'node02'
+    # Incase queue has trainling characters like -m 'node02'
     queue = re.sub(r'\s.*', '', queue)
     ret = subprocess.check_output(cmd_full, shell=True).decode()
     try:
@@ -476,8 +476,8 @@ def fmain(func_name, args):
     object_pointer = getattr(sys.modules['__main__'], func_name)
     p = argparse.ArgumentParser(prog=func_name, usage=object_pointer.__doc__)
     # 下面的两个命令用于从函数对象中调取形参的名字和默认值（空值用Nonetype表示），用来转换成parse_args
-    if(len(inspect.getfullargspec(object_pointer).args) == 0):
-        #Incase a function dont' have an arg
+    if (len(inspect.getfullargspec(object_pointer).args) == 0):
+        # Incase a function dont' have an arg
         object_pointer()
         return 0
     for kw, kw_defaults in zip(inspect.getfullargspec(object_pointer).args,
@@ -501,14 +501,16 @@ def fmain(func_name, args):
     keyword_result = {}
 
     for k in keyword_arg:
-        #logger.debug("{}\n{}\n{}".format(k, real_arg, getattr(real_arg, k)))
+        # logger.debug("{}\n{}\n{}".format(k, real_arg, getattr(real_arg, k)))
         keyword_result[k] = getattr(real_arg, k)
-        #print(keyword_result)
+        # print(keyword_result)
 
     for k in position_arg:
-        if(number_args == '+'):
+        if (number_args == '+'):
+            tmp = []
             for kk in getattr(real_arg, k):
-                position_result.append(kk)
+                tmp.append(kk)
+            position_result.append(tmp)
         else:
             position_result.append(getattr(real_arg, k)[0])
 
@@ -538,7 +540,7 @@ def emain():
     actions_with_help = []
     from inspect import getmembers, isfunction
     functions_list = [o for o in getmembers(sys.modules['__main__']) if isfunction(o[1])]
-    #logger.warning(functions_list)
+    # logger.warning(functions_list)
     for f in functions_list:
         if (f[1].__module__ == "__main__" and f[0] != 'main'):
             actions.append(f[0])
@@ -552,7 +554,7 @@ def emain():
             args = []
         fmain(action, args)
     else:
-        #Print help, from jcvi
+        # Print help, from jcvi
         help_print = "Usage:\n    python -m {0}\n\n\n".format(sys.argv[0].replace('.py', ''))
         help_print += "Available {0}s:\n".format('action')
         max_action_len = max(len(action) for action, ah in actions_with_help)
@@ -563,6 +565,7 @@ def emain():
             )
         help_print += "\n"
         print(help_print)
+
 
 if __name__ == "__main__":
     emain()
