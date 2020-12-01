@@ -377,6 +377,7 @@ def maker_resub(dir_list=None, queue="Q104C512G_X4"):
     :param queue:
     :return:
     """
+    job_list = []
     for i in dir_list:
         cmd = maker_run_sh.format(i)
         job_id = bsub(cmd, queue=queue)
