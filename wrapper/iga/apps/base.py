@@ -506,7 +506,8 @@ def fmain(func_name, args):
         #print(keyword_result)
 
     for k in position_arg:
-        position_result.append(getattr(real_arg, k)[0])
+        for kk in getattr(real_arg, k):
+            position_result.append(kk)
 
     # used to debug
     # logger.debug(position_result)
