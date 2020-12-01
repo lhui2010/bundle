@@ -506,8 +506,11 @@ def fmain(func_name, args):
         #print(keyword_result)
 
     for k in position_arg:
-        for kk in getattr(real_arg, k):
-            position_result.append(kk)
+        if(number_args == '+'):
+            for kk in getattr(real_arg, k):
+                position_result.append(kk)
+        else:
+            position_result.append(getattr(real_arg, k)[0])
 
     # used to debug
     logger.debug(position_result)
