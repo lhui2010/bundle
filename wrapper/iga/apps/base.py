@@ -507,6 +507,7 @@ def fmain(func_name, args):
 
     for k in position_arg:
         for kk in getattr(real_arg, k):
+            print(kk)
             position_result.append(kk)
 
     # used to debug
