@@ -290,7 +290,7 @@ maker *ctl >> maker.out 2>> maker.err
 
 def maker_run(genome=None, estgff=None, pepgff=None,
                  rmgff=None, round=1, species='', use_grid='T',
-                 augustus_species='', snap_hmm=''):
+                 augustus_species='', snap_hmm='', queue='Q104C512G_X4'):
     """
     Give genome and evidence, run maker gene prediction in parallel
     :param genome:
@@ -360,7 +360,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         cfg_bopts.write_to_file(op.join(workdir_sep, 'maker_bopts.ctl'))
         cmd = maker_run_sh.format(workdir_sep, cfg)
         # sh(cmd)
-        job_id = bsub(cmd)
+        job_id = bsub(cmd, queue=queue)
         job_list.append(job_id)
         time.sleep(30)
 
