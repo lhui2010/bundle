@@ -94,11 +94,12 @@ def bsub(cmd, queue='Q104C512G_X4', direct_submit='T'):
     """
     bsub_cmd = 'bsub -q {}  -o output.%J -e error.%J '.format(queue)
     if (direct_submit == 'T'):
-        prior_cmd = 'set -eo pipefail;export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/ActivePerl-5.24/bin:$PATH;'
+        prior_cmd = 'set -eo pipefail;'
         cmd_full = bsub_cmd + '"' + prior_cmd + cmd + '"'
     else:
         newbsub = r"""#!/bin/bash
 set -eo pipefail
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/ActivePerl-5.24/bin:$PATH;
 ROOT=$PWD
 date
 """
