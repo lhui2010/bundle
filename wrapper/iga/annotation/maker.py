@@ -641,6 +641,11 @@ def filter_gff_by_aed(gff=None, gff_out='', aed='0.2'):
 # 0 workdir
 # 1 absolute path to full length fasta
 train_augustus_direct_sh = r"""
+
+if [ -d {0}/train_augustus_direct ]
+then
+    rm -rf {0}/train_augustus_direct
+fi
 mkdir -p {0}/train_augustus_direct
 cd {0}/train_augustus_direct
 if [ ! -e genome.all.gff ]
