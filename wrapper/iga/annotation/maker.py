@@ -369,7 +369,13 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     wait_until_finish(job_list)
     logger.warning("Submmited job finished, check log files to make sure they really finished")
 
-
+maker_resub_sh = r"""
+cd {}
+mkdir rm 
+mv *.maker.output rm/
+rm -rf rm &
+maker *ctl >> maker.out 2>> maker.err
+"""
 def maker_resub(dir_list=None, queue="Q104C512G_X4"):
     r"""
     Resubmit failed jobs by directory name
@@ -384,7 +390,7 @@ def maker_resub(dir_list=None, queue="Q104C512G_X4"):
     #exit(1)
     job_list = []
     for i in dir_list:
-        cmd = maker_run_sh.format(i)
+        cmd = maker_resub_sh.format(i)
         job_id = bsub(cmd, queue=queue)
         job_list.append(job_id)
         time.sleep(30)
