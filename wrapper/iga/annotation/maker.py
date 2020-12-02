@@ -639,7 +639,8 @@ def filter_gff_by_aed(gff=None, gff_out='', aed='0.2'):
 # run after snap is finished
 # single/8 thread, default in local run.
 # 0 workdir
-# 1 absolute path to full length fasta
+# 1 prefix
+# 2 absolute path to full length fasta
 train_augustus_direct_sh = r"""
 
 if [ -d {0}/train_augustus_direct ]
@@ -659,8 +660,8 @@ then
 fi
 
 NUMFOUND=1000
-CDNA_FASTA={1}
-AUGUSTUS_SPECIES_NAME={0}_direct
+CDNA_FASTA={2}
+AUGUSTUS_SPECIES_NAME={1}_direct
 WORKING_DIR=$PWD
 ROOT=$PWD
 
@@ -737,7 +738,7 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', a
             cdna_fasta = op.abspath(cdna_fasta)
             logger.warning(workdir)
             logger.warning(cdna_fasta)
-            cmd += train_augustus_direct_sh.format(workdir, cdna_fasta)
+            cmd += train_augustus_direct_sh.format(workdir, prefix, cdna_fasta)
         else:
             logger.error("Provide cdna.fasta before train augustus_direct")
             exit(1)
