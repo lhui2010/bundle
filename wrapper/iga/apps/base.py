@@ -506,13 +506,12 @@ def fmain(func_name, args):
         # print(keyword_result)
 
     for k in position_arg:
-        if (number_args == '+'):
-            tmp = []
-            for kk in getattr(real_arg, k):
-                tmp.append(kk)
-            position_result.append(tmp)
+        k_arg = getattr(real_arg, k)
+        if (number_args == '+' and len(k_arg) > 1):
+            #passing spaced args as a list
+            position_result.append(k_arg)
         else:
-            position_result.append(getattr(real_arg, k)[0])
+            position_result.append(k_arg[0])
 
     # used to debug
     #logger.debug(position_result)
