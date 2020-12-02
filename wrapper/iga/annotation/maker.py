@@ -661,15 +661,17 @@ ROOT=$PWD
 ln -s ../train_snap/uni.ann
 ln -s ../train_snap/uni.dna 
 
-perl /ds3200_1/users_root/yitingshuang/lh/bin/GC_specific_MAKER/fathom_to_genbank.pl --annotation_file uni.ann  --dna_file uni.dna  --genbank_file augustus.gb \
+perl /ds3200_1/users_root/yitingshuang/lh/bin/GC_specific_MAKER/fathom_to_genbank.pl --annotation_file uni.ann \
+ --dna_file uni.dna  --genbank_file augustus.gb \
  --number ${{NUMFOUND}}
 perl -e  'while (my $line = <>){{ if ($line =~ /^LOCUS\s+(\S+)/) {{ print "$1\n"; }} }}'  ${{WORKING_DIR}}/augustus.gb \
  >  ${{WORKING_DIR}}/genbank_gene_list.txt
-perl /ds3200_1/users_root/yitingshuang/lh/bin/GC_specific_MAKER/get_subset_of_fastas.pl   -l  ${{WORKING_DIR}}/genbank_gene_list.txt   \
+perl /ds3200_1/users_root/yitingshuang/lh/bin/GC_specific_MAKER/get_subset_of_fastas.pl  \
+ -l  ${{WORKING_DIR}}/genbank_gene_list.txt   \
  -f ${{WORKING_DIR}}/uni.dna  -o  ${{WORKING_DIR}}/genbank_gene_seqs.fasta
 
 perl ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/autoAug.pl --species=$AUGUSTUS_SPECIES_NAME \
---genome=${{WORKING_DIR}}/genbank_gene_seqs.fasta --trainingset=${{WORKING_DIR}}/augustus.gb.train --cdna=$CDNA_FASTA  \
+--genome=${{WORKING_DIR}}/genbank_gene_seqs.fasta --trainingset=${{WORKING_DIR}}/augustus.gb --cdna=$CDNA_FASTA  \
 --noutr
 
 cd ./autoAug/autoAugPred_abinitio/shells
