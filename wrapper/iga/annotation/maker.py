@@ -729,7 +729,9 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', a
     if (augustus_direct == 'T'):
         if(cdna_fasta != ''):
             cdna_fasta = op.abspath(cdna_fasta)
-            cmd += set_workdir + '\n' + train_augustus_direct_sh.format(workdir, cdna_fasta)
+            logger.warning(workdir)
+            logger.warning(cdna_fasta)
+            cmd += train_augustus_direct_sh.format(workdir, cdna_fasta)
         else:
             logger.error("Provide cdna.fasta before train augustus_direct")
             exit(1)
