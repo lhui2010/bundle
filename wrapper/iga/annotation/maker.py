@@ -597,8 +597,8 @@ fi
 mkdir -p $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL
 cp ./${{OUTPUT}}*  $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/{1}/
 
-/ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/busco/scripts/optimize_augustus.pl --cpus=8 \
---species={1} ../../training_set.db
+#/ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/busco/scripts/optimize_augustus.pl --cpus=8 \
+#--species={1} ../../training_set.db
 #
 echo "Train Augustus completed succefully"
 echo "Augustus species: {1}"
