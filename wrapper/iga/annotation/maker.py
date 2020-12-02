@@ -637,6 +637,7 @@ def filter_gff_by_aed(gff=None, gff_out='', aed='0.2'):
 
 # training augustus without BUSCO
 # run after snap is finished
+# single/8 thread, default in local run.
 # 0 workdir
 # 1 absolute path to full length fasta
 train_augustus_direct_sh = r"""
@@ -702,7 +703,7 @@ done
 
 wait
 
-cd ${WORKING_DIR}
+echo "Successfully finished"
 """
 
 
