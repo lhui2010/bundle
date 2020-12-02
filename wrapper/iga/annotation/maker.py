@@ -374,7 +374,7 @@ cd {}
 mkdir rm 
 mv *.maker.output rm/
 rm -rf rm &
-maker *ctl >> maker.out 2>> maker.err
+maker *ctl > maker.out 2> maker.err
 """
 def maker_resub(dir_list=None, queue="Q104C512G_X4"):
     r"""
