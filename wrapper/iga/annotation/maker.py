@@ -677,10 +677,10 @@ perl ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/autoAug.pl --spec
 cd ./autoAug/autoAugPred_abinitio/shells
 
 x=1
-while [ -e ./aug${x} ]
+while [ -e ./aug${{x}} ]
 do
     echo "A.  $x"
-    ./aug${x} &
+    ./aug${{x}} &
     let x=x+1
 done
 
@@ -693,10 +693,10 @@ perl ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/autoAug.pl --spec
 cd ${{WORKING_DIR}}/autoAug/autoAugPred_hints/shells/
 
 let x=1
-while [ -e ./aug${x} ]
+while [ -e ./aug${{x}} ]
 do
     echo "B.  $x"
-    ./aug${x} &
+    ./aug${{x}} &
     let x=x+1
 done
 
