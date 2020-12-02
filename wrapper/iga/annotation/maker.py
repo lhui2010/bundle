@@ -544,6 +544,8 @@ echo "${{HMMDIR}}/{1}.hmm"
 date
 """
 
+# added optimise step as BUSCO will fail this step naturally, maybe need 5 hours to finish
+# Error: IO.c: loadable library and perl binaries are mismatched (got handshake key 0xdb80080, needed 0xde00080)
 # 0 workdir
 # 1 prefix
 train_augustus_sh = r"""
@@ -594,6 +596,9 @@ then
 fi
 mkdir -p $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/$NEWMODEL
 cp ./${{OUTPUT}}*  $AUGUSTUS_CONFIG_PATH_ORIGINAL/species/{1}/
+
+/ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/busco/scripts/optimize_augustus.pl --cpus=8 \
+--species={1} ../../training_set.db
 #
 echo "Train Augustus completed succefully"
 echo "Augustus species: {1}"
@@ -601,8 +606,106 @@ date
 
 """
 
+def filter_gff_by_aed(gff=None, gff_out='', aed='0.2'):
+    r"""
+    filter maker_gff by aed value
+    output as gff.filter as default
+    :param gff:
+    :param aed:
+    :return:
+    """
+    buff_list = []
+    buff = ''
+    if(gff_out == ''):
+        gff_out = gff + '.filter'
+    with open(gff) as fh:
+        for line in fh:
+            buff += line
+            mylist = line.split()
+            if(mylist[2] == 'gene'):
+                buff_list.append(buff)
+                buff = ''
+    result = ''
+    for bf in buff_list:
+        pattern_result = re.search(r'_AED=(.*?);', bf)[1]
+        if(float(pattern_result) <= float(aed)):
+            result += bf
+    with open(gff_out) as fh:
+        fh.write(result)
+    return 0
 
-def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
+
+# training augustus without BUSCO
+# run after snap is finished
+# 0 workdir
+# 1 absolute path to full length fasta
+train_augustus_direct_sh = r"""
+mkdir -p {0}/train_augustus_direct
+cd {0}/train_augustus_direct
+if [ ! -e genome.all.gff ]
+then
+    ln -s ../genome.all.gff
+fi
+
+if [ ! -e ref.fa ]
+then
+    ln -s ../ref.fa
+fi
+
+NUMFOUND=1000
+CDNA_FASTA={1}
+AUGUSTUS_SPECIES_NAME={0}_direct
+WORKING_DIR=$PWD
+ROOT=$PWD
+
+ln -s ../train_snap/uni.ann
+ln -s ../train_snap/uni.dna 
+
+perl /ds3200_1/users_root/yitingshuang/lh/bin/GC_specific_MAKER/fathom_to_genbank.pl --annotation_file uni.ann  --dna_file uni.dna  --genbank_file augustus.gb \
+ --number ${{NUMFOUND}}
+perl -e  'while (my $line = <>){{ if ($line =~ /^LOCUS\s+(\S+)/) {{ print "$1\n"; }} }}'  ${{WORKING_DIR}}/augustus.gb \
+ >  ${{WORKING_DIR}}/genbank_gene_list.txt
+perl /ds3200_1/users_root/yitingshuang/lh/bin/GC_specific_MAKER/get_subset_of_fastas.pl   -l  ${{WORKING_DIR}}/genbank_gene_list.txt   \
+ -f ${{WORKING_DIR}}/uni.dna  -o  ${{WORKING_DIR}}/genbank_gene_seqs.fasta
+
+perl ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/autoAug.pl --species=$AUGUSTUS_SPECIES_NAME \
+--genome=${{WORKING_DIR}}/genbank_gene_seqs.fasta --trainingset=${{WORKING_DIR}}/augustus.gb.train --cdna=$CDNA_FASTA  \
+--noutr
+
+cd ./autoAug/autoAugPred_abinitio/shells
+
+x=1
+while [ -e ./aug${x} ]
+do
+    echo "A.  $x"
+    ./aug${x} &
+    let x=x+1
+done
+
+wait
+
+perl ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/autoAug.pl --species=$AUGUSTUS_SPECIES_NAME \
+--genome=${{WORKING_DIR}}/genbank_gene_seqs.fasta --useexisting --hints=${{WORKING_DIR}}/autoAug/hints/hints.E.gff \
+ -v -v -v  --index=1
+
+cd ${{WORKING_DIR}}/autoAug/autoAugPred_hints/shells/
+
+let x=1
+while [ -e ./aug${x} ]
+do
+    echo "B.  $x"
+    ./aug${x} &
+    let x=x+1
+done
+
+wait
+
+cd ${WORKING_DIR}
+"""
+
+
+def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', augustus_direct='T',
+                cdna_fasta=''):
     """
     :param workdir:
     :return:
@@ -621,6 +724,12 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T'):
         # cmd += set_workdir + "\n" + busco_export_sh + train_augustus_sh.format(workdir, prefix)
         cmd += set_workdir + "\n" + conda_act.format('busco') + busco_export_sh + \
          train_augustus_sh.format(workdir, prefix)
+    if (augustus_direct == 'T'):
+        if(cdna_fasta != ''):
+            cmd += set_workdir + '\n' + train_augustus_direct_sh.format(workdir, cdna_fasta)
+        else:
+            logger.error("Provide cdna.fasta before train augustus_direct")
+            exit(1)
     if (use_grid == 'T'):
         joblist = bsub(cmd, direct_submit='F')
         wait_until_finish(joblist)
