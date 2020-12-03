@@ -679,7 +679,7 @@ perl -e  'while (my $line = <>){{ if ($line =~ /^LOCUS\s+(\S+)/) {{ print "$1\n"
 
 ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/autoAug.pl --species=$AUGUSTUS_SPECIES_NAME \
 --genome=${{WORKING_DIR}}/genbank_gene_seqs.fasta --trainingset=${{WORKING_DIR}}/augustus.gb --cdna=$CDNA_FASTA  \
---noutr
+--noutr --pasa --useGMAPforPASA
 
 cd ./autoAug/autoAugPred_abinitio/shells
 
