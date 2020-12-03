@@ -749,7 +749,7 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', a
             logger.error("Provide cdna.fasta before train augustus_direct")
             exit(1)
     if (use_grid == 'T'):
-        joblist = bsub(cmd, direct_submit='F')
+        joblist = bsub(cmd, direct_submit='F', cpus=2)
         wait_until_finish(joblist)
     else:
         sh(cmd)
