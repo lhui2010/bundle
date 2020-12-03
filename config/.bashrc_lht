@@ -131,6 +131,19 @@ body() {
     "$@"
 }
 
+availq() {
+    echo "                 TotalCpu     UsedCpu    RestCPU"
+    cpu_total=256
+    cpu_used=`bjobs -u all |grep "node0[2345]" |wc -l | sed 's/ .*//'`
+    cpu_left=`expr $cpu_total  - $cpu_used`
+    echo "Q64C1T_X4:       $cpu_total          $cpu_used        $cpu_left"
+    cpu_total=416
+    cpu_used=`bjobs -u all |grep "node1[0123]" |wc -l | sed 's/ .*//'`
+    cpu_left=`expr $cpu_total  - $cpu_used`
+    echo "Q104C512G_X4:    $cpu_total          $cpu_used        $cpu_left"
+}
+
+
 tt () {
     perl /ds3200_1/users_root/yitingshuang/lh/bin/lh_bin/print_head.pl $1 |column -s $'\t' -t   |less -S
 }
