@@ -376,7 +376,7 @@ mv *.maker.output rm/
 rm -rf rm &
 maker *ctl > maker.out 2> maker.err
 """
-def maker_resub(dir_list=None, queue="Q104C512G_X4"):
+def maker_resub(dir_list=None, queue="Q104C512G_X4", cpus=1):
     r"""
     Resubmit failed jobs by directory name
     :param dir_list:
@@ -391,7 +391,7 @@ def maker_resub(dir_list=None, queue="Q104C512G_X4"):
     job_list = []
     for i in dir_list:
         cmd = maker_resub_sh.format(i)
-        job_id = bsub(cmd, queue=queue)
+        job_id = bsub(cmd, queue=queue, cpus=cpus)
         job_list.append(job_id)
         time.sleep(30)
     logger.warning("Submitted jobs:")
