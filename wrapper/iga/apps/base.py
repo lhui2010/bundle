@@ -92,7 +92,7 @@ def bsub(cmd, queue='Q104C512G_X4', direct_submit='T', cpus=1):
     :param cmd:
     :return:
     """
-    bsub_cmd = 'bsub -q {0}  -o output.%J -e error.%J -n {1}'.format(queue, cpus)
+    bsub_cmd = 'bsub -q {0}  -o output.%J -e error.%J -n {1} '.format(queue, cpus)
     if (direct_submit == 'T'):
         prior_cmd = 'set -eo pipefail;'
         cmd_full = bsub_cmd + '"' + prior_cmd + cmd + '"'
