@@ -141,6 +141,10 @@ availq() {
     cpu_used=`bjobs -u all |grep "node1[0123]" |wc -l | sed 's/ .*//'`
     cpu_left=`expr $cpu_total  - $cpu_used`
     echo "Q104C512G_X4:    $cpu_total          $cpu_used        $cpu_left"
+    echo ""
+    lsload |head -1
+    lsload |grep "node0[2345]"
+    lsload |grep "node1[0123]"
 }
 
 
