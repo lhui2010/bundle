@@ -693,6 +693,8 @@ done
 
 wait
 
+cd $WORKING_DIR
+
 ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/autoAug.pl --species=$AUGUSTUS_SPECIES_NAME \
 --genome=${{WORKING_DIR}}/genbank_gene_seqs.fasta --useexisting --hints=${{WORKING_DIR}}/autoAug/hints/hints.E.gff \
  -v -v -v  --index=1
