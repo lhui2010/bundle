@@ -290,7 +290,7 @@ maker *ctl >> maker.out 2>> maker.err
 
 def maker_run(genome=None, estgff=None, pepgff=None,
                  rmgff=None, round=1, species='', use_grid='T',
-                 augustus_species='', snap_hmm='', queue='Q104C512G_X4'):
+                 augustus_species='', snap_hmm='', queue='Q104C512G_X4', update=''):
     """
     Give genome and evidence, run maker gene prediction in parallel
     :param genome:
@@ -341,6 +341,8 @@ def maker_run(genome=None, estgff=None, pepgff=None,
             snap_hmm = snap_hmm + '.hmm'
         cfg.update('snaphmm={0};augustus_species={1}'.format(
             op.join(snap_hmm_dir, snap_hmm), augustus_species))
+    if (update != ''):
+        cfg.update(update)
     #
     # get abs path of all fasta files
     os.chdir(workdir)
