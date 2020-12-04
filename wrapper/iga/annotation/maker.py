@@ -439,9 +439,26 @@ def maker_check(workdir=None):
         if (len(error_list) > 0):
             logger.warning("Chunks with errors are:")
             [logger.warning(l) for l in error_list]
-        exit(1)
+        #exit(1)
 
     return error_list + unfinished_list
+
+def maker_check_resub(workdir=None, queue="Q64C1T_X4"):
+    i = 1
+    current_dir = op.abspath(os.curdir())
+    #absworkdir = op.abspath(workdir)
+    while(i < 3):
+        i += 1
+        #at most resub two times
+        os.chdir(current_dir)
+        failed_list = maker_check(workdir)
+        if(len(failed_list) > 1):
+            maker_resub(failed_list, queue=queue, cpus=i)
+        else:
+            return 0
+    logger.error("Failed too many times, stop submitting")
+    exit(1)
+    return 1
 
 
 def deploy_augustus():

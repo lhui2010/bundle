@@ -8,8 +8,7 @@ import argparse
 import textwrap
 import subprocess
 import os
-from iga.apps.base import emain, conda_act
-
+from iga.apps.base import emain, conda_act, bsub, sh
 
 # class CTL():
 
@@ -29,7 +28,7 @@ busco -f -c {0} -m {1} -i {2} -o {3} -l {4}
 """
 
 
-def busco(genome_fasta=None, mode='genome', lineage='embryophyta_odb10', threads=64, output=''):
+def busco(genome_fasta=None, mode='genome', lineage='embryophyta_odb10', threads=64, output='', usegrid='T'):
     """
     :param genome_fasta:
     :param mode: genome | prot
@@ -50,7 +49,10 @@ def busco(genome_fasta=None, mode='genome', lineage='embryophyta_odb10', threads
     #cmd = conda_act.format('busco') + deploy_augustus + busco_sh.format(threads, mode, genome_fasta, output, lineage)
     cmd = conda_act.format('busco') + busco_export + busco_sh.format(threads, mode, genome_fasta, output, lineage)
     #    cmd = conda_act
-    subprocess.run(cmd, shell=True)
+    if(usegrid == 'T'):
+        bsub(cmd, cpus=5)
+    else:
+        sh(cmd)
 
 
 #
