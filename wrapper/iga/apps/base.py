@@ -127,7 +127,7 @@ date
     except TypeError:
         logger.error('submission failed for: {}'.format(cmd_full))
     #queue jumper
-    sh('btop {}'.format(job_id))
+    #sh('btop {}'.format(job_id))
     return job_id
 
 
