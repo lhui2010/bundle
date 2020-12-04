@@ -593,7 +593,7 @@ awk -v OFS="\t" '{{ if ($3 == "mRNA") print $1, $4, $5 }}' genome.all.gff | \
   bedtools getfasta -fi ref.fa -bed - -fo total.all.maker.transcripts1000.fasta
 
 #Do not need it in current HPC environment
-#export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
+export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
 
 LINEAGE=embryophyta_odb10
 THREADS=104
