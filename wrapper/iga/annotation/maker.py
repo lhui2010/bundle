@@ -710,7 +710,7 @@ perl -e  'while (my $line = <>){{ if ($line =~ /^LOCUS\s+(\S+)/) {{ print "$1\n"
  -l  ${{WORKING_DIR}}/genbank_gene_list.txt   \
  -f ${{WORKING_DIR}}/uni.dna  -o  ${{WORKING_DIR}}/genbank_gene_seqs.fasta
  
-perl ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/randomSplit.pl ${WORKING_DIR}/augustus.gb ${{NUMSPLIT}}
+perl ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/randomSplit.pl ${{WORKING_DIR}}/augustus.gb ${{NUMSPLIT}}
 
 ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/autoAug.pl --species=$AUGUSTUS_SPECIES_NAME \
 --genome=${{WORKING_DIR}}/genbank_gene_seqs.fasta --trainingset=${{WORKING_DIR}}/augustus.gb --cdna=$CDNA_FASTA  \
