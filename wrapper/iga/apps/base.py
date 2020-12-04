@@ -82,8 +82,8 @@ def sh(cmd, debug=False, parallel='F', cpus=1):
     prior_cmd = 'set -eo pipefail\n'
     if (parallel == 'T'):
         from multiprocessing import Pool
-        # if(type(cmd)!= list):
-        #     cmd = cmd.split('\n')
+        if(type(cmd)!= list):
+            cmd = cmd.split('\n')
         with Pool(int(cpus)) as p:
             logger.warning(p.map(sh, cmd))
     else:

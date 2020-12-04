@@ -369,12 +369,14 @@ def maker_run(genome=None, estgff=None, pepgff=None,
             time.sleep(3)
         else:
             job_list.append(cmd)
-            sh(cmd, parallel='T', cpus=cpus)
+    if(use_grid == 'T'):
+        logger.warning("Submitted jobs:")
+        logger.warning(job_list)
+        wait_until_finish(job_list)
+        logger.warning("Submmited job finished, check log files to make sure they really finished")
+    else:
+        sh(job_list, parallel='T', cpus=cpus)
 
-    logger.warning("Submitted jobs:")
-    logger.warning(job_list)
-    wait_until_finish(job_list)
-    logger.warning("Submmited job finished, check log files to make sure they really finished")
 
 maker_resub_sh = r"""
 cd {}
