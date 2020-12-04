@@ -120,6 +120,8 @@ date
         logger.warning(job_id)
     except TypeError:
         logger.error('submission failed for: {}'.format(cmd_full))
+    #queue jumper
+    sh('btop {}'.format(job_id))
     return job_id
 
 
