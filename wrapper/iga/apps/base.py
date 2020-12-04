@@ -84,7 +84,7 @@ def sh(cmd, debug=False, parallel='F', cpus=1):
         from multiprocessing import Pool
         if(type(cmd)!= list):
             cmd = cmd.split('\n')
-        with Pool(cpus) as p:
+        with Pool(int(cpus)) as p:
             logger.warning(p.map(sh, cmd))
     else:
         ret = subprocess.check_output(prior_cmd + cmd, stderr=subprocess.STDOUT, shell=True).decode()
