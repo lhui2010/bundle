@@ -364,7 +364,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         # sh(cmd)
         job_id = bsub(cmd, queue=queue)
         job_list.append(job_id)
-        time.sleep(30)
+        time.sleep(3)
 
     logger.warning("Submitted jobs:")
     logger.warning(job_list)
