@@ -71,7 +71,7 @@ def split_fasta(fasta, workdir, chunk=100):
     return file_list
 
 
-def sh(cmd, debug=False):
+def sh(cmd, debug=False, parallel='F', cpus=1):
     """
     run command directly with subprocess.run
     :param cmd:
@@ -80,7 +80,13 @@ def sh(cmd, debug=False):
     ret = ''
     logger.info(cmd)
     prior_cmd = 'set -eo pipefail\n'
-    if (debug == False):
+    if (parallel == 'T'):
+        from multiprocessing import Pool
+        if(type(cmd)!= list):
+            cmd = cmd.split('\n')
+        with Pool(cpus) as p:
+            logger.warning(p.map(sh, cmd))
+    else:
         ret = subprocess.check_output(prior_cmd + cmd, stderr=subprocess.STDOUT, shell=True).decode()
     return ret
 
