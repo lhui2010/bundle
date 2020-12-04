@@ -364,9 +364,9 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         cmd = maker_run_sh.format(workdir_sep)
         # sh(cmd)
         if(use_grid=='T'):
-            job_id = bsub(cmd, queue=queue)
+            job_id = bsub(cmd, queue=queue, cpus=2)
             job_list.append(job_id)
-            time.sleep(3)
+            time.sleep(30)
         else:
             job_list.append(cmd)
     if(use_grid == 'T'):
