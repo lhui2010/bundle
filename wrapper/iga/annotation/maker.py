@@ -443,6 +443,7 @@ def maker_check(workdir=None):
 
     return error_list + unfinished_list
 
+
 def maker_check_resub(workdir=None, queue="Q64C1T_X4"):
     i = 1
     current_dir = op.abspath(os.curdir())
@@ -584,7 +585,8 @@ awk -v OFS="\t" '{{ if ($3 == "mRNA") print $1, $4, $5 }}' genome.all.gff | \
   awk -v OFS="\t" '{{ if ($2 < 1000) print $1, "0", $3+1000; else print $1, $2-1000, $3+1000 }}' | \
   bedtools getfasta -fi ref.fa -bed - -fo total.all.maker.transcripts1000.fasta
 
-export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
+#Do not need it in current HPC environment
+#export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
 
 LINEAGE=embryophyta_odb10
 THREADS=104
