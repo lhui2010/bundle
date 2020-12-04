@@ -38,7 +38,7 @@ def busco(genome_fasta=None, mode='genome', lineage='embryophyta_odb10', threads
     :return:
     """
     busco_export = r"""
-    export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
+    #export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
     export BUSCO_CONFIG_FILE=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
     """
     # deploy_augustus = r"""
