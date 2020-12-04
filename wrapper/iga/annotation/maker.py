@@ -453,7 +453,7 @@ def maker_check(workdir=None):
 
 def maker_check_resub(workdir=None, queue="Q64C1T_X4"):
     i = 1
-    current_dir = op.abspath(os.curdir())
+    current_dir = op.abspath(os.curdir)
     #absworkdir = op.abspath(workdir)
     while(i < 3):
         i += 1
