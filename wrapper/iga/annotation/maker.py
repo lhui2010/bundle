@@ -460,6 +460,7 @@ def maker_check_resub(workdir=None, queue="Q64C1T_X4"):
         #at most resub two times
         os.chdir(current_dir)
         failed_list = maker_check(workdir)
+        os.chdir(workdir)
         if(len(failed_list) > 1):
             maker_resub(failed_list, queue=queue, cpus=i)
         else:
