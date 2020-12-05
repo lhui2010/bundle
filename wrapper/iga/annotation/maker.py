@@ -699,6 +699,12 @@ AUGUSTUS_SPECIES_NAME={1}_direct
 WORKING_DIR=$PWD
 ROOT=$PWD
 
+if [ -d $AUGUSTUS_CONFIG_PATH/species/$AUGUSTUS_SPECIES_NAME ]
+then
+    RND=$(date +%s%N)
+    mv $AUGUSTUS_CONFIG_PATH/species/$AUGUSTUS_SPECIES_NAME $AUGUSTUS_CONFIG_PATH/species/$AUGUSTUS_SPECIES_NAME.$RND
+fi
+
 ln -s ../train_snap/uni.ann
 ln -s ../train_snap/uni.dna 
 
