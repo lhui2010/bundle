@@ -171,7 +171,7 @@ correct_est_fusion=0 #limits use of ESTs in annotation to avoid fusion genes
 tries=2 #number of times to try a contig if there is a failure for some reason
 clean_try=0 #remove all data from previous run before retrying, 1 = yes, 0 = no
 clean_up=1 #removes theVoid directory with individual analysis files, 1 = yes, 0 = no
-TMP=/tmp/lh_config #specify a directory other than the system default temporary directory for temporary files
+TMP=/tmp #specify a directory other than the system default temporary directory for temporary files
 
 """
 
