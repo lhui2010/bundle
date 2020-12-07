@@ -451,7 +451,7 @@ def maker_check(workdir=None):
     return error_list + unfinished_list
 
 
-def maker_check_resub(workdir=None, queue="Q64C1T_X4"):
+def maker_check_resub(workdir=None, queue="Q104C512G_X4"):
     i = 1
     current_dir = op.abspath(os.curdir)
     #absworkdir = op.abspath(workdir)
