@@ -12,7 +12,8 @@ while(<LIST>)
 while(<IN>)
 {
     my $name = "";
-	if(/ID=(.*?);Name/ or /Parent=(.*)/)
+    my $name2 = "";
+	if(/ID=(.*?);Name/)
     {
         $name=$1;
     }
@@ -20,12 +21,12 @@ while(<IN>)
     {
         $name2=$1;
     }
-	@e=split;
-	if(exists $name{$e[0]})
-	{
-		print $_;
-	}
-	elsif(defined $name and (exists $name{$name} or exists $name{$name2}))
+    #@e=split;
+    #if(exists $name{$e[0]})
+	#{
+	#	print $_;
+	#}
+	if(exists $name{$name} or exists $name{$name2})
 	{
 		print $_;
 	}
