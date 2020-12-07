@@ -321,3 +321,5 @@ export PATH=/ds3200_1/users_root/yitingshuang/.config/gscp:$PATH
 
 ####LH add end
 #####################################
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/BRAKER-2.1.5/scripts:$PATH
+export PASAHOME=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/bin/PASApipeline.v2.4.1
