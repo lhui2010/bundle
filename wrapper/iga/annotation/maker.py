@@ -859,6 +859,13 @@ lift_over.py
 """
 
 def liftover_by_agp(gff=None, agp=None):
+    """
+    lift over gff files based on agp file, this is used when annotation genes on contig level and need to transfer to
+    chromosome level
+    :param gff:
+    :param agp:
+    :return:
+    """
     #chr name of contig
     reverse_strand = {'-':'+', '+':'-'}
     chrd = {}
@@ -891,8 +898,8 @@ def liftover_by_agp(gff=None, agp=None):
             else:
                 mylist = line.rstrip().split()
                 this_contig = mylist[0]
-                this_start = mylist[3]
-                this_end = mylist[4]
+                this_start = int(mylist[3])
+                this_end = int(mylist[4])
                 this_strand = mylist[6]
                 #transforming
                 new_chr = chrd[this_contig]
@@ -907,8 +914,8 @@ def liftover_by_agp(gff=None, agp=None):
                 new_start = this_start + startd[this_contig] - 1
                 new_end = this_end + startd[this_contig] - 1
                 mylist[0] = new_chr
-                mylist[3] = new_start
-                mylist[4] = new_end
+                mylist[3] = str(new_start)
+                mylist[4] = str(new_end)
                 mylist[6] = new_strand
                 new_line = "\t".join(mylist)
                 print(new_line)
