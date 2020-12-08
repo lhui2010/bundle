@@ -281,8 +281,8 @@ def fix_comma_in_parent():
         if(found_error):
             leading = found_error[1]
             lagging = found_error[2].rstrip(';').split(',')
-            for l in lagging:
-                print(leading + "Parent=" + found_error[1] + ';')
+            for lag in lagging:
+                print(leading + "Parent=" + lag + ';')
         else:
             print(l, end='')
 
