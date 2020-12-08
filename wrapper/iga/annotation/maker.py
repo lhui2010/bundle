@@ -904,7 +904,7 @@ def liftover_by_agp(gff=None, agp=None):
                 #transforming
                 new_chr = chrd[this_contig]
                 if(strandd[this_contig] == '-'):
-                    new_strand = reverse_strand(this_strand)
+                    new_strand = reverse_strand[this_strand]
                     #new start coordinate = seqLength - endCoord
                     this_start = lengthd[this_contig] - (this_start - 1)
                     this_end = lengthd[this_contig] - (this_end - 1)
