@@ -275,6 +275,7 @@ def fix_comma_in_parent():
     Read from stdin and print to stdout
     :return:
     """
+    sys.argv.pop[1]
     import fileinput
     for l in fileinput.input():
         found_error = re.search(r'(.*;)Parent=(.*,.*)', l)
