@@ -394,7 +394,7 @@ def maker_resub(dir_list=None, queue="Q104C512G_X4", cpus=1):
     """
     if(type(dir_list) == str):
         dir_list = [dir_list]
-    # logger.warning(dir_list)
+    logger.warning(dir_list)
     # logger.debug(queue)
     # exit(1)
     job_list = []
