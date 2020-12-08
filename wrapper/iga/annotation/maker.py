@@ -310,12 +310,19 @@ def pasa_refine(genome=None, transcript=None, gff=None, use_grid='F'):
     else:
         sh(cmd)
 
+
+# 0 input.gff
+# 1 prefix, like A188 or CORNE
 maker_rename_sh = r"""
-$maker_map_ids --abrv_gene 'G' --abrv_tran 'T' --prefix CORNE --justify 8 --suffix '-' --iterate 1 genome.maker.gff3
-.link  > map.txt
+maker_map_ids --abrv_gene 'G' --prefix {1} --justify 8 --suffix '-t' --iterate 1 {0}  > {0}.map.txt
 #Caution map_gff_ids will rewrite the file instead of generating a new one
-map_gff_ids map.txt genome.maker.gff3
+cp {0} {0}.format.gff
+map_gff_ids {0}.map.txt {0}.format.gff
 """
+
+def maker_rename_gff(gff=None, prefix='MAKER'):
+    cmd = maker_rename_sh.format(gff, prefix)
+    sh(cmd)
 
 # environment for maker
 maker_env_sh = r"""
