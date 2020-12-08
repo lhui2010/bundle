@@ -867,6 +867,8 @@ def liftover_by_agp(gff=None, agp=None):
     :return:
     eg:
     python -m iga.annotation.maker liftover_by_agp genome.maker.gff CORNE_v1.0.agp > genome.lifted.gff
+    gff_genome_to_genes.pl genome.lifted.gff.cds CORNE_v1.0.chr.fa > genome.lifted.gff.cds.fa
+    cds2aa.pl genome.lifted.gff.cds.fa > genome.lifted.gff.cds.fa.pep
     """
     #chr name of contig
     reverse_strand = {'-':'+', '+':'-'}
