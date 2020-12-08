@@ -380,7 +380,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
 
 maker_resub_sh = r"""
 cd {}
-mkdir rm 
+mkdir -p rm 
 mv *.maker.output rm/
 rm -rf rm &
 maker *ctl > maker.out 2> maker.err
@@ -393,8 +393,8 @@ def maker_resub(dir_list=None, queue="Q104C512G_X4", cpus=4):
     :return:
     """
     if(type(dir_list) == str):
-        dir_list = list(dir_list)
-    # logger.warning(dir_list)
+        dir_list = [dir_list]
+    logger.warning(dir_list)
     # logger.debug(queue)
     # exit(1)
     job_list = []
