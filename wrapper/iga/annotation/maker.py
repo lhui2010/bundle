@@ -350,8 +350,8 @@ $PASAHOME/Launch_PASA_pipeline.pl \
 def pasa_refine(genome=None, transcript=None, gff=None, use_grid='F'):
     r"""
     :param genome: the assembled genome (fasta)
-    :param gff: the existing annotation (gff3)
     :param transcript: the assembled transcripts (fasta)
+    :param gff: the existing annotation (gff3)
     :param use_grid: whether to use bsub (T or F)
     :return:
     """
