@@ -270,6 +270,98 @@ def format_gt_gff_to_maker_gff(gff=None):
     return output_file
 
 
+def fix_comma_in_parent():
+    r"""
+    Read from stdin and print to stdout
+    :return:
+    """
+    import fileinput
+    for l in fileinput.input():
+        found_error = re.search(r'(.*;)Parent=(.*,.*)', l)
+        if(found_error):
+            leading = found_error[1]
+            lagging = found_error[2].rstrip(';').split(',')
+            for l in lagging:
+                print(leading + "Parent=" + found_error[1] + ';')
+        else:
+            print(l, end='')
+
+
+
+#0 reference_genome.fa
+#1 transcripts.fa
+#2 maker.gff
+pasa_refine_sh = r"""
+
+touch {0}.sqlite
+
+echo "## templated variables to be replaced exist as <__var_name__>
+
+# database settings
+DATABASE=$PWD/{0}.sqlite
+
+#######################################################
+# Parameters to specify to specific scripts in pipeline
+# create a key = "script_name" + ":" + "parameter"
+# assign a value as done above.
+
+#script validate_alignments_in_db.dbi
+validate_alignments_in_db.dbi:--MIN_PERCENT_ALIGNED=80
+validate_alignments_in_db.dbi:--MIN_AVG_PER_ID=80
+
+#script subcluster_builder.dbi
+subcluster_builder.dbi:-m=50
+" >   pasa.alignAssembly.sqlite.txt
+
+#-+- Align transcript to genome and create the original sqlite db
+$PASAHOME/Launch_PASA_pipeline.pl \
+   -c pasa.alignAssembly.sqlite.txt -C -R -g {0} \
+   -t {1}  \
+    --ALIGNERS gmap,blat --CPU 20
+  
+#-+- Rename maker.gff(necessary?)
+mv {2} {2}.bak
+awk '$3=="gene"' {2}.bak > {2}
+awk '$3=="mRNA"' {2}.bak >> {2}
+awk '$3=="CDS"' {2}.bak >> {2}
+awk '$3=="exon"' {2}.bak >> {2}
+
+#-+- Sort maker.gff in gene, mRNA, exon, CDS order (other type is not needed by pasa)
+
+#-+- Fix the Parent=mRNA1,mRNA2 issue. changing them into two lines. Maker is so weird :(
+
+#-+- Load GFF
+$PASAHOME/scripts/Load_Current_Gene_Annotations.dbi \
+    -c pasa.alignAssembly.sqlite.txt \
+    -g {0} \
+    -P {2}
+
+#-+- Refine genome gff, (slow)
+$PASAHOME/Launch_PASA_pipeline.pl \
+    -c pasa.annotCompare.config -A \
+    -g {0} \
+    -t {1}
+
+"""
+
+def pasa_refine(genome=None, gff=None, transcript=None, use_grid='F', cpus=1):
+    r"""
+    :param genome: the assembled genome (fasta)
+    :param gff: the existing annotation (gff3)
+    :param transcript: the assembled transcripts (fasta)
+    :param use_grid: whether to use bsub (T or F)
+    :param cpus: threads (default is 1)
+    :return:
+    """
+
+maker_rename_sh = r"""
+$maker_map_ids --abrv_gene 'G' --abrv_tran 'T' --prefix CORNE --justify 8 --suffix '-' --iterate 1 genome.maker.gff3
+.link  > map.txt
+#Caution map_gff_ids will rewrite the file instead of generating a new one
+map_gff_ids map.txt genome.maker.gff3
+"""
+
+
 # environment for maker
 maker_env_sh = r"""
 ZOE_HMM_DIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
@@ -385,7 +477,7 @@ mv *.maker.output rm/
 rm -rf rm &
 maker *ctl > maker.out 2> maker.err
 """
-def maker_resub(dir_list=None, queue="Q104C512G_X4", cpus=1):
+def maker_resub(dir_list=None, queue="Q104C512G_X4", cpus=4):
     r"""
     Resubmit failed jobs by directory name
     :param dir_list:
