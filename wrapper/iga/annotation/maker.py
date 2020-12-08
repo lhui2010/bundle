@@ -913,6 +913,9 @@ def liftover_by_agp(gff=None, agp=None):
                 #Add offset, because loci in AGP is 1-based, so minus 1 is the real offset
                 new_start = this_start + startd[this_contig] - 1
                 new_end = this_end + startd[this_contig] - 1
+                #in case we need swap loci like Chr0 . gene 800 1
+                if(new_end < new_start):
+                    (new_start, new_end) = (new_end, new_start)
                 mylist[0] = new_chr
                 mylist[3] = str(new_start)
                 mylist[4] = str(new_end)
