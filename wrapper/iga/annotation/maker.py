@@ -619,6 +619,8 @@ cd {}
 #000041F|arrow_np1212    9_datastore/6C/BE/000041F%7Carrow_np1212/       STARTED
 #000041F|arrow_np1212    9_datastore/6C/BE/000041F%7Carrow_np1212/       FINISHED
 touch total_master_datastore_index.log
+rm    total_master_datastore_index.log
+touch total_master_datastore_index.log
 for i in `ls -d *.fa.run/`
 do
     echo $i
