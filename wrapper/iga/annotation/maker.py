@@ -718,8 +718,6 @@ def filter_gff_by_aed(gff=None, gff_out='', aed='0.2'):
     return 0
 
 
-
-
 # training augustus without BUSCO
 # run after snap is finished
 # single/8 thread, default in local run.
@@ -853,59 +851,104 @@ def str_to_class(str1):
     return getattr(sys.modules[__name__], str1)
 
 
-# def minimap_rna(transcript, genome, threads=30, output=''):
-#     if (output == ''):
-#         output = transcript + ".sam"
-#     cmd = minimap_rna_sh.format(threads, genome, transcript, output)
-#     sh(cmd)
-
-
-# parallel run
-
-# train
 
 # liftover
 # Require RaGOO
+liftover_sh = r"""
+lift_over.py 
+"""
 
+def liftover_by_agp(gff=None, agp=None):
+    #chr name of contig
+    reverse_strand = {'-':'+', '+':'-'}
+    chrd = {}
+    #start on chr
+    startd = {}
+    #end on chr
+    endd = {}
+    #contig strand on chr
+    strandd = {}
+    #contig length
+    lengthd = {}
+    with open(agp) as fh:
+        for line in fh:
+            if (line.startswith('#')):
+                continue
+            else:
+                mylist = line.split()
+                contig_name = mylist[5]
+                if(mylist[4] == 'W'):
+                    chrd[contig_name]    = mylist[0]
+                    startd[contig_name]  = int(mylist[1])
+                    endd[contig_name]    = int(mylist[2])
+                    strandd[contig_name] = mylist[-1]
+                    lengthd[contig_name] = int(mylist[-2])
 
-def liftover():
-    pass
+    with open(gff) as fh:
+        for line in fh:
+            if(line.startswith('#')):
+                print(line, end='')
+            else:
+                mylist = line.rstrip().split()
+                this_contig = mylist[0]
+                this_start = mylist[3]
+                this_end = mylist[4]
+                this_strand = mylist[6]
+                #transforming
+                new_chr = chrd[this_contig]
+                if(strandd[this_contig] == '-'):
+                    new_strand = reverse_strand(this_strand)
+                    #new start coordinate = seqLength - endCoord
+                    this_start = lengthd[this_contig] - (this_start - 1)
+                    this_end = lengthd[this_contig] - (this_end - 1)
+                else:
+                    new_strand = this_strand
+                #Add offset, because loci in AGP is 1-based, so minus 1 is the real offset
+                new_start = this_start + startd[this_contig] - 1
+                new_end = this_end + startd[this_contig] - 1
+                mylist[0] = new_chr
+                mylist[3] = new_start
+                mylist[4] = new_end
+                mylist[6] = new_strand
+                new_line = "\t".join(mylist)
+                print(new_line)
+
 
 
 # function
 
-def main():
-    """
-    the main function
-    """
-    emain()
-    # actions = (
-    #     ('isoseq', 'extract isoseq flnc reads from subreads.bam')
-    #     ('fastq2gff', 'map fastq to reference genome and get gff files'),
-    # )
-
-    # p = ActionDispatcher(actions)
-    # p.dispatch(globals())
-
-    # print(__file__)
-    # print(__doc__)
-    # exit()
-    # prog_name = "busco_wrapper"
-    # usage = "run busco on selected GENOME"
-    #
-    # parser = argparse.ArgumentParser(
-    #     prog=prog_name,
-    #     formatter_class=argparse.RawDescriptionHelpFormatter,
-    #     description=textwrap.dedent(usage),
-    #     epilog="")
-    # parser.add_argument("GENOME", help="Genome to be evalutated in fasta format")
-    # parser.add_argument("-t", "--threads", default=64, type=int, help="flanking distance default (1000)")
-    # args = parser.parse_args()
-    #
-    # busco(args.GENOME)
+# def main():
+#     """
+#     the main function
+#     """
+#     emain()
+#     # actions = (
+#     #     ('isoseq', 'extract isoseq flnc reads from subreads.bam')
+#     #     ('fastq2gff', 'map fastq to reference genome and get gff files'),
+#     # )
+#
+#     # p = ActionDispatcher(actions)
+#     # p.dispatch(globals())
+#
+#     # print(__file__)
+#     # print(__doc__)
+#     # exit()
+#     # prog_name = "busco_wrapper"
+#     # usage = "run busco on selected GENOME"
+#     #
+#     # parser = argparse.ArgumentParser(
+#     #     prog=prog_name,
+#     #     formatter_class=argparse.RawDescriptionHelpFormatter,
+#     #     description=textwrap.dedent(usage),
+#     #     epilog="")
+#     # parser.add_argument("GENOME", help="Genome to be evalutated in fasta format")
+#     # parser.add_argument("-t", "--threads", default=64, type=int, help="flanking distance default (1000)")
+#     # args = parser.parse_args()
+#     #
+#     # busco(args.GENOME)
 
 
 #    flanking_distance = args.flanking
 
 if __name__ == "__main__":
-    main()
+    emain()
