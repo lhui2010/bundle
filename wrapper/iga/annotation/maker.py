@@ -614,6 +614,7 @@ def deploy_augustus():
 
 # 0 working directory
 collect_maker_sh = r"""
+set -euxo pipefail
 cd {}
 #9.fa.run/9.maker.output/9_master_datastore_index.log
 #000041F|arrow_np1212    9_datastore/6C/BE/000041F%7Carrow_np1212/       STARTED
