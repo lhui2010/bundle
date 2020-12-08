@@ -279,7 +279,7 @@ def fix_comma_in_parent():
     fileinput.sys.argv = sys.argv[2:]
     for l in fileinput.input():
         found_error = re.search(r'(.*;)Parent=(.*,.*)', l)
-        if(found_error):
+        if (found_error):
             leading = found_error[1]
             lagging = found_error[2].rstrip(';').split(',')
             for lag in lagging:
@@ -288,11 +288,13 @@ def fix_comma_in_parent():
             print(l, end='')
 
 
-
-#0 reference_genome.fa
-#1 transcripts.fa
-#2 maker.gff
+# 0 reference_genome.fa
+# 1 transcripts.fa
+# 2 maker.gff
 pasa_refine_sh = r"""
+
+export PASAHOME=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/bin/PASApipeline.v2.4.1
+export PERL5LIB=$PASAHOME/PerlLib:$PASAHOME/SAMPLE_HOOKS:/ds3200_1/users_root/yitingshuang/lh/anaconda3/lib/site_perl/5.26.2/
 
 touch {0}.sqlite
 
@@ -321,15 +323,14 @@ $PASAHOME/Launch_PASA_pipeline.pl \
     --ALIGNERS gmap,blat --CPU 20
   
 #-+- Rename maker.gff(necessary?)
+
+#-+- Sort maker.gff in gene, mRNA, exon, CDS order (other type is not needed by pasa)
 mv {2} {2}.bak
 awk '$3=="gene"' {2}.bak > {2}
 awk '$3=="mRNA"' {2}.bak >> {2}
 awk '$3=="CDS"' {2}.bak >> {2}
-awk '$3=="exon"' {2}.bak >> {2}
-
-#-+- Sort maker.gff in gene, mRNA, exon, CDS order (other type is not needed by pasa)
-
 #-+- Fix the Parent=mRNA1,mRNA2 issue. changing them into two lines. Maker is so weird :(
+awk '$3=="exon"' {2}.bak |python -m iga.annotation.maker fix_comma_in_parent >> {2}
 
 #-+- Load GFF
 $PASAHOME/scripts/Load_Current_Gene_Annotations.dbi \
@@ -337,7 +338,7 @@ $PASAHOME/scripts/Load_Current_Gene_Annotations.dbi \
     -g {0} \
     -P {2}
 
-#-+- Refine genome gff, (slow)
+#-+- Refine genome gff, (Very slow)
 $PASAHOME/Launch_PASA_pipeline.pl \
     -c pasa.annotCompare.config -A \
     -g {0} \
@@ -345,15 +346,20 @@ $PASAHOME/Launch_PASA_pipeline.pl \
 
 """
 
-def pasa_refine(genome=None, gff=None, transcript=None, use_grid='F', cpus=1):
+
+def pasa_refine(genome=None, transcript=None, gff=None, use_grid='F'):
     r"""
     :param genome: the assembled genome (fasta)
     :param gff: the existing annotation (gff3)
     :param transcript: the assembled transcripts (fasta)
     :param use_grid: whether to use bsub (T or F)
-    :param cpus: threads (default is 1)
     :return:
     """
+    cmd = pasa_refine_sh.format(genome, transcript, gff)
+    if(use_grid == 'T'):
+        bsub(cmd, direct_submit='F', cpus=5)
+    else:
+        sh(cmd)
 
 maker_rename_sh = r"""
 $maker_map_ids --abrv_gene 'G' --abrv_tran 'T' --prefix CORNE --justify 8 --suffix '-' --iterate 1 genome.maker.gff3
@@ -361,7 +367,6 @@ $maker_map_ids --abrv_gene 'G' --abrv_tran 'T' --prefix CORNE --justify 8 --suff
 #Caution map_gff_ids will rewrite the file instead of generating a new one
 map_gff_ids map.txt genome.maker.gff3
 """
-
 
 # environment for maker
 maker_env_sh = r"""
@@ -382,8 +387,8 @@ maker *ctl >> maker.out 2>> maker.err
 
 
 def maker_run(genome=None, estgff=None, pepgff=None,
-                 rmgff=None, round=1, species='', use_grid='T', cpus=1,
-                 augustus_species='', snap_hmm='', queue='Q104C512G_X4', update=''):
+              rmgff=None, round=1, species='', use_grid='T', cpus=1,
+              augustus_species='', snap_hmm='', queue='Q104C512G_X4', update=''):
     """
     Give genome and evidence, run maker gene prediction in parallel
     :param genome:
@@ -403,11 +408,11 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     workdir = ''
     if (species == ''):
         workdir = genome + '_R' + str(round)
-    if(os.path.exists(workdir)):
+    if (os.path.exists(workdir)):
         rnd = str(time.time())
-        mv(workdir, workdir+rnd)
-    #logger.warning(workdir)
-    #exit(1)
+        mv(workdir, workdir + rnd)
+    # logger.warning(workdir)
+    # exit(1)
     # Split genome and placing into working directory like:
     # coriaria_round1:
     #   chunk.1/1.fa
@@ -425,12 +430,12 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     cfg = Config('maker')
     cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
     if (round == 1):
-        #Only first round will be ran in direct predict mode
+        # Only first round will be ran in direct predict mode
         cfg.update('est2genome=1;protein2genome=1')
     else:
         cfg.update('est2genome=0;protein2genome=0')
-        if('.hmm' not in snap_hmm):
-            #In case .hmm extension was not added in input
+        if ('.hmm' not in snap_hmm):
+            # In case .hmm extension was not added in input
             snap_hmm = snap_hmm + '.hmm'
         cfg.update('snaphmm={0};augustus_species={1}'.format(
             op.join(snap_hmm_dir, snap_hmm), augustus_species))
@@ -456,13 +461,13 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         cfg_bopts.write_to_file(op.join(workdir_sep, 'maker_bopts.ctl'))
         cmd = maker_run_sh.format(workdir_sep)
         # sh(cmd)
-        if(use_grid=='T'):
+        if (use_grid == 'T'):
             job_id = bsub(cmd, queue=queue, cpus=2)
             job_list.append(job_id)
             time.sleep(30)
         else:
             job_list.append(cmd)
-    if(use_grid == 'T'):
+    if (use_grid == 'T'):
         logger.warning("Submitted jobs:")
         logger.warning(job_list)
         wait_until_finish(job_list)
@@ -478,6 +483,8 @@ mv *.maker.output rm/
 rm -rf rm &
 maker *ctl > maker.out 2> maker.err
 """
+
+
 def maker_resub(dir_list=None, queue="Q104C512G_X4", cpus=4):
     r"""
     Resubmit failed jobs by directory name
@@ -485,7 +492,7 @@ def maker_resub(dir_list=None, queue="Q104C512G_X4", cpus=4):
     :param queue:
     :return:
     """
-    if(type(dir_list) == str):
+    if (type(dir_list) == str):
         dir_list = [dir_list]
     logger.warning(dir_list)
     # logger.debug(queue)
@@ -539,7 +546,7 @@ def maker_check(workdir=None):
         if (len(error_list) > 0):
             logger.warning("Chunks with errors are:")
             [logger.warning(l) for l in error_list]
-        #exit(1)
+        # exit(1)
 
     return error_list + unfinished_list
 
@@ -547,14 +554,14 @@ def maker_check(workdir=None):
 def maker_check_resub(workdir=None, queue="Q104C512G_X4"):
     i = 1
     current_dir = op.abspath(os.curdir)
-    #absworkdir = op.abspath(workdir)
-    while(i < 3):
+    # absworkdir = op.abspath(workdir)
+    while (i < 3):
         i += 1
-        #at most resub two times
+        # at most resub two times
         os.chdir(current_dir)
         failed_list = maker_check(workdir)
         os.chdir(workdir)
-        if(len(failed_list) > 1):
+        if (len(failed_list) > 1):
             maker_resub(failed_list, queue=queue, cpus=i)
         else:
             return 0
@@ -579,6 +586,7 @@ def deploy_augustus():
             bsub(cmd, q + ' -m {}'.format(node))
     time.sleep(120)
     return 0
+
 
 # 0 working directory
 collect_maker_sh = r"""
@@ -728,6 +736,7 @@ date
 
 """
 
+
 def filter_gff_by_aed(gff=None, gff_out='', aed='0.2'):
     r"""
     filter maker_gff by aed value
@@ -738,19 +747,19 @@ def filter_gff_by_aed(gff=None, gff_out='', aed='0.2'):
     """
     buff_list = []
     buff = ''
-    if(gff_out == ''):
+    if (gff_out == ''):
         gff_out = gff + '.filter'
     with open(gff) as fh:
         for line in fh:
             buff += line
             mylist = line.split()
-            if(mylist[2] == 'gene'):
+            if (mylist[2] == 'gene'):
                 buff_list.append(buff)
                 buff = ''
     result = ''
     for bf in buff_list:
         pattern_result = re.search(r'_AED=(.*?);', bf)[1]
-        if(float(pattern_result) <= float(aed)):
+        if (float(pattern_result) <= float(aed)):
             result += bf
     with open(gff_out) as fh:
         fh.write(result)
@@ -867,14 +876,14 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', a
     if (snap == 'T'):
         cmd += set_workdir + "\n" + train_snap_sh.format(workdir, prefix)
     if (augustus == 'T'):
-        #BUSCO 4.1.2 failed to retrain augustus, even specified augustus config dir to local
-        #The error was no exon_probs.pbl file produced.
-        #I don't know why. For now, I used busco v4.0.1(with bug manual fixed).
+        # BUSCO 4.1.2 failed to retrain augustus, even specified augustus config dir to local
+        # The error was no exon_probs.pbl file produced.
+        # I don't know why. For now, I used busco v4.0.1(with bug manual fixed).
         # cmd += set_workdir + "\n" + busco_export_sh + train_augustus_sh.format(workdir, prefix)
         cmd += set_workdir + "\n" + conda_act.format('busco') + busco_export_sh + \
-         train_augustus_sh.format(workdir, prefix)
+               train_augustus_sh.format(workdir, prefix)
     if (augustus_direct == 'T'):
-        if(cdna_fasta != ''):
+        if (cdna_fasta != ''):
             cdna_fasta = op.abspath(cdna_fasta)
             logger.warning(workdir)
             logger.warning(cdna_fasta)
@@ -924,7 +933,6 @@ def main():
     #     ('isoseq', 'extract isoseq flnc reads from subreads.bam')
     #     ('fastq2gff', 'map fastq to reference genome and get gff files'),
     # )
-
 
     # p = ActionDispatcher(actions)
     # p.dispatch(globals())
