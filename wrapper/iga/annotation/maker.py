@@ -380,7 +380,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
 
 maker_resub_sh = r"""
 cd {}
-mkdir rm 
+mkdir -p rm 
 mv *.maker.output rm/
 rm -rf rm &
 maker *ctl > maker.out 2> maker.err
