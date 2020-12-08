@@ -191,9 +191,9 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/sratoolkit.2.9.0-centos_lin
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/bundle/lh_bin:$PATH
 
 #ActivePerl
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/ActivePerl-5.24/bin:$PATH
-export PERL5LIB=/ds3200_1/users_root/yitingshuang/lh/bin/ActivePerl-5.24/lib:$PERL5LIB
-export MANPATH=/ds3200_1/users_root/yitingshuang/lh/bin/ActivePerl-5.24/man:$MANPATH
+#export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/ActivePerl-5.24/bin:$PATH
+#export PERL5LIB=/ds3200_1/users_root/yitingshuang/lh/bin/ActivePerl-5.24/lib:$PERL5LIB
+#export MANPATH=/ds3200_1/users_root/yitingshuang/lh/bin/ActivePerl-5.24/man:$MANPATH
 
 
 # added by Anaconda3 installer

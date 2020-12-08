@@ -385,7 +385,7 @@ mv *.maker.output rm/
 rm -rf rm &
 maker *ctl > maker.out 2> maker.err
 """
-def maker_resub(dir_list=None, queue="Q104C512G_X4", cpus=1):
+def maker_resub(dir_list=None, queue="Q104C512G_X4", cpus=4):
     r"""
     Resubmit failed jobs by directory name
     :param dir_list:
