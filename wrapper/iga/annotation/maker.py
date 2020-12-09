@@ -578,15 +578,19 @@ cat *.run/*.fa > ref.fa
 date"""
 
 
-def maker_collect(workdir=None):
+def maker_collect(workdir=None, use_grid='T'):
     """
     Collect maker result from a paralleled run in workdir
     :param workdir:
     :return:
     """
     cmd = collect_maker_sh.format(workdir)
-    res = sh(cmd)
-    logger.warning(res)
+    if(use_grid == 'T'):
+        job = bsub(cmd)
+        wait_until_finish(job)
+    else:
+        res = sh(cmd)
+        logger.warning(res)
     return 0
 
 
