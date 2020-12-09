@@ -242,10 +242,10 @@ subcluster_builder.dbi:-m=50
 " >   pasa.alignAssembly.sqlite.txt
 
 #-+- Align transcript to genome and create the original sqlite db
-# $PASAHOME/Launch_PASA_pipeline.pl \
-#    -c pasa.alignAssembly.sqlite.txt -C -R -g {0} \
-#    -t {1}  \
-#     --ALIGNERS gmap,blat --CPU 20
+$PASAHOME/Launch_PASA_pipeline.pl \
+    -c pasa.alignAssembly.sqlite.txt -C -R -g {0} \
+    -t {1}  \
+     --ALIGNERS gmap,blat --CPU 20
   
 #-+- Rename maker.gff(necessary?)
 
