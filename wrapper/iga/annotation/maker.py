@@ -242,26 +242,25 @@ subcluster_builder.dbi:-m=50
 " >   pasa.alignAssembly.sqlite.txt
 
 #-+- Align transcript to genome and create the original sqlite db
-$PASAHOME/Launch_PASA_pipeline.pl \
-   -c pasa.alignAssembly.sqlite.txt -C -R -g {0} \
-   -t {1}  \
-    --ALIGNERS gmap,blat --CPU 20
+# $PASAHOME/Launch_PASA_pipeline.pl \
+#    -c pasa.alignAssembly.sqlite.txt -C -R -g {0} \
+#    -t {1}  \
+#     --ALIGNERS gmap,blat --CPU 20
   
 #-+- Rename maker.gff(necessary?)
 
 #-+- Sort maker.gff in gene, mRNA, exon, CDS order (other type is not needed by pasa)
-mv {2} {2}.bak
-awk '$3=="gene"' {2}.bak > {2}
-awk '$3=="mRNA"' {2}.bak >> {2}
-awk '$3=="CDS"' {2}.bak >> {2}
+awk '$3=="gene"' {2} > {2}.gff3
+awk '$3=="mRNA"' {2} >> {2}.gff3
+awk '$3=="CDS"' {2} >> {2}.gff3
 #-+- Fix the Parent=mRNA1,mRNA2 issue. changing them into two lines. Maker is so weird :(
-awk '$3=="exon"' {2}.bak |python -m iga.annotation.maker fix_comma_in_parent >> {2}
+awk '$3=="exon"' {2} |python -m iga.annotation.maker fix_comma_in_parent >> {2}.gff3
 
 #-+- Load GFF
 $PASAHOME/scripts/Load_Current_Gene_Annotations.dbi \
     -c pasa.alignAssembly.sqlite.txt \
     -g {0} \
-    -P {2}
+    -P {2}.gff3
     
 echo "# database settings
 DATABASE=$PWD/{0}.sqlite
