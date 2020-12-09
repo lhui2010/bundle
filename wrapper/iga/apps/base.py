@@ -88,6 +88,7 @@ def sh(cmd, debug=False, parallel='F', cpus=1):
             logger.warning(p.map(sh, cmd))
     else:
         ret = subprocess.check_output(prior_cmd + cmd, stderr=subprocess.STDOUT, shell=True).decode()
+        logger.warning(ret)
     return ret
 
 

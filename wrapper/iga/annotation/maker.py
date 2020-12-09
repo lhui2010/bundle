@@ -586,7 +586,7 @@ def maker_collect(workdir=None, use_grid='T'):
     """
     cmd = collect_maker_sh.format(workdir)
     if(use_grid == 'T'):
-        job = bsub(cmd)
+        job = bsub(cmd, direct_submit='F')
         wait_until_finish(job)
     else:
         res = sh(cmd)
