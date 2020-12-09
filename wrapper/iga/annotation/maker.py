@@ -242,6 +242,9 @@ subcluster_builder.dbi:-m=50
 " >   pasa.alignAssembly.sqlite.txt
 
 #-+- Align transcript to genome and create the original sqlite db
+# Transcripts' name should not contain '/' character
+mv {1} {1}.bak
+sed 's/\///' {1}.bak > {1}
 $PASAHOME/Launch_PASA_pipeline.pl \
     -c pasa.alignAssembly.sqlite.txt -C -R -g {0} \
     -t {1}  \
