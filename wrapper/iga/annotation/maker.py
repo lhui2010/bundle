@@ -241,7 +241,7 @@ validate_alignments_in_db.dbi:--MIN_AVG_PER_ID=80
 subcluster_builder.dbi:-m=50
 " >   pasa.alignAssembly.sqlite.txt
 
-#-+- Align transcript to genome and create the original sqlite db
+#-+- Align transcript to genome and create the original sqlite db (~3h)
 # Transcripts' name should not contain '/' character
 mv {1} {1}.bak
 sed 's/\///' {1}.bak > {1}
@@ -256,10 +256,11 @@ $PASAHOME/Launch_PASA_pipeline.pl \
 awk '$3=="gene"' {2} > {2}.gff3
 awk '$3=="mRNA"' {2} >> {2}.gff3
 awk '$3=="CDS"' {2} >> {2}.gff3
-#-+- Fix the Parent=mRNA1,mRNA2 issue. changing them into two lines. Maker is so weird :(
+# Fix the Parent=mRNA1,mRNA2 issue. changing them into two lines. Maker is so weird :(
 awk '$3=="exon"' {2} |python -m iga.annotation.maker fix_comma_in_parent >> {2}.gff3
 
-#-+- Load GFF
+#-+- Load GFF < 1h 
+# TODO: Also need to remove tRNA, or the program will give an error
 $PASAHOME/scripts/Load_Current_Gene_Annotations.dbi \
     -c pasa.alignAssembly.sqlite.txt \
     -g {0} \
@@ -289,7 +290,7 @@ cDNA_annotation_comparer.dbi:--MAX_UTR_EXONS=<__MAX_UTR_EXONS__>
 cDNA_annotation_comparer.dbi:--GENETIC_CODE=<__GENETIC_CODE__>
 " > pasa.annotCompare.config
 
-#-+- Refine genome gff, (Very slow)
+#-+- Refine genome gff, (Very slow, 6h)
 $PASAHOME/Launch_PASA_pipeline.pl \
     -c pasa.annotCompare.config -A \
     -g {0} \
