@@ -241,7 +241,7 @@ validate_alignments_in_db.dbi:--MIN_AVG_PER_ID=80
 subcluster_builder.dbi:-m=50
 " >   pasa.alignAssembly.sqlite.txt
 
-#-+- Align transcript to genome and create the original sqlite db (~3h)
+#-+- Align transcript to genome and create the original sqlite db (~3h in singularity gmap mode)
 # Transcripts' name should not contain '/' character
 mv {1} {1}.bak
 sed 's/\///' {1}.bak > {1}
@@ -290,7 +290,7 @@ cDNA_annotation_comparer.dbi:--MAX_UTR_EXONS=<__MAX_UTR_EXONS__>
 cDNA_annotation_comparer.dbi:--GENETIC_CODE=<__GENETIC_CODE__>
 " > pasa.annotCompare.config
 
-#-+- Refine genome gff, (Very slow, 6h)
+#-+- Refine genome gff, (Very slow, 6h in singularity mode)
 $PASAHOME/Launch_PASA_pipeline.pl \
     -c pasa.annotCompare.config -A \
     -g {0} \
@@ -915,7 +915,11 @@ def liftover_by_agp(gff=None, agp=None):
                 print(line, end='')
             else:
                 mylist = line.rstrip().split()
-                this_contig = mylist[0]
+                try:
+                    this_contig = mylist[0]
+                except IndexError:
+                    logger.error(line)
+                    exit(1)
                 this_start = int(mylist[3])
                 this_end = int(mylist[4])
                 this_strand = mylist[6]
