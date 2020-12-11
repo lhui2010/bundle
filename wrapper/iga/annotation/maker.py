@@ -914,6 +914,8 @@ def liftover_by_agp(gff=None, agp=None):
             if(line.startswith('#')):
                 print(line, end='')
             else:
+                if(line.strip() == ''):
+                    continue
                 mylist = line.rstrip().split()
                 try:
                     this_contig = mylist[0]
