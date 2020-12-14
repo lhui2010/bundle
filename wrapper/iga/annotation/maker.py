@@ -1102,7 +1102,7 @@ class GFF:
             result = self.GFF_dict[k].get_all_child_feats()
             print(result)
 
-def add_func(gff, table, tag='GO', pos='2'):
+def add_func(gff=None, table=None, tag='GO', pos='2'):
     r"""
     Embed function information into gff files:
     :param gff:
