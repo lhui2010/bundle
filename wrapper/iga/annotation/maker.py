@@ -6,7 +6,7 @@ import os.path as op
 import re
 import sys
 import time
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 
 from parse import parse
 
@@ -216,6 +216,8 @@ def fix_comma_in_parent():
 # 1 transcripts.fa
 # 2 maker.gff
 pasa_refine_sh = r"""
+
+#singularity shell /ds3200_1/users_root/yitingshuang/lh/bin/pasapipeline_latest.sif
 
 export PASAHOME=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/bin/PASApipeline.v2.4.1
 export PATH=$PASAHOME/bin/:$PATH
@@ -947,6 +949,197 @@ def liftover_by_agp(gff=None, agp=None):
                 new_line = "\t".join(mylist)
                 print(new_line)
 
+class Feat:
+    r"""
+    The feat data structure that is needed by GFF class, support:
+    1. Get parent
+    2. Get childs
+    #chr01   .       gene    12132486        12138762        .       -       .       ID=CORNEG00007591;
+    #Name=CORNE00007591-t5;Alias=maker-000023F|arrow_np1212-snap-gene-26.41
+    """
+    def __init__(self, gff_line):
+        self.childs = ()
+        self.content = gff_line
+        mylist = self.content.split('\t')
+        #Assign gff values by
+        #https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md
+        self.seqid = mylist[0]
+        self.source = mylist[1]
+        self.type = mylist[2]
+        self.start = mylist[3]
+        self.end = mylist[4]
+        self.score = mylist[5]
+        self.strand = mylist[6]
+        self.phase = mylist[7]
+        self.attributes = mylist[8]
+        self.attr_dict = OrderedDict()
+        attr_list = self.attributes.split(';')
+        for a in attr_list:
+            (attr_key, attr_value) = parse("{}={}", a)
+            self.attr_dict[attr_key] = attr_value
+        if('Parent' in self.attr_dict):
+            self.parent = self.attr_dict['Parent']
+        self.ID = self.attr_dict['ID']
+
+    def get_parent(self):
+        r"""
+        Return the name of the parent
+        :return:
+        """
+        return self.parent
+
+    def add_child(self, child):
+        r"""
+        child is feat type
+        :param child:
+        :return:
+        """
+        if(type(child) != Feat):
+            raise TypeError
+        self.childs.append(child)
+
+    def get_all_child_feats(self, type=''):
+        result = []
+        if (len(self.childs) == ''):
+            if (type == '' or self.type == type):
+                #return when type is wild card or self.type equals specified type
+                result = [self.content]
+        else:
+            for i in self.childs:
+                result += i.list_all_childs(type)
+        return result
+
+    def update_tag(self, tag, value):
+        r"""
+        Add or append a tag to this feat
+        :param tag:
+        :param value:
+        :return:
+        """
+        self.attr_dict[tag] = value
+        self.__refactor__()
+
+    def delete_tag(self, tag):
+        r"""
+        Remove a tag
+        :param tag:
+        :return:
+        """
+        if(tag == "ID"):
+            logger.error("Can't delete ID item")
+            return 1
+        del self.attr_dict[tag]
+        self.__refactor__()
+        return 0
+
+    def __refactor__(self):
+        r"""
+        Update all fields
+        :return:
+        """
+        self.attributes = ''
+        for i in self.attr_dict:
+             self.attributes += "{}={};".format(i, self.attr_dict[i])
+        self.content = "\t".join([self.seqid, self.source, self.type, self.start, self.end,
+                                  self.score, self.strand, self.phase, self.attributes])
+        self.ID = self.attr_dict['ID']
+        return 0
+
+    def print_all_childs(self):
+        result = self.get_all_child_feats()
+        print("\n".join(result))
+
+
+class GFF:
+    r"""
+    GFF class that support:
+    1. reading a GFF into memory
+    2. adding feat by gene ID or transcript ID
+    3. print out
+    ...3. extracting feat by level or by transcript ID into tab delimited file
+    """
+    def __init__(self, filename):
+        #Top level, which has no parent, usually gene type
+        self.top_level_list = []
+        #A dictionary store all type
+        self.GFF_dict = OrderedDict()
+        #cds name is same
+        count_cds = defaultdict(int)
+        with open(filename) as fh:
+            for line in fh:
+                feat = Feat(line)
+                if("Parent" not in feat.content):
+                    #Top level
+                    self.top_level_list.append(feat.attr_dict['ID'])
+                    self.GFF_dict[feat.ID] = feat
+                else:
+                    if(feat.type == "CDS"):
+                        #Manage duplicate CDS
+                        original_cds_name = feat.attr_dict['ID']
+                        count_cds[original_cds_name] +=1
+                        if(count_cds[original_cds_name] > 1):
+                            new_name = "{}:cds{}".format(original_cds_name, count_cds[original_cds_name])
+                            feat.update_tag("ID", new_name)
+                            if(original_cds_name in self.GFF_dict):
+                                new_first_cds = "{}:cds{}".format(original_cds_name, 1)
+                                self.GFF_dict[new_first_cds] = self.GFF_dict[original_cds_name]
+                                del self.GFF_dict[original_cds_name]
+                            self.GFF_dict[new_name] = feat
+                        else:
+                            self.GFF_dict[feat.ID] = feat
+                    else:
+                        self.GFF_dict[feat.ID] = feat
+                    parent = feat.parent
+                    self.GFF_dict[parent].add_child(feat)
+
+
+    def print_out(self):
+        r"""
+        print out gff to screen
+        :return:
+        """
+        for k in self.top_level_list:
+            result = self.GFF_dict[k].get_all_child_feats()
+            print(result)
+
+def add_func(gff, table, tag='GO', pos='2'):
+    r"""
+    Embed function information into gff files:
+    :param gff:
+    :param table: geneID\tGO:123\tKO123\tAcetalysase
+    :param tag: The type of functional annotation, like GO or KO or note, support multiple value like "GO,KO,Note"
+    :param pos: The # column (starting from 1) of tag items, support multiple pos like "2,3,4"
+    :return: the content also print to screen
+    """
+    #Gene is default in first column
+    gene_pos = 0
+    #Convert str to list
+    if(',' in tag):
+        tag_list = tag.split(',')
+        pos_list = pos.split(',')
+        if(len(tag_list) != len(pos_list)):
+            logger.error("Error: Number of tags {} do not equal number of positions {}".format(
+                len(tag_list), len(pos_list)))
+    else:
+        tag_list = [tag]
+        pos_list = [pos]
+    # Input from command line in 1-based
+    # But python is 0-based. so this block is to fix 0 and 1 issue
+    for iter in range(0, len(pos_list)):
+        pos_list[iter] = int(pos_list[iter]) - 1
+    #Pre format complete
+    gff_db = GFF(gff)
+    with open(table) as fh:
+        for line in fh:
+            mylist = line.rstrip('\n').split('\t')
+            gene_id = mylist[gene_pos]
+            for iter in range(0, len(pos_list)):
+                this_tag = tag_list[iter]
+                this_pos = pos_list[iter]
+                real_val = mylist[this_pos]
+                if(mylist[this_pos] != ""):
+                    gff_db.GFF_dict[gene_id].update_tag(this_tag, real_val)
+    gff_db.print_out()
 
 
 # function
