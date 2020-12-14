@@ -1055,7 +1055,7 @@ class Feat:
 
     def print_all_childs(self):
         result = self.get_all_child_feats()
-        print(result, end ="")
+        print(result, end="")
 
 
 class GFF:
@@ -1109,7 +1109,7 @@ class GFF:
         total_result = ''
         for k in self.top_level_list:
             result = self.GFF_dict[k].get_all_child_feats()
-            print(result)
+            print(result.rstrip())
         return 0
 
     def to_str(self):
@@ -1120,7 +1120,7 @@ class GFF:
         total_result = ''
         for k in self.top_level_list:
             result = self.GFF_dict[k].get_all_child_feats()
-            total_result += result + "\n"
+            total_result += result.rstrip() + "\n"
         return total_result
 
 
