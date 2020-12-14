@@ -1014,7 +1014,7 @@ class Feat:
                 result = [self.content]
         else:
             for i in self.childs:
-                result += i.list_all_childs(type)
+                result += i.get_all_child_feats(type)
         return result
 
     def update_tag(self, tag, value):
