@@ -1092,6 +1092,7 @@ class GFF:
                             if original_cds_name in self.GFF_dict:
                                 new_first_cds = "{}:cds{}".format(original_cds_name, 1)
                                 self.GFF_dict[new_first_cds] = self.GFF_dict[original_cds_name]
+                                self.GFF_dict[new_first_cds].update_tag("ID", new_first_cds)
                                 del self.GFF_dict[original_cds_name]
                             self.GFF_dict[new_name] = feat
                         else:
