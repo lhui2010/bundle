@@ -89,7 +89,7 @@ def format_gt_gff_to_maker_gff(gff=None):
     feat_count = defaultdict(int)
     with open(qry1_file) as fh:
         for line in fh:
-            if (line.startswith('#')):
+            if line.startswith('#'):
                 continue
             mylist = line.rstrip().split()
             # print(mylist[-1])
@@ -131,7 +131,7 @@ def format_gt_gff_to_maker_gff(gff=None):
                 last_name = feat_name
 
             else:
-                if (last_name == feat_name and last_chr == this_chr and last_strand == this_strand):
+                if last_name == feat_name and last_chr == this_chr and last_strand == this_strand:
                     logger.warning("LargeIntron {} on {}".format(str(abs(last_end - int(this_start))), feat_name))
                 # Prepare print
                 match_chr = last_chr
@@ -203,7 +203,7 @@ def fix_comma_in_parent():
     fileinput.sys.argv = sys.argv[2:]
     for l in fileinput.input():
         found_error = re.search(r'(.*;)Parent=(.*,.*)', l)
-        if (found_error):
+        if found_error:
             leading = found_error[1]
             lagging = found_error[2].rstrip(';').split(',')
             for lag in lagging:
@@ -310,7 +310,7 @@ def pasa_refine(genome=None, transcript=None, gff=None, use_grid='F'):
     :return:
     """
     cmd = pasa_refine_sh.format(genome, transcript, gff)
-    if(use_grid == 'T'):
+    if use_grid == 'T':
         bsub(cmd, direct_submit='F', cpus=5)
     else:
         sh(cmd)
@@ -367,9 +367,9 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     """
     snap_hmm_dir = '/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/'
     workdir = ''
-    if (species == ''):
+    if species == '':
         workdir = genome + '_R' + str(round)
-    if (os.path.exists(workdir)):
+    if os.path.exists(workdir):
         rnd = str(time.time())
         mv(workdir, workdir + rnd)
     # logger.warning(workdir)
@@ -390,17 +390,17 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     cfg_bopts = Config('maker_bopts')
     cfg = Config('maker')
     cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
-    if (round == 1):
+    if round == 1:
         # Only first round will be ran in direct predict mode
         cfg.update('est2genome=1;protein2genome=1')
     else:
         cfg.update('est2genome=0;protein2genome=0')
-        if ('.hmm' not in snap_hmm):
+        if '.hmm' not in snap_hmm:
             # In case .hmm extension was not added in input
             snap_hmm = snap_hmm + '.hmm'
         cfg.update('snaphmm={0};augustus_species={1}'.format(
             op.join(snap_hmm_dir, snap_hmm), augustus_species))
-    if (update != ''):
+    if update != '':
         cfg.update(update)
     #
     # get abs path of all fasta files
@@ -422,13 +422,13 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         cfg_bopts.write_to_file(op.join(workdir_sep, 'maker_bopts.ctl'))
         cmd = maker_run_sh.format(workdir_sep)
         # sh(cmd)
-        if (use_grid == 'T'):
+        if use_grid == 'T':
             job_id = bsub(cmd, queue=queue, cpus=2)
             job_list.append(job_id)
             time.sleep(30)
         else:
             job_list.append(cmd)
-    if (use_grid == 'T'):
+    if use_grid == 'T':
         logger.warning("Submitted jobs:")
         logger.warning(job_list)
         wait_until_finish(job_list)
@@ -453,7 +453,7 @@ def maker_resub(dir_list=None, queue="Q104C512G_X4", cpus=4):
     :param queue:
     :return:
     """
-    if (type(dir_list) == str):
+    if type(dir_list) == str:
         dir_list = [dir_list]
     logger.warning(dir_list)
     # logger.debug(queue)
@@ -481,15 +481,15 @@ def maker_check(workdir=None):
     unfinished_list = []
 
     for sd in subdir:
-        if ('run' in sd):
+        if 'run' in sd:
             maker_log = op.join(workdir, sd, 'maker.err')
             maker_log_buff = ''
             fail_mark = 1
             try:
                 with open(maker_log) as fh:
                     maker_log_buff = fh.read()
-                if ('Maker is now finished!!!' in maker_log_buff):
-                    if (not 'ERROR' in maker_log_buff and not 'Fail' in maker_log_buff):
+                if 'Maker is now finished!!!' in maker_log_buff:
+                    if not 'ERROR' in maker_log_buff and not 'Fail' in maker_log_buff:
                         pass
                     else:
                         error_list.append(sd)
@@ -498,13 +498,13 @@ def maker_check(workdir=None):
             except FileNotFoundError:
                 logger.error("Can't find maker error log for {}".format(sd))
                 unfinished_list.append(sd)
-    if (len(unfinished_list) + len(error_list) == 0):
+    if len(unfinished_list) + len(error_list) == 0:
         logger.warning("Cheers! All finished without errors!")
     else:
-        if (len(unfinished_list) > 0):
+        if len(unfinished_list) > 0:
             logger.warning("Unfinished chunks are:")
             [logger.warning(l) for l in unfinished_list]
-        if (len(error_list) > 0):
+        if len(error_list) > 0:
             logger.warning("Chunks with errors are:")
             [logger.warning(l) for l in error_list]
         # exit(1)
@@ -516,13 +516,13 @@ def maker_check_resub(workdir=None, queue="Q104C512G_X4"):
     i = 1
     current_dir = op.abspath(os.curdir)
     # absworkdir = op.abspath(workdir)
-    while (i < 3):
+    while i < 3:
         i += 1
         # at most resub two times
         os.chdir(current_dir)
         failed_list = maker_check(workdir)
         os.chdir(workdir)
-        if (len(failed_list) > 1):
+        if len(failed_list) > 1:
             maker_resub(failed_list, queue=queue, cpus=i)
         else:
             return 0
@@ -590,7 +590,7 @@ def maker_collect(workdir=None, use_grid='T'):
     :return:
     """
     cmd = collect_maker_sh.format(workdir)
-    if(use_grid == 'T'):
+    if use_grid == 'T':
         job = bsub(cmd, direct_submit='F')
         wait_until_finish(job)
     else:
@@ -715,19 +715,19 @@ def filter_gff_by_aed(gff=None, gff_out='', aed='0.2'):
     """
     buff_list = []
     buff = ''
-    if (gff_out == ''):
+    if gff_out == '':
         gff_out = gff + '.filter'
     with open(gff) as fh:
         for line in fh:
             buff += line
             mylist = line.split()
-            if (mylist[2] == 'gene'):
+            if mylist[2] == 'gene':
                 buff_list.append(buff)
                 buff = ''
     result = ''
     for bf in buff_list:
         pattern_result = re.search(r'_AED=(.*?);', bf)[1]
-        if (float(pattern_result) <= float(aed)):
+        if float(pattern_result) <= float(aed):
             result += bf
     with open(gff_out) as fh:
         fh.write(result)
@@ -834,19 +834,19 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', a
     cmd = ''
     workdir = op.abspath(workdir)
     set_workdir = 'cd {};'.format(workdir)
-    if (prefix == ''):
+    if prefix == '':
         prefix = op.basename(workdir)
-    if (snap == 'T'):
+    if snap == 'T':
         cmd += set_workdir + "\n" + train_snap_sh.format(workdir, prefix)
-    if (augustus == 'T'):
+    if augustus == 'T':
         # BUSCO 4.1.2 failed to retrain augustus, even specified augustus config dir to local
         # The error was no exon_probs.pbl file produced.
         # I don't know why. For now, I used busco v4.0.1(with bug manual fixed).
         # cmd += set_workdir + "\n" + busco_export_sh + train_augustus_sh.format(workdir, prefix)
         cmd += set_workdir + "\n" + conda_act.format('busco') + busco_export_sh + \
                train_augustus_sh.format(workdir, prefix)
-    if (augustus_direct == 'T'):
-        if (cdna_fasta != ''):
+    if augustus_direct == 'T':
+        if cdna_fasta != '':
             cdna_fasta = op.abspath(cdna_fasta)
             logger.warning(workdir)
             logger.warning(cdna_fasta)
@@ -855,7 +855,7 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', a
         else:
             logger.error("Provide cdna.fasta before train augustus_direct")
             exit(1)
-    if (use_grid == 'T'):
+    if use_grid == 'T':
         joblist = bsub(cmd, direct_submit='F', cpus=2)
         wait_until_finish(joblist)
     else:
@@ -899,12 +899,12 @@ def liftover_by_agp(gff=None, agp=None):
     lengthd = {}
     with open(agp) as fh:
         for line in fh:
-            if (line.startswith('#')):
+            if line.startswith('#'):
                 continue
             else:
                 mylist = line.split()
                 contig_name = mylist[5]
-                if(mylist[4] == 'W'):
+                if mylist[4] == 'W':
                     chrd[contig_name]    = mylist[0]
                     startd[contig_name]  = int(mylist[1])
                     endd[contig_name]    = int(mylist[2])
@@ -913,10 +913,10 @@ def liftover_by_agp(gff=None, agp=None):
 
     with open(gff) as fh:
         for line in fh:
-            if(line.startswith('#')):
+            if line.startswith('#'):
                 print(line, end='')
             else:
-                if(line.strip() == ''):
+                if line.strip() == '':
                     continue
                 mylist = line.rstrip().split()
                 try:
@@ -929,7 +929,7 @@ def liftover_by_agp(gff=None, agp=None):
                 this_strand = mylist[6]
                 #transforming
                 new_chr = chrd[this_contig]
-                if(strandd[this_contig] == '-'):
+                if strandd[this_contig] == '-':
                     new_strand = reverse_strand[this_strand]
                     #new start coordinate = seqLength - endCoord
                     this_start = lengthd[this_contig] - (this_start - 1)
@@ -940,7 +940,7 @@ def liftover_by_agp(gff=None, agp=None):
                 new_start = this_start + startd[this_contig] - 1
                 new_end = this_end + startd[this_contig] - 1
                 #in case we need swap loci like Chr0 . gene 800 1
-                if(new_end < new_start):
+                if new_end < new_start:
                     (new_start, new_end) = (new_end, new_start)
                 mylist[0] = new_chr
                 mylist[3] = str(new_start)
@@ -981,7 +981,7 @@ class Feat:
                 logger.error("Type Error on line {}, list {} and attribute: {}".format(self.attributes, attr_list, a))
                 continue
             self.attr_dict[attr_key] = attr_value
-        if('Parent' in self.attr_dict):
+        if 'Parent' in self.attr_dict:
             self.parent = self.attr_dict['Parent']
         self.ID = self.attr_dict['ID']
 
@@ -998,14 +998,14 @@ class Feat:
         :param child:
         :return:
         """
-        if(type(child) != Feat):
+        if type(child) != Feat:
             raise TypeError
         self.childs.append(child)
 
     def get_all_child_feats(self, type=''):
         result = []
-        if (len(self.childs) == ''):
-            if (type == '' or self.type == type):
+        if len(self.childs) == '':
+            if type == '' or self.type == type:
                 #return when type is wild card or self.type equals specified type
                 result = [self.content]
         else:
@@ -1029,7 +1029,7 @@ class Feat:
         :param tag:
         :return:
         """
-        if(tag == "ID"):
+        if tag == "ID":
             logger.error("Can't delete ID item")
             return 1
         del self.attr_dict[tag]
@@ -1072,19 +1072,19 @@ class GFF:
         with open(filename) as fh:
             for line in fh:
                 feat = Feat(line)
-                if("Parent" not in feat.content):
+                if "Parent" not in feat.content:
                     #Top level
                     self.top_level_list.append(feat.attr_dict['ID'])
                     self.GFF_dict[feat.ID] = feat
                 else:
-                    if(feat.type == "CDS"):
+                    if feat.type == "CDS":
                         #Manage duplicate CDS
                         original_cds_name = feat.attr_dict['ID']
                         count_cds[original_cds_name] +=1
-                        if(count_cds[original_cds_name] > 1):
+                        if count_cds[original_cds_name] > 1:
                             new_name = "{}:cds{}".format(original_cds_name, count_cds[original_cds_name])
                             feat.update_tag("ID", new_name)
-                            if(original_cds_name in self.GFF_dict):
+                            if original_cds_name in self.GFF_dict:
                                 new_first_cds = "{}:cds{}".format(original_cds_name, 1)
                                 self.GFF_dict[new_first_cds] = self.GFF_dict[original_cds_name]
                                 del self.GFF_dict[original_cds_name]
@@ -1118,10 +1118,10 @@ def add_func(gff=None, table=None, tag='GO', pos='2'):
     #Gene is default in first column
     gene_pos = 0
     #Convert str to list
-    if(',' in tag):
+    if ',' in tag:
         tag_list = tag.split(',')
         pos_list = pos.split(',')
-        if(len(tag_list) != len(pos_list)):
+        if len(tag_list) != len(pos_list):
             logger.error("Error: Number of tags {} do not equal number of positions {}".format(
                 len(tag_list), len(pos_list)))
     else:
@@ -1135,6 +1135,8 @@ def add_func(gff=None, table=None, tag='GO', pos='2'):
     gff_db = GFF(gff)
     with open(table) as fh:
         for line in fh:
+            if line.startswith("#"):
+                continue
             mylist = line.rstrip('\n').split('\t')
             gene_id = mylist[gene_pos]
             for iter in range(0, len(pos_list)):
@@ -1144,7 +1146,7 @@ def add_func(gff=None, table=None, tag='GO', pos='2'):
                     real_val = mylist[this_pos]
                 except IndexError:
                     logger.error("Error on line {}, list {} and pos {}".format(line, mylist, this_pos))
-                if(mylist[this_pos] != ""):
+                if mylist[this_pos] != "":
                     gff_db.GFF_dict[gene_id].update_tag(this_tag, real_val)
     gff_db.print_out()
 
