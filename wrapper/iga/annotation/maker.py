@@ -978,7 +978,7 @@ class Feat:
             try:
                 (attr_key, attr_value) = parse("{}={}", a)
             except TypeError:
-                logger.error("Type Error on attribute: {}".format(a))
+                logger.error("Type Error on line {}, list {} and attribute: {}".format(self.attributes, attr_list, a))
                 continue
             self.attr_dict[attr_key] = attr_value
         if('Parent' in self.attr_dict):
