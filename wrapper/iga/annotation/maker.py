@@ -959,7 +959,7 @@ class Feat:
     """
     def __init__(self, gff_line):
         self.childs = []
-        self.content = gff_line
+        self.content = gff_line.rstrip()
         mylist = self.content.split('\t')
         #Assign gff values by
         #https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md
