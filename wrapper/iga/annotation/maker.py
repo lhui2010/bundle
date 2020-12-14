@@ -1140,7 +1140,10 @@ def add_func(gff=None, table=None, tag='GO', pos='2'):
             for iter in range(0, len(pos_list)):
                 this_tag = tag_list[iter]
                 this_pos = pos_list[iter]
-                real_val = mylist[this_pos]
+                try:
+                    real_val = mylist[this_pos]
+                except IndexError:
+                    logger.error("Error on line {}, list {} and pos {}".format(line, mylist, this_pos))
                 if(mylist[this_pos] != ""):
                     gff_db.GFF_dict[gene_id].update_tag(this_tag, real_val)
     gff_db.print_out()
