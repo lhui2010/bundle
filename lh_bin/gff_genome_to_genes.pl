@@ -81,7 +81,7 @@ while(<Fgff>)
 	
 	my @e=split;
 
-	unless($e[2] =~ /CDS/i)
+	unless($e[2] eq "CDS" or $e[2] eq "cds")
 	{
 		next;
 	}

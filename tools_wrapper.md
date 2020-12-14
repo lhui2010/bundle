@@ -431,3 +431,7 @@ $LEFT" > $SAMPLE.fastuniq
    LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:75 &
 done
 ```
+
+#### eggnog
+
+emapper.py --target_taxa "Viridiplantae" -o xx xx.pep
