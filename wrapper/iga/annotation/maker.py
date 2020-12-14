@@ -1096,15 +1096,28 @@ class GFF:
                     parent = feat.parent
                     self.GFF_dict[parent].add_child(feat)
 
-
     def print_out(self):
         r"""
         print out gff to screen
         :return:
         """
+        total_result = ''
         for k in self.top_level_list:
             result = self.GFF_dict[k].get_all_child_feats()
             print(result)
+        return 0
+
+
+    def to_str(self):
+        r"""
+        print out gff to screen
+        :return:
+        """
+        total_result = ''
+        for k in self.top_level_list:
+            result = self.GFF_dict[k].get_all_child_feats()
+            total_result += result + "\n"
+        return total_result
 
 def add_func(gff=None, table=None, tag='GO', pos='2'):
     r"""
@@ -1133,6 +1146,7 @@ def add_func(gff=None, table=None, tag='GO', pos='2'):
         pos_list[iter] = int(pos_list[iter]) - 1
     #Pre format complete
     gff_db = GFF(gff)
+    logger.warning("Reading GFF complete")
     with open(table) as fh:
         for line in fh:
             if line.startswith("#"):
@@ -1148,6 +1162,7 @@ def add_func(gff=None, table=None, tag='GO', pos='2'):
                     logger.error("Error on line {}, list {} and pos {}".format(line, mylist, this_pos))
                 if mylist[this_pos] != "":
                     gff_db.GFF_dict[gene_id].update_tag(this_tag, real_val)
+    logger.warning("Modifying GFF complete")
     gff_db.print_out()
 
 
