@@ -1008,7 +1008,7 @@ class Feat:
 
     def get_all_child_feats(self, type=''):
         result = []
-        if len(self.childs) == '':
+        if len(self.childs) == 0:
             if type == '' or self.type == type:
                 # return when type is wild card or self.type equals specified type
                 result = [self.content]
