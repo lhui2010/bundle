@@ -1123,6 +1123,30 @@ class GFF:
             total_result += result.rstrip() + "\n"
         return total_result
 
+    def get_attr(self, attr=''):
+        r"""
+        Return attr as a dict, like extracting _AED from maker GFF
+        :return:
+        """
+        result = OrderedDict()
+        for k in self.GFF_dict:
+            if attr in self.GFF_dict[k].attr_dict:
+                result[k] = self.GFF_dict[k].attr_dict[attr]
+        return result
+
+
+def extract_gff_tag(gff=None, tag=None):
+    r"""
+    Extract specific attribute of gene or mRNA or any Item by the attribute name
+    like python %s maker.gff _AED
+    :param GFF:
+    :param tag:
+    :return:
+    """
+    gff_db = GFF(gff)
+    tag_dict = gff_db.get_attr(tag)
+    for k in tag_dict:
+        print("{}\t{}".format(k, tag_dict[k]))
 
 def add_func(gff=None, table=None, tag='GO', pos='2'):
     r"""
