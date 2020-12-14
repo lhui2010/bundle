@@ -1007,11 +1007,11 @@ class Feat:
         self.childs.append(child)
 
     def get_all_child_feats(self, type=''):
-        result = []
+        result = ''
         if len(self.childs) == 0:
             if type == '' or self.type == type:
                 # return when type is wild card or self.type equals specified type
-                result = [self.content]
+                result = self.content + "\n"
         else:
             for i in self.childs:
                 result += i.get_all_child_feats(type)
