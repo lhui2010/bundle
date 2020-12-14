@@ -975,7 +975,11 @@ class Feat:
         self.attr_dict = OrderedDict()
         attr_list = self.attributes.rstrip(';').split(';')
         for a in attr_list:
-            (attr_key, attr_value) = parse("{}={}", a)
+            try:
+                (attr_key, attr_value) = parse("{}={}", a)
+            except TypeError:
+                logger.error("Type Error on attribute: {}".format(a))
+                continue
             self.attr_dict[attr_key] = attr_value
         if('Parent' in self.attr_dict):
             self.parent = self.attr_dict['Parent']
