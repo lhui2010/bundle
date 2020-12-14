@@ -319,7 +319,7 @@ def pasa_refine(genome=None, transcript=None, gff=None, use_grid='F'):
 # 0 input.gff
 # 1 prefix, like A188 or CORNE
 maker_rename_sh = r"""
-maker_map_ids --abrv_gene 'G' --prefix {1} --justify 8 --suffix '-t' --iterate 1 {0}  > {0}.map.txt
+maker_map_ids --abrv_gene '' --prefix {1} --justify 8 --suffix '-t' --iterate 1 {0}  > {0}.map.txt
 #Caution map_gff_ids will rewrite the file instead of generating a new one
 cp {0} {0}.format.gff
 map_gff_ids {0}.map.txt {0}.format.gff
