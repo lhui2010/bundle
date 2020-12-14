@@ -975,6 +975,7 @@ class Feat:
         self.attr_dict = OrderedDict()
         attr_list = self.attributes.split(';')
         for a in attr_list:
+            logger.warning(a)
             (attr_key, attr_value) = parse("{}={}", a)
             self.attr_dict[attr_key] = attr_value
         if('Parent' in self.attr_dict):
