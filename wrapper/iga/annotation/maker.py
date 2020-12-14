@@ -325,9 +325,11 @@ cp {0} {0}.format.gff
 map_gff_ids {0}.map.txt {0}.format.gff
 """
 
+
 def maker_rename_gff(gff=None, prefix='MAKER'):
     cmd = maker_rename_sh.format(gff, prefix)
     sh(cmd)
+
 
 # environment for maker
 maker_env_sh = r"""
@@ -850,7 +852,7 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', a
             cdna_fasta = op.abspath(cdna_fasta)
             logger.warning(workdir)
             logger.warning(cdna_fasta)
-            #TODO in future: use pasa to train augustus, may need to add pasa_export_sh before this line
+            # TODO in future: use pasa to train augustus, may need to add pasa_export_sh before this line
             cmd += train_augustus_direct_sh.format(workdir, prefix, cdna_fasta)
         else:
             logger.error("Provide cdna.fasta before train augustus_direct")
@@ -867,12 +869,12 @@ def str_to_class(str1):
     return getattr(sys.modules[__name__], str1)
 
 
-
 # liftover
 # Require RaGOO
 liftover_sh = r"""
 lift_over.py 
 """
+
 
 def liftover_by_agp(gff=None, agp=None):
     """
@@ -886,16 +888,16 @@ def liftover_by_agp(gff=None, agp=None):
     gff_genome_to_genes.pl genome.lifted.gff.cds CORNE_v1.0.chr.fa > genome.lifted.gff.cds.fa
     cds2aa.pl genome.lifted.gff.cds.fa > genome.lifted.gff.cds.fa.pep
     """
-    #chr name of contig
-    reverse_strand = {'-':'+', '+':'-'}
+    # chr name of contig
+    reverse_strand = {'-': '+', '+': '-'}
     chrd = {}
-    #start on chr
+    # start on chr
     startd = {}
-    #end on chr
+    # end on chr
     endd = {}
-    #contig strand on chr
+    # contig strand on chr
     strandd = {}
-    #contig length
+    # contig length
     lengthd = {}
     with open(agp) as fh:
         for line in fh:
@@ -905,9 +907,9 @@ def liftover_by_agp(gff=None, agp=None):
                 mylist = line.split()
                 contig_name = mylist[5]
                 if mylist[4] == 'W':
-                    chrd[contig_name]    = mylist[0]
-                    startd[contig_name]  = int(mylist[1])
-                    endd[contig_name]    = int(mylist[2])
+                    chrd[contig_name] = mylist[0]
+                    startd[contig_name] = int(mylist[1])
+                    endd[contig_name] = int(mylist[2])
                     strandd[contig_name] = mylist[-1]
                     lengthd[contig_name] = int(mylist[-2])
 
@@ -927,19 +929,19 @@ def liftover_by_agp(gff=None, agp=None):
                 this_start = int(mylist[3])
                 this_end = int(mylist[4])
                 this_strand = mylist[6]
-                #transforming
+                # transforming
                 new_chr = chrd[this_contig]
                 if strandd[this_contig] == '-':
                     new_strand = reverse_strand[this_strand]
-                    #new start coordinate = seqLength - endCoord
+                    # new start coordinate = seqLength - endCoord
                     this_start = lengthd[this_contig] - (this_start - 1)
                     this_end = lengthd[this_contig] - (this_end - 1)
                 else:
                     new_strand = this_strand
-                #Add offset, because loci in AGP is 1-based, so minus 1 is the real offset
+                # Add offset, because loci in AGP is 1-based, so minus 1 is the real offset
                 new_start = this_start + startd[this_contig] - 1
                 new_end = this_end + startd[this_contig] - 1
-                #in case we need swap loci like Chr0 . gene 800 1
+                # in case we need swap loci like Chr0 . gene 800 1
                 if new_end < new_start:
                     (new_start, new_end) = (new_end, new_start)
                 mylist[0] = new_chr
@@ -949,6 +951,7 @@ def liftover_by_agp(gff=None, agp=None):
                 new_line = "\t".join(mylist)
                 print(new_line)
 
+
 class Feat:
     r"""
     The feat data structure that is needed by GFF class, support:
@@ -957,12 +960,13 @@ class Feat:
     #chr01   .       gene    12132486        12138762        .       -       .       ID=CORNEG00007591;
     #Name=CORNE00007591-t5;Alias=maker-000023F|arrow_np1212-snap-gene-26.41
     """
+
     def __init__(self, gff_line):
         self.childs = []
         self.content = gff_line.rstrip()
         mylist = self.content.split('\t')
-        #Assign gff values by
-        #https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md
+        # Assign gff values by
+        # https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md
         self.seqid = mylist[0]
         self.source = mylist[1]
         self.type = mylist[2]
@@ -1006,7 +1010,7 @@ class Feat:
         result = []
         if len(self.childs) == '':
             if type == '' or self.type == type:
-                #return when type is wild card or self.type equals specified type
+                # return when type is wild card or self.type equals specified type
                 result = [self.content]
         else:
             for i in self.childs:
@@ -1043,7 +1047,7 @@ class Feat:
         """
         self.attributes = ''
         for i in self.attr_dict:
-             self.attributes += "{}={};".format(i, self.attr_dict[i])
+            self.attributes += "{}={};".format(i, self.attr_dict[i])
         self.content = "\t".join([self.seqid, self.source, self.type, self.start, self.end,
                                   self.score, self.strand, self.phase, self.attributes])
         self.ID = self.attr_dict['ID']
@@ -1062,25 +1066,26 @@ class GFF:
     3. print out
     ...3. extracting feat by level or by transcript ID into tab delimited file
     """
+
     def __init__(self, filename):
-        #Top level, which has no parent, usually gene type
+        # Top level, which has no parent, usually gene type
         self.top_level_list = []
-        #A dictionary store all type
+        # A dictionary store all type
         self.GFF_dict = OrderedDict()
-        #cds name is same
+        # cds name is same
         count_cds = defaultdict(int)
         with open(filename) as fh:
             for line in fh:
                 feat = Feat(line)
                 if "Parent" not in feat.content:
-                    #Top level
+                    # Top level
                     self.top_level_list.append(feat.attr_dict['ID'])
                     self.GFF_dict[feat.ID] = feat
                 else:
                     if feat.type == "CDS":
-                        #Manage duplicate CDS
+                        # Manage duplicate CDS
                         original_cds_name = feat.attr_dict['ID']
-                        count_cds[original_cds_name] +=1
+                        count_cds[original_cds_name] += 1
                         if count_cds[original_cds_name] > 1:
                             new_name = "{}:cds{}".format(original_cds_name, count_cds[original_cds_name])
                             feat.update_tag("ID", new_name)
@@ -1107,7 +1112,6 @@ class GFF:
             print(result)
         return 0
 
-
     def to_str(self):
         r"""
         print out gff to screen
@@ -1119,6 +1123,7 @@ class GFF:
             total_result += result + "\n"
         return total_result
 
+
 def add_func(gff=None, table=None, tag='GO', pos='2'):
     r"""
     Embed function information into gff files:
@@ -1128,9 +1133,9 @@ def add_func(gff=None, table=None, tag='GO', pos='2'):
     :param pos: The # column (starting from 1) of tag items, support multiple pos like "2,3,4"
     :return: the content also print to screen
     """
-    #Gene is default in first column
+    # Gene is default in first column
     gene_pos = 0
-    #Convert str to list
+    # Convert str to list
     if ',' in tag:
         tag_list = tag.split(',')
         pos_list = pos.split(',')
@@ -1144,7 +1149,7 @@ def add_func(gff=None, table=None, tag='GO', pos='2'):
     # But python is 0-based. so this block is to fix 0 and 1 issue
     for iter in range(0, len(pos_list)):
         pos_list[iter] = int(pos_list[iter]) - 1
-    #Pre format complete
+    # Pre format complete
     gff_db = GFF(gff)
     logger.warning("Reading GFF complete")
     with open(table) as fh:
