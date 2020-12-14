@@ -1187,6 +1187,8 @@ def add_func(gff=None, table=None, tag='GO', pos='2'):
                 this_pos = pos_list[iter]
                 try:
                     real_val = mylist[this_pos]
+                    if(';' in real_val):
+                        real_val = real_val.replace(';', '')
                 except IndexError:
                     logger.error("Error on line {}, list {} and pos {}".format(line, mylist, this_pos))
                 if mylist[this_pos] != "":
