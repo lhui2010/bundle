@@ -958,7 +958,7 @@ class Feat:
     #Name=CORNE00007591-t5;Alias=maker-000023F|arrow_np1212-snap-gene-26.41
     """
     def __init__(self, gff_line):
-        self.childs = ()
+        self.childs = []
         self.content = gff_line
         mylist = self.content.split('\t')
         #Assign gff values by
