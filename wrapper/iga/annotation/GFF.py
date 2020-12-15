@@ -245,7 +245,7 @@ class GFF:
                         longest = mRNA.abs_len
                         self.GFF_dict[k].longest = mRNA.ID
             longest_table += "{}\t{}".format(k, self.GFF_dict[k].longest) + "\n"
-            longest_gff += self.GFF_dict[k].content
+            longest_gff += self.GFF_dict[k].content + "\n"
             longest_gff += self.GFF_dict[self.GFF_dict[k].longest].get_all_child_feats()
         return [longest_table, longest_gff]
 
