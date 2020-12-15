@@ -65,6 +65,7 @@ def genomescope(fastq=None, prefix='', threads=64, kmer=21, output=''):
 # 1 workdir
 # 2 prefix
 # 3 threads
+# 4 kmer size
 gce_sh = """
 
 mkdir -p {1} && cd {1}
@@ -74,7 +75,7 @@ mkdir -p {1} && cd {1}
 echo -e "Species\tGenomeSize\tHeterozygosity\tRepeat%"
 
 ls {0} > {1}.fq.lst
-kmer_freq_hash -t {3} -k {5} -l {1}.fq.lst -p {1} 2>{2}.kmerfreq.log
+kmer_freq_hash -t {3} -k {4} -l {1}.fq.lst -p {1} 2>{2}.kmerfreq.log
 UNIQKMERNUM=`tail -n 11 {2}.kmerfreq.log  |head -1 |awk '{{print $2}}'`
 DEPTH=`tail -n 11 {2}.kmerfreq.log  |head -1 |awk '{{print $5}}'`
 gce -f {2}.freq.stat -g $UNIQKMERNUM -H 1 -c $DEPTH -b 1 >{2}.gce.out 2>{2}.gce.err
