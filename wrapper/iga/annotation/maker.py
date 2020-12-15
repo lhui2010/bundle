@@ -996,10 +996,11 @@ def add_func(gff=None, table=None, tag='GO', pos='2'):
                     real_val = mylist[this_pos]
                     if ';' in real_val:
                         real_val = real_val.replace(';', '')
+                    gff_db.GFF_dict[gene_id].update_tag(this_tag, real_val)
                 except IndexError:
                     logger.error("Error on line {}, list {} and pos {}".format(line, mylist, this_pos))
-                if mylist[this_pos] != "":
-                    gff_db.GFF_dict[gene_id].update_tag(this_tag, real_val)
+                    continue
+
     logger.warning("Modifying GFF complete")
     gff_db.print_out()
 
