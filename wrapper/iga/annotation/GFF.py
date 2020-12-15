@@ -163,6 +163,8 @@ class GFF:
         count_cds = defaultdict(int)
         with open(filename) as fh:
             for line in fh:
+                if line.startswith("#"):
+                    continue
                 feat = Feat(line)
                 if "Parent" not in feat.content:
                     # Top level
