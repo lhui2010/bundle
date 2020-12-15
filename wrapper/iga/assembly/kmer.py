@@ -100,9 +100,9 @@ def gce(fastq=None, prefix='', threads=64, kmer=23, workdir=''):
     """
     # assembly, subreads
     if prefix == '':
-        prefix = os.path.splitext(os.path.basename(fastq[0]))[0]
+        prefix = os.path.basename(fastq[0]).split('.')[0]
     if workdir == '':
-        workdir = "workdir_gce" + prefix
+        workdir = "workdir_gce_" + prefix
     abspath_list(fastq)
     fastq_text = ' '.join(fastq)
     cmd = gce_sh.format(fastq_text, workdir, prefix, threads, kmer)
