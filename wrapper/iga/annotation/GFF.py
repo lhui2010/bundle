@@ -100,7 +100,8 @@ class Feat:
         else:
             for i in self.childs:
                 result += i.get_all_child_feats_obj(type)
-        #result = list(chain.from_iterable(result))
+        if any(isinstance(i, list) for i in result):
+            result = list(chain.from_iterable(result))
         return result
 
     def update_tag(self, tag, value):
