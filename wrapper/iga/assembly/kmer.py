@@ -102,7 +102,7 @@ def gce(fastq=None, prefix='', threads=64, kmer=23, workdir=''):
     if prefix == '':
         prefix = os.path.splitext(os.path.basename(fastq[0]))[0]
     if workdir == '':
-        workdir = "workdir_genomescope" + prefix
+        workdir = "workdir_gce" + prefix
     fastq_text = ' '.join(fastq)
     cmd = gce_sh.format(fastq_text, workdir, prefix, threads, kmer)
     job = bsub(cmd, cpus=threads, direct_submit=False)
