@@ -39,6 +39,15 @@ bsub512 "python $BD/wrapper/kmer_wrapper.py Eu_1.fq.gz Eu_2.fq.gz "
 
 
 def genomescope(fastq=None, prefix='', threads=64, kmer=21, output=''):
+    """
+    Estimate genome size, heterozygosity, repeat% with jellyfish and genomescope
+    :param fastq:
+    :param prefix:
+    :param threads:
+    :param kmer:
+    :param output:
+    :return:
+    """
     # assembly, subreads
     if (prefix == ''):
         prefix = os.path.splitext(os.path.basename(fastq[0]))[0]
@@ -46,7 +55,7 @@ def genomescope(fastq=None, prefix='', threads=64, kmer=21, output=''):
         output = "workdir_genomescope" + prefix
     fastq_text = ' '.join(fastq)
     cmd = genomescope_sh.format(fastq_text, prefix, threads, kmer, output)
-    sh(cmd)
+    bsub(cmd)
     # subprocess.run(cmd, shell = True)
 
 
@@ -79,6 +88,15 @@ echo -e "{2}\t$GenomeSize\t$Heterozygosity\t$Repeat"
 
 
 def gce(fastq=None, prefix='', threads=64, kmer=23, workdir=''):
+    """
+    Estimate genome size, heterozygosity, repeat% with kmerfreq and gce
+    :param fastq:
+    :param prefix:
+    :param threads:
+    :param kmer:
+    :param workdir:
+    :return:
+    """
     # assembly, subreads
     if prefix == '':
         prefix = os.path.splitext(os.path.basename(fastq[0]))[0]
@@ -86,7 +104,7 @@ def gce(fastq=None, prefix='', threads=64, kmer=23, workdir=''):
         workdir = "workdir_genomescope" + prefix
     fastq_text = ' '.join(fastq)
     cmd = gce_sh.format(fastq_text, workdir, prefix, threads, kmer)
-    job = bsub(cmd)
+    job = bsub(cmd, cpus=threads)
     wait_until_finish(job)
     return 0
     # subprocess.run(cmd, shell = T
