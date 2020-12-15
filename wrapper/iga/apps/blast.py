@@ -3,7 +3,7 @@ blast related wrappers
 """
 from collections import defaultdict
 
-from iga.apps.base import emain, bsub, wait_until_finish
+from iga.apps.base import emain, bsub, wait_until_finish, logger
 
 #0 ref
 #1 qry
@@ -37,7 +37,11 @@ def filter_reciprocal_best(bln=None):
             mylist = line.rstrip().split()
             qry = mylist[0]
             ref = mylist[1]
-            bitscore = float(mylist[-1])
+            try:
+                bitscore = float(mylist[-1])
+            except ValueError:
+                logger.error(line)
+                continue
             if(bitscore > highest[qry]):
                 highest[qry] = bitscore
                 qry_best[qry] = ref
