@@ -163,7 +163,7 @@ def is_job_finished(joblist=None):
     return 1
 
 
-def wait_until_finish(joblist=None):
+def waitjob(joblist=None):
     """
     a while loop for check_job_status,
     won't leave unless all jobs are finished

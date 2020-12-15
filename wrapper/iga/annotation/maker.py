@@ -12,7 +12,7 @@ from parse import parse
 
 from iga.annotation.GFF import GFF
 from iga.apps.base import sh, conda_act, logger, Config, abspath_list, split_fasta, mkdir, \
-    mv, wait_until_finish, bsub, emain
+    mv, waitjob, bsub, emain
 
 # def sam2gff(sam, gff=""):
 #
@@ -434,7 +434,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     if use_grid == 'T':
         logger.warning("Submitted jobs:")
         logger.warning(job_list)
-        wait_until_finish(job_list)
+        waitjob(job_list)
         logger.warning("Submmited job finished, check log files to make sure they really finished")
     else:
         sh(job_list, parallel='T', cpus=cpus)
@@ -469,7 +469,7 @@ def maker_resub(dir_list=None, queue="Q104C512G_X4", cpus=4):
         time.sleep(30)
     logger.warning("Submitted jobs:")
     logger.warning(job_list)
-    wait_until_finish(job_list)
+    waitjob(job_list)
     logger.warning("Submmited job finished, check log files to make sure they really finished")
 
 
@@ -595,7 +595,7 @@ def maker_collect(workdir=None, use_grid='T'):
     cmd = collect_maker_sh.format(workdir)
     if use_grid == 'T':
         job = bsub(cmd, direct_submit='F')
-        wait_until_finish(job)
+        waitjob(job)
     else:
         res = sh(cmd)
         logger.warning(res)
@@ -860,7 +860,7 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', a
             exit(1)
     if use_grid == 'T':
         joblist = bsub(cmd, direct_submit='F', cpus=2)
-        wait_until_finish(joblist)
+        waitjob(joblist)
     else:
         sh(cmd)
     return 0

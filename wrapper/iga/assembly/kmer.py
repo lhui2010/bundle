@@ -18,7 +18,7 @@ import logging
 # 2 threads
 # 3 kmer_size
 # 4 output
-from iga.apps.base import emain, sh, wait_until_finish, bsub, abspath_list
+from iga.apps.base import emain, sh, waitjob, bsub, abspath_list
 
 # 0 fastq.gz
 # 1 prefix,
@@ -107,7 +107,7 @@ def gce(fastq=None, prefix='', threads=64, kmer=23, workdir=''):
     fastq_text = ' '.join(fastq)
     cmd = gce_sh.format(fastq_text, workdir, prefix, threads, kmer)
     job = bsub(cmd, cpus=threads, direct_submit=False, name=prefix)
-    wait_until_finish(job)
+    waitjob(job)
     return 0
     # subprocess.run(cmd, shell = T
 

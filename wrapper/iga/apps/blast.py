@@ -3,7 +3,7 @@ blast related wrappers
 """
 from collections import defaultdict
 
-from iga.apps.base import emain, bsub, wait_until_finish, logger
+from iga.apps.base import emain, bsub, waitjob, logger
 
 #0 ref
 #1 qry
@@ -21,7 +21,7 @@ def blastp(ref=None, qry=None, threads=5):
     """
     cmd = blastp_sh.format(ref, qry, qry)
     job = bsub(cmd, cpus=threads)
-    wait_until_finish(job)
+    waitjob(job)
     return 0
 
 
