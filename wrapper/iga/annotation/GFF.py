@@ -126,8 +126,9 @@ class Feat:
         if tag == "ID":
             logger.error("Can't delete ID item")
             return 1
-        del self.attr_dict[tag]
-        self.__refactor__()
+        if tag in self.attr_dict:
+            del self.attr_dict[tag]
+            self.__refactor__()
         return 0
 
     def __refactor__(self):
