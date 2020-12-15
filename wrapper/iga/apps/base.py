@@ -96,7 +96,7 @@ def sh(cmd, debug=False, parallel='F', cpus=1):
     return ret
 
 
-def bsub(cmd, queue='Q104C512G_X4', direct_submit='T', cpus=1):
+def bsub(cmd, queue='Q104C512G_X4', direct_submit='T', cpus=1, name=''):
     """
     submit jobs via bsub
     When using variable export in a cmd ,use direct_submit = 'F'
@@ -104,6 +104,8 @@ def bsub(cmd, queue='Q104C512G_X4', direct_submit='T', cpus=1):
     :return:
     """
     bsub_cmd = 'bsub -q {0}  -o output.%J -e error.%J -n {1} '.format(queue, cpus)
+    if(name != ''):
+        bsub_cmd += "-J {} ".format(name)
     if (direct_submit == 'T'):
         prior_cmd = 'set -eo pipefail;'
         cmd_full = bsub_cmd + '"' + prior_cmd + cmd + '"'

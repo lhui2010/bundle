@@ -106,7 +106,7 @@ def gce(fastq=None, prefix='', threads=64, kmer=23, workdir=''):
     abspath_list(fastq)
     fastq_text = ' '.join(fastq)
     cmd = gce_sh.format(fastq_text, workdir, prefix, threads, kmer)
-    job = bsub(cmd, cpus=threads, direct_submit=False)
+    job = bsub(cmd, cpus=threads, direct_submit=False, name=prefix)
     wait_until_finish(job)
     return 0
     # subprocess.run(cmd, shell = T
