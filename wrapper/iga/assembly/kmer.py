@@ -18,7 +18,7 @@ import logging
 # 2 threads
 # 3 kmer_size
 # 4 output
-from iga.apps.base import emain, sh, wait_until_finish, bsub
+from iga.apps.base import emain, sh, wait_until_finish, bsub, abspath_list
 
 # 0 fastq.gz
 # 1 prefix,
@@ -103,6 +103,7 @@ def gce(fastq=None, prefix='', threads=64, kmer=23, workdir=''):
         prefix = os.path.splitext(os.path.basename(fastq[0]))[0]
     if workdir == '':
         workdir = "workdir_gce" + prefix
+    abspath_list(fastq)
     fastq_text = ' '.join(fastq)
     cmd = gce_sh.format(fastq_text, workdir, prefix, threads, kmer)
     job = bsub(cmd, cpus=threads, direct_submit=False)
