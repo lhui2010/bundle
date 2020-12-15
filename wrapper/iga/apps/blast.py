@@ -37,7 +37,7 @@ def filter_reciprocal_best(bln=None):
             mylist = line.rstrip().split()
             qry = mylist[0]
             ref = mylist[1]
-            bitscore = int(mylist[-1])
+            bitscore = float(mylist[-1])
             if(bitscore > highest[qry]):
                 highest[qry] = bitscore
                 qry_best[qry] = ref
