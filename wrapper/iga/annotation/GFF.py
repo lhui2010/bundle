@@ -99,7 +99,7 @@ class Feat:
             pass
         else:
             for i in self.childs:
-                result += i.get_all_child_feats(type)
+                result += i.get_all_child_feats_obj(type)
         result = list(chain.from_iterable(result))
         return result
 
