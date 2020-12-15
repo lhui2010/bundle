@@ -18,7 +18,7 @@ def blastp(ref=None, qry=None):
     :return:
     """
     cmd = blastp_sh.format(ref, qry, qry)
-    job = bsub(cmd)
+    job = bsub(cmd, cpus=5)
     wait_until_finish(job)
     return 0
 
