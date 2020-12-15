@@ -222,7 +222,6 @@ class GFF:
         return result
 
     def longest_mRNA(self):
-        self.calibrate_mRNA_len()
         longest_table = ""
         longest_gff = ""
         for k in self.top_level_list:
