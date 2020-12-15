@@ -32,7 +32,7 @@ class Feat:
         self.score = mylist[5]
         self.strand = mylist[6]
         self.phase = mylist[7]
-        #Refactor affected vairables
+        # Refactor affected vairables
         self.len = abs(int(self.end) - int(self.start)) + 1
         self.attributes = mylist[8]
         self.attr_dict = OrderedDict()
@@ -223,12 +223,13 @@ class GFF:
 
     def longest_mRNA(self):
         self.calibrate_mRNA_len()
-        result = ""
+        longest_table = ""
+        longest_gff = ""
         for k in self.top_level_list:
             mRNA_list = self.GFF_dict[k].get_all_child_feats_obj('mRNA')
             longest = 0
             if mRNA_list == []:
-                #This is not a protein coding gene
+                # This is not a protein coding gene
                 continue
             else:
                 for mRNA in mRNA_list:
@@ -243,9 +244,10 @@ class GFF:
                     if longest < mRNA.abs_len:
                         longest = mRNA.abs_len
                         self.GFF_dict[k].longest = mRNA.ID
-            result += "{}\t{}".format(k, self.GFF_dict[k].longest) + "\n"
-        return result
-
+            longest_table += "{}\t{}".format(k, self.GFF_dict[k].longest) + "\n"
+            longest_gff += self.GFF_dict[k].content
+            longest_gff += self.GFF_dict[self.GFF_dict[k].longest].get_all_child_feats()
+        return [longest_table, longest_gff]
 
 
 def longest_mRNA(gff=None):
@@ -255,17 +257,13 @@ def longest_mRNA(gff=None):
     :return:
     """
     gff_obj = GFF(gff)
-    longest_table = gff_obj.longest_mRNA()
-    longest_gff = ''
-    for k in gff_obj.top_level_list:
-        longest_gff += gff_obj.GFF_dict[k].content
-        longest_mRNA_ID = gff_obj.GFF_dict[k].longest
-        longest_gff += gff_obj.GFF_dict[longest_mRNA_ID].get_all_child_feats()
+    (longest_table, longest_gff) = gff_obj.longest_mRNA()
     with open(gff + "longest.table") as fh:
         fh.write(longest_table)
     with open(gff + "longest.gff") as fh:
         fh.write(longest_gff)
     return 0
+
 
 def extract_gff_tag(gff=None, tag=None):
     r"""
@@ -279,6 +277,7 @@ def extract_gff_tag(gff=None, tag=None):
     tag_dict = gff_db.get_attr(tag)
     for k in tag_dict:
         print("{}\t{}".format(k, tag_dict[k]))
+
 
 if __name__ == "__main__":
     emain()
