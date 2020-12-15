@@ -308,7 +308,7 @@ def fix_gt_gff(gff=None):
                                 feat.attr_dict['transcript_id'].replace('mRNA:', ''))
             else:
                 feat.parent = feat.attr_dict['transcript_id'].replace('mRNA:', '')
-                prefix = "{}:{}".format(feat.parent + feat.type)
+                prefix = "{}:{}".format(feat.parent, feat.type)
                 count[prefix] += 1
                 feat.update_tag("ID",
                                 "{}-{}".format(prefix, count[prefix]))
