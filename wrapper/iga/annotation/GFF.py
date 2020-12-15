@@ -141,7 +141,8 @@ class Feat:
         self.content = "\t".join([self.seqid, self.source, self.type, self.start, self.end,
                                   self.score, self.strand, self.phase, self.attributes])
         self.ID = self.attr_dict['ID']
-        self.parent = self.attr_dict['Parent']
+        if 'Parent' in self.attr_dict:
+            self.parent = self.attr_dict['Parent']
         return 0
 
     def print_all_childs(self):
