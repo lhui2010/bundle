@@ -45,7 +45,7 @@ def filter_reciprocal_best(bln=None):
             if(bitscore > highest[qry]):
                 highest[qry] = bitscore
                 qry_best[qry] = ref
-                qry_line = line.rstrip()
+                qry_line[qry] = line.rstrip()
             if(bitscore > highest[ref]):
                 highest[ref] = bitscore
                 ref_best[ref] = qry
