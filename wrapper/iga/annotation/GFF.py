@@ -295,7 +295,7 @@ def fix_gt_gff(gff=None):
     with open(gff) as fh:
         for line in fh:
             if(line.startswith('#')):
-                print(line, end ='')
+                print(line, end='')
                 continue
             feat = Feat(line)
             if feat.type == "gene":
@@ -305,9 +305,9 @@ def fix_gt_gff(gff=None):
                 feat.update_tag("Parent",
                                 feat.attr_dict['gene_id'].replace('gene:', ''))
                 feat.update_tag("ID",
-                                feat.attr_dict['transcript_id'].replace('mRNA:', ''))
+                                feat.attr_dict['transcript_id'])
             else:
-                feat.parent = feat.attr_dict['transcript_id'].replace('mRNA:', '')
+                feat.parent = feat.attr_dict['transcript_id']
                 prefix = "{}:{}".format(feat.parent, feat.type)
                 count[prefix] += 1
                 feat.update_tag("ID",
