@@ -258,9 +258,9 @@ def longest_mRNA(gff=None):
     """
     gff_obj = GFF(gff)
     (longest_table, longest_gff) = gff_obj.longest_mRNA()
-    with open(gff + "longest.table") as fh:
+    with open(gff + "longest.table", 'w') as fh:
         fh.write(longest_table)
-    with open(gff + "longest.gff") as fh:
+    with open(gff + "longest.gff", 'w') as fh:
         fh.write(longest_gff)
     return 0
 
