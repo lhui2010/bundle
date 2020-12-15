@@ -81,7 +81,7 @@ DEPTH=`tail -n 11 {2}.kmerfreq.log  |head -1 |awk '{{print $5}}'`
 gce -f {2}.freq.stat -g $UNIQKMERNUM -H 1 -c $DEPTH -b 1 >{2}.gce.out 2>{2}.gce.err
 
 GenomeSize=`tail -n 2 {2}.gce.err |head -1 |awk '{{print $6}}'`
-Heterozygosity=`tail -n 2 {2}.gce.err |head -1 |awk '{{print $7/(2-$7)/{5}}}'`
+Heterozygosity=`tail -n 2 {2}.gce.err |head -1 |awk '{{print $7/(2-$7)/{4}}}'`
 Repeat=`tail -n 2 {2}.gce.err |head -1 |awk '{{print 1-$9-$10}}'`
 echo -e "{2}\t$GenomeSize\t$Heterozygosity\t$Repeat"
 
