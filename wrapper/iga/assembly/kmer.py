@@ -74,8 +74,8 @@ mkdir -p {1} && cd {1}
 
 echo -e "Species\tGenomeSize\tHeterozygosity\tRepeat%"
 
-ls {0} > {1}.fq.lst
-kmer_freq_hash -t {3} -k {4} -l {1}.fq.lst -p {1} 2>{2}.kmerfreq.log
+ls {0} > {2}.fq.lst
+kmer_freq_hash -t {3} -k {4} -l {2}.fq.lst -p {2} 2>{2}.kmerfreq.log
 UNIQKMERNUM=`tail -n 11 {2}.kmerfreq.log  |head -1 |awk '{{print $2}}'`
 DEPTH=`tail -n 11 {2}.kmerfreq.log  |head -1 |awk '{{print $5}}'`
 gce -f {2}.freq.stat -g $UNIQKMERNUM -H 1 -c $DEPTH -b 1 >{2}.gce.out 2>{2}.gce.err
