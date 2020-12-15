@@ -46,9 +46,12 @@ class Feat:
             self.attr_dict[attr_key] = attr_value
         if 'Parent' in self.attr_dict:
             self.parent = self.attr_dict['Parent']
-        self.ID = self.attr_dict['ID']
-        # Only used in mRNA where abs_len is the sum length of all CDS
-        self.abs_len = None
+        else:
+            self.parent = None
+        try:
+            self.ID = self.attr_dict['ID']
+        except KeyError:
+            self.ID = None
 
     def get_parent(self):
         r"""
@@ -138,6 +141,7 @@ class Feat:
         self.content = "\t".join([self.seqid, self.source, self.type, self.start, self.end,
                                   self.score, self.strand, self.phase, self.attributes])
         self.ID = self.attr_dict['ID']
+        self.parent = self.attr_dict['Parent']
         return 0
 
     def print_all_childs(self):
@@ -280,6 +284,34 @@ def extract_gff_tag(gff=None, tag=None):
     for k in tag_dict:
         print("{}\t{}".format(k, tag_dict[k]))
 
+def fix_gt_gff(gff=None):
+    r"""
+    Fix the resulting gff files from gt gtf2gff3
+    :param gff:
+    :return:
+    """
+    count = defaultdict(int)
+    with open(gff) as fh:
+        for line in fh:
+            if(line.startswith('#')):
+                print(line, end ='')
+                continue
+            feat = Feat(line)
+            if feat.type == "gene":
+                feat.update_tag("ID",
+                                feat.attr_dict['gene_id'].replace('gene:', ''))
+            elif feat.type == "mRNA":
+                feat.update_tag("Parent",
+                                feat.attr_dict['gene_id'].replace('gene:', ''))
+                feat.update_tag("ID",
+                                feat.attr_dict['transcript_id'].replace('mRNA:', ''))
+            else:
+                feat.parent = feat.attr_dict['transcript_id'].replace('mRNA:', '')
+                prefix = "{}:{}".format(feat.parent + feat.type)
+                count[prefix] += 1
+                feat.update_tag("ID",
+                                "{}-{}".format(prefix, count[prefix]))
+            print(feat.content)
 
 if __name__ == "__main__":
     emain()
