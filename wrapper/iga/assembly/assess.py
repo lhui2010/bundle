@@ -47,7 +47,7 @@ def lai(genome=None, threads=50):
     cmd = conda_act.format("EDTA")
     genome = op.abspath(genome)
     cmd += lai_sh.format(genome, threads)
-    threads = int(int(threads) / 2)
+    threads = int(int(threads) / 1.4)
     job = bsub(cmd, direct_submit='F', cpus=threads, name="LAI" + genome)
     #waitjob(job)
     return 0
