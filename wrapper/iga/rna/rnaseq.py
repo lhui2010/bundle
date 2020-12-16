@@ -9,9 +9,22 @@ import numpy as np
 def merge_expression_table(tables):
     sample_list = []
     gene_dict = []
-    for t in tables:
-        sample_list.append(get_prefix(t))
-        pd.read_table(t)
+    z = pd.DataFrame()
+    sub_list = ('Gene', 'mRNA', 'chr', 'strand', 'start', 'end', 'TPM')
+    for i, t in enumerate(tables):
+        this_df = pd.read_table(t)
+        sub_df = this_df[sub_list]
+        t_prefix = get_prefix(t)
+        new_sublist = list(sub_list)
+        new_sublist[new_sublist.index('TPM')] = t_prefix
+        sub_df.columns = new_sublist
+        if i == 0:
+            z = sub_df
+        else:
+            z.merge(sub_df, left_on=['Gene', 'mRNA', 'chr', 'strand', 'start', 'end'],
+                    right_on=['Gene', 'mRNA', 'chr', 'strand', 'start', 'end'], how='outer')
+        #sample_list.append(get_prefix(t))
+    z.to_csv('merged_expression.txt', sep="\t")
 
 
 if __name__ == "__main__":
