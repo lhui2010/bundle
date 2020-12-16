@@ -103,7 +103,7 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
 
 
 pheatmap_sh = r"""
-RCG<-read.table("{0}", header = T, row.names = 1)
+RCG<-read.table("{0}", header = T, row.names = 1, sep="\t")
 
 library("pheatmap")
 library("RColorBrewer")
