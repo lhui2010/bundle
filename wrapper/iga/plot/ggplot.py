@@ -61,7 +61,7 @@ ggsave("{0}.pdf", width = 5, height = 5)
 
 
 def barplot(table=None, value_tag=None, group_tag=''):
-    cmd = barplot_sh.format(table, value_tag, group_tag)
+    cmd = barplot_r.format(table, value_tag, group_tag)
     rscript(cmd)
 
 
