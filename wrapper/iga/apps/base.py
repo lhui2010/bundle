@@ -95,6 +95,23 @@ def sh(cmd, debug=False, parallel='F', cpus=1):
         logger.warning(ret)
     return ret
 
+def rscript(cmd):
+    """
+    run r code with rscripts
+    :param cmd:
+    :return:
+    """
+    ret = ''
+    logger.info(cmd)
+    prior_cmd = 'set -eo pipefail\n'
+    try:
+        ret = subprocess.check_output(prior_cmd + "Rscript -e " + cmd, stderr=subprocess.STDOUT, shell=True).decode()
+    except subprocess.CalledProcessError as cpe:
+        logger.warning(cpe.output)
+        ret = cpe.output
+    logger.warning(ret)
+    return ret
+
 
 def bsub(cmd, queue='Q104C512G_X4', direct_submit='T', cpus=1, name=''):
     """

@@ -1,7 +1,5 @@
-#!/usr/bin/env python
-
 """
-running busco assessement on genomes
+running assessement on genomes
 """
 
 import argparse
