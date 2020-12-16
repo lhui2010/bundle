@@ -89,9 +89,8 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
         y = y1
     if group == '':
         group = group1
-    else:
     #etc = '+scale_fill_brewer(palette="Dark2")'
-        etc = '+scale_fill_manual(values=c("#E69F00", "#56B4E9", "#8c55e6", "##e64d00"))'
+    etc = '+scale_fill_manual(values=c("#E69F00", "#56B4E9", "#8c55e6", "##e64d00"))'
     if theme != "":
         etc += "+theme_" + theme + "()"
     if horizonal == 'T':
