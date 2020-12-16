@@ -86,7 +86,7 @@ def busco(genome_fasta=None, mode='genome', lineage='embryophyta_odb10', threads
     cmd = conda_act.format('busco') + busco_export + busco_sh.format(threads, mode, genome_fasta, output, lineage)
     #    cmd = conda_act
     if (usegrid == 'T'):
-        bsub(cmd, cpus=5)
+        bsub(cmd, cpus=5, name="busco" + genome_fasta)
     else:
         sh(cmd)
 
