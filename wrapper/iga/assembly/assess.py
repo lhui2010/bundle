@@ -41,7 +41,7 @@ def lai(genome=None, threads=50):
     """
     cmd = conda_act.format("EDTA")
     cmd += lai_sh.format(genome, threads)
-    real_cpu = threads / 2
+    real_cpu = int(threads / 2)
     job = bsub(cmd, direct_submit='F', cpus=real_cpu)
     waitjob(job)
     return 0
