@@ -112,7 +112,7 @@ library("RColorBrewer")
 
 pdf("{0}.heatmap")
 
-a = pheatmap(RCG, col= mycol, show_rownames=F, 
+a = pheatmap(RCG, show_rownames=F, 
        main = "{1}", cluster_rows=T, cluster_cols=F,
        fontsize_col = 20, angle_col ="45",border_color = 'white')
 """
