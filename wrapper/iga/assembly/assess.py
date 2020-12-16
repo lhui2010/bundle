@@ -22,6 +22,10 @@ import os.path as op
 # 2 threads
 lai_sh = """
 PREFIX=`basename {0}`
+if [ -d workdir_LAI_$PREFIX ]
+then
+    mv workdir_LAI_$PREFIX workdir_LAI_$PREFIX.bak
+fi
 mkdir -p workdir_LAI_$PREFIX && cd  workdir_LAI_$PREFIX
 ln -s {0}
 LTR_FINDER_parallel -seq $PREFIX -threads {1} -harvest_out -size 1000000 -time 300
