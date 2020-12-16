@@ -22,7 +22,7 @@ def iprscan(pep_file=None, threads=30):
     job_name = "ipr." + op.basename(pep_file, threads)
     cmd = iprscan_sh.format(pep_file, threads)
     job = bsub(cmd, cpus=threads, name=job_name)
-    waitjob(job)
+    #waitjob(job)
 
 
 if __name__ == "__main__":
