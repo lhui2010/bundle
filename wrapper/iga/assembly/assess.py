@@ -32,7 +32,7 @@ gt ltrharvest -index $PREFIX -minlenltr 100 -maxlenltr 7000 -mintsd 4 -maxtsd 6 
 LTR_FINDER_parallel -seq $PREFIX -threads {1} -harvest_out -size 1000000 -time 300
 cat $PREFIX.harvest.scn $PREFIX.finder.combine.scn > $PREFIX.rawLTR.scn
 LTR_retriever -genome $PREFIX -inharvest $PREFIX.rawLTR.scn -threads {1} 
-LAI -genome $PREFIX -intact $PREFIX.pass.list -all $PREFIX.out {1}"
+LAI -genome $PREFIX -intact $PREFIX.pass.list -all $PREFIX.out {1}
 echo -n "LAI for {0} is: "
 sed -n '2p' $PREFIX.out.LAI |awk '{{print $7}}'
 """

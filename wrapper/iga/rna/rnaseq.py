@@ -20,9 +20,8 @@ def plot_exp_heatmap(table=None):
     with open(table) as fh:
         for line in fh:
             mylist = line.rstrip().split('\t')
-            for i in range(1, 5):
-                mylist.pop(i)
-            buff += "\t".join(mylist) + "\n"
+            new_list = [mylist[0]] + mylist[6:]
+            buff += "\t".join(new_list) + "\n"
     with open(table2, 'w') as fh:
         fh.write(buff)
     pheatmap(table2)
