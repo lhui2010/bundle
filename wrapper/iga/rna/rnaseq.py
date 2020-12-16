@@ -30,7 +30,7 @@ def merge_exp_table(tables=None):
             z = z.merge(sub_df, left_on=sub_list[:6],
                     right_on=sub_list[:6], how='outer')
         #sample_list.append(get_prefix(t))
-    z.to_csv('merged_expression.txt', sep="\t")
+    z.to_csv('merged_expression.txt', sep="\t", index=False, na_rep='0.0')
 
 
 if __name__ == "__main__":
