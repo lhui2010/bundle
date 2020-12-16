@@ -28,8 +28,9 @@ cat $PREFIX.harvest.scn $PREFIX.finder.combine.scn > $PREFIX.rawLTR.scn
 LTR_retriever -genome $PREFIX -inharvest $PREFIX.rawLTR.scn -threads {1} 
 LAI -genome $PREFIX -intact $PREFIX.pass.list -all $PREFIX.out {1}"
 echo -n "LAI for {0} is: "
-sed -n '2p' $PREFIX.out.LAI |awk '{print $7}'
+sed -n '2p' $PREFIX.out.LAI |awk '{{print $7}}'
 """
+
 
 def lai(genome=None, threads=50):
     r"""
@@ -44,6 +45,7 @@ def lai(genome=None, threads=50):
     job = bsub(cmd, direct_submit='F', cpus=real_cpu)
     waitjob(job)
     return 0
+
 
 # 0 threads
 # 1 mode genome/pep
@@ -74,10 +76,10 @@ def busco(genome_fasta=None, mode='genome', lineage='embryophyta_odb10', threads
     # """
     if (output == ''):
         output = os.path.basename(genome_fasta) + ".busco.embryophyta.v4.1.2"
-    #cmd = conda_act.format('busco') + deploy_augustus + busco_sh.format(threads, mode, genome_fasta, output, lineage)
+    # cmd = conda_act.format('busco') + deploy_augustus + busco_sh.format(threads, mode, genome_fasta, output, lineage)
     cmd = conda_act.format('busco') + busco_export + busco_sh.format(threads, mode, genome_fasta, output, lineage)
     #    cmd = conda_act
-    if(usegrid == 'T'):
+    if (usegrid == 'T'):
         bsub(cmd, cpus=5)
     else:
         sh(cmd)
