@@ -27,7 +27,7 @@ def merge_exp_table(tables=None):
         if i == 0:
             z = sub_df
         else:
-            z.merge(sub_df, left_on=sub_list[:6],
+            z = z.merge(sub_df, left_on=sub_list[:6],
                     right_on=sub_list[:6], how='outer')
         #sample_list.append(get_prefix(t))
     z.to_csv('merged_expression.txt', sep="\t")
