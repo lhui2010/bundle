@@ -6,7 +6,7 @@ import argparse
 import textwrap
 import subprocess
 import os
-from iga.apps.base import emain, conda_act, bsub, sh, waitjob, abspath_list
+from iga.apps.base import emain, conda_act, bsub, sh, waitjob, abspath_list, get_prefix
 import os.path as op
 
 # class CTL():
@@ -47,9 +47,10 @@ def lai(genome=None, threads=50):
     """
     cmd = conda_act.format("EDTA")
     genome = op.abspath(genome)
+    name = get_prefix(genome)
     cmd += lai_sh.format(genome, threads)
     threads = int(int(threads) / 1.4)
-    job = bsub(cmd, direct_submit='F', cpus=threads, name="LAI" + genome)
+    job = bsub(cmd, direct_submit='F', cpus=threads, name="LAI" + name)
     #waitjob(job)
     return 0
 
