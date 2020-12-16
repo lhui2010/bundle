@@ -20,7 +20,7 @@ def plot_exp_heatmap(table=None):
     with open(table) as fh:
         for line in fh:
             mylist = line.rstrip().split('\t')
-            for i in range(1,5):
+            for i in range(1, 5):
                 mylist.pop(i)
             buff += "\t".join(mylist) + "\n"
     with open(table2, 'w') as fh:
@@ -44,7 +44,7 @@ def merge_exp_table(tables=None):
         logger.warning(this_df.columns)
         sub_df = this_df[list(sub_list)]
         t_prefix = get_prefix(t)
-        new_sublist = list(sub_list)
+        new_sublist = sub_list.copy()
         new_sublist[new_sublist.index('TPM')] = t_prefix
         sub_df.columns = new_sublist
         if i == 0:
