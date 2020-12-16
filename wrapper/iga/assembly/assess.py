@@ -8,7 +8,7 @@ import argparse
 import textwrap
 import subprocess
 import os
-from iga.apps.base import emain, conda_act, bsub, sh
+from iga.apps.base import emain, conda_act, bsub, sh, waitjob
 
 # class CTL():
 
@@ -16,6 +16,33 @@ from iga.apps.base import emain, conda_act, bsub, sh
 # Support Direct Print
 # Support tag value change
 
+
+# 0 input fasta (relative dir)
+# 2 threads
+lai_sh = """
+PREFIX=`basename {0}`
+mkdir -p workdir_LAI_$PREFIX && cd  workdir_LAI_$PREFIX
+ln -s {0}
+LTR_FINDER_parallel -seq $PREFIX -threads {1} -harvest_out -size 1000000 -time 300
+cat $PREFIX.harvest.scn $PREFIX.finder.combine.scn > $PREFIX.rawLTR.scn
+LTR_retriever -genome $PREFIX -inharvest $PREFIX.rawLTR.scn -threads {1} 
+LAI -genome $PREFIX -intact $PREFIX.pass.list -all $PREFIX.out {1}"
+echo -n "LAI for {0} is: "
+sed -n '2p' $PREFIX.out.LAI |awk '{print $7}'
+"""
+
+def lai(genome=None, threads=30):
+    r"""
+    Calculate lai for specific
+    :param genome:
+    :param threads:
+    :return:
+    """
+    cmd = conda_act.format("EDTA")
+    cmd += lai_sh.format(genome, threads)
+    job = bsub(cmd)
+    waitjob(job)
+    return 0
 
 # 0 threads
 # 1 mode genome/pep
