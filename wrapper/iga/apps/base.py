@@ -82,7 +82,7 @@ def sh(cmd, debug=False, parallel='F', cpus=1):
     prior_cmd = 'set -eo pipefail\n'
     if (parallel == 'T'):
         from multiprocessing import Pool
-        if(type(cmd)!= list):
+        if (type(cmd) != list):
             cmd = cmd.split('\n')
         with Pool(int(cpus)) as p:
             logger.warning(p.map(sh, cmd))
@@ -94,6 +94,7 @@ def sh(cmd, debug=False, parallel='F', cpus=1):
             ret = cpe.output
         logger.warning(ret)
     return ret
+
 
 def rscript(cmd):
     """
@@ -125,7 +126,7 @@ def bsub(cmd, queue='Q104C512G_X4', direct_submit='T', cpus=1, name=''):
     :return:
     """
     bsub_cmd = 'bsub -R "span[hosts=1]" -q {0}  -o output.%J -e error.%J -n {1} '.format(queue, cpus)
-    if(name != ''):
+    if (name != ''):
         bsub_cmd += "-J {} ".format(name)
     if (direct_submit == 'T'):
         prior_cmd = 'set -eo pipefail;'
@@ -154,8 +155,8 @@ date
         logger.warning(job_id)
     except TypeError:
         logger.error('submission failed for: {}'.format(cmd_full))
-    #queue jumper
-    #sh('btop {}'.format(job_id))
+    # queue jumper
+    # sh('btop {}'.format(job_id))
     return job_id
 
 
@@ -172,7 +173,7 @@ def is_job_finished(joblist=None):
         joblist = [joblist]
     for j in joblist:
         status = sh("bjobs {}".format(j))
-        #logger.warning(status)
+        # logger.warning(status)
         if re.search(r'{}  yitings DONE'.format(j), status) or \
                 re.search(r'{}  yitings EXIT'.format(j), status) or \
                 re.search(r'Job .* is not found', status):
@@ -509,7 +510,7 @@ def fmain(func_name, args):
     # func_doc = sys._getframe().f_code.co_consts[0]
     # 下面命令用于把字符串的函数名称转换成对象
     # func_name = 'isoseq_'
-    #logger.debug(args)
+    # logger.debug(args)
     object_pointer = getattr(sys.modules['__main__'], func_name)
     p = argparse.ArgumentParser(prog=func_name, usage=object_pointer.__doc__)
     # 下面的两个命令用于从函数对象中调取形参的名字和默认值（空值用Nonetype表示），用来转换成parse_args
@@ -545,14 +546,14 @@ def fmain(func_name, args):
     for k in position_arg:
         k_arg = getattr(real_arg, k)
         if (number_args == '+' and len(k_arg) > 1):
-            #passing spaced args as a list
+            # passing spaced args as a list
             position_result.append(k_arg)
         else:
             position_result.append(k_arg[0])
 
     # used to debug
-    #logger.debug(position_result)
-    #logger.debug(keyword_result)
+    # logger.debug(position_result)
+    # logger.debug(keyword_result)
     object_pointer(*position_result, **keyword_result)
 
     # if(number_args == 1):

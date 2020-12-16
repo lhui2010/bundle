@@ -53,16 +53,18 @@ scale_colour_Publication <- function(...){
 # 1 x=xx
 # 2 y=xx
 # 3 fill=xx
+# 4 theme
 barplot_r = r"""
 library(ggplot2);
 a=read.table("{0}", header=T, row.names=NULL); 
-ggplot(a, aes(x={1}, y={2}, fill={3})) + geom_bar(stat="identity" + position=position_dodge())
+ggplot(a, aes(x={1}, y={2}, fill={3})) + geom_bar(stat="identity" + position=position_dodge()) {4}
 ggsave("{0}.pdf", width = 5, height = 5)
 """
 
 
 def barplot(table=None, x='', y='', group=''):
-    cmd = barplot_r.format(table, x, y, group)
+    theme = "+theme_publication()"
+    cmd = theme_publication_r + barplot_r.format(table, x, y, group, theme)
     rscript(cmd)
 
 
