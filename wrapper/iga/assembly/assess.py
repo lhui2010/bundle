@@ -27,7 +27,7 @@ then
     mv workdir_LAI_$PREFIX workdir_LAI_$PREFIX.bak
 fi
 mkdir -p workdir_LAI_$PREFIX && cd  workdir_LAI_$PREFIX
-ln -s {0}
+sed 's/|/_/'g {0} > $PREFIX
 LTR_FINDER_parallel -seq $PREFIX -threads {1} -harvest_out -size 1000000 -time 300
 cat $PREFIX.harvest.scn $PREFIX.finder.combine.scn > $PREFIX.rawLTR.scn
 LTR_retriever -genome $PREFIX -inharvest $PREFIX.rawLTR.scn -threads {1} 
