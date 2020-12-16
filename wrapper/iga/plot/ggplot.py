@@ -58,7 +58,7 @@ barplot_r = r"""
 library(ggplot2);
 a=read.table("{0}", header=T, row.names=NULL); 
 ggplot(a, aes(x={1}, y={2}, fill={3})) + geom_bar(stat="identity", position=position_dodge()) {4} 
-ggsave("{0}.pdf", width = 5, height = 5)
+ggsave("{0}.pdf", width = {5}, height = {6})
 """
 
 
@@ -77,6 +77,8 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
     :param horizonal: whether to plot horizonally. (T|F default F)
     :return:
     """
+    width = 6
+    height = 8
     if x == '':
         with open(table) as fh:
             header = fh.readline()
@@ -87,7 +89,8 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
         etc += "+theme_" + theme + "()"
     if horizonal == 'T':
         etc += '+ coord_flip()'
-    cmd = theme_publication_r + barplot_r.format(table, x, y, group, etc)
+        (width, height) = (height, width)
+    cmd = theme_publication_r + barplot_r.format(table, x, y, group, etc, width, height)
     rscript(cmd)
 
 
