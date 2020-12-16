@@ -110,7 +110,9 @@ library("RColorBrewer")
 
 # mycol =colorRampPalette(rev(brewer.pal(n = 11, name ="RdBu")))(10)
 
-pdf("{0}.heatmap")
+prefix={0}
+
+pdf("${prefix%.tmp}.heatmap.pdf")
 
 a = pheatmap(RCG, show_rownames=F, 
        main = "{1}", cluster_rows=T, cluster_cols=F,
