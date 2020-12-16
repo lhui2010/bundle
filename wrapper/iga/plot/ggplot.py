@@ -1,7 +1,7 @@
 """
 ggplot wrappers
 """
-from iga.apps.base import emain, sh, rscript
+from iga.apps.base import emain, sh, rscript, conda_act
 
 theme_publication_r = r"""
 theme_Publication <- function(base_size=14, base_family="sans") {
@@ -97,8 +97,31 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
         etc += "+theme_" + theme + "()"
     if horizonal == 'T':
         etc += '+ coord_flip()'
-        #(width, height) = (height, width)
+        # (width, height) = (height, width)
     cmd = theme_publication_r + barplot_r.format(table, x, y, group, etc, width, height)
+    rscript(cmd)
+
+
+pheatmap_sh = r"""
+RCG<-read.table("{0}", header = T, row.names = 1)
+
+library("pheatmap")
+library("RColorBrewer")
+
+# mycol =colorRampPalette(rev(brewer.pal(n = 11, name ="RdBu")))(10)
+
+pdf("{0}.heatmap")
+
+a = pheatmap(RCG, col= mycol, show_rownames=F, 
+       main = "{1}", cluster_rows=T, cluster_cols=F,
+       fontsize_col = 20, angle_col ="45",border_color = 'white')
+"""
+
+
+def pheatmap(table=None, main=''):
+    if main == '':
+        main = table
+    cmd = pheatmap_sh.format(table, main)
     rscript(cmd)
 
 
