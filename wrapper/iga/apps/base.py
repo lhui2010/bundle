@@ -103,7 +103,7 @@ def bsub(cmd, queue='Q104C512G_X4', direct_submit='T', cpus=1, name=''):
     :param cmd:
     :return:
     """
-    bsub_cmd = 'bsub -q {0}  -o output.%J -e error.%J -n {1} '.format(queue, cpus)
+    bsub_cmd = 'bsub -R "span[hosts=1]" -q {0}  -o output.%J -e error.%J -n {1} '.format(queue, cpus)
     if(name != ''):
         bsub_cmd += "-J {} ".format(name)
     if (direct_submit == 'T'):

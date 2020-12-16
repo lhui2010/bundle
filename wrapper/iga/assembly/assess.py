@@ -8,7 +8,8 @@ import argparse
 import textwrap
 import subprocess
 import os
-from iga.apps.base import emain, conda_act, bsub, sh, waitjob
+from iga.apps.base import emain, conda_act, bsub, sh, waitjob, abspath_list
+import os.path as op
 
 # class CTL():
 
@@ -40,9 +41,10 @@ def lai(genome=None, threads=50):
     :return:
     """
     cmd = conda_act.format("EDTA")
+    genome = op.abspath(genome)
     cmd += lai_sh.format(genome, threads)
-    real_cpu = int(threads / 2)
-    job = bsub(cmd, direct_submit='F', cpus=real_cpu)
+    #real_cpu = int(threads / 2)
+    job = bsub(cmd, direct_submit='F', cpus=threads, name="LAI" + genome)
     waitjob(job)
     return 0
 
