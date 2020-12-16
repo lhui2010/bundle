@@ -21,7 +21,7 @@ def plot_exp_heatmap(table=None):
         for line in fh:
             mylist = line.rstrip().split('\t')
             new_list = [mylist[0]] + mylist[6:]
-            buff += "\t".join(new_list) + "\n"
+            buff += "\t".join(new_list).rstrip() + "\n"
     with open(table2, 'w') as fh:
         fh.write(buff)
     pheatmap(table2, main="Expression Heatmap")
