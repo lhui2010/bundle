@@ -31,7 +31,7 @@ echo -n "LAI for {0} is: "
 sed -n '2p' $PREFIX.out.LAI |awk '{print $7}'
 """
 
-def lai(genome=None, threads=30):
+def lai(genome=None, threads=50):
     r"""
     Calculate lai for specific
     :param genome:
@@ -40,7 +40,8 @@ def lai(genome=None, threads=30):
     """
     cmd = conda_act.format("EDTA")
     cmd += lai_sh.format(genome, threads)
-    job = bsub(cmd, direct_submit='F')
+    real_cpu = threads / 2
+    job = bsub(cmd, direct_submit='F', cpus=real_cpu)
     waitjob(job)
     return 0
 
