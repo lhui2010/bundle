@@ -53,23 +53,40 @@ scale_colour_Publication <- function(...){
 # 1 x=xx
 # 2 y=xx
 # 3 fill=xx
-# 4 theme
+# 4 etc string like theme and others
 barplot_r = r"""
 library(ggplot2);
 a=read.table("{0}", header=T, row.names=NULL); 
-ggplot(a, aes(x={1}, y={2}, fill={3})) + geom_bar(stat="identity", position=position_dodge()) {4}
+ggplot(a, aes(x={1}, y={2}, fill={3})) + geom_bar(stat="identity", position=position_dodge()) {4} {5}
 ggsave("{0}.pdf", width = 5, height = 5)
 """
 
 
-def barplot(table=None, x='', y='', group='', theme='Publication'):
+def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'):
+    r"""
+    barplot with ggplot2
+    :param table: Input table like
+                Group   Number  Regulation
+                Root-Nodule     1654    Down
+                Root-Nodule     1496    Up
+                Root-Leaf       4099    Down
+    :param x: default is the 1st colomn, can be specified by header
+    :param y: default is the 2nd colomn, can be specified by header
+    :param group: default is the 3rd colomn, can be specified by header
+    :param theme: available themes(Publication, minimal)
+    :param horizonal: whether to plot horizonally. (T|F default F)
+    :return:
+    """
     if x == '':
         with open(table) as fh:
             header = fh.readline()
             (x, y, group) = header.rstrip().split()
+    etc = ''
     if theme != "":
-        theme = "+theme_" + theme + "()"
-    cmd = theme_publication_r + barplot_r.format(table, x, y, group, theme)
+        etc = "+theme_" + theme + "()"
+    if horizonal == 'T':
+        etc += '+ coord_flip()'
+    cmd = theme_publication_r + barplot_r.format(table, x, y, group, etc)
     rscript(cmd)
 
 
