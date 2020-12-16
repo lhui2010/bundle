@@ -62,8 +62,13 @@ ggsave("{0}.pdf", width = 5, height = 5)
 """
 
 
-def barplot(table=None, x='', y='', group=''):
-    theme = "+theme_publication()"
+def barplot(table=None, x='', y='', group='', theme='publication'):
+    if(x=''):
+        with open(table) as fh:
+            header = fh.readline()
+            (x,y,group) = header.rstrip().split()
+    if(theme != ""):
+        theme = "+theme_" + theme + "()"
     cmd = theme_publication_r + barplot_r.format(table, x, y, group, theme)
     rscript(cmd)
 
