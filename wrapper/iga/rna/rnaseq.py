@@ -15,7 +15,7 @@ def merge_exp_table(tables=None):
     sample_list = []
     gene_dict = []
     z = pd.DataFrame()
-    sub_list = ('Gene', 'mRNA', 'chr', 'strand', 'start', 'end', 'TPM')
+    sub_list = ('Gene ID', 'Gene Name', 'Reference', 'Strand', 'Start', 'End', 'TPM')
     for i, t in enumerate(tables):
         this_df = pd.read_table(t, sep='\t')
         this_df
