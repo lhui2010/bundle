@@ -1,7 +1,7 @@
 """
 rna-seq relevant utils
 """
-from iga.apps.base import emain, get_prefix
+from iga.apps.base import emain, get_prefix, logger
 import pandas as pd
 import numpy as np
 
@@ -18,7 +18,7 @@ def merge_exp_table(tables=None):
     sub_list = ('Gene ID', 'Gene Name', 'Reference', 'Strand', 'Start', 'End', 'TPM')
     for i, t in enumerate(tables):
         this_df = pd.read_table(t, sep='\t')
-        this_df
+        logger.warning(this_df.columns)
         sub_df = this_df[sub_list]
         t_prefix = get_prefix(t)
         new_sublist = list(sub_list)
