@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
-Implementations of plot utiles
+Implementations of RNA related scripts
 """
 
 from iga.apps.base import dmain

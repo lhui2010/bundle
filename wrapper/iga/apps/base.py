@@ -71,6 +71,15 @@ def split_fasta(fasta, workdir, chunk=100):
     return file_list
 
 
+def get_prefix(name):
+    """
+    Input /fjds/g/AB.fds.txt
+    return AB
+    :param name:
+    :return:
+    """
+    return op.basename(name).split('.')[0]
+
 def sh(cmd, debug=False, parallel='F', cpus=1):
     """
     run command directly with subprocess.run

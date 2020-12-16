@@ -75,7 +75,7 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
     :param group: default is the 3rd colomn, can be specified by header
     :param theme: available themes(Publication, minimal)
     :param horizonal: whether to plot horizonally. (T|F default F)
-    :param pallette: Discrete use Set1, heatmap use RdBu, else use Spectral
+    :param pallette: Discrete use Set2, heatmap use RdBu, else use Spectral
     :return:
     """
     width = 6
