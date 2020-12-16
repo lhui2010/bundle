@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 
 
-def merge_expression_table(tables=None):
+def merge_exp_table(tables=None):
     """
     Merge expression table produced by stringtie into one with TPM
     :param tables:
