@@ -1,7 +1,7 @@
 """
 ggplot wrappers
 """
-from iga.apps.base import emain, sh, rscript, conda_act
+from iga.apps.base import emain, rscript
 
 theme_publication_r = r"""
 theme_Publication <- function(base_size=14, base_family="sans") {
