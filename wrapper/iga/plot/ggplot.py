@@ -79,12 +79,17 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
     """
     width = 4.5
     height = 6
+    with open(table) as fh:
+        header = fh.readline()
+        (x1, y1, group1) = header.rstrip().split()
     if x == '':
-        with open(table) as fh:
-            header = fh.readline()
-            (x, y, group) = header.rstrip().split()
+        x = x1
+    if y == '':
+        y = y1
+    if group == '':
+        group = group1
     #etc = '+scale_fill_brewer(palette="Dark2")'
-    etc = '+scale_fill_manual(values=c("#E69F00", "#56B4E9"))'
+    etc = '+scale_fill_manual(values=c("#E69F00", "#56B4E9", "#8c55e6", "##e64d00"))'
     if theme != "":
         etc += "+theme_" + theme + "()"
     if horizonal == 'T':
