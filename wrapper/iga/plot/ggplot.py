@@ -75,11 +75,11 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
     :param group: default is the 3rd colomn, can be specified by header
     :param theme: available themes(Publication, minimal)
     :param horizonal: whether to plot horizonally. (T|F default F)
-    :param pallette: Discrete use Set3, heatmap use RdBu, else use Spectral
+    :param pallette: Discrete use Set1, heatmap use RdBu, else use Spectral
     :return:
     """
-    width = 4.5
-    height = 6
+    width = 6
+    height = 4.5
     with open(table) as fh:
         header = fh.readline()
         (x1, y1, group1) = header.rstrip().split()
@@ -97,7 +97,7 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
         etc += "+theme_" + theme + "()"
     if horizonal == 'T':
         etc += '+ coord_flip()'
-        (width, height) = (height, width)
+        #(width, height) = (height, width)
     cmd = theme_publication_r + barplot_r.format(table, x, y, group, etc, width, height)
     rscript(cmd)
 
