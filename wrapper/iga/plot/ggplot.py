@@ -81,10 +81,10 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
         with open(table) as fh:
             header = fh.readline()
             (x, y, group) = header.rstrip().split()
-    etc = '+scale_fill_brewer(palette="Dark2")'
+    #etc = '+scale_fill_brewer(palette="Dark2")'
     etc = 'scale_fill_manual(values=c("#E69F00", "#56B4E9"))'
     if theme != "":
-        etc = "+theme_" + theme + "()"
+        etc += "+theme_" + theme + "()"
     if horizonal == 'T':
         etc += '+ coord_flip()'
     cmd = theme_publication_r + barplot_r.format(table, x, y, group, etc)
