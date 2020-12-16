@@ -24,7 +24,7 @@ def plot_exp_heatmap(table=None):
             buff += "\t".join(new_list) + "\n"
     with open(table2, 'w') as fh:
         fh.write(buff)
-    pheatmap(table2)
+    pheatmap(table2, main="Expression Heatmap")
     return 0
 
 
