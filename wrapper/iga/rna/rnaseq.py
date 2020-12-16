@@ -6,7 +6,12 @@ import pandas as pd
 import numpy as np
 
 
-def merge_expression_table(tables):
+def merge_expression_table(tables=None):
+    """
+    Merge expression table produced by stringtie into one with TPM
+    :param tables:
+    :return:
+    """
     sample_list = []
     gene_dict = []
     z = pd.DataFrame()
