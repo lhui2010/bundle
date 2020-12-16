@@ -49,7 +49,7 @@ def lai(genome=None, threads=50):
     cmd += lai_sh.format(genome, threads)
     threads = int(threads / 2)
     job = bsub(cmd, direct_submit='F', cpus=threads, name="LAI" + genome)
-    waitjob(job)
+    #waitjob(job)
     return 0
 
 
