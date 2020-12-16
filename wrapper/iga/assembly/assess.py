@@ -40,7 +40,7 @@ def lai(genome=None, threads=30):
     """
     cmd = conda_act.format("EDTA")
     cmd += lai_sh.format(genome, threads)
-    job = bsub(cmd)
+    job = bsub(cmd, direct_submit='F')
     waitjob(job)
     return 0
 
