@@ -101,11 +101,14 @@ def rscript(cmd):
     :param cmd:
     :return:
     """
-    ret = ''
     logger.info(cmd)
-    prior_cmd = 'set -eo pipefail\n'
+    prior_cmd = 'set -eo pipefail\nRscript '
+    rscript_sh = 'plot.' + str(time.time()).replace('.', '') + '.R'
+    with open(rscript_sh, 'w') as fh:
+        fh.write(cmd)
+    cmd_full = prior_cmd + rscript_sh
     try:
-        ret = subprocess.check_output(prior_cmd + "Rscript -e '" + cmd + "'",
+        ret = subprocess.check_output(cmd_full,
                                       stderr=subprocess.STDOUT, shell=True).decode()
     except subprocess.CalledProcessError as cpe:
         logger.warning(cpe.output)

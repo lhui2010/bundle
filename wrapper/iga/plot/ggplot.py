@@ -50,18 +50,19 @@ scale_colour_Publication <- function(...){
 }
 """
 # 0 input_table
-# 1 value_tag
-# 2 Group_tag
+# 1 x=xx
+# 2 y=xx
+# 3 fill=xx
 barplot_r = r"""
-import ggplot2
-d <- ggplot({0}, aes({1}))
-d + geom_bar(fill = {2})
+library(ggplot2);
+a=read.table("{0}", header=T, row.names=NULL); 
+ggplot(a, aes(x={1}, y={2}, fill={3})) + geom_bar(stat="identity" + position=position_dodge())
 ggsave("{0}.pdf", width = 5, height = 5)
 """
 
 
-def barplot(table=None, value_tag=None, group_tag=''):
-    cmd = barplot_r.format(table, value_tag, group_tag)
+def barplot(table=None, x='', y='', group=''):
+    cmd = barplot_r.format(table, x, y, group)
     rscript(cmd)
 
 
