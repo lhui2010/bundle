@@ -57,8 +57,7 @@ scale_colour_Publication <- function(...){
 barplot_r = r"""
 library(ggplot2);
 a=read.table("{0}", header=T, row.names=NULL); 
-ggplot(a, aes(x={1}, y={2}, fill={3})) + geom_bar(stat="identity", position=position_dodge()) +
-    scale_y_continuous(expand = c(0, 0), limits = c(0, NA)) {4} 
+ggplot(a, aes(x={1}, y={2}, fill={3})) + geom_bar(stat="identity", position=position_dodge())  {4} 
 ggsave("{0}.pdf", width = {5}, height = {6})
 """
 
