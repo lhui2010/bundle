@@ -77,8 +77,8 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
     :param horizonal: whether to plot horizonally. (T|F default F)
     :return:
     """
-    width = 3
-    height = 4
+    width = 4.5
+    height = 6
     if x == '':
         with open(table) as fh:
             header = fh.readline()
