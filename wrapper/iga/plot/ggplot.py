@@ -62,7 +62,7 @@ ggsave("{0}.pdf", width = {5}, height = {6})
 """
 
 
-def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'):
+def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F', pallette=""):
     r"""
     barplot with ggplot2
     :param table: Input table like
@@ -75,6 +75,7 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
     :param group: default is the 3rd colomn, can be specified by header
     :param theme: available themes(Publication, minimal)
     :param horizonal: whether to plot horizonally. (T|F default F)
+    :param pallette: Discrete use Set3, heatmap use RdBu, else use Spectral
     :return:
     """
     width = 4.5
@@ -88,8 +89,10 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
         y = y1
     if group == '':
         group = group1
-    #etc = '+scale_fill_brewer(palette="Dark2")'
-    etc = '+scale_fill_manual(values=c("#E69F00", "#56B4E9", "#8c55e6", "##e64d00"))'
+    if pallette == "":
+        etc = '+scale_fill_manual(values=c("#E69F00", "#56B4E9", "#8c55e6", "##e64d00"))'
+    else:
+        etc = '+scale_fill_brewer(palette="{}")'.format(pallette)
     if theme != "":
         etc += "+theme_" + theme + "()"
     if horizonal == 'T':
