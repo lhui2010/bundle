@@ -7,8 +7,10 @@ functional annotation: iprscan
 from iga.apps.base import bsub, emain, waitjob
 import os.path as op
 
+# 0 pep file
+# 1 threads
 iprscan_sh = """
-interproscan.sh -i {0} -b cornev1.0.pep.out -cpu {1} -f tsv -iprlookup --goterm -pa -dp"""
+interproscan.sh -i {0} -b {0}.out -cpu {1} -f tsv -iprlookup --goterms -pa -dp"""
 
 
 def iprscan(pep_file=None, threads=30):
@@ -17,7 +19,7 @@ def iprscan(pep_file=None, threads=30):
     :param pep_file:
     :return:
     """
-    job_name = "ipr." + op.basename(pep_file)
+    job_name = "ipr." + op.basename(pep_file, threads)
     cmd = iprscan_sh.format(pep_file, threads)
     job = bsub(cmd, cpus=threads, name=job_name)
     waitjob(job)
