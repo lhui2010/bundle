@@ -62,7 +62,7 @@ ggsave("{0}.pdf", width = 5, height = 5)
 """
 
 
-def barplot(table=None, x='', y='', group='', theme='publication'):
+def barplot(table=None, x='', y='', group='', theme='Publication'):
     if x == '':
         with open(table) as fh:
             header = fh.readline()
