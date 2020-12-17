@@ -112,9 +112,11 @@ library("RColorBrewer")
 
 RCGm <- as.data.frame(RCG)
 
-RCGm <- RCGm[sum(RCGm) >5]
-
 RCG <- ifelse(RCGm=0, 0.01, b)
+
+col_size = length(colnames(RCG))
+
+RCG <- RCG[rowSums(RCG[,c(1:col_size)]) > 5]
 
 RCG <- log2(RCG/rowMeans(RCG))
 
