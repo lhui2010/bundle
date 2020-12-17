@@ -37,16 +37,16 @@ def plot_exp_heatmap(table=None):
 
 
 def remove_dup_table(table=None):
-    tmp_dict = defaultdict(float)
+    tpm_dict = defaultdict(float)
     with open(table) as fh:
         for line in fh:
             mylist = line.rstrip().split()
-            tmp_dict[mylist[0]] += mylist[-1]
+            tpm_dict[mylist[0]] += float(mylist[-1])
     new_table = table + ".uniq"
     with open(new_table) as fh:
         fh.write("Gene ID\tTPM\n")
-        for k in tmp_dict:
-            fh.write("{}\t{}\n".format(k, tmp_dict[k]))
+        for k in tpm_dict:
+            fh.write("{}\t{}\n".format(k, tpm_dict[k]))
     return new_table
 
 def merge_exp_table(tables=None):
