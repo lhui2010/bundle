@@ -110,7 +110,7 @@ library("RColorBrewer")
 
 # mycol =colorRampPalette(rev(brewer.pal(n = 11, name ="RdBu")))(10)
 
-prefix={0}
+prefix="{0}"
 
 pdf("${{prefix%.tmp}}.heatmap.pdf")
 
