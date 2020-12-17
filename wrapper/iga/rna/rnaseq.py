@@ -81,6 +81,7 @@ def merge_exp_table(tables=None):
             z = z.merge(sub_df, left_on=sub_list[0],
                     right_on=sub_list[0], how='outer')
         #sample_list.append(get_prefix(t))
+    z.to_csv('merged_expression1.txt', sep="\t", index=False, na_rep='0.0')
     prev_column = list(z.columns)
     prev_column[0] = ""
     z.columns = prev_column
