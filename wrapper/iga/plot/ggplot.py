@@ -112,7 +112,7 @@ library("RColorBrewer")
 
 RCGm <- as.matrix(RCG)
 
-RCG <- ifelse(RCGm<1, NA, b)
+RCG <- ifelse(RCGm<1, 0.01, b)
 
 RCG <- log2(RCG/rowMeans(RCG))
 
