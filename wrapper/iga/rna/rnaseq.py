@@ -1,6 +1,8 @@
 """
 rna-seq relevant utils
 """
+from collections import OrderedDict, defaultdict
+
 from iga.apps.base import emain, get_prefix, logger
 import pandas as pd
 #import numpy as np
@@ -34,6 +36,19 @@ def plot_exp_heatmap(table=None):
     return 0
 
 
+def remove_dup_table(table=None):
+    tmp_dict = defaultdict(float)
+    with open(table) as fh:
+        for line in fh:
+            mylist = line.rstrip().split()
+            tmp_dict[mylist[0]] += mylist[-1]
+    new_table = table + ".uniq"
+    with open(new_table) as fh:
+        fh.write("Gene ID\tTPM\n")
+        for k in tmp_dict:
+            fh.write("{}\t{}\n".format(k, tmp_dict[k]))
+    return new_table
+
 def merge_exp_table(tables=None):
     """
     Merge expression table produced by stringtie into one with TPM
@@ -46,10 +61,11 @@ def merge_exp_table(tables=None):
     # 'Gene Name', 'Reference', 'Strand', 'Start', 'End',
     sub_list = ['Gene ID', 'TPM']
     for i, t in enumerate(tables):
-        this_df = pd.read_table(t, sep='\t')
+        new_table = remove_dup_table(t)
+        this_df = pd.read_table(new_table, sep='\t')
         logger.warning(this_df.columns)
         sub_df = this_df[list(sub_list)]
-        sub_df = sub_df.groupby('Gene ID').TPM.apply(lambda g: g.nlargest(2).sum())
+#        sub_df = sub_df.groupby('Gene ID').TPM.apply(lambda g: g.nlargest(2).sum())
         #Now change subdf's column name
         t_prefix = get_prefix(t)
         new_sublist = sub_list.copy()
