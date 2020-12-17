@@ -110,6 +110,12 @@ library("RColorBrewer")
 
 # mycol =colorRampPalette(rev(brewer.pal(n = 11, name ="RdBu")))(10)
 
+RCGm <- as.matrix(RCG)
+
+RCG <- ifelse(RCGm<1, NA, b)
+
+RCG <- log2(RCG/rowMeans(RCG))
+
 prefix="{0}"
 
 pdf(paste(prefix, "pdf", sep='.'))
