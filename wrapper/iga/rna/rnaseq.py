@@ -41,7 +41,11 @@ def remove_dup_table(table=None):
     with open(table) as fh:
         for line in fh:
             mylist = line.rstrip().split()
-            tpm_dict[mylist[0]] += float(mylist[-1])
+            try:
+                tpm_dict[mylist[0]] += float(mylist[-1])
+            except ValueError:
+                logger.warning(line)
+                continue
     new_table = table + ".uniq"
     with open(new_table) as fh:
         fh.write("Gene ID\tTPM\n")
