@@ -40,7 +40,7 @@ def remove_dup_table(table=None):
     tpm_dict = defaultdict(float)
     with open(table) as fh:
         for line in fh:
-            mylist = line.rstrip().split()
+            mylist = line.rstrip().split('\t')
             try:
                 tpm_dict[mylist[0]] += float(mylist[-1])
             except ValueError:
