@@ -3,7 +3,7 @@ rna-seq relevant utils
 """
 from iga.apps.base import emain, get_prefix, logger
 import pandas as pd
-import numpy as np
+#import numpy as np
 
 from iga.plot.ggplot import pheatmap
 
@@ -15,22 +15,22 @@ def plot_exp_heatmap(table=None):
     :return:
     """
     #First removing unrelated fields
-    table2 = table + ".tmp"
-    buff = ''
-    with open(table) as fh:
-
-        for i, line in enumerate(fh):
-            mylist = line.rstrip().split('\t')
-            if i == 0:
-                new_list = mylist[6:]
-                new_line = "\t" + "\t".join(new_list).rstrip() + "\n"
-            else:
-                new_list = [mylist[0]] + mylist[6:]
-                new_line = "\t".join(new_list).rstrip() + "\n"
-            buff += new_line
-    with open(table2, 'w') as fh:
-        fh.write(buff)
-    pheatmap(table2, main="Expression Heatmap")
+    # table2 = table + ".tmp"
+    # buff = ''
+    # with open(table) as fh:
+    #
+    #     for i, line in enumerate(fh):
+    #         mylist = line.rstrip().split('\t')
+    #         if i == 0:
+    #             new_list = mylist[6:]
+    #             new_line = "\t" + "\t".join(new_list).rstrip() + "\n"
+    #         else:
+    #             new_list = [mylist[0]] + mylist[6:]
+    #             new_line = "\t".join(new_list).rstrip() + "\n"
+    #         buff += new_line
+    # with open(table2, 'w') as fh:
+    #     fh.write(buff)
+    pheatmap(table, main="Expression Heatmap")
     return 0
 
 
@@ -59,6 +59,9 @@ def merge_exp_table(tables=None):
             z = z.merge(sub_df, left_on=sub_list[0],
                     right_on=sub_list[0], how='outer')
         #sample_list.append(get_prefix(t))
+    prev_column = list(z.columns)
+    prev_column[0] = ""
+    z.columns = prev_column
     z.to_csv('merged_expression.txt', sep="\t", index=False, na_rep='0.0')
     return z
 
