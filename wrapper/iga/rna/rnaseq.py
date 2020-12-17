@@ -43,7 +43,8 @@ def merge_exp_table(tables=None):
     sample_list = []
     gene_dict = []
     z = pd.DataFrame()
-    sub_list = ['Gene ID', 'Gene Name', 'Reference', 'Strand', 'Start', 'End', 'TPM']
+    # 'Gene Name', 'Reference', 'Strand', 'Start', 'End',
+    sub_list = ['Gene ID', 'TPM']
     for i, t in enumerate(tables):
         this_df = pd.read_table(t, sep='\t')
         logger.warning(this_df.columns)
@@ -55,8 +56,8 @@ def merge_exp_table(tables=None):
         if i == 0:
             z = sub_df
         else:
-            z = z.merge(sub_df, left_on=sub_list[:6],
-                    right_on=sub_list[:6], how='outer')
+            z = z.merge(sub_df, left_on=sub_list[0],
+                    right_on=sub_list[0], how='outer')
         #sample_list.append(get_prefix(t))
     z.to_csv('merged_expression.txt', sep="\t", index=False, na_rep='0.0')
     return z
