@@ -49,6 +49,8 @@ def merge_exp_table(tables=None):
         this_df = pd.read_table(t, sep='\t')
         logger.warning(this_df.columns)
         sub_df = this_df[list(sub_list)]
+        sub_df = sub_df.groupby('Gene ID').TPM.apply(lambda g: g.nlargest(2).sum())
+        #Now change subdf's column name
         t_prefix = get_prefix(t)
         new_sublist = sub_list.copy()
         new_sublist[new_sublist.index('TPM')] = t_prefix
