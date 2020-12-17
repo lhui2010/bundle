@@ -86,6 +86,7 @@ def merge_exp_table(tables=None):
     prev_column = list(z.columns)
     prev_column[0] = ""
     z.columns = prev_column
+    z = z.sort_index()
     z.to_csv('merged_expression.txt', sep="\t", index=False, na_rep='0.0')
     return z
 
