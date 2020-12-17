@@ -47,7 +47,7 @@ def remove_dup_table(table=None):
                 logger.warning(line)
                 continue
     new_table = table + ".uniq"
-    with open(new_table) as fh:
+    with open(new_table, 'w') as fh:
         fh.write("Gene ID\tTPM\n")
         for k in tpm_dict:
             fh.write("{}\t{}\n".format(k, tpm_dict[k]))
