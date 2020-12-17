@@ -112,7 +112,7 @@ library("RColorBrewer")
 
 prefix="{0}"
 
-pdf(paste(prefix, ".pdf"))
+pdf(paste(prefix, "pdf", sep='.'))
 
 a = pheatmap(RCG, show_rownames=F, 
        main = "{1}", cluster_rows=T, cluster_cols=F,
