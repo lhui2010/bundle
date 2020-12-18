@@ -112,7 +112,7 @@ library("RColorBrewer")
 
 RCGm <- as.data.frame(RCG)
 
-RCG <- ifelse(RCGm=0, 0.01, b)
+RCG <- ifelse(RCGm==0, 0.01, RCG)
 
 col_size = length(colnames(RCG))
 

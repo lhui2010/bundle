@@ -21,7 +21,7 @@ def iprscan(pep_file=None, threads=30):
     """
     job_name = "ipr." + op.basename(pep_file)
     cmd = iprscan_sh.format(pep_file, threads)
-    job = bsub(cmd, cpus=threads, name=job_name)
+    job = bsub(cmd, cpus=threads, name=job_name, queue='Q64C1T_X4')
     #waitjob(job)
 
 
