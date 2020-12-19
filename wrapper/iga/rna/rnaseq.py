@@ -97,7 +97,8 @@ a = pheatmap(RCG, show_rownames=F,
 def pheatmap(table=None, main=''):
     if main == '':
         main = table
-    cmd = pheatmap_sh.format(table, main="Expression Heatmap")
+    main = "Expression Heatmap"
+    cmd = pheatmap_sh.format(table, main)
     rscript(cmd)
     return 0
 
