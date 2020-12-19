@@ -72,9 +72,9 @@ library("RColorBrewer")
 
 # mycol =colorRampPalette(rev(brewer.pal(n = 11, name ="RdBu")))(10)
 
-# RCGm <- as.data.frame(RCG)
+RCGm <- as.data.frame(RCG)
 # 
-# RCG <- ifelse(RCGm==0, 0.01, RCG)
+RCG <- ifelse(RCGm==0, 0.01, RCG)
 # 
 # col_size = length(colnames(RCG))
 # 
