@@ -4,10 +4,7 @@ rna-seq relevant utils
 from collections import OrderedDict, defaultdict
 
 from iga.apps.base import emain, get_prefix, logger, rscript
-import pandas as pd
 #import numpy as np
-
-from iga.plot.ggplot import pheatmap
 
 
 def remove_dup_table(table=None):
@@ -34,8 +31,9 @@ def merge_exp_table(tables=None):
     :param tables:
     :return:
     """
-    sample_list = []
-    gene_dict = []
+    import pandas as pd
+    # sample_list = []
+    # gene_dict = []
     z = pd.DataFrame()
     # 'Gene Name', 'Reference', 'Strand', 'Start', 'End',
     sub_list = ['Gene ID', 'TPM']
