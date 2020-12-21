@@ -76,7 +76,7 @@ echo -e "{2}\t$GenomeSize\t$Heterozygosity\t$Repeat"
 
 def gce(fastq=None, prefix='', threads=64, kmer=23, workdir=''):
     r"""
-    Estimate genome size, heterozygosity, repeat% with kmerfreq and gce
+    Estimate genome size, heterozygosity, repeat with kmerfreq and gce
     :param fastq:
     :param prefix:
     :param threads:
