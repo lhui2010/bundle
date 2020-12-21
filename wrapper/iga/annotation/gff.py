@@ -237,6 +237,8 @@ class GFF:
             mRNA_list = self.GFF_dict[k].get_all_child_feats_obj('mRNA') + \
                         self.GFF_dict[k].get_all_child_feats_obj('transcript')
             longest = 0
+            #such as tRNA genes
+            non_gene_flag = False
             if mRNA_list == []:
                 # This is not a protein coding gene
                 continue
@@ -247,6 +249,8 @@ class GFF:
                     CDS_list = mRNA.get_all_child_feats_obj('CDS')
                     if not CDS_list:
                         logger.error("ERROR: mRNA {} do not have CDS type".format(mRNA))
+                        non_gene_flag = True
+                        continue
                     else:
                         for CDS in CDS_list:
                             mRNA_len += CDS.len
@@ -255,9 +259,12 @@ class GFF:
                     if longest < mRNA.abs_len:
                         longest = mRNA.abs_len
                         self.GFF_dict[k].longest = mRNA.ID
-            longest_table += "{}\t{}".format(k, self.GFF_dict[k].longest) + "\n"
-            longest_gff += self.GFF_dict[k].content + "\n"
-            longest_gff += self.GFF_dict[self.GFF_dict[k].longest].get_all_child_feats()
+            if non_gene_flag:
+                continue
+            else:
+                longest_table += "{}\t{}".format(k, self.GFF_dict[k].longest) + "\n"
+                longest_gff += self.GFF_dict[k].content + "\n"
+                longest_gff += self.GFF_dict[self.GFF_dict[k].longest].get_all_child_feats()
         return [longest_table, longest_gff]
 
 
