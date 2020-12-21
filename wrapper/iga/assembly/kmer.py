@@ -26,7 +26,7 @@ bsub512 "python $BD/wrapper/kmer_wrapper.py Eu_1.fq.gz Eu_2.fq.gz "
 
 def genomescope(fastq=None, prefix='', threads=64, kmer=21, output=''):
     r"""
-    Estimate genome size, heterozygosity, repeat% with jellyfish and genomescope
+    Estimate genome size, heterozygosity, repeat with jellyfish and genomescope
     :param fastq:
     :param prefix:
     :param threads:
