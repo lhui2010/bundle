@@ -1,24 +1,10 @@
-#!/usr/bin/env python
-
-import argparse
-import textwrap
-import subprocess
+"""
+Estimate genome statistics from kmer distribution
+"""
 import os
-import logging
-
-# class CTL():
-
-# Give arguments, will return the specific CTLs
-# Support Direct Print
-# Support tag value change
 
 
-# 0 fq.gz
-# 1 PREFIX
-# 2 threads
-# 3 kmer_size
-# 4 output
-from iga.apps.base import emain, sh, waitjob, bsub, abspath_list
+from iga.apps.base import emain, waitjob, bsub, abspath_list
 
 # 0 fastq.gz
 # 1 prefix,
