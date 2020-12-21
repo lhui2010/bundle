@@ -24,7 +24,7 @@ bsub512 "python $BD/wrapper/kmer_wrapper.py Eu_1.fq.gz Eu_2.fq.gz "
 """
 
 
-def genomescope(fastq=None, prefix='', threads=64, kmer=21, output=''):
+def genomescope(fastq=None, prefix='', threads=64, kmer=21, output='', wait='F'):
     r"""
     Estimate genome size, heterozygosity, repeat with jellyfish and genomescope
     :param fastq:
@@ -32,6 +32,7 @@ def genomescope(fastq=None, prefix='', threads=64, kmer=21, output=''):
     :param threads:
     :param kmer:
     :param output:
+    :param wait: T|F, whether to wait the job to finish ,defalt is F, not wait
     :return:
     """
     # assembly, subreads
@@ -41,7 +42,11 @@ def genomescope(fastq=None, prefix='', threads=64, kmer=21, output=''):
         output = "workdir_genomescope" + prefix
     fastq_text = ' '.join(fastq)
     cmd = genomescope_sh.format(fastq_text, prefix, threads, kmer, output)
-    bsub(cmd, name="GenomeScope{}".format(prefix), cpus=threads)
+    job = bsub(cmd, name="GenomeScope{}".format(prefix), cpus=threads)
+    if wait == 'T':
+        waitjob(job)
+    return 0
+
     # subprocess.run(cmd, shell = True)
 
 
@@ -74,7 +79,7 @@ echo -e "{2}\t$GenomeSize\t$Heterozygosity\t$Repeat" >> gce_result.txt
 """
 
 
-def gce(fastq=None, prefix='', threads=64, kmer=23, workdir=''):
+def gce(fastq=None, prefix='', threads=64, kmer=23, workdir='', wait='F'):
     r"""
     Estimate genome size, heterozygosity, repeat with kmerfreq and gce
     :param fastq:
@@ -82,6 +87,7 @@ def gce(fastq=None, prefix='', threads=64, kmer=23, workdir=''):
     :param threads:
     :param kmer:
     :param workdir:
+    :param wait: (T|F) whether to wait until job finish, default is F.
     :return:
     """
     # assembly, subreads
@@ -93,7 +99,8 @@ def gce(fastq=None, prefix='', threads=64, kmer=23, workdir=''):
     fastq_text = ' '.join(fastq)
     cmd = gce_sh.format(fastq_text, workdir, prefix, threads, kmer)
     job = bsub(cmd, cpus=threads, direct_submit=False, name=prefix)
-    waitjob(job)
+    if(wait=='T'):
+        waitjob(job)
     return 0
     # subprocess.run(cmd, shell = T
 
