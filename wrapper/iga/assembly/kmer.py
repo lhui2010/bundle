@@ -58,7 +58,7 @@ mkdir -p {1} && cd {1}
 
 #export LD_LIBRARY_PATH=""
 
-echo -e "Species\tGenomeSize\tHeterozygosity\tRepeat%"
+echo -e "Species\tGenomeSize\tHeterozygosity\tRepeat%" > gce_result.txt
 
 ls {0} > {2}.fq.lst
 kmer_freq_hash -t {3} -k {4} -l {2}.fq.lst -p {2} 2>{2}.kmerfreq.log
@@ -69,7 +69,7 @@ gce -f {2}.freq.stat -g $UNIQKMERNUM -H 1 -c $DEPTH -b 1 >{2}.gce.out 2>{2}.gce.
 GenomeSize=`tail -n 2 {2}.gce.err |head -1 |awk '{{print $6}}'`
 Heterozygosity=`tail -n 2 {2}.gce.err |head -1 |awk '{{print $7/(2-$7)/{4}}}'`
 Repeat=`tail -n 2 {2}.gce.err |head -1 |awk '{{print 1-$9-$10}}'`
-echo -e "{2}\t$GenomeSize\t$Heterozygosity\t$Repeat"
+echo -e "{2}\t$GenomeSize\t$Heterozygosity\t$Repeat" >> gce_result.txt
 
 """
 

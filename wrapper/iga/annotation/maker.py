@@ -10,7 +10,7 @@ from collections import defaultdict, OrderedDict
 
 from parse import parse
 
-from iga.annotation.GFF import GFF
+from iga.annotation.gff import GFF
 from iga.apps.base import sh, conda_act, logger, Config, abspath_list, split_fasta, mkdir, \
     mv, waitjob, bsub, emain
 
