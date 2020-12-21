@@ -41,7 +41,7 @@ def genomescope(fastq=None, prefix='', threads=64, kmer=21, output=''):
         output = "workdir_genomescope" + prefix
     fastq_text = ' '.join(fastq)
     cmd = genomescope_sh.format(fastq_text, prefix, threads, kmer, output)
-    bsub(cmd)
+    bsub(cmd, name="GenomeScope{}".format(prefix), cpus=threads)
     # subprocess.run(cmd, shell = True)
 
 

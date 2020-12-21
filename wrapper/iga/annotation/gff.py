@@ -244,7 +244,7 @@ class GFF:
                 continue
             else:
                 for mRNA in mRNA_list:
-                    logger.debug(mRNA.ID)
+                    # logger.debug(mRNA.ID)
                     mRNA_len = 0
                     CDS_list = mRNA.get_all_child_feats_obj('CDS')
                     if not CDS_list:
@@ -255,11 +255,12 @@ class GFF:
                         for CDS in CDS_list:
                             mRNA_len += CDS.len
                     mRNA.abs_len = mRNA_len
-                    logger.debug(mRNA.abs_len)
+                    # logger.debug(mRNA.abs_len)
                     if longest < mRNA.abs_len:
                         longest = mRNA.abs_len
                         self.GFF_dict[k].longest = mRNA.ID
             if non_gene_flag:
+                logger.error("ERROR: gene {} do not have CDS type".format(k))
                 continue
             else:
                 longest_table += "{}\t{}".format(k, self.GFF_dict[k].longest) + "\n"
