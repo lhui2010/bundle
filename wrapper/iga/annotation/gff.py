@@ -236,6 +236,7 @@ class GFF:
         for k in self.top_level_list:
             mRNA_list = self.GFF_dict[k].get_all_child_feats_obj('mRNA') + \
                         self.GFF_dict[k].get_all_child_feats_obj('transcript')
+            logger.debug(mRNA_list)
             longest = 0
             if mRNA_list == []:
                 # This is not a protein coding gene
