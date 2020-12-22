@@ -49,6 +49,7 @@ class BedPE:
         # level1: [dict] chromosome
         # level2: [list] Loci
         self.bedpe_db = defaultdict(list)
+        self.complement_db = defaultdict(list)
         if input_file != '':
             self.read(input_file, type)
 
@@ -75,7 +76,6 @@ class BedPE:
         Get mosaic regions of this bedpe file
         :return:
         """
-        complement_db = BedPE()
         for chr_id in self.bedpe_db:
             logger.debug("chrid {}".format(chr_id))
             chr_lp = self.bedpe_db[chr_id]
@@ -85,20 +85,26 @@ class BedPE:
                                     chr_lp[i - 1].left.strand,
                                     chr_lp[i - 1].right.chr, chr_lp[i - 1].right.start, chr_lp[i - 1].right.end,
                                     chr_lp[i - 1].right.strand, chr_lp[i - 1].right.name)
-                    complement_db.bedpe_db[chr_id].append(new_lp)
-        complement_db.write_to_table(outtable)
+                    self.complement_db.bedpe_db[chr_id].append(new_lp)
+        self.write_to_table(outtable, dbtype='component')
 
-    def write_to_table(self, table=''):
+    def write_to_table(self, table='', dbtype=''):
         """
         write bedpe object into a table
         :param table:
         :return:
         """
         result = ''
-        for k in sorted(self.bedpe_db.keys()):
-            logger.debug(k)
-            for i in self.bedpe_db[k]:
-                result += i.get_line()
+        if dbtype == '':
+            for k in sorted(self.bedpe_db.keys()):
+                logger.debug(k)
+                for i in self.bedpe_db[k]:
+                    result += i.get_line()
+        elif dbtype == 'component':
+            for k in sorted(self.complement_db.keys()):
+                logger.debug(k)
+                for i in self.complement_db[k]:
+                    result += i.get_line()
         if (table != ''):
             with open(table, 'w') as fh:
                 fh.write(result)
