@@ -75,8 +75,6 @@ class BedPE:
         Get mosaic regions of this bedpe file
         :return:
         """
-        if outtable == '':
-            logger.error("need to specify the output file name")
         complement_db = BedPE()
         for chr_id in self.bedpe_db:
             chr_lp = self.bedpe_db[chr_id]
