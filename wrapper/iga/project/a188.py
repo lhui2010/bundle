@@ -134,7 +134,7 @@ class BedPE:
             print(result, end='')
 
 
-def stat_bed(bedpe_file):
+def stat_bed(bedpe_file=None):
     """
     stat bedpe file
     :param bedpe_file:
