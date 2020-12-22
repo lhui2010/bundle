@@ -94,15 +94,17 @@ class BedPE:
         for chr_id in self.bedpe_db:
             chr_lp = self.bedpe_db[chr_id]
             for i, lp in enumerate(chr_lp):
-                size_list_left.append(lp.left.get_size())
-                size_list_right.append(lp.right.get_size())
-                if lp.left.get_size() < threshold < lp.right.get_size():
-                    size_right_ins.append(size_list_right)
-                elif lp.left.get_size() > threshold > lp.right.get_size():
-                    size_left_ins.append(size_list_left)
-                elif lp.left.get_size() > threshold and lp.right.get_size() > threshold:
-                    size_unknown_left.append(size_left_ins)
-                    size_unknown_right.append(size_right_ins)
+                left_size = lp.left.get_size()
+                right_size = lp.right.get_size()
+                size_list_left.append(left_size)
+                size_list_right.append(right_size)
+                if left_size < threshold < right_size:
+                    size_right_ins.append(right_size)
+                elif left_size > threshold > right_size:
+                    size_left_ins.append(left_size)
+                elif left_size > threshold and right_size > threshold:
+                    size_unknown_left.append(left_size)
+                    size_unknown_right.append(right_size)
 
         pd.set_option('display.float_format', lambda x: '%.0f' % x)
 
