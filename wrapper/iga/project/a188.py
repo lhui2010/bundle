@@ -85,7 +85,7 @@ class BedPE:
                                     chr_lp[i - 1].left.strand,
                                     chr_lp[i - 1].right.chr, chr_lp[i - 1].right.start, chr_lp[i - 1].right.end,
                                     chr_lp[i - 1].right.strand, chr_lp[i - 1].right.name)
-                    self.complement_db.bedpe_db[chr_id].append(new_lp)
+                    self.complement_db[chr_id].append(new_lp)
         self.write_to_table(outtable, dbtype='component')
 
     def write_to_table(self, table='', dbtype=''):
