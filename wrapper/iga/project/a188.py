@@ -116,6 +116,8 @@ class BedPE:
         #print(df.describe())
         for i, v in enumerate(header):
             print(header[i])
+            if len(tables[i]) < 1:
+                continue
             df = pd.DataFrame(tables[i])
             print(df.describe())
 
