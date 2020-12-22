@@ -53,7 +53,7 @@ class BedPE:
         self.bedpe_db = defaultdict(list)
         self.type = type
         if input_file != '':
-            self.read(input_file, type)
+            self.read(input_file)
 
     def read(self, input_file):
         """
