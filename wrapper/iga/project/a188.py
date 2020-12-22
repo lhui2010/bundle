@@ -20,6 +20,9 @@ class Loci:
         self.name = name
         self.strand = strand
 
+    def get_size(self):
+        return int(self.end) - int(self.start) + 1
+
 
 class LociPE:
     """
@@ -69,7 +72,7 @@ class BedPE:
                      right_chr, right_start, right_end, name, name1, align_type, undef) = mylist
                     left_strand = '+'
                     right_strand = '+'
-                elif self.type== 'bedpe':
+                elif self.type == 'bedpe':
                     (left_chr, left_start, left_end, right_chr, right_start, right_end, name,
                      undef, left_strand, right_strand) = mylist[0:10]
                 this_lp = LociPE(left_chr, left_start, left_end, left_strand,
@@ -86,8 +89,8 @@ class BedPE:
         for chr_id in self.bedpe_db:
             chr_lp = self.bedpe_db[chr_id]
             for i, lp in enumerate(chr_lp):
-                size_list_left.append(int(lp.left.end) - int(lp.left.start) + 1)
-                size_list_right.append(int(lp.right.end) - int(lp.right.start) + 1)
+                size_list_left.append(lp.left.get_size())
+                size_list_right.append(lp.right.get_size())
 
         pd.set_option('display.float_format', lambda x: '%.0f' % x)
         df = pd.DataFrame(size_list_left)
@@ -102,10 +105,10 @@ class BedPE:
         Get mosaic regions of this bedpe file
         :return:
         """
-        #logger.debug("chrid {}".format(self.bedpe_db.keys()))
+        # logger.debug("chrid {}".format(self.bedpe_db.keys()))
         complement_db = BedPE()
         for chr_id in self.bedpe_db:
-            #logger.debug("chrid {}".format(chr_id))
+            # logger.debug("chrid {}".format(chr_id))
             chr_lp = self.bedpe_db[chr_id]
             for i, lp in enumerate(chr_lp):
                 if i > 0:
