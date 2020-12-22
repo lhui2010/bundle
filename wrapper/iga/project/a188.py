@@ -112,12 +112,12 @@ class BedPE:
         header = ['Left', 'Right', "Left Insertion", "Right Insertion", "Left Mosaic", "Right Mosaic"]
         tables = [size_list_left, size_list_right, size_left_ins, size_right_ins, size_unknown_left, size_unknown_right]
 
-        df = pd.DataFrame(np.array(tables), columns=header)
-        print(df.describe())
-        # for i, v in enumerate(header):
-        #     df = pd.DataFrame(tables[i])
-        #     print(header[i])
-        #     print(df.describe())
+        #f = pd.DataFrame(np.array(tables), columns=header)
+        #print(df.describe())
+        for i, v in enumerate(header):
+            df = pd.DataFrame(tables[i])
+            print(header[i])
+            print(df.describe())
 
     def get_mosaic(self, outtable=''):
         """
