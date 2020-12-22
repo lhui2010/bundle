@@ -95,6 +95,7 @@ class BedPE:
         """
         result = ''
         for k in sorted(self.bedpe_db.keys()):
+            logger.debug(k)
             for i in self.bedpe_db[k]:
                 result += i.get_line()
         if (table != ''):
