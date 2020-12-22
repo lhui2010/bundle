@@ -77,6 +77,7 @@ class BedPE:
         """
         complement_db = BedPE()
         for chr_id in self.bedpe_db:
+            logger.debug("chrid {}".format(chr_id))
             chr_lp = self.bedpe_db[chr_id]
             for i, lp in enumerate(chr_lp):
                 if i > 0:
