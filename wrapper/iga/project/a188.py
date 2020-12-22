@@ -89,7 +89,7 @@ class BedPE:
                     complement_db.bedpe_db[chr_id].append(new_lp)
         complement_db.write_to_table(outtable)
 
-    def write_to_table(self, table):
+    def write_to_table(self, table=''):
         """
         write bedpe object into a table
         :param table:
@@ -99,8 +99,11 @@ class BedPE:
         for k in sorted(self.bedpe_db.keys()):
             for i in self.bedpe_db[k]:
                 result += i.get_line()
-        with open(table, 'w') as fh:
-            fh.write(result)
+        if(table != ''):
+            with open(table, 'w') as fh:
+                fh.write(result)
+        else:
+            print(result, end = '')
 
 
 def synal_to_mosaic(synal_files=None):
