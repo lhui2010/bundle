@@ -85,7 +85,7 @@ class BedPE:
                     new_lp = LociPE(chr_lp[i - 1].left.chr, chr_lp[i - 1].left.start, chr_lp[i - 1].left.end,
                                     chr_lp[i - 1].left.strand,
                                     chr_lp[i - 1].right.chr, chr_lp[i - 1].right.start, chr_lp[i - 1].right.end,
-                                    chr_lp[i - 1].right.strand, chr_lp[i - 1].right.name)
+                                    chr_lp[i - 1].right.strand, "NOT" + chr_lp[i - 1].right.name)
                     complement_db.bedpe_db[chr_id].append(new_lp)
         complement_db.write_to_table(outtable)
 
