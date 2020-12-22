@@ -107,7 +107,7 @@ class BedPE:
             print(result, end='')
 
 
-def synal_to_mosaic(synal_files=None):
+def synal_to_mosaic(synal_file=None):
     """
     %s syri.synal.txt > syri.unsynal.txt
     convert lastz result to bedpe like result by complementing syntenic regions
@@ -123,9 +123,8 @@ def synal_to_mosaic(synal_files=None):
     :param lastz:
     :return:
     """
-    for z in synal_files:
-        bedpe = BedPE(synal_files, type='syri')
-        bedpe.get_mosaic()
+    bedpe = BedPE(synal_file, type='syri')
+    bedpe.get_mosaic()
 
 
 if __name__ == "__main__":
