@@ -86,8 +86,8 @@ class BedPE:
         for chr_id in self.bedpe_db:
             chr_lp = self.bedpe_db[chr_id]
             for i, lp in enumerate(chr_lp):
-                size_list_left.append(int(lp.end) - int(lp.start) + 1)
-                size_list_right.append(int(lp.end) - int(lp.start) + 1)
+                size_list_left.append(int(lp.left_end) - int(lp.left_start) + 1)
+                size_list_right.append(int(lp.right_end) - int(lp.right_start) + 1)
 
         pd.set_option('display.float_format', lambda x: '%.0f' % x)
         df = pd.DataFrame(size_list_left)
