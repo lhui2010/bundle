@@ -99,11 +99,11 @@ class BedPE:
         for k in sorted(self.bedpe_db.keys()):
             for i in self.bedpe_db[k]:
                 result += i.get_line()
-        if(table != ''):
+        if (table != ''):
             with open(table, 'w') as fh:
                 fh.write(result)
         else:
-            print(result, end = '')
+            print(result, end='')
 
 
 def synal_to_mosaic(synal_files=None):
@@ -124,7 +124,7 @@ def synal_to_mosaic(synal_files=None):
     """
     for z in synal_files:
         bedpe = BedPE(synal_files, type='syri')
-        bedpe.get_mosaic(z + 'mosaic')
+        bedpe.get_mosaic()
 
 
 if __name__ == "__main__":
