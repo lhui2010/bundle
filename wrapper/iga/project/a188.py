@@ -3,6 +3,8 @@ code used in A188 project
 """
 from collections import defaultdict
 
+import pandas as pd
+
 from iga.apps.base import emain, logger
 
 
@@ -44,15 +46,16 @@ class BedPE:
     parsing lastz or Syri result into BedPE object
     """
 
-    def __init__(self, input_file='', type='syri'):
+    def __init__(self, input_file='', type='bedpe'):
         # Nested storage system
         # level1: [dict] chromosome
         # level2: [list] Loci
         self.bedpe_db = defaultdict(list)
+        self.type = type
         if input_file != '':
             self.read(input_file, type)
 
-    def read(self, input_file, type='syri'):
+    def read(self, input_file):
         """
         Read a syri file and store
          A188_2  1307    3091    -       -       B73_2   12548   14331   SYNAL1  SYN1    SYNAL   -
@@ -61,24 +64,48 @@ class BedPE:
         with open(input_file) as fh:
             for line in fh:
                 mylist = line.rstrip().split()
-                if (type == 'syri'):
+                if self.type == 'syri':
                     (left_chr, left_start, left_end, undef, undef,
                      right_chr, right_start, right_end, name, name1, align_type, undef) = mylist
                     left_strand = '+'
                     right_strand = '+'
+                elif self.type== 'bedpe':
+                    (left_chr, left_start, left_end, right_chr, right_start, right_end, name,
+                     undef, left_strand, right_strand) = mylist[0:10]
                 this_lp = LociPE(left_chr, left_start, left_end, left_strand,
                                  right_chr, right_start, right_end, right_strand, name)
                 self.bedpe_db[left_chr].append(this_lp)
+
+    def stat(self):
+        """
+        stat bedpe size
+        :return:
+        """
+        size_list_left = []
+        size_list_right = []
+        for chr_id in self.bedpe_db:
+            chr_lp = self.bedpe_db[chr_id]
+            for i, lp in enumerate(chr_lp):
+                size_list_left.append(int(lp.end) - int(lp.start))
+                size_list_right.append(int(lp.end) - int(lp.start))
+
+        pd.set_option('display.float_format', lambda x: '%.0f' % x)
+        df = pd.DataFrame(size_list_left)
+        print("Left size")
+        print(df.describe())
+        df = pd.DataFrame(size_list_right)
+        print("Right size")
+        print(df.describe())
 
     def get_mosaic(self, outtable=''):
         """
         Get mosaic regions of this bedpe file
         :return:
         """
-        logger.debug("chrid {}".format(self.bedpe_db.keys()))
+        #logger.debug("chrid {}".format(self.bedpe_db.keys()))
         complement_db = BedPE()
         for chr_id in self.bedpe_db:
-            logger.debug("chrid {}".format(chr_id))
+            #logger.debug("chrid {}".format(chr_id))
             chr_lp = self.bedpe_db[chr_id]
             for i, lp in enumerate(chr_lp):
                 if i > 0:
