@@ -86,8 +86,8 @@ class BedPE:
         for chr_id in self.bedpe_db:
             chr_lp = self.bedpe_db[chr_id]
             for i, lp in enumerate(chr_lp):
-                size_list_left.append(int(lp.end) - int(lp.start))
-                size_list_right.append(int(lp.end) - int(lp.start))
+                size_list_left.append(int(lp.end) - int(lp.start) + 1)
+                size_list_right.append(int(lp.end) - int(lp.start) + 1)
 
         pd.set_option('display.float_format', lambda x: '%.0f' % x)
         df = pd.DataFrame(size_list_left)
@@ -132,6 +132,16 @@ class BedPE:
                 fh.write(result)
         else:
             print(result, end='')
+
+
+def stat_bed(bedpe_file):
+    """
+    stat bedpe file
+    :param bedpe_file:
+    :return:
+    """
+    bedpe = BedPE(bedpe_file)
+    bedpe.stat()
 
 
 def synal_to_mosaic(synal_file=None):
