@@ -126,7 +126,7 @@ def rscript(cmd):
     return ret
 
 
-def bsub(cmd, queue='Q104C512G_X4', direct_submit='T', cpus=1, name=''):
+def bsub(cmd, queue='Q104C512G_X4', direct_submit='F', cpus=1, name=''):
     """
     submit jobs via bsub
     When using variable export in a cmd ,use direct_submit = 'F'
@@ -147,7 +147,7 @@ ROOT=$PWD
 date
 """
         bsub_buff = newbsub + cmd
-        bsub_sh = 'bsub.' + str(time.time()).replace('.', '') + '.sh'
+        bsub_sh = 'bsub.' + name + str(time.time()).replace('.', '') + '.sh'
         with open(bsub_sh, 'w') as fh:
             fh.write(bsub_buff)
         cmd_full = bsub_cmd + '< ' + bsub_sh
