@@ -86,19 +86,33 @@ class BedPE:
         """
         size_list_left = []
         size_list_right = []
+        size_left_ins = []
+        size_right_ins = []
+        size_unknown_left = []
+        size_unknown_right = []
+        threshold = 50
         for chr_id in self.bedpe_db:
             chr_lp = self.bedpe_db[chr_id]
             for i, lp in enumerate(chr_lp):
                 size_list_left.append(lp.left.get_size())
                 size_list_right.append(lp.right.get_size())
+                if lp.left.get_size() < threshold < lp.right.get_size():
+                    size_right_ins.append(size_list_right)
+                elif lp.left.get_size() > threshold > lp.right.get_size():
+                    size_left_ins.append(size_list_left)
+                elif lp.left.get_size() > threshold and lp.right.get_size() > threshold:
+                    size_unknown_left.append(size_left_ins)
+                    size_unknown_right.append(size_right_ins)
 
         pd.set_option('display.float_format', lambda x: '%.0f' % x)
-        df = pd.DataFrame(size_list_left)
-        print("Left size")
-        print(df.describe())
-        df = pd.DataFrame(size_list_right)
-        print("Right size")
-        print(df.describe())
+
+        header = ['Left', 'Right', "Left Insertion", "Right Insertion", "Left Mosaic", "Right Mosaic"]
+        tables = [size_list_left, size_list_right, size_left_ins, size_right_ins, size_unknown_left, size_unknown_right]
+
+        for i, v in enumerate(header):
+            df = pd.DataFrame(tables[i])
+            print(header[i])
+            print(df.describe())
 
     def get_mosaic(self, outtable=''):
         """
