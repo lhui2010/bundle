@@ -34,7 +34,12 @@ python3 $PLOTSR {0}.{1}.syri.out {0} {1} -H 8 -W 5
 
 def nucmer(ref=None, qry=None, threads=3):
     cmd = nucmer_sh.format(ref, qry)
-    qsub(cmd, cpus=threads, name=ref+qry, sub=False)
+    prefix = get_prefix(ref)
+    prefix += get_prefix(qry)
+    if len(ref.split('.')) > 2:
+        chr_id = ref.split('.')[-1]
+        prefix += chr_id
+    qsub(cmd, cpus=threads, name='nucmer.'+prefix, sub=False)
 
 
 def merge_nucmer_result():
@@ -48,7 +53,7 @@ def syri(ref=None, qry=None, threads=3):
     if len(ref.split('.')) > 2:
         chr_id = ref.split('.')[-1]
         prefix += chr_id
-    qsub(cmd, cpus=threads, name=prefix)
+    qsub(cmd, cpus=threads, name='syri.'+prefix)
 
 
 class Loci:
