@@ -1,6 +1,6 @@
-from iga.apps.base import bsub
+from iga.apps.base import bsub, emain
 
-clean_novogene_sh="""
+clean_novogene_sh = """
 ADAPTER=/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/novogene.fa
 TAILCROP=145
 HEADCROP=10
@@ -20,7 +20,8 @@ def clean_novogene(left=None, right=None):
     bsub(cmd, name='Trimmomatic')
     return 0
 
-clean_mgiseq_sh="""
+
+clean_mgiseq_sh = """
 ADAPTER=/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/MGISeq.fa
 TAILCROP=145
 HEADCROP=10
@@ -33,3 +34,6 @@ $RIGHT.clean.fq.gz $RIGHT.clean.unpair.fq.gz \
 ILLUMINACLIP:${{ADAPTER}}:0:30:10 \
 LEADING:3 TRAILING:3 CROP:$TAILCROP HEADCROP:$HEADCROP SLIDINGWINDOW:1:10 MINLEN:75
 """
+
+if __name__ == "__main__":
+    emain()
