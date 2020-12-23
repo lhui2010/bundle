@@ -28,7 +28,7 @@ syri_sh = r"""
 SYRI=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/syri
 PLOTSR=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/plotsr
 python3 $SYRI -c out.filtered.coords -d out.filtered.delta -r {0} -q {1}
-python3 $PLOTSR {0}.{1}.syri.out {0} {1} -H 8 -W 5
+python3 $PLOTSR syri.out {0} {1} -H 8 -W 5
 """
 
 
