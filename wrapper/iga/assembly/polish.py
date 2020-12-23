@@ -65,7 +65,7 @@ def nextpolish(contig=None, fastq=None, threads=30):
     :return:
     """
     fastq_list = fastq.split()
-    abspath_list([contig, fastq_list])
+    abspath_list([contig] +fastq_list)
     logger.warning(contig)
     logger.warning(fastq_list)
     fastq = " ".join(fastq_list)
