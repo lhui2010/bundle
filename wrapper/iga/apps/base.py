@@ -134,7 +134,6 @@ def qsub(cmd=None, cpus=1, name='output'):
     :return:
     """
     newqsub = r"""#!/bin/bash
-#!/bin/bash
 #
 #$ -cwd
 #$ -N {1}
