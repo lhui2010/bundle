@@ -6,7 +6,7 @@ from collections import defaultdict
 import pandas as pd
 import numpy as np
 
-from iga.apps.base import emain, logger, qsub
+from iga.apps.base import emain, logger, qsub, get_prefix
 
 # 0 ref fasta
 # 1 qry fasta
@@ -24,6 +24,13 @@ delta-filter -m -i 90 -l 100 out.delta > {0}.{1}.filtered.delta
 show-coords -THrd out.filtered.delta > {0}.{1}.filtered.coords      
 """
 
+syri_sh = r"""
+SYRI=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/syri
+PLOTSR=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/plotsr
+python3 $SYRI -c {0}.{1}.filtered.coords -d {0}.{1}.filtered.delta -r {0} -q {1}
+python3 $PATH_TO_PLOTSR {0}.{1}.syri.out {0} {1} -H 8 -W 5
+"""
+
 
 def nucmer(ref=None, qry=None, threads=3):
     cmd = nucmer_sh.format(ref, qry)
@@ -34,8 +41,11 @@ def merge_nucmer_result():
     pass
 
 
-def syri():
-    pass
+def syri(ref=None, qry=None, threads=3):
+    cmd = nucmer_sh.format(ref, qry) + syri_sh.format(ref, qry)
+    prefix = get_prefix(ref)
+    prefix += get_prefix(qry)
+    qsub(cmd, cpus=threads, name=prefix)
 
 
 class Loci:
