@@ -46,7 +46,7 @@ def merge_nucmer_result():
     pass
 
 
-def syri(ref=None, qry=None, threads=3):
+def syri(ref=None, qry=None, threads=4):
     cmd = nucmer_sh.format(ref, qry) + '\nconda activate syri\n' + syri_sh.format(ref, qry)
     prefix = get_prefix(ref)
     prefix += get_prefix(qry)
