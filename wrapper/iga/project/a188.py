@@ -34,7 +34,7 @@ python3 $PLOTSR {0}.{1}.syri.out {0} {1} -H 8 -W 5
 
 def nucmer(ref=None, qry=None, threads=3):
     cmd = nucmer_sh.format(ref, qry)
-    qsub(cmd, cpus=threads, name=ref+qry)
+    qsub(cmd, cpus=threads, name=ref+qry, sub=False)
 
 
 def merge_nucmer_result():

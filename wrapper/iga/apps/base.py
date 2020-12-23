@@ -126,7 +126,7 @@ def rscript(cmd):
     return ret
 
 
-def qsub(cmd=None, cpus=1, name='output'):
+def qsub(cmd=None, cpus=1, name='output', sub=True):
     """
     submit jobs via qsub
     :param cmd:
@@ -153,9 +153,8 @@ date
     cmd_full = 'qsub ' + qsub_sh
     # Prepare finished, now submit
     logger.info(cmd_full)
-# ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
-# Incase queue has trainling characters like -m 'node02'
-    ret = subprocess.check_output(cmd_full, shell=True).decode()
+    if sub:
+        ret = subprocess.check_output(cmd_full, shell=True).decode()
     # try:
     #     logger.warning(ret)
     #     job_id = parse('Job <{}> is submitted to queue <' + queue + '>.', ret.rstrip())[0]
