@@ -126,7 +126,7 @@ def rscript(cmd):
     return ret
 
 
-def qsub(cmd=None, cpus=1, name=''):
+def qsub(cmd=None, cpus=1, name='output'):
     """
     submit jobs via qsub
     :param cmd:
