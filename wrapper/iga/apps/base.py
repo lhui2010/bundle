@@ -147,7 +147,7 @@ ROOT=$PWD
 date
 """.format(cpus, name)
     qsub_buff = newqsub + cmd
-    qsub_sh = 'qsub.' + name + str(time.time()).replace('.', '') + '.sh'
+    qsub_sh = '.'.join(['qsub', name, str(time.time()).replace('.', ''), 'sh'])
     with open(qsub_sh, 'w') as fh:
         fh.write(qsub_buff)
     cmd_full = 'qsub ' + qsub_sh
