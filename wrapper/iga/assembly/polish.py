@@ -1,10 +1,10 @@
-#!/usr/bin/env python
-
-import argparse
-import textwrap
-import subprocess
+"""
+Polish work scripts
+"""
 
 from iga.apps.base import conda_act, get_prefix, bsub, emain, abspath_list, logger
+
+import os.path as op
 
 # 0 contig.fa [abs path]
 # 1 sgs.fq.gzs [abs path]
@@ -65,7 +65,8 @@ def nextpolish(contig=None, fastq=None, threads=30):
     :return:
     """
     fastq_list = fastq.split()
-    abspath_list([contig] +fastq_list)
+    abspath_list(fastq_list)
+    contig = op.abspath(contig)
     logger.warning(contig)
     logger.warning(fastq_list)
     fastq = " ".join(fastq_list)
