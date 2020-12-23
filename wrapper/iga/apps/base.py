@@ -185,7 +185,7 @@ ROOT=$PWD
 date
 """
         bsub_buff = newbsub + cmd
-        bsub_sh = 'bsub.' + name + str(time.time()).replace('.', '') + '.sh'
+        bsub_sh = ".".join(['bsub', name, str(time.time()).replace('.', ''), 'sh'])
         with open(bsub_sh, 'w') as fh:
             fh.write(bsub_buff)
         cmd_full = bsub_cmd + '< ' + bsub_sh
