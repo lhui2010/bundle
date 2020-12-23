@@ -6,7 +6,7 @@ from collections import defaultdict
 import pandas as pd
 import numpy as np
 
-from iga.apps.base import emain, logger, qsub, get_prefix
+from iga.apps.base import emain, logger, qsub, get_prefix, conda_act
 
 # 0 ref fasta
 # 1 qry fasta
@@ -42,7 +42,7 @@ def merge_nucmer_result():
 
 
 def syri(ref=None, qry=None, threads=3):
-    cmd = nucmer_sh.format(ref, qry) + syri_sh.format(ref, qry)
+    cmd = nucmer_sh.format(ref, qry) + conda_act.format('syri') + syri_sh.format(ref, qry)
     prefix = get_prefix(ref)
     prefix += get_prefix(qry)
     if len(ref.split('.')) > 2:
