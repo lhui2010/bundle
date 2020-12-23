@@ -27,7 +27,7 @@ show-coords -THrd out.filtered.delta > {0}.{1}.filtered.coords
 
 def nucmer(ref=None, qry=None, threads=3):
     cmd = nucmer_sh.format(ref, qry)
-    qsub(cmd, cpus=threads)
+    qsub(cmd, cpus=threads, name=ref+qry)
 
 
 def merge_nucmer_result():
