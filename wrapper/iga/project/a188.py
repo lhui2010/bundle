@@ -45,8 +45,9 @@ def syri(ref=None, qry=None, threads=3):
     cmd = nucmer_sh.format(ref, qry) + syri_sh.format(ref, qry)
     prefix = get_prefix(ref)
     prefix += get_prefix(qry)
-    chr_id = ref.split('.')[-1]
-    prefix += chr_id
+    if len(ref.split('.')) > 2:
+        chr_id = ref.split('.')[-1]
+        prefix += chr_id
     qsub(cmd, cpus=threads, name=prefix)
 
 
