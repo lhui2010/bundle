@@ -42,7 +42,7 @@ def merge_nucmer_result():
 
 
 def syri(ref=None, qry=None, threads=3):
-    cmd = nucmer_sh.format(ref, qry) + 'conda activate syri' + syri_sh.format(ref, qry)
+    cmd = nucmer_sh.format(ref, qry) + '\nconda activate syri\n' + syri_sh.format(ref, qry)
     prefix = get_prefix(ref)
     prefix += get_prefix(qry)
     if len(ref.split('.')) > 2:
