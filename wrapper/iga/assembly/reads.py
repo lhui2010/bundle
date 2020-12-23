@@ -16,6 +16,12 @@ LEADING:3 TRAILING:3 CROP:$TAILCROP HEADCROP:$HEADCROP SLIDINGWINDOW:1:10 MINLEN
 
 
 def clean_novogene(left=None, right=None):
+    """
+    Clean fastq for polish purpose
+    :param left:
+    :param right:
+    :return:
+    """
     cmd = clean_novogene_sh.format(left, right)
     bsub(cmd, name='Trimmomatic')
     return 0
@@ -34,6 +40,19 @@ $RIGHT.clean.fq.gz $RIGHT.clean.unpair.fq.gz \
 ILLUMINACLIP:${{ADAPTER}}:0:30:10 \
 LEADING:3 TRAILING:3 CROP:$TAILCROP HEADCROP:$HEADCROP SLIDINGWINDOW:1:10 MINLEN:75
 """
+
+
+def clean_mgiseq(left=None, right=None):
+    """
+    Clean fastq for polish purpose
+    :param left:
+    :param right:
+    :return:
+    """
+    cmd = clean_mgiseq_sh.format(left, right)
+    bsub(cmd, name='Trimmomatic')
+    return 0
+
 
 if __name__ == "__main__":
     emain()
