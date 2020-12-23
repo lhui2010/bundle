@@ -25,14 +25,15 @@ then
     mv workdir_LAI_$PREFIX workdir_LAI_$PREFIX.bak
 fi
 mkdir -p workdir_LAI_$PREFIX && cd  workdir_LAI_$PREFIX
-sed 's/|/_/'g {0} > $PREFIX
+sed 's/|.*//'g {0} > $PREFIX
 gt suffixerator -db $PREFIX -indexname $PREFIX -tis -suf -lcp -des -ssp -sds -dna
 gt ltrharvest -index $PREFIX -minlenltr 100 -maxlenltr 7000 -mintsd 4 -maxtsd 6 -motif TGCA -motifmis 1 \
 -similar 85 -vic 10 -seed 20 -seqids yes > $PREFIX.harvest.scn
 LTR_FINDER_parallel -seq $PREFIX -threads {1} -harvest_out -size 1000000 -time 300
 cat $PREFIX.harvest.scn $PREFIX.finder.combine.scn > $PREFIX.rawLTR.scn
-LTR_retriever -genome $PREFIX -inharvest $PREFIX.rawLTR.scn -threads {1} 
-LAI -genome $PREFIX.mod -intact $PREFIX.mod.pass.list -all $PREFIX.mod.out -t {1}
+LTR_retriever -genome $PREFIX -inharvest $PREFIX.rawLTR.scn -threads {1}
+# LTR_retriever will calculate LAI now 
+# LAI -genome $PREFIX -intact $PREFIX.pass.list -all $PREFIX.out -t {1} 
 echo -n "LAI for {0} is: "
 sed -n '2p' $PREFIX.out.LAI |awk '{{print $7}}'
 """
