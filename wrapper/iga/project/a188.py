@@ -19,15 +19,15 @@ ln -s ../{0}
 ln -s ../{1}
 nucmer --maxmatch -c 100 -b 500 -l 50 {0} {1} 
 # Remove small and lower quality alignments
-delta-filter -m -i 90 -l 100 out.delta > {0}.{1}.filtered.delta     
+delta-filter -m -i 90 -l 100 out.delta > out.filtered.delta     
 # Convert alignment information to a .TSV format as required by SyRI
-show-coords -THrd out.filtered.delta > {0}.{1}.filtered.coords      
+show-coords -THrd out.filtered.delta > out.filtered.coords      
 """
 
 syri_sh = r"""
 SYRI=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/syri
 PLOTSR=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/plotsr
-python3 $SYRI -c {0}.{1}.filtered.coords -d {0}.{1}.filtered.delta -r {0} -q {1}
+python3 $SYRI -c out.filtered.coords -d out.filtered.delta -r {0} -q {1}
 python3 $PLOTSR {0}.{1}.syri.out {0} {1} -H 8 -W 5
 """
 
