@@ -23,17 +23,17 @@ PREFIX={2}
 contig={0}
 
 touch sgs.fofn ; rm sgs.fofn
-touch ${PREFIX}.0.fa ; rm ${PREFIX}.0.fa
+touch $PREFIX.0.fa ; rm $PREFIX.0.fa
      
 ls {1} > sgs.fofn
-ln -s ${contig} ${PREFIX}.0.fa
+ln -s $contig $PREFIX.0.fa
 
 for i in `seq 0 1`
 do
     j=`expr $i + 1`
     GENOME=$PREFIX.$i.fa
     OUTPUT=$PREFIX.$j.fa
-    WORKDIR=./03_polish.sgs_round${i}
+    WORKDIR=./03_polish.sgs_round$i
     echo "[General]
 job_type = local
 job_prefix = nextPolish
@@ -53,7 +53,7 @@ sgs_options = -max_depth 100 -bwa
 ">polish_sgs.$i.cfg
 #Run
     nextPolish polish_sgs.$i.cfg
-    cat ${WORKDIR}/03.kmer_count/05.polish.ref.sh.work/polish_genome*/*.fasta > $OUTPUT
+    cat $WORKDIR/03.kmer_count/05.polish.ref.sh.work/polish_genome*/*.fasta > $OUTPUT
 done
 """
 
