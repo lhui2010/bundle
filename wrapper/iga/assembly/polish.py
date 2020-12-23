@@ -4,7 +4,7 @@ import argparse
 import textwrap
 import subprocess
 
-from iga.apps.base import conda_act, get_prefix, bsub, emain
+from iga.apps.base import conda_act, get_prefix, bsub, emain, abspath_list, logger
 
 # 0 contig.fa [abs path]
 # 1 sgs.fq.gzs [abs path]
@@ -64,6 +64,11 @@ def nextpolish(contig=None, fastq=None, threads=30):
     :param fastq: fastqs, if multiple ,input with quotes like "a.fq b.fq"
     :return:
     """
+    fastq_list = fastq.split()
+    abspath_list([contig, fastq_list])
+    logger.warning(contig)
+    logger.warning(fastq_list)
+    fastq = " ".join(fastq_list)
     prefix = get_prefix(contig)
     cmd = nextpolish_sh.format(contig, fastq, prefix, threads)
     bsub(cmd, name="nextpolish" + prefix, cpus=threads)
