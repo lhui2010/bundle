@@ -6,7 +6,36 @@ from collections import defaultdict
 import pandas as pd
 import numpy as np
 
-from iga.apps.base import emain, logger
+from iga.apps.base import emain, logger, qsub
+
+# 0 ref fasta
+# 1 qry fasta
+nucmer_sh = r"""
+# Whole genome alignment. Any other alignment can also be used.
+WORKDIR={0}.{1}.nucmer
+mkdir -p $WORKDIR
+cd $WORKDIR
+ln -s ../{0}
+ln -s ../{1}
+nucmer --maxmatch -c 100 -b 500 -l 50 {0} {1} 
+# Remove small and lower quality alignments
+delta-filter -m -i 90 -l 100 out.delta > {0}.{1}.filtered.delta     
+# Convert alignment information to a .TSV format as required by SyRI
+show-coords -THrd out.filtered.delta > {0}.{1}.filtered.coords      
+"""
+
+
+def nucmer(ref=None, qry=None, threads=3):
+    cmd = nucmer_sh.format(ref, qry)
+    qsub(cmd, cpus=threads)
+
+
+def merge_nucmer_result():
+    pass
+
+
+def syri():
+    pass
 
 
 class Loci:
@@ -112,8 +141,8 @@ class BedPE:
         header = ['Left', 'Right', "Left Insertion", "Right Insertion", "Left Mosaic", "Right Mosaic"]
         tables = [size_list_left, size_list_right, size_left_ins, size_right_ins, size_unknown_left, size_unknown_right]
 
-        #df = pd.DataFrame(np.array(tables), columns=header)
-        #print(df.describe())
+        # df = pd.DataFrame(np.array(tables), columns=header)
+        # print(df.describe())
         for i, v in enumerate(header):
             print(header[i])
             if len(tables[i]) < 1:

@@ -126,6 +126,46 @@ def rscript(cmd):
     return ret
 
 
+def qsub(cmd=None, cpus=1, name=''):
+    """
+    submit jobs via qsub
+    :param cmd:
+    :param cpus:
+    :return:
+    """
+    newqsub = r"""#!/bin/bash
+#!/bin/bash
+#
+#$ -cwd
+#$ -N {1}
+#$ -j y
+#$ -V
+#$ -pe smp {0}
+#$ -S /bin/bash
+
+set -exo pipefail
+ROOT=$PWD
+date
+""".format(cpus, name)
+    qsub_buff = newqsub + cmd
+    qsub_sh = 'qsub.' + name + str(time.time()).replace('.', '') + '.sh'
+    with open(qsub_sh, 'w') as fh:
+        fh.write(qsub_buff)
+    cmd_full = 'qsub ' + qsub_sh
+    # Prepare finished, now submit
+    logger.info(cmd_full)
+# ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
+# Incase queue has trainling characters like -m 'node02'
+    ret = subprocess.check_output(cmd_full, shell=True).decode()
+    # try:
+    #     logger.warning(ret)
+    #     job_id = parse('Job <{}> is submitted to queue <' + queue + '>.', ret.rstrip())[0]
+    #     logger.warning(job_id)
+    # except TypeError:
+    #     logger.error('submission failed for: {}'.format(cmd_full))
+    return ret
+
+
 def bsub(cmd, queue='Q104C512G_X4', direct_submit='F', cpus=1, name=''):
     """
     submit jobs via bsub
