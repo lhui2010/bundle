@@ -9,75 +9,70 @@ import subprocess
 # Give arguments, will return the specific CTLs
 # Support Direct Print
 # Support tag value change
-from iga.apps.base import conda_act
+from iga.apps.base import conda_act, get_prefix, bsub
 
-nextdenovo_sh = r"""
+# 0 contig.fa [abs path]
+# 1 sgs.fq.gzs [abs path]
+# 2 prefix
+# 3 threads recommand 30
+nextpolish_sh = r"""
 export PATH=/ds3200_1/users_root/yitingshuang/lh/anaconda2/bin:$PATH
 
-export PATH=$PWD/NextPolish/bin:$PATH
-export PATH=$PWD/NextPolish/:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/nextdenovo/NextPolish/bin:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/nextdenovo/NextPolish:$PATH
 
-    WORKDIR="workdir_"${PREFIX}
+WORKDIR="workdir_nextpolish_"{2}
+mkdir -p $WORKDIR
+cd $WORKDIR
+PREFIX={2}
+contig={0}
 
-#ls reads1.fasta reads2.fastq reads3.fasta.gz reads4.fastq.gz ... > input.fofn
+touch sgs.fofn ; rm sgs.fofn
+touch ${PREFIX}.0.fa ; rm ${PREFIX}.0.fa
+     
+ls {1} > sgs.fofn
+ln -s ${contig} ${PREFIX}.0.fa
 
-    export PATH=/ds3200_1/users_root/yitingshuang/lh/anaconda2/bin:$PATH
-
-    mkdir -p ${WORKDIR}
-
-#cp NextDenovo/doc/run.cfg ${WORKDIR}/
-
-    cd ${WORKDIR}
-
- #./01_rundir/03.ctg_graph/01.ctg_graph.sh.work/ctg_graph00/nextgraph.assembly.contig.fasta
-         ln -s /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/falcon/workdir_gcpp_on_falconv1/output_resume.fasta coriaria_falcon.fasta
-         PREFIX=sgs_polish
-         contig=coriaria_falcon.fasta
-
-
-         touch sgs.fofn ; rm sgs.fofn
-         touch ${PREFIX}.0.fa ; rm ${PREFIX}.0.fa
- #        ln -s ${ROOT}/input/${SAMPLE}.sgs.fofn sgs.fofn
-         ls /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/clean_fastq/coriaria_sgs_newadp_1.clean.fq.gz  /ds3200_1/users_root/yitingshuang/lh/projects/
- buzzo/clean_fastq/coriaria_sgs_newadp_2.clean.fq.gz> sgs.fofn
-         ln -s ${contig} ${PREFIX}.0.fa
-
-
-         for i in `seq 0 1`
- #        WORKDIR=./03_polish.sgs_round0
- #        cat ${WORKDIR}/03.kmer_count/05.polish.ref.sh.work/polish_genome*/*.fasta > ${PREFIX}.1.fa
- #        for i in `seq 1 2`
-         do
-             j=`expr $i + 1`
-             GENOME=${PREFIX}.${i}.fa
-             OUTPUT=${PREFIX}.${j}.fa
-             WORKDIR=./03_polish.sgs_round${i}
-            echo "[General]
+for i in `seq 0 1`
+do
+    j=`expr $i + 1`
+    GENOME=$PREFIX.$i.fa
+    OUTPUT=$PREFIX.$j.fa
+    WORKDIR=./03_polish.sgs_round${i}
+    echo "[General]
 job_type = local
 job_prefix = nextPolish
 task = best
 rewrite = yes
 rerun = 3
-parallel_jobs = 30
-multithread_jobs = 20
-genome = ${GENOME}
+parallel_jobs = {3}
+multithread_jobs = {3}
+genome = $GENOME
 genome_size = auto
-workdir = ${WORKDIR}
-polish_options = -p {multithread_jobs}
+workdir = $WORKDIR
+polish_options = -p {{multithread_jobs}}
 
 [sgs_option]
 sgs_fofn = ./sgs.fofn
 sgs_options = -max_depth 100 -bwa
-">polish_sgs.cfg
-    #echo -e "task = 1212\ngenome = $genome\nsgs_fofn = sgs.fofn" > run.cfg
+">polish_sgs.$i.cfg
 #Run
-            nextPolish polish_sgs.cfg
-           # cat ${WORKDIR}/00.sgs_polish/04.polish.ref.sh.work/polish_genome*/genome.nextpolish.part*.fasta > ${OUTPUT}
-            cat ${WORKDIR}/03.kmer_count/05.polish.ref.sh.work/polish_genome*/*.fasta > ${OUTPUT}
-    done
-
-
+    nextPolish polish_sgs.$i.cfg
+    cat ${WORKDIR}/03.kmer_count/05.polish.ref.sh.work/polish_genome*/*.fasta > $OUTPUT
+done
 """
+
+
+def nextpolish(contig=None, fastq=None, threads=30):
+    r"""
+    :param contig: to be polished contigs
+    :param fastq: fastqs, if multiple ,input with quotes like "a.fq b.fq"
+    :return:
+    """
+    prefix = get_prefix(contig)
+    cmd = nextpolish_sh.format(contig, fastq, prefix, threads)
+    bsub(cmd, name="nextpolish" + prefix, cpus=threads)
+
 
 # 0 contig
 # 1 bam
