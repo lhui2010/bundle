@@ -102,5 +102,39 @@ def barplot(table=None, x='', y='', group='', theme='Publication', horizonal='F'
     rscript(cmd)
 
 
+pheatmap_sh = r"""
+RCG<-read.table("{0}", header = T, row.names = 1, sep="\t")
+
+library("pheatmap")
+library("RColorBrewer")
+
+# mycol =colorRampPalette(rev(brewer.pal(n = 11, name ="RdBu")))(10)
+
+RCGm <- as.data.frame(RCG)
+# 
+# col_size = length(colnames(RCG))
+# 
+# RCG <- RCG[rowSums(RCG[,c(1:col_size)]) > 5]
+# 
+# RCG <- log2(RCG/rowMeans(RCG))
+
+prefix="{0}"
+
+pdf(paste(prefix, "pdf", sep='.'))
+
+a = pheatmap(RCG, show_rownames=F, 
+       main = "{1}", cluster_rows=T, cluster_cols=F,
+       fontsize_col = 20, angle_col ="45",border_color = 'white')
+"""
+
+
+def pheatmap(table=None, main=''):
+    if main == '':
+        main = table
+    cmd = pheatmap_sh.format(table, main)
+    rscript(cmd)
+    return 0
+
+
 if __name__ == "__main__":
     emain()
