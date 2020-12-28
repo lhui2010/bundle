@@ -5,7 +5,7 @@ import os
 
 import os.path as op
 
-from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub
+from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain
 
 # 0 subreads.fasta
 # 1 prefix
@@ -44,3 +44,7 @@ def falcon_assemble(subreads=None, genome_size=None, prefix='', etc=''):
 
     cmd = conda_act.format('falcon') + falcon_assemble_sh.format(subreads, cfg_file)
     bsub(cmd, name='falcon' + prefix)
+
+
+if __name__ == '__main__':
+    emain()
