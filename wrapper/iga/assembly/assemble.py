@@ -43,7 +43,7 @@ def falcon(subreads=None, genome_size=None, prefix='', etc=''):
         cfg.update(etc)
     cfg.write_to_file(cfg_file)
 
-    cmd = conda_act.format('falcon') + falcon_sh.format(subreads, cfg_file)
+    cmd = conda_act.format('falcon') + falcon_sh.format(cfg_file)
     bsub(cmd, name='falcon' + prefix)
 
 
