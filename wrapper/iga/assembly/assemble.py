@@ -7,11 +7,9 @@ import os.path as op
 
 from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain, abspath_list
 
-# 0 subreads.fasta
-# 1 prefix
-# 2 fofn file
+# 0 cfg_file
 falcon_sh = r"""
-fc_run ${cfg} >>falcon_run.out 2>>falcon_run.err
+fc_run {} >>falcon_run.out 2>>falcon_run.err
 """
 
 
