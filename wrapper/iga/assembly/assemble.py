@@ -5,7 +5,27 @@ import os
 
 import os.path as op
 
-from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain, abspath_list
+from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain, abspath_list, waitjob
+
+
+def bam2fastq(subreads=None):
+    """
+    Input zeins.bam
+    Output zeins.fasta.gz
+    :param subreads:
+    :return:
+    """
+    if type(subreads) == list:
+        abspath_list(subreads)
+        subreads = " ".join(subreads)
+    else:
+        subreads = op.abspath(subreads)
+
+    prefix = get_prefix(subreads)
+    cmd = 'bam2fasta -o {0} {1}'.format(prefix, subreads)
+    job = bsub(cmd)
+    waitjob(job)
+    return {0}.fasta.gz
 
 # 0 cfg_file
 falcon_sh = r"""
@@ -21,13 +41,18 @@ def falcon(subreads=None, genome_size=None, prefix='', etc=''):
     :param etc: (other fields need to be updated in falcon cfg)
     :return:
     """
+    if '.bam' in subreads:
+        subreads = bam2fastq(subreads)
+
     if type(subreads) == list:
         abspath_list(subreads)
         subreads = " ".join(subreads)
     else:
         subreads = op.abspath(subreads)
+
     if prefix == '':
         prefix = get_prefix(subreads)
+
     workdir = 'workdir_falcon_{}'.format(prefix)
     mkdir(workdir)
     os.chdir(workdir)
