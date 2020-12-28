@@ -106,6 +106,38 @@ def gcpp(contig=None, bam=None, threads=100):
     bsub(cmd, cpus=threads, name="gcpp" + prefix)
 
 
+# 0 contig (abs path)
+# 1 subreads.fasta (abs path)
+# 2 threads
+# 3 prefix
+purge_dups_sh=r"""
+pri_asm={0}
+
+mkdir -p workdir_purge_dups_{3}
+
+minimap2 -t {2} -xmap-pb $pri_asm {1} | gzip -c - > align.paf.gz
+
+pbcstat *.paf.gz #(produces PB.base.cov and PB.stat files)
+calcuts PB.stat > cutoffs 2>calcults.log
+#        Notice If you have a large genome, please set minimap2 -I option to ensure the genome can be indexed once, otherwise read depth can be wrong.
+#        Step 1. Split an assembly and do a self-self alignment. Commands are following:
+split_fa $pri_asm > $pri_asm.split
+minimap2 -t {2} -xasm5 -DP $pri_asm.split $pri_asm.split | gzip -c - > $pri_asm.split.self.paf.gz
+
+#Step 2. Purge haplotigs and overlaps with the following command.
+purge_dups -2 -T cutoffs -c PB.base.cov $pri_asm.split.self.paf.gz > dups.bed 2> purge_dups.log
+
+#Step 3. Get purged primary and haplotig sequences from draft assembly.
+get_seqs dups.bed $pri_asm
+"""
+
+def purge_dups(contig=None, fasta=None, threads=40, queue='Q104C512G_X4'):
+    prefix = get_prefix(contig)
+    contig = op.abspath(contig)
+    fasta = op.abspath(fasta)
+    cmd = purge_dups_sh.format(contig, fasta, threads, prefix)
+    bsub(cmd, cpus=threads, name="purgedup"+prefix, queue=queue)
+
 # def main():
 #     prog_name = "Polish Pacbio Assembly with Pacbio Reads"
 #     usage = "Polish Pacbio Assembly with Pacbio Reads"
