@@ -110,7 +110,7 @@ library("RColorBrewer")
 
 # mycol =colorRampPalette(rev(brewer.pal(n = 11, name ="RdBu")))(10)
 
-RCGm <- as.data.frame(RCG)
+RCGm <- as.matrix(RCG)
 
 RCG <- ifelse(RCGm>5, 5, RCGm)
 

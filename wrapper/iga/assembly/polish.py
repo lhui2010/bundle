@@ -58,7 +58,7 @@ done
 """
 
 
-def nextpolish(contig=None, fastq=None, threads=30):
+def nextpolish(contig=None, fastq=None, threads=30, queue='Q104C512G_X4'):
     r"""
     :param contig: to be polished contigs
     :param fastq: fastqs, if multiple ,input with quotes like "a.fq b.fq"
@@ -72,7 +72,7 @@ def nextpolish(contig=None, fastq=None, threads=30):
     fastq = " ".join(fastq_list)
     prefix = get_prefix(contig)
     cmd = nextpolish_sh.format(contig, fastq, prefix, threads)
-    bsub(cmd, name="nextpolish" + prefix, cpus=threads)
+    bsub(cmd, name="nextpolish" + prefix, cpus=threads, queue=queue)
 
 
 # 0 contig
