@@ -517,6 +517,7 @@ class Config():
         return self.dictdb.get_dict_text(self.seperator)
 
     def write_to_file(self, output_file):
+        """Write to files"""
         with open(output_file, 'w') as fh:
             fh.write(self.dictdb.get_dict_text(self.seperator))
 

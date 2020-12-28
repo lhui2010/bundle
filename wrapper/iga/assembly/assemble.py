@@ -39,8 +39,8 @@ def falcon(subreads=None, genome_size=None, prefix='', etc=''):
     fofn_file = op.abspath(fofn_file)
     sh("ls {0} > {1}".format(subreads, fofn_file))
     cfg = Config('falcon')
-    cfg.update('input_fofn={0}'.format(fofn_file))
-    cfg.update('genome_size={0}'.format(genome_size))
+    cfg.update('[General]input_fofn={0}'.format(fofn_file))
+    cfg.update('[General]genome_size={0}'.format(genome_size))
     if etc != '':
         cfg.update(etc)
     cfg.write_to_file(cfg_file)
