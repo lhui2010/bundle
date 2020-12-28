@@ -5,7 +5,7 @@ import os
 
 import os.path as op
 
-from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain
+from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain, abspath_list
 
 # 0 subreads.fasta
 # 1 prefix
@@ -24,7 +24,10 @@ def falcon(subreads=None, genome_size=None, prefix='', etc=''):
     :return:
     """
     if type(subreads) == list:
+        abspath_list(subreads)
         subreads = " ".join(subreads)
+    else:
+        subreads = op.abspath(subreads)
     if prefix == '':
         prefix = get_prefix(subreads)
     workdir = 'workdir_falcon_{}'.format(prefix)
