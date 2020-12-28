@@ -10,12 +10,12 @@ from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain
 # 0 subreads.fasta
 # 1 prefix
 # 2 fofn file
-falcon_assemble_sh = r"""
+falcon_sh = r"""
 fc_run ${cfg} >>falcon_run.out 2>>falcon_run.err
 """
 
 
-def falcon_assemble(subreads=None, genome_size=None, prefix='', etc=''):
+def falcon(subreads=None, genome_size=None, prefix='', etc=''):
     r"""
     :param subreads: pacbio DNA subreads (bam accepted)
     :param genome_size: (genomesize in bp)
@@ -42,7 +42,7 @@ def falcon_assemble(subreads=None, genome_size=None, prefix='', etc=''):
         cfg.update(etc)
     cfg.write_to_file(cfg_file)
 
-    cmd = conda_act.format('falcon') + falcon_assemble_sh.format(subreads, cfg_file)
+    cmd = conda_act.format('falcon') + falcon_sh.format(subreads, cfg_file)
     bsub(cmd, name='falcon' + prefix)
 
 
