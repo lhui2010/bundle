@@ -1,3 +1,8 @@
+"""
+A dict storing templates of various config files, normally do not need to import
+Use Config("falcon")
+"""
+
 from collections import defaultdict
 
 cfg = defaultdict(str)
@@ -11,10 +16,14 @@ __version__ = '0.1'
 
 seperator['maker'] = '='
 seperator['falcon'] = '='
+
+"""
+Assembler start
+"""
 cfg['falcon'] = r"""
 #### Input
 [General]
-input_fofn=Eu_fasta.fofn
+input_fofn=
 input_type=raw
 pa_DBdust_option=
 pa_fasta_filter_option=streamed-median
@@ -84,6 +93,7 @@ NPROC=24
 MB=196608
 njobs=1
 """
+
 
 cfg['maker'] = r"""
 #-----Genome (these are always required)
@@ -174,6 +184,7 @@ clean_up=1 #removes theVoid directory with individual analysis files, 1 = yes, 0
 TMP=/tmp #specify a directory other than the system default temporary directory for temporary files
 
 """
+
 
 cfg['maker_bopts'] = r"""#-----BLAST and Exonerate Statistics Thresholds
 blast_type=ncbi+ #set to 'ncbi+', 'ncbi' or 'wublast'

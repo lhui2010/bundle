@@ -451,6 +451,8 @@ class Config():
     Give arguments, will return the specific CTLs
     Support Direct Print
     Support tag value change
+    Usage:cfg = Config('maker')
+    cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
     """
 
     def __init__(self, cfg_type=""):
