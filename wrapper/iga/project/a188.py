@@ -62,6 +62,11 @@ from iga.apps.base import emain, logger, qsub, get_prefix, conda_act
 syri_sh = r"""
 REF={0}
 QRY={1}
+WORKDIR={0}.{1}.syri
+mkdir -p $WORKDIR
+cd $WORKDIR
+ln -s ../{0}
+ln -s ../{1}
 minimap2 -ax asm5 --eqx $REF $QRY | samtools view -bS  > $REF.$QRY.bam
 SYRI=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/syri
 PLOTSR=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/plotsr
