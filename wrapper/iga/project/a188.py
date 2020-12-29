@@ -73,7 +73,7 @@ python3 $PLOTSR $REF.$QRY.syri.out {0} {1} -H 8 -W 5
 
 
 def syri(ref=None, qry=None, threads=4):
-    cmd = conda_act.format('syri') + syri_sh.format(ref, qry)
+    cmd = 'conda activate syri' + syri_sh.format(ref, qry)
     prefix = get_prefix(ref)
     prefix += get_prefix(qry)
     if len(ref.split('.')) > 2:
