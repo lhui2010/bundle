@@ -71,7 +71,7 @@ python3 $SYRI -c $REF.$QRY.bam -r $REF -q $QRY -k -F B --lf $REF.$QRY.log --pref
 
 for i in .snps.txt .notAligned.txt .ctxOut.txt .sv.txt .synOut.txt .dupOut.txt .invDupOut.txt .invTLOut.txt .TLOut.txt .invOut.txt
 do 
-    rm $REF.$QRY.$i
+    rm $REF.$QRY$i
 done
 python3 $PLOTSR $REF.$QRY.syri.out {0} {1} -H 8 -W 5
 """
