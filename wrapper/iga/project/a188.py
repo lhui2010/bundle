@@ -182,9 +182,9 @@ class BedPE:
             chr_lp = self.bedpe_db[chr_id]
             for i, lp in enumerate(chr_lp):
                 if i > 0:
-                    new_lp = LociPE(chr_lp[i - 1].left.chr, chr_lp[i - 1].left.start, chr_lp[i - 1].left.end,
+                    new_lp = LociPE(chr_lp[i - 1].left.chr, chr_lp[i - 1].left.end + 1, chr_lp[i].left.start - 1,
                                     chr_lp[i - 1].left.strand,
-                                    chr_lp[i - 1].right.chr, chr_lp[i - 1].right.start, chr_lp[i - 1].right.end,
+                                    chr_lp[i - 1].right.chr, chr_lp[i - 1].right.end + 1, chr_lp[i].right.start - 1,
                                     chr_lp[i - 1].right.strand, "NOT" + chr_lp[i - 1].right.name)
                     complement_db.bedpe_db[chr_id].append(new_lp)
         complement_db.write_to_table(outtable)
