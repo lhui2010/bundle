@@ -65,8 +65,8 @@ class Loci:
 
     def __init__(self, chr, start, end, name, strand):
         self.chr = chr
-        self.start = start
-        self.end = end
+        self.start = int(start)
+        self.end = int(end)
         self.name = name
         self.strand = strand
 
