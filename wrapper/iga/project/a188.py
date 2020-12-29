@@ -89,8 +89,9 @@ class LociPE:
         return string of this object
         :return:
         """
-        result = "\t".join([self.left.chr, self.left.start, self.left.end, self.right.chr, self.right.start,
-                            self.right.end, self.right.name, '.', self.left.strand, self.right.strand]) + "\n"
+        result = "\t".join([self.left.chr, str(self.left.start), str(self.left.end),
+                            self.right.chr, str(self.right.start), str(self.right.end),
+                            self.right.name, '.', self.left.strand, self.right.strand]) + "\n"
         return result
 
 
