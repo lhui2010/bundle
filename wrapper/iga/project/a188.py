@@ -68,7 +68,12 @@ PLOTSR=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/plotsr
 
 python3 $SYRI -c $REF.$QRY.bam -r $REF -q $QRY -k -F B --lf $REF.$QRY.log --prefix $REF.$QRY.
 # python3 $SYRI -c out.filtered.coords -d out.filtered.delta -r {0} -q {1}
+
 python3 $PLOTSR $REF.$QRY.syri.out {0} {1} -H 8 -W 5
+for i in .snps.txt .notAligned.txt .ctxOut.txt .sv.txt .synOut.txt .dupOut.txt .invDupOut.txt .invTLOut.txt .TLOut.txt .invOut.txt
+do 
+    rm $REF.$QRY.$i
+done
 """
 
 
