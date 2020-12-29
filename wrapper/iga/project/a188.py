@@ -17,7 +17,9 @@ mkdir -p $WORKDIR
 cd $WORKDIR
 ln -s ../{0}
 ln -s ../{1}
-nucmer --maxmatch -c 100 -b 500 -l 50 {0} {1} 
+export PATH=/lustre/home/liuhui/bin/mummer4/bin:$PATH
+# nucmer --maxmatch -c 100 -b 500 -l 50 {0} {1} 
+nucmer --batch 1 -c 100 -b 500 -l 50 {0} {1}
 # Remove small and lower quality alignments
 delta-filter -m -i 90 -l 100 out.delta > out.filtered.delta     
 # Convert alignment information to a .TSV format as required by SyRI
