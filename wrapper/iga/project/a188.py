@@ -8,54 +8,78 @@ import numpy as np
 
 from iga.apps.base import emain, logger, qsub, get_prefix, conda_act
 
-# 0 ref fasta
-# 1 qry fasta
-nucmer_sh = r"""
-# Whole genome alignment. Any other alignment can also be used.
-WORKDIR={0}.{1}.nucmer
-mkdir -p $WORKDIR
-cd $WORKDIR
-ln -s ../{0}
-ln -s ../{1}
-export PATH=/lustre/home/liuhui/bin/mummer4/bin:$PATH
-# nucmer --maxmatch -c 100 -b 500 -l 50 {0} {1} 
-nucmer --batch 1 -c 100 -b 500 -l 50 {0} {1}
-# Remove small and lower quality alignments
-delta-filter -m -i 90 -l 100 out.delta > out.filtered.delta     
-# Convert alignment information to a .TSV format as required by SyRI
-show-coords -THrd out.filtered.delta > out.filtered.coords      
-"""
+# # 0 ref fasta
+# # 1 qry fasta
+# nucmer_sh = r"""
+# # Whole genome alignment. Any other alignment can also be used.
+# WORKDIR={0}.{1}.nucmer
+# mkdir -p $WORKDIR
+# cd $WORKDIR
+# ln -s ../{0}
+# ln -s ../{1}
+# export PATH=/lustre/home/liuhui/bin/mummer4/bin:$PATH
+# # nucmer --maxmatch -c 100 -b 500 -l 50 {0} {1}
+# nucmer --batch 1 -c 100 -b 500 -l 50 {0} {1}
+# # Remove small and lower quality alignments
+# delta-filter -m -i 90 -l 100 out.delta > out.filtered.delta
+# # Convert alignment information to a .TSV format as required by SyRI
+# show-coords -THrd out.filtered.delta > out.filtered.coords
+# """
+
+
+# syri_sh = r"""
+# SYRI=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/syri
+# PLOTSR=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/plotsr
+# python3 $SYRI -c out.filtered.coords -d out.filtered.delta -r {0} -q {1}
+# python3 $PLOTSR syri.out {0} {1} -H 8 -W 5
+# """
+
+
+# def nucmer(ref=None, qry=None, threads=3):
+#     cmd = nucmer_sh.format(ref, qry)
+#     prefix = get_prefix(ref)
+#     prefix += get_prefix(qry)
+#     if len(ref.split('.')) > 2:
+#         chr_id = ref.split('.')[-1]
+#         prefix += chr_id
+#     qsub(cmd, cpus=threads, name='nucmer.'+prefix, sub=False)
+
+
+# def merge_nucmer_result():
+#     pass
+
+
+# def syri(ref=None, qry=None, threads=4):
+#     cmd = nucmer_sh.format(ref, qry) + '\nconda activate syri\n' + syri_sh.format(ref, qry)
+#     prefix = get_prefix(ref)
+#     prefix += get_prefix(qry)
+#     if len(ref.split('.')) > 2:
+#         chr_id = ref.split('.')[-1]
+#         prefix += chr_id
+#     qsub(cmd, cpus=threads, name='syri.'+prefix)
+
 
 syri_sh = r"""
+REF={0}
+QRY={1}
+minimap2 -ax asm5 --eqx $REF $QRY | samtools view -bS  > $REF.$QRY.bam
 SYRI=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/syri
 PLOTSR=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/plotsr
-python3 $SYRI -c out.filtered.coords -d out.filtered.delta -r {0} -q {1}
-python3 $PLOTSR syri.out {0} {1} -H 8 -W 5
+
+python3 $SYRI -c out.bam -r $REF -q $QRY -k -F B --lf $REF.$QRY.log --prefix $REF.$QRY
+# python3 $SYRI -c out.filtered.coords -d out.filtered.delta -r {0} -q {1}
+python3 $PLOTSR $REF.$QRY.syri.out {0} {1} -H 8 -W 5
 """
-
-
-def nucmer(ref=None, qry=None, threads=3):
-    cmd = nucmer_sh.format(ref, qry)
-    prefix = get_prefix(ref)
-    prefix += get_prefix(qry)
-    if len(ref.split('.')) > 2:
-        chr_id = ref.split('.')[-1]
-        prefix += chr_id
-    qsub(cmd, cpus=threads, name='nucmer.'+prefix, sub=False)
-
-
-def merge_nucmer_result():
-    pass
 
 
 def syri(ref=None, qry=None, threads=4):
-    cmd = nucmer_sh.format(ref, qry) + '\nconda activate syri\n' + syri_sh.format(ref, qry)
+    cmd = conda_act.format('syri') + syri_sh.format(ref, qry)
     prefix = get_prefix(ref)
     prefix += get_prefix(qry)
     if len(ref.split('.')) > 2:
         chr_id = ref.split('.')[-1]
         prefix += chr_id
-    qsub(cmd, cpus=threads, name='syri.'+prefix)
+    qsub(cmd, cpus=threads, name='syri.' + prefix)
 
 
 class Loci:
