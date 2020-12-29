@@ -141,7 +141,7 @@ def qsub(cmd=None, cpus=1, name='output', sub=True):
 #$ -V
 #$ -pe smp {0}
 #$ -S /bin/bash
-#$ -l h="rock.*"
+#$ -l h="rock0[12]"
 
 set -exo pipefail
 ROOT=$PWD
