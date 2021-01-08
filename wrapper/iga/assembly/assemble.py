@@ -25,7 +25,7 @@ def bam2fastq(subreads=None):
     cmd = 'bam2fasta -o {0} {1}'.format(prefix, subreads)
     job = bsub(cmd)
     waitjob(job)
-    return {0}.fasta.gz
+    return '{0}.fasta.gz'.format(prefix)
 
 # 0 cfg_file
 falcon_sh = r"""
@@ -42,6 +42,7 @@ def falcon(subreads=None, genome_size=None, prefix='', etc=''):
     :return:
     """
     logger.debug(subreads)
+
     if '.bam' in subreads:
         subreads = bam2fastq(subreads)
 
