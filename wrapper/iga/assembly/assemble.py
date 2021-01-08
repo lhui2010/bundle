@@ -21,7 +21,7 @@ def bam2fastq(subreads=None):
     else:
         subreads = op.abspath(subreads)
 
-    if not os.access(subreads + '.pbi'):
+    if not op.exists(subreads + '.pbi'):
         logger.error("{}.pbi is needed! Exiting..".format(subreads))
         return 1
 
