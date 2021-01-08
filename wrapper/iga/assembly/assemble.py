@@ -5,7 +5,7 @@ import os
 
 import os.path as op
 
-from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain, abspath_list, waitjob
+from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain, abspath_list, waitjob, logger
 
 
 def bam2fastq(subreads=None):
@@ -41,8 +41,11 @@ def falcon(subreads=None, genome_size=None, prefix='', etc=''):
     :param etc: (other fields need to be updated in falcon cfg)
     :return:
     """
+    logger.debug(subreads)
     if '.bam' in subreads:
         subreads = bam2fastq(subreads)
+
+    logger.debug(subreads)
 
     if type(subreads) == list:
         abspath_list(subreads)
