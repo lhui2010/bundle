@@ -10,7 +10,7 @@ from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain,
 
 def bam2fastq(subreads=None):
     """
-    Input zeins.bam
+    Input zeins.bam zeins.bam.pbi
     Output zeins.fasta.gz
     :param subreads:
     :return:
@@ -20,6 +20,10 @@ def bam2fastq(subreads=None):
         subreads = " ".join(subreads)
     else:
         subreads = op.abspath(subreads)
+
+    if not os.access(subreads + '.pbi'):
+        logger.error("{}.pbi is needed! Exiting..".format(subreads))
+        return 1
 
     prefix = get_prefix(subreads)
     cmd = 'bam2fasta -o {0} {1}'.format(prefix, subreads)
