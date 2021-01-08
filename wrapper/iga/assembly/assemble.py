@@ -23,7 +23,7 @@ def bam2fastq(subreads=None):
 
     prefix = get_prefix(subreads)
     cmd = 'bam2fasta -o {0} {1}'.format(prefix, subreads)
-    job = bsub(cmd)
+    job = bsub(cmd, name='bam2fasta')
     waitjob(job)
     return '{0}.fasta.gz'.format(prefix)
 
