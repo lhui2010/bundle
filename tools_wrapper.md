@@ -94,6 +94,10 @@ btop job_ID | "job_ID[index_list]" [position]
 bjobs -l jobs_id
 #Display All jobs
 bjobs -u all
+#View Job realtime STDOUT
+bpeek 206654
+#View all information about queues
+bqueues -l
 bqueues -u yitingshuang
 bqueues -l Q104C512G_X4 |grep HOSTS
     HOSTS:  node10 node11 node12 node13
@@ -435,3 +439,17 @@ done
 #### eggnog
 
 emapper.py --target_taxa "Viridiplantae" -o xx xx.pep
+
+
+#### gatk
+
+##### make alternative reference
+gatk CreateSequenceDictionary -R frankia_cn3_genome.fa
+gatk IndexFeatureFile -F LIU.rep3.tuxedo.bam.vcf
+gatk FastaAlternateReferenceMaker -R frankia_cn3_genome.fa -V LIU.rep3.tuxedo.bam.vcf -O frankia_cn3_genome.rep3.fa
+
+#### bcftools consensus reference
+
+bgzip LIU.rep3.tuxedo.bam.format.vcf
+tabix LIU.rep3.tuxedo.bam.format.vcf.gz
+bcftools consensus -f frankia_cn3_genome.fa -o frankia_cn3_genome.rep3.fa LIU.rep3.tuxedo.bam.format.vcf.gz

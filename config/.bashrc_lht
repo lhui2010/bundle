@@ -27,6 +27,7 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 
 export HISTSIZE=200000000
 export HISTFILESIZE=500000000
+export LANG=en_US.UTF-8
 
 
 export PATH=/ds3200_1/users_root/yitingshuang/applications/bowtie2-2.3.4-linux-x86_64:$PATH
@@ -73,11 +74,14 @@ export PATH=/ds3200_1/users_root/yitingshuang/applications/BEASTv1.10.4/bin/:$PA
 ####LH add start
 alias ping='ping -c 5'
 alias tma='~/lh/anaconda3/bin/tmux a'
-alias bj='bjobs'
-alias bl='bjobs |less'
+#alias bj='bjobs'
+#alias bl='bjobs |less'
 alias bgrep='bjobs | grep'
 alias bjt='bjobs|tail'
-alias bjl='bjobs|les'
+#https://www.ibm.com/support/knowledgecenter/SSWRJV_10.1.0/lsf_command_ref/bjobs.o.1.html
+#https://serverfault.com/questions/532309/setting-the-job-name-column-width-for-the-lsf-bjobs-command
+alias bj='bjobs -o "JOBID:10 SUBMIT_TIME:13 USER:5 STAT:5 QUEUE:6 SLOTS:5 EXEC_HOST:20 JOB_NAME"'
+alias bjl='bjobs -o "JOBID:10 SUBMIT_TIME:13 USER:5 STAT:5 QUEUE:6 SLOTS:5 EXEC_HOST:20 JOB_NAME"|les'
 alias ls='ls --color=tty'
 alias bs='bash'
 alias les='less -SN'
@@ -318,7 +322,6 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/step2_anno
 export LD_LIBRARY_PATH=/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:$LD_LIBRARY_PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/bismark/bin/Bismark-0.22.3:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/fasta36-36.3.8h_04-May-2020/bin:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/obsutil_linux_amd64_5.2.9:$PATH
 export LD_LIBRARY_PATH='/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:/ds3200_1/users_root/yitingshuang/lh/lib/lib64:/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib:/ds3200_1/lsf9/9.1/linux2.6-glibc2.3-x86_64/lib:/ds3200_1/proc/beagle/lib:/usr/local/lib:/usr/lib64:/ds3200_1/openmpi-3.1.0/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64:/ds3200_1/proc/NCBI-NGS/lib64:/ds3200_1/proc/ncbi-vdb/lib64:::/ds3200_1/proc/beagle/lib:/ds3200_1/proc/HTS_lib/lib:/usr/local/mpc-1.1.0/lib:/usr/local/gmp-6.1.2/lib:/usr/local/mpfr-4.0.1/lib:/ds3200_1/users_root/yitingshuang/.config/gscp/'
 export PATH=/ds3200_1/users_root/yitingshuang/.config/gscp:$PATH
 
@@ -330,3 +333,8 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/eggnog-mapper:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/hmmer/bin:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/OrthoFinder:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/interproscan-5.48-83.0:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/gce-1.0.0:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/stringtie-2.1.4.Linux_x86_64:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/hisat2-2.2.1:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/canu/purge_dups/bin:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/obsutil_linux_amd64_5.2.10:$PATH

@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #theme_Publication <- function(base_size=14, base_family="helvetica") {
-theme_Publication <- function(base_size=14, base_family="arial") {
+theme_Publication <- function(base_size=14, base_family="sans") {
       library(grid)
       library(ggthemes)
       (theme_foundation(base_size=base_size, base_family=base_family)
