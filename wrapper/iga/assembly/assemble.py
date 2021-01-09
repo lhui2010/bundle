@@ -125,7 +125,7 @@ def purge_dups(contig=None, subreads=None, prefix=''):
     os.chdir(workdir)
 
     cmd = purge_dups_sh.format(contig, subreads)
-    bsub(cmd, name="purge_dups_" + prefix)
+    bsub(cmd, name="purge_dups_" + prefix, cpus=4)
     return 0
 
 
