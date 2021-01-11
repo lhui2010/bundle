@@ -4,8 +4,9 @@ Various assembler wrapper
 import os
 
 import os.path as op
+import time
 
-from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain, abspath_list, waitjob, logger
+from iga.apps.base import conda_act, Config, mkdir, get_prefix, sh, bsub, emain, abspath_list, waitjob, logger, mv
 
 
 def bam2fastq(subreads=None):
@@ -63,7 +64,11 @@ def falcon(subreads=None, genome_size=None, prefix='', etc=''):
         prefix = get_prefix(subreads)
 
     workdir = 'workdir_falcon_{}'.format(prefix)
-    mkdir(workdir)
+    if op.exists(workdir):
+        mv(workdir, workdir + str(time.time()).replace('.', ''))
+    if not mkdir(workdir):
+        logger.error("Workdir existing, exiting...")
+        exit(1)
     os.chdir(workdir)
 
     fofn_file = 'bam.fofn'
