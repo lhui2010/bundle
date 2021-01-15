@@ -1,7 +1,11 @@
 """
 scripts used in nitfix project
 """
+import logging
+import coloredlogs
 
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
 
 
 symbiosis_gene_fam_sh = r"""

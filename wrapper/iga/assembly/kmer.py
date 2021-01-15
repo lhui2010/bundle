@@ -5,6 +5,11 @@ import os
 
 
 from iga.apps.base import emain, waitjob, bsub, abspath_list
+import logging
+import coloredlogs
+
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
 
 # 0 fastq.gz
 # 1 prefix,

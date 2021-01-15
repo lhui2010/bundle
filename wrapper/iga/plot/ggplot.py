@@ -3,6 +3,12 @@ ggplot wrappers
 """
 from iga.apps.base import emain, rscript
 
+import logging
+import coloredlogs
+
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
+
 theme_publication_r = r"""
 theme_Publication <- function(base_size=14, base_family="sans") {
       library(grid)

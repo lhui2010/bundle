@@ -1,4 +1,14 @@
+"""
+Clean reads
+"""
+
 from iga.apps.base import bsub, emain
+
+import logging
+import coloredlogs
+
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
 
 clean_novogene_sh = """
 ADAPTER=/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/novogene.fa

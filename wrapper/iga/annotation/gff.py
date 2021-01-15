@@ -6,7 +6,13 @@ from itertools import chain
 
 from parse import parse
 
-from iga.apps.base import emain, logger
+from iga.apps.base import emain, sh
+
+import logging
+import coloredlogs
+
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
 
 
 class Feat:
@@ -231,6 +237,9 @@ class GFF:
         return result
 
     def longest_mRNA(self):
+        """
+        :return: longest_table and longest_gff
+        """
         longest_table = ""
         longest_gff = ""
         for k in self.top_level_list:
@@ -297,6 +306,7 @@ def extract_gff_tag(gff=None, tag=None):
     for k in tag_dict:
         print("{}\t{}".format(k, tag_dict[k]))
 
+
 def fix_gt_gff(gff=None):
     r"""
     Fix the resulting gff files from gt gtf2gff3
@@ -326,5 +336,61 @@ def fix_gt_gff(gff=None):
                                 "{}-{}".format(prefix, count[prefix]))
             print(feat.content)
 
+
+def gff2bed(GFF=None):
+    """
+    Convert gff to bed with jcvi
+    :param GFF:
+    :return: Output GFF.bed
+    """
+    cmd = "python -m jcvi.formats.gff bed --type=mRNA --key=ID {0} -o {0}.bed".format(GFF)
+    sh(cmd)
+    return GFF + ".bed"
+
+
+#Bed relavent utils
+class Loci:
+    """
+    Loci object which could also be looked as bed object
+    """
+
+    def __init__(self, chr, start, end, name, strand):
+        self.chr = chr
+        self.start = int(start)
+        self.end = int(end)
+        self.name = name
+        self.strand = strand
+
+    def get_size(self):
+        return int(self.end) - int(self.start) + 1
+
+
+class BED:
+    """
+    A BED class that support read bed files, store them into a dict
+    """
+
+    def __init__(self, bed):
+        self.bed_db = defaultdict(str)
+        self.load(bed)
+
+    def load(self, bed):
+        with open(bed) as fh:
+            for line in fh:
+                (chr, start, end, name, strand) = [None] * 5
+                mylist = line.rstrip().split()
+                if len(mylist) == 3:
+                    (chr, start, end) = mylist[:3]
+                    for i in range(3):
+                        mylist.pop(0)
+                else:
+                    logger.error
+                if(len(mylist) > 1):
+                    Loci()
+
+
+
+
 if __name__ == "__main__":
     emain()
+

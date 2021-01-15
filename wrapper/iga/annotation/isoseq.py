@@ -4,6 +4,12 @@ Isoseq relevant utils
 
 from iga.apps.base import sh, emain, conda_act
 
+import logging
+import coloredlogs
+
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
+
 isoseq_sh = r"""export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/isoseq3/BGI-Full-Length-RNA-Analysis-Pipeline/bin:$PATH
 export PERL5LIB=""
 WORKDIR={1}

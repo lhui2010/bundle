@@ -2,9 +2,15 @@
 Polish work scripts
 """
 
-from iga.apps.base import conda_act, get_prefix, bsub, emain, abspath_list, logger
+from iga.apps.base import conda_act, get_prefix, bsub, emain, abspath_list
 
 import os.path as op
+
+import logging
+import coloredlogs
+
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
 
 # 0 contig.fa [abs path]
 # 1 sgs.fq.gzs [abs path]

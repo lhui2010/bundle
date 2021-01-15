@@ -3,7 +3,13 @@ blast related wrappers
 """
 from collections import defaultdict
 
-from iga.apps.base import emain, bsub, waitjob, logger
+from iga.apps.base import emain, bsub, waitjob
+
+import logging
+import coloredlogs
+
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
 
 #0 ref
 #1 qry

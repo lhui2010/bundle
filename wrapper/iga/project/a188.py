@@ -4,9 +4,15 @@ code used in A188 project
 from collections import defaultdict
 
 import pandas as pd
-import numpy as np
 
-from iga.apps.base import emain, logger, qsub, get_prefix, conda_act
+from iga.annotation.gff import Loci
+from iga.apps.base import emain, qsub, get_prefix
+
+import logging
+import coloredlogs
+
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
 
 # # 0 ref fasta
 # # 1 qry fasta
@@ -90,22 +96,6 @@ def syri(ref=None, qry=None, threads=6):
         chr_id = ref.split('.')[-1]
         prefix += chr_id
     qsub(cmd, cpus=threads, name='syri.' + prefix)
-
-
-class Loci:
-    """
-    Loci object which could also be looked as bed object
-    """
-
-    def __init__(self, chr, start, end, name, strand):
-        self.chr = chr
-        self.start = int(start)
-        self.end = int(end)
-        self.name = name
-        self.strand = strand
-
-    def get_size(self):
-        return int(self.end) - int(self.start) + 1
 
 
 class LociPE:

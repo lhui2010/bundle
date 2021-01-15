@@ -11,8 +11,14 @@ from collections import defaultdict, OrderedDict
 from parse import parse
 
 from iga.annotation.gff import GFF
-from iga.apps.base import sh, conda_act, logger, Config, abspath_list, split_fasta, mkdir, \
+from iga.apps.base import sh, conda_act, Config, abspath_list, split_fasta, mkdir, \
     mv, waitjob, bsub, emain
+
+import logging
+import coloredlogs
+
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
 
 # def sam2gff(sam, gff=""):
 #

@@ -9,6 +9,12 @@ import os
 from iga.apps.base import emain, conda_act, bsub, sh, waitjob, abspath_list, get_prefix
 import os.path as op
 
+import logging
+import coloredlogs
+
+logger = logging.getLogger(__name__)
+coloredlogs.install(level='DEBUG', logger=logger)
+
 # class CTL():
 
 # Give arguments, will return the specific CTLs
