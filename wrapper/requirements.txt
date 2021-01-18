@@ -1,3 +1,4 @@
 coloredlogs
 six
 parse
+bs4

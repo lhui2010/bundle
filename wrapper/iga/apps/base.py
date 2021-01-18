@@ -89,9 +89,9 @@ def sh(cmd, debug=False, parallel='F', cpus=1):
     ret = ''
     logger.info(cmd)
     prior_cmd = 'set -eo pipefail\n'
-    if (parallel == 'T'):
+    if parallel == 'T':
         from multiprocessing import Pool
-        if (type(cmd) != list):
+        if type(cmd) != list:
             cmd = cmd.split('\n')
         with Pool(int(cpus)) as p:
             logger.warning(p.map(sh, cmd))
@@ -173,9 +173,9 @@ def bsub(cmd, queue='Q104C512G_X4', direct_submit='F', cpus=1, name=''):
     :return:
     """
     bsub_cmd = 'bsub -R "span[hosts=1]" -q {0}  -o output.%J -e error.%J -n {1} '.format(queue, cpus)
-    if (name != ''):
+    if name != '':
         bsub_cmd += "-J {} ".format(name)
-    if (direct_submit == 'T'):
+    if direct_submit == 'T':
         prior_cmd = 'set -eo pipefail;'
         cmd_full = bsub_cmd + '"' + prior_cmd + cmd + '"'
     else:
@@ -216,7 +216,7 @@ def is_job_finished(joblist=None):
     :param joblist:
     :return:
     """
-    if (type(joblist) == str):
+    if type(joblist) == str:
         joblist = [joblist]
     for j in joblist:
         status = sh("bjobs {}".format(j))
@@ -224,7 +224,7 @@ def is_job_finished(joblist=None):
         if re.search(r'{}  yitings DONE'.format(j), status) or \
                 re.search(r'{}  yitings EXIT'.format(j), status) or \
                 re.search(r'Job .* is not found', status):
-            if ('EXIT' in status):
+            if 'EXIT' in status:
                 logger.error("Job {} finished with error!".format(j))
             continue
         else:
@@ -396,10 +396,12 @@ def glob(pathname, pattern=None):
 
 ### jcvi code end
 
-class DictDb():
+class DictDb:
     """
     The data structure for storing ctf files
     Could be understand as a sub class of Config class
+    Change log:
+    0106: Allowing lines like <<include ideogram.conf>> to be read into dict, the values are None
     """
 
     def __init__(self):
@@ -412,92 +414,81 @@ class DictDb():
         """
         self.has_section = False
 
-    def append_val(self, key, val, section=''):
+    def update_val(self, key, val, section=''):
         """
         Add tag, value to dict
         """
-        if (section != ''):
+        if section != '':
             self.dictdb[section][key] = val
             self.has_section = True
-        else:
-            self.dictdb[key] = val
-
-    def change_val(self, key, val, section=''):
-        """
-        Add tag, value to dict
-        """
-        if (section != ''):
-            self.dictdb[section][key] = val
         else:
             self.dictdb[key] = val
 
     def get_dict_text(self, seperator='='):
         """
         print this dict to text
+        Change in 0118: Allow <<index>> lines in config files, key was assigned lines while values are None
         """
         return_text = ''
         if self.has_section:
             for section in self.dictdb:
                 return_text += ('[{}]'.format(section) + "\n")
                 for k in self.dictdb[section]:
-                    return_text += ('{}{}{}'.format(k, seperator, self.dictdb[section][k]) + "\n")
+                    if self.dictdb[section][k] is not None:
+                        return_text += ('{}{}{}'.format(k, seperator, self.dictdb[section][k]) + "\n")
+                    else:
+                        return_text += k + "\n"
         else:
             for k in self.dictdb:
-                return_text += ('{}{}{}'.format(k, seperator, self.dictdb[k]) + "\n")
+                if self.dictdb[k] is not None:
+                    return_text += ('{}{}{}'.format(k, seperator, self.dictdb[k]) + "\n")
+                else:
+                    return_text += k + "\n"
         return return_text
 
 
-class Config():
+class VersatileTable:
     """
-    Give arguments, will return the specific CTLs
-    Support Direct Print
-    Support tag value change
-    Usage:cfg = Config('maker')
-    cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
+    Store common ctl table like aa=bb using DictDb
+    eg:
+        vt = VersatileTable('[section]
+        aa=bb
+        ee=gg')
+        vt.update('[section]aa=ee')
+        vt.get_text()
+        vt.write_to_file()
     """
 
-    def __init__(self, cfg_type=""):
-        self.content = ''
+    def __init__(self, content):
+        self.content = content
+        self.seperator = '='
         self.dictdb = DictDb()
-        self.seperator = ''
-        if (cfg_type != ""):
-            self.load(cfg_type)
+        self.load()
 
-    def load(self, cfg_type='falcon', seperator='='):
-        try:
-            self.content = cfg.cfg[cfg_type]
-            if cfg_type in cfg.seperator:
-                self.seperator = cfg.seperator[cfg_type]
-            else:
-                self.seperator = seperator
-        except KeyError as e:
-            logger.error("Unknown type of cfg file: {}".format(cfg_type))
-
+    def load(self):
+        """
+        Preprocess config file, then call update to update all keys and values
+        :return:
+        """
         # Seperator for tag and value, like tag=value is default
         this_list = self.content.splitlines()
         section = ''
         for line in this_list:
-            if (line.rstrip() == ''):
+            if line.rstrip() == '':
                 # Skip blank lines
                 continue
-            elif (line.startswith('[')):
+            elif line.startswith('['):
                 # Finding section definition
                 section = parse('[{}]', line)[0]
-            elif (line.startswith('#') or line.startswith(';')):
+            elif line.startswith('#') or line.startswith(';'):
                 # Finding section annotation
                 section_annotation = re.sub(r'^#+', '', line)
             else:
                 # Findng value assignments
-                trimmed_line = re.sub('#.*', '', line)
-                try:
-                    (key, value) = trimmed_line.split(self.seperator)
-                except ValueError as e:
-                    logger.error("Split error on line: {}".format(line))
-                (key, value) = (key.strip(), value.strip())
-                if (section != ''):
-                    self.dictdb.append_val(key=key, val=value, section=section)
-                else:
-                    self.dictdb.append_val(key, value)
+                trimmed_line = re.sub('#.*', '', line).strip()
+                if section != '':
+                    trimmed_line = '[{}]{}'.format(section, trimmed_line)
+                self.update(trimmed_line)
 
     def update(self, args):
         """
@@ -506,25 +497,209 @@ class Config():
         """
         mylist = args.split(';')
         for this_arg in mylist:
+            if this_arg.strip() == '':
+                continue
             section = ''
-            if ('[' in this_arg):
-                (section, key, value) = parse('[{}]{}' + self.seperator + '{}', this_arg)
-                self.dictdb.change_val(key=key, val=value, section=section)
-            else:
-                (key, value) = parse('{}' + self.seperator + '{}', this_arg)
-                self.dictdb.change_val(key, value)
+            content = this_arg
+            if '[' in this_arg:
+                (section, content) = parse('[{}]{}', this_arg)
+            try:
+                (key, value) = parse('{}' + self.seperator + '{}', content)
+                key = key.strip()
+                value = value.strip()
+            except ValueError as e:
+                # In case no seperator was found in the line
+                logger.warning("Treating {} as non-seperator lines".format(this_arg))
+                key = content.strip()
+                value = None
+            #if section if null charactor, will not used by dictdb.change_val
+            self.dictdb.update_val(key=key, val=value, section=section)
 
     def get_text(self):
+        """
+        Return the table as text
+        :return:
+        """
         return self.dictdb.get_dict_text(self.seperator)
+
+    def write_to_file(self, output_file):
+        """Write the table to files"""
+        with open(output_file, 'w') as fh:
+            fh.write(self.dictdb.get_dict_text(self.seperator))
+
+
+def grep(args, content=''):
+    """
+    GNU grep like function:
+    eg: grep("-v ^#", content)
+    :param args:
+    :param content:
+    :return:
+    """
+    keep = True
+    key = args
+    result = ''
+    if '-v' in args:
+        key = args.split()[1]
+        keep = False
+    for i in content.splitlines():
+        if re.search(key, i) and keep or \
+                not re.search(key, i) and not keep:
+            result += i + "\n"
+    return i
+
+
+class Config(VersatileTable):
+    """
+    Eg:
+        cfg = Config('maker')
+        cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
+        cfg.write_to_file("maker_round1.opts")
+        cfg = Config('circos')
+        cfg.update('karyotype={};plots.plot={};rm_gff={}'.format(estgff, pepgff, rmgff))
+        cfg.write_to_file("maker_round1.opts")
+    Usage:
+        1. Give arguments, will return the specific CTLs object
+        2. The object could be directly printed with get_text() or write to file with write_to_file("filename")
+    Further explanation:
+        A sub class inherated from Versatile Table that extend usage in following aspecects:
+        1. Allow reading config template from cfg dictionary
+        2. Allow handling html type tables (Currently only circos used this type, so not seperating it to another class)
+    """
+
+    def __init__(self, cfg_type):
+        """
+        :param cfg_type: the name of the config file, maybe falcon or maker
+        :param format: 
+        """
+        self.multiple_section_list = ['highlight', 'plot', 'link', 'zoom', 'tick',
+                                     'pairwise', 'rule', 'axis', 'background']
+        self.format = ''
+        if cfg_type == 'circos':
+            self.format = 'circos'
+        try:
+            content = cfg.cfg[cfg_type]
+        except KeyError as e:
+            logger.error("Unknown type of cfg file: {}".format(cfg_type))
+            return 1
+        if self.format == '':
+            super().__init__(content)
+        elif self.format == 'circos':
+            self.load_circos()
+
+    def load_circos(self):
+        # Seperator for tag and value, like tag=value is default
+        this_list = self.content.splitlines()
+        section = []
+        count_tag = defaultdict(int)
+        for line in this_list:
+            if line.rstrip() == '':
+                # Skip blank lines
+                continue
+            elif line.startswith('</'):
+                #End of xx block
+                section.pop()
+            elif line.startswith('<') and not line.startswith('<<'):
+                tag = parse('<{}>', line)
+                if tag in self.multiple_section_list:
+                    # Those allow multiple section with same name, so I'll rename them
+                    # so plots.plot will be automatically stored as plots.plot-1 for the first time.
+                    count_tag[tag] += 1
+                section.append("{}-{}".format(tag, count_tag[tag]))
+            elif line.startswith('#') or line.startswith(';'):
+                # Finding section annotation
+                section_annotation = re.sub(r'^#+', '', line)
+            else:
+                line = '.'.join(section) + '.' + line
+                self.update(line)
+
+    def update(self, args):
+        """
+        Different from change_val in dictdb, this allows input like :
+        "[general]genomesize=12M;[general]threads=11"
+        Or for circos:
+        "plots.plot.color=1"
+        """
+        if self.format == '':
+            super().update(args)
+        elif self.format == 'circos':
+            #like plots.plot.
+            mylist = args.split(';')
+            section = None
+            for this_arg in mylist:
+                if '.' in this_arg:
+                    section = this_arg.split('.')
+                    content = section.pop()
+                    if section[-1] in self.multiple_section_list:
+                        #Automatically rename
+                        self.multiple_section_list[section[-1]] += 1
+                        section[-1] += '-{}'.format(self.multiple_section_list[section[-1]])
+                    section = '.'.join(section)
+                try:
+                    (key, value) = parse('{}' + self.seperator + '{}', content)
+                    key = key.strip()
+                    value = value.strip()
+                except ValueError as e:
+                    # In case no seperator was found in the line
+                    logger.warning("Treating {} as non-seperator lines".format(this_arg))
+                    key = content.strip()
+                    value = None
+                self.dictdb.update_val(key=key, val=value, section=section)
+
+    def get_text(self):
+        """
+        get_text:
+        1. if the format is '', use VersatileTable.get_text()
+        2. if the format if 'circos',
+        :return:
+        """
+        if self.format == '':
+            super().get_text()
+        elif self.format == 'circos':
+            result_text = ''
+            last_section = []
+            for k in self.dictdb.dictdb.keys():
+                if k is not None:
+                    this_section = k.split('.')
+                    #First condition test on whether to print </tag> lines
+                    for last_index, last_s in enumerate(last_section):
+                        if len(this_section) > last_index and last_section[last_index] == this_section[last_index]:
+                            #"plots plots"
+                            pass
+                        else:
+                            #plots.plot1.rule1 plots.plot2
+                            #print(</rule1>\n</plot1>\n)
+                            for i in range(len(last_section)-1, last_index - 1):
+                                last_section[i] = re.sub(r'-.*', '', last_section[i])
+                                result_text += "</{}>\n".format(last_section.pop(i))
+                    # Second condition test on whether to print <tag> lines
+                    for this_index, this_s in enumerate(this_section):
+                        if len(last_section) > this_index and last_section[this_index] == this_section[this_index]:
+                            # "plots plots"
+                            pass
+                        else:
+                            #plots.plot1.rule1 plots.plot2.rule2
+                            #print(<plot2>\n<rule2>\n)
+                            for i in range(this_index, len(this_section)):
+                                this_section[i] = re.sub(r'-.*', '', this_section[i])
+                                result_text += "<{}>\n".format(this_section[i])
+                for param, val in self.dictdb.dictdb[k].items():
+                    if val is None:
+                        #<<include ideogram.conf>> lines
+                        result_text += "{}\n".format(param)
+                    else:
+                        result_text += "{}{}{}\n".format(param, self.seperator, val)
+            if len(last_section) > 0:
+                last_section.reverse()
+                for i in last_section:
+                    i = re.sub(r'-.*', '', i)
+                    result_text += "</{}>\n".format(i)
+        return result_text
 
     def write_to_file(self, output_file):
         """Write to files"""
         with open(output_file, 'w') as fh:
-            fh.write(self.dictdb.get_dict_text(self.seperator))
-
-    @staticmethod
-    def get_fofn(file_list, fofn_file):
-        pass
+            fh.write(self.get_text())
 
 
 def abspath_list(file_list):
@@ -564,17 +739,17 @@ def fmain(func_name, args):
     object_pointer = getattr(sys.modules['__main__'], func_name)
     p = argparse.ArgumentParser(prog=func_name, usage=object_pointer.__doc__)
     # 下面的两个命令用于从函数对象中调取形参的名字和默认值（空值用Nonetype表示），用来转换成parse_args
-    if (len(inspect.getfullargspec(object_pointer).args) == 0):
+    if len(inspect.getfullargspec(object_pointer).args) == 0:
         # Incase a function dont' have an arg
         object_pointer()
         return 0
     for kw, kw_defaults in zip(inspect.getfullargspec(object_pointer).args,
                                inspect.getfullargspec(object_pointer).defaults):
-        if (kw_defaults == None):
+        if kw_defaults == None:
             position_arg.append(kw)
         else:
             keyword_arg[kw] = kw_defaults
-    if (len(position_arg) == 1):
+    if len(position_arg) == 1:
         # If only one input arg is needed for the function, allow multiple files as input
         number_args = '+'
     for k in position_arg:
@@ -595,7 +770,7 @@ def fmain(func_name, args):
 
     for k in position_arg:
         k_arg = getattr(real_arg, k)
-        if (number_args == '+' and len(k_arg) > 1):
+        if number_args == '+' and len(k_arg) > 1:
             # passing spaced args as a list
             position_result.append(k_arg)
         else:
@@ -629,13 +804,13 @@ def emain():
     functions_list = [o for o in getmembers(sys.modules['__main__']) if isfunction(o[1])]
     # logger.warning(functions_list)
     for f in functions_list:
-        if (f[1].__module__ == "__main__" and f[0] != 'main'):
+        if f[1].__module__ == "__main__" and f[0] != 'main':
             actions.append(f[0])
             actions_with_help.append([f[0], str(f[1].__doc__).replace('\n', ' ').lstrip()[:50]])
     # actions = ['isoseq', 'fastq2gff', 'isoseq_pb', 'maker_round1']
-    if (len(sys.argv) > 1 and sys.argv[1] in actions):
+    if len(sys.argv) > 1 and sys.argv[1] in actions:
         action = sys.argv[1]
-        if (len(sys.argv) > 2):
+        if len(sys.argv) > 2:
             args = sys.argv[2:]
         else:
             args = []

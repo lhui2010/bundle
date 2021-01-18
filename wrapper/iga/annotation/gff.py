@@ -354,15 +354,19 @@ class Loci:
     Loci object which could also be looked as bed object
     """
 
-    def __init__(self, chr, start, end, name, strand):
+    def __init__(self, chr, start, end, name, score, strand):
         self.chr = chr
         self.start = int(start)
         self.end = int(end)
         self.name = name
+        self.score = score
         self.strand = strand
 
     def get_size(self):
         return int(self.end) - int(self.start) + 1
+
+    def get_line(self):
+        return "\t".join(self.chr, self.start, self.end, self.name, self.score, self.strand)
 
 
 class BED:
@@ -371,24 +375,46 @@ class BED:
     """
 
     def __init__(self, bed):
-        self.bed_db = defaultdict(str)
+        # The bed list
+        self.bed_list = []
+        # The dict with gene name as keys
+        self.bed_dict = {}
         self.load(bed)
 
     def load(self, bed):
         with open(bed) as fh:
             for line in fh:
-                (chr, start, end, name, strand) = [None] * 5
-                mylist = line.rstrip().split()
+                (chr, start, end, name, score, strand) = [None] * 6
+                mylist = line.rstrip().split('\t')
                 if len(mylist) == 3:
                     (chr, start, end) = mylist[:3]
                     for i in range(3):
                         mylist.pop(0)
                 else:
-                    logger.error
-                if(len(mylist) > 1):
-                    Loci()
+                    logger.error("Wrong format of BED, is it tab delmited with at least three field?")
+                    exit(1)
+                if len(mylist) > 1:
+                    name = mylist.pop(0)
+                if len(mylist) > 1:
+                    score = mylist.pop(0)
+                if len(mylist) > 1:
+                    strand = mylist.pop(0)
+                loci = Loci(chr, start, end, name, score, strand)
+                self.bed_list.append(loci)
+                self.bed_dict[name] = loci
 
-
+    def select_name(self, name, format='loci'):
+        """
+        Select bed by the name, returning the loci object
+        :param name:
+        :param format: loci|bed, loci will return the Loci object while bed will return text formated bed lines
+        :return:
+        """
+        this_loci = self.bed_dict[name]
+        if(format == 'loci'):
+            return this_loci
+        if(format == 'bed'):
+            return this_loci.get_line()
 
 
 if __name__ == "__main__":

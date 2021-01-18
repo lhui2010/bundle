@@ -347,3 +347,69 @@ path = /ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/busco/bin/
 command = prodigal
 
 """
+
+cfg['circos'] = r'''
+
+# 1.1 MINIMUM CIRCOS CONFIGURATION 
+#
+# This is a 'hello world' Circos tutorial. 
+#
+# Only required configuration elements are included.
+#
+# Subsequent tutorials in this section build on this example to
+# generate a representative image with common elements found in Circos
+# figures in the literature.
+
+# Chromosome name, size and color definition
+
+karyotype = data/karyotype/ol.karyotype
+
+chromosomes_units = 1000000
+
+<<include links.conf>>
+
+# The <ideogram> block defines the position, size, labels and other
+# properties of the segments on which data are drawn. These segments
+# are usually chromosomes, but can be any integer axis.
+
+# Includes content from ideogram.conf (included file path is relative
+# to the file that included it). Conventionally, I separate the
+# contents of the <ideogram> block from circos.conf and include
+# it via ideogram.conf.
+<<include ideogram.conf>>
+
+# Similarly, I put the <ticks> block in ticks.conf
+<<include ticks.conf>>
+
+
+<plots>
+#plots begin
+
+
+</plots>
+
+################################################################
+# The remaining content is standard and required. It is imported from
+# default files in the Circos distribution.
+#
+# These should be present in every Circos configuration file and
+# overridden as required. To see the content of these files, 
+# look in etc/ in the Circos distribution.
+#
+# It's best to include these files using relative paths. This way, the
+# files if not found under your current directory will be drawn from
+# the Circos distribution. 
+#
+# As always, centralize all your inputs as much as possible.
+
+<image>
+# Included from Circos distribution.
+<<include etc/image.conf>>                
+</image>
+
+<<include etc/colors_fonts_patterns.conf>> 
+
+# Debugging, I/O an dother system parameters
+# Included from Circos distribution.
+<<include etc/housekeeping.conf>> 
+'''
