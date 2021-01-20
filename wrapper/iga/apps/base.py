@@ -431,12 +431,12 @@ class DictDb:
         """
         return_text = ''
         if self.has_section:
-            logger.debug('sections are {}'.format(self.dictdb.keys()))
+            #logger.debug('sections are {}'.format(self.dictdb.keys()))
             for section in self.dictdb:
                 return_text += ('[{}]'.format(section) + "\n")
-                logger.debug('section is {}'.format(section))
-                logger.debug('section content is {}'.format(self.dictdb[section]))
-                logger.debug(self.dictdb[section].keys())
+                # logger.debug('section is {}'.format(section))
+                # logger.debug('section content is {}'.format(self.dictdb[section]))
+                # logger.debug(self.dictdb[section].keys())
                 for k in self.dictdb[section]:
                     if self.dictdb[section][k] is not None:
                         return_text += ('{}{}{}'.format(k, seperator, self.dictdb[section][k]) + "\n")
@@ -584,7 +584,8 @@ class Config(VersatileTable):
         self.multiple_section_list = ['highlight', 'plot', 'link', 'zoom', 'tick',
                                      'pairwise', 'rule', 'axis', 'background']
         self.format = ''
-        if cfg_type == 'circos':
+        if 'circos' in cfg_type:
+            #circos format is a bit weird, so handle it seperately
             self.format = 'circos'
         try:
             content = cfg.cfg[cfg_type]

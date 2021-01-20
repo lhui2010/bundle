@@ -413,3 +413,57 @@ chromosomes_units = 1000000
 # Included from Circos distribution.
 <<include etc/housekeeping.conf>> 
 '''
+
+cfg['circos_image_conf'] = """
+dir   = .
+file  = circos.png
+png   = yes
+svg   = yes
+
+# radius of inscribed circle in image
+radius         = 1500p
+
+# by default angle=0 is at 3 o'clock position
+angle_offset      = -87.8
+#angle_orientation = counterclockwise
+
+auto_alpha_colors = yes
+auto_alpha_steps  = 5
+<<include background.white.conf>>
+"""
+
+cfg['circos_background_conf'] = """
+background = white
+"""
+
+cfg['circos_ideogram_conf'] = """
+<ideogram>
+
+<spacing>
+default = 0.005r
+
+<pairwise chr12 chr01>
+spacing = 3r #re lative to default spacing
+</pairwise>
+
+</spacing>
+
+# Ideogram position, fill and outline
+radius           = 0.9r
+thickness        = 20p
+fill             = yes
+stroke_color     = dgrey
+stroke_thickness = 2p
+
+# Minimum definition for ideogram labels.
+
+show_label       = yes
+# see etc/fonts.conf for list of font names
+label_font       = default 
+label_radius     = dims(image,radius)-60p
+label_size       = 30
+label_parallel   = yes
+
+</ideogram>
+
+"""

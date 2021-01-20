@@ -5,7 +5,7 @@ import logging
 import coloredlogs
 
 from iga.annotation.gff import BED
-from iga.apps.base import emain, mkdir, Config
+from iga.apps.base import emain, mkdir, Config, sh
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
@@ -53,55 +53,9 @@ class Circos:
         self.hist = []
         self.cytogenetic_bands = ''
 
-        self.image_conf="""dir   = .
-file  = circos.png
-png   = yes
-svg   = yes
-
-# radius of inscribed circle in image
-radius         = 1500p
-
-# by default angle=0 is at 3 o'clock position
-angle_offset      = -87.8
-#angle_orientation = counterclockwise
-
-auto_alpha_colors = yes
-auto_alpha_steps  = 5
-<<include background.white.conf>>
-"""
-        self.background_conf = """background = white
-"""
-        self.ideogram_conf = """
-<ideogram>
-
-<spacing>
-default = 0.005r
-
-<pairwise chr12 chr01>
-spacing = 3r #re lative to default spacing
-</pairwise>
-
-</spacing>
-
-# Ideogram position, fill and outline
-radius           = 0.9r
-thickness        = 20p
-fill             = yes
-stroke_color     = dgrey
-stroke_thickness = 2p
-
-# Minimum definition for ideogram labels.
-
-show_label       = yes
-# see etc/fonts.conf for list of font names
-label_font       = default 
-label_radius     = dims(image,radius)-60p
-label_size       = 30
-label_parallel   = yes
-
-</ideogram>
-
-"""
+        self.image_conf = Config('circos_image_conf')
+        self.background_conf = Config('circos_background_conf')
+        self.ideogram_conf = Config('circos_ideogram_conf')
         self.circos_conf = Config('circos')
         self.circos_conf.update('karyotype={}'.format(karyotype_file))
 
@@ -112,31 +66,40 @@ label_parallel   = yes
         """
         mkdir('data')
         mkdir('etc')
-        with open('etc/image.conf', 'w') as fh:
-            fh.write(self.image_conf)
-        with open('etc/background.white.conf', 'w') as fh:
-            fh.write(self.background_conf)
+        self.image_conf.write_to_file('etc/image.conf')
+        self.background_conf.write_to_file('etc/background.white.conf')
+        self.ideogram_conf.write_to_file('ideogram.conf')
+        self.circos_conf.write_to_file('circos.conf')
         with open('circos.conf', 'w') as fh:
             fh.write(self.circos_conf)
-        with open('ideogram.conf', 'w') as fh:
-            fh.write(self.ideogram_conf)
 
     def add_hist(self, hist_file='', plot_type=''):
         self.circos_conf.update('plots.plot')
 
     def plot(self):
+        self.prepare_conf()
+        sh('circos')
+
+
+def fai_to_karyotype(fai=None):
+    """
+    fai to karyotype
+    :param fai:
+    :return:
+    """
+
 
 
 def circos(fai=None, gene_gff='', gene_bed='', repeat_gff='', ortholog=''):
     karyotype_file = fai_to_karyotype(fai)
+    circos_obj = Circos(karyotype_file)
     if ortholog != '':
         seg_dups_file = anchors_to_segdups(ortholog)
     if gene_gff != '':
         gene_hist_file = gff_to_density(gene_gff)
     if repeat_gff != '':
         repeat_hist_file = gff_to_density(repeat_gff)
-
-    circos_sh.format()
+    circos_obj.plot()
 
 
 if __name__ == "__main__":
