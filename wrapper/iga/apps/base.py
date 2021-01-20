@@ -431,10 +431,12 @@ class DictDb:
         """
         return_text = ''
         if self.has_section:
+            logger.debug('sections are {}'.format(self.dictdb.keys()))
             for section in self.dictdb:
                 return_text += ('[{}]'.format(section) + "\n")
-                logger.debug(section)
-                logger.debug(self.dictdb[section])
+                logger.debug('section is {}'.format(section))
+                logger.debug('section content is {}'.format(self.dictdb[section]))
+                logger.debug(self.dictdb[section].keys())
                 for k in self.dictdb[section]:
                     if self.dictdb[section][k] is not None:
                         return_text += ('{}{}{}'.format(k, seperator, self.dictdb[section][k]) + "\n")
@@ -490,14 +492,18 @@ class VersatileTable:
                 trimmed_line = re.sub('#.*', '', line).strip()
                 if section != '':
                     trimmed_line = '[{}]{}'.format(section, trimmed_line)
-                self.update(trimmed_line)
+                self.update(trimmed_line, use_semicolon_sep=False)
 
-    def update(self, args):
+    def update(self, args, use_semicolon_sep=True):
         """
         Different from change_val in dictdb, this allows input like :
         "[general]genomesize=12M;[general]threads=11"
         """
-        mylist = args.split(';')
+        logger.debug('use_semicolon_sep: {}'.format(use_semicolon_sep))
+        if use_semicolon_sep:
+            mylist = args.split('\n;')
+        else:
+            mylist = args.split('\n')
         for this_arg in mylist:
             if this_arg.strip() == '':
                 continue
@@ -594,7 +600,7 @@ class Config(VersatileTable):
         # Seperator for tag and value, like tag=value is default
         self.insert_block(self.content)
 
-    def update(self, args):
+    def update(self, args, use_semicolon_sep=True):
         """
         Different from change_val in dictdb, this allows input like :
         "[general]genomesize=12M;[general]threads=11"
@@ -602,7 +608,7 @@ class Config(VersatileTable):
         "plots.plot.color=1"
         """
         if self.format == '':
-            super().update(args)
+            super().update(args, use_semicolon_sep)
         elif self.format == 'circos':
             #like plots.plot.
             mylist = args.split(';')
@@ -660,7 +666,7 @@ class Config(VersatileTable):
         :return:
         """
         if self.format == '':
-            super().get_text()
+            result_text = super().get_text()
         elif self.format == 'circos':
             result_text = ''
             last_section = []
