@@ -453,3 +453,12 @@ gatk FastaAlternateReferenceMaker -R frankia_cn3_genome.fa -V LIU.rep3.tuxedo.ba
 bgzip LIU.rep3.tuxedo.bam.format.vcf
 tabix LIU.rep3.tuxedo.bam.format.vcf.gz
 bcftools consensus -f frankia_cn3_genome.fa -o frankia_cn3_genome.rep3.fa LIU.rep3.tuxedo.bam.format.vcf.gz
+
+#### pasa
+
+singularity run docker://pasapipeline/pasapipeline
+singularity shell pasapipeline_latest.sif
+
+#### obsutil
+
+obsutil share-cp ${TOKEN} ./  -ac=123456 -f -r  2>&1 | tee download.log
