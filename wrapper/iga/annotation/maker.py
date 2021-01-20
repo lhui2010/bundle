@@ -446,6 +446,47 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         sh(job_list, parallel='T', cpus=cpus)
 
 
+def maker_pipe():
+    shell_script = """
+    #-+-First Round
+ROUND=1
+#python -m iga.annotation.maker deploy_augustus
+#python -m iga.annotation.maker maker_run         coriaria_contig.fa isoseq_corrected.gff peps.gff repeats.maker.gff --cpus 2
+#python -m iga.annotation.maker maker_check_resub coriaria_contig.fa_R1
+#python -m iga.annotation.maker maker_collect     coriaria_contig.fa_R1
+#python -m iga.annotation.maker maker_train       coriaria_contig.fa_R1 --cdna_fasta total_flnc_polished.fa  --snap 'F' --augustus F
+#cd coriaria_contig.fa_R${ROUND}
+#python -m iga.assembly.busco busco --mode prot total.all.maker.proteins.fasta
+#cd ..
+
+#-+-Second Round
+#python -m iga.annotation.maker deploy_augustus
+ROUND=2
+#python -m iga.annotation.maker maker_run         coriaria_contig.fa isoseq_corrected.gff peps.gff repeats.maker.gff --round 2 --augustus_species coriaria_c
+ontig.fa_R1_direct --snap_hmm coriaria_contig.fa_R1 --update "alt_splice=1"
+#python -m iga.annotation.maker maker_check_resub coriaria_contig.fa_R2
+#python -m iga.annotation.maker maker_collect     coriaria_contig.fa_R2
+#python -m iga.annotation.maker maker_train       coriaria_contig.fa_R2 --cdna_fasta total_flnc_polished.fa --augustus F
+#cd coriaria_contig.fa_R${ROUND}
+#python -m iga.assembly.busco busco --mode prot total.all.maker.proteins.fasta
+#cd ..
+
+#-+-Third Round #augustus is directly trained
+#ROUND=3
+#PREV=2
+#python -m iga.annotation.maker deploy_augustus
+#python -m iga.annotation.maker maker_run         coriaria_contig.fa isoseq_rnaseq.gff peps.gff repeats.maker.gff --round ${ROUND} --augustus_species coriar
+ia_contig.fa_R${PREV}_direct --snap_hmm coriaria_contig.fa_R${PREV} --update "trna=1;alt_splice=1"
+##--queue Q64C1T_X4
+#python -m iga.annotation.maker maker_check_resub coriaria_contig.fa_R${ROUND}
+#python -m iga.annotation.maker maker_collect     coriaria_contig.fa_R${ROUND}
+#cd coriaria_contig.fa_R${ROUND}
+#python -m iga.assembly.busco busco --mode prot total.all.maker.proteins.fasta
+#cd ..
+
+"""
+    print(shell_script)
+
 maker_resub_sh = r"""
 cd {}
 mkdir -p rm 
