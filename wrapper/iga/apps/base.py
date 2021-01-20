@@ -504,6 +504,7 @@ class VersatileTable:
             if '[' in this_arg:
                 (section, content) = parse('[{}]{}', this_arg)
             try:
+                logger.warning(content)
                 (key, value) = parse('{}' + self.seperator + '{}', content)
                 key = key.strip()
                 value = value.strip()
@@ -589,29 +590,7 @@ class Config(VersatileTable):
 
     def load_circos(self):
         # Seperator for tag and value, like tag=value is default
-        this_list = self.content.splitlines()
-        section = []
-        count_tag = defaultdict(int)
-        for line in this_list:
-            if line.rstrip() == '':
-                # Skip blank lines
-                continue
-            elif line.startswith('</'):
-                #End of xx block
-                section.pop()
-            elif line.startswith('<') and not line.startswith('<<'):
-                tag = parse('<{}>', line)
-                if tag in self.multiple_section_list:
-                    # Those allow multiple section with same name, so I'll rename them
-                    # so plots.plot will be automatically stored as plots.plot-1 for the first time.
-                    count_tag[tag] += 1
-                section.append("{}-{}".format(tag, count_tag[tag]))
-            elif line.startswith('#') or line.startswith(';'):
-                # Finding section annotation
-                section_annotation = re.sub(r'^#+', '', line)
-            else:
-                line = '.'.join(section) + '.' + line
-                self.update(line)
+        self.insert_block(self.content)
 
     def update(self, args):
         """
@@ -645,6 +624,31 @@ class Config(VersatileTable):
                     key = content.strip()
                     value = None
                 self.dictdb.update_val(key=key, val=value, section=section)
+
+    def insert_block(self, block):
+        this_list = block.splitlines()
+        section = []
+        count_tag = defaultdict(int)
+        for line in this_list:
+            if line.rstrip() == '':
+                # Skip blank lines
+                continue
+            elif line.startswith('</'):
+                #End of xx block
+                section.pop()
+            elif line.startswith('<') and not line.startswith('<<'):
+                tag = parse('<{}>', line)
+                if tag in self.multiple_section_list:
+                    # Those allow multiple section with same name, so I'll rename them
+                    # so plots.plot will be automatically stored as plots.plot-1 for the first time.
+                    count_tag[tag] += 1
+                section.append("{}-{}".format(tag, count_tag[tag]))
+            elif line.startswith('#') or line.startswith(';'):
+                # Finding section annotation
+                section_annotation = re.sub(r'^#+', '', line)
+            else:
+                line = '.'.join(section) + '.' + line
+                self.update(line)
 
     def get_text(self):
         """

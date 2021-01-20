@@ -122,6 +122,7 @@ label_parallel   = yes
             fh.write(self.ideogram_conf)
 
     def add_hist(self, hist_file='', plot_type=''):
+        self.circos_conf.update('plots.plot')
 
     def plot(self):
 
