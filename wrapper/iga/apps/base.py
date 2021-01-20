@@ -433,6 +433,8 @@ class DictDb:
         if self.has_section:
             for section in self.dictdb:
                 return_text += ('[{}]'.format(section) + "\n")
+                logger.debug(section)
+                logger.debug(self.dictdb[section])
                 for k in self.dictdb[section]:
                     if self.dictdb[section][k] is not None:
                         return_text += ('{}{}{}'.format(k, seperator, self.dictdb[section][k]) + "\n")
