@@ -505,7 +505,7 @@ class VersatileTable:
                 (section, content) = parse('[{}]{}', this_arg)
             try:
                 logger.warning(content)
-                (key, value) = parse('{}' + self.seperator + '{}', content)
+                (key, value) = content.split(self.seperator)
                 key = key.strip()
                 value = value.strip()
             except ValueError as e:
