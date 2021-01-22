@@ -6,7 +6,7 @@ import re
 
 import coloredlogs
 
-from iga.annotation.gff import BED
+from iga.annotation.gff import BED, select_bed_by_name
 from iga.apps.base import emain, mkdir, Config, sh
 
 logger = logging.getLogger(__name__)
@@ -175,14 +175,21 @@ bedtools makewindows -g {0}.size -w {1} > {0}.window
 """
 
 
-def add_hist(gene_list=None, gene_bed=None, genome_fai=None, window_size=1000000):
-    gene_bed_obj = BED(gene_bed)
-    select_bed_text = gene_bed_obj.select_name(gene_list, format='bed')
-    select_bed_file = gene_list + '.bed'
-    with open(select_bed_file, 'w') as fh:
-        fh.write(select_bed_text)
+def fai_to_window(genome_fai=None, window_size=1000000):
     sh(fai_to_window_sh.format(genome_fai, window_size))
-    window_file = genome_fai+'.window'
+    return genome_fai + ".window"
+
+
+def get_hist(gene_list_file=None, gene_bed_file=None, genome_fai=None, window_size=1000000):
+    """
+    :param gene_list_file:
+    :param gene_bed_file:
+    :param genome_fai:
+    :param window_size:
+    :return:
+    """
+    select_bed_file = select_bed_by_name(gene_list_file, gene_bed_file)
+    window_file = fai_to_window(genome_fai, window_size)
     sh('bedtools intersect -a {} -b {} -c'.format(window_file, select_bed_file))
 
 

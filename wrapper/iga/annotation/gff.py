@@ -429,6 +429,18 @@ class BED:
             return return_text
 
 
+def select_bed_by_name(gene_list_file=None, gene_bed=None):
+    gene_bed_obj = BED(gene_bed)
+    gene_list = []
+    with open(gene_list_file) as fh:
+        for line in fh:
+            gene_list.apped(line.split()[0])
+    select_bed_text = gene_bed_obj.select_name(gene_list, format='bed')
+    select_bed_file = gene_list + '.bed'
+    with open(select_bed_file, 'w') as fh:
+        fh.write(select_bed_text)
+    return select_bed_text
+
 if __name__ == "__main__":
     emain()
 
