@@ -47,7 +47,8 @@ def anchors_to_segdups(anchors=None, gene_bed=None, select_block='F', block_size
                 orthoB_bed = gene_bed_data.select_name(orthoB)
                 seg_line_list = [orthoA_bed.chr, str(orthoA_bed.start), str(orthoA_bed.end),
                     orthoB_bed.chr, str(orthoB_bed.start), str(orthoB_bed.end)]
-                seg_dups_buff += "  ".join(seg_line_list) + "\n"
+                # seg_dups_buff += "  ".join(seg_line_list) + "\n"
+                block_buff += "  ".join(seg_line_list) + "\n"
         if block_buff != '':
             if block_gene_count >= block_size:
                 seg_dups_buff += block_buff
