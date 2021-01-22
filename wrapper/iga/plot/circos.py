@@ -28,7 +28,7 @@ def anchors_to_segdups(anchors=None, gene_bed=None):
     with open(anchors) as fh:
         for line in fh:
             if line.startswith('#'):
-                print(line.rstrip())
+                seg_dups_buff += line.rstrip()
                 continue
             mylist = line.split()
             (orthoA, orthoB) = mylist[:2]
