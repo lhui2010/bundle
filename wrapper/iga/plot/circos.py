@@ -54,9 +54,10 @@ def anchors_to_segdups(anchors=None, gene_bed=None, select_block='T'):
                     end_line = seg_list.pop()
                 start_list = start_line.split()
                 end_list = end_line.split()
-                logger.debug(line)
-                seg_dups_buff += "  ".join([start_list[0], start_line[1], end_list[2],
-                                            start_list[3], start_line[4], end_list[5]])
+                logger.debug(start_list)
+                logger.debug(end_list)
+                seg_dups_buff += "  ".join([start_list[0], start_list[1], end_list[2],
+                                            start_list[3], start_list[4], end_list[5]]) + "\n"
         with open(seg_dups_file, 'w') as fh:
             fh.write(seg_dups_buff)
     return seg_dups_file
