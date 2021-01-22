@@ -40,6 +40,7 @@ def anchors_to_segdups(anchors=None, gene_bed=None, select_block='T'):
             seg_dups_buff += "  ".join(seg_line_list) + "\n"
     if select_block == 'T':
         lines = re.split(r'#+', seg_dups_buff)
+        seg_dups_buff = ''
         for line in lines:
             if line.strip() == '':
                 continue
@@ -49,10 +50,8 @@ def anchors_to_segdups(anchors=None, gene_bed=None, select_block='T'):
                 end_line = seg_list[-1]
                 start_list = start_line.split()
                 end_list = end_line.split()
-                print("  ".join([start_list[0], start_line[1], end_list[2], start_list[3], start_line[4], end_list[5]]))
-
-
-    else:
+                seg_dups_buff += "  ".join([start_list[0], start_line[1], end_list[2],
+                                            start_list[3], start_line[4], end_list[5]])
         with open(seg_dups_file, 'w') as fh:
             fh.write(seg_dups_buff)
     return seg_dups_file
