@@ -509,3 +509,14 @@ format         = %d
 
 </ticks>
 """
+
+cfg['circos_heatmap_conf'] = """
+<plots>
+<plot>
+type  = heatmap
+file  = 
+r1    = 0.89r
+r0    = 0.88r
+</plot>
+</plots>
+ """

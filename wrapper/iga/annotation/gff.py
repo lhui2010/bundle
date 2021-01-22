@@ -432,6 +432,11 @@ class BED:
 
 
 def select_bed_by_name(gene_list_file=None, gene_bed=None):
+    """
+    :param gene_list_file: Input gene_list, just make sure the first column is gene name
+    :param gene_bed: Input gene bed files
+    :return: selected bed file name, usually gene_list_file.bed
+    """
     gene_bed_obj = BED(gene_bed)
     gene_list = []
     with open(gene_list_file) as fh:
@@ -441,7 +446,7 @@ def select_bed_by_name(gene_list_file=None, gene_bed=None):
     select_bed_file = gene_list_file + '.bed'
     with open(select_bed_file, 'w') as fh:
         fh.write(select_bed_text)
-    return select_bed_text
+    return select_bed_file
 
 
 if __name__ == "__main__":
