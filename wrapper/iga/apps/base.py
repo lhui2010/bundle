@@ -580,7 +580,7 @@ class Config(VersatileTable):
 
     def __init__(self, cfg_type):
         """
-        :param cfg_type: the name of the config file, maybe falcon or maker
+        :param cfg_type: the name of the config file, maybe falcon or maker; can also be the config file path
         :param format: 
         """
         # logger.debug(cfg_type)
@@ -588,14 +588,20 @@ class Config(VersatileTable):
         self.multiple_section_list = ['highlight', 'plot', 'link', 'zoom', 'tick',
                                      'pairwise', 'rule', 'axis', 'background']
         self.format = ''
-        if 'circos' in cfg_type:
-            #circos format is a bit weird, so handle it seperately
-            self.format = 'circos'
         try:
             self.content = cfg.cfg[cfg_type]
         except KeyError as e:
-            logger.error("Unknown type of cfg file: {}".format(cfg_type))
-            return 1
+            logger.error("Unknown type of cfg file: {}, try running in external load".format(cfg_type))
+            if op.exists(cfg_type):
+                with open(cfg_type) as fh:
+                    self.content = fh.read()
+            else:
+                logger.error("External config load error, exiting")
+                return 1
+        if 'circos' in cfg_type:
+            #circos format is a bit weird, so handle it seperately
+            self.format = 'circos'
+
         if self.format == '':
             super().__init__(self.content)
         elif self.format == 'circos':

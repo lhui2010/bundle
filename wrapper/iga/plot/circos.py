@@ -72,19 +72,38 @@ class Circos:
         Because it's a little complicated, I used class instead of simple sh.format().
     """
 
-    def __init__(self, karyotype_file):
+    def __init__(self, karyotype_file='', workdir=''):
+        """
+        :param karyotype_file: the karyotype file
+        :param workdir: assuming a circos directory exsists, only do modification
+        """
         self.karyotype = ''
         self.link = ''
         self.ideogram = ''
         self.hist = []
         self.cytogenetic_bands = ''
 
-        self.image_conf = Config('circos_image_conf')
-        self.background_conf = Config('circos_background_conf')
-        self.ideogram_conf = Config('circos_ideogram_conf')
-        self.ticks_conf = Config('circos_ticks_conf')
-        self.circos_conf = Config('circos')
-        self.circos_conf.update('karyotype={}'.format(karyotype_file))
+        if workdir != '':
+            """
+            Mode: modifying existing circos conf
+            """
+            self.image_conf = Config('{}/etc/image.conf'.format(workdir))
+            self.background_conf = Config('{}/etc/background.conf'.format(workdir))
+            self.ideogram_conf = Config('{}/ideogram.conf'.format(workdir))
+            self.ticks_conf = Config('{}/ticks.conf'.format(workdir))
+            self.circos_conf = Config('{}/circos.conf'.format(workdir))
+        else:
+            """
+            de novo plot
+            """
+            self.image_conf = Config('circos_image_conf')
+            self.background_conf = Config('circos_background_conf')
+            self.ideogram_conf = Config('circos_ideogram_conf')
+            self.ticks_conf = Config('circos_ticks_conf')
+            self.circos_conf = Config('circos')
+            if karyotype_file != '':
+                self.circos_conf.update('karyotype={}'.format(karyotype_file))
+            self.prepare_conf()
 
     def prepare_conf(self, hist_file=[], link_file=''):
         """
@@ -103,7 +122,6 @@ class Circos:
         self.circos_conf.update('plots.plot')
 
     def plot(self):
-        self.prepare_conf()
         sh('circos')
 
 
@@ -147,6 +165,25 @@ def circos(fai=None, gene_gff='', gene_bed='', repeat_gff='', ortholog=''):
     if repeat_gff != '':
         repeat_hist_file = gff_to_density(repeat_gff)
     circos_obj.plot()
+
+
+#0 fai file
+#1 window size
+fai_to_window_sh = """
+awk '{{print $1"\t"$2}}' {0} > {0}.size
+bedtools makewindows -g {0}.size -w {1} > {0}.window
+"""
+
+
+def add_hist(gene_list=None, gene_bed=None, genome_fai=None, window_size=1000000):
+    gene_bed_obj = BED(gene_bed)
+    select_bed_text = gene_bed_obj.select_name(gene_list, format='bed')
+    select_bed_file = gene_list + '.bed'
+    with open(select_bed_file, 'w') as fh:
+        fh.write(select_bed_text)
+    sh(fai_to_window_sh.format(genome_fai, window_size))
+    window_file = genome_fai+'.window'
+    sh('bedtools intersect -a {} -b {} -c'.format(window_file, select_bed_file))
 
 
 if __name__ == "__main__":

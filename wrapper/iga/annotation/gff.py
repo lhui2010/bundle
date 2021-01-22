@@ -410,11 +410,23 @@ class BED:
         :param format: loci|bed, loci will return the Loci object while bed will return text formated bed lines
         :return:
         """
-        this_loci = self.bed_dict[name]
-        if(format == 'loci'):
-            return this_loci
-        if(format == 'bed'):
-            return this_loci.get_line()
+        return_list = []
+        if '\n' in name:
+            name_list = name.splitlines()
+        else:
+            name_list = [name]
+        for this_name in name_list:
+            this_loci = self.bed_dict[this_name]
+            return_list.append(this_loci)
+        if format == 'loci':
+            if len(return_list) == 1:
+                return_list = return_list[0]
+            return return_list
+        if format == 'bed':
+            return_text = ''
+            for r in return_list:
+                return_text += r.get_line() + "\n"
+            return return_text
 
 
 if __name__ == "__main__":
