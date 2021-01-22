@@ -46,8 +46,12 @@ def anchors_to_segdups(anchors=None, gene_bed=None, select_block='T'):
                 continue
             else:
                 seg_list = line.splitlines()
-                start_line = seg_list[0]
-                end_line = seg_list[-1]
+                start_line = ''
+                while start_line == '':
+                    start_line = seg_list.pop(0)
+                end_line = ''
+                while end_line == '':
+                    end_line = seg_list.pop()
                 start_list = start_line.split()
                 end_list = end_line.split()
                 logger.debug(line)
