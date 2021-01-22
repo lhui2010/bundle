@@ -576,7 +576,6 @@ class Config(VersatileTable):
         A sub class inherated from Versatile Table that extend usage in following aspecects:
         1. Allow reading config template from cfg dictionary
         2. Allow handling html type tables (Currently only circos used this type, so not seperating it to another class)
-    TODO: error on circos get_text
     """
 
     def __init__(self, cfg_type):
