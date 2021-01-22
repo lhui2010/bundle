@@ -366,7 +366,7 @@ class Loci:
         return int(self.end) - int(self.start) + 1
 
     def get_line(self):
-        return "\t".join(self.chr, self.start, self.end, self.name, self.score, self.strand)
+        return "\t".join([self.chr, str(self.start), str(self.end), self.name, self.score, self.strand])
 
 
 class BED:
@@ -384,7 +384,7 @@ class BED:
     def load(self, bed):
         with open(bed) as fh:
             for line in fh:
-                (chr, start, end, name, score, strand) = [None] * 6
+                (chr, start, end, name, score, strand) = ['.'] * 6
                 mylist = line.rstrip().split('\t')
                 if len(mylist) >= 3:
                     (chr, start, end) = mylist[:3]
@@ -413,8 +413,10 @@ class BED:
         return_list = []
         if '\n' in name:
             name_list = name.splitlines()
-        else:
+        elif type(name) == str:
             name_list = [name]
+        else:
+            name_list = name
         for this_name in name_list:
             this_loci = self.bed_dict[this_name]
             return_list.append(this_loci)
@@ -434,12 +436,13 @@ def select_bed_by_name(gene_list_file=None, gene_bed=None):
     gene_list = []
     with open(gene_list_file) as fh:
         for line in fh:
-            gene_list.apped(line.split()[0])
+            gene_list.append(line.split()[0])
     select_bed_text = gene_bed_obj.select_name(gene_list, format='bed')
-    select_bed_file = gene_list + '.bed'
+    select_bed_file = gene_list_file + '.bed'
     with open(select_bed_file, 'w') as fh:
         fh.write(select_bed_text)
     return select_bed_text
+
 
 if __name__ == "__main__":
     emain()

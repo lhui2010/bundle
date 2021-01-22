@@ -185,7 +185,7 @@ def get_hist(gene_list_file=None, gene_bed_file=None, genome_fai=None, window_si
     :param gene_list_file:
     :param gene_bed_file:
     :param genome_fai:
-    :param window_size:
+    :param window_size: default 1000,000
     :return:
     """
     select_bed_file = select_bed_by_name(gene_list_file, gene_bed_file)
