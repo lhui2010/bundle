@@ -366,8 +366,6 @@ karyotype = data/karyotype/ol.karyotype
 
 chromosomes_units = 1000000
 
-<<include links.conf>>
-
 # The <ideogram> block defines the position, size, labels and other
 # properties of the segments on which data are drawn. These segments
 # are usually chromosomes, but can be any integer axis.
@@ -466,4 +464,48 @@ label_parallel   = yes
 
 </ideogram>
 
+"""
+
+cfg['circos_ticks_conf'] = """
+
+show_ticks          = yes
+show_tick_labels    = yes
+
+<ticks>
+radius           = 1r
+color            = black
+thickness        = 2p
+
+# the tick label is derived by multiplying the tick position
+# by 'multiplier' and casting it in 'format':
+#
+# sprintf(format,position*multiplier)
+#
+
+multiplier       = 1e-6
+
+# %d   - integer
+# %f   - float
+# %.1f - float with one decimal
+# %.2f - float with two decimals
+#
+# for other formats, see http://perldoc.perl.org/functions/sprintf.html
+
+format           = %d
+
+<tick>
+spacing        = 5u
+size           = 10p
+</tick>
+
+<tick>
+spacing        = 25u
+size           = 15p
+show_label     = yes
+label_size     = 20p
+label_offset   = 10p
+format         = %d
+</tick>
+
+</ticks>
 """

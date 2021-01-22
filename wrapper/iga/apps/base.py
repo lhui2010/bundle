@@ -463,11 +463,13 @@ class VersatileTable:
         vt.write_to_file()
     """
 
-    def __init__(self, content):
-        self.content = content
+    def __init__(self, content=''):
         self.seperator = '='
         self.dictdb = DictDb()
-        self.load()
+        self.content
+        if content != '':
+            self.content = content
+            self.load()
 
     def load(self):
         """
@@ -499,7 +501,7 @@ class VersatileTable:
         Different from change_val in dictdb, this allows input like :
         "[general]genomesize=12M;[general]threads=11"
         """
-        logger.debug('use_semicolon_sep: {}'.format(use_semicolon_sep))
+        # logger.debug('use_semicolon_sep: {}'.format(use_semicolon_sep))
         if use_semicolon_sep:
             mylist = args.split('\n;')
         else:
@@ -518,7 +520,7 @@ class VersatileTable:
                 value = value.strip()
             except ValueError as e:
                 # In case no seperator was found in the line
-                logger.warning("Treating {} as non-seperator lines".format(this_arg))
+                # logger.debug("Treating {} and {} as non-seperator lines".format(this_arg))
                 key = content.strip()
                 value = None
             #if section if null charactor, will not used by dictdb.change_val
@@ -574,6 +576,7 @@ class Config(VersatileTable):
         A sub class inherated from Versatile Table that extend usage in following aspecects:
         1. Allow reading config template from cfg dictionary
         2. Allow handling html type tables (Currently only circos used this type, so not seperating it to another class)
+    TODO: error on circos get_text
     """
 
     def __init__(self, cfg_type):
@@ -581,6 +584,8 @@ class Config(VersatileTable):
         :param cfg_type: the name of the config file, maybe falcon or maker
         :param format: 
         """
+        # logger.debug(cfg_type)
+        # logger.debug(cfg.cfg[cfg_type])
         self.multiple_section_list = ['highlight', 'plot', 'link', 'zoom', 'tick',
                                      'pairwise', 'rule', 'axis', 'background']
         self.format = ''
@@ -588,17 +593,20 @@ class Config(VersatileTable):
             #circos format is a bit weird, so handle it seperately
             self.format = 'circos'
         try:
-            content = cfg.cfg[cfg_type]
+            self.content = cfg.cfg[cfg_type]
         except KeyError as e:
             logger.error("Unknown type of cfg file: {}".format(cfg_type))
             return 1
         if self.format == '':
-            super().__init__(content)
+            super().__init__(self.content)
         elif self.format == 'circos':
+            super().__init__()
+            self.section_seperator='-+-'
             self.load_circos()
 
     def load_circos(self):
         # Seperator for tag and value, like tag=value is default
+        # logger.debug(self.content)
         self.insert_block(self.content)
 
     def update(self, args, use_semicolon_sep=True):
@@ -613,40 +621,58 @@ class Config(VersatileTable):
         elif self.format == 'circos':
             #like plots.plot.
             mylist = args.split(';')
-            section = None
+            section = ''
             for this_arg in mylist:
-                if '.' in this_arg:
-                    section = this_arg.split('.')
-                    content = section.pop()
-                    if section[-1] in self.multiple_section_list:
-                        #Automatically rename
-                        self.multiple_section_list[section[-1]] += 1
-                        section[-1] += '-{}'.format(self.multiple_section_list[section[-1]])
-                    section = '.'.join(section)
-                try:
-                    (key, value) = parse('{}' + self.seperator + '{}', content)
-                    key = key.strip()
-                    value = value.strip()
-                except ValueError as e:
-                    # In case no seperator was found in the line
-                    logger.warning("Treating {} as non-seperator lines".format(this_arg))
-                    key = content.strip()
-                    value = None
-                self.dictdb.update_val(key=key, val=value, section=section)
+                if re.search(r'{}'.format(self.section_seperator), this_arg):
+                    section = this_arg.split(self.section_seperator)
+                    key_value = section.pop()
+                    (key, value) = key_value.split(self.seperator)
+                    # if len(section) >= 1 and section[-1] in self.multiple_section_list:
+                    #     #Automatically rename
+                    #     self.multiple_section_list[section[-1]] += 1
+                    #     section[-1] += '-{}'.format(self.multiple_section_list[section[-1]])
+                    section = self.section_seperator.join(section)
+                else:
+                    content = this_arg
+                    try:
+                        (key, value) = content.split(self.seperator)
+                        key = key.strip()
+                        value = value.strip()
+                    except ValueError as e:
+                        # In case no seperator was found in the line
+                        logger.warning("Treating {} and {} as non-seperator lines".format(this_arg, content))
+                        key = content.strip()
+                        value = None
+                # logger.debug(this_arg)
+                # logger.debug(content)
+                # logger.debug('key{}val{}section{}'.format(key, value, section))
+                if section != '':
+                    key = "{}{}{}".format(section, self.section_seperator, key)
+                self.dictdb.update_val(key=key, val=value)
 
     def insert_block(self, block):
+        """
+        foramt "<abc>a=b</abc>" to abc-+-a=b" where -+- is seperator
+        :param block:
+        :return:
+        """
+        # logger.debug(block)
         this_list = block.splitlines()
         section = []
         count_tag = defaultdict(int)
         for line in this_list:
+            # logger.debug(line)
             if line.rstrip() == '':
                 # Skip blank lines
                 continue
             elif line.startswith('</'):
                 #End of xx block
+                # logger.debug(line)
+                # logger.debug(section)
                 section.pop()
-            elif line.startswith('<') and not line.startswith('<<'):
-                tag = parse('<{}>', line)
+            elif line.startswith('<') \
+                    and not line.startswith('<<'):
+                tag = parse('<{}>', line)[0]
                 if tag in self.multiple_section_list:
                     # Those allow multiple section with same name, so I'll rename them
                     # so plots.plot will be automatically stored as plots.plot-1 for the first time.
@@ -656,7 +682,9 @@ class Config(VersatileTable):
                 # Finding section annotation
                 section_annotation = re.sub(r'^#+', '', line)
             else:
-                line = '.'.join(section) + '.' + line
+                if len(section) > 0:
+                    line = self.section_seperator.join(section) + self.section_seperator + line
+                # logger.debug(line)
                 self.update(line)
 
     def get_text(self):
@@ -671,42 +699,60 @@ class Config(VersatileTable):
         elif self.format == 'circos':
             result_text = ''
             last_section = []
-            for k in self.dictdb.dictdb.keys():
-                if k is not None:
-                    this_section = k.split('.')
+            # logger.debug(self.dictdb.dictdb.keys())
+            for param, val in self.dictdb.dictdb.items():
+                if self.section_seperator in param:
+                    this_section = param.split(self.section_seperator)
+                    param = this_section.pop()
+                else:
+                    this_section = []
                     #First condition test on whether to print </tag> lines
-                    for last_index, last_s in enumerate(last_section):
-                        if len(this_section) > last_index and last_section[last_index] == this_section[last_index]:
-                            #"plots plots"
-                            pass
-                        else:
-                            #plots.plot1.rule1 plots.plot2
-                            #print(</rule1>\n</plot1>\n)
-                            for i in range(len(last_section)-1, last_index - 1):
-                                last_section[i] = re.sub(r'-.*', '', last_section[i])
-                                result_text += "</{}>\n".format(last_section.pop(i))
-                    # Second condition test on whether to print <tag> lines
-                    for this_index, this_s in enumerate(this_section):
-                        if len(last_section) > this_index and last_section[this_index] == this_section[this_index]:
-                            # "plots plots"
-                            pass
-                        else:
-                            #plots.plot1.rule1 plots.plot2.rule2
-                            #print(<plot2>\n<rule2>\n)
-                            for i in range(this_index, len(this_section)):
-                                this_section[i] = re.sub(r'-.*', '', this_section[i])
-                                result_text += "<{}>\n".format(this_section[i])
-                for param, val in self.dictdb.dictdb[k].items():
-                    if val is None:
-                        #<<include ideogram.conf>> lines
-                        result_text += "{}\n".format(param)
-                    else:
-                        result_text += "{}{}{}\n".format(param, self.seperator, val)
+                result_text += self.get_circos_section(last_section, this_section)
+                last_section = this_section
+                # logger.debug(self.dictdb.dictdb)
+                if val is None:
+                    #<<include ideogram.conf>> lines
+                    result_text += "{}\n".format(param)
+                else:
+                    result_text += "{}{}{}\n".format(param, self.seperator, val)
             if len(last_section) > 0:
-                last_section.reverse()
-                for i in last_section:
-                    i = re.sub(r'-.*', '', i)
-                    result_text += "</{}>\n".format(i)
+                result_text += self.get_circos_section(last_section, [])
+        return result_text
+
+    @staticmethod
+    def get_circos_section(last_section, this_section):
+        # logger.debug('last_section')
+        # logger.debug(last_section)
+        # logger.debug('this_section')
+        # logger.debug(this_section)
+        result_text = ''
+        for last_index, last_s in enumerate(last_section):
+            # logger.debug('printing last section')
+            if len(this_section) > last_index and \
+                    last_section[last_index] == this_section[last_index]:
+                # "plots plots"
+                pass
+            else:
+                # plots.plot1.rule1 plots.plot2
+                # print(</rule1>\n</plot1>\n)
+                for i in range(len(last_section) - 1, last_index - 1, -1):
+                    last_section[i] = re.sub(r'[-\s].*', '', last_section[i])
+                    result_text += "</{}>\n".format(last_section.pop(i))
+                break
+        # Second condition test on whether to print <tag> lines
+        for this_index, this_s in enumerate(this_section):
+            # logger.debug('printing this section')
+            if len(last_section) > this_index and \
+                    last_section[this_index] == this_section[this_index]:
+                # "plots plots"
+                pass
+            else:
+                # plots.plot1.rule1 plots.plot2.rule2
+                # print(<plot2>\n<rule2>\n)
+                for i in range(this_index, len(this_section)):
+                    tmp = re.sub(r'[-].*', '', this_section[i])
+                    result_text += "<{}>\n".format(tmp)
+                break
         return result_text
 
     def write_to_file(self, output_file):
