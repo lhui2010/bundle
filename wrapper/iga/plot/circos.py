@@ -34,8 +34,8 @@ def anchors_to_segdups(anchors=None, gene_bed=None):
             (orthoA, orthoB) = mylist[:2]
             orthoA_bed = gene_bed_data.select_name(orthoA)
             orthoB_bed = gene_bed_data.select_name(orthoB)
-            seg_line_list = [orthoA_bed.chr, orthoA_bed.start, orthoA_bed.end,
-                orthoB_bed.chr, orthoB_bed.start, orthoB_bed.end]
+            seg_line_list = [orthoA_bed.chr, str(orthoA_bed.start), str(orthoA_bed.end),
+                orthoB_bed.chr, str(orthoB_bed.start), str(orthoB_bed.end)]
             seg_dups_buff += "  ".join(seg_line_list) + "\n"
     with open(seg_dups_file, 'w') as fh:
         fh.write(seg_dups_buff)
