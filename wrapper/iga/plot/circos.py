@@ -27,6 +27,7 @@ def anchors_to_segdups(anchors=None, gene_bed=None, select_block='F', block_size
     # Read anchors and output anchors with bed information
     seg_dups_file = anchors + 'seg_dups.txt'
     seg_dups_buff = ''
+    block_size = int(block_size)
     with open(anchors) as fh:
         block_buff = ''
         block_gene_count = 0
