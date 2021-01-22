@@ -386,7 +386,7 @@ class BED:
             for line in fh:
                 (chr, start, end, name, score, strand) = [None] * 6
                 mylist = line.rstrip().split('\t')
-                if len(mylist) == 3:
+                if len(mylist) >= 3:
                     (chr, start, end) = mylist[:3]
                     for i in range(3):
                         mylist.pop(0)
