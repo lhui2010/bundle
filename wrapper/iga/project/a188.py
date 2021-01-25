@@ -191,21 +191,22 @@ class BedPE:
         # print(df.describe())
         print("\t", end='')
         for h in header:
-            print(h.ljust(12), end='')
+            print(h.ljust(15), end='')
+        print('')
 
         print("max", end="\t")
         for i in range(0, len(header)):
-            print("{:12}".format(max(tables[i])), end='\t')
+            print("{:15}".format(max(tables[i])), end='\t')
         print('')
 
         print("mean", end="\t")
         for i in range(0, len(header)):
-            print("{:12}".format(int(mean(tables[i]))), end='\t')
+            print("{:15}".format(int(mean(tables[i]))), end='\t')
         print('')
 
         print("sum", end="\t")
         for i in range(0, len(header)):
-            print(":12".format(sum(tables[i])), end='\t')
+            print(":15".format(sum(tables[i])), end='\t')
         print('')
 
         # for i, v in enumerate(header):
