@@ -191,7 +191,7 @@ class BedPE:
         # print(df.describe())
         print("\t", end='')
         for h in header:
-            print(h.ljust(15), end='')
+            print(("{:<15".format(h), end='')
         print('')
 
         print("max", end="\t")
