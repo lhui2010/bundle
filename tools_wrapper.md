@@ -462,3 +462,7 @@ singularity shell pasapipeline_latest.sif
 #### obsutil
 
 obsutil share-cp ${TOKEN} ./  -ac=123456 -f -r  2>&1 | tee download.log
+
+#### distmat
+
+distmat -sequence total.aln -nucmethod 2 -outfile total.aln.distmat

@@ -28,15 +28,17 @@ export HISTSIZE=200000000
 export HISTFILESIZE=500000000
 
 source /lustre/home/liuhui/bin/bundle/lh_bin/cdf.sh
+export BD=/lustre/home/liuhui/bin/bundle
 
 alias tma='tmux a'
+alias gtp="cd $BD && git pull && cd -"
 alias ls='ls --color=tty'
 alias bs='bash'
 alias les='less -SN'
 alias lese='less -SN'
 alias ll='ls -hl'                              # long list
 alias lt='ls -lth'
-alias lth='ls -lth |head -10'
+alias lth='ls -lth |head -30'
 alias lthh='ls -lth |head -20'
 #alias rm='rm -i'
 alias vi='~/bin/anaconda3/bin/vim'
@@ -244,7 +246,6 @@ export MAFFT_BINARIES=~/bin/anaconda3/envs/aligners/lib/t_coffee-11.0.8/plugins/
 
 export PATH=/lustre/home/liuhui/bin/pal2nal.v14:$PATH
 export PATH=/lustre/home/liuhui/bin/bundle:$PATH
-export BD=/lustre/home/liuhui/bin/bundle
 export HB=$BD/lh_bin
 export PATH=$HB:$PATH
 alias vw="vim $BD/tools_wrapper.md"
@@ -329,3 +330,4 @@ export PATH=/lustre/home/liuhui/bin/bwa:$PATH
 export PATH=/lustre/home/liuhui/bin/genblast_v139:$PATH
 export GBLAST_PATH=/lustre/home/liuhui/bin/genblast_v139
 export PATH=/lustre/home/liuhui/bin/lastz-1.04.03/src:$PATH
+export PATH=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin:$PATH
