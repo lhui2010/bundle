@@ -189,21 +189,23 @@ class BedPE:
 
         # df = pd.DataFrame(np.array(tables), columns=header)
         # print(df.describe())
-        print("\t" + "\t".join(header))
+        print("\t", end='')
+        for h in header:
+            print(h.ljust(12), end='')
 
         print("max", end="\t")
         for i in range(0, len(header)):
-            print(max(tables[i]), end='\t')
+            print("{:12}".format(max(tables[i])), end='\t')
         print('')
 
         print("mean", end="\t")
         for i in range(0, len(header)):
-            print(int(mean(tables[i])), end='\t')
+            print("{:12}".format(int(mean(tables[i]))), end='\t')
         print('')
 
         print("sum", end="\t")
         for i in range(0, len(header)):
-            print(sum(tables[i]), end='\t')
+            print(":12".format(sum(tables[i])), end='\t')
         print('')
 
         # for i, v in enumerate(header):
