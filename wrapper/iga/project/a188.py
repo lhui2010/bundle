@@ -184,7 +184,7 @@ class BedPE:
 
         pd.set_option('display.float_format', lambda x: '%.0f' % x)
 
-        header = ['Left', 'Right', "Left Insertion", "Right Insertion", "Left Mosaic", "Right Mosaic"]
+        header = ['Left', 'Right', "LeftIns", "RightIns", "Left Mosaic", "Right Mosaic"]
         tables = [size_list_left, size_list_right, size_left_ins, size_right_ins, size_unknown_left, size_unknown_right]
 
         # df = pd.DataFrame(np.array(tables), columns=header)
