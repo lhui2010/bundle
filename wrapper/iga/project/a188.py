@@ -155,9 +155,10 @@ class BedPE:
                                  right_chr, right_start, right_end, right_strand, name)
                 self.bedpe_db[left_chr].append(this_lp)
 
-    def stat(self):
+    def stat(self, short):
         """
         stat bedpe size
+        :param short:, whether to use short format, T is use
         :return:
         """
         size_list_left = []
@@ -189,25 +190,29 @@ class BedPE:
 
         # df = pd.DataFrame(np.array(tables), columns=header)
         # print(df.describe())
-        print("\t", end='')
-        for h in header:
-            print("{:<15}".format(h), end='')
-        print('')
+        if short == 'T':
+            print("{}\t{}".format(tables[0], tables[1]), end='\t')
+        else:
+            print("\t", end='')
+            for h in header:
+                print("{:<15}".format(h), end='')
+            print('')
 
-        print("max", end="\t")
-        for i in range(0, len(header)):
-            print("{:<15}".format(max(tables[i])), end='\t')
-        print('')
+            print("max", end="\t")
+            for i in range(0, len(header)):
+                print("{:<15}".format(max(tables[i])), end='\t')
+            print('')
 
-        print("mean", end="\t")
-        for i in range(0, len(header)):
-            print("{:<15}".format(int(mean(tables[i]))), end='\t')
-        print('')
+            print("mean", end="\t")
+            for i in range(0, len(header)):
+                print("{:<15}".format(int(mean(tables[i]))), end='\t')
+            print('')
 
-        print("sum", end="\t")
-        for i in range(0, len(header)):
-            print("{:<15}".format(sum(tables[i])), end='\t')
-        print('')
+            print("sum", end="\t")
+            for i in range(0, len(header)):
+                print("{:<15}".format(sum(tables[i])), end='\t')
+            print('')
+        return 0
 
         # for i, v in enumerate(header):
         #     print(header[i])
@@ -253,14 +258,14 @@ class BedPE:
             print(result, end='')
 
 
-def stat_bed(bedpe_file=None):
+def stat_bed(bedpe_file=None, short='F'):
     """
     stat bedpe file
     :param bedpe_file:
     :return:
     """
     bedpe = BedPE(bedpe_file)
-    bedpe.stat()
+    bedpe.stat(short)
 
 
 def synal_to_mosaic(synal_file=None):
