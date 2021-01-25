@@ -1,6 +1,8 @@
 """
 GFF relevant utils
 """
+import os
+import sys
 from collections import OrderedDict, defaultdict
 from itertools import chain
 
@@ -447,6 +449,35 @@ def select_bed_by_name(gene_list_file=None, gene_bed=None):
     with open(select_bed_file, 'w') as fh:
         fh.write(select_bed_text)
     return select_bed_file
+
+
+def sum_bed(bed_file=None):
+    """
+    Input:
+        chrUN   0       100000  99
+        chrUN   0       100000  99
+        chrUN   0       100000  99
+    Output:
+        chrUN   0       100000  297
+    :param bed_file:
+    :return:
+    """
+    dict_abc = defaultdict(int)
+    if os.path.exists(bed_file):
+        with open(bed_file) as fh:
+            buffer = fh.read()
+    elif bed_file == '-':
+        buffer = sys.stdin.read()
+    else:
+        logger.error("INPUT error: {}\nEither '-' or a real file input is supported".format(bed_file))
+        return 1
+    for line in buffer.splitlines():
+        mylist = line.strip().split()
+        this_key = "\t".join(mylist[0:3])
+        this_value = int(mylist[3])
+        dict_abc[this_key] += this_value
+    for k in dict_abc:
+        print("{}\t{}".format(k, dict_abc[k]))
 
 
 if __name__ == "__main__":
