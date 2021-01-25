@@ -105,8 +105,8 @@ class LociPE:
 
     def __init__(self, left_chr, left_start, left_end, left_strand,
                  right_chr, right_start, right_end, right_strand, name):
-        self.left = Loci(left_chr, left_start, left_end, name, left_strand)
-        self.right = Loci(right_chr, right_start, right_end, name, right_strand)
+        self.left = Loci(left_chr, left_start, left_end, name, '.', left_strand)
+        self.right = Loci(right_chr, right_start, right_end, name, '.', right_strand)
 
     def get_line(self):
         """
@@ -141,8 +141,6 @@ class BedPE:
         """
         with open(input_file) as fh:
             for line in fh:
-                left_strand = '.'
-                right_strand = '.'
                 mylist = line.rstrip().split()
                 if self.type == 'syri':
                     (left_chr, left_start, left_end, undef, undef,
