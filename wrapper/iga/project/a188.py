@@ -141,6 +141,8 @@ class BedPE:
         """
         with open(input_file) as fh:
             for line in fh:
+                left_strand = '.'
+                right_strand = '.'
                 mylist = line.rstrip().split()
                 if self.type == 'syri':
                     (left_chr, left_start, left_end, undef, undef,
