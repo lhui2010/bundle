@@ -198,7 +198,7 @@ class BedPE:
 
         print("mean", end="\t")
         for i in range(0, len(header)):
-            print(mean(tables[i]), end='\t')
+            print(int(mean(tables[i])), end='\t')
         print('')
 
         print("sum", end="\t")
