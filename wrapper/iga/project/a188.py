@@ -196,17 +196,17 @@ class BedPE:
 
         print("max", end="\t")
         for i in range(0, len(header)):
-            print("{:15}".format(max(tables[i])), end='\t')
+            print("{15:}".format(max(tables[i])), end='\t')
         print('')
 
         print("mean", end="\t")
         for i in range(0, len(header)):
-            print("{:15}".format(int(mean(tables[i]))), end='\t')
+            print("{15:}".format(int(mean(tables[i]))), end='\t')
         print('')
 
         print("sum", end="\t")
         for i in range(0, len(header)):
-            print(":15".format(sum(tables[i])), end='\t')
+            print("{15:}".format(sum(tables[i])), end='\t')
         print('')
 
         # for i, v in enumerate(header):
