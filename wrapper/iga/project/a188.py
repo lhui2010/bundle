@@ -191,7 +191,7 @@ class BedPE:
         # df = pd.DataFrame(np.array(tables), columns=header)
         # print(df.describe())
         if short == 'T':
-            print("{}\t{}".format(sum(tables[0]), sum(tables[1])), end='\t')
+            print("{}\t{}".format(sum(tables[0]), sum(tables[1])))
         else:
             print("\t", end='')
             for h in header:
