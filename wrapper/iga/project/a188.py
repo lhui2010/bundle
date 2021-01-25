@@ -2,6 +2,7 @@
 code used in A188 project
 """
 from collections import defaultdict
+from statistics import mean
 
 import pandas as pd
 
@@ -188,11 +189,23 @@ class BedPE:
 
         # df = pd.DataFrame(np.array(tables), columns=header)
         # print(df.describe())
-        print("\t".join(header))
+        print("\t" + "\t".join(header))
+
+        print("max", end="\t")
         for i in range(0, len(header)):
-            #df = pd.DataFrame(tables[i])
+            print(max(tables[i]), end='\t')
+        print('')
+
+        print("mean", end="\t")
+        for i in range(0, len(header)):
+            print(mean(tables[i]), end='\t')
+        print('')
+
+        print("sum", end="\t")
+        for i in range(0, len(header)):
             print(sum(tables[i]), end='\t')
         print('')
+
         # for i, v in enumerate(header):
         #     print(header[i])
         #     if len(tables[i]) < 1:
