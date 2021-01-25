@@ -188,12 +188,17 @@ class BedPE:
 
         # df = pd.DataFrame(np.array(tables), columns=header)
         # print(df.describe())
-        for i, v in enumerate(header):
-            print(header[i])
-            if len(tables[i]) < 1:
-                continue
+        print("\t".join(header))
+        for i in range(0, len(header)):
             df = pd.DataFrame(tables[i])
-            print(df.describe())
+            print(df.sum(), end = '\t')
+        print('')
+        # for i, v in enumerate(header):
+        #     print(header[i])
+        #     if len(tables[i]) < 1:
+        #         continue
+        #     df = pd.DataFrame(tables[i])
+        #     print(df.describe())
 
     def get_mosaic(self, outtable=''):
         """
