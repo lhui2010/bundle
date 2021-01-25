@@ -190,8 +190,8 @@ class BedPE:
         # print(df.describe())
         print("\t".join(header))
         for i in range(0, len(header)):
-            df = pd.DataFrame(tables[i])
-            print(df.sum(), end = '\t')
+            #df = pd.DataFrame(tables[i])
+            print(sum(tables[i]), end='\t')
         print('')
         # for i, v in enumerate(header):
         #     print(header[i])
