@@ -307,10 +307,11 @@ def mosaic_ratio(fai=None, stat=None):
     # PH207.genome.chr10.W22.genome.chr10.syri.out.mosaic.stat
     mylist = parse("{}.genome.chr{}.{}.genome.{}.syri.out.mosaic.stat", stat)
     tag = "{}-{}-{}".format(mylist[0], mylist[2], mylist[1])
-    left_chr = "{}_{}".format(mylist[0],mylist[1])
+    left_chr = "{}_{}".format(mylist[0], mylist[1])
     right_chr = "{}_{}".format(mylist[2], mylist[1])
-    print("{}\t{}\t{}\t{}\t{}".format(tag, left_mosaic_size, right_mosaic_size,
-                                      chr_size[left_chr], chr_size[right_chr]))
+    ratio = (int(left_mosaic_size) + int(right_mosaic_size))/(chr_size[left_chr] + chr_size[right_chr])
+    print("\t".join([tag, left_mosaic_size, right_mosaic_size,
+                     chr_size[left_chr], chr_size[right_chr], ratio]))
 
 
 if __name__ == "__main__":
