@@ -310,7 +310,7 @@ def mosaic_ratio(fai=None, stat=None):
     left_chr = "{}_{}".format(mylist[0], mylist[1])
     right_chr = "{}_{}".format(mylist[2], mylist[1])
     ratio = (int(left_mosaic_size) + int(right_mosaic_size)) / (chr_size[left_chr] + chr_size[right_chr])
-    print("{}\t{}\t{}\t{}\t{}\t{:.2f}".format(tag, left_mosaic_size, right_mosaic_size,
+    print("{}\t{}\t{}\t{}\t{}\t{0:.0%}".format(tag, left_mosaic_size, right_mosaic_size,
                                               chr_size[left_chr], chr_size[right_chr], ratio))
 
 
