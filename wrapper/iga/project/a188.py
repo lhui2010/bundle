@@ -314,5 +314,36 @@ def mosaic_ratio(fai=None, stat=None):
                                               chr_size[left_chr], chr_size[right_chr], ratio))
 
 
+def chromosome_level_ratio(stat=None):
+    """
+    Run this function after
+    `$for i in *stat; do python -m iga.project.a188 mosaic_ratio total.fai $i >> mosaic_ratio_stat.txt; done`
+    Input eg:
+        A188-B73-10     66760136        70522917        146705344       150982314       46.1%
+        A188-Mo17-10    70611181        72223243        146705344       149041351       48.3%
+        A188-PH207-10   76993877        74673644        146705344       145727586       51.9%
+        A188-SK-10      73901986        75129013        146705344       148363080       50.5%
+    :param stat: mosaic_ratio_stat.txt
+    :return:
+    """
+    cmp_dict1 = defaultdict(int)
+    cmp_dict2 = defaultdict(int)
+    cmp_dict3 = defaultdict(int)
+    cmp_dict4 = defaultdict(int)
+    with open(stat) as fh:
+        for line in fh:
+            (tag, l_mosaic_size, r_mosaic_size, l_chr_size, r_chr_size, ratio) = line.split()
+            (l_id, r_id, chr_id) = parse(tag)
+            chr_tag = l_id + '-' + r_id
+            cmp_dict1[chr_tag] += int(l_mosaic_size)
+            cmp_dict2[chr_tag] += int(r_mosaic_size)
+            cmp_dict3[chr_tag] += int(l_chr_size)
+            cmp_dict4[chr_tag] += int(r_chr_size)
+    for k in cmp_dict1:
+        print("\t".join([k, cmp_dict1[k], cmp_dict2[k], cmp_dict3[k], cmp_dict4[k]]))
+
+
+
+
 if __name__ == "__main__":
     emain()
