@@ -333,7 +333,7 @@ def chromosome_level_ratio(stat=None):
     with open(stat) as fh:
         for line in fh:
             (tag, l_mosaic_size, r_mosaic_size, l_chr_size, r_chr_size, ratio) = line.split()
-            (l_id, r_id, chr_id) = parse(tag)
+            (l_id, r_id, chr_id) = tag.split('-')
             chr_tag = l_id + '-' + r_id
             cmp_dict1[chr_tag] += int(l_mosaic_size)
             cmp_dict2[chr_tag] += int(r_mosaic_size)
