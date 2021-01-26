@@ -341,7 +341,7 @@ def chromosome_level_ratio(stat=None):
             cmp_dict4[chr_tag] += int(r_chr_size)
     for k in cmp_dict1:
         ratio = (cmp_dict1[k] + cmp_dict2[k]) / (cmp_dict3[k] + cmp_dict4[k])
-        print("{}\t{}\t{}\t{}\t{:.2%}".format(k, cmp_dict1[k], cmp_dict2[k], cmp_dict3[k], cmp_dict4[k], ratio))
+        print("{0}\t{1}\t{2}\t{3}\t{4}\t{5:.2%}".format(k, cmp_dict1[k], cmp_dict2[k], cmp_dict3[k], cmp_dict4[k], ratio))
 
 
 
