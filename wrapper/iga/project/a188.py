@@ -5,6 +5,7 @@ from collections import defaultdict
 from statistics import mean
 
 import pandas as pd
+from parse import parse
 
 from iga.annotation.gff import Loci
 from iga.apps.base import emain, qsub, get_prefix
@@ -286,6 +287,30 @@ def synal_to_mosaic(synal_file=None):
     """
     bedpe = BedPE(synal_file, type='syri')
     bedpe.get_mosaic()
+
+
+def mosaic_ratio(fai=None, stat=None):
+    """
+    Calculate mosaic ratio based on mosaic region size and chromosome size
+    :param fai: chromosome size
+    :param stat: mosaic ratio (format: left_mosaic_size\tright_mosaic_size)
+    :return:
+    """
+    chr_size = {}
+    with open(fai) as fh:
+        for line in fh:
+            mylist = line.split()
+            chr_size[mylist[0]] = int(mylist[1])
+    with open(stat) as fh:
+        line = fh.readline()
+        (left_mosaic_size, right_mosaic_size) = line.strip().split()
+    # PH207.genome.chr10.W22.genome.chr10.syri.out.mosaic.stat
+    mylist = parse("{}.genome.chr{}.{}.genome.{}.syri.out.mosaic.stat", stat)
+    tag = "{}-{}-{}".format(mylist[0], mylist[2], mylist[1])
+    left_chr = "{}_{}".format(mylist[0],mylist[1])
+    right_chr = "{}_{}".format(mylist[2], mylist[1])
+    print("{}\t{}\t{}\t{}\t{}".format(tag, left_mosaic_size, right_mosaic_size,
+                                      chr_size[left_chr], chr_size[right_chr]))
 
 
 if __name__ == "__main__":
