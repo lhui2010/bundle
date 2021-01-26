@@ -340,7 +340,7 @@ def chromosome_level_ratio(stat=None):
             cmp_dict3[chr_tag] += int(l_chr_size)
             cmp_dict4[chr_tag] += int(r_chr_size)
     for k in cmp_dict1:
-        print("\t".join([k, cmp_dict1[k], cmp_dict2[k], cmp_dict3[k], cmp_dict4[k]]))
+        print("{}\t{}\t{}\t{}\t{}".format(k, cmp_dict1[k], cmp_dict2[k], cmp_dict3[k], cmp_dict4[k]))
 
 
 
