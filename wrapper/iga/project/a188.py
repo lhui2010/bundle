@@ -288,6 +288,7 @@ def synal_to_mosaic(synal_file=None, syriout='F'):
     """
     if syriout == 'T':
         sh("grep SYNAL {0} > {0}.synal".format(synal_file))
+        synal_file += '.synal'
     bedpe = BedPE(synal_file, type='syri')
     bedpe.get_mosaic()
 
