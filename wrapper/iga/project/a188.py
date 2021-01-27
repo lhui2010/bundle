@@ -8,7 +8,7 @@ import pandas as pd
 from parse import parse
 
 from iga.annotation.gff import Loci
-from iga.apps.base import emain, qsub, get_prefix
+from iga.apps.base import emain, qsub, get_prefix, sh
 
 import logging
 import coloredlogs
@@ -269,7 +269,7 @@ def stat_bed(bedpe_file=None, short='F'):
     bedpe.stat(short)
 
 
-def synal_to_mosaic(synal_file=None):
+def synal_to_mosaic(synal_file=None, syriout='F'):
     """
     %s syri.synal.txt > syri.unsynal.txt
     convert lastz result to bedpe like result by complementing syntenic regions
@@ -282,9 +282,12 @@ def synal_to_mosaic(synal_file=None):
     Output eg:
     A188_2  3092    12473    -       -       B73_2   14332   31211   NONSYNAL1  SYN1    SYNAL   -
     A188_2  16886   16892   -       -       B73_2   35641   37258    NONSYNAL2  SYN2    SYNAL   -
-    :param lastz:
+    :param synal_file: Input alignment file
+    :param syriout: [F/T] whether this is syri.out file
     :return:
     """
+    if syriout == 'T':
+        sh("grep SYNAL {0} > {0}.synal".format(synal_file))
     bedpe = BedPE(synal_file, type='syri')
     bedpe.get_mosaic()
 
@@ -341,9 +344,8 @@ def chromosome_level_ratio(stat=None):
             cmp_dict4[chr_tag] += int(r_chr_size)
     for k in cmp_dict1:
         ratio = (cmp_dict1[k] + cmp_dict2[k]) / (cmp_dict3[k] + cmp_dict4[k])
-        print("{0}\t{1}\t{2}\t{3}\t{4}\t{5:.2%}".format(k, cmp_dict1[k], cmp_dict2[k], cmp_dict3[k], cmp_dict4[k], ratio))
-
-
+        print("{0}\t{1}\t{2}\t{3}\t{4}\t{5:.2%}".format(k, cmp_dict1[k], cmp_dict2[k],
+                                                        cmp_dict3[k], cmp_dict4[k], ratio))
 
 
 if __name__ == "__main__":
