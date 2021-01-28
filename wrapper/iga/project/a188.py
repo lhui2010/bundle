@@ -151,10 +151,15 @@ class BedPE:
                      right_chr, right_start, right_end, name, name1, align_type, undef) = mylist
                     left_strand = '+'
                     right_strand = '+'
+                    #Default input for syri is 1-based for both start and end, so have a change to bedpe type
+                    right_start = int(right_start) - 1
+                    left_start  = int(left_start) - 1
                 elif self.type == 'bedpe':
+                    # [0-based start, 0-based end)
                     (left_chr, left_start, left_end, right_chr, right_start, right_end, name,
                      undef, left_strand, right_strand) = mylist[0:10]
                 elif self.type == 'lastz':
+                    # lastz is also compatible with bed format: [0-based start, 0-based end)
                     # name1  zstart1 end1 name2   strand2 zstart2+  end2+ identity idPct coverage covPct  cigarx-
                     (left_chr, left_start, left_end, right_chr, right_strand, right_start, right_end,
                      identity, idcPct, coverage, covPct, cigarx) = mylist
@@ -257,8 +262,6 @@ class BedPE:
                     if right_end <= right_start:
                         right_end = right_start
                     # From now, 1-based is transformed into 0-based start and 1-based end.
-                    right_start -= 1
-                    left_start -= 1
                     new_lp = LociPE(chr_lp[i - 1].left.chr, left_start, left_end,
                                     chr_lp[i - 1].left.strand,
                                     chr_lp[i - 1].right.chr, right_start, right_end,
