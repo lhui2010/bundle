@@ -176,8 +176,8 @@ class BedPE:
                             (self.bedpe_db[left_chr][-2].left.end < this_lp.left.start and
                              self.bedpe_db[left_chr][-2].right.end < this_lp.right.start):
                         self.bedpe_db[left_chr].pop()
-                    elif len(self.bedpe_db[left_chr]) >= 1 and \
-                            self.bedpe_db[left_chr][-1].left.end < this_lp.left.start and \
+                    elif len(self.bedpe_db[left_chr]) < 1 or \
+                        self.bedpe_db[left_chr][-1].left.end < this_lp.left.start and \
                             self.bedpe_db[left_chr][-1].right.end < this_lp.right.end:
                         self.bedpe_db[left_chr].append(this_lp)
                 else:
