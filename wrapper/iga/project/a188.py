@@ -168,6 +168,14 @@ class BedPE:
 
                 this_lp = LociPE(left_chr, left_start, left_end, left_strand,
                                  right_chr, right_start, right_end, right_strand, name)
+                if self.type == 'lastz':
+                    # TODO just a tempory fix for nonincrement alignment
+                    if len(self.bedpe_db[left_chr]) >= 2 and \
+                            (self.bedpe_db[left_chr][-1].left.end >  this_lp.left.start or
+                             self.bedpe_db[left_chr][-1].right.end > this_lp.right.start) and \
+                            (self.bedpe_db[left_chr][-2].left.end <  this_lp.left.start and
+                             self.bedpe_db[left_chr][-2].right.end < this_lp.right.start):
+                        self.bedpe_db[left_chr].pop()
                 self.bedpe_db[left_chr].append(this_lp)
 
     def stat(self, short):
@@ -267,13 +275,6 @@ class BedPE:
                                     chr_lp[i - 1].left.strand,
                                     chr_lp[i - 1].right.chr, right_start, right_end,
                                     chr_lp[i - 1].right.strand, "NOT" + chr_lp[i - 1].right.name)
-                    # TODO just a tempory fix for nonincrement alignment
-                    if len(complement_db.bedpe_db[chr_id]) >= 2 and \
-                            (complement_db.bedpe_db[chr_id][-1].left.end > new_lp.left.start or
-                             complement_db.bedpe_db[chr_id][-1].right.end > new_lp.right.start) and \
-                            (complement_db.bedpe_db[chr_id][-2].left.end < new_lp.left.start and
-                             complement_db.bedpe_db[chr_id][-2].right.end < new_lp.right.start):
-                        complement_db.bedpe_db[chr_id].pop()
                     complement_db.bedpe_db[chr_id].append(new_lp)
         complement_db.write_to_table(outtable)
 
