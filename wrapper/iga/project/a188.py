@@ -416,7 +416,7 @@ def split_by_tag(table=None, column=None):
             table_dict[mylist[column]] += line
     for k in table_dict.keys():
         new_name = table + '.' + k
-        with open(new_name) as fh:
+        with open(new_name, 'w') as fh:
             fh.write(table_dict[k])
 
 
