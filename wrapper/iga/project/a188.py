@@ -401,7 +401,7 @@ def chromosome_level_ratio(stat=None):
                                                         cmp_dict3[k], cmp_dict4[k], ratio))
 
 
-def split_by_tag(table=None, colum=None):
+def split_by_tag(table=None, column=None):
     """
     split table by column
     :param table: 0-based
@@ -409,10 +409,11 @@ def split_by_tag(table=None, colum=None):
     :return:
     """
     table_dict = defaultdict(str)
+    column = int(column)
     with open(table) as fh:
         for line in fh:
             mylist = line.strip().split()
-            table_dict[mylist[colum]] += line
+            table_dict[mylist[column]] += line
     for k in table_dict.keys():
         new_name = table + '.' + k
         with open(new_name) as fh:
