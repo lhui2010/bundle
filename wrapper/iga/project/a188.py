@@ -269,10 +269,10 @@ class BedPE:
                                     chr_lp[i - 1].right.strand, "NOT" + chr_lp[i - 1].right.name)
                     # TODO just a tempory fix for nonincrement alignment
                     if len(complement_db.bedpe_db[chr_id]) >= 2 and \
-                            (complement_db.bedpe_db[chr_id][-1].left.start > new_lp.left.start or
-                             complement_db.bedpe_db[chr_id][-1].right.start > new_lp.right.start) and \
-                            (complement_db.bedpe_db[chr_id][-2].left.start < new_lp.left.start and
-                             complement_db.bedpe_db[chr_id][-2].right.start < new_lp.right.start):
+                            (complement_db.bedpe_db[chr_id][-1].left.end > new_lp.left.start or
+                             complement_db.bedpe_db[chr_id][-1].right.end > new_lp.right.start) and \
+                            (complement_db.bedpe_db[chr_id][-2].left.end < new_lp.left.start and
+                             complement_db.bedpe_db[chr_id][-2].right.end < new_lp.right.start):
                         complement_db.bedpe_db[chr_id].pop()
                     complement_db.bedpe_db[chr_id].append(new_lp)
         complement_db.write_to_table(outtable)
