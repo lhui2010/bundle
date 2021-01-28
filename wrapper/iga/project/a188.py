@@ -273,7 +273,7 @@ class BedPE:
                              complement_db.bedpe_db[chr_id][-1].right.start > new_lp.right.start) and \
                             (complement_db.bedpe_db[chr_id][-2].left.start < new_lp.left.start and
                              complement_db.bedpe_db[chr_id][-2].right.start < new_lp.right.start):
-                        complement_db.bedpe_db.pop(-1)
+                        complement_db.bedpe_db[chr_id].pop()
                     complement_db.bedpe_db[chr_id].append(new_lp)
         complement_db.write_to_table(outtable)
 
