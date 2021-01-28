@@ -143,6 +143,8 @@ class BedPE:
         """
         with open(input_file) as fh:
             for line in fh:
+                if line.startswith('#'):
+                    continue
                 mylist = line.rstrip().split()
                 if self.type == 'syri':
                     (left_chr, left_start, left_end, undef, undef,
@@ -152,6 +154,13 @@ class BedPE:
                 elif self.type == 'bedpe':
                     (left_chr, left_start, left_end, right_chr, right_start, right_end, name,
                      undef, left_strand, right_strand) = mylist[0:10]
+                elif self.type == 'lastz':
+                    # name1  zstart1 end1 name2   strand2 zstart2+  end2+ identity idPct coverage covPct  cigarx-
+                    (left_chr, left_start, left_end, right_chr, right_strand, right_start, right_end,
+                     identity, idcPct, coverage, covPct, cigarx) = mylist
+                    left_strand = '.'
+                    name = '.'
+
                 this_lp = LociPE(left_chr, left_start, left_end, left_strand,
                                  right_chr, right_start, right_end, right_strand, name)
                 self.bedpe_db[left_chr].append(this_lp)
@@ -175,7 +184,7 @@ class BedPE:
                 left_size = lp.left.get_size(bed_format=True)
                 right_size = lp.right.get_size(bed_format=True)
                 if left_size == 1:
-                #Skip loci with size of 1
+                    # Skip loci with size of 1
                     left_size = 0
                 if right_size == 1:
                     right_size = 0
@@ -268,7 +277,7 @@ class BedPE:
             logger.debug(k)
             for i in self.bedpe_db[k]:
                 result += i.get_line()
-        if (table != ''):
+        if table != '':
             with open(table, 'w') as fh:
                 fh.write(result)
         else:
