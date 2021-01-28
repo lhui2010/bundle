@@ -364,8 +364,11 @@ class Loci:
         self.score = score
         self.strand = strand
 
-    def get_size(self):
-        return int(self.end) - int(self.start) + 1
+    def get_size(self, bed_format=False):
+        result = int(self.end) - int(self.start)
+        if not bed_format:
+            result += 1
+        return result
 
     def get_line(self):
         return "\t".join([self.chr, str(self.start), str(self.end), self.name, self.score, self.strand])

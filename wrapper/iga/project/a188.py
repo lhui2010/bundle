@@ -172,8 +172,8 @@ class BedPE:
         for chr_id in self.bedpe_db:
             chr_lp = self.bedpe_db[chr_id]
             for i, lp in enumerate(chr_lp):
-                left_size = lp.left.get_size()
-                right_size = lp.right.get_size()
+                left_size = lp.left.get_size(bed_format=True)
+                right_size = lp.right.get_size(bed_format=True)
                 size_list_left.append(left_size)
                 size_list_right.append(right_size)
                 if left_size < threshold < right_size:
@@ -234,9 +234,20 @@ class BedPE:
             chr_lp = self.bedpe_db[chr_id]
             for i, lp in enumerate(chr_lp):
                 if i > 0:
-                    new_lp = LociPE(chr_lp[i - 1].left.chr, chr_lp[i - 1].left.end + 1, chr_lp[i].left.start - 1,
+                    left_start = chr_lp[i - 1].left.end + 1
+                    left_end = chr_lp[i].left.start - 1
+                    right_start = chr_lp[i - 1].right.end + 1
+                    right_end = chr_lp[i].right.start - 1
+                    if left_end <= left_start:
+                        left_end = left_start
+                    if right_end <= right_start:
+                        right_end = right_start
+                    # From now, 1-based is transformed into 0-based start and 1-based end.
+                    right_start -= 1
+                    left_start -= 1
+                    new_lp = LociPE(chr_lp[i - 1].left.chr, left_start, left_end,
                                     chr_lp[i - 1].left.strand,
-                                    chr_lp[i - 1].right.chr, chr_lp[i - 1].right.end + 1, chr_lp[i].right.start - 1,
+                                    chr_lp[i - 1].right.chr, right_start, right_end,
                                     chr_lp[i - 1].right.strand, "NOT" + chr_lp[i - 1].right.name)
                     complement_db.bedpe_db[chr_id].append(new_lp)
         complement_db.write_to_table(outtable)
