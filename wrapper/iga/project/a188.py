@@ -174,6 +174,11 @@ class BedPE:
             for i, lp in enumerate(chr_lp):
                 left_size = lp.left.get_size(bed_format=True)
                 right_size = lp.right.get_size(bed_format=True)
+                if left_size == 1:
+                #Skip loci with size of 1
+                    left_size = 0
+                if right_size == 1:
+                    right_size = 0
                 size_list_left.append(left_size)
                 size_list_right.append(right_size)
                 if left_size < threshold < right_size:
