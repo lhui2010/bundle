@@ -268,7 +268,7 @@ class BedPE:
                                     chr_lp[i - 1].right.chr, right_start, right_end,
                                     chr_lp[i - 1].right.strand, "NOT" + chr_lp[i - 1].right.name)
                     # TODO just a tempory fix for nonincrement alignment
-                    if len(complement_db.bedpe_db) > 2 and \
+                    if len(complement_db.bedpe_db[chr_id]) > 2 and \
                             (complement_db.bedpe_db[chr_id][-1].left.start > new_lp.left.start or
                              complement_db.bedpe_db[chr_id][-1].right.start > new_lp.right.start) and \
                             (complement_db.bedpe_db[chr_id][-2].left.start < new_lp.left.start and
