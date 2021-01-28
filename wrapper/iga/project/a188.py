@@ -318,6 +318,16 @@ def synal_to_mosaic(synal_file=None, syriout='F'):
     bedpe.get_mosaic()
 
 
+def lastz_to_mosaic(lastz_file=None):
+    """
+    %s lastz.txt(sort -k1,1) > lastz.mosaic.txt
+    :param lastz_file: Input alignment file
+    :return: STDOUT
+    """
+    bedpe = BedPE(lastz_file, type='lastz')
+    bedpe.get_mosaic()
+
+
 def mosaic_ratio(fai=None, stat=None):
     """
     Calculate mosaic ratio based on mosaic region size and chromosome size
