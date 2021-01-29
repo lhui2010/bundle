@@ -6,7 +6,7 @@ import re
 
 import coloredlogs
 
-from iga.annotation.gff import BED, select_bed_by_name
+from iga.annotation.gff import Bed, select_bed_by_name
 from iga.apps.base import emain, mkdir, Config, sh
 
 logger = logging.getLogger(__name__)
@@ -24,7 +24,7 @@ def anchors_to_segdups(anchors=None, gene_bed=None, select_block='F', block_size
     :return: the name of the segdups file, default is anchors + "seg_dups.txt"
     """
     # Read bed in to dict
-    gene_bed_data = BED(gene_bed)
+    gene_bed_data = Bed(gene_bed)
     # Read anchors and output anchors with bed information
     seg_dups_file = anchors + 'seg_dups.txt'
     seg_dups_buff = ''

@@ -374,7 +374,7 @@ class Loci:
         return "\t".join([self.chr, str(self.start), str(self.end), self.name, self.score, self.strand]) + "\n"
 
 
-class BED:
+class Bed:
     """
     A BED class that support read bed files, store them into a dict
     """
@@ -435,6 +435,16 @@ class BED:
                 return_text += r.get_line() + "\n"
             return return_text
 
+    def sum_size(self):
+        """
+        Total size of bed
+        :return:
+        """
+        sum = 0
+        for i in self.bed_list:
+            sum += i.get_size()
+        return sum
+
 
 def select_bed_by_name(gene_list_file=None, gene_bed=None):
     """
@@ -442,7 +452,7 @@ def select_bed_by_name(gene_list_file=None, gene_bed=None):
     :param gene_bed: Input gene bed files
     :return: selected bed file name, usually gene_list_file.bed
     """
-    gene_bed_obj = BED(gene_bed)
+    gene_bed_obj = Bed(gene_bed)
     gene_list = []
     with open(gene_list_file) as fh:
         for line in fh:

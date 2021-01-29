@@ -7,7 +7,7 @@ from statistics import mean
 import pandas as pd
 from parse import parse
 
-from iga.annotation.gff import Loci
+from iga.annotation.gff import Loci, Bed
 from iga.apps.base import emain, qsub, get_prefix, sh
 
 import logging
@@ -445,6 +445,11 @@ def bedpe_intersect(bed1=None, bed2=None):
 
     sh("bedtools intersect -a {} -b {} > {}".format(bed1_out, bed2_out, bed1_out + bed2_out))
 
+    intesect = Bed(bed1_out + bed2_out)
+
+    intersect_sum = intesect.sum_size()
+    print(intersect_sum)
+    return intersect_sum
 
 
 if __name__ == "__main__":
