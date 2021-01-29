@@ -4,7 +4,7 @@ Estimate genome statistics from kmer distribution
 import os
 
 
-from iga.apps.base import emain, waitjob, bsub, abspath_list
+from iga.apps.base import emain, waitjob, bsub, abspath_list, sh
 import logging
 import coloredlogs
 
@@ -42,7 +42,7 @@ bsub512 "python $BD/wrapper/kmer_wrapper.py Eu_1.fq.gz Eu_2.fq.gz "
 """
 
 
-def genomescope(fastq=None, prefix='', threads=64, kmer=21, output='', wait='F'):
+def genomescope(fastq=None, prefix='', threads=64, kmer=21, output='', wait='F', usegrid='T'):
     r"""
     Estimate genome size, heterozygosity, repeat with jellyfish and genomescope
     :param fastq:
@@ -60,9 +60,12 @@ def genomescope(fastq=None, prefix='', threads=64, kmer=21, output='', wait='F')
         output = "workdir_genomescope" + prefix
     fastq_text = ' '.join(fastq)
     cmd = genomescope_sh.format(fastq_text, prefix, threads, kmer, output)
-    job = bsub(cmd, name="GenomeScope{}".format(prefix), cpus=threads)
-    if wait == 'T':
-        waitjob(job)
+    if usegrid == 'T':
+        job = bsub(cmd, name="GenomeScope{}".format(prefix), cpus=threads)
+        if wait == 'T':
+            waitjob(job)
+    else:
+        sh(cmd)
     return 0
 
     # subprocess.run(cmd, shell = True)
@@ -97,7 +100,7 @@ rm -rf {2}.freq.gz
 """
 
 
-def gce(fastq=None, prefix='', threads=64, kmer=23, workdir='', wait='F'):
+def gce(fastq=None, prefix='', threads=64, kmer=23, workdir='', usegrid='T'):
     r"""
     Estimate genome size, heterozygosity, repeat with kmerfreq and gce
     :param fastq:
@@ -116,9 +119,11 @@ def gce(fastq=None, prefix='', threads=64, kmer=23, workdir='', wait='F'):
     abspath_list(fastq)
     fastq_text = ' '.join(fastq)
     cmd = gce_sh.format(fastq_text, workdir, prefix, threads, kmer)
-    job = bsub(cmd, cpus=threads, direct_submit=False, name=prefix)
-    if(wait=='T'):
-        waitjob(job)
+
+    if usegrid == 'T':
+        job = bsub(cmd, cpus=threads, direct_submit=False, name=prefix)
+    else:
+        sh(cmd)
     return 0
     # subprocess.run(cmd, shell = T
 
