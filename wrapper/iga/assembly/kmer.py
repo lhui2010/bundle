@@ -16,12 +16,25 @@ coloredlogs.install(level='DEBUG', logger=logger)
 # 2 threads,
 # 3 kmer,
 # 4 output
-genomescope_sh = """
+genomescope_jf_sh = """
 zcat {0} >{1}.cat.fq
 /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/jellyfish-linux count -C -m {3} -s 1000000000 -t {2} {1}.cat.fq -o {1}.jf 
 /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/jellyfish-linux histo -t {2} {1}.jf > {1}.reads.histo
 rm {1}.cat.fq {1}.jf
 Rscript /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/genomescope/genomescope.R {1}.reads.histo {3} 150 {4}
+"""
+
+# 0 fastq.gz
+# 1 prefix,
+# 2 threads,
+# 3 kmer,
+# 4 output
+genomescope_sh = """
+mkdir {1}.tmp
+ls {0} > FILES
+kmc -k{3} -t{2} -m64 -ci1 -cs10000 @FILES reads {1}.tmp/
+kmc_tools transform reads histogram {1}.reads.histo -cx10000
+genomescope.R -i {1}.reads.histo -k {3} -o {4}
 """
 
 """
