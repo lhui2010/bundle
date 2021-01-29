@@ -283,17 +283,24 @@ class BedPE:
                     complement_db.bedpe_db[chr_id].append(new_lp)
         complement_db.write_to_table(outtable)
 
-    def write_to_table(self, table=''):
+    def write_to_table(self, table='', left_only=False, right_only=False):
         """
         write bedpe object into a table
-        :param table:
+        :param table: output table name
+        :parameter left_only: print left bed only
+        :parameter right_only: print right bed only
         :return:
         """
         result = ''
         for k in sorted(self.bedpe_db.keys()):
             logger.debug(k)
             for i in self.bedpe_db[k]:
-                result += i.get_line()
+                if left_only:
+                    result += i.left.get_line()
+                elif right_only:
+                    result += i.right.get_line()
+                else:
+                    result += i.get_line()
         if table != '':
             with open(table, 'w') as fh:
                 fh.write(result)
@@ -418,6 +425,26 @@ def split_by_tag(table=None, column=None):
         new_name = table + '.' + k
         with open(new_name, 'w') as fh:
             fh.write(table_dict[k])
+
+
+def bedpe_intersect(bed1=None, bed2=None):
+    """
+    intersection of two bed pe file, like A188.B73.mosaic  and B73.Mo17.mosaic, default in left to right order
+    :param bed1: A188.B73.mosaic
+    :param bed2: B73.Mo17.mosaic
+    :return:
+    """
+    bed1_buf = BedPE(bed1)
+    bed2_buf = BedPE(bed2)
+
+    bed1_out = bed1 + '.cut'
+    bed2_out = bed2 + '.cut'
+
+    bed1_buf.write_to_table(table=bed1_out, right_only=True)
+    bed2_buf.write_to_table(table=bed2_out, left_only=True)
+
+    sh("bedtools intersect -a {} -b {} > {}".format(bed1_out, bed2_out, bed1_out + bed2_out))
+
 
 
 if __name__ == "__main__":
