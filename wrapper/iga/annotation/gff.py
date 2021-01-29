@@ -364,7 +364,7 @@ class Loci:
         self.score = score
         self.strand = strand
 
-    def get_size(self, bed_format=False):
+    def get_size(self, bed_format=True):
         result = int(self.end) - int(self.start)
         if not bed_format:
             result += 1
