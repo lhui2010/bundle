@@ -371,7 +371,7 @@ class Loci:
         return result
 
     def get_line(self):
-        return "\t".join([self.chr, str(self.start), str(self.end), self.name, self.score, self.strand])
+        return "\t".join([self.chr, str(self.start), str(self.end), self.name, self.score, self.strand]) + "\n"
 
 
 class BED:
