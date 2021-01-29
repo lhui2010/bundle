@@ -452,5 +452,15 @@ def bedpe_intersect(bed1=None, bed2=None):
     return intersect_sum
 
 
+def stat_bed_size(bed=None):
+    """
+    return bed size
+    :param bed:
+    :return:
+    """
+    bed = Bed(bed)
+    print(bed.sum_size())
+    return bed.sum_size()
+
 if __name__ == "__main__":
     emain()
