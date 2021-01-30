@@ -18,6 +18,8 @@ import time
 from iga.apps import cfg
 from iga.utils.natsort import natsorted
 
+from rich.logging import RichHandler
+
 """
 The basic library for iga, some of the functions are adapted from jcvi
 """
@@ -559,6 +561,19 @@ def grep(args, content=''):
             result += i + "\n"
     return i
 
+
+def debug(level=logging.DEBUG):
+    """
+    Turn on the debugging
+    """
+    logging.basicConfig(
+        level=level,
+        format="%(message)s",
+        datefmt="[%X]",
+        handlers=[RichHandler()],
+    )
+
+debug()
 
 class Config(VersatileTable):
     """
