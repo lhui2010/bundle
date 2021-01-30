@@ -318,6 +318,22 @@ def stat_bed(bedpe_file=None, short='F'):
     bedpe.stat(short)
 
 
+from rich.logging import RichHandler
+
+def debug(level=logging.DEBUG):
+    """
+    Turn on the debugging
+    """
+    logging.basicConfig(
+        level=level,
+        format="%(message)s",
+        datefmt="[%X]",
+        handlers=[RichHandler()],
+    )
+
+debug()
+
+
 def synal_to_mosaic(synal_file=None, syriout='F'):
     """
     %s syri.synal.txt > syri.unsynal.txt
