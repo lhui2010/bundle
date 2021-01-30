@@ -335,6 +335,7 @@ def synal_to_mosaic(synal_file=None, syriout='F'):
     :param syriout: [F/T] whether this is syri.out file
     :return:
     """
+    logging.debug('abc')
     if syriout == 'T':
         sh("grep SYNAL {0} > {0}.synal".format(synal_file))
         synal_file += '.synal'
@@ -452,7 +453,7 @@ def bedpe_intersect(bed1=None, bed2=None):
     return intersect_sum
 
 
-def stat_bed_size(bed=None):
+def bed_size(bed=None):
     """
     return bed size
     :param bed:
