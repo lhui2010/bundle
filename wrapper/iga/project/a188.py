@@ -333,6 +333,8 @@ class BedPE:
         else:
             pe_dict = self.bedpe_db
         for ref_pe in pe_dict[qry.chr]:
+            logging.debug(ref_pe.get_line())
+            exit()
             if type[1] == 'l':
                 ref = ref_pe.left
             else:
