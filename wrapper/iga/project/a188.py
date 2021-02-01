@@ -335,7 +335,7 @@ class BedPE:
             pe_dict = self.bedpe_db
         logging.debug(qry.get_line())
         logging.debug(qry.chr)
-        logging.debug(pe_dict)
+        logging.debug(pe_dict.keys())
         logging.debug(pe_dict[qry.chr])
         exit()
         for ref_pe in pe_dict[qry.chr]:
