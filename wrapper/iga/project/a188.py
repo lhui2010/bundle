@@ -341,8 +341,8 @@ class BedPE:
         # logging.debug(pe_dict.keys())
         # exit()
         for ref_pe in pe_dict[qry.chr]:
-            logging.debug(ref_pe.get_line())
-            exit()
+            # logging.debug(ref_pe.get_line())
+            # exit()
             if type[1] == 'l':
                 ref = ref_pe.left
             else:
