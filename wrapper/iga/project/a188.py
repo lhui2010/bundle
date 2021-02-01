@@ -131,6 +131,7 @@ class BedPE:
         # level1: [dict] chromosome
         # level2: [list] Loci
         self.bedpe_db = defaultdict(list)
+        self.bedpe_db_right_chr = defaultdict(list)
         self.type = type
         if input_file != '':
             self.read(input_file)
@@ -182,6 +183,7 @@ class BedPE:
                         self.bedpe_db[left_chr].append(this_lp)
                 else:
                     self.bedpe_db[left_chr].append(this_lp)
+                    self.bedpe_db_right_chr[right_chr].append(this_lp)
 
     def stat(self, short):
         """
