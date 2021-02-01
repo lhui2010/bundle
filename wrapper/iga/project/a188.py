@@ -184,6 +184,9 @@ class BedPE:
                 else:
                     self.bedpe_db[left_chr].append(this_lp)
                     self.bedpe_db_right_chr[right_chr].append(this_lp)
+                    logging.debug(left_chr)
+                    logging.debug(right_chr)
+                    exit()
 
     def stat(self, short):
         """
