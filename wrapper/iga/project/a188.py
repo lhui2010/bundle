@@ -492,7 +492,7 @@ def bed_size(bed=None):
     return bed.sum_size()
 
 
-def intersect_bedpe(bed1, bed2, type='ll'):
+def intersect_bedpe(bed1=None, bed2=None, type='ll'):
     """
     Get mosaic intersections
     :param bed1:
