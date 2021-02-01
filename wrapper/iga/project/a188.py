@@ -327,7 +327,10 @@ class BedPE:
             qry = bedpe_loci.left
         else:
             qry = bedpe_loci.right
-        for ref_pe in self.bedpe_db[qry.chr]:
+
+        if type[1] == 'l':
+            pe_dict = self.bedpe_db_right_chr
+        for ref_pe in pe_dict[qry.chr]:
             if type[1] == 'l':
                 ref = ref_pe.left
             else:
