@@ -496,11 +496,13 @@ def bed_size(bed=None):
     return bed.sum_size()
 
 
-def intersect_bedpe(bed1=None, bed2=None, type='ll'):
+def intersect_bedpe(bed1=None, bed2=None, type='ll', output='lr'):
     """
     Get mosaic intersections
     :param bed1:
     :param bed2:
+    :param type: could be ll lr rl rr. defining which side to be compared
+    :param output: could be 'lr, l, r',defining pring both beds, left bed or right bed only
     :return:
     """
     bed1_obj = BedPE(bed1)
@@ -511,7 +513,7 @@ def intersect_bedpe(bed1=None, bed2=None, type='ll'):
 
     for chr in bed1_obj.bedpe_db:
         for bedpe_loci in bed1_obj.bedpe_db[chr]:
-            search_result = bed2_obj.exists(bedpe_loci, wobble=100, type=type)
+            search_result = bed2_obj.exists(bedpe_loci, wobble=100, type=type, output=output)
             if search_result != '':
                 result += search_result
     print(result, end='')
