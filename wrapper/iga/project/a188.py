@@ -184,9 +184,9 @@ class BedPE:
                 else:
                     self.bedpe_db[left_chr].append(this_lp)
                     self.bedpe_db_right_chr[right_chr].append(this_lp)
-                    logging.debug(left_chr)
-                    logging.debug(right_chr)
-                    exit()
+                    # logging.debug(left_chr)
+                    # logging.debug(right_chr)
+                    # exit()
 
     def stat(self, short):
         """
@@ -332,10 +332,10 @@ class BedPE:
             qry = bedpe_loci.right
 
         if type[1] == 'l':
-            pe_dict = self.bedpe_db_right_chr
+            pe_dict = self.bedpe_db
         else:
             logging.debug('right')
-            pe_dict = self.bedpe_db
+            pe_dict = self.bedpe_db_right_chr
         logging.debug(qry.get_line())
         logging.debug(qry.chr)
         logging.debug(pe_dict.keys())
