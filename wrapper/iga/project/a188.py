@@ -318,7 +318,7 @@ class BedPE:
         """
         abbrev = {"l": "left", "r": "right"}
         result = ''
-        bedpe_loci = LociPE()
+        # bedpe_loci = LociPE()
         # bed_loci = Loci()
         if type[0] == 'l':
             #qry = bedpe_loci.abbrev[type[0]]
