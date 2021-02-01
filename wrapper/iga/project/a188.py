@@ -332,7 +332,7 @@ class BedPE:
                 ref = ref_pe.right
             if abs(ref.start - qry.start) <= wobble and \
                     abs(ref.end - qry.end) <= wobble:
-                result += bedpe_loci.get_line().rstrip() + ref_pe.get_line()
+                result += bedpe_loci.get_line().rstrip() + "\t" + ref_pe.get_line()
         return result
 
 
