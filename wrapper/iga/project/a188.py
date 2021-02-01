@@ -307,7 +307,7 @@ class BedPE:
         else:
             print(result, end='')
 
-    def exists(self, bedpe_loci, wobble=100, type='ll'):
+    def exists(self, bedpe_loci, wobble=100, type='ll', output='l'):
         """
         Test whether bedpe_loci also exists in in self.bedpe_db, with flexible boundary defined as wobble,
         and comparison type defined with type (left to left or right to right)
@@ -332,7 +332,11 @@ class BedPE:
                 ref = ref_pe.right
             if abs(ref.start - qry.start) <= wobble and \
                     abs(ref.end - qry.end) <= wobble:
-                result += bedpe_loci.get_line().rstrip() + "\t" + ref_pe.get_line()
+                if 'l' in output:
+                    result += bedpe_loci.get_line().rstrip() + "\t"
+                if 'r' in output:
+                    result += ref_pe.get_line() + "\t"
+                result = result.rstrip() + '\n'
         return result
 
 
