@@ -336,11 +336,10 @@ class BedPE:
         else:
             logging.debug('right')
             pe_dict = self.bedpe_db_right_chr
-        logging.debug(qry.get_line())
-        logging.debug(qry.chr)
-        logging.debug(pe_dict.keys())
-        logging.debug(pe_dict[qry.chr])
-        exit()
+        # logging.debug(qry.get_line())
+        # logging.debug(qry.chr)
+        # logging.debug(pe_dict.keys())
+        # exit()
         for ref_pe in pe_dict[qry.chr]:
             logging.debug(ref_pe.get_line())
             exit()
