@@ -566,6 +566,7 @@ def debug(level=logging.DEBUG):
     """
     Turn on the debugging
     """
+    #    borrowed from jcvi
     logging.basicConfig(
         level=level,
         format="%(message)s",
@@ -573,7 +574,9 @@ def debug(level=logging.DEBUG):
         handlers=[RichHandler()],
     )
 
+
 debug()
+
 
 class Config(VersatileTable):
     """

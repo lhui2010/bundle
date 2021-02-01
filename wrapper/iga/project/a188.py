@@ -177,7 +177,7 @@ class BedPE:
                              self.bedpe_db[left_chr][-2].right.end < this_lp.right.start):
                         self.bedpe_db[left_chr].pop()
                     elif len(self.bedpe_db[left_chr]) < 1 or \
-                        self.bedpe_db[left_chr][-1].left.end < this_lp.left.start and \
+                            self.bedpe_db[left_chr][-1].left.end < this_lp.left.start and \
                             self.bedpe_db[left_chr][-1].right.end < this_lp.right.end:
                         self.bedpe_db[left_chr].append(this_lp)
                 else:
@@ -306,6 +306,34 @@ class BedPE:
                 fh.write(result)
         else:
             print(result, end='')
+
+    def exists(self, bedpe_loci, wobble=100, type='ll'):
+        """
+        Test whether bedpe_loci also exists in in self.bedpe_db, with flexible boundary defined as wobble,
+        and comparison type defined with type (left to left or right to right)
+        :param bedpe_loci: the bedpe class object
+        :param wobble: int, the boundaries can be flexible with plus or minus wobble
+        :param type: the alignment type, could be ll, lr, rl, rr.
+        :return:
+        """
+        abbrev = {"l": "left", "r": "right"}
+        result = ''
+        bedpe_loci = LociPE()
+        # bed_loci = Loci()
+        if type[0] == 'l':
+            #qry = bedpe_loci.abbrev[type[0]]
+            qry = bedpe_loci.left
+        else:
+            qry = bedpe_loci.right
+        for ref_pe in self.bedpe_db[qry.chr]:
+            if type[1] == 'l':
+                ref = ref_pe.left
+            else:
+                ref = ref_pe.right
+            if (ref.start - qry.start) <= wobble and \
+                    (ref.end - qry.end) <= wobble:
+                result += bedpe_loci.get_line().rstrip() + ref_pe.get_line()
+        return result
 
 
 def stat_bed(bedpe_file=None, short='F'):
@@ -462,6 +490,29 @@ def bed_size(bed=None):
     bed = Bed(bed)
     print(bed.sum_size())
     return bed.sum_size()
+
+
+def intersect_bedpe(bed1, bed2, type='ll'):
+    """
+    Get mosaic intersections
+    :param bed1:
+    :param bed2:
+    :return:
+    """
+    bed1_obj = BedPE(bed1)
+    bed2_obj = BedPE(bed2)
+
+    # self.bedpe_db[left_chr].append(this_lp)
+    result = ''
+
+    for chr in bed1_obj.bedpe_db:
+        for bedpe_loci in bed1_obj.bedpe_db[chr]:
+            search_result = bed2_obj.exists(bedpe_loci, wobble=100, type=type)
+            if search_result != '':
+                result += search_result
+    print(result, end='')
+    return result
+
 
 if __name__ == "__main__":
     emain()
