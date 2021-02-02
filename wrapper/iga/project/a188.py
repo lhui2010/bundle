@@ -401,7 +401,7 @@ class BedPE:
                     end += bedpe_loci.get_line().rstrip() + "\t"
                 if 'r' in output:
                     end += ref_pe.get_line() + "\t"
-                end = start.rstrip() + "\n"
+                end = end.rstrip() + "\n"
         return [start, end]
 
 
