@@ -608,8 +608,8 @@ def breakpoint_hotspot(bed1=None, bed2=None, type='ll', output='lr', wobble=100)
     for chr in bed1_obj.bedpe_db:
         for bedpe_loci in bed1_obj.bedpe_db[chr]:
             [start, end] = bed2_obj.hotspot(bedpe_loci, wobble=int(wobble), type=type, output=output)
-    start_all += start
-    end_all += end
+            start_all += start
+            end_all += end
     with open(bed1 + bed2 + '.start', 'w') as fh:
         fh.write(start_all)
     with open(bed1 + bed2 + '.end', 'w') as fh:
