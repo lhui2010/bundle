@@ -391,14 +391,14 @@ class BedPE:
             else:
                 ref = ref_pe.right
             if abs(ref.start - qry.start) <= wobble:
-                logging.debug('start found')
+                # logging.debug('start found')
                 if 'l' in output:
                     start += bedpe_loci.get_line().rstrip() + "\t"
                 if 'r' in output:
                     start += ref_pe.get_line() + "\t"
                 start = start.rstrip() + "\n"
             if abs(ref.end - qry.end) <= wobble:
-                logging.debug('end found')
+                # logging.debug('end found')
                 if 'l' in output:
                     end += bedpe_loci.get_line().rstrip() + "\t"
                 if 'r' in output:
