@@ -355,6 +355,47 @@ class BedPE:
                 result = result.rstrip() + '\n'
         return result
 
+    def hotspot(self, bedpe_loci, wobble=100, type='ll', output='l'):
+        """
+        Test whether bedpe_loci also exists in in self.bedpe_db, with flexible boundary defined as wobble,
+        and comparison type defined with type (left to left or right to right)
+        :param bedpe_loci: the bedpe class object
+        :param wobble: int, the boundaries can be flexible with plus or minus wobble
+        :param type: the alignment type, could be ll, lr, rl, rr.
+        :return:
+        """
+        abbrev = {"l": "left", "r": "right"}
+        start = ''
+        end = ''
+        # bedpe_loci = LociPE()
+        # bed_loci = Loci()
+        if type[0] == 'l':
+            #qry = bedpe_loci.abbrev[type[0]]
+            qry = bedpe_loci.left
+        else:
+            qry = bedpe_loci.right
+
+        if type[1] == 'l':
+            pe_dict = self.bedpe_db
+        else:
+            pe_dict = self.bedpe_db_right_chr
+        # logging.debug(qry.get_line())
+        # logging.debug(qry.chr)
+        # logging.debug(pe_dict.keys())
+        # exit()
+        for ref_pe in pe_dict[qry.chr]:
+            # logging.debug(ref_pe.get_line())
+            # exit()
+            if type[1] == 'l':
+                ref = ref_pe.left
+            else:
+                ref = ref_pe.right
+            if abs(ref.start - qry.start) <= wobble:
+                start += bedpe_loci.get_line().rstrip() + "\t" + ref_pe.get_line() + "\n"
+            if abs(ref.end - qry.end) <= wobble:
+                end += bedpe_loci.get_line().rstrip() + "\t" + ref_pe.get_line() + "\n"
+        return [start, end]
+
 
 def stat_bed(bedpe_file=None, short='F'):
     """
@@ -535,6 +576,35 @@ def intersect_bedpe(bed1=None, bed2=None, type='ll', output='lr', wobble=100):
                 result += search_result
     print(result, end='')
     return result
+
+
+def breakpoint_hotspot(bed1=None, bed2=None, type='ll', output='lr', wobble=100):
+    """
+    Get breakpoint hotspot between two bedPE files
+    :param bed1:
+    :param bed2:
+    :param type: could be ll lr rl rr. defining which side to be compared
+    :param output: could be 'lr, l, r',defining pring both beds, left bed or right bed only
+    :param wobble: the number of nucleotide that can be wobbled for the boundaries of mosaic region
+    :return:
+    """
+    bed1_obj = BedPE(bed1)
+    bed2_obj = BedPE(bed2)
+
+    # self.bedpe_db[left_chr].append(this_lp)
+    start_all = ''
+    end_all = ''
+
+    for chr in bed1_obj.bedpe_db:
+        for bedpe_loci in bed1_obj.bedpe_db[chr]:
+            [start, end] = bed2_obj.exists(bedpe_loci, wobble=int(wobble), type=type, output=output)
+    start_all += start
+    end_all += end
+    with open(bed1 + bed2 + '.start', 'w') as fh:
+        fh.write(start_all)
+    with open(bed1 + bed2 + '.end', 'w') as fh:
+        fh.write(end_all)
+    return 0
 
 
 if __name__ == "__main__":
