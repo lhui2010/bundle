@@ -406,7 +406,7 @@ class BedPE:
                     end += ref_pe.get_line() + "\t"
                 end = end.rstrip() + "\n"
                 # logging.debug(end)
-        logging.debug([start, end])
+        # logging.debug([start, end])
         return [start, end]
 
 
@@ -437,7 +437,7 @@ def synal_to_mosaic(synal_file=None, syriout='F'):
     :param syriout: [F/T] whether this is syri.out file
     :return:
     """
-    logging.debug('abc')
+    # logging.debug('abc')
     if syriout == 'T':
         sh("grep SYNAL {0} > {0}.synal".format(synal_file))
         synal_file += '.synal'
