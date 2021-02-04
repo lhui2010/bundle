@@ -455,6 +455,39 @@ def synal_to_mosaic(synal_file=None, syriout='F'):
     bedpe.get_mosaic()
 
 
+def synal_to_paf(synal_file=None):
+    """
+    :param synal_file:
+    :return:
+    """
+    # Description
+    # 1 	string 	Query sequence name
+    # 2 	int 	Query sequence length
+    # 3 	int 	Query start (0-based; BED-like; closed)
+    # 4 	int 	Query end (0-based; BED-like; open)
+    # 5 	char 	Relative strand: "+" or "-"
+    # 6 	string 	Target sequence name
+    # 7 	int 	Target sequence length
+    # 8 	int 	Target start on original strand (0-based)
+    # 9 	int 	Target end on original strand (0-based)
+    # 10 	int 	Number of residue matches
+    # 11 	int 	Alignment block length
+    # 12 	int 	Mapping quality (0-255; 255 for missing)
+    bedpe = BedPE(synal_file, type='syri')
+    for chr in bedpe.bedpe_db:
+        for lp in bedpe.bedpe_db[chr]:
+            paf_list = [lp.left.chr, 1000000, lp.left.start, lp.left.end, '+',
+                        lp.right.chr, 1000000, lp.right.start, lp.right.end, '+',
+                        min(lp.left.end - lp.left.start, lp.right.end - lp.right.start),
+                        max(lp.left.end - lp.left.start, lp.right.end - lp.right.start),
+                        0]
+            for i in range(0, len(paf_list)):
+                paf_list[i] = str(paf_list[i])
+            print("\t".join(paf_list))
+    return 0
+
+
+
 def lastz_to_mosaic(lastz_file=None):
     """
     %s lastz.txt(sort -k1,1) > lastz.mosaic.txt
