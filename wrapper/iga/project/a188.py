@@ -410,7 +410,7 @@ class BedPE:
         return [start, end]
 
 
-def stat_bed(bedpe_file=None, short='F'):
+def bedpe_stat(bedpe_file=None, short='F'):
     """
     stat bedpe file
     :param bedpe_file:
@@ -418,6 +418,16 @@ def stat_bed(bedpe_file=None, short='F'):
     """
     bedpe = BedPE(bedpe_file)
     bedpe.stat(short)
+
+
+def bed_stat(bed_file=None, short='F'):
+    """
+    stat bed file
+    :param bed_file:
+    :return:
+    """
+    bed = Bed(bed_file)
+    bed.stat(short)
 
 
 def synal_to_mosaic(synal_file=None, syriout='F'):

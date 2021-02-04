@@ -5,6 +5,7 @@ import os
 import sys
 from collections import OrderedDict, defaultdict
 from itertools import chain
+from statistics import mean
 
 from parse import parse
 
@@ -444,6 +445,24 @@ class Bed:
         for i in self.bed_list:
             sum += i.get_size()
         return sum
+
+    def stat(self, short):
+        """
+        stat bed size
+        :param short:, whether to use short format, T is use
+        :return:
+        """
+        size_list = []
+        # threshold = 50
+        for i in self.bed_list:
+            size_list.append(i.get_size())
+        print("""Max: {}
+        Min: {}
+        Mean: {}
+        Count: {}
+        Sum: {}
+        """.format(max(size_list), min(size_list), mean(size_list), len(size_list), sum(size_list)))
+        return 0
 
 
 def select_bed_by_name(gene_list_file=None, gene_bed=None):
