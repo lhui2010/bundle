@@ -487,7 +487,7 @@ def synal_to_paf(synal_file=None):
     return 0
 
 
-def split_paf(paf_file=None, bin_size = 1000000):
+def split_paf(paf_file=None, bin_size=1000000):
     """
     split paf file into 1M-window seperated
     :param paf_file: arranged in A188 B73, B73 Mo17 order
