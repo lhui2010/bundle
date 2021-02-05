@@ -604,11 +604,14 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
             fh.write(buffer)
         sh('bedtools intersect -a {} -b {} -wb |cut -f4,5,6,7,8,9 >{} '.format(out_bed, bed_file, out_bed + 'ist'))
 
-        if offset == 'T' and wd > 0:
+        if offset == 'T':
             intersect_bed = Bed(out_bed + 'ist')
             with open(out_fai, 'w') as fh:
                 for k in boundary_dict:
-                    start = boundary_dict[k][wd - 1]
+                    if wd == 0:
+                        start = 0
+                    else:
+                        start = boundary_dict[k][wd - 1]
                     intersect_bed.change_offset(k, start)
                     chr_size = boundary_dict[k][wd] - start
                     fh.write('{0}\t{1}\t{2}\t{3}\n'.format(k, chr_size, start, boundary_dict[k][wd]))
