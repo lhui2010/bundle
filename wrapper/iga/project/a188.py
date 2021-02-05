@@ -497,10 +497,12 @@ def split_paf(paf_file=None, bin_size=1000000):
     window_list = ['']
     # Store delimeter in a dict, like dict['a']=[1000000, 2000000]
     boundary_dict = {}
+    longest_chr=100000000000
+    max_end = bin_size * int(longest_chr / bin_size)
     with open(paf_file) as fh:
         line = fh.readline()
         boundary_dict[line.split()[0]] = []
-        for i in range(bin_size, bin_size * int(100000000000/bin_size), step=bin_size):
+        for i in range(bin_size, max_end, bin_size):
             boundary_dict[line.split()[0]].append(i)
     # Window number
     window_id = 0
