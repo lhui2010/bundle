@@ -538,17 +538,19 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
             flag = False
             if last_left_chr == line_list[0] and last_right_chr == line_list[5]:
                 flag = True
-            if flag and \
-                    int(this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
-                # window_list[window_id] += line
-                last_unknown_end = this_line[unknown_side]['end']
-            elif flag and \
-                    int(this_line[known_side]['end']) > boundary_dict[chr_id][window_id]:
-                boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
-                window_id += 1
-                if len(window_list) <= window_id:
-                    window_list.append('')
-            elif not flag:
+            if flag:
+                logging.debug(line)
+                logging.debug(chr_id)
+                logging.debug(window_id)
+                if int(this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
+                    # window_list[window_id] += line
+                    last_unknown_end = this_line[unknown_side]['end']
+                else:
+                    boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
+                    window_id += 1
+                    if len(window_list) <= window_id:
+                        window_list.append('')
+            else:
                 # First judge whether this is a continuing block
                 # Then judge which side is known side
                 if this_line[known_side]['chr'] not in boundary_dict:
