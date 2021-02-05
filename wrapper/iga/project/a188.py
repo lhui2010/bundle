@@ -671,6 +671,7 @@ def bed_to_gff(bed=None):
     bed_obj = Bed(bed)
     gff_obj = GFF()
     for k in bed_obj.bed_list:
+        logging.debug(k.name)
         gff_obj.append(chr=k.chr, start=k.start, end=k.end, strand=k.strand, name=k.name)
     gff_obj.print_out()
 
