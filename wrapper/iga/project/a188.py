@@ -672,6 +672,8 @@ def bed_to_gff(bed=None):
     gff_obj = GFF()
     for k in bed_obj.bed_list:
         #logging.debug(k.name)
+        if k.strand == '.':
+            k.strand = '+'
         gff_obj.append(chr=k.chr, start=k.start, end=k.end, strand=k.strand, name=k.name)
     gff_obj.print_out()
 
