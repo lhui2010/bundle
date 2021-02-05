@@ -527,10 +527,10 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
             #  this_line['right']['chr'], undef3, this_line['right']['start'], this_line['right']['end'], undef,
             #  undef, undef) = line.split()
             chr_id = this_line[known_side]['chr']
-            if this_line[known_side]['chr'] in boundary_dict and \
+            if chr_id in boundary_dict and \
                     int(this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
                 # window_list[window_id] += line
-                last_unknown_end = this_line['right']['end']
+                last_unknown_end = this_line[unknown_side]['end']
             elif this_line[known_side]['chr'] in boundary_dict and \
                     int(this_line[known_side]['end']) > boundary_dict[chr_id][window_id]:
                 boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
