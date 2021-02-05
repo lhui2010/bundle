@@ -549,17 +549,18 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                 line_list[2] = '0'
                 line_list[8] = str(int(line_list[8]) - int(line_list[7]))
                 line_list[7] = '0'
-                line = "\t".join(line_list)
+                line = "\t".join(line_list).rstrip() + "\n"
             window_list[window_id] += line
         boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
 
     for wd in range(0, len(window_list)):
-        with open("{}.{}".format(paf_file, wd), 'w') as fh:
-            fh.write(window_list[wd])
+        out_paf = '{}.{}.paf'.format(paf_file, wd)
         out_bed = '{}.{}.bed'.format(paf_file, wd)
         out_gff = '{}.{}.gff'.format(paf_file, wd)
         out_fake_fa = '{}.{}.fa'.format(paf_file, wd)
         out_fai = '{}.{}.fa.fai'.format(paf_file, wd)
+        with open(out_paf, 'w') as fh:
+            fh.write(window_list[wd])
         with open(out_bed, 'w') as fh:
             buffer = ''
             for k in boundary_dict:
