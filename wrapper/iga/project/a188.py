@@ -545,10 +545,12 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                     window_id = 0
                     #window_list[window_id] += line
             if offset == 'T':
-                line_list[3] = str(int(line_list[3]) - int(line_list[2]))
-                line_list[2] = '0'
-                line_list[8] = str(int(line_list[8]) - int(line_list[7]))
-                line_list[7] = '0'
+                loff_set = boundary_dict['left']['chr'][window_id - 1]
+                roff_set = boundary_dict['left']['chr'][window_id - 1]
+                line_list[3] = str(int(line_list[3]) - int(loff_set))
+                line_list[2] = str(int(line_list[2]) - int(loff_set))
+                line_list[8] = str(int(line_list[8]) - int(roff_set))
+                line_list[7] = str(int(line_list[7]) - int(roff_set))
                 line = "\t".join(line_list).rstrip() + "\n"
             window_list[window_id] += line
         boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
@@ -579,7 +581,7 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                     start = boundary_dict[k][wd-1]
                     intersect_bed.change_offset(k, start)
                     chr_size = boundary_dict[k][wd] - start
-                    fh.write('{0}\t{1}\t60\t60\n'.format(k, chr_size))
+                    fh.write('{0}\t{1}\t{2}\t{3}\n'.format(k, chr_size, start, boundary_dict[k][wd]))
                 intersect_bed.write(out_bed + 'ist')
             sh('touch {}'.format(out_fake_fa))
         bed_to_gff(out_bed + 'ist', out_gff)
