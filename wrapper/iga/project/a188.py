@@ -489,9 +489,9 @@ def synal_to_paf(synal_file=None):
 
 def split_paf(paf_file=None, bed_file=None, bin_size=1000000):
     """
-    split paf file into 1M-window seperated
+    split minimap paf file into 1M-window seperated, for convenient plot with gggenome
     :param paf_file: arranged in A188 B73, B73 Mo17 order
-    :param bed_file: also transforming bed_file into split gff
+    :param bed_file: the normal gene bed file. also transforming bed_file into split gff
     :return:
     """
     # Store split result in a list
