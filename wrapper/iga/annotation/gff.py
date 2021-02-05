@@ -508,6 +508,29 @@ class Bed:
         """.format(max(size_list), min(size_list), mean(size_list), len(size_list), sum(size_list)))
         return 0
 
+    def write(self, output):
+        """
+        write bed to output
+        :return:
+        """
+        buffer = ''
+        for i in self.bed_list:
+            buffer += i.get_line()
+        with open(output, 'w') as fh:
+            fh.write(buffer)
+
+    def change_offset(self, seq_id, offset):
+        """
+        :param seq_id:
+        :param offset:
+        :return:
+        """
+        offset = int(offset)
+        for i in self.bed_list:
+            if i.chr == seq_id:
+                i.start = max(0, i.start - offset)
+                i.end = max(0, i.end - offset)
+
 
 def select_bed_by_name(gene_list_file=None, gene_bed=None):
     """
