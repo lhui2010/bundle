@@ -553,6 +553,8 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
             else:
                 # First judge whether this is a continuing block
                 # Then judge which side is known side
+                # But first finish the unfinished work
+                boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
                 if this_line[known_side]['chr'] not in boundary_dict:
                 # from A188 Mo17 to B73 Mo17
                     (known_side, unknown_side) = (unknown_side, known_side)
@@ -595,9 +597,9 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                     start = 0
                 else:
                     start = boundary_dict[k][wd - 1]
-                logging.debug(k)
-                logging.debug(wd)
-                logging.debug(boundary_dict[k])
+                # logging.debug(k)
+                # logging.debug(wd)
+                # logging.debug(boundary_dict[k])
                 buffer += "{}\t{}\t{}\n".format(k, start, boundary_dict[k][wd])
             fh.write(buffer)
         sh('bedtools intersect -a {} -b {} -wb |cut -f4,5,6,7,8,9 >{} '.format(out_bed, bed_file, out_bed + 'ist'))
