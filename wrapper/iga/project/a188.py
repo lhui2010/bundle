@@ -487,6 +487,48 @@ def synal_to_paf(synal_file=None):
     return 0
 
 
+def split_paf(paf_file=None, bin_size = 1000000):
+    """
+    split paf file into 1M-window seperated
+    :param paf_file: arranged in A188 B73, B73 Mo17 order
+    :return:
+    """
+    # Store split result in a list
+    window_list = []
+    # Store delimeter in a dict, like dict['a']=[1000000, 2000000]
+    boundary_dict = {}
+    with open(paf_file) as fh:
+        line = fh.readline()
+        boundary_dict[line.split()[0]] = []
+        for i in range(bin_size, bin_size * int(100000000000/bin_size), step=bin_size):
+            boundary_dict[line.split()[0]].append(i)
+    # Window number
+    window_id = 0
+    # Used to switch the two side
+    side_list = ['left', 'right']
+    known_side = 'left'
+    unknown_side = side_list[not(side_list.index(known_side))]
+    with open(paf_file) as fh:
+        for line in fh:
+            tmp = defaultdict(dict)
+            (tmp['left']['chr'], undef, tmp['left']['start'], tmp['left']['end'], undef,
+             tmp['right']['chr'], undef, tmp['right']['start'], tmp['right']['end'], undef, undef, undef) = line.split()
+            if tmp[known_side]['chr'] not in boundary_dict:
+                (known_side, unknown_side) = (unknown_side, known_side)
+            chr_id = tmp[known_side]['chr']
+            if tmp[known_side]['end'] < boundary_dict[chr_id][window_id]:
+                window_list[window_id] += line
+            else:
+                boundary_dict[tmp[unknown_side]['chr']].append(tmp[unknown_side]['end'])
+                window_list[window_id] += line
+                window_id += 1
+
+    for wd in range(0, len(window_list)):
+        with open("{}.{}".(paf_file, wd), 'w') as fh:
+            fh.write(window_list[wd])
+    return  0
+
+
 def lastz_to_mosaic(lastz_file=None):
     """
     %s lastz.txt(sort -k1,1) > lastz.mosaic.txt
