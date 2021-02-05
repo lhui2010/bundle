@@ -494,7 +494,7 @@ def split_paf(paf_file=None, bin_size=1000000):
     :return:
     """
     # Store split result in a list
-    window_list = []
+    window_list = ['']
     # Store delimeter in a dict, like dict['a']=[1000000, 2000000]
     boundary_dict = {}
     with open(paf_file) as fh:
@@ -508,20 +508,24 @@ def split_paf(paf_file=None, bin_size=1000000):
     side_list = ['left', 'right']
     known_side = 'left'
     unknown_side = side_list[not(side_list.index(known_side))]
+    last_unknown_end = 0
     with open(paf_file) as fh:
         for line in fh:
-            tmp = defaultdict(dict)
-            (tmp['left']['chr'], undef, tmp['left']['start'], tmp['left']['end'], undef,
-             tmp['right']['chr'], undef, tmp['right']['start'], tmp['right']['end'], undef, undef, undef) = line.split()
-            if tmp[known_side]['chr'] not in boundary_dict:
+            this_line = defaultdict(dict)
+            (this_line['left']['chr'], undef, this_line['left']['start'], this_line['left']['end'], undef,
+             this_line['right']['chr'], undef, this_line['right']['start'], this_line['right']['end'], undef, undef, undef) = line.split()
+            if this_line[known_side]['chr'] not in boundary_dict:
                 (known_side, unknown_side) = (unknown_side, known_side)
-            chr_id = tmp[known_side]['chr']
-            if tmp[known_side]['end'] < boundary_dict[chr_id][window_id]:
+            chr_id = this_line[known_side]['chr']
+            if this_line[known_side]['end'] <= boundary_dict[chr_id][window_id]:
                 window_list[window_id] += line
+                last_unknown_end = this_line['right']['end']
             else:
-                boundary_dict[tmp[unknown_side]['chr']].append(tmp[unknown_side]['end'])
-                window_list[window_id] += line
                 window_id += 1
+                boundary_dict[this_line[unknown_side]['chr']].append(this_line[unknown_side]['end'])
+                if len(window_list) <= window_id:
+                    window_list.append('')
+                window_list[window_id] += line
 
     for wd in range(0, len(window_list)):
         with open("{}.{}".format(paf_file, wd), 'w') as fh:
