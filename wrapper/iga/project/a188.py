@@ -500,10 +500,14 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
     boundary_dict = {}
     longest_chr = 100000000000
     max_end = bin_size * int(longest_chr / bin_size)
+    last_left_chr = ''
+    last_right_chr = ''
     with open(paf_file) as fh:
         line = fh.readline()
         boundary_dict[line.split()[0]] = []
         boundary_dict[line.split()[5]] = []
+        last_left_chr = line.split()[0]
+        last_right_chr = line.split()[5]
         for i in range(bin_size, max_end, bin_size):
             boundary_dict[line.split()[0]].append(i)
     # Window number
@@ -527,23 +531,29 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
             #  this_line['right']['chr'], undef3, this_line['right']['start'], this_line['right']['end'], undef,
             #  undef, undef) = line.split()
             chr_id = this_line[known_side]['chr']
-            logging.debug(line)
-            logging.debug(chr_id)
-            logging.debug(this_line[known_side]['end'])
-            logging.debug(boundary_dict[chr_id][window_id])
-            if chr_id in boundary_dict and \
+            # logging.debug(line)
+            # logging.debug(chr_id)
+            # logging.debug(this_line[known_side]['end'])
+            # logging.debug(boundary_dict[chr_id][window_id])
+            flag = False
+            if last_left_chr == line_list[0] and last_right_chr == line_list[5]:
+                flag = True
+            if flag and \
                     int(this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
                 # window_list[window_id] += line
                 last_unknown_end = this_line[unknown_side]['end']
-            elif this_line[known_side]['chr'] in boundary_dict and \
+            elif flag and \
                     int(this_line[known_side]['end']) > boundary_dict[chr_id][window_id]:
                 boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
                 window_id += 1
                 if len(window_list) <= window_id:
                     window_list.append('')
-            elif this_line[known_side]['chr'] not in boundary_dict:
+            elif not flag:
+                # First judge whether this is a continuing block
+                # Then judge which side is known side
+                if this_line[known_side]['chr'] not in boundary_dict:
                 # from A188 Mo17 to B73 Mo17
-                (known_side, unknown_side) = (unknown_side, known_side)
+                    (known_side, unknown_side) = (unknown_side, known_side)
                 if this_line[known_side]['chr'] not in boundary_dict:
                     logging.debug("Error: No known window offset in both columns")
                     exit(1)
@@ -563,6 +573,8 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                 line_list[7] = str(int(line_list[7]) - int(roff_set))
                 line = "\t".join(line_list).rstrip() + "\n"
             window_list[window_id] += line
+            last_left_chr = line_list[0]
+            last_right_chr = line_list[5]
         #After loop end, appending last window offset
         boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
 
