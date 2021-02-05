@@ -527,6 +527,9 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
             #  this_line['right']['chr'], undef3, this_line['right']['start'], this_line['right']['end'], undef,
             #  undef, undef) = line.split()
             chr_id = this_line[known_side]['chr']
+            logging.debug(chr_id)
+            logging.debug(this_line[known_side]['end'])
+            logging.debug(boundary_dict[chr_id][window_id])
             if chr_id in boundary_dict and \
                     int(this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
                 # window_list[window_id] += line
