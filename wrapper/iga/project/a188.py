@@ -539,9 +539,9 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
             if last_left_chr == line_list[0] and last_right_chr == line_list[5]:
                 flag = True
             if flag:
-                logging.debug(line)
-                logging.debug(chr_id)
-                logging.debug(window_id)
+                # logging.debug(line)
+                # logging.debug(chr_id)
+                # logging.debug(window_id)
                 if int(this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
                     # window_list[window_id] += line
                     last_unknown_end = this_line[unknown_side]['end']
