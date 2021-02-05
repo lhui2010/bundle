@@ -477,7 +477,7 @@ def synal_to_paf(synal_file=None):
     for chr in bedpe.bedpe_db:
         for lp in bedpe.bedpe_db[chr]:
             paf_list = [lp.left.chr, 1000000, lp.left.start, lp.left.end, '+',
-                        lp.right.chr, 1000000, lp.right.start, lp.right.end, '+',
+                        lp.right.chr, 1000000, lp.right.start, lp.right.end,
                         min(lp.left.end - lp.left.start, lp.right.end - lp.right.start),
                         max(lp.left.end - lp.left.start, lp.right.end - lp.right.start),
                         0]
