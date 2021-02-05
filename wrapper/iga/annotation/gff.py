@@ -29,17 +29,17 @@ class Feat:
 
     def __init__(self, gff_line=''):
         self.childs = []
-        self.content
-        self.seqid
+        self.content = ''
+        self.seqid = ''
         self.source = '.'
-        self.type
-        self.start
-        self.end
+        self.type = ''
+        self.start = None
+        self.end = None
         self.score = '.'
-        self.strand
+        self.strand = None
         self.phase = '.'
-        self.len
-        self.attributes
+        self.len = None
+        self.attributes = None
         self.attr_dict = OrderedDict()
         self.parent = None
         self.ID = None
