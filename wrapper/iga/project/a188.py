@@ -519,8 +519,8 @@ def split_paf(paf_file=None, bin_size=1000000):
              this_line['right']['chr'], undef, this_line['right']['start'], this_line['right']['end'], undef,
              undef, undef) = line.split()
             chr_id = this_line[known_side]['chr']
-            if int(this_line[known_side]['chr'] in boundary_dict and \
-                   this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
+            if this_line[known_side]['chr'] in boundary_dict and \
+                   int(this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
                 window_list[window_id] += line
                 last_unknown_end = this_line['right']['end']
             else:
