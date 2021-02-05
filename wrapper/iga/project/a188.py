@@ -511,7 +511,7 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
     # Used to switch the two side
     side_list = ['left', 'right']
     known_side = 'left'
-    unknown_side = side_list[not (side_list.index(known_side))]
+    unknown_side = 'right'
     last_unknown_end = 0
     with open(paf_file) as fh:
         for line in fh:
@@ -528,22 +528,24 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
             #  undef, undef) = line.split()
             chr_id = this_line[known_side]['chr']
             if this_line[known_side]['chr'] in boundary_dict and \
-                   int(this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
-                #window_list[window_id] += line
+                    int(this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
+                # window_list[window_id] += line
                 last_unknown_end = this_line['right']['end']
-            else:
+            elif this_line[known_side]['chr'] in boundary_dict and \
+                    int(this_line[known_side]['end']) > boundary_dict[chr_id][window_id]:
                 boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
-                if this_line[known_side]['chr'] in boundary_dict:
-                    window_id += 1
-                    if len(window_list) <= window_id:
-                        window_list.append('')
-                    #window_list[window_id] += line
-                else:
-                    # from A188 Mo17 to B73 Mo17
-                    (known_side, unknown_side) = (unknown_side, known_side)
-                    boundary_dict[this_line[unknown_side]['chr']] = []
-                    window_id = 0
-                    #window_list[window_id] += line
+                window_id += 1
+                if len(window_list) <= window_id:
+                    window_list.append('')
+            elif this_line[known_side]['chr'] not in boundary_dict:
+                # from A188 Mo17 to B73 Mo17
+                (known_side, unknown_side) = (unknown_side, known_side)
+                if this_line[known_side]['chr'] not in boundary_dict:
+                    logging.debug("Error: No known window offset in both columns")
+                    exit(1)
+                boundary_dict[this_line[unknown_side]['chr']] = []
+                window_id = 0
+                # window_list[window_id] += line
             if offset == 'T':
                 if window_id > 0:
                     loff_set = boundary_dict[line_list[0]][window_id - 1]
@@ -557,6 +559,7 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                 line_list[7] = str(int(line_list[7]) - int(roff_set))
                 line = "\t".join(line_list).rstrip() + "\n"
             window_list[window_id] += line
+        #After loop end, appending last window offset
         boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
 
     for wd in range(0, len(window_list)):
@@ -573,16 +576,16 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                 if wd == 0:
                     start = 0
                 else:
-                    start = boundary_dict[k][wd-1]
+                    start = boundary_dict[k][wd - 1]
                 buffer += "{}\t{}\t{}\n".format(k, start, boundary_dict[k][wd])
             fh.write(buffer)
-        sh('bedtools intersect -a {} -b {} -wb |cut -f4,5,6,7,8,9 >{} '.format(out_bed, bed_file, out_bed +'ist'))
+        sh('bedtools intersect -a {} -b {} -wb |cut -f4,5,6,7,8,9 >{} '.format(out_bed, bed_file, out_bed + 'ist'))
 
         if offset == 'T' and wd > 0:
             intersect_bed = Bed(out_bed + 'ist')
             with open(out_fai, 'w') as fh:
                 for k in boundary_dict:
-                    start = boundary_dict[k][wd-1]
+                    start = boundary_dict[k][wd - 1]
                     intersect_bed.change_offset(k, start)
                     chr_size = boundary_dict[k][wd] - start
                     fh.write('{0}\t{1}\t{2}\t{3}\n'.format(k, chr_size, start, boundary_dict[k][wd]))
