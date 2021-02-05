@@ -178,6 +178,9 @@ class Feat:
         self.score = score
         self.source = source
         self.update_tag("ID", name)
+        logging.debug(self.ID)
+        logging.debug(self.content)
+        exit(1)
 
     def print_all_childs(self):
         result = self.get_all_child_feats()
