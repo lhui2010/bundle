@@ -537,6 +537,7 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000):
                     boundary_dict[this_line[unknown_side]['chr']] = []
                     window_id = 0
                     window_list[window_id] += line
+        boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
 
     for wd in range(0, len(window_list)):
         with open("{}.{}".format(paf_file, wd), 'w') as fh:
@@ -554,8 +555,8 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000):
             fh.write(buffer)
         sh('bedtools intersect -a {} -b {} -wb >{}'.format(out_bed, bed_file, out_bed +'ist'))
         bed_to_gff(out_bed + 'ist', out_gff)
-            # debug
-            # break
+        # debug
+        # break
     return 0
 
 
