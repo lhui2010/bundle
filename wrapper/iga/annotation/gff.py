@@ -161,9 +161,9 @@ class Feat:
         self.attributes = ''
         for i in self.attr_dict:
             self.attributes += "{}={};".format(i, self.attr_dict[i])
+        self.ID = self.attr_dict['ID']
         self.content = "\t".join([self.seqid, self.source, self.type, str(self.start), str(self.end),
                                   str(self.score), self.strand, str(self.phase), self.attributes])
-        self.ID = self.attr_dict['ID']
         if 'Parent' in self.attr_dict:
             self.parent = self.attr_dict['Parent']
         self.len = abs(int(self.end) - int(self.start)) + 1
