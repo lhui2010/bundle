@@ -750,7 +750,7 @@ def bed_to_gff(bed=None, output=''):
     if output == '':
         gff_obj.print_out()
     else:
-        with open(output) as fh:
+        with open(output, 'w') as fh:
             fh.write(gff_obj.to_str())
 
 
