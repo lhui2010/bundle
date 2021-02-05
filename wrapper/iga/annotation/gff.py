@@ -178,6 +178,7 @@ class Feat:
         self.score = score
         self.source = source
         self.update_tag("ID", name)
+        logging.debug(name)
         logging.debug(self.ID)
         logging.debug(self.content)
         exit(1)
