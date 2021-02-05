@@ -502,7 +502,7 @@ def split_paf(paf_file=None, bin_size=1000000):
     with open(paf_file) as fh:
         line = fh.readline()
         boundary_dict[line.split()[0]] = []
-        boundary_dict[line.split()[1]] = []
+        boundary_dict[line.split()[5]] = []
         for i in range(bin_size, max_end, bin_size):
             boundary_dict[line.split()[0]].append(i)
     # Window number
