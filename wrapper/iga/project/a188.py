@@ -326,7 +326,7 @@ class BedPE:
         # bedpe_loci = LociPE()
         # bed_loci = Loci()
         if type[0] == 'l':
-            #qry = bedpe_loci.abbrev[type[0]]
+            # qry = bedpe_loci.abbrev[type[0]]
             qry = bedpe_loci.left
         else:
             qry = bedpe_loci.right
@@ -370,7 +370,7 @@ class BedPE:
         # bedpe_loci = LociPE()
         # bed_loci = Loci()
         if type[0] == 'l':
-            #qry = bedpe_loci.abbrev[type[0]]
+            # qry = bedpe_loci.abbrev[type[0]]
             qry = bedpe_loci.left
         else:
             qry = bedpe_loci.right
@@ -497,11 +497,12 @@ def split_paf(paf_file=None, bin_size=1000000):
     window_list = ['']
     # Store delimeter in a dict, like dict['a']=[1000000, 2000000]
     boundary_dict = {}
-    longest_chr=100000000000
+    longest_chr = 100000000000
     max_end = bin_size * int(longest_chr / bin_size)
     with open(paf_file) as fh:
         line = fh.readline()
         boundary_dict[line.split()[0]] = []
+        boundary_dict[line.split()[1]] = []
         for i in range(bin_size, max_end, bin_size):
             boundary_dict[line.split()[0]].append(i)
     # Window number
@@ -509,7 +510,7 @@ def split_paf(paf_file=None, bin_size=1000000):
     # Used to switch the two side
     side_list = ['left', 'right']
     known_side = 'left'
-    unknown_side = side_list[not(side_list.index(known_side))]
+    unknown_side = side_list[not (side_list.index(known_side))]
     last_unknown_end = 0
     with open(paf_file) as fh:
         for line in fh:
@@ -519,7 +520,7 @@ def split_paf(paf_file=None, bin_size=1000000):
              undef, undef) = line.split()
             chr_id = this_line[known_side]['chr']
             if int(this_line[known_side]['chr'] in boundary_dict and \
-            this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
+                   this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
                 window_list[window_id] += line
                 last_unknown_end = this_line['right']['end']
             else:
@@ -532,6 +533,7 @@ def split_paf(paf_file=None, bin_size=1000000):
                 else:
                     # from A188 Mo17 to B73 Mo17
                     (known_side, unknown_side) = (unknown_side, known_side)
+                    boundary_dict[this_line[unknown_side]['chr']] = []
                     window_id = 0
                     window_list[window_id] += line
 
@@ -727,7 +729,7 @@ def bed_to_gff(bed=None):
     bed_obj = Bed(bed)
     gff_obj = GFF()
     for k in bed_obj.bed_list:
-        #logging.debug(k.name)
+        # logging.debug(k.name)
         if k.strand == '.':
             k.strand = '+'
         gff_obj.append(chr=k.chr, start=k.start, end=k.end, strand=k.strand, name=k.name)
