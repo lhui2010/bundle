@@ -524,9 +524,11 @@ def split_paf(paf_file=None, bin_size=1000000):
                 window_id += 1
 
     for wd in range(0, len(window_list)):
-        with open("{}.{}".(paf_file, wd), 'w') as fh:
+        with open("{}.{}".format(paf_file, wd), 'w') as fh:
             fh.write(window_list[wd])
-    return  0
+            # debug
+            break
+    return 0
 
 
 def lastz_to_mosaic(lastz_file=None):
