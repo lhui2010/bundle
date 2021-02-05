@@ -31,7 +31,7 @@ class Feat:
         self.childs = []
         self.content
         self.seqid
-        self.source
+        self.source = '.'
         self.type
         self.start
         self.end
@@ -169,6 +169,16 @@ class Feat:
         self.len = abs(int(self.end) - int(self.start)) + 1
         return 0
 
+    def new(self, chr, start, end, strand, name, type='CDS', score='.', source='.'):
+        self.start = start
+        self.end = end
+        self.seqid = chr
+        self.strand = strand
+        self.type = type
+        self.score = score
+        self.source = source
+        self.update_tag("ID", name)
+
     def print_all_childs(self):
         result = self.get_all_child_feats()
         print(result, end="")
@@ -295,7 +305,7 @@ class GFF:
                 longest_gff += self.GFF_dict[self.GFF_dict[k].longest].get_all_child_feats()
         return [longest_table, longest_gff]
 
-    def append(self, chr, start, end, strand, name, type='CDS'):
+    def append(self, chr, start, end, strand, name, type='CDS', score='.', source='.'):
         """
         Insert new gff record
         :param chr:
@@ -306,12 +316,7 @@ class GFF:
         :return:
         """
         feat = Feat()
-        feat.start = start
-        feat.end = end
-        feat.seqid = chr
-        feat.strand = strand
-        feat.update_tag("ID", name)
-        feat.type = type
+        feat.new(chr=chr, start=start, end=end, strand=strand, name=name, type=type, score=score, source=source)
         self.top_level_list.append(feat.attr_dict['ID'])
         self.GFF_dict[feat.ID] = feat
 
