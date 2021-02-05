@@ -545,8 +545,8 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                     window_id = 0
                     #window_list[window_id] += line
             if offset == 'T':
-                loff_set = boundary_dict['left']['chr'][window_id - 1]
-                roff_set = boundary_dict['left']['chr'][window_id - 1]
+                loff_set = boundary_dict[line_list[0]]['chr'][window_id - 1]
+                roff_set = boundary_dict[line_list[5]]['chr'][window_id - 1]
                 line_list[3] = str(int(line_list[3]) - int(loff_set))
                 line_list[2] = str(int(line_list[2]) - int(loff_set))
                 line_list[8] = str(int(line_list[8]) - int(roff_set))
