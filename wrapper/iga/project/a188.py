@@ -616,8 +616,11 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                     else:
                         start = boundary_dict[k][wd - 1]
                     intersect_bed.change_offset(k, start)
-                    chr_size = boundary_dict[k][wd] - start
-                    fh.write('{0}\t{1}\t{2}\t{3}\n'.format(k, chr_size, start, boundary_dict[k][wd]))
+                    try:
+                        chr_size = boundary_dict[k][wd] - start
+                        fh.write('{0}\t{1}\t{2}\t{3}\n'.format(k, chr_size, start, boundary_dict[k][wd]))
+                    except IndexError:
+                        logging.debug([k, start, wd])
                 intersect_bed.write(out_bed + 'ist')
             sh('touch {}'.format(out_fake_fa))
         bed_to_gff(out_bed + 'ist', out_gff)
