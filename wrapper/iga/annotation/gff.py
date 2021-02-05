@@ -27,40 +27,53 @@ class Feat:
     #Name=CORNE00007591-t5;Alias=maker-000023F|arrow_np1212-snap-gene-26.41
     """
 
-    def __init__(self, gff_line):
+    def __init__(self, gff_line=''):
         self.childs = []
-        self.content = gff_line.rstrip()
-        mylist = self.content.split('\t')
-        # Assign gff values by
-        # https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md
-        self.seqid = mylist[0]
-        self.source = mylist[1]
-        self.type = mylist[2]
-        self.start = mylist[3]
-        self.end = mylist[4]
-        self.score = mylist[5]
-        self.strand = mylist[6]
-        self.phase = mylist[7]
-        # Refactor affected vairables
-        self.len = abs(int(self.end) - int(self.start)) + 1
-        self.attributes = mylist[8]
+        self.content
+        self.seqid
+        self.source
+        self.type
+        self.start
+        self.end
+        self.score = '.'
+        self.strand
+        self.phase = '.'
+        self.len
+        self.attributes
         self.attr_dict = OrderedDict()
-        attr_list = self.attributes.rstrip(';').split(';')
-        for a in attr_list:
+        self.parent = None
+        self.ID = None
+
+        if gff_line != "":
+            self.content = gff_line.rstrip()
+            mylist = self.content.split('\t')
+            # Assign gff values by
+            # https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md
+            self.seqid = mylist[0]
+            self.source = mylist[1]
+            self.type = mylist[2]
+            self.start = mylist[3]
+            self.end = mylist[4]
+            self.score = mylist[5]
+            self.strand = mylist[6]
+            self.phase = mylist[7]
+            # Refactor affected vairables
+            self.len = abs(int(self.end) - int(self.start)) + 1
+            self.attributes = mylist[8]
+            attr_list = self.attributes.rstrip(';').split(';')
+            for a in attr_list:
+                try:
+                    (attr_key, attr_value) = parse("{}={}", a)
+                except TypeError:
+                    logger.error("Type Error on line {}, list {} and attribute: {}".format(self.attributes, attr_list, a))
+                    continue
+                self.attr_dict[attr_key] = attr_value
+            if 'Parent' in self.attr_dict:
+                self.parent = self.attr_dict['Parent']
             try:
-                (attr_key, attr_value) = parse("{}={}", a)
-            except TypeError:
-                logger.error("Type Error on line {}, list {} and attribute: {}".format(self.attributes, attr_list, a))
-                continue
-            self.attr_dict[attr_key] = attr_value
-        if 'Parent' in self.attr_dict:
-            self.parent = self.attr_dict['Parent']
-        else:
-            self.parent = None
-        try:
-            self.ID = self.attr_dict['ID']
-        except KeyError:
-            self.ID = None
+                self.ID = self.attr_dict['ID']
+            except KeyError:
+                self.ID = None
 
     def get_parent(self):
         r"""
@@ -153,6 +166,7 @@ class Feat:
         self.ID = self.attr_dict['ID']
         if 'Parent' in self.attr_dict:
             self.parent = self.attr_dict['Parent']
+        self.len = abs(int(self.end) - int(self.start)) + 1
         return 0
 
     def print_all_childs(self):
@@ -169,42 +183,43 @@ class GFF:
     ...3. extracting feat by level or by transcript ID into tab delimited file
     """
 
-    def __init__(self, filename):
+    def __init__(self, filename=''):
         # Top level, which has no parent, usually gene type
         self.top_level_list = []
         # A dictionary store all type
         self.GFF_dict = OrderedDict()
         # cds name is same
         count_cds = defaultdict(int)
-        with open(filename) as fh:
-            for line in fh:
-                if line.startswith("#"):
-                    continue
-                feat = Feat(line)
-                if "Parent" not in feat.content:
-                    # Top level
-                    self.top_level_list.append(feat.attr_dict['ID'])
-                    self.GFF_dict[feat.ID] = feat
-                else:
-                    if feat.type == "CDS":
-                        # Manage duplicate CDS
-                        original_cds_name = feat.attr_dict['ID']
-                        count_cds[original_cds_name] += 1
-                        if count_cds[original_cds_name] > 1:
-                            new_name = "{}:cds{}".format(original_cds_name, count_cds[original_cds_name])
-                            feat.update_tag("ID", new_name)
-                            if original_cds_name in self.GFF_dict:
-                                new_first_cds = "{}:cds{}".format(original_cds_name, 1)
-                                self.GFF_dict[new_first_cds] = self.GFF_dict[original_cds_name]
-                                self.GFF_dict[new_first_cds].update_tag("ID", new_first_cds)
-                                del self.GFF_dict[original_cds_name]
-                            self.GFF_dict[new_name] = feat
+        if filename != '':
+            with open(filename) as fh:
+                for line in fh:
+                    if line.startswith("#"):
+                        continue
+                    feat = Feat(line)
+                    if "Parent" not in feat.content:
+                        # Top level
+                        self.top_level_list.append(feat.attr_dict['ID'])
+                        self.GFF_dict[feat.ID] = feat
+                    else:
+                        if feat.type == "CDS":
+                            # Manage duplicate CDS
+                            original_cds_name = feat.attr_dict['ID']
+                            count_cds[original_cds_name] += 1
+                            if count_cds[original_cds_name] > 1:
+                                new_name = "{}:cds{}".format(original_cds_name, count_cds[original_cds_name])
+                                feat.update_tag("ID", new_name)
+                                if original_cds_name in self.GFF_dict:
+                                    new_first_cds = "{}:cds{}".format(original_cds_name, 1)
+                                    self.GFF_dict[new_first_cds] = self.GFF_dict[original_cds_name]
+                                    self.GFF_dict[new_first_cds].update_tag("ID", new_first_cds)
+                                    del self.GFF_dict[original_cds_name]
+                                self.GFF_dict[new_name] = feat
+                            else:
+                                self.GFF_dict[feat.ID] = feat
                         else:
                             self.GFF_dict[feat.ID] = feat
-                    else:
-                        self.GFF_dict[feat.ID] = feat
-                    parent = feat.parent
-                    self.GFF_dict[parent].add_child(feat)
+                        parent = feat.parent
+                        self.GFF_dict[parent].add_child(feat)
 
     def print_out(self):
         r"""
@@ -279,6 +294,26 @@ class GFF:
                 longest_gff += self.GFF_dict[k].content + "\n"
                 longest_gff += self.GFF_dict[self.GFF_dict[k].longest].get_all_child_feats()
         return [longest_table, longest_gff]
+
+    def append(self, chr, start, end, strand, name, type='CDS'):
+        """
+        Insert new gff record
+        :param chr:
+        :param start:
+        :param end:
+        :param strand:
+        :param name:
+        :return:
+        """
+        feat = Feat()
+        feat.start = start
+        feat.end = end
+        feat.seqid = chr
+        feat.strand = strand
+        feat.update_tag("ID", name)
+        feat.type = type
+        self.top_level_list.append(feat.attr_dict['ID'])
+        self.GFF_dict[feat.ID] = feat
 
 
 def longest_mRNA(gff=None):

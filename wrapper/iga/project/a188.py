@@ -7,7 +7,7 @@ from statistics import mean
 import pandas as pd
 from parse import parse
 
-from iga.annotation.gff import Loci, Bed
+from iga.annotation.gff import Loci, Bed, GFF
 from iga.apps.base import emain, qsub, get_prefix, sh
 
 import logging
@@ -487,7 +487,6 @@ def synal_to_paf(synal_file=None):
     return 0
 
 
-
 def lastz_to_mosaic(lastz_file=None):
     """
     %s lastz.txt(sort -k1,1) > lastz.mosaic.txt
@@ -661,6 +660,19 @@ def breakpoint_hotspot(bed1=None, bed2=None, type='ll', output='lr', wobble=100)
     with open(bed1 + bed2 + '.end', 'w') as fh:
         fh.write(end_all)
     return 0
+
+
+def bed_to_gff(bed=None):
+    """
+    Transform bed to gff format
+    :param bed:
+    :return:
+    """
+    bed_obj = Bed(bed)
+    gff_obj = GFF()
+    for k in bed_obj.bed_list:
+        gff_obj.append(chr=k.chr, start=k.start, end=k.end, strand=k.strand, name=k.name)
+    gff_obj.print_out()
 
 
 if __name__ == "__main__":
