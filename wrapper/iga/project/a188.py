@@ -498,6 +498,7 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
     window_list = ['']
     # Store delimeter in a dict, like dict['a']=[1000000, 2000000]
     boundary_dict = {}
+    bin_size = int(bin_size)
     longest_chr = 100000000000
     max_end = bin_size * int(longest_chr / bin_size)
     last_left_chr = ''
