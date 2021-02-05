@@ -487,10 +487,11 @@ def synal_to_paf(synal_file=None):
     return 0
 
 
-def split_paf(paf_file=None, bin_size=1000000):
+def split_paf(paf_file=None, bed_file=None, bin_size=1000000):
     """
     split paf file into 1M-window seperated
     :param paf_file: arranged in A188 B73, B73 Mo17 order
+    :param bed_file: also transforming bed_file into split gff
     :return:
     """
     # Store split result in a list
@@ -540,8 +541,21 @@ def split_paf(paf_file=None, bin_size=1000000):
     for wd in range(0, len(window_list)):
         with open("{}.{}".format(paf_file, wd), 'w') as fh:
             fh.write(window_list[wd])
+        out_bed = '{}.bed.{}'.format(paf_file, wd)
+        out_gff = '{}.gff.{}'.format(paf_file, wd)
+        with open(out_bed, 'w') as fh:
+            buffer = ''
+            for k in boundary_dict:
+                if wd == 0:
+                    start = 0
+                else:
+                    start = boundary_dict[k][wd-1]
+                buffer += "{}\t{}\t{}".format(k, start, boundary_dict[k][wd])
+            fh.write(buffer)
+        sh('bedtools intersect -a {} -b {} -wb >{}'.format(out_bed, bed_file, out_bed +'ist'))
+        bed_to_gff(out_bed + 'ist', out_gff)
             # debug
-            break
+            # break
     return 0
 
 
@@ -720,7 +734,7 @@ def breakpoint_hotspot(bed1=None, bed2=None, type='ll', output='lr', wobble=100)
     return 0
 
 
-def bed_to_gff(bed=None):
+def bed_to_gff(bed=None, output=''):
     """
     Transform bed to gff format
     :param bed:
@@ -733,7 +747,11 @@ def bed_to_gff(bed=None):
         if k.strand == '.':
             k.strand = '+'
         gff_obj.append(chr=k.chr, start=k.start, end=k.end, strand=k.strand, name=k.name)
-    gff_obj.print_out()
+    if output == '':
+        gff_obj.print_out()
+    else:
+        with open(output) as fh:
+            fh.write(gff_obj.to_str())
 
 
 if __name__ == "__main__":
