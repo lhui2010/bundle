@@ -600,7 +600,10 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                 # logging.debug(k)
                 # logging.debug(wd)
                 # logging.debug(boundary_dict[k])
-                buffer += "{}\t{}\t{}\n".format(k, start, boundary_dict[k][wd])
+                try:
+                    buffer += "{}\t{}\t{}\n".format(k, start, boundary_dict[k][wd])
+                except IndexError:
+                    logging.debug([k, start, wd])
             fh.write(buffer)
         sh('bedtools intersect -a {} -b {} -wb |cut -f4,5,6,7,8,9 >{} '.format(out_bed, bed_file, out_bed + 'ist'))
 
