@@ -543,6 +543,7 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                 # logging.debug(line)
                 # logging.debug(chr_id)
                 # logging.debug(window_id)
+                # TODO: in current version start - offset can be negative
                 if int(this_line[known_side]['end']) <= boundary_dict[chr_id][window_id]:
                     # window_list[window_id] += line
                     last_unknown_end = this_line[unknown_side]['end']
@@ -606,7 +607,8 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                 except IndexError:
                     logging.debug([k, start, wd])
             fh.write(buffer)
-        sh('bedtools intersect -a {} -b {} -wb |cut -f4,5,6,7,8,9 >{} '.format(out_bed, bed_file, out_bed + 'ist'))
+        sh('bedtools intersect -a {} -b {} -wb |cut -f4,5,6,7,8,9 |sort -k1,1 -k2,2n |uniq >{} '.format(
+            out_bed, bed_file, out_bed + 'ist'))
 
         if offset == 'T':
             intersect_bed = Bed(out_bed + 'ist')
