@@ -44,12 +44,13 @@ fc_run {} >>falcon_run.out 2>>falcon_run.err
 """
 
 
-def falcon(subreads=None, genome_size=None, prefix='', etc=''):
+def falcon(subreads=None, genome_size=None, prefix='', etc='', submit='T'):
     r"""
     :param subreads: pacbio DNA subreads (bam accepted)
     :param genome_size: (genomesize in bp)
     :param prefix: (species name)
     :param etc: (other fields need to be updated in falcon cfg)
+    :param submit: T stands for submit this job to lsf
     :return:
     """
     logger.debug(subreads)
@@ -89,7 +90,8 @@ def falcon(subreads=None, genome_size=None, prefix='', etc=''):
     cfg.write_to_file(cfg_file)
 
     cmd = conda_act.format('falcon') + falcon_sh.format(cfg_file)
-    bsub(cmd, name='falcon' + prefix)
+    if submit == 'T':
+        bsub(cmd, name='falcon' + prefix)
 
 
 # 0 reference contig (abs path)
