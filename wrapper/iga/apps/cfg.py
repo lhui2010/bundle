@@ -66,7 +66,7 @@ JOB_QUEUE=Q104C512G_X4
 MB=32768
 NPROC=2
 njobs=100
-submit = bsub -K -n 2 -q ${JOB_QUEUE} -J ${JOB_NAME} -o ${JOB_STDOUT} -e ${JOB_STDERR} ${JOB_SCRIPT}
+submit = bsub -K -n ${NPROC} -q ${JOB_QUEUE} -J ${JOB_NAME} -o ${JOB_STDOUT} -e ${JOB_STDERR} ${JOB_SCRIPT}
 
 [job.step.da]
 NPROC=4
