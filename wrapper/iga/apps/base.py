@@ -516,7 +516,7 @@ class VersatileTable:
             if '[' in this_arg:
                 (section, content) = parse('[{}]{}', this_arg)
             try:
-                logger.warning(content)
+                # logger.warning(content)
                 (key, value) = content.split(self.seperator)
                 key = key.strip()
                 value = value.strip()
