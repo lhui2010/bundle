@@ -70,7 +70,7 @@ ${{INPUT}} \
 '''
 
 
-def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', submit='T'):
+def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', submit='T', queue=''):
     r"""
     :param subreads: pacbio DNA subreads (FASTA or FASTQ, can be uncompressed, gzip, bzip2 or xz compressed)
     :param genome_size: 100m stands for 100 Mb
@@ -78,6 +78,7 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
     :param etc: Deprecated for now
     :param submit: T stands for submit this job to lsf, other value indicate output shell script but do not submit
     :param type: 'pacbio|nanopore|pacbio-hifi'
+    :param queue: Default is Q104C512G_X4, could also be Q64C1T_X4
     :return:
     """
     logger.debug(subreads)
@@ -89,6 +90,9 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
 
     if prefix == '':
         prefix = get_prefix(subreads)
+
+    if queue == '':
+        queue = 'Q104C512G_X4'
 
     with open('threads.config', 'w') as fh:
         fh.write(canu_threads_config)
@@ -102,8 +106,7 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
 
     cmd_sh = canu_sh.format(prefix, subreads, genome_size, type)
 
-    bsub(cmd_sh, submit=submit)
-
+    bsub(cmd_sh, queue=queue, name=prefix, submit=submit)
 
 def bam2fastq(subreads=None):
     """
