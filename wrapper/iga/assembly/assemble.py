@@ -185,12 +185,12 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
     with open('threads.config', 'w') as fh:
         fh.write(canu_threads_config)
 
-    workdir = 'workdir_canu_{}'.format(prefix)
-    if op.exists(workdir):
-        mv(workdir, workdir + str(time.time()).replace('.', ''))
-    if not mkdir(workdir):
-        logger.error("Workdir existing, exiting...")
-        exit(1)
+    # workdir = 'workdir_canu_{}'.format(prefix)
+    # if op.exists(workdir):
+    #     mv(workdir, workdir + str(time.time()).replace('.', ''))
+    # if not mkdir(workdir):
+    #     logger.error("Workdir existing, exiting...")
+    #     exit(1)
 
     cmd_sh = canu_sh.format(prefix, subreads, genome_size, type)
 
