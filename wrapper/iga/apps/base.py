@@ -167,7 +167,7 @@ date
     return ret
 
 
-def bsub(cmd, queue='Q104C512G_X4', direct_submit='F', cpus=1, name=''):
+def bsub(cmd, queue='Q104C512G_X4', direct_submit='F', cpus=1, name='', submit='T'):
     """
     submit jobs via bsub
     When using variable export in a cmd ,use direct_submit = 'F'
@@ -194,6 +194,8 @@ date
         cmd_full = bsub_cmd + '< ' + bsub_sh
     # Prepare finished, now submit
     logger.info(cmd_full)
+    if submit != 'T':
+        return 0
     # ret = subprocess.check_output(bsub_cmd + '"' + prior_cmd + cmd + '"', shell=True).decode()
     # Incase queue has trainling characters like -m 'node02'
     queue = re.sub(r'\s.*', '', queue)

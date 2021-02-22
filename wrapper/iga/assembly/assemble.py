@@ -90,8 +90,7 @@ def falcon(subreads=None, genome_size=None, prefix='', etc='', submit='T'):
     cfg.write_to_file(cfg_file)
 
     cmd = conda_act.format('falcon') + falcon_sh.format(cfg_file)
-    if submit == 'T':
-        bsub(cmd, name='falcon' + prefix)
+    bsub(cmd, name='falcon' + prefix, submit=submit)
 
 
 # 0 reference contig (abs path)
