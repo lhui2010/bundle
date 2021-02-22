@@ -19,6 +19,43 @@ coloredlogs.install(level='DEBUG', logger=logger)
 # 1: corrected reads.fasta
 # 2: genome size, 123m or 1g
 # 3: threads
+flye_sh = '''
+INPUT={1}
+WORKDIR=workdir_flye_{0}
+flye --pacbio-corr ${{INPUT}} --out-dir ${{WORKDIR}} --genome-size {2} --threads {3}
+'''
+
+
+def flye(corrected_reads=None, genome_size=None, threads=64, prefix='', submit='T', queue=''):
+    r"""
+    flye runs on single machine
+    :param corrected_reads: corrected pacbio reads
+    :param genome_size: 100m stands for 100 Mb, 1gb is also supported
+    :param threads: default is 64, dependes how many available of host machine
+    :param prefix: (species name)
+    :param submit: T stands for submit this job to lsf, other value indicate output shell script but do not submit
+    :param queue: Default is Q104C512G_X4, could also be Q64C1T_X4
+    :return:
+    """
+    corrected_reads = op.abspath(corrected_reads)
+
+    logger.debug(corrected_reads)
+
+    if prefix == '':
+        prefix = get_prefix(corrected_reads)
+
+    if queue == '':
+        queue = 'Q104C512G_X4'
+
+    cmd_sh = flye_sh.format(prefix, corrected_reads, genome_size, threads)
+
+    bsub(cmd_sh, queue=queue, name=prefix, submit=submit, cpus=threads)
+
+
+# 0: prefix
+# 1: corrected reads.fasta
+# 2: genome size, 123m or 1g
+# 3: threads
 wtdbg_sh = """
 PREFIX={0}
 LONGREADS={1}
