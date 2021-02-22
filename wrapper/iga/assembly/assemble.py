@@ -14,7 +14,6 @@ import coloredlogs
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
-
 # 0: prefix
 # 1: corrected reads.fasta
 # 2: genome size, 123m or 1g
@@ -46,7 +45,7 @@ def flye(corrected_reads=None, genome_size=None, threads=64, prefix='', submit='
 
     cmd_sh = flye_sh.format(prefix, corrected_reads, genome_size, threads)
 
-    bsub(cmd_sh, queue=queue, name='flye.'+ prefix, submit=submit, cpus=threads)
+    bsub(cmd_sh, queue=queue, name='flye.' + prefix, submit=submit, cpus=threads)
 
 
 # 0: prefix
@@ -102,7 +101,7 @@ def wtdbg(corrected_reads=None, genome_size=None, threads=64, prefix='', submit=
 
     cmd_sh = wtdbg_sh.format(prefix, corrected_reads, genome_size, threads)
 
-    bsub(cmd_sh, queue=queue, name='wtdbg.'+ prefix, submit=submit, cpus=threads)
+    bsub(cmd_sh, queue=queue, name='wtdbg.' + prefix, submit=submit, cpus=threads)
 
 
 # threads.config
@@ -150,7 +149,7 @@ ${{CANU}} \
  utgOvlErrorRate=0.065 \
  trimReadsCoverage=2 \
  trimReadsOverlap=500 \
-genomeSize=={2} \
+genomeSize={2} \
 useGrid=true \
 minReadLength=1000 \
 minOverlapLength=600 \
@@ -183,7 +182,6 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
     if prefix == '':
         prefix = get_prefix(subreads)
 
-
     with open('threads.config', 'w') as fh:
         fh.write(canu_threads_config)
 
@@ -195,6 +193,12 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
         exit(1)
 
     cmd_sh = canu_sh.format(prefix, subreads, genome_size, type)
+
+    # change lib_file
+    lib_file = '/ds3200_1/users_root/yitingshuang/lh/bin/canu/canu-2.0/Linux-amd64/lib/site_perl/canu/Grid_LSF.pm'
+    original = r'setGlobalIfUndef("gridEngineSubmitCommand",.*'
+    target = r'setGlobalIfUndef("gridEngineSubmitCommand", "bsub -q {}");'.format(queue)
+    sh("""sed -i 's/{0}/{1}/' {2}""".format(original, target, lib_file))
 
     bsub(cmd_sh, queue=queue, name='canu.' + prefix, submit=submit)
 
