@@ -85,11 +85,11 @@ def falcon(subreads=None, genome_size=None, prefix='', etc=''):
     cfg.update('[General]genome_size={0}'.format(genome_size))
     if etc != '':
         cfg.update(etc)
-    logging.debug(cfg.get_text())
+    # logging.debug(cfg.get_text())
     cfg.write_to_file(cfg_file)
 
     cmd = conda_act.format('falcon') + falcon_sh.format(cfg_file)
-    # bsub(cmd, name='falcon' + prefix)
+    bsub(cmd, name='falcon' + prefix)
 
 
 # 0 reference contig (abs path)
