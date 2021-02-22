@@ -46,7 +46,7 @@ def flye(corrected_reads=None, genome_size=None, threads=64, prefix='', submit='
 
     cmd_sh = flye_sh.format(prefix, corrected_reads, genome_size, threads)
 
-    bsub(cmd_sh, queue=queue, name=prefix, submit=submit, cpus=threads)
+    bsub(cmd_sh, queue=queue, name='flye.'+ prefix, submit=submit, cpus=threads)
 
 
 # 0: prefix
@@ -102,7 +102,7 @@ def wtdbg(corrected_reads=None, genome_size=None, threads=64, prefix='', submit=
 
     cmd_sh = wtdbg_sh.format(prefix, corrected_reads, genome_size, threads)
 
-    bsub(cmd_sh, queue=queue, name=prefix, submit=submit, cpus=threads)
+    bsub(cmd_sh, queue=queue, name='wtdbg.'+ prefix, submit=submit, cpus=threads)
 
 
 # threads.config
@@ -196,7 +196,7 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
 
     cmd_sh = canu_sh.format(prefix, subreads, genome_size, type)
 
-    bsub(cmd_sh, queue=queue, name=prefix, submit=submit)
+    bsub(cmd_sh, queue=queue, name='canu.' + prefix, submit=submit)
 
 
 def bam2fastq(subreads=None):
