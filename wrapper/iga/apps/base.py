@@ -505,7 +505,7 @@ class VersatileTable:
         """
         # logger.debug('use_semicolon_sep: {}'.format(use_semicolon_sep))
         if use_semicolon_sep:
-            mylist = args.split('\n;')
+            mylist = re.split(r'[\n;]', args)
         else:
             mylist = args.split('\n')
         for this_arg in mylist:
