@@ -15,6 +15,65 @@ logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
 
+# 0: prefix
+# 1: corrected reads.fasta
+# 2: genome size, 123m or 1g
+# 3: threads
+wtdbg_sh = """
+PREFIX={0}
+LONGREADS={1}
+WORKDIR=workdir_wtdbg_${{PREFIX}}
+# 12m or 1g
+GENOMESIZE={2}
+THREADS={3}
+
+#rs sq ont ccs
+LIB=ccs
+
+echo -n "Start at "
+date
+mkdir -p ${{WORKDIR}}
+cd $WORKDIR
+#Pipeline
+wtdbg2.pl -t ${{THREADS}} -x ${{LIB}} -g ${{GENOMESIZE}} -o ${{PREFIX}} ${{LONGREADS}} >assemble.log 2>assemble.err
+
+echo -n "End at "
+date
+"""
+
+
+def wtdbg(corrected_reads=None, genome_size=None, threads=64, prefix='', submit='T', queue=''):
+    r"""
+    :param corrected_reads: corrected pacbio reads
+    :param genome_size: 100m stands for 100 Mb, 1gb is also supported
+    :param threads: default is 64, dependes how many available of host machine
+    :param prefix: (species name)
+    :param submit: T stands for submit this job to lsf, other value indicate output shell script but do not submit
+    :param queue: Default is Q104C512G_X4, could also be Q64C1T_X4
+    :return:
+    """
+    corrected_reads = op.abspath(corrected_reads)
+
+    logger.debug(corrected_reads)
+
+    if prefix == '':
+        prefix = get_prefix(corrected_reads)
+
+    if queue == '':
+        queue = 'Q104C512G_X4'
+
+    workdir = 'workdir_wtdbg_{}'.format(prefix)
+    if op.exists(workdir):
+        mv(workdir, workdir + str(time.time()).replace('.', ''))
+    if not mkdir(workdir):
+        logger.error("Workdir existing, exiting...")
+        exit(1)
+
+    cmd_sh = wtdbg_sh.format(prefix, corrected_reads, genome_size, threads)
+
+    bsub(cmd_sh, queue=queue, name=prefix, submit=submit, threads=threads)
+
+
 # threads.config
 canu_threads_config = """
 maxMemory=500g
@@ -85,6 +144,8 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
 
     if '.bam' in subreads:
         subreads = bam2fastq(subreads)
+
+    subreads = op.abspath(subreads)
 
     logger.debug(subreads)
 
