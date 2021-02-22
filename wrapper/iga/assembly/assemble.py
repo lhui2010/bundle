@@ -32,8 +32,6 @@ LIB=ccs
 
 echo -n "Start at "
 date
-mkdir -p ${{WORKDIR}}
-cd $WORKDIR
 #Pipeline
 wtdbg2.pl -t ${{THREADS}} -x ${{LIB}} -g ${{GENOMESIZE}} -o ${{PREFIX}} ${{LONGREADS}} >assemble.log 2>assemble.err
 
@@ -68,6 +66,8 @@ def wtdbg(corrected_reads=None, genome_size=None, threads=64, prefix='', submit=
     if not mkdir(workdir):
         logger.error("Workdir existing, exiting...")
         exit(1)
+
+    os.chdir(workdir)
 
     cmd_sh = wtdbg_sh.format(prefix, corrected_reads, genome_size, threads)
 
