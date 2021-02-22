@@ -14,6 +14,97 @@ import coloredlogs
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
+
+# threads.config
+canu_threads_config = """
+maxMemory=500g
+maxThreads=64
+
+merylThreads=64
+merylMemory=200
+
+cormhapThreads=8
+cormhapConcurrency=1
+obtmhapThreads=8
+utgmhapThreads=8
+
+cnsThreads=8
+corThreads=8
+
+corovlThreads=8
+obtovlThreads=8
+utgovlThreads=8
+"""
+
+# 0: prefix, usually species name, will be used as directory name
+# 1: full length to fasta.gz
+# 2: genome size
+# 3: type, could be pacbio, nanopore, and pacbio-hifi
+canu_sh = r'''
+CANU=/ds3200_1/users_root/yitingshuang/lh/bin/canu/canu-2.0/Linux-amd64/bin/canu
+PREFIX={0}
+WORKDIR="workdir_"${{PREFIX}}_{2}
+INPUT={1}
+#pacbio or nanopore
+TYPE={3}
+
+mkdir -p ${{WORKDIR}}
+
+#polyploid_param
+# corOutCoverage=200 "batOptions=-dg 3 -db 3 -dr 1 -ca 500 -cp 50" \
+
+${{CANU}} \
+ -d ${{WORKDIR}} -p ${{PREFIX}}  \
+ -s threads.config \
+ correctedErrorRate=0.035 \
+ utgOvlErrorRate=0.065 \
+ trimReadsCoverage=2 \
+ trimReadsOverlap=500 \
+genomeSize=={2} \
+useGrid=true \
+minReadLength=1000 \
+minOverlapLength=600 \
+-${{TYPE}} \
+${{INPUT}} \
+  >>${{WORKDIR}}/assemble.log 2>>${{WORKDIR}}/assemble.err
+'''
+
+
+def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', submit='T'):
+    r"""
+    :param subreads: pacbio DNA subreads (FASTA or FASTQ, can be uncompressed, gzip, bzip2 or xz compressed)
+    :param genome_size: 100m stands for 100 Mb
+    :param prefix: (species name)
+    :param etc: Deprecated for now
+    :param submit: T stands for submit this job to lsf, other value indicate output shell script but do not submit
+    :param type: 'pacbio|nanopore|pacbio-hifi'
+    :return:
+    """
+    logger.debug(subreads)
+
+    if '.bam' in subreads:
+        subreads = bam2fastq(subreads)
+
+    logger.debug(subreads)
+
+    if prefix == '':
+        prefix = get_prefix(subreads)
+
+    with open('threads.config', 'w') as fh:
+        fh.write(canu_threads_config)
+
+    workdir = 'workdir_canu_{}'.format(prefix)
+    if op.exists(workdir):
+        mv(workdir, workdir + str(time.time()).replace('.', ''))
+    if not mkdir(workdir):
+        logger.error("Workdir existing, exiting...")
+        exit(1)
+
+    cmd_sh = canu_sh.format(prefix, subreads, genome_size, type)
+
+    bsub(cmd_sh, submit=submit)
+
+
 def bam2fastq(subreads=None):
     """
     Input zeins.bam zeins.bam.pbi
@@ -50,7 +141,7 @@ def falcon(subreads=None, genome_size=None, prefix='', etc='', submit='T'):
     :param genome_size: (genomesize in bp)
     :param prefix: (species name)
     :param etc: (other fields need to be updated in falcon cfg)
-    :param submit: T stands for submit this job to lsf
+    :param submit: T stands for submit this job to lsf, other value indicate output shell script but do not submit
     :return:
     """
     logger.debug(subreads)
