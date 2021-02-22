@@ -42,11 +42,11 @@ python -m iga.assembly.assemble flye corrected.fasta 123m
 
 先用三代数据纠错，需要用下机未纠错的reads
 python -m iga.assembly.polish gcpp contig pacbio_subreads.bam
-** 结果**：workdir_GCPP/output.fasta
+**结果**：workdir_GCPP/output.fasta
 
 再用二代纠错
 python -m iga.assembly.polish nextpolish contig 'left.fq right.fq'
-** 结果 **： workdir_nextpolish_canu_polished/canu_polished.1.fa
+**结果**： workdir_nextpolish_canu_polished/canu_polished.1.fa
 
 ### 1.2.2 组装评估
 #### 算N50
@@ -66,7 +66,10 @@ python -m iga.assembly.assess lai contig.fasta
 ## 1.3 其它脚本
 ### 1.3.1 格式转换
 #### bam转fasta
+
 把subreads.bam转换成组装软件需要的fasta文件，目录需要同时存在 zeins.bam.pbi
+
 python -m iga.assembly.assemble bam2fastq zeins.bam
+
 **结果文件**： zeins.fasta.gz
 

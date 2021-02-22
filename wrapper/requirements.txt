@@ -2,3 +2,4 @@ coloredlogs
 six
 parse
 bs4
+rich
