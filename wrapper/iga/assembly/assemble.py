@@ -26,7 +26,7 @@ flye --pacbio-corr ${{INPUT}} --out-dir ${{WORKDIR}} --genome-size {2} --threads
 '''
 
 
-def flye(corrected_reads=None, genome_size=None, threads=64, prefix='', submit='T', queue=''):
+def flye(corrected_reads=None, genome_size=None, threads=64, prefix='', submit='T', queue='Q104C512G_X4'):
     r"""
     flye runs on single machine
     :param corrected_reads: corrected pacbio reads
@@ -43,9 +43,6 @@ def flye(corrected_reads=None, genome_size=None, threads=64, prefix='', submit='
 
     if prefix == '':
         prefix = get_prefix(corrected_reads)
-
-    if queue == '':
-        queue = 'Q104C512G_X4'
 
     cmd_sh = flye_sh.format(prefix, corrected_reads, genome_size, threads)
 
@@ -77,7 +74,7 @@ date
 """
 
 
-def wtdbg(corrected_reads=None, genome_size=None, threads=64, prefix='', submit='T', queue=''):
+def wtdbg(corrected_reads=None, genome_size=None, threads=64, prefix='', submit='T', queue='Q104C512G_X4'):
     r"""
     :param corrected_reads: corrected pacbio reads
     :param genome_size: 100m stands for 100 Mb, 1gb is also supported
@@ -93,9 +90,6 @@ def wtdbg(corrected_reads=None, genome_size=None, threads=64, prefix='', submit=
 
     if prefix == '':
         prefix = get_prefix(corrected_reads)
-
-    if queue == '':
-        queue = 'Q104C512G_X4'
 
     workdir = 'workdir_wtdbg_{}'.format(prefix)
     if op.exists(workdir):
@@ -166,7 +160,7 @@ ${{INPUT}} \
 '''
 
 
-def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', submit='T', queue=''):
+def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', submit='T', queue='Q104C512G_X4'):
     r"""
     :param subreads: pacbio DNA subreads (FASTA or FASTQ, can be uncompressed, gzip, bzip2 or xz compressed)
     :param genome_size: 100m stands for 100 Mb
@@ -189,8 +183,6 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
     if prefix == '':
         prefix = get_prefix(subreads)
 
-    if queue == '':
-        queue = 'Q104C512G_X4'
 
     with open('threads.config', 'w') as fh:
         fh.write(canu_threads_config)
@@ -205,6 +197,7 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
     cmd_sh = canu_sh.format(prefix, subreads, genome_size, type)
 
     bsub(cmd_sh, queue=queue, name=prefix, submit=submit)
+
 
 def bam2fastq(subreads=None):
     """
