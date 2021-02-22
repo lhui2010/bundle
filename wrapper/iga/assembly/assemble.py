@@ -71,7 +71,7 @@ def wtdbg(corrected_reads=None, genome_size=None, threads=64, prefix='', submit=
 
     cmd_sh = wtdbg_sh.format(prefix, corrected_reads, genome_size, threads)
 
-    bsub(cmd_sh, queue=queue, name=prefix, submit=submit, threads=threads)
+    bsub(cmd_sh, queue=queue, name=prefix, submit=submit, cpus=threads)
 
 
 # threads.config
