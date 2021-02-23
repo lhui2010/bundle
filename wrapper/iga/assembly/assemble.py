@@ -43,7 +43,8 @@ def flye(corrected_reads=None, genome_size=None, threads=64, prefix='', submit='
     if prefix == '':
         prefix = get_prefix(corrected_reads)
 
-    cmd_sh = flye_sh.format(prefix, corrected_reads, genome_size, threads)
+    cmd_sh = conda_act.format('flye')
+    cmd_sh += flye_sh.format(prefix, corrected_reads, genome_size, threads)
 
     bsub(cmd_sh, queue=queue, name='flye.' + prefix, submit=submit, cpus=threads)
 
