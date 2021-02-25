@@ -573,7 +573,7 @@ def debug(level=logging.DEBUG):
         level=level,
         format="%(message)s",
         datefmt="[%X]",
-        handlers=[RichHandler()],
+        handlers=[RichHandler(console=sys.stderr)],
         stream=sys.stderr,
     )
 
