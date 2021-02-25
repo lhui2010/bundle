@@ -298,7 +298,7 @@ class BedPE:
         """
         result = ''
         for k in sorted(self.bedpe_db.keys()):
-            logger.debug(k)
+            #logger.debug(k)
             for i in self.bedpe_db[k]:
                 if left_only:
                     result += i.left.get_line()
