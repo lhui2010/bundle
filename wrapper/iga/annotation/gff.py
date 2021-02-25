@@ -490,22 +490,25 @@ class Bed:
             sum += i.get_size()
         return sum
 
-    def stat(self, short):
+    def stat(self, short='F'):
         """
         stat bed size
-        :param short:, whether to use short format, T is use
+        :param short: [T/F], whether to use short format, T is use
         :return:
         """
         size_list = []
         # threshold = 50
         for i in self.bed_list:
             size_list.append(i.get_size())
-        print("""Max: {}
-        Min: {}
-        Mean: {}
-        Count: {}
-        Sum: {}
-        """.format(max(size_list), min(size_list), mean(size_list), len(size_list), sum(size_list)))
+        if short != 'T':
+            print("""Max: {}
+            Min: {}
+            Mean: {}
+            Count: {}
+            Sum: {}
+            """.format(max(size_list), min(size_list), mean(size_list), len(size_list), sum(size_list)))
+        else:
+            print(sum(size_list))
         return 0
 
     def write(self, output):
