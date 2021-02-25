@@ -649,7 +649,6 @@ def mosaic_ratio(fai=None, stat=None):
     :param stat: mosaic ratio (format: left_mosaic_size\tright_mosaic_size)
     :return:
     """
-    logging.basicConfig(level='ERROR')
     chr_size = {}
     with open(fai) as fh:
         for line in fh:
