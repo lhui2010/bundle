@@ -569,11 +569,12 @@ def debug(level=logging.DEBUG):
     Turn on the debugging
     """
     #    borrowed from jcvi
+    from rich.console import Console
     logging.basicConfig(
         level=level,
         format="%(message)s",
         datefmt="[%X]",
-        handlers=[RichHandler(console=rich.console.Console(stderr=True))],
+        handlers=[RichHandler(console=Console(stderr=True))],
     )
 
 
