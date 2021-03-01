@@ -31,7 +31,7 @@ PREFIX={2}
 genblast -p genblastg -q $QRY -t $REF -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 \
 -x 20 -n 20 -v 2 -h 2 -j 0 -norepair -gff -cdna -pro -o $PREFIX.genblast
 
-python -m iga.annotation.genblast filter_genblast $PREFIX.genblast.*.gff > $PREFIX.slim.genblast.gff
+python -m iga.annotation.genblast filter_genblast $PREFIX.genblast*.gff > $PREFIX.slim.genblast.gff
 
 python -m iga.annotation.genblast filter_early_stop $PREFIX.genblast.prot > $PREFIX.genblast.noearly_stop.id
 
