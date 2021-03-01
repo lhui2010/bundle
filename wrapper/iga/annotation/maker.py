@@ -59,7 +59,7 @@ def prep_genblast(protein=None, genome=None, chunk=100):
     for protein_i in fasta_list:
         final_prefix = protein_i
         cmd = prep_genblast_sh.format(genome, protein_i, final_prefix)
-        job_list.append(bsub(cmd))
+        job_list.append(bsub(cmd, name='genblast'))
     waitjob(job_list)
     logging.debug("The resulting gff is {}.gff".format(final_prefix))
     return 0
