@@ -70,8 +70,8 @@ def prep_genblast(protein=None, genome=None, chunk=100, output=''):
     waitjob(job_list)
     if output == '':
         output = abs_ref + rel_pt + '.gff'
-    sh('cat {}/*.run/*.final.gff > {}.gff'.format(workdir, output))
-    logging.debug("The resulting gff is {}.gff".format(final_prefix))
+    sh('cat {}/*.run/*.final.gff > {}'.format(workdir, output))
+    logging.debug("The resulting gff is {}".format(final_prefix))
     return 0
 
 
