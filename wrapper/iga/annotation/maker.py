@@ -58,7 +58,7 @@ def prep_genblast(protein=None, genome=None, chunk=100, output=''):
     fasta_list = split_fasta(protein, workdir, chunk)
     job_list = []
     sh('formatdb -p F -i {}'.format(abs_ref))
-    workdir = abs(workdir)
+    workdir = op.abspath(workdir)
     for protein_i in fasta_list:
         os.chdir(workdir)
         mkdir(protein_i + '.run')
