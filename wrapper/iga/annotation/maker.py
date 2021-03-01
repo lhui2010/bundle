@@ -33,7 +33,7 @@ genblast -p genblastg -q $QRY -t $REF -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c
 
 python -m iga.annotation.genblast filter_genblast $PREFIX.genblast*.gff > $PREFIX.slim.genblast.gff
 
-python -m iga.annotation.genblast filter_early_stop $PREFIX.genblast.prot > $PREFIX.genblast.noearly_stop.id
+python -m iga.annotation.genblast filter_early_stop $PREFIX.genblast*.pro > $PREFIX.genblast.noearly_stop.id
 
 selectGFF.pl $PREFIX.genblast.noearly_stop.id $PREFIX.slim.genblast.gff > $PREFIX.filter.genblast.gff
 
