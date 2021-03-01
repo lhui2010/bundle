@@ -81,7 +81,7 @@ def prep_genblast(genome=None, protein=None, chunk=100, output=''):
         job_list.append(bsub(cmd, name='genblast'))
     waitjob(job_list)
     if output == '':
-        output = abs_ref + rel_pt + '.gff'
+        output = ".".join([abs_ref, rel_pt, '.gff'])
     sh('cat {}/*.run/*.final.gff > {}'.format(workdir, output))
     logging.debug("The resulting gff is {}".format(output))
     return 0
