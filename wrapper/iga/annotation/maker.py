@@ -30,9 +30,9 @@ QRY={1}
 PREFIX={2}
 
 ln -s ${{REF}}
-ln -s ${{REF}}.nin
-ln -s ${{REF}}.nhr
-ln -s ${{REF}}.nsq
+# ln -s ${{REF}}.nin
+# ln -s ${{REF}}.nhr
+# ln -s ${{REF}}.nsq
 ln -s ${{QRY}}
 REF=`basename ${{REF}}`
 QRY=`basename ${{QRY}}`
@@ -68,8 +68,8 @@ def prep_genblast(genome=None, protein=None, chunk=100, output=''):
         mv(workdir, workdir + str(time.time()).replace('.', ''))
     fasta_list = split_fasta(protein, workdir, chunk)
     job_list = []
-    if not (op.exists(abs_ref + ".nin") and op.exists(abs_ref + ".nsq") and op.exists(abs_ref + ".nhr")):
-        sh('formatdb -p F -i {}'.format(abs_ref))
+    # if not (op.exists(abs_ref + ".nin") and op.exists(abs_ref + ".nsq") and op.exists(abs_ref + ".nhr")):
+    #     sh('formatdb -p F -i {}'.format(abs_ref))
     workdir = op.abspath(workdir)
     for protein_i in fasta_list:
         os.chdir(workdir)
