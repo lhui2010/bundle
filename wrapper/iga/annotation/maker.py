@@ -42,13 +42,14 @@ sed 's/transcript/protein_match/; s/coding_exon/match_part/' $PREFIX.filter.genb
 """
 
 
-def prep_genblast(protein=None, genome=None, chunk=100):
+def prep_genblast(protein=None, genome=None, chunk=100, output=''):
     """
     Run genblast from protein to genome, output maker compatible gffs as well as normal gffs
     Relative path
     :param protein: protein fasta
     :param genome: genome fasta
-    :param chunk: how many files the genome is splitted
+    :param chunk: how many files the genome is splitted\
+    :param output: the output gff file
     :return:
     """
     abs_ref = op.abspath(genome)
@@ -57,12 +58,18 @@ def prep_genblast(protein=None, genome=None, chunk=100):
     fasta_list = split_fasta(protein, workdir, chunk)
     job_list = []
     sh('formatdb -p F -i {}'.format(abs_ref))
-    os.chdir(workdir)
+    workdir = abs(workdir)
     for protein_i in fasta_list:
+        os.chdir(workdir)
+        mkdir(protein_i + '.run')
+        os.chdir(protein_i + '.run')
         final_prefix = protein_i
         cmd = prep_genblast_sh.format(abs_ref, protein_i, final_prefix)
         job_list.append(bsub(cmd, name='genblast'))
     waitjob(job_list)
+    if output == '':
+        output = abs_ref + rel_pt + '.gff'
+    sh('cat {}/*.run/*.final.gff > {}.gff'.format(workdir, output))
     logging.debug("The resulting gff is {}.gff".format(final_prefix))
     return 0
 
