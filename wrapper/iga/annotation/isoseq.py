@@ -10,6 +10,21 @@ import coloredlogs
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
+
+# 0 subreads.bam
+# 1 workdir
+# 2 output.bam
+# def sam2gff(sam, gff=""):
+#
+# isoseq_official_sh=r"""
+# ccs [movie].subreads.bam [movie].ccs.bam --min-rq 0.9
+# lima --isoseq --dump-clips --no-pbi --peek-guess -j 24 ccs.bam primers.fasta demux.bam
+# isoseq3 refine --require-polya combined_demux.consensusreadset.xml primers.fasta flnc.bam
+# bamtools convert -format fastq -in flnc.bam > flnc.fastq
+# """
+
+# 0 subreads.bam
+# 1 workdir
 isoseq_sh = r"""export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/isoseq3/BGI-Full-Length-RNA-Analysis-Pipeline/bin:$PATH
 export PERL5LIB=""
 WORKDIR={1}

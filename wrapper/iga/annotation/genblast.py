@@ -1,8 +1,12 @@
-#!/usr/bin/env python
+"""
+genblast relevant utils
+"""
 
-import argparse
-import textwrap
 import re
+
+from iga.apps.base import emain
+from Bio import SeqIO
+
 import logging
 
 
@@ -13,7 +17,7 @@ class Feat:
         self.exon_num = exon_num
         self.length = length
         rank_search = re.search(r'(.*)-R(\d+)', gene_id)
-        if rank_search != None:
+        if rank_search is not None:
             self.core_gene_id = rank_search[1]
             self.rank = int(rank_search[2])
         if score == '0.0' or score == '0' or '-' in score or score == '.':
@@ -101,31 +105,45 @@ class GFF:
             print(self.GFF_dict[k].content, end='')
 
 
-def main():
-    prog_name = "Another python program"
-    usage = "Another python program"
+#def run_genblast():
 
-    parser = argparse.ArgumentParser(
-        prog=prog_name,
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        description=textwrap.dedent(usage),
-        epilog="")
-    parser.add_argument("qry1", help="qry1 file")
-    #    parser.add_argument("qry2", help="qry2 file")
-    #    parser.add_argument("-f", "--flanking", default=10000, type=int, help="flanking distance default (1000)")
-    args = parser.parse_args()
 
-    qry1_file = args.qry1
-    #    qry2_file = args.qry2
-    #    flanking_distance = args.flanking
-
+def filter_genblast(genblast_gff=None):
+    """
+    Filter genblast result.
+    :param genblast_gff:
+    :return:
+    """
     #   000028F|arrow_np1212    genBlastG       transcript      2151627 2152061 23.3019 -       .       ID=sp_A7M942_PSAC_CUSGR
     #   000028F|arrow_np1212    genBlastG       coding_exon     2151627 2152061 .       -       .       ID=sp_A7M942_PSAC_CUSGR
     #   000005F|arrow_np1212    genBlastG       transcript      3483885 3484160 23.2295 -       .       ID=sp_A7M942_PSAC_CUSGR
-    gff_read = GFF(qry1_file)
+
+    gff_read = GFF(genblast_gff)
     gff_read.filter()
     gff_read.print_out()
 
 
+def filter_early_stop(fasta=None):
+    """
+    Filter fasta contaning early stops
+    :param fasta: pep fasta
+    :return:
+    """
+
+    raw_dict = SeqIO.to_dict(SeqIO.parse(fasta, "fasta"))
+    genome_dict = {}
+    # rename genome_dict
+    for old_key in raw_dict.keys():
+        if (re.search(r'\*|U', raw_dict[old_key].seq.__str__())):
+            continue
+        else:
+            genome_dict[old_key] = raw_dict[old_key]
+
+    with open(fasta + "noStop.fa", "w") as output_handle:
+        for k in genome_dict.keys():
+            SeqIO.write(genome_dict[k], output_handle, "fasta")
+            print(k)
+
+
 if __name__ == "__main__":
-    main()
+    emain()

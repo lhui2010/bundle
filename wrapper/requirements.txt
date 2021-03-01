@@ -3,3 +3,4 @@ six
 parse
 bs4
 rich
+Bio
