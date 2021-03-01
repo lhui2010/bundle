@@ -65,7 +65,7 @@ def prep_genblast(genome=None, protein=None, chunk=100, output=''):
     rel_pt = op.relpath(protein)
     workdir = genome + ".genblast." + rel_pt
     if op.exists(workdir):
-        mv(workdir, workdir + + str(time.time()).replace('.', ''))
+        mv(workdir, workdir + str(time.time()).replace('.', ''))
     fasta_list = split_fasta(protein, workdir, chunk)
     job_list = []
     if not (op.exists(abs_ref + ".nin") and op.exists(abs_ref + ".nsq") and op.exists(abs_ref + ".nhr")):
