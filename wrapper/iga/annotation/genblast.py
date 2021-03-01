@@ -134,7 +134,7 @@ def filter_early_stop(fasta=None):
     genome_dict = {}
     # rename genome_dict
     for old_key in raw_dict.keys():
-        if (re.search(r'\*|U[ATCG]', raw_dict[old_key].seq.__str__())):
+        if re.search(r'\*|U[ATCG]', raw_dict[old_key].seq.__str__()):
             logging.debug('{} with seq {} contains N'.format(old_key, raw_dict[old_key].seq))
             continue
         else:
