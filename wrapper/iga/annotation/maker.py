@@ -51,6 +51,7 @@ def prep_genblast(protein=None, genome=None, chunk=100):
     :param chunk: how many files the genome is splitted
     :return:
     """
+    abs_ref = op.abspath(genome)
     rel_pt = op.relpath(protein)
     workdir = genome + ".genblast." + rel_pt
     fasta_list = split_fasta(protein, workdir, chunk)
@@ -58,7 +59,7 @@ def prep_genblast(protein=None, genome=None, chunk=100):
     os.chdir(workdir)
     for protein_i in fasta_list:
         final_prefix = protein_i
-        cmd = prep_genblast_sh.format(genome, protein_i, final_prefix)
+        cmd = prep_genblast_sh.format(abs_ref, protein_i, final_prefix)
         job_list.append(bsub(cmd, name='genblast'))
     waitjob(job_list)
     logging.debug("The resulting gff is {}.gff".format(final_prefix))
