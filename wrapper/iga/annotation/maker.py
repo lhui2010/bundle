@@ -28,6 +28,9 @@ prep_genblast_sh = """
 REF={0}
 QRY={1}
 PREFIX={2}
+
+ln -s ${{REF}}
+REF=`basename ${{REF}}`
 genblast -p genblastg -q $QRY -t $REF -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 \
 -x 20 -n 20 -v 2 -h 2 -j 0 -norepair -gff -cdna -pro -o $PREFIX.genblast
 
@@ -38,11 +41,10 @@ python -m iga.annotation.genblast filter_early_stop $PREFIX.genblast*.pro > $PRE
 selectGFF.pl $PREFIX.genblast.noearly_stop.id $PREFIX.slim.genblast.gff > $PREFIX.filter.genblast.gff
 
 sed 's/transcript/protein_match/; s/coding_exon/match_part/' $PREFIX.filter.genblast.gff > $PREFIX.final.gff
-
 """
 
 
-def prep_genblast(protein=None, genome=None, chunk=100, output=''):
+def prep_genblast(genome=None, protein=None, chunk=100, output=''):
     """
     Run genblast from protein to genome, output maker compatible gffs as well as normal gffs
     Relative path
@@ -52,6 +54,7 @@ def prep_genblast(protein=None, genome=None, chunk=100, output=''):
     :param output: the output gff file
     :return:
     """
+    # test ok in /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/input/genblast/falcon_genblast/test
     abs_ref = op.abspath(genome)
     rel_pt = op.relpath(protein)
     workdir = genome + ".genblast." + rel_pt
@@ -73,6 +76,23 @@ def prep_genblast(protein=None, genome=None, chunk=100, output=''):
     sh('cat {}/*.run/*.final.gff > {}'.format(workdir, output))
     logging.debug("The resulting gff is {}".format(final_prefix))
     return 0
+
+
+# collect_genblast_gff_sh = """
+# PREFIX=${{{}%.gff}}
+#
+# python -m iga.annotation.genblast filter_genblast $PREFIX.gff > $PREFIX.slim.genblast.gff
+#
+# python -m iga.annotation.genblast filter_early_stop $PREFIX.pro > $PREFIX.genblast.noearly_stop.id
+#
+# selectGFF.pl $PREFIX.genblast.noearly_stop.id $PREFIX.slim.genblast.gff > $PREFIX.filter.genblast.gff
+#
+# sed 's/transcript/protein_match/; s/coding_exon/match_part/' $PREFIX.filter.genblast.gff > $PREFIX.final.gff
+# """
+#
+#
+# def collect_genblast_gff(gff=None):
+#     sh(process_genblast_gff_sh.format(gff))
 
 
 # 0 ref genome
