@@ -66,7 +66,8 @@ def prep_genblast(genome=None, protein=None, chunk=100, output=''):
     workdir = genome + ".genblast." + rel_pt
     fasta_list = split_fasta(protein, workdir, chunk)
     job_list = []
-    sh('formatdb -p F -i {}'.format(abs_ref))
+    if not (op.exists(abs_ref + ".nin") and op.exists(abs_ref + ".nsq") and op.exists(abs_ref + ".nhr")):
+        sh('formatdb -p F -i {}'.format(abs_ref))
     workdir = op.abspath(workdir)
     for protein_i in fasta_list:
         os.chdir(workdir)
