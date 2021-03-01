@@ -62,6 +62,7 @@ def prep_genblast(protein=None, genome=None, chunk=100, output=''):
     for protein_i in fasta_list:
         os.chdir(workdir)
         mkdir(protein_i + '.run')
+        mv(protein_i, protein_i + '.run/' + protein_i)
         os.chdir(protein_i + '.run')
         final_prefix = protein_i
         cmd = prep_genblast_sh.format(abs_ref, protein_i, final_prefix)
