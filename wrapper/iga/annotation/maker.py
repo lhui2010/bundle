@@ -30,6 +30,9 @@ QRY={1}
 PREFIX={2}
 
 ln -s ${{REF}}
+ln -s ${{REF}}.nin
+ln -s ${{REF}}.nhr
+ln -s ${{REF}}.nsq
 ln -s ${{QRY}}
 REF=`basename ${{REF}}`
 QRY=`basename ${{QRY}}`
@@ -51,8 +54,8 @@ def prep_genblast(genome=None, protein=None, chunk=100, output=''):
     """
     Run genblast from protein to genome, output maker compatible gffs as well as normal gffs
     Relative path
-    :param protein: protein fasta
     :param genome: genome fasta
+    :param protein: protein fasta
     :param chunk: how many files the genome is splitted\
     :param output: the output gff file
     :return:
