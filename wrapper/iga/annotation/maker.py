@@ -30,7 +30,10 @@ QRY={1}
 PREFIX={2}
 
 ln -s ${{REF}}
+ln -s ${{QRY}}
 REF=`basename ${{REF}}`
+QRY=`basename ${{QRY}}`
+
 genblast -p genblastg -q $QRY -t $REF -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 \
 -x 20 -n 20 -v 2 -h 2 -j 0 -norepair -gff -cdna -pro -o $PREFIX.genblast
 
@@ -65,10 +68,10 @@ def prep_genblast(genome=None, protein=None, chunk=100, output=''):
     for protein_i in fasta_list:
         os.chdir(workdir)
         mkdir(protein_i + '.run')
-        mv(protein_i, protein_i + '.run/' + protein_i)
+        # mv(protein_i, protein_i + '.run/' + protein_i)
         os.chdir(protein_i + '.run')
         final_prefix = protein_i
-        cmd = prep_genblast_sh.format(abs_ref, protein_i, final_prefix)
+        cmd = prep_genblast_sh.format(abs_ref, "../" + protein_i, final_prefix)
         job_list.append(bsub(cmd, name='genblast'))
     waitjob(job_list)
     if output == '':
