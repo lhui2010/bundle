@@ -135,7 +135,7 @@ def filter_early_stop(fasta=None):
     # rename genome_dict
     for old_key in raw_dict.keys():
         if re.search(r'\*|U[ATCG]', raw_dict[old_key].seq.__str__()):
-            logging.debug('{} with seq {} contains gap'.format(old_key, raw_dict[old_key].seq))
+            #logging.debug('{} with seq {} contains gap'.format(old_key, raw_dict[old_key].seq))
             logging.debug(re.search(r'\*|U[ATCG]', raw_dict[old_key].seq.__str__()))
             continue
         else:
