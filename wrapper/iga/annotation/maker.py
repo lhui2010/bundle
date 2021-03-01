@@ -56,6 +56,7 @@ def prep_genblast(protein=None, genome=None, chunk=100):
     workdir = genome + ".genblast." + rel_pt
     fasta_list = split_fasta(protein, workdir, chunk)
     job_list = []
+    sh('formatdb -p F -i {}'.format(abs_ref))
     os.chdir(workdir)
     for protein_i in fasta_list:
         final_prefix = protein_i
