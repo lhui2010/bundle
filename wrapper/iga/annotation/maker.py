@@ -620,7 +620,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
 maker_pipe_sh = """#!/bin/bash
 REF={0}
 ESTGFF={1}
-FLCDNAGFF={2}
+CDNAFASTA={2}
 PEPGFF={3}
 REPEATGFF={4}
 
@@ -630,7 +630,7 @@ python -m iga.annotation.maker deploy_augustus
 python -m iga.annotation.maker maker_run         ${{REF}} ${{ESTGFF}} ${{PEPGFF}} ${{REPEATGFF}} --cpus 2
 python -m iga.annotation.maker maker_check_resub ${{REF}}_R1
 python -m iga.annotation.maker maker_collect     ${{REF}}_R1
-python -m iga.annotation.maker maker_train       ${{REF}}_R1 --cdna_fasta ${{FLCDNAGFF}}  --snap 'F' --augustus F
+python -m iga.annotation.maker maker_train       ${{REF}}_R1 --cdna_fasta ${{CDNAFASTA}}  --snap 'F' --augustus F
 cd ${{REF}}_R${{ROUND}}
 python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
 cd ..
@@ -642,7 +642,7 @@ python -m iga.annotation.maker maker_run         ${{REF}} ${{ESTGFF}} ${{PEPGFF}
 --update "alt_splice=1"
 python -m iga.annotation.maker maker_check_resub ${{REF}}_R2
 python -m iga.annotation.maker maker_collect     ${{REF}}_R2
-python -m iga.annotation.maker maker_train       ${{REF}}_R2 --cdna_fasta ${{FLCDNAGFF}} --augustus F
+python -m iga.annotation.maker maker_train       ${{REF}}_R2 --cdna_fasta ${{CDNAFASTA}} --augustus F
 cd ${{REF}}_R${{ROUND}}
 python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
 cd ..
@@ -662,16 +662,16 @@ cd ..
 """
 
 
-def maker_pipe(ref_genome='', est_gff='', flcdna_gff='', pep_gff='', repeat_gff=''):
+def maker_pipe(ref_genome='', est_gff='', flcdna_fasta='', pep_gff='', repeat_gff=''):
     """
-    :param ref_genome:
-    :param est_gff:
-    :param flcdna_gff:
-    :param pep_gff:
-    :param repeat_gff:
+    :param ref_genome: fasta format of reference genome
+    :param est_gff: GFF format of aligned transcripts
+    :param flcdna_fasta: fasta format of full lenth cDNA used to train augustus
+    :param pep_gff: GFF format of aligned homologous proteins
+    :param repeat_gff: GFF format of repeat elements
     :return: print maker pipeline commands
     """
-    cmd = maker_pipe_sh.format(ref_genome, est_gff, flcdna_gff, pep_gff, repeat_gff)
+    cmd = maker_pipe_sh.format(ref_genome, est_gff, flcdna_fasta, pep_gff, repeat_gff)
     print(cmd)
 
 

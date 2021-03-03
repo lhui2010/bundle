@@ -204,11 +204,12 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
     bsub(cmd_sh, queue=queue, name='canu.' + prefix, submit=submit)
 
 
-def bam2fastq(subreads=None):
+def bam2fastq(subreads=None, submit='T'):
     """
     Input zeins.bam zeins.bam.pbi
     Output zeins.fasta.gz
     :param subreads:
+    :param submit: [T/F] whether to use bsub to submit
     :return:
     """
     if type(subreads) == list:
@@ -223,8 +224,11 @@ def bam2fastq(subreads=None):
 
     prefix = get_prefix(subreads)
     cmd = 'bam2fasta -o {0} {1}'.format(prefix, subreads)
-    job = bsub(cmd, name='bam2fasta')
-    waitjob(job)
+    if submit == 'T':
+        job = bsub(cmd, name='bam2fasta')
+        waitjob(job)
+    else:
+        sh(cmd)
     return '{0}.fasta.gz'.format(prefix)
 
 
