@@ -21,6 +21,32 @@ logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
 
+#0 repeatmask.gff
+prep_repeat_sh = """
+GFF={0}
+PREFIX=${{GFF%.gff}}
+grep -v -e "Satellite" -e ")n" -e "-rich" ${{GFF}} \
+    > ${PREFIX}.complex.gff3
+# reformat to work with MAKER
+cat ${PREFIX}.complex.gff3 | \
+    perl -ane '$id; if(!/^\#/){@F = split(/\t/, $_); chomp $F[-1];$id++; $F[-1] .= "\;ID=$id"; 
+    $_ = join("\t", @F)."\n"}; print $_' \a
+    > ${PREFIX}.complex.reformat.gff3
+/ds3200_1/users_root/yitingshuang/lh/bin/bundle/MAKER/rename_repeat_masker_gff_for_maker.pl \
+${PREFIX}.complex.reformat.gff3 > ${PREFIX}.complex.reformat.MAKER.gff3
+"""
+
+
+def prep_repeat_gff(GFF=None):
+    """
+    :param GFF: repeat mask gff
+    :return: Output
+    """
+    cmd = prep_repeat_sh.format(GFF)
+    bsub(cmd, name="format_repeat_mask")
+    return 0
+
+
 # 0 genome.fasta
 # 1 protein.fasta
 # 2 prefix
@@ -104,14 +130,6 @@ def prep_genblast(genome=None, protein=None, chunk=100, output=''):
 #     sh(process_genblast_gff_sh.format(gff))
 
 
-# 0 ref genome
-# 1 qry fasta
-fastq2gff_sh = """
-minimap2 -t20 -C5 -ax splice {0} {1} |samtools view -F 256 -b - \
-| bedtools bamtobed -split -i - > {1}.bed 
-gt bed_to_gff3 {1}.bed | sort -k9,9 -k1,1 -k7,7 -k4,4n > {1}.rawgff
-"""
-
 
 def prep_fastx2gff(fastx=None, genome=None, output='', workdir=''):
     r"""
@@ -123,6 +141,15 @@ def prep_fastx2gff(fastx=None, genome=None, output='', workdir=''):
     :return:
     """
     fastq2gff(fastx, genome, output, workdir)
+
+
+# 0 ref genome
+# 1 qry fasta
+fastq2gff_sh = """
+minimap2 -t20 -C5 -ax splice {0} {1} |samtools view -F 256 -b - \
+| bedtools bamtobed -split -i - > {1}.bed 
+gt bed_to_gff3 {1}.bed | sort -k9,9 -k1,1 -k7,7 -k4,4n > {1}.rawgff
+"""
 
 
 def fastq2gff(fastq=None, genome=None, output='', workdir=''):
