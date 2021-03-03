@@ -130,7 +130,6 @@ def prep_genblast(genome=None, protein=None, chunk=100, output=''):
 #     sh(process_genblast_gff_sh.format(gff))
 
 
-
 def prep_fastx2gff(fastx=None, genome=None, output='', workdir=''):
     r"""
     Prepare est evidence to maker compatible format
