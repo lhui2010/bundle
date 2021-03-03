@@ -612,46 +612,68 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         sh(job_list, parallel='T', cpus=cpus)
 
 
-def maker_pipe():
-    shell_script = """
-    #-+-First Round
+#0 reference.fa
+#1 est.gff
+#2 flcdna.gff
+#3 pep.gff
+#4 repeat.gff
+maker_pipe_sh = """#!/bin/bash
+REF={0}
+ESTGFF={1}
+FLCDNAGFF={2}
+PEPGFF={3}
+REPEATGFF={4}
+
+#-+-First Round
 ROUND=1
-#python -m iga.annotation.maker deploy_augustus
-#python -m iga.annotation.maker maker_run         coriaria_contig.fa isoseq_corrected.gff peps.gff repeats.maker.gff --cpus 2
-#python -m iga.annotation.maker maker_check_resub coriaria_contig.fa_R1
-#python -m iga.annotation.maker maker_collect     coriaria_contig.fa_R1
-#python -m iga.annotation.maker maker_train       coriaria_contig.fa_R1 --cdna_fasta total_flnc_polished.fa  --snap 'F' --augustus F
-#cd coriaria_contig.fa_R${ROUND}
-#python -m iga.assembly.busco busco --mode prot total.all.maker.proteins.fasta
-#cd ..
+python -m iga.annotation.maker deploy_augustus
+python -m iga.annotation.maker maker_run         ${{REF}} ${{ESTGFF}} ${{PEPGFF}} ${{REPEATGFF}} --cpus 2
+python -m iga.annotation.maker maker_check_resub ${{REF}}_R1
+python -m iga.annotation.maker maker_collect     ${{REF}}_R1
+python -m iga.annotation.maker maker_train       ${{REF}}_R1 --cdna_fasta ${{FLCDNAGFF}}  --snap 'F' --augustus F
+cd ${{REF}}_R${{ROUND}}
+python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
+cd ..
 
 #-+-Second Round
 #python -m iga.annotation.maker deploy_augustus
 ROUND=2
-#python -m iga.annotation.maker maker_run         coriaria_contig.fa isoseq_corrected.gff peps.gff repeats.maker.gff --round 2 --augustus_species coriaria_c
-ontig.fa_R1_direct --snap_hmm coriaria_contig.fa_R1 --update "alt_splice=1"
-#python -m iga.annotation.maker maker_check_resub coriaria_contig.fa_R2
-#python -m iga.annotation.maker maker_collect     coriaria_contig.fa_R2
-#python -m iga.annotation.maker maker_train       coriaria_contig.fa_R2 --cdna_fasta total_flnc_polished.fa --augustus F
-#cd coriaria_contig.fa_R${ROUND}
-#python -m iga.assembly.busco busco --mode prot total.all.maker.proteins.fasta
-#cd ..
+python -m iga.annotation.maker maker_run         ${{REF}} ${{ESTGFF}} ${{PEPGFF}} ${{REPEATGFF}} --round 2 --augustus_species ${{REF}}_R1_direct --snap_hmm ${{REF}}_R1
+--update "alt_splice=1"
+python -m iga.annotation.maker maker_check_resub ${{REF}}_R2
+python -m iga.annotation.maker maker_collect     ${{REF}}_R2
+python -m iga.annotation.maker maker_train       ${{REF}}_R2 --cdna_fasta ${{FLCDNAGFF}} --augustus F
+cd ${{REF}}_R${{ROUND}}
+python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
+cd ..
 
 #-+-Third Round #augustus is directly trained
-#ROUND=3
-#PREV=2
-#python -m iga.annotation.maker deploy_augustus
-#python -m iga.annotation.maker maker_run         coriaria_contig.fa isoseq_rnaseq.gff peps.gff repeats.maker.gff --round ${ROUND} --augustus_species coriar
-ia_contig.fa_R${PREV}_direct --snap_hmm coriaria_contig.fa_R${PREV} --update "trna=1;alt_splice=1"
-##--queue Q64C1T_X4
-#python -m iga.annotation.maker maker_check_resub coriaria_contig.fa_R${ROUND}
-#python -m iga.annotation.maker maker_collect     coriaria_contig.fa_R${ROUND}
-#cd coriaria_contig.fa_R${ROUND}
-#python -m iga.assembly.busco busco --mode prot total.all.maker.proteins.fasta
-#cd ..
-
+ROUND=3
+PREV=2
+python -m iga.annotation.maker deploy_augustus
+python -m iga.annotation.maker maker_run         ${{REF}} ${{ESTGFF}} ${{PEPGFF}} ${{REPEATGFF}} --round ${{ROUND}} --augustus_species coriar
+a_contig.fa_R${{PREV}}_direct --snap_hmm ${{REF}}_R${{PREV}} --update "trna=1;alt_splice=1"
+#--queue Q64C1T_X4
+python -m iga.annotation.maker maker_check_resub ${{REF}}_R${{ROUND}}
+python -m iga.annotation.maker maker_collect     ${{REF}}_R${{ROUND}}
+cd ${{REF}}_R${{ROUND}}
+python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
+cd ..
 """
-    print(shell_script)
+
+
+def maker_pipe(ref_genome='', est_gff='', flcdna_gff='', pep_gff='', repeat_gff=''):
+    """
+    :param ref_genome:
+    :param est_gff:
+    :param flcdna_gff:
+    :param pep_gff:
+    :param repeat_gff:
+    :return: print maker pipeline commands
+    """
+    cmd = maker_pipe_sh.format(ref_genome, est_gff, flcdna_gff, pep_gff, repeat_gff)
+    print(cmd)
+
 
 maker_resub_sh = r"""
 cd {}
