@@ -23,17 +23,18 @@ coloredlogs.install(level='DEBUG', logger=logger)
 
 #0 repeatmask.gff
 prep_repeat_sh = """
+# rmOutToGFF3.pl ref.fa.out > ref.fa.out.gff3
 GFF={0}
 PREFIX=${{GFF%.gff}}
 grep -v -e "Satellite" -e ")n" -e "-rich" ${{GFF}} \
-    > ${PREFIX}.complex.gff3
+    > ${{PREFIX}}.complex.gff3
 # reformat to work with MAKER
-cat ${PREFIX}.complex.gff3 | \
-    perl -ane '$id; if(!/^\#/){@F = split(/\t/, $_); chomp $F[-1];$id++; $F[-1] .= "\;ID=$id"; 
-    $_ = join("\t", @F)."\n"}; print $_' \a
-    > ${PREFIX}.complex.reformat.gff3
+cat ${{PREFIX}}.complex.gff3 | \
+    perl -ane '$id; if(!/^\#/){{@F = split(/\t/, $_); chomp $F[-1];$id++; $F[-1] .= "\;ID=$id"; 
+    $_ = join("\t", @F)."\n"}}; print $_' \a
+    > ${{PREFIX}}.complex.reformat.gff3
 /ds3200_1/users_root/yitingshuang/lh/bin/bundle/MAKER/rename_repeat_masker_gff_for_maker.pl \
-${PREFIX}.complex.reformat.gff3 > ${PREFIX}.complex.reformat.MAKER.gff3
+${{PREFIX}}.complex.reformat.gff3 > ${{PREFIX}}.complex.reformat.MAKER.gff3
 """
 
 
