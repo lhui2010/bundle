@@ -637,12 +637,13 @@ cd ..
 
 #-+-Second Round
 #python -m iga.annotation.maker deploy_augustus
+PREV=1
 ROUND=2
-python -m iga.annotation.maker maker_run         ${{REF}} ${{ESTGFF}} ${{PEPGFF}} ${{REPEATGFF}} --round 2 --augustus_species ${{REF}}_R1_direct --snap_hmm ${{REF}}_R1
---update "alt_splice=1"
-python -m iga.annotation.maker maker_check_resub ${{REF}}_R2
-python -m iga.annotation.maker maker_collect     ${{REF}}_R2
-python -m iga.annotation.maker maker_train       ${{REF}}_R2 --cdna_fasta ${{CDNAFASTA}} --augustus F
+python -m iga.annotation.maker maker_run         ${{REF}} ${{ESTGFF}} ${{PEPGFF}} ${{REPEATGFF}} --round ${{ROUND}} \
+--augustus_species ${{REF}}_R${{PREV}}_direct --snap_hmm ${{REF}}_R${{PREV}} --update "alt_splice=1"
+python -m iga.annotation.maker maker_check_resub ${{REF}}_R${{ROUND}}
+python -m iga.annotation.maker maker_collect     ${{REF}}_R${{ROUND}}
+python -m iga.annotation.maker maker_train       ${{REF}}_R${{ROUND}} --cdna_fasta ${{CDNAFASTA}} --augustus F
 cd ${{REF}}_R${{ROUND}}
 python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
 cd ..
@@ -651,8 +652,8 @@ cd ..
 ROUND=3
 PREV=2
 python -m iga.annotation.maker deploy_augustus
-python -m iga.annotation.maker maker_run         ${{REF}} ${{ESTGFF}} ${{PEPGFF}} ${{REPEATGFF}} --round ${{ROUND}} --augustus_species coriar
-a_contig.fa_R${{PREV}}_direct --snap_hmm ${{REF}}_R${{PREV}} --update "trna=1;alt_splice=1"
+python -m iga.annotation.maker maker_run         ${{REF}} ${{ESTGFF}} ${{PEPGFF}} ${{REPEATGFF}} --round ${{ROUND}} \
+--augustus_species ${{REF}}_R${{PREV}}_direct --snap_hmm ${{REF}}_R${{PREV}} --update "trna=1;alt_splice=1"
 #--queue Q64C1T_X4
 python -m iga.annotation.maker maker_check_resub ${{REF}}_R${{ROUND}}
 python -m iga.annotation.maker maker_collect     ${{REF}}_R${{ROUND}}
