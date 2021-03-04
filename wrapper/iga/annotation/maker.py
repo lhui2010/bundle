@@ -23,7 +23,6 @@ coloredlogs.install(level='DEBUG', logger=logger)
 
 #0 repeatmask.gff
 prep_repeat_sh = """
-# rmOutToGFF3.pl ref.fa.out > ref.fa.out.gff3
 GFF={0}
 PREFIX=${{GFF%.gff}}
 grep -v -e "Satellite" -e ")n" -e "-rich" ${{GFF}} \
@@ -42,7 +41,11 @@ def prep_repeat_gff(GFF=None):
     :param GFF: repeat mask gff
     :return: Output
     """
-    cmd = prep_repeat_sh.format(GFF)
+    cmd = ''
+    if re.search(r'.out$', GFF):
+        cmd = "rmOutToGFF3.pl {0} > {0}.gff\n".format(GFF)
+    cmd += prep_repeat_sh.format(GFF)
+
     bsub(cmd, name="format_repeat_mask")
     return 0
 
