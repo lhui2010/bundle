@@ -31,7 +31,7 @@ grep -v -e "Satellite" -e ")n" -e "-rich" ${{GFF}} \
 # reformat to work with MAKER
 cat ${{PREFIX}}.complex.gff3 | \
     perl -ane '$id; if(!/^\#/){{@F = split(/\t/, $_); chomp $F[-1];$id++; $F[-1] .= "\;ID=$id"; 
-    $_ = join("\t", @F)."\n"}}; print $_' \
+    $_ = join("\t", @F)."\n"}}; print $_' \\
     > ${{PREFIX}}.complex.reformat.gff3
 /ds3200_1/users_root/yitingshuang/lh/bin/bundle/MAKER/rename_repeat_masker_gff_for_maker.pl \
 ${{PREFIX}}.complex.reformat.gff3 > ${{PREFIX}}.complex.reformat.MAKER.gff3
