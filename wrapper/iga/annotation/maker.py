@@ -601,7 +601,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         cmd = maker_run_sh.format(workdir_sep)
         # sh(cmd)
         if use_grid == 'T':
-            job_id = bsub(cmd, queue=queue, cpus=2)
+            job_id = bsub(cmd, queue=queue, cpus=2, name="maker_{}".format(workdir_sep))
             job_list.append(job_id)
             time.sleep(30)
         else:
@@ -1098,7 +1098,7 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', a
             logger.error("Provide cdna.fasta before train augustus_direct")
             exit(1)
     if use_grid == 'T':
-        joblist = bsub(cmd, direct_submit='F', cpus=2)
+        joblist = bsub(cmd, direct_submit='F', name='maker_train', cpus=2)
         waitjob(joblist)
     else:
         sh(cmd)
