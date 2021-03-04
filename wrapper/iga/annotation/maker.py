@@ -44,7 +44,7 @@ def prep_repeat_gff(GFF=None):
     cmd = ''
     if re.search(r'.out$', GFF):
         cmd = "rmOutToGFF3.pl {0} > {0}.gff\n".format(GFF)
-    cmd += prep_repeat_sh.format(GFF)
+    cmd += prep_repeat_sh.format(GFF+".gff")
 
     bsub(cmd, name="format_repeat_mask")
     return 0
