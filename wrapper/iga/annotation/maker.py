@@ -475,7 +475,7 @@ maker *ctl >> maker.out 2>> maker.err
 
 
 def maker_run(genome=None, estgff=None, pepgff=None,
-              rmgff=None, round=1, species='', use_grid='T', cpus=1,
+              rmgff=None, round=1, species='', use_grid='T', cpus=2,
               augustus_species='', snap_hmm='', queue='Q104C512G_X4', update=''):
     """
     Give genome and evidence, run maker gene prediction in parallel
