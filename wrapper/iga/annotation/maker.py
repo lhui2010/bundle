@@ -462,57 +462,6 @@ ZOE_HMM_DIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
 """
 
 
-def maker_pipe():
-    """
-    Give example of maker related command
-    :return:
-    """
-    maker_eg = """
-#-+-First Round
-ROUND=1
-python -m iga.annotation.maker deploy_augustus
-python -m iga.annotation.maker maker_run         coriaria_contig.fa isoseq_corrected.gff peps.gff repeats.maker.gff \
---cpus 2
-python -m iga.annotation.maker maker_check_resub coriaria_contig.fa_R1
-python -m iga.annotation.maker maker_collect     coriaria_contig.fa_R1
-python -m iga.annotation.maker maker_train       coriaria_contig.fa_R1 --cdna_fasta total_flnc_polished.fa  --snap 'F' \
---augustus F
-cd coriaria_contig.fa_R${ROUND}
-python -m iga.assembly.busco busco --mode prot total.all.maker.proteins.fasta
-cd ..
-
-#-+-Second Round
-#python -m iga.annotation.maker deploy_augustus
-PREV=1
-ROUND=2
-python -m iga.annotation.maker maker_run         coriaria_contig.fa isoseq_corrected.gff peps.gff repeats.maker.gff \
---round 2 --augustus_species coriaria_contig.fa_R${PREV}_direct --snap_hmm coriaria_contig.fa_R${PREV} \
---update "alt_splice=1"
-python -m iga.annotation.maker maker_check_resub coriaria_contig.fa_R2
-python -m iga.annotation.maker maker_collect     coriaria_contig.fa_R2
-python -m iga.annotation.maker maker_train       coriaria_contig.fa_R2 --cdna_fasta total_flnc_polished.fa --augustus F
-cd coriaria_contig.fa_R${ROUND}
-python -m iga.assembly.busco busco --mode prot total.all.maker.proteins.fasta
-cd ..
-
-#-+-Third Round #augustus is directly trained
-ROUND=3
-PREV=2
-python -m iga.annotation.maker deploy_augustus
-python -m iga.annotation.maker maker_run         coriaria_contig.fa isoseq_rnaseq.gff peps.gff repeats.maker.gff \
---round ${ROUND} --augustus_species coriaria_contig.fa_R${PREV}_direct --snap_hmm coriaria_contig.fa_R${PREV} \
---update "trna=1;alt_splice=1"
-#--queue Q64C1T_X4
-python -m iga.annotation.maker maker_check_resub coriaria_contig.fa_R${ROUND}
-python -m iga.annotation.maker maker_collect     coriaria_contig.fa_R${ROUND}
-cd coriaria_contig.fa_R${ROUND}
-python -m iga.assembly.busco busco --mode prot total.all.maker.proteins.fasta
-cd ..
-"""
-    print(maker_eg)
-    return 0
-
-
 # 0 workdir
 # 1 prev_round
 # 2 current_round
@@ -601,7 +550,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         cmd = maker_run_sh.format(workdir_sep)
         # sh(cmd)
         if use_grid == 'T':
-            job_id = bsub(cmd, queue=queue, cpus=2, name="maker_{}".format(workdir_sep))
+            job_id = bsub(cmd, queue=queue, cpus=cpus, name="maker_{}".format(workdir_sep))
             job_list.append(job_id)
             time.sleep(30)
         else:
@@ -621,6 +570,8 @@ def maker_run(genome=None, estgff=None, pepgff=None,
 #3 pep.gff
 #4 repeat.gff
 maker_pipe_sh = """#!/bin/bash
+set -eo
+
 REF={0}
 ESTGFF={1}
 CDNAFASTA={2}
