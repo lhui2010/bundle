@@ -6,7 +6,7 @@ import os.path as op
 import re
 import sys
 import time
-from collections import defaultdict, OrderedDict
+from collections import defaultdict
 
 from parse import parse
 
