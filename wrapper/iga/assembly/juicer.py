@@ -2,10 +2,8 @@
 hic relevant scripts
 '''
 
-
-from iga.apps.base import bsub, get_prefix, abspath_list
+from iga.apps.base import bsub, get_prefix, abspath_list, emain
 import os.path as op
-
 
 # 0 prefix
 # 1 genome.fa
@@ -95,30 +93,46 @@ def juicer_pipe(genome=None, hic_fastq=None, prefix='', cpus=40, enzyme='MboI', 
         hic_fastq += fq + " "
     hic_fastq = hic_fastq.rstrip() + '"'
     cmd = juicer_pipe_sh.format(prefix, genome, hic_fastq, cpus, enzyme)
-    bsub(cmd, cpus=cpus, name='juicer.'+prefix, queue=queue)
-#Input:
-#1. Genome file
-#2. HiC fastq file
+    bsub(cmd, cpus=cpus, name='juicer.' + prefix, queue=queue)
 
-#Output:
-#1. .hic file
+
+# Input:
+# 1. Genome file
+# 2. HiC fastq file
+
+# Output:
+# 1. .hic file
+
 
 def get_hic():
     """ Use juicer and 3d-dna to obtain mnd and 0.hic file
     """
+    return 0
+
 
 def post():
     """ Use .mnd and curated .assembly file to get .agp and chr.fasta file
     """
+    return 0
+
 
 def assembly2agp():
     """ converts assembly file to agp file
     """
+    return 0
+
 
 def liftover():
     """ lift over gff annotation from contig to chromosome 
     """
+    return 0
+
 
 def buildchr():
     """ build chromosome based on .assembly or .agp
     """
+    return 0
+
+
+if __name__ == '__main__':
+    emain()
