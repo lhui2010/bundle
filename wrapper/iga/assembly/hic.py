@@ -18,8 +18,6 @@ JUICERDIR=$ROOT/juicer
 THREADS={3}
 GENOME={1}
 
-touch ${{WORKDIR}}
-rm -r ${{WORKDIR}}
 mkdir -p ${{WORKDIR}}
 
 
