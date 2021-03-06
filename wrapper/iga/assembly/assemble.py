@@ -166,7 +166,8 @@ utgovlThreads=8
 # 2: genome size
 # 3: type, could be pacbio, nanopore, and pacbio-hifi
 canu_sh = r'''
-CANU=/ds3200_1/users_root/yitingshuang/lh/bin/canu/canu-2.0/Linux-amd64/bin/canu
+# CANU=/ds3200_1/users_root/yitingshuang/lh/bin/canu/canu-2.0/Linux-amd64/bin/canu
+CANU=/ds3200_1/users_root/yitingshuang/lh/bin/canu-2.1.1/bin/canu
 PREFIX={0}
 WORKDIR="workdir_canu_"${{PREFIX}}_{2}
 INPUT={1}
