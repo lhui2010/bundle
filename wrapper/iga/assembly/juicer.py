@@ -2,51 +2,100 @@
 hic relevant scripts
 '''
 
+
+from iga.apps.base import bsub, get_prefix, abspath_list
+import os.path as op
+
+
 # 0 prefix
 # 1 genome.fa
 # 2 hic.fastq
 # 3 threads
-'''
+# 4 enzyme
+juicer_pipe_sh = '''
 ROOT=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/juicer
 PREFIX={0}
 WORKDIR=workdir_juicer_{0}
-touch ${{WORKDIR}}
-rm -r ${{WORKDIR}}
-mkdir -p ${{WORKDIR}}
-# ln -s ../input_fastq ${{WORKDIR}}/fastq
 JUICERDIR=$ROOT/juicer
 THREADS={3}
 GENOME={1}
 
-bwa index ${{GENOME}}
-samtools faidx ${{GENOME}}
-cut -f1,2 ${{GENOME}}.fai > ${{GENOME}}.len
-FALEN=${{GENOME}}.len
-#mkdir fastq
-#mv <fastq_files> fastq/
-#juicer/scripts/juicer.sh -D  ${JUICERDIR} -d ${WORKDIR} -t ${THREADS}
+touch ${{WORKDIR}}
+rm -r ${{WORKDIR}}
+mkdir -p ${{WORKDIR}}
 
-mkdir -p ${{WORKDIR}}/references ${{WORKDIR}}/restriction_sites
+
 cd ${{WORKDIR}}
 ln -s ${{ROOT}}/juicer/misc
 ln -s ${{ROOT}}/juicer/scripts
-python misc/generate_site_positions.py MboI ${{PREFIX}} ${{GENOME}}
+
+mkdir -p ${{WORKDIR}}/fastq
+cd ${{WORKDIR}}/fastq
+
+for i in {2}
+do 
+    ln -s $i
+done
+
+mkdir -p ${{WORKDIR}}/references
+cd ${{WORKDIR}}/references
+
+ln -s ${{GENOME}}
+
+REF=`basename ${{GENOME}}`
+
+cd ${{WORKDIR}}
+
+bwa index ${{REF}}
+samtools faidx ${{REF}}
+cut -f1,2 ${{REF}}.fai > ${{REF}}.len
+FALEN=${{REF}}.len
+
+mkdir -p  ${{WORKDIR}}/restriction_sites
+
+python misc/generate_site_positions.py {4} ${{PREFIX}} ${{GENOME}}
 
 #${PREFIX}_MboI.txt
-ENZYME_FILE=${{PREFIX}}_MboI.txt
-mv ${ENZYME_FILE} ${WORKDIR}/restriction_sites/
-cd ${WORKDIR}
-${{ROOT}}/juicer/scripts/juicer.sh.mnd_only  -z ${{GENOME}} -p ${{FALEN}} \\
+ENZYME_FILE=${{PREFIX}}_{4}.txt
+mv ${{ENZYME_FILE}} ${{WORKDIR}}/restriction_sites/
+cd ${{WORKDIR}}
+${{ROOT}}/juicer/scripts/juicer.sh.mnd_only  -z ${{REF}} -p ${{FALEN}} \\
   -y ${{WORKDIR}}/restriction_sites/${{ENZYME_FILE}} -D ${{WORKDIR}} -d ${{WORKDIR}} -t ${{THREADS}} \\
-   >${{WORKDIR}}/jc.out 2>${WORKDIR}/jc.err
+   >${{WORKDIR}}/jc.out 2>${{WORKDIR}}/jc.err
 
+mkdir -p ${{WORKDIR}}/3ddna
+cd ${{WORKDIR}}/3ddna
+bash ${{ROOT}}/3d-dna/run-asm-pipeline.sh  -m diploid ${{GENOME}} ${{WORKDIR}}/aligned/merged_nodups.txt
 
-mkdir -p ${WORKDIR}/3ddna
-cd ${WORKDIR}/3ddna
-bash ${ROOT}/3d-dna/run-asm-pipeline.sh  -m diploid ${GENOME} ${WORKDIR}/aligned/merged_nodups.txt
 '''
 
-def run_juicer():
+
+def juicer_pipe(genome=None, hic_fastq=None, prefix='', cpus=40, enzyme='MboI', queue='Q104C512G_X4'):
+    """
+    :param genome: genome.fasta
+    :param hic_fastq:  "hic1.fastq hic2.fastq"
+    :param prefix: prefix of your species
+    :param enzyme: [MboI|]
+    :param cpus: threads, default 40
+    :param queue: Q104C512G_X4
+    :return:
+    """
+    # 0 prefix
+    # 1 genome.fa
+    # 2 hic.fastq
+    # 3 threads
+    # 4 enzyme
+    if prefix == '':
+        prefix = get_prefix(genome)
+    genome = op.abspath(genome)
+    fq_lists = hic_fastq.split()
+    abspath_list(fq_lists)
+    hic_fastq = '"'
+    for fq in fq_lists:
+        hic_fastq += fq + " "
+    hic_fastq = hic_fastq.rstrip() + '"'
+    cmd = juicer_pipe_sh.format(prefix, genome, hic_fastq, cpus, enzyme)
+    bsub(cmd, cpus=cpus, name='juicer.'+prefix, queue=queue)
 #Input:
 #1. Genome file
 #2. HiC fastq file
