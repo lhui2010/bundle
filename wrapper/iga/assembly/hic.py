@@ -42,8 +42,6 @@ ln -s ${{GENOME}}
 
 REF=`basename ${{GENOME}}`
 
-cd ${{WORKDIR}}
-
 bwa index ${{REF}}
 samtools faidx ${{REF}}
 cut -f1,2 ${{REF}}.fai > ${{REF}}.len
