@@ -14,6 +14,41 @@ import coloredlogs
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
+
+# 0 reads.fasta
+# 1 prefix, like altr
+# 2 threads
+hifiasm_sh='''
+READS={0}
+PREFIX={1}
+THREADS={2}
+
+mkdir -p workdir_hifiasm_{1}
+
+cd workdir_hifiasm_{1}
+
+hifiasm -o ${{PREFIX}} -t${{THREADS}}  ${{READS}} 2> ${{PREFIX}}.log
+awk '/^S/{{print ">"$2;print $3}}' ${{PREFIX}}.p_ctg.gfa > ${{PREFIX}}.p_ctg.fa  # get primary contigs in FASTA
+'''
+
+
+def hifiasm(ccs_reads=None, threads=64, prefix='', submit='T', queue='Q104C512G_X4'):
+    r"""
+    flye runs on single machine
+    :param ccs_reads:
+    :param threads: default is 64, dependes how many available of host machine
+    :param prefix: (species name)
+    :param submit: T stands for submit this job to lsf, other value indicate output shell script but do not submit
+    :param queue: Default is Q104C512G_X4, could also be Q64C1T_X4
+    :return:
+    """
+    ccs_reads = op.abspath(ccs_reads)
+    if prefix == '':
+        prefix = get_prefix(ccs_reads)
+    cmd_sh = hifiasm_sh.format(ccs_reads, prefix, threads)
+    bsub(cmd_sh, queue=queue, name='hifiasm.' + prefix, submit=submit, cpus=threads)
+
+
 # 0: prefix
 # 1: corrected reads.fasta
 # 2: genome size, 123m or 1g
