@@ -100,9 +100,9 @@ python -m iga.assembly.assess lai contig.fasta
 
 #### bam转fasta
 
-把subreads.bam转换成组装软件需要的fasta文件，目录需要同时存在 zeins.bam.pbi
+把subreads.bam转换成组装软件需要的fasta文件，目录需要同时存在 zn.bam.pbi
 
-python -m iga.assembly.assemble bam2fastq zeins.bam
+python -m iga.assembly.assemble bam2fastq zn.bam
 
-**结果文件**： zeins.fasta.gz
+**结果文件**： zn.fasta.gz
 
