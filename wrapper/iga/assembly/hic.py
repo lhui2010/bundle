@@ -47,8 +47,8 @@ samtools faidx ${{REF}}
 cut -f1,2 ${{REF}}.fai > ${{REF}}.len
 FALEN=${{REF}}.len
 
+cd ${{WORKDIR}}
 mkdir -p  ${{WORKDIR}}/restriction_sites
-
 python misc/generate_site_positions.py {4} ${{PREFIX}} ${{GENOME}}
 
 ENZYME_FILE=${{PREFIX}}_{4}.txt
