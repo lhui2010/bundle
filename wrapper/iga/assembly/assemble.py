@@ -168,7 +168,7 @@ utgovlThreads=8
 canu_sh = r'''
 CANU=/ds3200_1/users_root/yitingshuang/lh/bin/canu/canu-2.0/Linux-amd64/bin/canu
 PREFIX={0}
-WORKDIR="workdir_"${{PREFIX}}_{2}
+WORKDIR="workdir_canu_"${{PREFIX}}_{2}
 INPUT={1}
 #pacbio or nanopore
 TYPE={3}
