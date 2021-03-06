@@ -53,7 +53,6 @@ mkdir -p  ${{WORKDIR}}/restriction_sites
 
 python misc/generate_site_positions.py {4} ${{PREFIX}} ${{GENOME}}
 
-#${PREFIX}_MboI.txt
 ENZYME_FILE=${{PREFIX}}_{4}.txt
 mv ${{ENZYME_FILE}} ${{WORKDIR}}/restriction_sites/
 cd ${{WORKDIR}}
