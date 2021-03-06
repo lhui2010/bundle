@@ -33,6 +33,11 @@ python -m iga.assembly.assemble wtdbg corrected.fasta 123m
 python -m iga.assembly.assemble flye corrected.fasta 123m
 **结果**：Eu_wtdbg.cns.fa
 
+### 1.1.3 HiFi reads 组装
+
+#### hifiasm组装命令
+python -m iga.assembly.assemble hifiasm --threads 40 fasta.gz
+
 ---
 
 ## 1.2 组装后处理
