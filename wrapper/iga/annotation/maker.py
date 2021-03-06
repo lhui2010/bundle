@@ -675,7 +675,7 @@ def maker_check(workdir=None):
     unfinished_list = []
 
     for sd in subdir:
-        if 'run' in sd:
+        if op.isdir(sd):
             maker_log = op.join(workdir, sd, 'maker.err')
             maker_log_buff = ''
             fail_mark = 1
