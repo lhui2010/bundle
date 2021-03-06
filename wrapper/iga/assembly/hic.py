@@ -10,7 +10,7 @@ import os.path as op
 # 2 hic.fastq
 # 3 threads
 # 4 enzyme
-juicer_pipe_sh = '''
+juicer_pipe_sh = r'''
 ROOT=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/juicer
 PREFIX={0}
 WORKDIR=$PWD/workdir_juicer_{0}
@@ -52,8 +52,9 @@ python misc/generate_site_positions.py {4} ${{PREFIX}} ${{GENOME}}
 ENZYME_FILE=${{PREFIX}}_{4}.txt
 mv ${{ENZYME_FILE}} ${{WORKDIR}}/restriction_sites/
 cd ${{WORKDIR}}
-${{ROOT}}/juicer/scripts/juicer.sh.mnd_only  -z ${{REF}} -p ${{FALEN}} \\
-  -y ${{WORKDIR}}/restriction_sites/${{ENZYME_FILE}} -D ${{WORKDIR}} -d ${{WORKDIR}} -t ${{THREADS}} \\
+${{ROOT}}/juicer/scripts/juicer.sh.mnd_only  -z ${{WORKDIR}}/references/${{REF}} \
+  -p ${{WORKDIR}}/references/${{FALEN}} \
+  -y ${{WORKDIR}}/restriction_sites/${{ENZYME_FILE}} -D ${{WORKDIR}} -d ${{WORKDIR}} -t ${{THREADS}} \
    >${{WORKDIR}}/jc.out 2>${{WORKDIR}}/jc.err
 
 mkdir -p ${{WORKDIR}}/3ddna
