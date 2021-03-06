@@ -71,7 +71,7 @@ def juicer_pipe(genome=None, hic_fastq=None, prefix='', threads=40, enzyme='MboI
     :param hic_fastq:  "hic1.fastq hic2.fastq"
     :param prefix: prefix of your species
     :param enzyme: [MboI|]
-    :param cpus: threads, default 40
+    :param threads: threads, default 40
     :param queue: Q104C512G_X4
     :return:
     """
@@ -89,8 +89,8 @@ def juicer_pipe(genome=None, hic_fastq=None, prefix='', threads=40, enzyme='MboI
     for fq in fq_lists:
         hic_fastq += fq + " "
     hic_fastq = hic_fastq.rstrip()
-    cmd = juicer_pipe_sh.format(prefix, genome, hic_fastq, cpus, enzyme)
-    bsub(cmd, cpus=cpus, name='juicer.' + prefix, queue=queue)
+    cmd = juicer_pipe_sh.format(prefix, genome, hic_fastq, threads, enzyme)
+    bsub(cmd, cpus=threads, name='juicer.' + prefix, queue=queue)
 
 
 # Input:
