@@ -87,10 +87,10 @@ def juicer_pipe(genome=None, hic_fastq=None, prefix='', cpus=40, enzyme='MboI', 
     genome = op.abspath(genome)
     fq_lists = hic_fastq.split()
     abspath_list(fq_lists)
-    hic_fastq = '"'
+    hic_fastq = ''
     for fq in fq_lists:
         hic_fastq += fq + " "
-    hic_fastq = hic_fastq.rstrip() + '"'
+    hic_fastq = hic_fastq.rstrip()
     cmd = juicer_pipe_sh.format(prefix, genome, hic_fastq, cpus, enzyme)
     bsub(cmd, cpus=cpus, name='juicer.' + prefix, queue=queue)
 
