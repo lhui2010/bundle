@@ -67,7 +67,7 @@ bash ${{ROOT}}/3d-dna/run-asm-pipeline.sh  -m diploid ${{GENOME}} ${{WORKDIR}}/a
 '''
 
 
-def juicer_pipe(genome=None, hic_fastq=None, prefix='', cpus=40, enzyme='MboI', queue='Q104C512G_X4'):
+def juicer_pipe(genome=None, hic_fastq=None, prefix='', threads=40, enzyme='MboI', queue='Q104C512G_X4'):
     """
     :param genome: genome.fasta
     :param hic_fastq:  "hic1.fastq hic2.fastq"
