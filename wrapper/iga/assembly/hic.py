@@ -13,7 +13,7 @@ import os.path as op
 juicer_pipe_sh = '''
 ROOT=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/juicer
 PREFIX={0}
-WORKDIR=workdir_juicer_{0}
+WORKDIR=$PWD/workdir_juicer_{0}
 JUICERDIR=$ROOT/juicer
 THREADS={3}
 GENOME={1}
