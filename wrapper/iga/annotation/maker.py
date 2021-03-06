@@ -344,7 +344,7 @@ pasa_refine_sh = r"""
 #singularity shell /ds3200_1/users_root/yitingshuang/lh/bin/pasapipeline_latest.sif
 
 export PASAHOME=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/bin/PASApipeline.v2.4.1
-export PATH=$PASAHOME/bin/:$PATH
+export PATH=$PASAHOME/bin/:~/lh/anaconda3/bin/:$PATH
 export PERL5LIB=$PASAHOME/PerlLib:$PASAHOME/SAMPLE_HOOKS:/ds3200_1/users_root/yitingshuang/lh/anaconda3/lib/site_perl/5.26.2/
 
 touch {0}.sqlite
