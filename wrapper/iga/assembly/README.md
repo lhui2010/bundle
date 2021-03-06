@@ -106,3 +106,10 @@ python -m iga.assembly.assemble bam2fastq zn.bam
 
 **结果文件**： zn.fasta.gz
 
+# II. HiC 挂载
+
+## juicer流程
+
+```
+python -m iga.assembly.hic juicer_pipe Zn_falcon.2.ctg.fasta "hic1.fq hic2.fq"
+```
