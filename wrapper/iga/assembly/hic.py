@@ -33,8 +33,8 @@ do
     ln -s $i
 done
 
-rename gz '_R1.fastq.f' *1.*gz
-rename gz '_R2.fastq.f' *2.*gz
+rename gz '_R1.fastq.gz' *1.*gz
+rename gz '_R2.fastq.gz' *2.*gz
 
 mkdir -p ${{WORKDIR}}/references
 cd ${{WORKDIR}}/references
@@ -67,7 +67,8 @@ bash ${{ROOT}}/3d-dna/run-asm-pipeline.sh  -m diploid ${{GENOME}} ${{WORKDIR}}/a
 '''
 
 
-def juicer_pipe(genome=None, hic_fastq=None, prefix='', threads=40, enzyme='MboI', queue='Q104C512G_X4'):
+def juicer_pipe(genome=None, hic_fastq=None, prefix='', threads=40, enzyme='MboI', queue='Q104C512G_X4',
+                submit='T'):
     """
     :param genome: genome.fasta
     :param hic_fastq:  "hic1.fastq hic2.fastq"
@@ -92,7 +93,8 @@ def juicer_pipe(genome=None, hic_fastq=None, prefix='', threads=40, enzyme='MboI
         hic_fastq += fq + " "
     hic_fastq = hic_fastq.rstrip()
     cmd = juicer_pipe_sh.format(prefix, genome, hic_fastq, threads, enzyme)
-    bsub(cmd, cpus=threads, name='juicer.' + prefix, queue=queue)
+    if submit == 'T':
+        bsub(cmd, cpus=threads, name='juicer.' + prefix, queue=queue)
 
 
 # Input:
