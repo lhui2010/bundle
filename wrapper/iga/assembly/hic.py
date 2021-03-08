@@ -73,7 +73,7 @@ def juicer_pipe(genome=None, hic_fastq=None, prefix='', threads=40, enzyme='MboI
     :param genome: genome.fasta
     :param hic_fastq:  "hic1.fastq hic2.fastq"
     :param prefix: prefix of your species
-    :param enzyme: [MboI|]
+    :param enzyme: [MboI|HindIII]
     :param threads: threads, default 40
     :param queue: Q104C512G_X4
     :return:
