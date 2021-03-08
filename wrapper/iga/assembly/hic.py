@@ -33,6 +33,9 @@ do
     ln -s $i
 done
 
+rename '1.f' '_R1.fastq.f' *
+rename '2.f' '_R2.fastq.f' *
+
 mkdir -p ${{WORKDIR}}/references
 cd ${{WORKDIR}}/references
 
