@@ -33,8 +33,8 @@ do
     ln -s $i
 done
 
-rename '1.f' '_R1.fastq.f' *
-rename '2.f' '_R2.fastq.f' *
+rename gz '_R1.fastq.f' *1.*gz
+rename gz '_R2.fastq.f' *2.*gz
 
 mkdir -p ${{WORKDIR}}/references
 cd ${{WORKDIR}}/references
