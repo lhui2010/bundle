@@ -37,6 +37,9 @@ def clean_novogene(left=None, right=None):
     return 0
 
 
+# 0left
+# 1right
+# 2 adapter
 clean_mgiseq_sh = """
 ADAPTER=/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/MGISeq.fa
 TAILCROP=145
@@ -52,17 +55,45 @@ LEADING:3 TRAILING:3 CROP:$TAILCROP HEADCROP:$HEADCROP SLIDINGWINDOW:1:10 MINLEN
 """
 
 
-def clean_mgiseq(left=None, right=None):
+def clean_mgiseq(left=None, right=None, source='bgi'):
     """
     Clean fastq for polish purpose
     :param left:
     :param right:
+    :param source: bgi
     :return:
     """
-    cmd = clean_mgiseq_sh.format(left, right)
+    adapter_dict = {'bgi': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/MGISeq.bgi.fa'}
+    cmd = clean_mgiseq_sh.format(left, right, adapter_dict[source])
     bsub(cmd, name='Trimmomatic')
     return 0
 
+
+# 0 Adatapter location
+# 1 HeadCrop, eg 10
+# 2 TailCrop, eg 145
+# 3 Left fastq
+# 4 right fastq
+trimmomatic_head = r"""
+ADAPTER={0}
+HEADCROP={1}
+TAILCROP={2}
+LEFT={3}
+RIGHT={4}
+java -jar  /ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/trimmomatic-0.38.jar PE \
+-phred33 $LEFT $RIGHT \
+$LEFT.clean.fq.gz $LEFT.clean.unpair.fq.gz \
+$RIGHT.clean.fq.gz $RIGHT.clean.unpair.fq.gz \
+"""
+
+trimmomatic_mode = {'polish': r"""ILLUMINACLIP:${{ADAPTER}}:0:30:10 \\
+LEADING:3 TRAILING:3 CROP:$TAILCROP HEADCROP:$HEADCROP SLIDINGWINDOW:1:10 MINLEN:75""",
+                    'normal': r"""ILLUMINACLIP:${{ADAPTER}}:0:30:10 \\
+LEADING:3 TRAILING:3 CROP:$TAILCROP HEADCROP:$HEADCROP SLIDINGWINDOW:1:10 MINLEN:75"""}
+
+# fraser_adapter = {
+#     'WGBS' =
+# }
 
 if __name__ == "__main__":
     emain()
