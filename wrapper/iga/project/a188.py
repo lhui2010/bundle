@@ -881,7 +881,7 @@ def annotate_block(anchor_file=None, qbed='', sbed=''):
         print(header + "\n" + content, end='')
 
 
-def merge_adjacent_block(bed=None):
+def join_adjacent_bed(bed=None):
     """
     Input:
     1	6275775	6999144	ALN1
