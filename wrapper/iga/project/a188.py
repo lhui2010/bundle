@@ -298,7 +298,7 @@ class BedPE:
         """
         result = ''
         for k in sorted(self.bedpe_db.keys()):
-            #logger.debug(k)
+            # logger.debug(k)
             for i in self.bedpe_db[k]:
                 if left_only:
                     result += i.left.get_line()
@@ -558,7 +558,7 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
                 # But first finish the unfinished work
                 boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
                 if this_line[known_side]['chr'] not in boundary_dict:
-                # from A188 Mo17 to B73 Mo17
+                    # from A188 Mo17 to B73 Mo17
                     (known_side, unknown_side) = (unknown_side, known_side)
                 if this_line[known_side]['chr'] not in boundary_dict:
                     logging.debug("Error: No known window offset in both columns")
@@ -581,7 +581,7 @@ def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
             window_list[window_id] += line
             last_left_chr = line_list[0]
             last_right_chr = line_list[5]
-        #After loop end, appending last window offset
+        # After loop end, appending last window offset
         boundary_dict[this_line[unknown_side]['chr']].append(int(last_unknown_end))
 
     for wd in range(0, len(window_list)):
@@ -871,8 +871,9 @@ def annotate_block(anchor_file=None, qbed='', sbed=''):
             strand = '-'
         else:
             strand = '+'
+        block_name = "Block{0}".format(i)
         header += "\t".join([qry_chr, qry_start, qry_end, sub_chr, sub_start, sub_end,
-                           "Block{}".format(i), strand])
+                             block_name, strand])
         content = syn_content[i]
         print(header + "\n" + content)
 
