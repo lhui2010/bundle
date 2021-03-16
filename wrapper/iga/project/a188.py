@@ -853,7 +853,7 @@ def annotate_block(anchor_file=None, qbed='', sbed=''):
                 (qgene, sgene, score) = line.rstrip().split()
                 qloci = qbed_obj.select_name(qgene, format='loci')
                 sloci = sbed_obj.select_name(sgene, format='loci')
-                syn_content[syn_id] += qloci.get_line().strip() + "\t" + sloci.get_line().strip()
+                syn_content[syn_id] += qloci.get_line().strip() + "\t" + sloci.get_line()
                 if syn_id not in syn_start:
                     syn_start[syn_id] = [qloci, sloci]
                 if True:
