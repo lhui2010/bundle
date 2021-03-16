@@ -401,7 +401,7 @@ class Loci:
     Loci object which could also be looked as bed object
     """
 
-    def __init__(self, chr, start, end, name, score, strand):
+    def __init__(self, chr='.', start='.', end='.', name='.', score='.', strand='.'):
         self.chr = chr
         self.start = int(start)
         self.end = int(end)

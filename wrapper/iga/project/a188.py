@@ -1,6 +1,7 @@
 """
 code used in A188 project
 """
+import copy
 from collections import defaultdict
 from statistics import mean
 
@@ -877,7 +878,30 @@ def annotate_block(anchor_file=None, qbed='', sbed=''):
         header += tmp.format(qry_chr, qry_start, qry_end, sub_chr, sub_start, sub_end,
                              block_name, strand)
         content = syn_content[i]
-        print(header + "\n" + content, end = '')
+        print(header + "\n" + content, end='')
+
+
+def merge_adjacent_block(bed=None):
+    """
+    Input:
+    1	6275775	6999144	ALN1
+    1	7257371	15121456	ALN1
+    Output:
+    1 6275775 6275775 ALN1
+    :param bed:
+    :return:
+    """
+    bed_read = Bed(bed)
+    loci = copy.copy(bed_read.bed_list[0])
+    for i in range(1, len(bed_read.bed_list)):
+        loci_i = bed_read.bed_list[i]
+        if loci.chr == loci_i.chr and loci.name == loci_i.name:
+            loci.start = min(loci.start, loci_i.start)
+            loci.end = max(loci.end, loci_i.end)
+        else:
+            print(loci.get_line(), end='')
+            loci = copy.copy(loci_i)
+    print(loci.get_line(), end='')
 
 
 if __name__ == "__main__":
