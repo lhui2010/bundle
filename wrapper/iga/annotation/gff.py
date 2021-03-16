@@ -443,11 +443,11 @@ class Bed:
                 else:
                     logger.error("Wrong format of BED, is it tab delmited with at least three field?")
                     exit(1)
-                if len(mylist) > 1:
+                if len(mylist) >= 1:
                     name = mylist.pop(0)
-                if len(mylist) > 1:
+                if len(mylist) >= 1:
                     score = mylist.pop(0)
-                if len(mylist) > 1:
+                if len(mylist) >= 1:
                     strand = mylist.pop(0)
                 loci = Loci(chr, start, end, name, score, strand)
                 self.bed_list.append(loci)
