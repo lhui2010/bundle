@@ -883,6 +883,7 @@ def annotate_block(anchor_file=None, qbed='', sbed=''):
 
 def join_adjacent_bed(bed=None):
     """
+    %prog join_adjacent_bed manual_reviewed_subgenome.bed > manual_reviewed_subgenome.joined.bed
     Input:
     1	6275775	6999144	ALN1
     1	7257371	15121456	ALN1
@@ -893,6 +894,7 @@ def join_adjacent_bed(bed=None):
     """
     bed_read = Bed(bed)
     loci = copy.copy(bed_read.bed_list[0])
+    print(loci.get_line())
     for i in range(1, len(bed_read.bed_list)):
         loci_i = bed_read.bed_list[i]
         if loci.chr == loci_i.chr and loci.name == loci_i.name:
