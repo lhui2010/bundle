@@ -401,7 +401,7 @@ class Loci:
     Loci object which could also be looked as bed object
     """
 
-    def __init__(self, chr='.', start='.', end='.', name='.', score='.', strand='.'):
+    def __init__(self, chr='.', start='-1', end='-1', name='.', score='.', strand='.'):
         self.chr = chr
         self.start = int(start)
         self.end = int(end)
@@ -434,6 +434,8 @@ class Bed:
     def load(self, bed):
         with open(bed) as fh:
             for line in fh:
+                if line.startswith('#'):
+                    continue
                 (chr, start, end, name, score, strand) = ['.'] * 6
                 mylist = line.rstrip().split('\t')
                 if len(mylist) >= 3:
