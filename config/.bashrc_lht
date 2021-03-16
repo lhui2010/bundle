@@ -78,10 +78,11 @@ alias tma='~/lh/anaconda3/bin/tmux a'
 #alias bl='bjobs |less'
 alias bgrep='bjobs | grep'
 alias bjt='bjobs|tail'
+alias pm='python -m '
 #https://www.ibm.com/support/knowledgecenter/SSWRJV_10.1.0/lsf_command_ref/bjobs.o.1.html
 #https://serverfault.com/questions/532309/setting-the-job-name-column-width-for-the-lsf-bjobs-command
 alias bj='bjobs -o "JOBID:10 SUBMIT_TIME:13 USER:5 STAT:5 QUEUE:6 SLOTS:5 EXEC_HOST:20 JOB_NAME"'
-alias bjl='bjobs -o "JOBID:10 SUBMIT_TIME:13 USER:5 STAT:5 QUEUE:6 SLOTS:5 EXEC_HOST:20 JOB_NAME"|les'
+alias bjl='bjobs |les'
 alias ls='ls --color=tty'
 alias bs='bash'
 alias les='less -SN'
@@ -150,8 +151,8 @@ availq() {
     echo "Q104C512G_X4:    $cpu_total          $cpu_used        $cpu_left"
     echo ""
     lsload |head -1
-    lsload |grep "node0[2345]"
-    lsload |grep "node1[0123]"
+    lsload |sort -k1,1V |grep "node0[2345]"
+    lsload |sort -k1,1V |grep "node1[0123]"
 }
 
 
@@ -226,6 +227,8 @@ export MANPATH=/ds3200_1/users_root/yitingshuang/lh/bin/vcftools/share/man:$MANP
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/vcftools/bin:$PATH
 
 #boost package
+#export LD_LIBRARY_PATH='/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:/ds3200_1/users_root/yitingshuang/lh/lib/lib64:/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib:/ds3200_1/lsf9/9.1/linux2.6-glibc2.3-x86_64/lib:/ds3200_1/proc/beagle/lib:/usr/local/lib:/usr/lib64:/ds3200_1/openmpi-3.1.0/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64:/ds3200_1/proc/NCBI-NGS/lib64:/ds3200_1/proc/ncbi-vdb/lib64:::/ds3200_1/proc/beagle/lib:/ds3200_1/proc/HTS_lib/lib:/usr/local/mpc-1.1.0/lib:/usr/local/gmp-6.1.2/lib:/usr/local/mpfr-4.0.1/lib:/ds3200_1/users_root/yitingshuang/.config/gscp/'
+export LD_LIBRARY_PATH='/ds3200_1/proc/beagle/lib:/usr/local/lib:/usr/lib64:/ds3200_1/openmpi-3.1.0/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64:/ds3200_1/proc/NCBI-NGS/lib64:/ds3200_1/proc/ncbi-vdb/lib64:::/ds3200_1/proc/beagle/lib:/ds3200_1/proc/HTS_lib/lib'
 export LDFLAGS=-L/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib
 export CFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include
 export CXXFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include
@@ -319,15 +322,12 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/repeat_anno/bin/
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/EVidenceModeler-1.1.1/EvmUtils:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/step2_annotation/round2.0/train_augustus_direct/GC_specific_MAKER:$PATH
 
-export LD_LIBRARY_PATH=/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:$LD_LIBRARY_PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/bismark/bin/Bismark-0.22.3:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/fasta36-36.3.8h_04-May-2020/bin:$PATH
-export LD_LIBRARY_PATH='/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:/ds3200_1/users_root/yitingshuang/lh/lib/lib64:/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib:/ds3200_1/lsf9/9.1/linux2.6-glibc2.3-x86_64/lib:/ds3200_1/proc/beagle/lib:/usr/local/lib:/usr/lib64:/ds3200_1/openmpi-3.1.0/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64:/ds3200_1/proc/NCBI-NGS/lib64:/ds3200_1/proc/ncbi-vdb/lib64:::/ds3200_1/proc/beagle/lib:/ds3200_1/proc/HTS_lib/lib:/usr/local/mpc-1.1.0/lib:/usr/local/gmp-6.1.2/lib:/usr/local/mpfr-4.0.1/lib:/ds3200_1/users_root/yitingshuang/.config/gscp/'
 export PATH=/ds3200_1/users_root/yitingshuang/.config/gscp:$PATH
 
-####LH add end
-#####################################
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/BRAKER-2.1.5/scripts:$PATH
+#export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/BRAKER-2.1.5/scripts:$PATH
 export PASAHOME=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/maker/bin/PASApipeline.v2.4.1
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/eggnog-mapper:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/hmmer/bin:$PATH
@@ -338,3 +338,18 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/stringtie-2.1.4.Linux_x86_6
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/hisat2-2.2.1:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/canu/purge_dups/bin:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/obsutil_linux_amd64_5.2.10:$PATH
+
+##BRAKER
+export ALIGNMENT_TOOL_PATH=~/lh/anaconda3/envs/braker2/bin
+export GENEMARK_PATH=/ds3200_1/users_root/yitingshuang/lh/bin/BRAKER-2.1.5/exe/genemark/gmes_linux_64
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/hifiasm-0.14:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/BRAKER-2.1.5/exe/genemark/gmes_linux_64/ProtHint/bin:$PATH
+##
+
+##genomescope2.0
+export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/KMC-3.1.2rc1/bin:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/genomescope2.0:$PATH
+
+
+####LH add end
+#####################################
