@@ -872,9 +872,10 @@ def annotate_block(anchor_file=None, qbed='', sbed=''):
         else:
             strand = '+'
         block_name = "Block{0}".format(i)
-        print(block_name)
-        header += "\t".join([qry_chr, qry_start, qry_end, sub_chr, sub_start, sub_end,
-                             block_name, strand])
+        tmp = "{}\t" * 8
+        tmp = tmp.rstrip()
+        header += tmp.format(qry_chr, qry_start, qry_end, sub_chr, sub_start, sub_end,
+                             block_name, strand)
         content = syn_content[i]
         print(header + "\n" + content)
 
