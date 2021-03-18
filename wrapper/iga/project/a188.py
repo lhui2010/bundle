@@ -962,6 +962,40 @@ def percent_to_range(percent_file=None):
                 print(a)
 
 
+def breakpoint_screen(depth=None, highcutoff=100, lowcutoff=5):
+    """
+    Read depth file, and identify waterfall site that had a significant coverage drop
+    :param highcutoff: larger than that is normal
+    :param lowcutoff: lower than that is waterfall regions
+    :param depth:
+    :return:
+    """
+    import gzip
+    higher_cutoff = highcutoff
+    low_cutoff = lowcutoff
+    with gzip.open(depth) as fh:
+        prev_depth = 0
+        prev_loci = 0
+        prev_chr = ''
+        buffer = ''
+        start_flag = False
+        for line in fh:
+            (chr_id, loci, depth) = line.rstrip().split()
+            if chr_id != prev_chr:
+                if buffer is not None:
+                    print(buffer.get_line(), end='')
+            elif prev_depth > higher_cutoff and depth < low_cutoff:
+                start_flag = 1
+                buffer = Loci(chr_id, loci, loci, '.', '.', '.')
+            elif start_flag and depth < low_cutoff:
+                buffer.end = loci
+            elif start_flag and depth > low_cutoff:
+                print(buffer.get_line(), end='')
+                buffer = None
+                start_flag = False
+            prev_depth = depth
+            prev_loci = loci
+            prev_chr = chr_id
 
 
 if __name__ == "__main__":
