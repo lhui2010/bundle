@@ -907,7 +907,7 @@ def join_adjacent_bed(bed=None):
 
 def calc_percent_bed_intersect(bedwo=None):
     """
-    %prog A188_B73.total.SYN.mosaic.B73.bed.leaf_atac.wo > A188_B73.total.SYN.mosaic.B73.bed.leaf_atac.wo.perc
+    %s A188_B73.total.SYN.mosaic.B73.bed.leaf_atac.wo > A188_B73.total.SYN.mosaic.B73.bed.leaf_atac.wo.perc
     Get relative position of intersection on Feature A
     Input:
         B73_1   2097669 2104245 NOTSYN26        B73_1   2104191 2105241 genic   54
@@ -964,7 +964,7 @@ def percent_to_range(percent_file=None):
 
 def breakpoint_screen(depth=None, highcutoff=100, lowcutoff=5):
     """
-    %prog A.depth.gz > A.breakpoint.txt
+    %s A.depth.gz > A.breakpoint.txt
     Read depth file, and identify waterfall site that had a significant coverage drop
     :param highcutoff: larger than that is normal
     :param lowcutoff: lower than that is waterfall regions
