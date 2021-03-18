@@ -982,6 +982,8 @@ def breakpoint_screen(depth=None, highcutoff=100, lowcutoff=5):
         start_flag = False
         for line in fh:
             (chr_id, loci, depth) = line.decode().rstrip().split()
+            if int(loci) // 10000000 == 0:
+                logging.debug("Running on chr {} loci {}".format(chr_id, loci))
             depth = int(depth)
             if chr_id != prev_chr:
                 if buffer is not None:
