@@ -917,10 +917,13 @@ def calc_percent_bed_intersect(bedwo=None):
     :param bedwo:
     :return:
     """
+    min_mosaic_size = 1000
     with open(bedwo) as fh:
         for line in fh:
             mylist = line.rstrip().split()
             region_size = int(mylist[2]) - int(mylist[1])
+            if region_size < min_mosaic_size:
+                continue
             offset = int(mylist[1])
             rel_start = int(mylist[5]) - offset
             rel_end = int(mylist[6]) - offset
