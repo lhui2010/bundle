@@ -951,6 +951,7 @@ def percent_to_range(percent_file=None):
     :param percent_file:
     :return:
     """
+    import re
     with open(percent_file) as fh:
         for line in fh:
             mylist = line.rstrip().split()
