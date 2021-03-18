@@ -926,7 +926,7 @@ def calc_percent_bed_intersect(bedwo=None):
             rel_end = int(mylist[6]) - offset
             start_percent = max(0, rel_start / region_size)
             end_percent = min(1, rel_end / region_size)
-            print(line.rstip() + "\t{:.2%}\t{:.2%}".format(start_percent, end_percent))
+            print(line.rstrip() + "\t{:.2%}\t{:.2%}".format(start_percent, end_percent))
 
 
 if __name__ == "__main__":
