@@ -981,7 +981,7 @@ def breakpoint_screen(depth=None, highcutoff=100, lowcutoff=5):
         buffer = None
         start_flag = False
         for line in fh:
-            (chr_id, loci, depth) = line.rstrip().split()
+            (chr_id, loci, depth) = line.decode().rstrip().split()
             if chr_id != prev_chr:
                 if buffer is not None:
                     print(buffer.get_line(), end='')
