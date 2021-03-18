@@ -955,9 +955,9 @@ def percent_to_range(percent_file=None):
     with open(percent_file) as fh:
         for line in fh:
             mylist = line.rstrip().split()
-            for l in mylist:
-                l = re.sub(r'\..*', '', l)
-                l = int(l)
+            for i in range(0, len(mylist)):
+                mylist[i] = re.sub(r'\..*', '', mylist[i])
+                mylist[i] = int(mylist[i])
             for a in range(mylist[0], mylist[1] + 1):
                 print(a)
 
