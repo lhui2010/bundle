@@ -964,6 +964,7 @@ def percent_to_range(percent_file=None):
 
 def breakpoint_screen(depth=None, highcutoff=100, lowcutoff=5):
     """
+    %prog A.depth.gz > A.breakpoint.txt
     Read depth file, and identify waterfall site that had a significant coverage drop
     :param highcutoff: larger than that is normal
     :param lowcutoff: lower than that is waterfall regions
@@ -977,7 +978,7 @@ def breakpoint_screen(depth=None, highcutoff=100, lowcutoff=5):
         prev_depth = 0
         prev_loci = 0
         prev_chr = ''
-        buffer = ''
+        buffer = None
         start_flag = False
         for line in fh:
             (chr_id, loci, depth) = line.rstrip().split()
