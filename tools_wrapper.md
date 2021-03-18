@@ -466,3 +466,9 @@ obsutil share-cp ${TOKEN} ./  -ac=123456 -f -r  2>&1 | tee download.log
 #### distmat
 
 distmat -sequence total.aln -nucmethod 2 -outfile total.aln.distmat
+
+#### busco
+
+conda activate busco
+cp *shortsummary* pasa.pep.busco.embryophyta.v4.1.2/
+generate_plot.py -wd pasa.pep.busco.embryophyta.v4.1.2

@@ -26,7 +26,7 @@ while(<>)
     my $repeat_type = $e[2];
     my $start = $e[3];
     my $end = $e[4];
-    my $score = $e[5];
+    my $score = int($e[5]); #4.5 is not supported by maker
     my $strand = $e[6];
     my $phase = $e[7];
 
