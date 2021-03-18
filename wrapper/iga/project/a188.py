@@ -905,5 +905,29 @@ def join_adjacent_bed(bed=None):
     print(loci.get_line(), end='')
 
 
+def calc_percent_bed_intersect(bedwo=None):
+    """
+    %prog A188_B73.total.SYN.mosaic.B73.bed.leaf_atac.wo > A188_B73.total.SYN.mosaic.B73.bed.leaf_atac.wo.perc
+    Input:
+        B73_1   2097669 2104245 NOTSYN26        B73_1   2104191 2105241 genic   54
+        B73_1   2566205 2629140 NOTSYN34        B73_1   2628589 2628839 proximal        250
+        B73_1   2636499 2746464 NOTSYN35        B73_1   2635661 2636711 genic   212
+        B73_1   2892522 2894589 NOTSYN39        B73_1   2894533 2894758 proximal        56
+    Output:
+    :param bedwo:
+    :return:
+    """
+    with open(bedwo) as fh:
+        for line in fh:
+            mylist = line.rstrip().split()
+            region_size = int(mylist[2]) - int(mylist[1])
+            offset = int(mylist[1])
+            rel_start = int(mylist[5]) - offset
+            rel_end = int(mylist[6]) - offset
+            start_percent = max(0, rel_start / region_size)
+            end_percent = min(1, rel_end / region_size)
+            print(line.rstip() + "\t{:.2%}\t{:.2%}".format(start_percent, end_percent))
+
+
 if __name__ == "__main__":
     emain()
