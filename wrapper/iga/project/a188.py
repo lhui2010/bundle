@@ -908,12 +908,18 @@ def join_adjacent_bed(bed=None):
 def calc_percent_bed_intersect(bedwo=None):
     """
     %prog A188_B73.total.SYN.mosaic.B73.bed.leaf_atac.wo > A188_B73.total.SYN.mosaic.B73.bed.leaf_atac.wo.perc
+    Get relative position of intersection on Feature A
     Input:
         B73_1   2097669 2104245 NOTSYN26        B73_1   2104191 2105241 genic   54
         B73_1   2566205 2629140 NOTSYN34        B73_1   2628589 2628839 proximal        250
         B73_1   2636499 2746464 NOTSYN35        B73_1   2635661 2636711 genic   212
         B73_1   2892522 2894589 NOTSYN39        B73_1   2894533 2894758 proximal        56
     Output:
+         B73_1   2097669 2104245 NOTSYN26        B73_1   2104191 2105241 genic   54      99.18%  100.00%
+         B73_1   2566205 2629140 NOTSYN34        B73_1   2628589 2628839 proximal        250     99.12%  99.52%
+         B73_1   2636499 2746464 NOTSYN35        B73_1   2635661 2636711 genic   212     0.00%   0.19%
+         B73_1   2892522 2894589 NOTSYN39        B73_1   2894533 2894758 proximal        56      97.29%  100.00%
+         B73_1   2973072 2974460 NOTSYN41        B73_1   2974176 2974451 genic   275     79.54%  99.35%
     :param bedwo:
     :return:
     """
@@ -930,6 +936,31 @@ def calc_percent_bed_intersect(bedwo=None):
             start_percent = max(0, rel_start / region_size)
             end_percent = min(1, rel_end / region_size)
             print(line.rstrip() + "\t{:.2%}\t{:.2%}".format(start_percent, end_percent))
+
+
+def percent_to_range(percent_file=None):
+    r"""
+    pass [a,b] to a a+1..b like format, for hist use
+    Input:
+        97.18% 100.00%
+    Output:
+        97
+        98
+        99
+        100
+    :param percent_file:
+    :return:
+    """
+    with open(percent_file) as fh:
+        for line in fh:
+            mylist = line.rstrip().split()
+            for l in mylist:
+                l = re.sub(r'\..*', '', l)
+                l = int(l)
+            for a in range(mylist[0], mylist[1] + 1):
+                print(a)
+
+
 
 
 if __name__ == "__main__":
