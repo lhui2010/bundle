@@ -1068,8 +1068,8 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
     for lchr in mbe.bedpe_db:
         for lpe in mbe.bedpe_db[lchr]:
             etc = ''
-            lchr = re.sub(r'.*_', '', lpe.left_chr)
-            rchr = re.sub(r'.*_', '', lpe.right_chr)
+            lchr = re.sub(r'.*_', '', lpe.left.chr)
+            rchr = re.sub(r'.*_', '', lpe.right.chr)
             for i in range(lpe.left_start -10, lpe.left_start +10):
                 try:
                     etc += bkptdb["_".join([lchr, i, 'Tail'])] + ","
