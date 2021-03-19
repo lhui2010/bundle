@@ -1047,8 +1047,8 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
     """
     mbe = BedPE(mosaic_bedpe)
     breakpoint_coverage_cutoff = 5
-    bkptdb = {}
-    bkptdb_right = {}
+    bkptdb = defaultdict(int)
+    bkptdb_right = defaultdict(int)
     with open(bkptsum_l) as fh:
         #1       37      Head    1
         for line in fh:
