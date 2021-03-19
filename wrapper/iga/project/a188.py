@@ -1070,18 +1070,20 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
             etc = ''
             lchr = re.sub(r'.*_', '', lpe.left.chr)
             rchr = re.sub(r'.*_', '', lpe.right.chr)
+            logging.debug('searching {}'.format(lpe.get_line()))
             for i in range(lpe.left.start -10, lpe.left.start +10):
                 try:
                     etc += bkptdb["_".join([lchr, i, 'Tail'])] + ","
-                except:
+                except KeyError:
                     pass
             etc = etc.rstrip(',') + "\t"
             for i in range(lpe.right.start -10, lpe.right.start +10):
                 try:
                     etc += bkptdb_right["_".join([rchr, i, 'Tail'])] + ","
-                except:
+                except KeyError:
                     pass
-            print(lpe.get_line().rstrip() + "\t" + etc)
+            if etc != '':
+                print(lpe.get_line().rstrip() + "\t" + etc)
 
     # import gzip
     # with gzip.open(depth_l) as fh:
