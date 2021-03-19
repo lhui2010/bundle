@@ -1023,13 +1023,13 @@ def breakpoint_screen2(bam=None, add_name='F'):
             if add_name == 'T':
                 print_buff += "\t{}".format(read.qname)
             print(print_buff)
-            buf[read.reference_id + read.reference_start] += 1
+            buf["{}\t{}".format(read.reference_id, read.reference_start)] += 1
         if read.cigar[-1][0] == 4 or read.cigar[-1][0] == 5:
             print_buff = "{}\t{}\t{}".format(read.reference_id, read.reference_end, "End")
             if add_name == 'T':
                 print_buff += "\t{}".format(read.qname)
             print(print_buff)
-            buf[read.reference_id + read.reference_end] += 1
+            buf["{}\t{}".format(read.reference_id, read.reference_end)] += 1
     with open(bam + '.summary', 'w') as fh:
         for i in buf:
             fh.write("{}\t{}\n".format(i, buf[i]))
