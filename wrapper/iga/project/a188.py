@@ -1056,6 +1056,7 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
             (chrid, loci, croptype, coverage) = mylist
             if int(coverage) < breakpoint_coverage_cutoff:
                 continue
+            logging.debug("{}\t{}\t{}".format(chrid, loci, croptype))
             bkptdb[chrid][loci][croptype] = coverage
     with open(bkptsum_r) as fh:
         #1       37      Head    1
