@@ -1047,8 +1047,8 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
     """
     mbe = BedPE(mosaic_bedpe)
     breakpoint_coverage_cutoff = 5
-    bkptdb = defaultdict(dict)
-    bkptdb_right = defaultdict(dict)
+    bkptdb = {}
+    bkptdb_right = {}
     with open(bkptsum_l) as fh:
         #1       37      Head    1
         for line in fh:
@@ -1056,8 +1056,7 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
             (chrid, loci, croptype, coverage) = mylist
             if int(coverage) < breakpoint_coverage_cutoff:
                 continue
-            logging.debug("{}\t{}\t{}".format(chrid, loci, croptype))
-            bkptdb[chrid][loci][croptype] = coverage
+            bkptdb["_".join([chrid, loci, croptype])] = coverage
     with open(bkptsum_r) as fh:
         #1       37      Head    1
         for line in fh:
@@ -1065,22 +1064,21 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
             (chrid, loci, croptype, coverage) = mylist
             if int(coverage) < breakpoint_coverage_cutoff:
                 continue
-            bkptdb_right[chrid][loci][croptype] = coverage
+            bkptdb_right["_".join([chrid, loci, croptype])] = coverage
     for lchr in mbe.bedpe_db:
         for lpe in mbe.bedpe_db[lchr]:
             etc = ''
             lchr = re.sub(r'.*_', '', lpe.left_chr)
             rchr = re.sub(r'.*_', '', lpe.right_chr)
-
             for i in range(lpe.left_start -10, lpe.left_start +10):
                 try:
-                    etc += bkptdb[lchr][i]['Tail'] + ","
+                    etc += bkptdb["_".join([lchr, i, 'Tail'])] + ","
                 except:
                     pass
             etc = etc.rstrip(',') + "\t"
             for i in range(lpe.right_start -10, lpe.right_start +10):
                 try:
-                    etc += bkptdb_right[rchr][i]['Tail'] + ","
+                    etc += bkptdb_right["_".join([rchr, i, 'Tail'])] + ","
                 except:
                     pass
             print(lpe.get_line().rstrip() + "\t" + etc)
