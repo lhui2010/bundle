@@ -1011,7 +1011,8 @@ def breakpoint_screen2(bam=None, add_name='F'):
     import pysam
     samfile = pysam.AlignmentFile(bam, "r")
     reads_all = samfile.fetch()
-    buf = defaultdict(int)
+    buf_head = defaultdict(int)
+    buf_tail = defaultdict(int)
     for read in reads_all:
         ###pysam's coordinate [0-based, 0-based), like bed, so have the following modifications
         if type(read.reference_id) == int:
@@ -1023,16 +1024,19 @@ def breakpoint_screen2(bam=None, add_name='F'):
             if add_name == 'T':
                 print_buff += "\t{}".format(read.qname)
             print(print_buff)
-            buf["{}\t{}".format(read.reference_id, read.reference_start)] += 1
+            buf_head["{}\t{}".format(read.reference_id, read.reference_start)] += 1
         if read.cigar[-1][0] == 4 or read.cigar[-1][0] == 5:
             print_buff = "{}\t{}\t{}".format(read.reference_id, read.reference_end, "End")
             if add_name == 'T':
                 print_buff += "\t{}".format(read.qname)
             print(print_buff)
-            buf["{}\t{}".format(read.reference_id, read.reference_end)] += 1
-    with open(bam + '.summary', 'w') as fh:
-        for i in buf:
-            fh.write("{}\t{}\n".format(i, buf[i]))
+            buf_tail["{}\t{}".format(read.reference_id, read.reference_end)] += 1
+    with open(bam + '.headcrop.summary', 'w') as fh:
+        for i in buf_head:
+            fh.write("{}\t{}\n".format(i, buf_head[i]))
+    with open(bam + '.tailcrop.summary', 'w') as fh:
+        for i in buf_tail:
+            fh.write("{}\t{}\n".format(i, buf_tail[i]))
 
 
 if __name__ == "__main__":
