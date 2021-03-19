@@ -1065,25 +1065,32 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
             if int(coverage) < breakpoint_coverage_cutoff:
                 continue
             bkptdb_right["_".join([chrid, loci])] += int(coverage)
+    breakpoint_flanking = 10
     for lchr in mbe.bedpe_db:
         for lpe in mbe.bedpe_db[lchr]:
-            etc = ''
+            etc = 0
             lchr = re.sub(r'.*_', '', lpe.left.chr)
             rchr = re.sub(r'.*_', '', lpe.right.chr)
             logging.debug('searching {}'.format(lpe.get_line()))
-            for i in range(lpe.left.start -10, lpe.left.start +10):
-                try:
-                    etc += bkptdb["_".join([lchr, i])] + ","
-                except KeyError:
-                    pass
-            etc = etc.rstrip(',') + "\t"
-            for i in range(lpe.right.start -10, lpe.right.start +10):
-                try:
-                    etc += bkptdb_right["_".join([rchr, i])] + ","
-                except KeyError:
-                    pass
+            etc = ''
+            for left in (lpe.left.start, lpe.left.end):
+                sum = 0
+                for i in range(left - breakpoint_flanking, left + breakpoint_flanking):
+                    try:
+                        sum += bkptdb["_".join([lchr, i])]
+                    except KeyError:
+                        pass
+                etc += str(sum) + "\t"
+            for right in (lpe.right.start, lpe.right.end):
+                sum = 0
+                for i in range(left - breakpoint_flanking, left + breakpoint_flanking):
+                    try:
+                        sum += bkptdb["_".join([lchr, i])]
+                    except KeyError:
+                        pass
+                etc += str(sum) + "\t"
             if etc != '':
-                print(lpe.get_line().rstrip() + "\t" + etc)
+                print(lpe.get_line().rstrip() + "\t" + etc.rstrip())
 
     # import gzip
     # with gzip.open(depth_l) as fh:
