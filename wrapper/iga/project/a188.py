@@ -1025,7 +1025,7 @@ def breakpoint_screen2(bam=None, add_name='F'):
             print(print_buff)
             buf["{}\t{}\t{}".format(read.reference_id, read.reference_start, "Head")] += 1
         if read.cigar[-1][0] == 4 or read.cigar[-1][0] == 5:
-            print_buff = "{}\t{}\t{}".format(read.reference_id, read.reference_end, "End")
+            print_buff = "{}\t{}\t{}\t{}".format(read.reference_id, read.reference_end, "End")
             if add_name == 'T':
                 print_buff += "\t{}".format(read.qname)
             print(print_buff)
@@ -1033,6 +1033,57 @@ def breakpoint_screen2(bam=None, add_name='F'):
     with open(bam + '.summary', 'w') as fh:
         for i in buf:
             fh.write("{}\t{}\n".format(i, buf[i]))
+
+
+def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None, depth_l='',
+                        bkptsum_r=None, depth_r=''):
+    """
+    All is 1-based
+    :param mosaic_bedpe:
+    :param bkptsum:
+    :param depth:
+    :return:
+    """
+    mbe = BedPE(mosaic_bedpe)
+    breakpoint_coverage_cutoff = 5
+    bkptdb = defaultdict(dict)
+    bkptdb_right = defaultdict(dict)
+    with open(bkptsum_l) as fh:
+        #1       37      Head    1
+        for line in fh:
+            mylist = line.rstrip().split()
+            (chrid, loci, croptype, coverage) = mylist
+            if int(coverage) < breakpoint_coverage_cutoff:
+                continue
+            bkptdb[chrid][loci][croptype] = coverage
+    with open(bkptsum_r) as fh:
+        #1       37      Head    1
+        for line in fh:
+            mylist = line.rstrip().split()
+            (chrid, loci, croptype, coverage) = mylist
+            if int(coverage) < breakpoint_coverage_cutoff:
+                continue
+            bkptdb_right[chrid][loci][croptype] = coverage
+    for lchr in mbe.bedpe_db:
+        for lpe in mbe.bedpe_db[lchr]:
+            etc = ''
+            for i in range(lpe.left_start -10, lpe.left_start +10):
+                try:
+                    etc += bkptdb[lpe.left_chr][lpe.left_start]['Tail'] + ","
+                except:
+                    pass
+            etc = etc.rstrip(',') + "\t"
+            for i in range(lpe.right_start -10, lpe.right_start +10):
+                try:
+                    etc += bkptdb_right[lpe.right_chr][lpe.right_start]['Tail'] + ","
+                except:
+                    pass
+            print(lpe.get_line().rstrip() + "\t" + etc)
+
+    # import gzip
+    # with gzip.open(depth_l) as fh:
+    #     for line in fh:
+    #         (chr_id, loci, depth) = line.decode().rstrip().split()
 
 
 if __name__ == "__main__":
