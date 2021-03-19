@@ -1026,7 +1026,7 @@ def breakpoint_screen2(bam=None, add_name='F'):
             print(print_buff)
             buf["{}\t{}\t{}".format(read.reference_id, read.reference_start, "Head")] += 1
         if read.cigar[-1][0] == 4 or read.cigar[-1][0] == 5:
-            print_buff = "{}\t{}\t{}\t{}".format(read.reference_id, read.reference_end, "End")
+            print_buff = "{}\t{}\t{}".format(read.reference_id, read.reference_end, "End")
             if add_name == 'T':
                 print_buff += "\t{}".format(read.qname)
             print(print_buff)
