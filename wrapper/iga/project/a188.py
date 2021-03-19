@@ -1068,7 +1068,6 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
     breakpoint_flanking = 10
     for lchr in mbe.bedpe_db:
         for lpe in mbe.bedpe_db[lchr]:
-            etc = 0
             lchr = re.sub(r'.*_', '', lpe.left.chr)
             rchr = re.sub(r'.*_', '', lpe.right.chr)
             logging.debug('searching {}'.format(lpe.get_line()))
@@ -1077,6 +1076,8 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
                 sum = 0
                 for i in range(left - breakpoint_flanking, left + breakpoint_flanking):
                     try:
+                        logging.debug(bkptdb["_".join([lchr, i])])
+                        logging.debug(sum)
                         sum += bkptdb["_".join([lchr, i])]
                     except KeyError:
                         pass
