@@ -1067,15 +1067,18 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None, depth_l='',
     for lchr in mbe.bedpe_db:
         for lpe in mbe.bedpe_db[lchr]:
             etc = ''
+            lchr = re.sub(r'.*_', '', lpe.left_chr)
+            rchr = re.sub(r'.*_', '', lpe.right_chr)
+
             for i in range(lpe.left_start -10, lpe.left_start +10):
                 try:
-                    etc += bkptdb[lpe.left_chr][lpe.left_start]['Tail'] + ","
+                    etc += bkptdb[lchr][i]['Tail'] + ","
                 except:
                     pass
             etc = etc.rstrip(',') + "\t"
             for i in range(lpe.right_start -10, lpe.right_start +10):
                 try:
-                    etc += bkptdb_right[lpe.right_chr][lpe.right_start]['Tail'] + ","
+                    etc += bkptdb_right[rchr][i]['Tail'] + ","
                 except:
                     pass
             print(lpe.get_line().rstrip() + "\t" + etc)
