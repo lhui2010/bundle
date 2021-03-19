@@ -1002,9 +1002,10 @@ def breakpoint_screen(depth=None, highcutoff=100, lowcutoff=5):
             prev_chr = chr_id
 
 
-def breakpoint_screen2(bam=None):
+def breakpoint_screen2(bam=None, add_name='F'):
     """
     %s test.bam > test.bam.breakpoint.txt
+    add_name: [T|F]
     :return:
     """
     import pysam
@@ -1018,10 +1019,16 @@ def breakpoint_screen2(bam=None):
         read.reference_start += 1
         ###
         if read.cigar[0][0] == 4 or read.cigar[0][0] == 5:
-            print("{}\t{}\t{}".format(read.reference_id, read.reference_start, "Start", read.qname))
+            print_buff = "{}\t{}\t{}".format(read.reference_id, read.reference_start, "Start")
+            if add_name == 'T':
+                print_buff += "\t{}".format(read.qname)
+            print(print_buff)
             buf[read.reference_id + read.reference_start] += 1
         if read.cigar[-1][0] == 4 or read.cigar[-1][0] == 5:
-            print("{}\t{}\t{}".format(read.reference_id, read.reference_end, "End", read.qname))
+            print_buff = "{}\t{}\t{}".format(read.reference_id, read.reference_end, "End")
+            if add_name == 'T':
+                print_buff += "\t{}".format(read.qname)
+            print(print_buff)
             buf[read.reference_id + read.reference_end] += 1
     with open(bam + '.summary', 'w') as fh:
         for i in buf:
