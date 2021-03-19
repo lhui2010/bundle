@@ -1002,5 +1002,26 @@ def breakpoint_screen(depth=None, highcutoff=100, lowcutoff=5):
             prev_chr = chr_id
 
 
+def breakpoint_screen2(bam=None):
+    """
+    %s test.bam > test.bam.breakpoint.txt
+    :return:
+    """
+    import pysam
+    samfile = pysam.AlignmentFile(bam, "r")
+    reads_all = samfile.fetch()
+    buf = defaultdict(int)
+    for read in reads_all:
+        if read.cigar[0][0] == 4 or read.cigar[0][0] == 5:
+            print("{}\t{}\t{}".format(read.reference_id, read.reference_start, "Start", read.qname))
+            buf[read.reference_id + read.reference_start] += 1
+        if read.cigar[-1][0] == 4 or read.cigar[-1][0] == 5:
+            print("{}\t{}\t{}".format(read.reference_id, read.reference_end, "End", read.qname))
+            buf[read.reference_id + read.reference_end] += 1
+    with open(bam + '.summary', 'w') as fh:
+        for i in buf:
+            fh.write("{}\t{}\n".format(i, buf[i]))
+
+
 if __name__ == "__main__":
     emain()

@@ -4,3 +4,4 @@ parse
 bs4
 rich
 Bio
+pysam
