@@ -2,6 +2,7 @@
 code used in A188 project
 """
 import copy
+import re
 from collections import defaultdict
 from statistics import mean
 
@@ -1035,8 +1036,8 @@ def breakpoint_screen2(bam=None, add_name='F'):
             fh.write("{}\t{}\n".format(i, buf[i]))
 
 
-def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None, depth_l='',
-                        bkptsum_r=None, depth_r=''):
+def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
+                        bkptsum_r=None, depth_l='', depth_r=''):
     """
     All is 1-based
     :param mosaic_bedpe:
