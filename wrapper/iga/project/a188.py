@@ -1083,9 +1083,9 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
                 etc += str(sum) + "\t"
             for right in (lpe.right.start, lpe.right.end):
                 sum = 0
-                for i in range(left - breakpoint_flanking, left + breakpoint_flanking):
+                for i in range(right - breakpoint_flanking, right + breakpoint_flanking):
                     try:
-                        sum += bkptdb["_".join([lchr, i])]
+                        sum += bkptdb_right["_".join([rchr, i])]
                     except KeyError:
                         pass
                 etc += str(sum) + "\t"
