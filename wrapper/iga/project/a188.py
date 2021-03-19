@@ -1012,6 +1012,11 @@ def breakpoint_screen2(bam=None):
     reads_all = samfile.fetch()
     buf = defaultdict(int)
     for read in reads_all:
+        ###pysam's coordinate [0-based, 0-based), like bed, so have the following modifications
+        if type(read.reference_id) == int:
+            read.reference_id += 1
+        read.reference_start += 1
+        ###
         if read.cigar[0][0] == 4 or read.cigar[0][0] == 5:
             print("{}\t{}\t{}".format(read.reference_id, read.reference_start, "Start", read.qname))
             buf[read.reference_id + read.reference_start] += 1
