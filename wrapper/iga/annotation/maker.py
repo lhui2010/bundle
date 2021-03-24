@@ -522,11 +522,13 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         cfg.update('est2genome=1;protein2genome=1')
     else:
         cfg.update('est2genome=0;protein2genome=0')
-        if '.hmm' not in snap_hmm:
-            # In case .hmm extension was not added in input
-            snap_hmm = snap_hmm + '.hmm'
-        cfg.update('snaphmm={0};augustus_species={1}'.format(
-            op.join(snap_hmm_dir, snap_hmm), augustus_species))
+        if augustus_species != '':
+            cfg.update('augustus_species={}'.format(augustus_species))
+        if snap_hmm != '':
+            if '.hmm' not in snap_hmm:
+                # In case .hmm extension was not added in input
+                snap_hmm = snap_hmm + '.hmm'
+            cfg.update('snaphmm={}'.format(op.join(snap_hmm_dir, snap_hmm)))
     if update != '':
         cfg.update(update)
     #
