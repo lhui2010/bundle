@@ -60,7 +60,7 @@ def blast2bed(bln=None):
     :return:
     """
     cmd = r"""
-awk '{print $1"\t"$7"\t"$8"\t$2\t$12\t.}' {0} > {0}.bed
+awk '{print $1"\t"$7"\t"$8"\t"$2"\t"$12"\t."}' {0} > {0}.bed
 """.format(bln)
     sh(cmd)
 
