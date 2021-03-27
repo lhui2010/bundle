@@ -3,7 +3,7 @@ blast related wrappers
 """
 from collections import defaultdict
 
-from iga.apps.base import emain, bsub, waitjob
+from iga.apps.base import emain, bsub, waitjob, sh
 
 import logging
 import coloredlogs
@@ -52,6 +52,17 @@ def blastn(ref=None, qry=None, threads=5):
     #waitjob(job)
     return 0
 
+
+def blast2bed(bln=None):
+    """
+    %s bln > bln.bed
+    :param bln:
+    :return:
+    """
+    cmd = r"""
+awk '{print $1"\t"$7"\t"$8"\t$2\t$12\t.}' {0} > {0}.bed
+""".format(bln)
+    sh(cmd)
 
 def filter_reciprocal_best(bln=None):
     qry_best = {}
