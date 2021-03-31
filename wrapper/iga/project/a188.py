@@ -1018,19 +1018,24 @@ def breakpoint_screen2(bam=None, add_name='F'):
         # if type(read.reference_id) == int:
         #     read.reference_id += 1
         read.reference_start += 1
+        #pysam 0.8.3, Future changed to latest version with reference_name
+        try:
+            reference_name = read.reference_name
+        except AttributeError:
+            reference_name = samfile.references[read.reference_id]
         ###
         if read.cigar[0][0] == 4 or read.cigar[0][0] == 5:
-            print_buff = "{}\t{}\t{}".format(read.reference_name, read.reference_start, "Start")
+            print_buff = "{}\t{}\t{}".format(reference_name, read.reference_start, "Start")
             if add_name == 'T':
                 print_buff += "\t{}".format(read.qname)
             print(print_buff)
-            buf["{}\t{}\t{}".format(read.reference_name, read.reference_start, "Head")] += 1
+            buf["{}\t{}\t{}".format(reference_name, read.reference_start, "Head")] += 1
         if read.cigar[-1][0] == 4 or read.cigar[-1][0] == 5:
             print_buff = "{}\t{}\t{}".format(read.reference_name, read.reference_end, "End")
             if add_name == 'T':
                 print_buff += "\t{}".format(read.qname)
             print(print_buff)
-            buf["{}\t{}\t{}".format(read.reference_name, read.reference_end, "Tail")] += 1
+            buf["{}\t{}\t{}".format(reference_name, read.reference_end, "Tail")] += 1
     with open(bam + '.summary', 'w') as fh:
         for i in buf:
             fh.write("{}\t{}\n".format(i, buf[i]))
