@@ -1070,6 +1070,7 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
             bkptdb_right["_".join([chrid, loci])] += int(coverage)
     breakpoint_flanking = 10
     for lchr in mbe.bedpe_db:
+        logging.debug("left chromosome is {}".format(lchr))
         for lpe in mbe.bedpe_db[lchr]:
             lchr = re.sub(r'.*_', '', lpe.left.chr)
             rchr = re.sub(r'.*_', '', lpe.right.chr)
