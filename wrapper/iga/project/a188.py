@@ -265,6 +265,7 @@ class BedPE:
         """
         # logger.debug("chrid {}".format(self.bedpe_db.keys()))
         complement_db = BedPE()
+        count = 0
         for chr_id in self.bedpe_db:
             # logger.debug("chrid {}".format(chr_id))
             chr_lp = self.bedpe_db[chr_id]
@@ -279,11 +280,15 @@ class BedPE:
                     if right_end <= right_start:
                         right_end = right_start
                     # From now, 1-based is transformed into 0-based start and 1-based end.
+                    name = chr_lp[i - 1].right.name
+                    if name == '.':
+                        name = "SYN" + str(count)
                     new_lp = LociPE(chr_lp[i - 1].left.chr, left_start, left_end,
                                     chr_lp[i - 1].left.strand,
                                     chr_lp[i - 1].right.chr, right_start, right_end,
-                                    chr_lp[i - 1].right.strand, "NOT" + chr_lp[i - 1].right.name)
+                                    chr_lp[i - 1].right.strand, "NOT" + name)
                     complement_db.bedpe_db[chr_id].append(new_lp)
+                    count += 1
         complement_db.write_to_table(outtable)
 
     def write_to_table(self, table='', left_only=False, right_only=False):
@@ -426,16 +431,6 @@ def bed_stat(bed_file=None, short='F'):
     """
     bed = Bed(bed_file)
     bed.stat(short)
-
-
-def lastz_to_mosaic(lastz_file=None):
-    """
-    Get mosaic region from lastz result
-    :param lastz_file: eg. lastz.1.txt
-    :return:
-    """
-    bedpe = BedPE(lastz_file)
-    bedpe.get_mosaic()
 
 
 def synal_to_mosaic(synal_file=None, syriout='F'):
