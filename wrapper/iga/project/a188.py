@@ -1200,9 +1200,8 @@ def bedpe_to_ggplot(bedpe=None):
                 xmin = iter
                 xmax = iter + x2size - 1
                 ymax = x2size * -1
-                sample_id = re.sub('_.*', '', lp.right.chr)
                 if 'NOT' in lp.right.name:
-                    sample_id = re.sub('_.*', '', lp.left.chr)
+                    sample_id = re.sub('_.*', '', lp.right.chr)
                 print(output_template.format(chr_id_format, xmin, xmax, ymin, ymax, sample_id))
             iter += max(x1size, x2size)
 
