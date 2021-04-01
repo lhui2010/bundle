@@ -1199,17 +1199,17 @@ def bedpe_to_ggplot(bedpe=None):
             x1size = lp.left.get_size(bed_format=False)
             x2size = lp.right.get_size(bed_format=False)
             if x1size > 1:
-                xmin = iter
-                xmax = iter + x1size - 1
-                ymax = x1size + yoffset
-                ymin = ymin + yoffset
-                print(output_template.format(chr_id_format, xmin, xmax, ymin, ymax, sample1_id))
+                x1min = iter
+                x1max = iter + x1size - 1
+                y1max = x1size + yoffset
+                y1min = ymin + yoffset
+                print(output_template.format(chr_id_format, x1min, x1max, y1min, y1max, sample1_id))
             if x2size > 1:
-                xmin = iter
-                xmax = iter + x2size - 1
-                ymax = x2size * - 1 - yoffset
-                ymin = ymin - yoffset
-                print(output_template.format(chr_id_format, xmin, xmax, ymin, ymax, sample2_id))
+                x2min = iter
+                x2max = iter + x2size - 1
+                y2max = x2size * - 1 - yoffset
+                y2min = ymin - yoffset
+                print(output_template.format(chr_id_format, x2min, x2max, y2min, y2max, sample2_id))
             iter += max(x1size, x2size)
 
 
