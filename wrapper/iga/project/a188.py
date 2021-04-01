@@ -286,6 +286,10 @@ class BedPE:
                         left_end = left_start
                     if right_end <= right_start:
                         right_end = right_start
+                    #Skipping overlaping bedpes, rare but exists
+                    if chr_lp[i - 1].left.end >= chr_lp[i].left.start and \
+                        chr_lp[i - 1].right.end >= chr_lp[i].left.start:
+                        continue
                     # From now, 1-based is transformed into 0-based start and 1-based end.
                     name = chr_lp[i - 1].right.name
                     if name == '.':
