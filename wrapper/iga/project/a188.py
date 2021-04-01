@@ -1177,6 +1177,8 @@ def bedpe_to_ggplot(bedpe=None):
     :return:
     """
     read = BedPE(bedpe)
+    output_template = "{}\t"*5
+    output_template = output_template.rstrip()
     #visit dict
     for chr_id in sorted(read.bedpe_db.keys()):
         iter = 1
@@ -1190,13 +1192,13 @@ def bedpe_to_ggplot(bedpe=None):
                 xmax = iter + x1size - 1
                 ymax = x1size
                 sample_id = re.sub('_.*', '', lp.left.chr)
-                print("\t".join([xmin, xmax, ymin, ymax, sample_id]))
+                print(output_template.format(xmin, xmax, ymin, ymax, sample_id))
             if x2size > 1:
                 xmin = iter
                 xmax = iter + x2size - 1
                 ymax = x2size * -1
                 sample_id = re.sub('_.*', '', lp.left.chr)
-                print("\t".join([xmin, xmax, ymin, ymax, sample_id]))
+                print(output_template.format(xmin, xmax, ymin, ymax, sample_id))
             iter += max(x1size, x2size)
 
 
