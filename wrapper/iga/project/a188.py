@@ -491,6 +491,7 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
         pos1_list[i] = int(pos1_list[i]) - 1
     for i in range(0, len(pos2_list)):
         pos2_list[i] = int(pos2_list[i]) - 1
+    id_increment = 1000000
     with open(syri_file) as fh:
         for line in fh:
             mylist = line.rstrip().split()
@@ -508,9 +509,12 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
                     pass
             if 'SYN' in mylist[8]:
                 #Rename SYN1 to SYN10001 to avoid same name conflict with previous SYN tags
-                (tmp, id) = mylist[8].split("SYN")
-                id = str(10000 + int(id))
-                mylist[8] = "SYN"+id
+                search = re.search(r'(\D+)(\d+)', mylist[8])
+                if search:
+                    tag = search[1]
+                    id = search[2]
+                    id = str(id_increment + int(id))
+                    mylist[8] = tag +id
             line = "\t".join(mylist)
             print(line)
 
