@@ -467,6 +467,42 @@ def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYN'):
     bedpe.get_mosaic()
 
 
+def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', pos2='7,8'):
+    r"""
+    %s 100 10 > syri.out. coordinates will be added (left +99, right +9) automatically
+    offset is where the segment is cut. like fa_pos.pl 100 110 > qry.fa. then it's 100 for offset1
+    Why to use:
+        Sometimes aligners will fail for any reason, in this way we cut the failed fasta and align
+        them seperatly. Usually this will fix the previous problem. But the new coordinate is on
+        the segment, so we use this utility to map coordinates to original coordinate systems.
+    :param offset1: The original start of segment on original left fasta. s 100
+    :param offset2: The original start of segment on original left fasta
+    :param syri_file: (1-based alignment file), works for syri.out now, should support more files in future
+    :param pos1: Comma delimited column number. for which to change with offset1, like 2,3 are column 2 and 3 (1-based)
+    :param pos2: the same as above, except those columns will be changed with offset2
+    :return:
+    """
+    pos1_list = pos1.split(',')
+    pos2_list = pos2.split(',')
+    # 100-1000 → 1:901, offset = 100, 1+100-1 = 100, 901 + 100 - 1 = 1000
+    offset1 -= 1
+    offset2 -= 1
+    for i in range(0, len(pos1_list)):
+        pos1_list[i] -= 1
+    for i in range(0, len(pos2_list)):
+        pos2_list[i] -= 1
+    with open(syri_file) as fh:
+        for line in fh:
+            mylist = line.rstrip().split()
+            for c1 in pos1_list:
+                mylist[c1] = str(int(mylist[c1]) + offset1)
+            for c2 in pos2_list:
+                mylist[c2] = str(int(mylist[c2]) + offset2)
+            line = "\t".join(mylist)
+            print(line)
+
+
+
 def synal_to_paf(synal_file=None):
     """
     :param synal_file:
