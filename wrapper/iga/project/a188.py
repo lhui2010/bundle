@@ -172,13 +172,9 @@ class BedPE:
                 this_lp = LociPE(left_chr, left_start, left_end, left_strand,
                                  right_chr, right_start, right_end, right_strand, name)
                 if self.type == 'lastz':
-                    # TODO just a tempory fix for nonincrement alignment
                     if len(self.bedpe_db[left_chr]) >= 2 and \
-                            (self.bedpe_db[left_chr][-1].left.end > this_lp.left.start or
-                             self.bedpe_db[left_chr][-1].right.end > this_lp.right.start) and \
-                            (self.bedpe_db[left_chr][-2].left.end < this_lp.left.start and
-                             self.bedpe_db[left_chr][-2].right.end < this_lp.right.start):
-                        self.bedpe_db[left_chr].pop()
+                            self.bedpe_db[left_chr][-1].left.start > this_lp.left.start:
+                        break
                     elif len(self.bedpe_db[left_chr]) < 1 or \
                             self.bedpe_db[left_chr][-1].left.end < this_lp.left.start and \
                             self.bedpe_db[left_chr][-1].right.end < this_lp.right.end:
@@ -430,6 +426,16 @@ def bed_stat(bed_file=None, short='F'):
     """
     bed = Bed(bed_file)
     bed.stat(short)
+
+
+def lastz_to_mosaic(lastz_file=None):
+    """
+    Get mosaic region from lastz result
+    :param lastz_file: eg. lastz.1.txt
+    :return:
+    """
+    bedpe = BedPE(lastz_file)
+    bedpe.get_mosaic()
 
 
 def synal_to_mosaic(synal_file=None, syriout='F'):
