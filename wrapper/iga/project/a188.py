@@ -506,6 +506,11 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
                     mylist[c2] = str(int(mylist[c2]) + offset2)
                 except ValueError:
                     pass
+            if 'SYN' in mylist[8]:
+                #Rename SYN1 to SYN10001 to avoid same name conflict with previous SYN tags
+                (tmp, id) = mylist[8].split("SYN")
+                id = str(10000 + int(id))
+                mylist[8] = "SYN"+id
             line = "\t".join(mylist)
             print(line)
 
