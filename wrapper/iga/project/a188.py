@@ -495,11 +495,17 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
         for line in fh:
             mylist = line.rstrip().split()
             for c1 in pos1_list:
-                logging.debug(c1)
-                mylist[c1] = str(int(mylist[c1]) + offset1)
+                #logging.debug(c1)
+                try:
+                    mylist[c1] = str(int(mylist[c1]) + offset1)
+                except ValueError:
+                    pass
             for c2 in pos2_list:
-                logging.debug(c2)
-                mylist[c2] = str(int(mylist[c2]) + offset2)
+                #logging.debug(c2)
+                try:
+                    mylist[c2] = str(int(mylist[c2]) + offset2)
+                except ValueError:
+                    pass
             line = "\t".join(mylist)
             print(line)
 
