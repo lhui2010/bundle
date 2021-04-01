@@ -1186,19 +1186,23 @@ def bedpe_to_ggplot(bedpe=None):
         ymin = 0
         #visit list
         for lp in read.bedpe_db[chr_id]:
+            sample_id = "SYN"
             x1size = lp.left.get_size(bed_format=False)
             x2size = lp.right.get_size(bed_format=False)
             if x1size > 1:
                 xmin = iter
                 xmax = iter + x1size - 1
                 ymax = x1size
-                sample_id = re.sub('_.*', '', lp.left.chr)
+                if 'NOT' in lp.left.name:
+                    sample_id = re.sub('_.*', '', lp.left.chr)
                 print(output_template.format(chr_id_format, xmin, xmax, ymin, ymax, sample_id))
             if x2size > 1:
                 xmin = iter
                 xmax = iter + x2size - 1
                 ymax = x2size * -1
                 sample_id = re.sub('_.*', '', lp.right.chr)
+                if 'NOT' in lp.right.name:
+                    sample_id = re.sub('_.*', '', lp.left.chr)
                 print(output_template.format(chr_id_format, xmin, xmax, ymin, ymax, sample_id))
             iter += max(x1size, x2size)
 
