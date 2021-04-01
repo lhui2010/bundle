@@ -291,11 +291,11 @@ class BedPE:
                     if name == '.':
                         name = "SYN" + str(count)
                     chr_numeric_id = re.sub('.*_', '', chr_lp[i - 1].left.chr)
-                    name = chr_numeric_id + "_" + name
+                    name = chr_numeric_id + "_" + "NOT" + name
                     new_lp = LociPE(chr_lp[i - 1].left.chr, left_start, left_end,
                                     chr_lp[i - 1].left.strand,
                                     chr_lp[i - 1].right.chr, right_start, right_end,
-                                    chr_lp[i - 1].right.strand, "NOT" + name)
+                                    chr_lp[i - 1].right.strand, name)
                     complement_db.bedpe_db[chr_id].append(new_lp)
                     count += 1
         complement_db.write_to_table(outtable)
