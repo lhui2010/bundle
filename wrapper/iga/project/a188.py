@@ -172,9 +172,16 @@ class BedPE:
                 this_lp = LociPE(left_chr, left_start, left_end, left_strand,
                                  right_chr, right_start, right_end, right_strand, name)
                 if self.type == 'lastz':
+                    # if len(self.bedpe_db[left_chr]) >= 2 and \
+                    #         self.bedpe_db[left_chr][-1].left.start > this_lp.left.start:
+                    #     break
+                    # TODO just a tempory fix for nonincrement alignment
                     if len(self.bedpe_db[left_chr]) >= 2 and \
-                            self.bedpe_db[left_chr][-1].left.start > this_lp.left.start:
-                        break
+                            (self.bedpe_db[left_chr][-1].left.end > this_lp.left.start or
+                             self.bedpe_db[left_chr][-1].right.end > this_lp.right.start) and \
+                            (self.bedpe_db[left_chr][-2].left.end < this_lp.left.start and
+                             self.bedpe_db[left_chr][-2].right.end < this_lp.right.start):
+                        self.bedpe_db[left_chr].pop()
                     elif len(self.bedpe_db[left_chr]) < 1 or \
                             self.bedpe_db[left_chr][-1].left.end < this_lp.left.start and \
                             self.bedpe_db[left_chr][-1].right.end < this_lp.right.end:
@@ -283,6 +290,8 @@ class BedPE:
                     name = chr_lp[i - 1].right.name
                     if name == '.':
                         name = "SYN" + str(count)
+                    chr_numeric_id = re.sub('.*_', '', chr_lp[i - 1].left.chr)
+                    name = chr_numeric_id + "_" + name
                     new_lp = LociPE(chr_lp[i - 1].left.chr, left_start, left_end,
                                     chr_lp[i - 1].left.strand,
                                     chr_lp[i - 1].right.chr, right_start, right_end,
@@ -433,7 +442,7 @@ def bed_stat(bed_file=None, short='F'):
     bed.stat(short)
 
 
-def synal_to_mosaic(synal_file=None, syriout='F'):
+def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYN'):
     """
     %s syri.synal.txt > syri.unsynal.txt
     convert lastz result to bedpe like result by complementing syntenic regions
@@ -452,8 +461,8 @@ def synal_to_mosaic(synal_file=None, syriout='F'):
     """
     # logging.debug('abc')
     if syriout == 'T':
-        sh("grep SYNAL {0} > {0}.synal".format(synal_file))
-        synal_file += '.synal'
+        sh("""awk '$11=="{1}"' {0} > {0}.{1}""".format(synal_file, syn_tag))
+        synal_file += '.' + syn_tag
     bedpe = BedPE(synal_file, type='syri')
     bedpe.get_mosaic()
 
