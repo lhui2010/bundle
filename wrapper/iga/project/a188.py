@@ -485,8 +485,8 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
     pos1_list = pos1.split(',')
     pos2_list = pos2.split(',')
     # 100-1000 → 1:901, offset = 100, 1+100-1 = 100, 901 + 100 - 1 = 1000
-    offset1 -= 1
-    offset2 -= 1
+    offset1 = int(offset1) - 1
+    offset2 = int(offset2) - 1
     for i in range(0, len(pos1_list)):
         pos1_list[i] -= 1
     for i in range(0, len(pos2_list)):
