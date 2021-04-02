@@ -585,9 +585,9 @@ def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None):
             if mylist[10] == "SYN":
                 last_line = line
     mylist = last_line.rstrip().split()
-    qry_offset = mylist[2] + 1
+    qry_offset = int(mylist[2]) + 1
     qry_chr = mylist[0]
-    ref_offset = mylist[7] + 1
+    ref_offset = int(mylist[7]) + 1
     ref_chr = mylist[5]
 
     qry_fadt = SeqIO.to_dict(SeqIO.parse(qry_fa, "fasta"))
