@@ -2,6 +2,7 @@
 code used in A188 project
 """
 import copy
+import os
 import re
 from collections import defaultdict
 from statistics import mean
@@ -14,9 +15,12 @@ from iga.apps.base import emain, qsub, get_prefix, sh
 
 import logging
 import coloredlogs
+import os.path as op
+from Bio import SeqIO
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
+
 
 # # 0 ref fasta
 # # 1 qry fasta
@@ -67,39 +71,6 @@ coloredlogs.install(level='DEBUG', logger=logger)
 #         chr_id = ref.split('.')[-1]
 #         prefix += chr_id
 #     qsub(cmd, cpus=threads, name='syri.'+prefix)
-
-
-syri_sh = r"""
-REF={0}
-QRY={1}
-WORKDIR={0}.{1}.syri
-mkdir -p $WORKDIR
-cd $WORKDIR
-ln -s ../{0}
-ln -s ../{1}
-minimap2 -ax asm5 --eqx $REF $QRY | samtools view -bS  > $REF.$QRY.bam
-SYRI=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/syri
-PLOTSR=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/plotsr
-
-python3 $SYRI -c $REF.$QRY.bam -r $REF -q $QRY -k -F B --lf $REF.$QRY.log --prefix $REF.$QRY.
-# python3 $SYRI -c out.filtered.coords -d out.filtered.delta -r {0} -q {1}
-
-for i in .snps.txt .notAligned.txt .ctxOut.txt .sv.txt .synOut.txt .dupOut.txt .invDupOut.txt .invTLOut.txt .TLOut.txt .invOut.txt
-do 
-    rm $REF.$QRY$i
-done
-python3 $PLOTSR $REF.$QRY.syri.out {0} {1} -H 8 -W 5
-"""
-
-
-def syri(ref=None, qry=None, threads=6):
-    cmd = 'conda activate syri' + syri_sh.format(ref, qry)
-    prefix = get_prefix(ref)
-    prefix += get_prefix(qry)
-    if len(ref.split('.')) > 2:
-        chr_id = ref.split('.')[-1]
-        prefix += chr_id
-    qsub(cmd, cpus=threads, name='syri.' + prefix)
 
 
 class LociPE:
@@ -286,9 +257,9 @@ class BedPE:
                         left_end = left_start
                     if right_end <= right_start:
                         right_end = right_start
-                    #Skipping overlaping bedpes, rare but exists
+                    # Skipping overlaping bedpes, rare but exists
                     if chr_lp[i - 1].left.end >= chr_lp[i].left.start and \
-                        chr_lp[i - 1].right.end >= chr_lp[i].left.start:
+                            chr_lp[i - 1].right.end >= chr_lp[i].left.start:
                         continue
                     # From now, 1-based is transformed into 0-based start and 1-based end.
                     name = chr_lp[i - 1].right.name
@@ -446,7 +417,44 @@ def bed_stat(bed_file=None, short='F'):
     bed.stat(short)
 
 
-def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYN'):
+# SyRI related utils
+syri_sh = r"""
+REF={0}
+QRY={1}
+WORKDIR={0}.{1}.syri
+mkdir -p $WORKDIR
+cd $WORKDIR
+ln -s ../{0}
+ln -s ../{1}
+minimap2 -ax asm5 --eqx $REF $QRY | samtools view -bS  > $REF.$QRY.bam
+SYRI=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/syri
+PLOTSR=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin/plotsr
+
+python3 $SYRI -c $REF.$QRY.bam -r $REF -q $QRY -k -F B --lf $REF.$QRY.log --prefix $REF.$QRY.
+# python3 $SYRI -c out.filtered.coords -d out.filtered.delta -r {0} -q {1}
+
+for i in .snps.txt .notAligned.txt .ctxOut.txt .sv.txt .synOut.txt .dupOut.txt .invDupOut.txt .invTLOut.txt .TLOut.txt .invOut.txt
+do 
+    rm $REF.$QRY$i
+done
+python3 $PLOTSR $REF.$QRY.syri.out {0} {1} -H 8 -W 5
+"""
+
+
+def syri(ref=None, qry=None, threads=6, submit='T'):
+    cmd = 'conda activate syri' + syri_sh.format(ref, qry)
+    prefix = get_prefix(ref)
+    prefix += get_prefix(qry)
+    if len(ref.split('.')) > 2:
+        chr_id = ref.split('.')[-1]
+        prefix += chr_id
+    if submit == 'T':
+        qsub(cmd, cpus=threads, name='syri.' + prefix)
+    else:
+        sh(cmd)
+
+
+def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYN', output=''):
     """
     %s syri.synal.txt > syri.unsynal.txt
     convert lastz result to bedpe like result by complementing syntenic regions
@@ -468,10 +476,13 @@ def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYN'):
         sh("""awk '$11=="{1}"' {0} > {0}.{1}""".format(synal_file, syn_tag))
         synal_file += '.' + syn_tag
     bedpe = BedPE(synal_file, type='syri')
-    bedpe.get_mosaic()
+    if output != '':
+        bedpe.get_mosaic(outtable=output)
+    else:
+        bedpe.get_mosaic()
 
 
-def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', pos2='7,8'):
+def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', pos2='7,8', print='T'):
     r"""
     %s 100 10 > syri.out. coordinates will be added (left +99, right +9) automatically
     offset is where the segment is cut. like fa_pos.pl 100 110 > qry.fa. then it's 100 for offset1
@@ -484,7 +495,8 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
     :param syri_file: (1-based alignment file), works for syri.out now, should support more files in future
     :param pos1: Comma delimited column number. for which to change with offset1, like 2,3 are column 2 and 3 (1-based)
     :param pos2: the same as above, except those columns will be changed with offset2
-    :return:
+    :param print: whether to print to screen [T] or return [F]
+    :return: str
     """
     pos1_list = pos1.split(',')
     pos2_list = pos2.split(',')
@@ -496,32 +508,36 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
     for i in range(0, len(pos2_list)):
         pos2_list[i] = int(pos2_list[i]) - 1
     id_increment = 1000000
+    buffer = ""
     with open(syri_file) as fh:
         for line in fh:
             mylist = line.rstrip().split()
             for c1 in pos1_list:
-                #logging.debug(c1)
+                # logging.debug(c1)
                 try:
                     mylist[c1] = str(int(mylist[c1]) + offset1)
                 except ValueError:
                     pass
             for c2 in pos2_list:
-                #logging.debug(c2)
+                # logging.debug(c2)
                 try:
                     mylist[c2] = str(int(mylist[c2]) + offset2)
                 except ValueError:
                     pass
             if 'SYN' in mylist[8]:
-                #Rename SYN1 to SYN10001 to avoid same name conflict with previous SYN tags
+                # Rename SYN1 to SYN10001 to avoid same name conflict with previous SYN tags
                 search = re.search(r'(\D+)(\d+)', mylist[8])
                 if search:
                     tag = search[1]
                     id = search[2]
                     id = str(id_increment + int(id))
-                    mylist[8] = tag +id
+                    mylist[8] = tag + id
             line = "\t".join(mylist)
-            print(line)
-
+            if print == 'T':
+                print(line)
+            else:
+                buffer += line + "\n"
+    return buffer
 
 
 def synal_to_paf(synal_file=None):
@@ -556,6 +572,46 @@ def synal_to_paf(synal_file=None):
     return 0
 
 
+def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None):
+    """
+    SyRI fails to find syntenic region at the end of chromosome1. resulting 40 Mb FP unsyntenic regions
+    This script is used to fix this problem. The input argument is directory where syri was executed
+    :return:
+    """
+    # A188.genome.chr1.B73.genome.chr1.syri
+    with open(syri_out) as f:
+        for line in f:
+            mylist = line.split()
+            if mylist[10] == "SYN":
+                last_line = line
+    mylist = last_line.rstrip().split()
+    qry_offset = mylist[2] + 1
+    qry_chr = mylist[0]
+    ref_offset = mylist[7] + 1
+    ref_chr = mylist[5]
+
+    qry_fadt = SeqIO.to_dict(SeqIO.parse(qry_fa, "fasta"))
+    ref_fadt = SeqIO.to_dict(SeqIO.parse(ref_fa, "fasta"))
+
+    qry_tail_fa = "{}_tail.fa".format(qry_fa)
+    ref_tail_fa = "{}_tail.fa".format(ref_fa)
+    with open(qry_tail_fa, 'w') as out_qry:
+        out_qry.write(qry_fadt[qry_chr][qry_offset - 1:].format('fasta'))
+    with open(ref_tail_fa, 'w') as out_ref:
+        out_ref.write(ref_fadt[ref_chr][ref_offset - 1:].format('fasta'))
+    syri(qry_tail_fa, ref_tail_fa, submit='F')
+    formated_SYN = format_syri_offset(qry_offset, ref_offset, "{}.{}.syri.out".format(qry_tail_fa, ref_tail_fa),
+                                      SYN='T')
+    curated_SYN_file = syri_out + '.curated'
+    with open(curated_SYN_file, 'w') as fo, \
+            open(syri_out, 'r') as fi:
+        original_syri = fi.read()
+        fo.write(original_syri)
+        fo.write(formated_SYN)
+    synal_to_mosaic(curated_SYN_file, syri_out='T', output=curated_SYN_file + ".mosaic")
+
+
+###
 def split_paf(paf_file=None, bed_file=None, bin_size=1000000, offset='T'):
     """
     split minimap paf file into 1M-window seperated, for convenient plot with gggenome
@@ -1085,7 +1141,7 @@ def breakpoint_screen2(bam=None, add_name='F'):
         # if type(read.reference_id) == int:
         #     read.reference_id += 1
         read.reference_start += 1
-        #pysam 0.8.3, Future changed to latest version with reference_name
+        # pysam 0.8.3, Future changed to latest version with reference_name
         try:
             reference_name = read.reference_name
         except AttributeError:
@@ -1122,7 +1178,7 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
     bkptdb = defaultdict(int)
     bkptdb_right = defaultdict(int)
     with open(bkptsum_l) as fh:
-        #1       37      Head    1
+        # 1       37      Head    1
         for line in fh:
             mylist = line.rstrip().split()
             (chrid, loci, croptype, coverage) = mylist
@@ -1130,7 +1186,7 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
                 continue
             bkptdb["_".join([chrid, loci])] += int(coverage)
     with open(bkptsum_r) as fh:
-        #1       37      Head    1
+        # 1       37      Head    1
         for line in fh:
             mylist = line.rstrip().split()
             try:
@@ -1178,15 +1234,15 @@ def bedpe_to_ggplot(bedpe=None):
     """
     from random import randint
     read = BedPE(bedpe)
-    output_template = "{}\t"*6
+    output_template = "{}\t" * 6
     output_template = output_template.rstrip()
     rand_max = 12000000
-    #visit dict
+    # visit dict
     for chr_id in sorted(read.bedpe_db.keys()):
         chr_id_format = re.sub('.*_', '', chr_id)
         iter = 1
         ymin = 0
-        #visit list
+        # visit list
         for lp in read.bedpe_db[chr_id]:
             if 'NOT' in lp.left.name:
                 sample1_id = re.sub('_.*', '', lp.left.chr)
@@ -1211,7 +1267,6 @@ def bedpe_to_ggplot(bedpe=None):
                 y2min = ymin - yoffset
                 print(output_template.format(chr_id_format, x2min, x2max, y2min, y2max, sample2_id))
             iter += max(x1size, x2size)
-
 
     # import gzip
     # with gzip.open(depth_l) as fh:
