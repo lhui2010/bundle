@@ -30,6 +30,7 @@ export HISTFILESIZE=500000000
 source /lustre/home/liuhui/bin/bundle/lh_bin/cdf.sh
 export BD=/lustre/home/liuhui/bin/bundle
 
+alias logsh='cat >>shell'
 alias tma='tmux a'
 alias gtp="cd $BD && git pull && cd -"
 alias gtps="cd $BD && git add . && git commit -m 'CMD' && git push && cd -"
@@ -39,8 +40,8 @@ alias les='less -SN'
 alias lese='less -SN'
 alias ll='ls -hl'                              # long list
 alias lt='ls -lth'
-alias lth='ls -lth |head -30'
-alias lthh='ls -lth |head -20'
+alias lth='ls -lth |head -20'
+alias lthh='ls -lth |head -30'
 #alias rm='rm -i'
 alias vi='~/bin/anaconda3/bin/vim'
 alias vc='~/bin/anaconda3/bin/vim ~/.bashrc'

@@ -41,7 +41,8 @@ def main():
             with open("ref", 'w') as out_ref:
                 out_ref.write(fasta_dict[ref].format('fasta'))
 
-            os.system("lastz --gfextend --chain --gapped --ambiguous=n --format=mapping --identity=97  --continuity=1 {} {} > {} ".format('qry', 'ref', "qry.lastz"))
+            #os.system("lastz --gfextend --chain --gapped --ambiguous=n --format=mapping --identity=97  --continuity=1 {} {} > {} ".format('qry', 'ref', "qry.lastz"))
+            os.system("lastz --gfextend --chain --gapped --ambiguous=n ‑‑format=general:name1,zstart1,end1,name2,strand2,zstart2+,end2+,identity,coverage,nmatch,size1,size2,cigarx-   --identity=97  --continuity=1 {} {} > {} ".format('qry', 'ref', "qry.lastz"))
             if(tag):
                 os.system("grep -v '#' qry.lastz >> total.lastz")
             else:
