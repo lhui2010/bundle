@@ -599,16 +599,16 @@ def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None):
         out_qry.write(qry_fadt[qry_chr][qry_offset - 1:].format('fasta'))
     with open(ref_tail_fa, 'w') as out_ref:
         out_ref.write(ref_fadt[ref_chr][ref_offset - 1:].format('fasta'))
-    syri(qry_tail_fa, ref_tail_fa, submit='F')
-    formated_SYN = format_syri_offset(qry_offset, ref_offset, "{}.{}.syri.out".format(qry_tail_fa, ref_tail_fa),
-                                      SYN='T')
-    curated_SYN_file = syri_out + '.curated'
-    with open(curated_SYN_file, 'w') as fo, \
-            open(syri_out, 'r') as fi:
-        original_syri = fi.read()
-        fo.write(original_syri)
-        fo.write(formated_SYN)
-    synal_to_mosaic(curated_SYN_file, syri_out='T', output=curated_SYN_file + ".mosaic")
+    syri(qry_tail_fa, ref_tail_fa, submit='T')
+    # formated_SYN = format_syri_offset(qry_offset, ref_offset, "{}.{}.syri.out".format(qry_tail_fa, ref_tail_fa),
+    #                                   SYN='T')
+    # curated_SYN_file = syri_out + '.curated'
+    # with open(curated_SYN_file, 'w') as fo, \
+    #         open(syri_out, 'r') as fi:
+    #     original_syri = fi.read()
+    #     fo.write(original_syri)
+    #     fo.write(formated_SYN)
+    # synal_to_mosaic(curated_SYN_file, syri_out='T', output=curated_SYN_file + ".mosaic")
 
 
 ###
