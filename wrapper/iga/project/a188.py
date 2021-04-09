@@ -595,7 +595,7 @@ def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None, postprocess='F'):
 
     #Do not wipe previous runs
     putative_dir = "{}.{}.syri".format(qry_tail_fa, ref_tail_fa)
-    if not op.exists(putative_dir) or postprocess == "T":
+    if not op.exists(putative_dir) or postprocess != "T":
         qry_fadt = SeqIO.to_dict(SeqIO.parse(qry_fa, "fasta"))
         ref_fadt = SeqIO.to_dict(SeqIO.parse(ref_fa, "fasta"))
         with open(qry_tail_fa, 'w') as out_qry:
