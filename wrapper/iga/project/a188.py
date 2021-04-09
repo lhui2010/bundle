@@ -533,7 +533,7 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
                     id = search[2]
                     # id = str(id_increment + int(id))
                     id = 'p' + id
-                    mylist[8] = tag + id
+                    mylist[col] = tag + id
             line = "\t".join(mylist)
             if print_out == 'T':
                 print(line)
