@@ -482,7 +482,7 @@ def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYN', output=''):
         bedpe.get_mosaic()
 
 
-def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', pos2='7,8', print='T'):
+def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', pos2='7,8', print_out='T'):
     r"""
     %s 100 10 > syri.out. coordinates will be added (left +99, right +9) automatically
     offset is where the segment is cut. like fa_pos.pl 100 110 > qry.fa. then it's 100 for offset1
@@ -533,7 +533,7 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
                     id = str(id_increment + int(id))
                     mylist[8] = tag + id
             line = "\t".join(mylist)
-            if print == 'T':
+            if print_out == 'T':
                 print(line)
             else:
                 buffer += line + "\n"
