@@ -454,7 +454,7 @@ def syri(ref=None, qry=None, threads=6, submit='T'):
         sh(cmd)
 
 
-def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYN', output=''):
+def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYNAL', output=''):
     """
     %s syri.synal.txt > syri.unsynal.txt
     convert lastz result to bedpe like result by complementing syntenic regions
@@ -472,6 +472,8 @@ def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYN', output=''):
     :return:
     """
     # logging.debug('abc')
+    if re.search(r'syri.out$', synal_file):
+        syriout = 'T'
     if syriout == 'T':
         sh("""awk '$11=="{1}"' {0} > {0}.{1}""".format(synal_file, syn_tag))
         synal_file += '.' + syn_tag
