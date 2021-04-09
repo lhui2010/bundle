@@ -524,9 +524,10 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
                     mylist[c2] = str(int(mylist[c2]) + offset2)
                 except ValueError:
                     pass
-            if 'SYN' in mylist[8]:
+            # if 'SYN' in mylist[8]:
+            for col in [8, 9]:
                 # Rename SYN1 to SYN10001 to avoid same name conflict with previous SYN tags
-                search = re.search(r'(\D+)(\d+)', mylist[8])
+                search = re.search(r'(\D+)(\d+)', mylist[col])
                 if search:
                     tag = search[1]
                     id = search[2]
