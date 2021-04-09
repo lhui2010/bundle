@@ -507,7 +507,7 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
         pos1_list[i] = int(pos1_list[i]) - 1
     for i in range(0, len(pos2_list)):
         pos2_list[i] = int(pos2_list[i]) - 1
-    id_increment = 1000000
+    id_increment = 10000000
     buffer = ""
     with open(syri_file) as fh:
         for line in fh:
@@ -600,8 +600,7 @@ def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None):
     with open(ref_tail_fa, 'w') as out_ref:
         out_ref.write(ref_fadt[ref_chr][ref_offset - 1:].format('fasta'))
     syri(qry_tail_fa, ref_tail_fa, submit='T')
-    # formated_SYN = format_syri_offset(qry_offset, ref_offset, "{}.{}.syri.out".format(qry_tail_fa, ref_tail_fa),
-    #                                   SYN='T')
+    # formated_SYN = format_syri_offset(qry_offset, ref_offset, "{}.{}.syri.out".format(qry_tail_fa, ref_tail_fa))
     # curated_SYN_file = syri_out + '.curated'
     # with open(curated_SYN_file, 'w') as fo, \
     #         open(syri_out, 'r') as fi:
