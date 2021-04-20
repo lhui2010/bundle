@@ -86,7 +86,7 @@ def nextpolish(contig=None, fastq=None, threads=30, queue='Q104C512G_X4'):
 # 2 threads
 gcpp_sh = """
 set -euxo pipefail
-pbmm2 align --sort  {0} {1} {0}.bam
+pbmm2 align -j {2} --sort  {0} {1} {0}.bam
 samtools index {0}.bam
 nproc={2}
 gcpp --algorithm=arrow -x 5 -X 120 -q 0 -j $nproc \
