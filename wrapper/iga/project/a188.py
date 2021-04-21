@@ -214,17 +214,29 @@ class BedPE:
 
             print("max", end="\t")
             for i in range(0, len(header)):
-                print("{:<15}".format(max(tables[i])), end='\t')
+                try:
+                    mt = max(tables[i])
+                except ValueError:
+                    mt = 0
+                print("{:<15}".format(mt), end='\t')
             print('')
 
             print("mean", end="\t")
             for i in range(0, len(header)):
-                print("{:<15}".format(int(mean(tables[i]))), end='\t')
+                try:
+                    mm = int(mean(tables[i]))
+                except ValueError:
+                    mm = 0
+                print("{:<15}".format(mm), end='\t')
             print('')
 
             print("sum", end="\t")
             for i in range(0, len(header)):
-                print("{:<15}".format(sum(tables[i])), end='\t')
+                try:
+                    sm = sum(tables[i])
+                except ValueError:
+                    sm = 0
+                print("{:<15}".format(sm), end='\t')
             print('')
         return 0
 
