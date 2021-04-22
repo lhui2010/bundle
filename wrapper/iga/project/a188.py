@@ -1322,7 +1322,7 @@ def filter_bam_by_reads(reads=None, bam=None):
                 print(read.to_string())
             except AttributeError:
                 #Deprecated in newer pysam
-                print(read.tostring())
+                print(read.tostring(htsfile=''))
 
 
 if __name__ == "__main__":
