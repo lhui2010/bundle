@@ -1317,12 +1317,12 @@ def filter_bam_by_reads(reads=None, bam=None):
         # if type(read.reference_id) == int:
         #     read.reference_id += 1
         if read.qname in reads_dt:
-            print(dir(read))
+            #print(dir(read))
             try:
+                print(read.to_string())
+            except AttributeError:
                 #Deprecated in newer pysam
                 print(read.tostring())
-            except AttributeError:
-                print(read.to_string())
 
 
 if __name__ == "__main__":
