@@ -1295,5 +1295,30 @@ def bedpe_to_ggplot(bedpe=None):
     #         (chr_id, loci, depth) = line.decode().rstrip().split()
 
 
+def filter_bam_by_reads(reads=None, bam=None):
+    """
+    %s reads_name_file bam > reads_name_file.sam
+    :param reads: file contain reads name
+    :param bam: the bam file
+    Output: STDOUT
+    0422.
+    :return:
+    """
+    import pysam
+    reads_dt = {}
+    with open(reads) as fh:
+        for line in fh:
+            reads_dt[line.rstrip()] = 1
+    samfile = pysam.AlignmentFile(bam, "r")
+    reads_all = samfile.fetch()
+    buf = defaultdict(int)
+    for read in reads_all:
+        ###pysam's coordinate [0-based, 0-based), like bed, so have the following modifications
+        # if type(read.reference_id) == int:
+        #     read.reference_id += 1
+        if read.qname in reads_dt:
+            print(read.to_string())
+
+
 if __name__ == "__main__":
     emain()
