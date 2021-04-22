@@ -34,7 +34,7 @@ do
 done
 
 mv *1.*gz HiC_R1.fastq.gz
-mv *2.*gz HiC_R1.fastq.gz
+mv *2.*gz HiC_R2.fastq.gz
 
 mkdir -p ${{WORKDIR}}/references
 cd ${{WORKDIR}}/references
