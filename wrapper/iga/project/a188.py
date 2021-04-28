@@ -1089,7 +1089,10 @@ def join_contiguous_bed(bed=None):
             mylist = line.rstrip().split()
             (chrid, start, end) = mylist[0:3]
             taglist = mylist[3:]
-            this_sum = min(num_comparison, sums(taglist))
+            for i in range(0, len(taglist)):
+                if taglist[i] > 1:
+                    taglist[i] = 1
+            # this_sum = min(num_comparison, sums(taglist))
             try:
                 this_tag = "\t".join(taglist + [tag_dict[this_sum]])
                 #this_tag = tag_dict[this_sum]
