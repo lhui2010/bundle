@@ -1050,6 +1050,12 @@ def join_adjacent_bed(bed=None):
     print(loci.get_line(), end='')
 
 
+def sums(input_list):
+    result = 0
+    for l in input_list:
+        result += int(l)
+    return(sums)
+
 def join_contiguous_bed(bed=None):
     """
     %s join_contiguous_bed A188.1bp.B73.Mo17.bed > A188.1bp.B73.Mo17.bed.joined.bed
@@ -1079,7 +1085,7 @@ def join_contiguous_bed(bed=None):
             mylist = line.rstrip().split()
             (chrid, start, end) = mylist[0:3]
             taglist = mylist[3:]
-            this_sum = sum(taglist)
+            this_sum = sums(taglist)
             this_tag = tag_dict[this_sum]
             if prev_chrid != '' and prev_chrid == chrid and prev_tag == this_tag:
                 prev_end = end
