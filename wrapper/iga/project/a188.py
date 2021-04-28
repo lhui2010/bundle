@@ -1095,6 +1095,7 @@ def join_contiguous_bed(bed=None):
             except KeyError:
                 logging.debug(this_sum)
                 logging.debug(tag_dict)
+                logging.debug(line)
                 exit(1)
             if prev_chrid != '' and prev_chrid == chrid and prev_tag == this_tag:
                 prev_end = end
