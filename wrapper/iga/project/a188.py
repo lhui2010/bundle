@@ -1088,7 +1088,7 @@ def join_contiguous_bed(bed=None):
             taglist = mylist[3:]
             this_sum = sums(taglist)
             try:
-                this_tag = tag_dict[this_sum]
+                this_tag = "\t".join(taglist + [tag_dict[this_sum]])
             except KeyError:
                 logging.debug(this_sum)
                 logging.debug(tag_dict)
