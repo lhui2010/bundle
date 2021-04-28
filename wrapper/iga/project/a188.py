@@ -1029,6 +1029,7 @@ def annotate_block(anchor_file=None, qbed='', sbed=''):
 def join_adjacent_bed(bed=None):
     """
     %s join_adjacent_bed manual_reviewed_subgenome.bed > manual_reviewed_subgenome.joined.bed
+    same name and same chr are joined
     Input:
     1	6275775	6999144	ALN1
     1	7257371	15121456	ALN1
@@ -1060,6 +1061,7 @@ def sums(input_list):
 def join_contiguous_bed(bed=None):
     """
     %s join_contiguous_bed A188.1bp.B73.Mo17.bed > A188.1bp.B73.Mo17.bed.joined.bed
+    same chr and same haplotype are joined, with syntenic status tagged at last position
     Input (chr start end syn_B73 syn_Mo17 syn_W22...):
     chr1	0   1	0   0   0   0   0
     chr1	1   2   0   0   0   0   0
