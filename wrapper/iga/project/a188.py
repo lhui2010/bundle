@@ -1086,7 +1086,12 @@ def join_contiguous_bed(bed=None):
             (chrid, start, end) = mylist[0:3]
             taglist = mylist[3:]
             this_sum = sums(taglist)
-            this_tag = tag_dict[this_sum]
+            try:
+                this_tag = tag_dict[this_sum]
+            except KeyError:
+                logging.debug(this_sum)
+                logging.debug(tag_dict)
+                exit(1)
             if prev_chrid != '' and prev_chrid == chrid and prev_tag == this_tag:
                 prev_end = end
                 prev_line = "\t".join([prev_chrid, prev_start, prev_end, prev_tag]) + "\n"
