@@ -1090,7 +1090,7 @@ def join_contiguous_bed(bed=None):
             (chrid, start, end) = mylist[0:3]
             taglist = mylist[3:]
             for i in range(0, len(taglist)):
-                if taglist[i] > 1:
+                if int(taglist[i]) > 1:
                     taglist[i] = 1
             # this_sum = min(num_comparison, sums(taglist))
             try:
