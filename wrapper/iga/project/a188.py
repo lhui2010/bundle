@@ -1054,7 +1054,8 @@ def sums(input_list):
     result = 0
     for l in input_list:
         result += int(l)
-    return(sums)
+    return result
+
 
 def join_contiguous_bed(bed=None):
     """
