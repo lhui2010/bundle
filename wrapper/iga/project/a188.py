@@ -521,7 +521,7 @@ def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', p
         pos1_list[i] = int(pos1_list[i]) - 1
     for i in range(0, len(pos2_list)):
         pos2_list[i] = int(pos2_list[i]) - 1
-    #id_increment = 10000000
+    # id_increment = 10000000
     buffer = ""
     with open(syri_file) as fh:
         for line in fh:
@@ -609,7 +609,7 @@ def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None, postprocess='F'):
     qry_tail_fa = "{}_tail.fa".format(qry_fa)
     ref_tail_fa = "{}_tail.fa".format(ref_fa)
 
-    #Do not wipe previous runs
+    # Do not wipe previous runs
     putative_dir = "{}.{}.syri".format(qry_tail_fa, ref_tail_fa)
     if not op.exists(putative_dir) or postprocess != "T":
         qry_fadt = SeqIO.to_dict(SeqIO.parse(qry_fa, "fasta"))
@@ -625,7 +625,7 @@ def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None, postprocess='F'):
                                           print_out='F')
         curated_SYN_file = syri_out + '.curated'
         with open(curated_SYN_file, 'w') as fo, \
-            open(syri_out, 'r') as fi:
+                open(syri_out, 'r') as fi:
             original_syri = fi.read()
             fo.write(original_syri)
             fo.write(formated_SYN)
@@ -1033,7 +1033,7 @@ def join_adjacent_bed(bed=None):
     1	6275775	6999144	ALN1
     1	7257371	15121456	ALN1
     Output:
-    1 6275775 6275775 ALN1
+    1 6275775 15121456 ALN1
     :param bed:
     :return:
     """
@@ -1048,6 +1048,50 @@ def join_adjacent_bed(bed=None):
             print(loci.get_line(), end='')
             loci = copy.copy(loci_i)
     print(loci.get_line(), end='')
+
+
+def join_contiguous_bed(bed=None):
+    """
+    %prog join_contiguous_bed A188.1bp.B73.Mo17.bed > A188.1bp.B73.Mo17.bed.joined.bed
+    Input (chr start end syn_B73 syn_Mo17 syn_W22...):
+    chr1	0   1	0   0   0   0   0
+    chr1	1   2   0   0   0   0   0
+    chr1   2   3   1   0   0   0   0
+    chr1   3   4   0   1   0   1   0
+    chr1   4   5   0   0   1   1   0
+    chr1   5   6   1   1   1   1   1
+    chr1   6   7   1   1   1   1   1
+    Output:
+    chr1   0    2   SMR
+    chr1    2   5   OMR
+    chr1    5   7   CSR
+    :param bed:
+    :return:
+    """
+    prev_chrid = ''
+    prev_start = 0
+    prev_end = 0
+    tag_dict = {0: "MOSAIC", 1: "OMOSAIC", 2: "OMOSAIC", 3: "OMOSAIC", 4: "OMOSAIC", 5: "CSYN"}
+    prev_tag = ''
+    prev_line = ''
+    with open(bed) as fh:
+        for line in fh:
+            mylist = line.rstrip().split()
+            (chrid, start, end) = mylist[0:3]
+            taglist = mylist[3:]
+            this_sum = sum(taglist)
+            this_tag = tag_dict[this_sum]
+            if prev_chrid != '' and prev_chrid == chrid and prev_tag == this_tag:
+                prev_end = end
+                prev_line = "\t".join([prev_chrid, prev_start, prev_end, prev_tag]) + "\n"
+            else:
+                print(prev_line, end='')
+                prev_tag = this_tag
+                prev_start = start
+                prev_chrid = chrid
+                prev_end = end
+                prev_line = "\t".join([prev_chrid, prev_start, prev_end, prev_tag]) + "\n"
+        print(prev_line, end='')
 
 
 def calc_percent_bed_intersect(bedwo=None):
@@ -1150,7 +1194,9 @@ def breakpoint_screen(depth=None, highcutoff=100, lowcutoff=5):
 def breakpoint_screen2(bam=None, add_name='F'):
     """
     %s test.bam > test.bam.breakpoint.txt
+    STDOUT: depth of reads at each loci
     add_name: [T|F]
+    Output: bam + '.summary' sum of split-reads at 10-flanking of mosaic region boundaries
     :return:
     """
     import pysam
@@ -1249,7 +1295,7 @@ def add_depth_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
 
 
 def add_rdname_to_mosaic(mosaic_bedpe=None, bkptsum_l=None,
-                        bkptsum_r=None):
+                         bkptsum_r=None):
     """
     Add read name to mosaic file
     :param mosaic_bedpe:
@@ -1375,11 +1421,11 @@ def filter_bam_by_reads(reads=None, bam=None):
         # if type(read.reference_id) == int:
         #     read.reference_id += 1
         if read.qname in reads_dt:
-            #print(dir(read))
+            # print(dir(read))
             try:
                 print(read.to_string())
             except AttributeError:
-                #Deprecated in newer pysam
+                # Deprecated in newer pysam
                 print(read.tostring(htsfile=''))
 
 
