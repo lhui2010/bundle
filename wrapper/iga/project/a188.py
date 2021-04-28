@@ -1081,6 +1081,7 @@ def join_contiguous_bed(bed=None):
     prev_start = 0
     prev_end = 0
     tag_dict = {0: "MOSAIC", 1: "OMOSAIC", 2: "OMOSAIC", 3: "OMOSAIC", 4: "OMOSAIC", 5: "CSYN"}
+    num_comparison = 5
     prev_tag = ''
     prev_line = ''
     with open(bed) as fh:
@@ -1088,7 +1089,7 @@ def join_contiguous_bed(bed=None):
             mylist = line.rstrip().split()
             (chrid, start, end) = mylist[0:3]
             taglist = mylist[3:]
-            this_sum = sums(taglist)
+            this_sum = min(num_comparison, sums(taglist))
             try:
                 this_tag = "\t".join(taglist + [tag_dict[this_sum]])
                 #this_tag = tag_dict[this_sum]
