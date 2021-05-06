@@ -1462,7 +1462,7 @@ def mtei_union(TIP_table=None):
     with open(TIP_table) as fh:
         for line in fh:
             mylist = line.split('\t')
-            len_left[mylist[6]] = set(range(int(mylist[2]), int(mylist[1]) + 1))
+            len_left[mylist[6]] = set(range(int(mylist[1]), int(mylist[2]) + 1))
             if mylist[12] == '':
                 continue
             if mylist[6] not in te_left:
