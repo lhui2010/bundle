@@ -1458,19 +1458,29 @@ def mtei_union(TIP_table=None):
     B73_10  272712  272940  Mo17_10 150291  173980  10_NOTSYNAL13   .       +       +       10_NOTSYNAL13   B73_10  260657  276914  DHH00001        0       +       |       Mo17_10 128780  223337  RLX27954        0
     """
     len_left = {}
+    len_right = {}
     te_left = {}
+    te_right = {}
     with open(TIP_table) as fh:
         for line in fh:
             mylist = line.split('\t')
             len_left[mylist[6]] = set(range(int(mylist[1]), int(mylist[2]) + 1))
+            len_right[mylist[6]] = set(range(int(mylist[4]), int(mylist[5]) + 1))
             if mylist[12] == '':
                 continue
             if mylist[6] not in te_left:
                 te_left[mylist[6]] = set(range(int(mylist[12]), int(mylist[13]) + 1))
             else:
                 te_left[mylist[6]] = te_left[mylist[6]].union(set(range(int(mylist[12]), int(mylist[13]) + 1)))
+            if len(mylist) < 19:
+                continue
+            if mylist[6] not in te_right:
+                te_right[mylist[6]] = set(range(int(mylist[19]), int(mylist[20]) + 1))
+            else:
+                te_right[mylist[6]] = te_left[mylist[6]].union(set(range(int(mylist[19]), int(mylist[20]) + 1)))
     for k in len_left:
         a = len(len_left[k])
+        a2 = len(len_right[k])
         if k in te_left:
             b = len(te_left[k])
             try:
@@ -1480,7 +1490,16 @@ def mtei_union(TIP_table=None):
         else:
             b = 0
             c = 0
-        print("{}\t{}\t{}\t{}".format(k, a, b, c))
+        if k in te_right:
+            b2 = len(te_right[k])
+            try:
+                c2 = len(len_right[k].intersection(te_right[k])) / a2
+            except ZeroDivisionError:
+                c2 = 0
+        else:
+            b2 = 0
+            c2 = 0
+        print("{}\t{}\t{}\t{}\t{}\t{}\t{}".format(k, a, b, c, a2, b2, c2))
 
 
 if __name__ == "__main__":
