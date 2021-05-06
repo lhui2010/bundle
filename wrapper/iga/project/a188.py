@@ -1464,9 +1464,9 @@ def mtei_union(TIP_table=None):
             mylist = line.split()
             len_left[mylist[6]] = int(mylist[2]) - int(mylist[1]) + 1
             if mylist[6] not in te_left:
-                te_left[mylist[6]] = set(range(int(mylist[12]), int(mylist[13] + 1)))
+                te_left[mylist[6]] = set(range(int(mylist[12]), int(mylist[13]) + 1))
             else:
-                te_left.union(set(range(int(mylist[12]), int(mylist[13] + 1))))
+                te_left.union(set(range(int(mylist[12]), int(mylist[13]) + 1)))
     for k in len_left:
         a = len_left[k]
         b = len(te_left[k])
