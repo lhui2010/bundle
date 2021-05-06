@@ -1449,5 +1449,30 @@ def filter_bam_by_reads(reads=None, bam=None):
                 print(read.tostring(htsfile=''))
 
 
+def mtei_union(TIP_table=None):
+    """
+    :param TIP_table:
+    :return:
+    Input eg:
+    workdir_TIP_chr10.combine.long
+    B73_10  272712  272940  Mo17_10 150291  173980  10_NOTSYNAL13   .       +       +       10_NOTSYNAL13   B73_10  260657  276914  DHH00001        0       +       |       Mo17_10 128780  223337  RLX27954        0
+    """
+    len_left = {}
+    te_left = {}
+    with open(TIP_table) as fh:
+        for line in fh:
+            mylist = line.split()
+            len_left[mylist[6]] = int(mylist[2] - mylist[1])
+            if mylist[6] not in te_left:
+                te_left[mylist[6]] = set(range(int(mylist[12]), int(mylist[13])))
+            else:
+                te_left.union(set(range(int(mylist[12]), int(mylist[13]))))
+    for k in len_left:
+        a = len_left[k]
+        b = len(te_left[k])
+        c = b/a
+        print("\t".join([a,b,c]))
+
+
 if __name__ == "__main__":
     emain()
