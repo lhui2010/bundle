@@ -1458,7 +1458,7 @@ def mtei_union(TIP_table=None):
     B73_10  272712  272940  Mo17_10 150291  173980  10_NOTSYNAL13   .       +       +       10_NOTSYNAL13   B73_10  260657  276914  DHH00001        0       +       |       Mo17_10 128780  223337  RLX27954        0
     """
     len_left = {}
-    te_left = defaultdict(int)
+    te_left = {}
     with open(TIP_table) as fh:
         for line in fh:
             mylist = line.split('\t')
@@ -1471,7 +1471,10 @@ def mtei_union(TIP_table=None):
                 te_left[mylist[6]].union(set(range(int(mylist[12]), int(mylist[13]) + 1)))
     for k in len_left:
         a = len_left[k]
-        b = len(te_left[k])
+        if k in te_left:
+            b = len(te_left[k])
+        else:
+            b = 0
         c = b / a
         print("{}\t{}\t{}\t{}".format(k, a, b, c))
 
