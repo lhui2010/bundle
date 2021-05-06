@@ -1473,7 +1473,10 @@ def mtei_union(TIP_table=None):
         a = len(len_left[k])
         if k in te_left:
             b = len(te_left[k])
-            c = len(len_left[k].intersection(te_left[k])) / a
+            try:
+                c = len(len_left[k].intersection(te_left[k])) / a
+            except ZeroDivisionError:
+                c = 0
         else:
             b = 0
             c = 0
