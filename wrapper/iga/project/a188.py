@@ -1473,7 +1473,7 @@ def mtei_union(TIP_table=None):
         a = len_left[k]
         b = len(te_left[k])
         c = b / a
-        print("{}\t{}\t{}".format(a, b, c))
+        print("{}\t{}\t{}\t{}".format(k, a, b, c))
 
 
 if __name__ == "__main__":
