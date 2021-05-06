@@ -1472,7 +1472,7 @@ def mtei_union(TIP_table=None):
                 te_left[mylist[6]] = set(range(int(mylist[12]), int(mylist[13]) + 1))
             else:
                 te_left[mylist[6]] = te_left[mylist[6]].union(set(range(int(mylist[12]), int(mylist[13]) + 1)))
-            if len(mylist) < 19 or mylist[19 == '']:
+            if len(mylist) < 19 or mylist[19] == '':
                 continue
             if mylist[6] not in te_right:
                 te_right[mylist[6]] = set(range(int(mylist[19]), int(mylist[20]) + 1))
