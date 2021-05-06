@@ -1473,9 +1473,10 @@ def mtei_union(TIP_table=None):
         a = len(len_left[k])
         if k in te_left:
             b = len(te_left[k])
+            c = len(len_left[k].intersection(te_left[k])) / a
         else:
             b = 0
-        c = len(len_left[k].intersection(te_left[k]))
+            c = 0
         print("{}\t{}\t{}\t{}".format(k, a, b, c))
 
 
