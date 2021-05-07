@@ -1449,7 +1449,7 @@ def filter_bam_by_reads(reads=None, bam=None):
                 print(read.tostring(htsfile=''))
 
 
-def mtei_union(TIP_table=None):
+def mtei_union(TIP_table=None, difftag=''):
     """
     :param TIP_table:
     :return:
@@ -1467,6 +1467,8 @@ def mtei_union(TIP_table=None):
             len_left[mylist[6]] = set(range(int(mylist[1]), int(mylist[2]) + 1))
             len_right[mylist[6]] = set(range(int(mylist[4]), int(mylist[5]) + 1))
             if mylist[12] == '':
+                continue
+            if not(difftag == '' or mylist[17] == difftag):
                 continue
             if mylist[6] not in te_left:
                 te_left[mylist[6]] = set(range(int(mylist[12]), int(mylist[13]) + 1))
