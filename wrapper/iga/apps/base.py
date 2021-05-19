@@ -222,7 +222,10 @@ def is_job_finished(joblist=None):
     :return:
     """
     if type(joblist) == str:
-        joblist = [joblist]
+        if ',' in joblist:
+            joblist = joblist.split(',')
+        else:
+            joblist = [joblist]
     for j in joblist:
         status = sh("bjobs {}".format(j))
         # logger.warning(status)
