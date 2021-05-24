@@ -1196,7 +1196,7 @@ def percent_to_range2(percent_file=None):
             # exit(1)
             new_line = "\t".join(mylist)
             for i in range(start_perc, end_perc + 1):
-                print("{}\t{}%".format(new_line, i))
+                print("{}\t{}".format(new_line, i))
                 # mylist[i] = re.sub(r'\..*', '', mylist[i])
                 # mylist[i] = int(mylist[i])
             # for a in range(mylist[0], mylist[1] + 1):
