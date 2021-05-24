@@ -1171,6 +1171,35 @@ def percent_to_range(percent_file=None):
                 print(a)
 
 
+def percent_to_range2(percent_file=None):
+    r"""
+    pass [a,b] to a a+1..b like format, for hist use
+    Input:
+        B73_1   2431547 2462809 1_NOTSYNAL117   B73_1   2435718 2435990 Mo17rnd-5_family-12     0       -       272     13.34%  14.21%
+    Output:
+        B73_1   2431547 2462809 1_NOTSYNAL117   B73_1   2435718 2435990 Mo17rnd-5_family-12     0       -       272     13%
+        B73_1   2431547 2462809 1_NOTSYNAL117   B73_1   2435718 2435990 Mo17rnd-5_family-12     0       -       272     14%
+        98
+        99
+        100
+    :param percent_file:
+    :return:
+    """
+    import re
+    with open(percent_file) as fh:
+        for line in fh:
+            mylist = line.rstrip().split()
+            start_perc = round(mylist.pop(-2).replace('%', ''))
+            end_perc = round(mylist.pop(-1).replace('%', ''))
+            new_line = "\t".join(mylist)
+            for i in range(start_perc, end_perc + 1):
+                print(new_line + str(i) + '%')
+                # mylist[i] = re.sub(r'\..*', '', mylist[i])
+                # mylist[i] = int(mylist[i])
+            # for a in range(mylist[0], mylist[1] + 1):
+            #     print(a)
+
+
 def breakpoint_screen(depth=None, highcutoff=100, lowcutoff=5):
     """
     %s A.depth.gz > A.breakpoint.txt
