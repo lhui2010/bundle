@@ -1175,10 +1175,10 @@ def percent_to_range2(percent_file=None):
     r"""
     pass [a,b] to a a+1..b like format, for hist use
     Input:
-        B73_1   2431547 2462809 1_NOTSYNAL117   B73_1   2435718 2435990 Mo17rnd-5_family-12     0       -       272     13.34 \%  14.21 \%
+        B73_1   2431547 2462809 1_NOTSYNAL117   B73_1   2435718 2435990 Mo17rnd-5_family-12     0       -       272     13.34% 14.21%
     Output:
-        B73_1   2431547 2462809 1_NOTSYNAL117   B73_1   2435718 2435990 Mo17rnd-5_family-12     0       -       272     13 \%
-        B73_1   2431547 2462809 1_NOTSYNAL117   B73_1   2435718 2435990 Mo17rnd-5_family-12     0       -       272     14 \%
+        B73_1   2431547 2462809 1_NOTSYNAL117   B73_1   2435718 2435990 Mo17rnd-5_family-12     0       -       272     13%
+        B73_1   2431547 2462809 1_NOTSYNAL117   B73_1   2435718 2435990 Mo17rnd-5_family-12     0       -       272     14%
         98
         99
         100
