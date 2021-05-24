@@ -1191,6 +1191,9 @@ def percent_to_range2(percent_file=None):
             mylist = line.rstrip().split()
             start_perc = round(float(mylist.pop(-2).replace('%', '')))
             end_perc = round(float(mylist.pop(-1).replace('%', '')))
+            logging.warning(start_perc)
+            logging.warning(end_perc)
+            exit(1)
             new_line = "\t".join(mylist)
             for i in range(start_perc, end_perc + 1):
                 print(new_line + str(i) + '%')
