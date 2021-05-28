@@ -120,7 +120,7 @@ ASSEMBLY={0}
 CONTIG={1}
 MND={2}
 
-${BIN} -r ${ASSEMBLY} ${CONTIG} ${MND}
+${BIN} -r ${{ASSEMBLY}} ${{CONTIG}} ${{MND}}
 """
 
 
@@ -144,6 +144,25 @@ falcon_v340_sgs_polish.final.hic:  .HiC file to be reviewed in juicerbox
 def assembly2agp():
     """ converts assembly file to agp file
     """
+    ##assembly
+    # >tig00000064|arrow_np1212 1 7029267
+    # >tig00004986|arrow_np1212 2 6940838
+    # >tig00004984|arrow_np1212 3 6851042
+    # >tig00005003|arrow_np1212 4 6793917
+    # ...
+    # 235 -144 245 -150 -193 602 -1209 1211 505 131 157 -154 -85 127 280 80
+    # 160
+    # 1095
+    # 1349
+    # 859
+
+    ##AGP
+    #Hic.fastq.gz.counts_GATC.20g10 1   132119  1   W   000083F|arrow_np1212    1   132119  -
+    #Hic.fastq.gz.counts_GATC.20g10 132120  132219  2   U   100 contig  yes map
+    #Hic.fastq.gz.counts_GATC.20g10 132220  266408  3   W   000093F|arrow_np1212    1   134189  +
+    #Hic.fastq.gz.counts_GATC.20g10 266409  266508  4   U   100 contig  yes map
+
+
     return 0
 
 
