@@ -1,8 +1,9 @@
 """
 Isoseq relevant utils
 """
+import os
 
-from iga.apps.base import sh, emain, conda_act
+from iga.apps.base import sh, emain, conda_act, abspath_list
 
 import logging
 import coloredlogs
@@ -55,7 +56,7 @@ isoseq3 cluster isoseq_flnc.bam unpolished.bam --verbose --use-qvs
 """
 
 
-def isoseq(subreads=None, workdir=''):
+def isoseq_bgi(subreads=None, workdir=''):
     r"""
     isoseq subreads.fasta
 
@@ -72,34 +73,52 @@ def isoseq(subreads=None, workdir=''):
 # 0 workdir
 # 1 subreads.bam
 # 2 primer.fa
+# 3 threads
 isoseq_pb_sh = r"""mkdir -p {0}
 cd {0}
 ln -s ../{1}
 ln -s ../{2}
-ccs {1} {1}.ccs.bam --min-rq 0.9
-#lima is used to remove primer sequence
-#but can it be used to identify reads containing primer sequence as full length reads?
-lima {1}.ccs.bam {2} {1}.fl.bam --isoseq  --peek-guess
-#flnc equals full-length, non-concatemer
+
+ROOT=$PWD
 INPUTBAM={1}
 PRIMER={2}
-isoseq3 refine ${{INPUTBAM%.bam}}.fl.*.bam ${{PRIMER}} ${{INPUTBAM%.bam}}.flnc.bam --require-polya
-isoseq3 cluster ${{INPUTBAM%.bam}}.flnc.bam ${{INPUTBAM%.bam}}.clustered.bam --verbose --use-qvs
+THREADS={3}
+ccs ${{INPUTBAM}} ${{INPUTBAM}}.ccs.bam --min-rq 0.9 -j $THREADS
+        #--min-rq                  FLOAT  Minimum predicted accuracy in [0, 1]. [0.99]
+        #-j,--num-threads          INT    Number of threads to use, 0 means autodetection. [0]
+    #lima is used to remove primer sequence
+    #but can it be used to identify reads containing primer sequence as full length reads?
+lima ${{INPUTBAM}}.ccs.bam ${{PRIMER}} ${{INPUTBAM}}.fl.bam --isoseq  --peek-guess
+        #--isoseq                              Activate specialized IsoSeq mode.
+        #--peek-guess                          Try to infer the used barcodes subset, by peeking at the first 50,000 ZMWs,
+    #                                     whitelisting barcode pairs with more than 10 counts and mean score <A1><DD> 45.
+isoseq3 refine ${{INPUTBAM%.bam}}.fl.*.bam ${{PRIMER}} ${{INPUTBAM%.bam}}.flnc.bam --require-polya -j $THREADS
+        #refine     Remove polyA and concatemers from FL reads and generate FLNC transcripts (FL to FLNC)
+        #--min-polya-length  INT   Minimum poly(A) tail length. [20]
+        #--require-polya           Require FL reads to have a poly(A) tail and remove it.
+        #-j,--num-threads    INT   Number of threads to use, 0 means autodetection. [0]
+
+isoseq3 cluster ${{INPUTBAM%.bam}}.flnc.bam ${{INPUTBAM%.bam}}.clustered.bam --verbose --use-qvs -j $THREADS
+
 """
 
 
-def isoseq_pb(subreads=None, workdir=''):
+def isoseq_pb(subreads=None, primer=None, workdir='', threads=50):
     r"""
     convert Isoseq(pacbio standard) subreads.bam to flnc.fastq
-    :param subreads:
-    :param workdir:
+    :param subreads: Multiple fq inputs are seprated by comma, eg: "subreads1.fq,subreads2.fq"
+    :param primer: Primer fasta
+    :param workdir: if not given, default is base name of first subreads
+    :param threads:  threads
     :return:
     """
-    if (type(subreads) == list):
-        subreads = " ".join(subreads)
+    subreads = subreads.split(',')
+
+    abspath_list(subreads)
+
     if (workdir == ''):
-        workdir = "workdir_isoseq_" + subreads.split()[0]
-    cmd = conda_act.format('isoseq3') + isoseq_sh.format(subreads, workdir)
+        workdir = "workdir_isoseq_" + os.path.basename(subreads.split()[0])
+    cmd = conda_act.format('isoseq3') + isoseq_sh.format(workdir, subreads, primer, threads)
     sh(cmd)
 
 if __name__ == "__main__":
