@@ -135,6 +135,8 @@ def post_assembly(assembly=None, contig=None, mnd_file=None):
     logging.warning("""Example Output:
 falcon_v340_sgs_polish.FINAL.assembly: contig order information, should be the same with reviewed.assembly
 falcon_v340_sgs_polish.FINAL.fasta: Assembled pseudochromosomes
+falcon_v340_sgs_polish.final.fasta: Contig file in fasta format
+falcon_v340_sgs_polish.final.hic:  .HiC file to be reviewed in juicerbox
 """)
     return 0
 
