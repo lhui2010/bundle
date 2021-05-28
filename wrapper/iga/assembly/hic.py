@@ -111,9 +111,23 @@ def get_hic():
     return 0
 
 
-def post():
+post_assembly_sh = r"""
+ROOT=$PWD
+BIN=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/juicer/3d-dna/run-asm-pipeline-post-review.sh
+
+ASSEMBLY={0}
+CONTIG={1}
+MND={2}
+
+${BIN} -r ${ASSEMBLY} ${CONTIG} ${MND}
+"""
+
+
+def post_assembly(assembly=None, contig=None, mnd_file=None):
     """ Use .mnd and curated .assembly file to get .agp and chr.fasta file
     """
+    cmd = post_assembly_sh.format(assembly, contig, mnd_file)
+    bsub(cmd)
     return 0
 
 
