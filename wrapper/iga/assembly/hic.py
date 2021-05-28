@@ -1,6 +1,7 @@
 '''
 hic relevant scripts
 '''
+import logging
 
 from iga.apps.base import bsub, get_prefix, abspath_list, emain
 import os.path as op
@@ -131,6 +132,10 @@ def post_assembly(assembly=None, contig=None, mnd_file=None):
     """
     cmd = post_assembly_sh.format(assembly, contig, mnd_file)
     bsub(cmd)
+    logging.warning("""Example Output:
+falcon_v340_sgs_polish.FINAL.assembly: contig order information, should be the same with reviewed.assembly
+falcon_v340_sgs_polish.FINAL.fasta: Assembled pseudochromosomes
+""")
     return 0
 
 
