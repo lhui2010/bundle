@@ -131,7 +131,7 @@ def post_assembly(assembly=None, contig=None, mnd_file=None):
     :param mnd_file: The merged non-duplicated file, usually can be found in aligned/merged_nodups.txt of juicer dir
     """
     cmd = post_assembly_sh.format(assembly, contig, mnd_file)
-    bsub(cmd)
+    bsub(cmd, name="post_assembly")
     logging.warning("""Example Output:
 falcon_v340_sgs_polish.FINAL.assembly: contig order information, should be the same with reviewed.assembly
 falcon_v340_sgs_polish.FINAL.fasta: Assembled pseudochromosomes
