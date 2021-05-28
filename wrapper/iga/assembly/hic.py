@@ -120,7 +120,7 @@ ASSEMBLY={0}
 CONTIG={1}
 MND={2}
 
-${BIN} -r ${{ASSEMBLY}} ${{CONTIG}} ${{MND}}
+${{BIN}} -r ${{ASSEMBLY}} ${{CONTIG}} ${{MND}}
 """
 
 
