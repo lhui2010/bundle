@@ -55,7 +55,7 @@ class AssemblyIO:
         new_chr_dict = OrderedDict()
         new_chr_size = OrderedDict()
         final_chr_list = []
-        sorted_chr = sorted(self.chr_size, key=self.chr_size.__getitem__)
+        sorted_chr = sorted(self.chr_size, key=self.chr_size.__getitem__, reverse=True)
         for i in range(0, chr_count):
             chr_id = i + 1
             this_chr = "chr" + "%02d" % chr_id
