@@ -86,11 +86,11 @@ $LEFT.clean.fq.gz $LEFT.clean.unpair.fq.gz \
 $RIGHT.clean.fq.gz $RIGHT.clean.unpair.fq.gz \
 """
 
-trimmomatic_mode = {'polish': r"""ILLUMINACLIP:${{ADAPTER}}:2:30:10 \\
+trimmomatic_mode = {'polish': r"""ILLUMINACLIP:${{ADAPTER}}:2:30:10 \
 LEADING:3 TRAILING:3 CROP:$TAILCROP HEADCROP:$HEADCROP SLIDINGWINDOW:1:10 MINLEN:75""",
-                    'normal': r"""ILLUMINACLIP:${{ADAPTER}}:2:30:10 \\
+                    'normal': r"""ILLUMINACLIP:${{ADAPTER}}:2:30:10 \
 LEADING:3 TRAILING:3 CROP:$TAILCROP HEADCROP:$HEADCROP SLIDINGWINDOW:4:15 MINLEN:75""",
-                    'smallrna': r"""ILLUMINACLIP:${{ADAPTER}}:2:30:10 \\
+                    'smallrna': r"""ILLUMINACLIP:${{ADAPTER}}:2:30:10 \
 SLIDINGWINDOW:4:15 AVGQUAL:25"""
 #java -jar /opt/Trimmomatic-0.38/trimmomatic-0.38.jar SE -threads 24 -phred33 \
                     # FemaleMito1.fastq FemaleMito1_noadapters.fastq ILLUMINACLIP:adapters.ultimate.fa:2:30:10 AVGQUAL:25
@@ -129,7 +129,8 @@ def clean_fraser(left=None, right=None, source='hic', headcrop=10, tailcrop=145,
     if mode not in ['normal', 'polish', 'smallrna']:
         logging.error("mode could be only normal or polish")
         exit(1)
-    cmd = trimmomatic_head.format(fraser_adapter[source], headcrop, tailcrop, left, right) + trimmomatic_mode[mode]
+    raw_cmd = trimmomatic_head + trimmomatic_mode[mode]
+    cmd = raw_cmd.format(fraser_adapter[source], headcrop, tailcrop, left, right)
     bsub(cmd, name='Trimmomatic')
     return 0
 
