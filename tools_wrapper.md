@@ -72,6 +72,10 @@ samtools mpileup -uvf M445.chr.fa M441_sequences_to_M445_genome.bam  >tmp.vcf
 samtools tview -d T -p chr01:2473903 subset.bam
 samtools view ccs.bam | awk '{print ">"$1"\n"$10}' > ccs.fa
 
+#### bcftools
+bgzip Zenia_insignis.fasta.bam.vcf 
+tabix Zenia_insignis.fasta.bam.vcf.gz 
+cat Zenia_insignis.fasta | vcf-consensus  Zenia_insignis.fasta.bam.vcf.gz  > Zenia_insignis.fasta.bam.vcf.gz.fa 
 
 #### Get unmapped
 samtools view -f 4 falcon_v340.fasta.bam |head -4000 |sam2fq.pl  |fq2fa.pl - >unmapped.fa
@@ -472,3 +476,6 @@ distmat -sequence total.aln -nucmethod 2 -outfile total.aln.distmat
 conda activate busco
 cp *shortsummary* pasa.pep.busco.embryophyta.v4.1.2/
 generate_plot.py -wd pasa.pep.busco.embryophyta.v4.1.2
+
+
+#### fastp

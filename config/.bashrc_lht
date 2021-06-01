@@ -73,6 +73,10 @@ export PATH=/ds3200_1/users_root/yitingshuang/applications/BEASTv1.10.4/bin/:$PA
 #####################################
 ####LH add start
 alias ping='ping -c 5'
+alias logsh='cat >>shell'
+alias logjob='date >> ~/lh/running_jobs.txt; pwd >> ~/lh/running_jobs.txt; cat >> ~/lh/running_jobs.txt'
+alias checkjob='tail ~/lh/running_jobs.txt'
+alias vijob='vi ~/lh/running_jobs.txt'
 alias tma='~/lh/anaconda3/bin/tmux a'
 #alias bj='bjobs'
 #alias bl='bjobs |less'
@@ -353,3 +357,5 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/genomes
 
 ####LH add end
 #####################################
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/ParaAT2.0:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/ParaAT2.0:$PATH
