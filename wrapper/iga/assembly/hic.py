@@ -221,7 +221,7 @@ falcon_v340_sgs_polish.final.hic:  .HiC file to be reviewed in juicerbox
     return 0
 
 
-def sort_assembly(assembly=None):
+def sort_assembly(assembly=None, size='F'):
     """
     sort reviewed assembly in large to small order
     :param assembly:
@@ -229,7 +229,10 @@ def sort_assembly(assembly=None):
     """
     Asb = AssemblyIO(assembly)
     Asb.sort_by_size()
-    print(Asb.gettext())
+    if size == 'T':
+        print(Asb.gettext(size=True))
+    else:
+        print(Asb.gettext())
 
 
 def assembly2agp():
