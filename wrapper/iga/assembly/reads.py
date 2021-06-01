@@ -111,6 +111,7 @@ def clean_fraser(left=None, right=None, source='hic', headcrop=10, tailcrop=145,
     :param mode: [normal|polish], normal sliding window is 4:15, polish sliding window is 1:10
     :return:
     """
+    #TODO: small RNA clean is not available yet (need change SE)
     fraser_adapter = {
         'hic': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/HiC.fa',
         'lncrna': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/lncRNA.fa',
