@@ -100,8 +100,8 @@ SLIDINGWINDOW:4:15 AVGQUAL:25"""
 def clean_fraser(left=None, right=None, source='hic', headcrop=10, tailcrop=145, mode='normal'):
     """
     Clean fastq for polish purpose. eg
-    %s left.fq right.fq --source hic
-    %s left.fq right.fq --source sgs
+    clean_fraser left.fq right.fq --source hic
+    clean_fraser left.fq right.fq --source sgs
 
     :param left:
     :param right:
