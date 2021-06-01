@@ -227,6 +227,9 @@ def sort_assembly(assembly=None):
     :param assembly:
     :return:
     """
+    Asb = AssemblyIO(assembly)
+    Asb.sort_by_size()
+    print(Asb.gettext())
 
 
 def assembly2agp():
