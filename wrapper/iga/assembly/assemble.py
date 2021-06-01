@@ -371,5 +371,28 @@ def purge_dups(contig=None, subreads=None, prefix=''):
     return 0
 
 
+#0 fastq1
+#1 fastq2
+fastp_sh = """
+fastp -i {0} -I {1} -o {0}.clean.fq.gz -O {1}.clean.fq.gz
+"""
+
+
+# 0 fastq[s]
+# 1 threads
+platanus_sh = """
+platanus assemble -f {0} -t 20 -o raw_assembly.fa
+"""
+
+
+def platanus(fastq=None, clean='T', threads=20):
+    r"""
+    assemble with platanus
+    :param fastq:
+    :param clean: [T/F] if T, use fastp to clean
+    :return:
+    """
+
+
 if __name__ == '__main__':
     emain()

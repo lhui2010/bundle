@@ -86,14 +86,53 @@ $LEFT.clean.fq.gz $LEFT.clean.unpair.fq.gz \
 $RIGHT.clean.fq.gz $RIGHT.clean.unpair.fq.gz \
 """
 
-trimmomatic_mode = {'polish': r"""ILLUMINACLIP:${{ADAPTER}}:0:30:10 \\
+trimmomatic_mode = {'polish': r"""ILLUMINACLIP:${{ADAPTER}}:2:30:10 \\
 LEADING:3 TRAILING:3 CROP:$TAILCROP HEADCROP:$HEADCROP SLIDINGWINDOW:1:10 MINLEN:75""",
-                    'normal': r"""ILLUMINACLIP:${{ADAPTER}}:0:30:10 \\
-LEADING:3 TRAILING:3 CROP:$TAILCROP HEADCROP:$HEADCROP SLIDINGWINDOW:1:10 MINLEN:75"""}
+                    'normal': r"""ILLUMINACLIP:${{ADAPTER}}:2:30:10 \\
+LEADING:3 TRAILING:3 CROP:$TAILCROP HEADCROP:$HEADCROP SLIDINGWINDOW:4:15 MINLEN:75""",
+                    'smallrna': r"""ILLUMINACLIP:${{ADAPTER}}:2:30:10 \\
+SLIDINGWINDOW:4:15 AVGQUAL:25"""
+#java -jar /opt/Trimmomatic-0.38/trimmomatic-0.38.jar SE -threads 24 -phred33 \
+                    # FemaleMito1.fastq FemaleMito1_noadapters.fastq ILLUMINACLIP:adapters.ultimate.fa:2:30:10 AVGQUAL:25
+                    }
 
-# fraser_adapter = {
-#     'WGBS' =
-# }
+
+def clean_fraser(left=None, right=None, source='hic', headcrop=10, tailcrop=145, mode='normal'):
+    """
+    Clean fastq for polish purpose. eg
+    %s left.fq right.fq --source hic
+    %s left.fq right.fq --source sgs
+
+    :param left:
+    :param right:
+    :param source: hic/sgs/RNA-seq, etc
+    :param headcrop: default 10
+    :param tailcrop: default 145
+    :param mode: [normal|polish], normal sliding window is 4:15, polish sliding window is 1:10
+    :return:
+    """
+    fraser_adapter = {
+        'hic': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/HiC.fa',
+        'lncrna': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/lncRNA.fa',
+        'sgs': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/sgs.fa',
+        'smallrna': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/smallRNA.fa',
+        'ssRNA': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/ssRNA.fa',
+        'wgbs': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/WGBS.fa'
+    }
+
+    source = source.lower()
+    if source not in fraser_adapter:
+        logging.error("{} can't be found. Existing adapters are {}".format(source, str(fraser_adapter.keys())))
+        exit(1)
+    elif source == 'smallrna':
+        mode = 'smallrna'
+    if mode not in ['normal', 'polish', 'smallrna']:
+        logging.error("mode could be only normal or polish")
+        exit(1)
+    cmd = trimmomatic_head.format(fraser_adapter[source], headcrop, tailcrop, left, right) + trimmomatic_mode[mode]
+    bsub(cmd, name='Trimmomatic')
+    return 0
+
 
 if __name__ == "__main__":
     emain()
