@@ -81,9 +81,33 @@ class AssemblyIO:
 
     def toagp(self):
         """
+        #TODO 三天后再写
         :return: return the text of current assembly file in AGP format
         """
-        pass
+        # ## AGP-version 2.0
+        # chr01   1       4682541 1       W       000016F|arrow_np1212    1       4682541 +
+        # chr01   4682542 4682641 2       N       100     scaffold        yes     align_genus
+        # chr01   4682642 4727058 3       W       000174F|arrow_np1212    1       44417   -
+        # chr01   4727059 4727158 4       N       100     scaffold        yes     align_genus
+        # chr01   4727159 4747689 5       W       000246F|arrow_np1212    1       20531   +
+        for chr_id in self.chr_dict:
+            offset = 1
+            for id in range(0, self.chr_dict[chr_id]):
+                contig_id = id + 1
+                ctg = self.chr_dict[chr_id]
+                strand = '+'
+                if '-' in ctg:
+                    strand = '-'
+                    ctg = ctg.replace('-', '')
+                contig_name = self.order_to_frag_name(ctg)
+                contig_size = self.order_to_frag_size(ctg)
+                end = contig_size + offset - 1
+                print("\t".join([chr_id, offset, end, ]))
+            if size:
+                output += str(self.chr_size[chr_id]) + ":"
+            output += " ".join(self.chr_dict[chr_id])
+            output += "\n"
+
 
 
 # 0 prefix
