@@ -43,7 +43,7 @@ class AssemblyIO:
                     mylist = line.rstrip().split()
                     for i in mylist:
                         self.chr_dict[this_chr].append(i)
-                        self.chr_size[this_chr] += self.order_to_frag_size[i.replace('-','')]
+                        self.chr_size[this_chr] += self.order_to_frag_size[i.replace('-', '')]
                     chr_id += 1
 
     def sort_by_size(self):
@@ -55,7 +55,7 @@ class AssemblyIO:
         new_chr_dict = OrderedDict()
         new_chr_size = OrderedDict()
         final_chr_list = []
-        sorted_chr = sorted(self.chr_size, key=self.chr_size.__getitem__())
+        sorted_chr = sorted(self.chr_size, key=self.chr_size.__getitem__)
         for i in range(0, chr_count):
             chr_id = i + 1
             this_chr = "chr" + "%02d" % chr_id
