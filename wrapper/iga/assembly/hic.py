@@ -74,7 +74,7 @@ class AssemblyIO:
             output += ">{} {} {}\n".format(self.order_to_frag_name[k], k, self.order_to_frag_size[k])
         for k in self.chr_dict:
             if size:
-                output += self.chr_size[k] + ":"
+                output += str(self.chr_size[k]) + ":"
             output += " ".join(self.chr_dict[k])
             output += "\n"
         return output
