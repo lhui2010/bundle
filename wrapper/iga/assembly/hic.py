@@ -65,17 +65,25 @@ class AssemblyIO:
         self.chr_dict = new_chr_dict
         self.chr_size = new_chr_size
 
-    def gettext(self):
+    def gettext(self, size=False):
+        """
+        :return: return the text format of current assembly file
+        """
         output = ''
         for k in self.order_to_frag_name:
             output += ">{} {} {}\n".format(self.order_to_frag_name[k], k, self.order_to_frag_size[k])
         for k in self.chr_dict:
+            if size:
+                output += self.chr_size[k] + ":"
             output += " ".join(self.chr_dict[k])
+            output += "\n"
         return output
 
     def toagp(self):
+        """
+        :return: return the text of current assembly file in AGP format
+        """
         pass
-
 
 
 # 0 prefix
