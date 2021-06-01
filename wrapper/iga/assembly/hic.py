@@ -43,7 +43,7 @@ class AssemblyIO:
                     mylist = line.rstrip().split()
                     for i in mylist:
                         self.chr_dict[this_chr].append(i)
-                        self.chr_size[this_chr] += self.order_to_frag_size[i]
+                        self.chr_size[this_chr] += self.order_to_frag_size[i.replace('-','')]
                     chr_id += 1
 
     def sort_by_size(self):
