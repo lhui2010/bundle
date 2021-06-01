@@ -2,9 +2,81 @@
 hic relevant scripts
 '''
 import logging
+import re
+from collections import defaultdict, OrderedDict
 
 from iga.apps.base import bsub, get_prefix, abspath_list, emain
 import os.path as op
+
+
+class AssemblyIO:
+    def __init__(self, assembly_file):
+        """
+        Input assembly file
+        #==> allhic.0.review.assembly <==
+        #>Hic.fastq.gz.counts_GATC.20g1:::fragment_1 1 5423057
+        #>Hic.fastq.gz.counts_GATC.20g1:::fragment_2:::debris 2 50000
+        #>Hic.fastq.gz.counts_GATC.20g1:::fragment_3 3 7785000
+        #...
+        #1 -3 13 22 -5
+        """
+        chr_id = 0
+        # Storing the contig order information that be used in jcbat grouping, eg dic[1]=contig1
+        self.order_to_frag_name = {}
+        # Storing the contig size information that be used in jcbat grouping, eg dic[1]=contig1
+        self.order_to_frag_size = {}
+        # chr_dict storing the grouping of
+        self.chr_dict = defaultdict(list)
+        self.chr_size = defaultdict(int)
+        with open(assembly_file) as fh:
+            for line in fh:
+                (this_chr, this_start, this_end, this_name, this_strand) = ["."] * 5
+                # Each line is a new chromosome
+                if line.startswith(">"):
+                    (frag_name, frag_order, frag_len) = line.rstrip().split()
+                    frag_name = frag_name[1:]
+                    frag_len = int(frag_len)
+                    self.order_to_frag_name[frag_order] = frag_name
+                    self.order_to_frag_size[frag_order] = frag_len
+                else:
+                    this_chr = "chr" + "%02d" % chr_id
+                    mylist = line.rstrip().split()
+                    for i in mylist:
+                        self.chr_dict[this_chr].append(i)
+                        self.chr_size[this_chr] += self.order_to_frag_size[i]
+                    chr_id += 1
+
+    def sort_by_size(self):
+        """
+        sort reviewed assembly file into large to small order
+        :return:
+        """
+        chr_count = len(self.chr_size.keys())
+        new_chr_dict = OrderedDict()
+        new_chr_size = OrderedDict()
+        final_chr_list = []
+        sorted_chr = sorted(self.chr_size, key=self.chr_size.__getitem__())
+        for i in range(0, chr_count):
+            chr_id = i + 1
+            this_chr = "chr" + "%02d" % chr_id
+            final_chr_list.append(this_chr)
+            new_chr_dict[this_chr] = self.chr_dict[sorted_chr[i]]
+            new_chr_size[this_chr] = self.chr_size[sorted_chr[i]]
+        self.chr_dict = new_chr_dict
+        self.chr_size = new_chr_size
+
+    def gettext(self):
+        output = ''
+        for k in self.order_to_frag_name:
+            output += ">{} {} {}\n".format(self.order_to_frag_name[k], k, self.order_to_frag_size[k])
+        for k in self.chr_dict:
+            output += " ".join(self.chr_dict[k])
+        return output
+
+    def toagp(self):
+        pass
+
+
 
 # 0 prefix
 # 1 genome.fa
@@ -141,6 +213,14 @@ falcon_v340_sgs_polish.final.hic:  .HiC file to be reviewed in juicerbox
     return 0
 
 
+def sort_assembly(assembly=None):
+    """
+    sort reviewed assembly in large to small order
+    :param assembly:
+    :return:
+    """
+
+
 def assembly2agp():
     """ converts assembly file to agp file
     """
@@ -157,11 +237,10 @@ def assembly2agp():
     # 859
 
     ##AGP
-    #Hic.fastq.gz.counts_GATC.20g10 1   132119  1   W   000083F|arrow_np1212    1   132119  -
-    #Hic.fastq.gz.counts_GATC.20g10 132120  132219  2   U   100 contig  yes map
-    #Hic.fastq.gz.counts_GATC.20g10 132220  266408  3   W   000093F|arrow_np1212    1   134189  +
-    #Hic.fastq.gz.counts_GATC.20g10 266409  266508  4   U   100 contig  yes map
-
+    # Hic.fastq.gz.counts_GATC.20g10 1   132119  1   W   000083F|arrow_np1212    1   132119  -
+    # Hic.fastq.gz.counts_GATC.20g10 132120  132219  2   U   100 contig  yes map
+    # Hic.fastq.gz.counts_GATC.20g10 132220  266408  3   W   000093F|arrow_np1212    1   134189  +
+    # Hic.fastq.gz.counts_GATC.20g10 266409  266508  4   U   100 contig  yes map
 
     return 0
 
