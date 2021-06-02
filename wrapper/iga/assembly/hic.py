@@ -95,7 +95,7 @@ class AssemblyIO:
         for chr_id in self.chr_dict:
             start = 1
             segment_order = 0
-            for list_id in range(0, self.chr_dict[chr_id]):
+            for list_id in range(0, len(self.chr_dict[chr_id])):
                 segment_order += 1
                 contig_order = list_id + 1
                 contig_abbrev = self.chr_dict[chr_id][list_id]
