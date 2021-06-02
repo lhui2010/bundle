@@ -265,7 +265,7 @@ def sort_assembly(assembly=None, size='F'):
         print(Asb.gettext())
 
 
-def assembly2agp():
+def assembly2agp(assembly=None):
     """ converts assembly file to agp file
     """
     ##assembly
@@ -285,7 +285,8 @@ def assembly2agp():
     # Hic.fastq.gz.counts_GATC.20g10 132120  132219  2   U   100 contig  yes map
     # Hic.fastq.gz.counts_GATC.20g10 132220  266408  3   W   000093F|arrow_np1212    1   134189  +
     # Hic.fastq.gz.counts_GATC.20g10 266409  266508  4   U   100 contig  yes map
-
+    asb = AssemblyIO(assembly)
+    asb.toagp()
     return 0
 
 
