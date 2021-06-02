@@ -103,8 +103,8 @@ class AssemblyIO:
                 if '-' in contig_abbrev:
                     strand = '-'
                     contig_abbrev = contig_abbrev.replace('-', '')
-                contig_name = self.order_to_frag_name(contig_abbrev)
-                contig_size = self.order_to_frag_size(contig_abbrev)
+                contig_name = self.order_to_frag_name[contig_abbrev]
+                contig_size = self.order_to_frag_size[contig_abbrev]
                 end = contig_size + start - 1
                 print("\t".join([chr_id, start, end, segment_order, 'W', contig_name, 1, contig_size, strand]))
                 if contig_order < len(self.chr_dict[chr_id]):
