@@ -81,7 +81,6 @@ class AssemblyIO:
 
     def toagp(self):
         """
-        #TODO 三天后再写
         :return: return the text of current assembly file in AGP format
         """
         # ## AGP-version 2.0
@@ -91,23 +90,30 @@ class AssemblyIO:
         # chr01   4727059 4727158 4       N       100     scaffold        yes     align_genus
         # chr01   4727159 4747689 5       W       000246F|arrow_np1212    1       20531   +
         pass
-        # for chr_id in self.chr_dict:
-        #     offset = 1
-        #     for id in range(0, self.chr_dict[chr_id]):
-        #         contig_id = id + 1
-        #         ctg = self.chr_dict[chr_id]
-        #         strand = '+'
-        #         if '-' in ctg:
-        #             strand = '-'
-        #             ctg = ctg.replace('-', '')
-        #         contig_name = self.order_to_frag_name(ctg)
-        #         contig_size = self.order_to_frag_size(ctg)
-        #         end = contig_size + offset - 1
-        #         print("\t".join([chr_id, offset, end, ]))
-        #     if size:
-        #         output += str(self.chr_size[chr_id]) + ":"
-        #     output += " ".join(self.chr_dict[chr_id])
-        #     output += "\n"
+        #The gap size between contigs in HiC scaffolds
+        gap_size = 100
+        for chr_id in self.chr_dict:
+            start = 1
+            segment_order = 0
+            for list_id in range(0, self.chr_dict[chr_id]):
+                segment_order += 1
+                contig_order = list_id + 1
+                contig_abbrev = self.chr_dict[chr_id][list_id]
+                strand = '+'
+                if '-' in contig_abbrev:
+                    strand = '-'
+                    contig_abbrev = contig_abbrev.replace('-', '')
+                contig_name = self.order_to_frag_name(contig_abbrev)
+                contig_size = self.order_to_frag_size(contig_abbrev)
+                end = contig_size + start - 1
+                print("\t".join([chr_id, start, end, segment_order, 'W', contig_name, 1, contig_size, strand]))
+                if contig_order < len(self.chr_dict[chr_id]):
+                    #Not the end of chromosome, insert gap
+                    segment_order += 1
+                    start += contig_size
+                    end = start + gap_size - 1
+                    print("\t".join([chr_id, start, end, segment_order, 'N',
+                                     gap_size, 'scaffold', 'yes', 'align_genus']))
 
 
 # 0 prefix
