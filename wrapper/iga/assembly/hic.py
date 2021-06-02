@@ -106,14 +106,15 @@ class AssemblyIO:
                 contig_name = self.order_to_frag_name[contig_abbrev]
                 contig_size = self.order_to_frag_size[contig_abbrev]
                 end = contig_size + start - 1
-                print("\t".join([chr_id, start, end, segment_order, 'W', contig_name, 1, contig_size, strand]))
+                print("\t".join([chr_id, str(start), str(end), str(segment_order),
+                                 'W', contig_name, '1', str(contig_size), strand]))
                 if contig_order < len(self.chr_dict[chr_id]):
                     #Not the end of chromosome, insert gap
                     segment_order += 1
                     start += contig_size
                     end = start + gap_size - 1
-                    print("\t".join([chr_id, start, end, segment_order, 'N',
-                                     gap_size, 'scaffold', 'yes', 'align_genus']))
+                    print("\t".join([chr_id, str(start), str(end), str(segment_order), 'N',
+                                     str(gap_size), 'scaffold', 'yes', 'align_genus']))
 
 
 # 0 prefix
