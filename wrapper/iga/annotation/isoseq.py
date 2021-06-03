@@ -124,7 +124,7 @@ def isoseq_pb(subreads=None, primer=None, workdir='', threads=50):
     if (workdir == ''):
         workdir = "workdir_isoseq_" + os.path.basename(prefix)
     cmd = conda_act.format('isoseq3') + isoseq_sh.format(workdir, subreads, primer, threads)
-    bsub(cmd, name="isoseq3" + prefix, cpu=threads)
+    bsub(cmd, name="isoseq3" + prefix, cpus=threads)
 
 
 if __name__ == "__main__":
