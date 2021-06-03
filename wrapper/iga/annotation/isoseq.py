@@ -76,6 +76,8 @@ def isoseq_bgi(subreads=None, workdir=''):
 # 3 threads
 isoseq_pb_sh = r"""mkdir -p {0}
 cd {0}
+ln -s ../{1}
+ln -s ../{2}
 
 ROOT=$PWD
 INPUTBAM={1}
@@ -104,24 +106,24 @@ isoseq3 cluster ${{INPUTBAM%.bam}}.flnc.bam ${{INPUTBAM%.bam}}.clustered.bam --v
 def isoseq_pb(subreads=None, primer=None, workdir='', threads=50):
     r"""
     convert Isoseq(pacbio standard) subreads.bam to flnc.fastq
-    :param subreads: Multiple bam inputs are seprated by comma/space, eg: "subreads1.bam,subreads2.bam" or "1.bam 2.bam"
+    :param subreads: Multiple bam inputs not supported currently, a TODO
     :param primer: Primer fasta
     :param workdir: if not given, default is base name of first subreads
     :param threads:  threads
     :return:
     """
-    subreads = subreads.replace(' ', ',')
-    subreads = subreads.split(',')
+    #subreads = subreads.replace(' ', ',')
+    #subreads = subreads.split(',')
 
-    prefix = get_prefix(subreads[0])
+    prefix = get_prefix(subreads)
 
-    abspath_list(subreads)
+    #abspath_list(subreads)
 
-    subreads = ','.join(subreads)
+    #subreads = ','.join(subreads)
 
     if (workdir == ''):
         workdir = "workdir_isoseq_" + prefix
-    logging.debug(workdir)
+   #logging.debug(workdir)
     cmd = conda_act.format('isoseq3') + isoseq_sh.format(workdir, subreads, primer, threads)
     bsub(cmd, name="isoseq3" + prefix, cpus=threads)
 
