@@ -3,7 +3,7 @@ Isoseq relevant utils
 """
 import os
 
-from iga.apps.base import sh, emain, conda_act, abspath_list
+from iga.apps.base import sh, emain, conda_act, abspath_list, get_prefix
 
 import logging
 import coloredlogs
@@ -119,9 +119,10 @@ def isoseq_pb(subreads=None, primer=None, workdir='', threads=50):
 
     abspath_list(subreads)
 
+    prefix = get_prefix(subreads[0])
     if (workdir == ''):
-        workdir = "workdir_isoseq_" + os.path.basename(subreads.split()[0])
-    cmd = conda_act.format('isoseq3') + isoseq_sh.format(workdir, subreads, primer, threads)
+        workdir = "workdir_isoseq_" + os.path.basename(prefix)
+    cmd = conda_act.format('isoseq3') + isoseq_sh.format(workdir, prefix, primer, threads)
     sh(cmd)
 
 if __name__ == "__main__":
