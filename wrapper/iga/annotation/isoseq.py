@@ -76,8 +76,6 @@ def isoseq_bgi(subreads=None, workdir=''):
 # 3 threads
 isoseq_pb_sh = r"""mkdir -p {0}
 cd {0}
-ln -s ../{1}
-ln -s ../{2}
 
 ROOT=$PWD
 INPUTBAM={1}
