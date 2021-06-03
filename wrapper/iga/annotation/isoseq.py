@@ -119,7 +119,7 @@ def isoseq_pb(subreads=None, primer=None, workdir='', threads=50):
 
     abspath_list(subreads)
 
-    subreads = ','.join([subreads])
+    subreads = ','.join(subreads)
 
     if (workdir == ''):
         workdir = "workdir_isoseq_" + os.path.basename(prefix)
