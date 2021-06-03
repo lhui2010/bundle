@@ -106,13 +106,16 @@ isoseq3 cluster ${{INPUTBAM%.bam}}.flnc.bam ${{INPUTBAM%.bam}}.clustered.bam --v
 def isoseq_pb(subreads=None, primer=None, workdir='', threads=50):
     r"""
     convert Isoseq(pacbio standard) subreads.bam to flnc.fastq
-    :param subreads: Multiple fq inputs are seprated by comma, eg: "subreads1.fq,subreads2.fq"
+    :param subreads: Multiple bam inputs are seprated by comma/space, eg: "subreads1.bam,subreads2.bam" or "1.bam 2.bam"
     :param primer: Primer fasta
     :param workdir: if not given, default is base name of first subreads
     :param threads:  threads
     :return:
     """
-    subreads = subreads.split(',')
+    if ',' in subreads:
+        subreads = subreads.split(',')
+    else:
+        subreads = subreads.split(' ')
 
     abspath_list(subreads)
 
