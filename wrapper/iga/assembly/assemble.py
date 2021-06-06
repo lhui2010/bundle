@@ -398,7 +398,7 @@ def platanus(fastq=None, clean='F', threads=20, mem=400):
         fastq = " ".join(fastq)
     prefix = get_prefix(fastq)
     cmd = platanus_sh.format(fastq, threads, prefix, mem)
-    bsub(cmd)
+    bsub(cmd, name='platanus')
 
 
 if __name__ == '__main__':
