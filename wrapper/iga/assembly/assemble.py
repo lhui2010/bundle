@@ -382,21 +382,22 @@ fastp -i {0} -I {1} -o {0}.clean.fq.gz -O {1}.clean.fq.gz
 # 1 threads
 # 2 prefix
 platanus_sh = """
-platanus assemble -f {0} -t {1} -o {2}_assembly.fa
+platanus assemble -f {0} -t {1} -o {2}_assembly.fa -m {3}
 """
 
 
-def platanus(fastq=None, clean='F', threads=20):
+def platanus(fastq=None, clean='F', threads=20, mem=400):
     r"""
     assemble with platanus
     :param fastq:
     :param clean: [T/F] if T, use fastp to clean
+    :param mem: (Gb)
     :return:
     """
     if type(fastq) == list:
         fastq = " ".join(fastq)
     prefix = get_prefix(fastq)
-    cmd = platanus_sh.format(fastq, threads, prefix)
+    cmd = platanus_sh.format(fastq, threads, prefix, mem)
     bsub(cmd)
 
 
