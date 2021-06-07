@@ -288,6 +288,18 @@ def falcon(subreads=None, genome_size=None, prefix='', etc='', submit='T'):
     if '.bam' in subreads:
         subreads = bam2fastq(subreads)
 
+    # Change Mb to bp
+    if 'M' or 'm' in genome_size:
+        genome_size = genome_size.replace('M', '')
+        genome_size = genome_size.replace('m', '')
+        genome_size = genome_size + '0'*6
+
+    # Change Gb to bp
+    if 'G' or 'g' in genome_size:
+        genome_size = genome_size.replace('g', '')
+        genome_size = genome_size.replace('G', '')
+        genome_size = genome_size + '0'*9
+
     logger.debug(subreads)
 
     if type(subreads) == list:
