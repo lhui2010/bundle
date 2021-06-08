@@ -20,7 +20,7 @@ class AssemblyIO:
         #...
         #1 -3 13 22 -5
         """
-        chr_id = 0
+        chr_id = 1
         # Storing the contig order information that be used in jcbat grouping, eg dic[1]=contig1
         self.order_to_frag_name = {}
         # Storing the contig size information that be used in jcbat grouping, eg dic[1]=contig1
