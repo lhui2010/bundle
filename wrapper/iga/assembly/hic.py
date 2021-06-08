@@ -94,15 +94,16 @@ class AssemblyIO:
         #The gap size between contigs in HiC scaffolds
         gap_size = 100
         end_chr = list(self.chr_dict.keys())[-1]
-        for chr_id in self.chr_dict:
+        for qid in self.chr_dict:
+            chr_id = qid
             start = 1
             segment_order = 0
             if chr_id == end_chr and unchr is True:
                 chr_id = 'chrUN'
-            for list_id in range(0, len(self.chr_dict[chr_id])):
+            for list_id in range(0, len(self.chr_dict[qid])):
                 segment_order += 1
                 contig_order = list_id + 1
-                contig_abbrev = self.chr_dict[chr_id][list_id]
+                contig_abbrev = self.chr_dict[qid][list_id]
                 strand = '+'
                 if '-' in contig_abbrev:
                     strand = '-'
@@ -112,7 +113,7 @@ class AssemblyIO:
                 end = contig_size + start - 1
                 print("\t".join([chr_id, str(start), str(end), str(segment_order),
                                  'W', contig_name, '1', str(contig_size), strand]))
-                if contig_order < len(self.chr_dict[chr_id]):
+                if contig_order < len(self.chr_dict[qid]):
                     #Not the end of chromosome, insert gap
                     segment_order += 1
                     start += contig_size
@@ -262,7 +263,6 @@ falcon_v340_sgs_polish.final.hic:  .HiC file to be reviewed in juicerbox
 # python -m iga.assembly.hic sort_assembly ${REVIEWEDASM} > ${REVIEWEDASM}.sort
 # python -m iga.assembly.hic assembly2agp ${REVIEWEDASM}.sort > ${REVIEWEDASM}.sort.agp
 # build_fa_from_agp.pl ${CONTIG} ${REVIEWEDASM}.sort.agp > ${REVIEWEDASM}.sort.agp.chr.fa
-
 
 
 def sort_assembly(assembly=None, size='F'):
