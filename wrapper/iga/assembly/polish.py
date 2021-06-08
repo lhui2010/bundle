@@ -34,7 +34,8 @@ touch $PREFIX.0.fa ; rm $PREFIX.0.fa
 ls {1} > sgs.fofn
 ln -s $contig $PREFIX.0.fa
 
-for i in `seq 0 1`
+#for i in `seq 0 1`
+for i in 0
 do
     j=`expr $i + 1`
     GENOME=$PREFIX.$i.fa
