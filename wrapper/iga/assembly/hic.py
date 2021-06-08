@@ -93,7 +93,7 @@ class AssemblyIO:
         pass
         #The gap size between contigs in HiC scaffolds
         gap_size = 100
-        end_chr = self.chr_dict.keys()[-1]
+        end_chr = list(self.chr_dict.keys())[-1]
         for chr_id in self.chr_dict:
             start = 1
             segment_order = 0
