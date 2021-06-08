@@ -79,8 +79,9 @@ class AssemblyIO:
             output += "\n"
         return output
 
-    def toagp(self):
+    def toagp(self, unchr=False):
         """
+        :unchr: change chr name of last chr to chrUN
         :return: return the text of current assembly file in AGP format
         """
         # ## AGP-version 2.0
@@ -92,9 +93,12 @@ class AssemblyIO:
         pass
         #The gap size between contigs in HiC scaffolds
         gap_size = 100
+        end_chr = self.chr_dict.keys()[-1]
         for chr_id in self.chr_dict:
             start = 1
             segment_order = 0
+            if chr_id == end_chr and unchr is True:
+                chr_id = 'chrUN'
             for list_id in range(0, len(self.chr_dict[chr_id])):
                 segment_order += 1
                 contig_order = list_id + 1
@@ -252,6 +256,15 @@ falcon_v340_sgs_polish.final.hic:  .HiC file to be reviewed in juicerbox
     return 0
 
 
+### Handele reviewed Assembly
+# CONTIG=elumb.genome.final.fasta
+# REVIEWEDASM=elumb.genome.final.assembly
+# python -m iga.assembly.hic sort_assembly ${REVIEWEDASM} > ${REVIEWEDASM}.sort
+# python -m iga.assembly.hic assembly2agp ${REVIEWEDASM}.sort > ${REVIEWEDASM}.sort.agp
+# build_fa_from_agp.pl ${CONTIG} ${REVIEWEDASM}.sort.agp > ${REVIEWEDASM}.sort.agp.chr.fa
+
+
+
 def sort_assembly(assembly=None, size='F'):
     """
     sort reviewed assembly in large to small order
@@ -287,7 +300,7 @@ def assembly2agp(assembly=None):
     # Hic.fastq.gz.counts_GATC.20g10 132220  266408  3   W   000093F|arrow_np1212    1   134189  +
     # Hic.fastq.gz.counts_GATC.20g10 266409  266508  4   U   100 contig  yes map
     asb = AssemblyIO(assembly)
-    asb.toagp()
+    asb.toagp(unchr=True)
     return 0
 
 
