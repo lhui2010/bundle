@@ -14,8 +14,7 @@ from iga.apps.base import sh, emain, conda_act, abspath_list, get_prefix, bsub
 # Output: reads1.bam
 
 align_sh = r"""
-hisat2 --rna-strandness RF --mp 3,1 -p {3} -x {0} -1 {1}
--2 {2} | samtools sort -@ {3} -o {1}.bam 
+hisat2 --rna-strandness RF --mp 3,1 -p {3} -x {0} -1 {1} -2 {2} | samtools sort -@ {3} -o {1}.bam 
 # && stringtie -p $threads -o $newID.with_novel.gtf  $newID.bam
 """
 
