@@ -94,6 +94,7 @@ class AssemblyIO:
         #The gap size between contigs in HiC scaffolds
         gap_size = 100
         end_chr = list(self.chr_dict.keys())[-1]
+        print("## AGP-version 2.0")
         for qid in self.chr_dict:
             chr_id = qid
             start = 1
@@ -120,6 +121,7 @@ class AssemblyIO:
                     end = start + gap_size - 1
                     print("\t".join([chr_id, str(start), str(end), str(segment_order), 'N',
                                      str(gap_size), 'scaffold', 'yes', 'align_genus']))
+                    start += gap_size
 
 
 # 0 prefix
