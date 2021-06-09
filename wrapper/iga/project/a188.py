@@ -1576,12 +1576,6 @@ edta_sh="""
 # --curatedlib maizeTE02052020
 """
 
-conda_act = r"""
-export PS1="(base) \[\033]2;\h:\u $PWD\007\033[33;1m\]\u@\h \033[35;1m\t\n\033[0m\[\033[36;1m\]$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
-source /lustre/home/liuhui/bin/anaconda3/etc/profile.d/conda.sh
-conda activate {}
-"""
-
 
 def edta(genome=None, cds=None, species='others', threads=40):
     """
@@ -1592,7 +1586,7 @@ def edta(genome=None, cds=None, species='others', threads=40):
     :param genome: genome.fasta
     :return:
     """
-    cmd = conda_act.format('EDTA')
+    cmd = "conda activate EDTA"
     cmd += edta_sh.format(species, cds, genome, threads)
     qsub(cmd, cpus=5, name='EDTA')
 
