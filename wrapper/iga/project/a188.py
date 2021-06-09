@@ -11,7 +11,7 @@ import pandas as pd
 from parse import parse
 
 from iga.annotation.gff import Loci, Bed, GFF
-from iga.apps.base import emain, qsub, get_prefix, sh
+from iga.apps.base import emain, qsub, get_prefix, sh, conda_act
 
 import logging
 import coloredlogs
@@ -1565,6 +1565,30 @@ def mtei_union(TIP_table=None, difftag=''):
             b2 = 0
             c2 = 0
         print("{}\t{}\t{}\t{}\t{}\t{}\t{}".format(k, a, b, c, a2, b2, c2))
+
+
+# 0 species [Rice|Maize|others]
+# 1 cds
+# 2 GENOME
+# 3 threads
+edta_sh="""
+~/bin/EDTA/EDTA.pl  --species {0} --cds {1} --genome {2} --anno 1 --threads {3}
+# --curatedlib maizeTE02052020
+"""
+
+
+def edta(genome=None, cds=None, species='others', threads=40):
+    """
+    EDTA wrapper
+    :param cds: cds.fasta
+    :param species: default others, could also be Rice or Maize
+    :param threads: threads, default 40 running, 10 submitting
+    :param genome: genome.fasta
+    :return:
+    """
+    cmd = conda_act.format('EDTA')
+    cmd += edta_sh.format(species, cds, genome, threads)
+    qsub(cmd, cpus=5)
 
 
 if __name__ == "__main__":
