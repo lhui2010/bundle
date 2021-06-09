@@ -145,7 +145,7 @@ def qsub(cmd=None, cpus=1, name='output', sub=True):
 #$ -S /bin/bash
 #$ -l h="rock0[12]"
 
-set -exo pipefail
+#set -exo pipefail
 ROOT=$PWD
 date
 """.format(cpus, name)

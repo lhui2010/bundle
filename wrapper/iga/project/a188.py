@@ -1571,7 +1571,7 @@ def mtei_union(TIP_table=None, difftag=''):
 # 1 cds
 # 2 GENOME
 # 3 threads
-edta_sh="""
+edta_sh = """
 ~/bin/EDTA/EDTA.pl  --species {0} --cds {1} --genome {2} --anno 1 --threads {3}
 # --curatedlib maizeTE02052020
 """
