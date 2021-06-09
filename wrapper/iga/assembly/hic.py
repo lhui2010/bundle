@@ -312,7 +312,8 @@ def agp2assembly(agp=None):
     default output is STDOUT, use > to redirect to a file
     """
     cmd = "agp_to_assembly.pl {0} ".format(agp)
-    sh(cmd)
+    stdout = sh(cmd)
+    print(stdout)
 
 
 def liftover():
