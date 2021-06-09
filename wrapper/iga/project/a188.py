@@ -11,7 +11,7 @@ import pandas as pd
 from parse import parse
 
 from iga.annotation.gff import Loci, Bed, GFF
-from iga.apps.base import emain, qsub, get_prefix, sh, conda_act
+from iga.apps.base import emain, qsub, get_prefix, sh
 
 import logging
 import coloredlogs
@@ -1574,6 +1574,11 @@ def mtei_union(TIP_table=None, difftag=''):
 edta_sh="""
 ~/bin/EDTA/EDTA.pl  --species {0} --cds {1} --genome {2} --anno 1 --threads {3}
 # --curatedlib maizeTE02052020
+"""
+
+conda_act = r"""
+export PS1="(base) \[\033]2;\h:\u $PWD\007\033[33;1m\]\u@\h \033[35;1m\t\n\033[0m\[\033[36;1m\]$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
+conda activate {}
 """
 
 
