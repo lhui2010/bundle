@@ -1593,7 +1593,7 @@ def edta(genome=None, cds=None, species='others', threads=40):
     """
     cmd = conda_act.format('EDTA')
     cmd += edta_sh.format(species, cds, genome, threads)
-    qsub(cmd, cpus=5)
+    qsub(cmd, cpus=5, name='EDTA')
 
 
 if __name__ == "__main__":
