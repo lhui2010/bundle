@@ -490,5 +490,9 @@ GENOME=input_maize/maize10.genome
 # --species [Rice|Maize|others]
 ~/bin/EDTA/EDTA.pl  --species Maize --cds ${CDS} --curatedlib maizeTE02052020 --genome ${GENOME} --anno 1 --threads 40
 
+#### parallel
+
+ls *genome | parallel -j 5 samtools faidx {} 
+cat list |parallel -j100 echo {}
 
 #### fastp
