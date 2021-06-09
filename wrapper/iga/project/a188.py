@@ -454,6 +454,14 @@ python3 $PLOTSR $REF.$QRY.syri.out {0} {1} -H 8 -W 5
 
 
 def syri(ref=None, qry=None, threads=6, submit='T'):
+    """
+    Syri Wrapper
+    :param ref:
+    :param qry:
+    :param threads:
+    :param submit:
+    :return:
+    """
     cmd = 'conda activate syri' + syri_sh.format(ref, qry)
     prefix = get_prefix(ref)
     prefix += get_prefix(qry)
@@ -464,6 +472,28 @@ def syri(ref=None, qry=None, threads=6, submit='T'):
         qsub(cmd, cpus=threads, name='syri.' + prefix)
     else:
         sh(cmd)
+
+
+def syri_batch(genome_list=None):
+    """
+    batch syri wrapper
+    :param genome_list: multiple genome fasta, like a.genome b.genome c.genome
+    :return:
+    """
+    if type(genome_list) is list:
+        pass
+    elif ' ' in genome_list:
+        genome_list = genome_list.split()
+    else:
+        logging.error("Genome input error: {0}".format(str(genome_list)))
+        exit(1)
+    for i in genome_list:
+        for j in genome_list:
+            if i == j:
+                continue
+            else:
+                syri(i, j)
+
 
 
 def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYNAL', output=''):
