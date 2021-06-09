@@ -12,7 +12,7 @@ from Bio.Seq import Seq
 
 #Prepare fasta
 def main():
-    prog_name = "align each pair using lastz"
+    prog_name = "align each pair using blat"
     usage = "Another python program"
 
 #use of textwrap allowed custome format like "\t\tusage"
@@ -36,7 +36,7 @@ def main():
         tag=False
         for line in fh:
             (qry, ref) = line.rstrip().split()
-            with open("qryl", 'w') as out_qry, open("refl", 'w') as out_ref:
+            with open("qryb", 'w') as out_qry, open("refb", 'w') as out_ref:
                 try:
                     out_qry.write(fasta_dict[qry].format('fasta'))
                     out_ref.write(fasta_dict[ref].format('fasta'))
@@ -44,11 +44,11 @@ def main():
                     continue
 
             #os.system("lastz --gfextend --chain --gapped --ambiguous=n --format=mapping --identity=97  --continuity=1 {} {} > {} ".format('qry', 'ref', "qry.lastz"))
-            os.system("lastz --gfextend --chain --gapped --ambiguous=n ‑‑format=general:name1,zstart1,end1,name2,strand2,zstart2+,end2+,identity,coverage,nmatch,size1,size2,cigarx-   --identity=97  --continuity=1 {} {} > {} ".format('qryl', 'refl', "qry.lastz"))
+            os.system("blat {} {}  {} ".format('qryb', 'refb', "qry.psl"))
             if(tag):
-                os.system("grep -v '#' qry.lastz >> total.lastz")
+                os.system("tail -n +6 qry.psl >> total.psl")
             else:
-                os.system("cat qry.lastz >> total.lastz")
+                os.system("tail -n +3 qry.psl >> total.psl")
             tag = True
 
 if __name__ == "__main__":

@@ -31,6 +31,7 @@ source /lustre/home/liuhui/bin/bundle/lh_bin/cdf.sh
 export BD=/lustre/home/liuhui/bin/bundle
 
 alias logsh='cat >>shell'
+alias logjob='cat >>~/shell'
 alias tma='tmux a'
 alias gtp="cd $BD && git pull && cd -"
 alias gtps="cd $BD && git add . && git commit -m 'CMD' && git push && cd -"
@@ -53,6 +54,7 @@ alias s3='ssh -Y cn03'
 alias s4='ssh -Y cn04'
 alias chd='chmod 755 *.sh *.pl *.py *.R'
 alias qt='qstat -u liuhui|grep "liuhui"'
+alias qtt='qstat -u liuhui|grep "liuhui"|tail'
 alias bj='qstat -u liuhui|grep "liuhui"'
 alias tp='top -u liuhui'
 alias addpwd='echo "export PATH=$PWD:\$PATH" >>~/.bashrc'
@@ -121,7 +123,7 @@ export PATH=/lustre/home/liuhui/workdir/bin:$PATH
 #export PATH="/lustre/home/liuhui/bin/anaconda2/bin:$PATH"
 
 # added by Anaconda3 installer
-export PATH="/lustre/home/liuhui/bin/anaconda3/bin:$PATH"  # commented out by conda initialize
+#export PATH="/lustre/home/liuhui/bin/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 # user activeperl
 export PATH=/lustre/home/liuhui/bin/ActivePerl-5.24/site/bin:/lustre/home/liuhui/bin/ActivePerl-5.24/bin:$PATH
@@ -154,7 +156,7 @@ export ZOE="/lustre/local/packages/Maker/maker-3.01.02/exe/snap/Zoe"
 
 
 #tRNASCAN
-export PATH="$PATH":"/lustre/local/bin"
+#export PATH="$PATH":"/lustre/local/bin"
 export PERL5LIB="$PERL5LIB"":""/lustre/local/bin"
 export MANPATH="$MANPATH"":""/lustre/local/man"
 
@@ -336,3 +338,17 @@ export PATH=/lustre/home/liuhui/project/buzzo/syri/bin/syri-1.3/syri/bin:$PATH
 # export PATH=/lustre/home/liuhui/bin/cactus-bin-v1.2.3/bin:$PATH
 export PATH=/lustre/home/liuhui/bin/unimap:$PATH
 export PATH=/lustre/home/liuhui/bin/dotPlotly-master:$PATH
+
+alias newqsub='echo "#!/bin/bash
+#
+#$ -cwd
+#$ -j y
+#$ -V
+#$ -pe smp 1
+#$ -S /bin/bash
+"'
+export PATH=/lustre/home/liuhui/bin:$PATH
+export PATH=/lustre/home/liuhui/bin/hmmer-3.3.2/bin/bin:$PATH
+export PATH=/lustre/home/liuhui/project/buzzo/sniffles/bin/Sniffles-master/bin/sniffles-core-1.0.12:$PATH
+export PATH=/lustre/home/liuhui/bin/samtools-1.12/bin/bin:$PATH
+export PATH=/lustre/home/liuhui/bin/EDTA:$PATH

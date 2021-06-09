@@ -478,4 +478,17 @@ cp *shortsummary* pasa.pep.busco.embryophyta.v4.1.2/
 generate_plot.py -wd pasa.pep.busco.embryophyta.v4.1.2
 
 
+#### OrthoFinder
+
+
+orthofinder -b previous_orthofinder_directory -f new_fasta_directory
+
+#### EDTA
+
+CDS=input_maize/maize10_cds.fa
+GENOME=input_maize/maize10.genome
+# --species [Rice|Maize|others]
+~/bin/EDTA/EDTA.pl  --species Maize --cds ${CDS} --curatedlib maizeTE02052020 --genome ${GENOME} --anno 1 --threads 40
+
+
 #### fastp
