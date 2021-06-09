@@ -5,7 +5,7 @@ import logging
 import re
 from collections import defaultdict, OrderedDict
 
-from iga.apps.base import bsub, get_prefix, abspath_list, emain
+from iga.apps.base import bsub, get_prefix, abspath_list, emain, sh
 import os.path as op
 
 
@@ -304,6 +304,15 @@ def assembly2agp(assembly=None):
     asb = AssemblyIO(assembly)
     asb.toagp(unchr=True)
     return 0
+
+
+def agp2assembly(agp=None):
+    """
+    convert agp to assembly
+    default output is STDOUT, use > to redirect to a file
+    """
+    cmd = "agp_to_assembly.pl {0} ".format(agp)
+    sh(cmd)
 
 
 def liftover():
