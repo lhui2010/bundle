@@ -487,13 +487,14 @@ def syri_batch(genome_list=None):
     else:
         logging.error("Genome input error: {0}".format(str(genome_list)))
         exit(1)
-    for i in genome_list:
-        for j in genome_list:
-            if i == j:
+    for i in range(0, len(genome_list)):
+        for j in range(i+1, len(genome_list)):
+            qry = genome_list[i]
+            ref = genome_list[j]
+            if qry == ref:
                 continue
             else:
-                syri(i, j)
-
+                syri(qry, ref)
 
 
 def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYNAL', output=''):
