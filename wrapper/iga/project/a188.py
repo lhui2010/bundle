@@ -476,8 +476,8 @@ def syri(ref=None, qry=None, threads=6, submit='T', bychr='F'):
         else:
             sh(cmd)
     else:
-        ref_list = split_fasta(ref,'', bypart='T')
-        qry_list = split_fasta(qry,'', bypart='T')
+        ref_list = split_fasta(ref, '', bypart='T')
+        qry_list = split_fasta(qry, '', bypart='T')
         for chr_ref, chr_qry in zip(ref_list, qry_list):
             prefix = get_prefix(chr_ref)
             cmd = 'conda activate syri' + syri_sh.format(chr_ref, chr_qry)

@@ -85,7 +85,7 @@ def split_fasta(fasta, workdir, chunk=100, bypart='F'):
             data = f.read().split('>')
             for i, j in enumerate(data[1:], start=1):
                 (header, content) = j.split('\n', 1)
-                new_file_name = f'fasta_{header}.fasta'
+                new_file_name = f'{fasta}_{header}.fasta'
                 file_list.append(new_file_name)
                 with open(new_file_name, 'w') as f:
                     f.write('>' + j)
