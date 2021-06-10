@@ -871,9 +871,12 @@ def mosaic_ratio2(mosaic=None, synal=None):
             mylist = line.strip().split()
             synal_left += int(mylist[2]) - int(mylist[1]) + 1
             synal_right += int(mylist[7]) - int(mylist[6]) + 1
-    prefix = get_prefix(mosaic)
-    print("{}\t{}\t{}".format(prefix, mosaic_left/(mosaic_left+synal_left),
-                                            mosaic_right/(mosaic_right+synal_right)))
+    #prefix = get_prefix(mosaic)
+    prefix = mosaic.replace('.genome', '')
+    prefix = prefix.replace('.syri.out.SYNAL.mosaic', '')
+    prefix = prefix.split('.')
+    print("{}\t{}\n{}\t{}".format(prefix[0], mosaic_left/(mosaic_left+synal_left),
+                                            prefix[1], mosaic_right/(mosaic_right+synal_right)))
 
 
 def chromosome_level_ratio(stat=None):
