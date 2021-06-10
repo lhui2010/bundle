@@ -454,14 +454,14 @@ python3 $PLOTSR $REF.$QRY.syri.out {0} {1} -H 8 -W 5
 """
 
 
-def syri(ref=None, qry=None, threads=6, submit='T', split='F'):
+def syri(ref=None, qry=None, threads=6, submit='T', bychr='F'):
     """
     Syri Wrapper
     :param ref:
     :param qry:
     :param threads:
     :param submit:
-    :param split: [F|T], whether to split into seperate chromosomes and submit.
+    :param bychr: [F|T], whether to split into seperate chromosomes and submit.
     :return:
     """
     cmd = 'conda activate syri' + syri_sh.format(ref, qry)
@@ -470,7 +470,7 @@ def syri(ref=None, qry=None, threads=6, submit='T', split='F'):
     if len(ref.split('.')) > 2:
         chr_id = ref.split('.')[-1]
         prefix += chr_id
-    if split == 'F':
+    if bychr == 'F':
         if submit == 'T':
             qsub(cmd, cpus=threads, name='syri.' + prefix)
         else:
