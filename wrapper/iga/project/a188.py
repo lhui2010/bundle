@@ -1645,7 +1645,7 @@ done
 """
 
 
-def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None):
+def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
     """
     :param Single_Copy_Orthologue_Sequences: The directory of Single_Copy_Orthologue_Sequences (in orthofinder2)
     :return:
@@ -1661,7 +1661,9 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None):
                 fh.write(cds_dict[p].format('fasta'))
         cmd = "t_coffee {0} -mode fmcoffee  > {0}.aln &&  pal2nal.pl {0}.aln {0}.cds   >{0}.paml_aln".format(g)
         qsub(cmd, name=g)
-        break
+        if debug == 'T':
+            break
+    return 0
 
 
 if __name__ == "__main__":
