@@ -1653,8 +1653,10 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
     cds_dict = SeqIO.to_dict(SeqIO.parse(total_cds, "fasta"))
     os.chdir(Single_Copy_Orthologue_Sequences)
     for g in os.listdir('.'):
-        if 'OG' not in g:
+        if 'OG' not in g or not g.endswith('.fa'):
             continue
+        if debug == 'T':
+            logging.debug(g)
         if not os.path.exists(g+'.cds'):
             pep_dict = SeqIO.to_dict(SeqIO.parse(g, "fasta"))
             with open(g + '.cds', 'w') as fh:
@@ -1665,7 +1667,6 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
         if debug == 'T':
             break
     return 0
-
 
 
 collect_calcKS_OF=r"""
