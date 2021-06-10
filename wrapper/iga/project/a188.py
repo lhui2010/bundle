@@ -1648,7 +1648,7 @@ done
 def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
     """
     :param Single_Copy_Orthologue_Sequences: The directory of Single_Copy_Orthologue_Sequences (in orthofinder2)
-    :return:
+    :return: group.paml_aln which is coding sequences alignment guided by protein alignment
     """
     cds_dict = SeqIO.to_dict(SeqIO.parse(total_cds, "fasta"))
     os.chdir(Single_Copy_Orthologue_Sequences)
@@ -1664,6 +1664,41 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
         if debug == 'T':
             break
     return 0
+
+
+
+collect_calcKS_OF=r"""
+cat {0}/*paml_aln |grep -v CLUSTAL | sed "s/OsR498.*\s/indica    /; s/OS0.*\s/japonica  /">$TREE_DIR/total.aln
+
+#sed -i '1iCLUSTAL W multiple sequence alignment' $TREE_DIR/total.aln
+
+trimal -in total.aln > total.trimal.aln
+
+distmat -nucmethod 4  -sequence $TREE_DIR/total.trimal.aln -outfile $TREE_DIR/total.aln.dist
+"""
+
+
+def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1):
+    """
+    :param Single_Copy_Orthologue_Sequences:
+    :param species_name: if zemay_A188_oGxxx, then species name A188 is 1 (split('_')[1])
+    :return: STDOUT, need to redirect to a file
+    """
+    species_name_col = int(species_name_col)
+    for g in os.listdir(Single_Copy_Orthologue_Sequences):
+        if 'paml_aln' in g:
+            with open(g) as fh:
+                fh.readline()
+                for line in fh():
+                    line = line.rstrip()
+                    if line == "":
+                        print(line)
+                        continue
+                    else:
+                        (id, seq) = line.split()
+                        id_list = id.split()
+                        newid = id_list[species_name_col]
+                        print(f'{newid:<30}{seq}')
 
 
 if __name__ == "__main__":
