@@ -875,7 +875,7 @@ def mosaic_ratio2(mosaic=None, synal=None):
     prefix = mosaic.replace('.genome', '')
     prefix = prefix.replace('.syri.out.SYNAL.mosaic', '')
     prefix = prefix.split('.')
-    print("{}\t{}\n{}\t{}".format(prefix[0], mosaic_left/(mosaic_left+synal_left),
+    print("{0}-{2}\t{1}\n{2}-{0}\t{3}".format(prefix[0], mosaic_left/(mosaic_left+synal_left),
                                             prefix[1], mosaic_right/(mosaic_right+synal_right)))
 
 
