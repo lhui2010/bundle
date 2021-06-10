@@ -1650,6 +1650,7 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
     :param Single_Copy_Orthologue_Sequences: The directory of Single_Copy_Orthologue_Sequences (in orthofinder2)
     :return: group.paml_aln which is coding sequences alignment guided by protein alignment
     """
+    count = 0
     cds_dict = SeqIO.to_dict(SeqIO.parse(total_cds, "fasta"))
     os.chdir(Single_Copy_Orthologue_Sequences)
     for g in os.listdir('.'):
@@ -1665,7 +1666,9 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
         cmd = "t_coffee {0} -mode fmcoffee  > {0}.aln &&  pal2nal.pl {0}.aln {0}.cds   >{0}.paml_aln".format(g)
         qsub(cmd, name=g, normal='T')
         if debug == 'T':
-            break
+            count +=1
+            if count > 5:
+                break
     return 0
 
 
