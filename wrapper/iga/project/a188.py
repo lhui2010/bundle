@@ -1655,10 +1655,11 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
     for g in os.listdir('.'):
         if 'OG' not in g:
             continue
-        pep_dict = SeqIO.to_dict(SeqIO.parse(g, "fasta"))
-        with open(g + '.cds', 'w') as fh:
-            for p in pep_dict:
-                fh.write(cds_dict[p].format('fasta'))
+        if not os.path.exists(g+'.cds'):
+            pep_dict = SeqIO.to_dict(SeqIO.parse(g, "fasta"))
+            with open(g + '.cds', 'w') as fh:
+                for p in pep_dict:
+                    fh.write(cds_dict[p].format('fasta'))
         cmd = "t_coffee {0} -mode fmcoffee  > {0}.aln &&  pal2nal.pl {0}.aln {0}.cds   >{0}.paml_aln".format(g)
         qsub(cmd, name=g, normal='T')
         if debug == 'T':
