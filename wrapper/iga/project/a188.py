@@ -11,7 +11,7 @@ import pandas as pd
 from parse import parse
 
 from iga.annotation.gff import Loci, Bed, GFF
-from iga.apps.base import emain, qsub, get_prefix, sh
+from iga.apps.base import emain, qsub, get_prefix, sh, split_fasta
 
 import logging
 import coloredlogs
@@ -454,13 +454,14 @@ python3 $PLOTSR $REF.$QRY.syri.out {0} {1} -H 8 -W 5
 """
 
 
-def syri(ref=None, qry=None, threads=6, submit='T'):
+def syri(ref=None, qry=None, threads=6, submit='T', split='F'):
     """
     Syri Wrapper
     :param ref:
     :param qry:
     :param threads:
     :param submit:
+    :param split: [F|T], whether to split into seperate chromosomes and submit.
     :return:
     """
     cmd = 'conda activate syri' + syri_sh.format(ref, qry)
@@ -469,10 +470,17 @@ def syri(ref=None, qry=None, threads=6, submit='T'):
     if len(ref.split('.')) > 2:
         chr_id = ref.split('.')[-1]
         prefix += chr_id
-    if submit == 'T':
-        qsub(cmd, cpus=threads, name='syri.' + prefix)
+    if split == 'F':
+        if submit == 'T':
+            qsub(cmd, cpus=threads, name='syri.' + prefix)
+        else:
+            sh(cmd)
     else:
-        sh(cmd)
+        ref_list = split_fasta(ref, bypart='T')
+        qry_list = split_fasta(qry, bypart='T')
+        for chr_ref, chr_qry in zip(ref_list, qry_list):
+            cmd = 'conda activate syri' + syri_sh.format(chr_ref, chr_qry)
+            qsub(cmd, cpus=threads, name='syri.' + prefix)
 
 
 def syri_batch(genome_list=None):

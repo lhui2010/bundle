@@ -67,9 +67,28 @@ def mkdir(dirname, overwrite=False):
     return True
 
 
-def split_fasta(fasta, workdir, chunk=100):
-    file_list = sh('split_fastav3.pl {0} {2} && mv {0}._ {1}'.format(
-        fasta, workdir, str(chunk))).split()
+def split_fasta(fasta, workdir, chunk=100, bypart='F'):
+    """
+    :param fasta: fasta
+    :param workdir: workdir
+    :param chunk: number to be split
+    :param bypart: default is F, if it's T, split each '>xx\nATG' into seperate file with fasta header as file name.
+    :return:
+    """
+    if bypart == 'F':
+        file_list = sh('split_fastav3.pl {0} {2} && mv {0}._ {1}'.format(
+            fasta, workdir, str(chunk))).split()
+    else:
+        file_list = []
+        #https://github.com/uditvashisht/split-fasta/blob/master/splitfasta/__main__.py
+        with open(fasta, 'r') as f:
+            data = f.read().split('>')
+            for i, j in enumerate(data[1:], start=1):
+                (header, content) = j.split('\n', 1)
+                new_file_name = f'fasta_{header}.fasta'
+                file_list.append(new_file_name)
+                with open(new_file_name, 'w') as f:
+                    f.write('>' + j)
     return file_list
 
 
