@@ -482,7 +482,6 @@ def syri(ref=None, qry=None, threads=6, submit='T', bychr='F'):
             prefix = get_prefix(chr_ref)
             cmd = 'conda activate syri' + syri_sh.format(chr_ref, chr_qry)
             qsub(cmd, cpus=threads, name='syri.' + prefix)
-            break
 
 
 def syri_batch(genome_list=None, bychr='F'):
