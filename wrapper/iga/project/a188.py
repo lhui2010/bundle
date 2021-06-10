@@ -479,8 +479,10 @@ def syri(ref=None, qry=None, threads=6, submit='T', split='F'):
         ref_list = split_fasta(ref, bypart='T')
         qry_list = split_fasta(qry, bypart='T')
         for chr_ref, chr_qry in zip(ref_list, qry_list):
+            prefix = get_prefix(chr_ref)
             cmd = 'conda activate syri' + syri_sh.format(chr_ref, chr_qry)
             qsub(cmd, cpus=threads, name='syri.' + prefix)
+            break
 
 
 def syri_batch(genome_list=None):
