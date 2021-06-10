@@ -485,7 +485,7 @@ def syri(ref=None, qry=None, threads=6, submit='T', bychr='F'):
             break
 
 
-def syri_batch(genome_list=None):
+def syri_batch(genome_list=None, bychr='F'):
     """
     batch syri wrapper
     :param genome_list: multiple genome fasta, like a.genome b.genome c.genome
@@ -505,7 +505,7 @@ def syri_batch(genome_list=None):
             if qry == ref:
                 continue
             else:
-                syri(qry, ref)
+                syri(qry, ref, bychr=bychr)
 
 
 def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYNAL', output=''):
