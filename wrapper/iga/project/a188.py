@@ -1691,7 +1691,7 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
     """
     species_name_col = int(species_name_col)
     for g in os.listdir(Single_Copy_Orthologue_Sequences):
-        if g.endswith('.cds.paml_aln'):
+        if g.endswith('paml_aln'):
             with open(g) as fh:
                 fh.readline()
                 for line in fh():
