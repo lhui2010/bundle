@@ -525,7 +525,8 @@ def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYNAL', output=''):
     if output != '':
         bedpe.get_mosaic(outtable=output)
     else:
-        bedpe.get_mosaic()
+        output = synal_file + '.mosaic'
+        bedpe.get_mosaic(output)
 
 
 def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', pos2='7,8', print_out='T'):
@@ -873,7 +874,6 @@ def mosaic_ratio2(mosaic=None, synal=None):
     prefix = get_prefix(mosaic)
     print("{}\t{}\t{}".format(prefix.format(prefix, mosaic_left/(mosaic_left+synal_left),
                                             mosaic_right/(mosaic_right+synal_right))))
-
 
 
 def chromosome_level_ratio(stat=None):
