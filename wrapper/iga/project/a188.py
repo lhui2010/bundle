@@ -274,6 +274,7 @@ class BedPE:
                             chr_lp[i - 1].right.end >= chr_lp[i].left.start:
                         continue
                     # From now, 1-based is transformed into 0-based start and 1-based end.
+                    # Not really, 0610.2021
                     name = chr_lp[i - 1].right.name
                     if name == '.':
                         name = "SYN" + str(count)
@@ -842,6 +843,37 @@ def mosaic_ratio(fai=None, stat=None):
     ratio = (int(left_mosaic_size) + int(right_mosaic_size)) / (chr_size[left_chr] + chr_size[right_chr])
     print("{}\t{}\t{}\t{}\t{}\t{:.1%}".format(tag, left_mosaic_size, right_mosaic_size,
                                               chr_size[left_chr], chr_size[right_chr], ratio))
+
+
+def mosaic_ratio2(mosaic=None, synal=None):
+    """
+    Calculate mosaic ratio based on mosaic region size and chromosome size
+    :param mosaic_file:
+    :param synal_file:
+    :return:
+        xx-yy: mosaic%
+        yy-xx: mosaic%
+    """
+    mosaic_left = 0
+    mosaic_right = 0
+    synal_left = 0
+    synal_right = 0
+    with open(mosaic) as fh:
+        for line in fh:
+            #A188_1  3453829 3454224 B73_1   1757    1996
+            mylist = line.strip().split()
+            mosaic_left += int(mylist[2]) - int(mylist[1]) + 1
+            mosaic_right += int(mylist[5]) - int(mylist[4]) + 1
+    with open(synal) as fh:
+        for line in fh:
+            #A188_1  5430894 5450765 -       -       B73_1   198985  218839  SYNAL9  SYN4    SYNAL   -
+            mylist = line.strip().split()
+            synal_left += int(mylist[2]) - int(mylist[1]) + 1
+            synal_right += int(mylist[7]) - int(mylist[6]) + 1
+    prefix = get_prefix(mosaic)
+    print("{}\t{}\t{}".format(prefix.format(prefix, mosaic_left/(mosaic_left+synal_left),
+                                            mosaic_right/(mosaic_right+synal_right))))
+
 
 
 def chromosome_level_ratio(stat=None):
