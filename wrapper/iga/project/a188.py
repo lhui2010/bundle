@@ -1650,8 +1650,8 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None):
     :param Single_Copy_Orthologue_Sequences: The directory of Single_Copy_Orthologue_Sequences (in orthofinder2)
     :return:
     """
-    os.chdir(Single_Copy_Orthologue_Sequences)
     cds_dict = SeqIO.to_dict(SeqIO.parse(total_cds, "fasta"))
+    os.chdir(Single_Copy_Orthologue_Sequences)
     for g in os.listdir('.'):
         if 'OG' not in g:
             continue
