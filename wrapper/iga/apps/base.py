@@ -149,7 +149,7 @@ def rscript(cmd):
     return ret
 
 
-def qsub(cmd=None, cpus=1, name='output', sub=True):
+def qsub(cmd=None, cpus=1, name='output', sub=True, normal='F'):
     """
     submit jobs via qsub
     :param cmd:
@@ -167,6 +167,19 @@ def qsub(cmd=None, cpus=1, name='output', sub=True):
 #$ -l h="rock0[12]"
 
 #set -exo pipefail
+ROOT=$PWD
+date
+""".format(cpus, name)
+    if normal == "T":
+        newqsub = r"""#!/bin/bash
+#
+#$ -cwd
+#$ -N {1}
+#$ -j y
+#$ -V
+#$ -pe smp {0}
+#$ -S /bin/bash
+
 ROOT=$PWD
 date
 """.format(cpus, name)

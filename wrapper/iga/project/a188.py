@@ -1660,7 +1660,7 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
             for p in pep_dict:
                 fh.write(cds_dict[p].format('fasta'))
         cmd = "t_coffee {0} -mode fmcoffee  > {0}.aln &&  pal2nal.pl {0}.aln {0}.cds   >{0}.paml_aln".format(g)
-        qsub(cmd, name=g)
+        qsub(cmd, name=g, normal='T')
         if debug == 'T':
             break
     return 0
