@@ -1666,13 +1666,13 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
         cmd = "t_coffee {0} -mode fmcoffee  > {0}.aln &&  pal2nal.pl {0}.aln {0}.cds   >{0}.paml_aln".format(g)
         qsub(cmd, name=g, normal='T')
         if debug == 'T':
-            count +=1
+            count += 1
             if count > 5:
                 break
     return 0
 
 
-collect_calcKS_OF=r"""
+collect_calcKS_OF = r"""
 cat {0}/*paml_aln |grep -v CLUSTAL | sed "s/OsR498.*\s/indica    /; s/OS0.*\s/japonica  /">$TREE_DIR/total.aln
 
 #sed -i '1iCLUSTAL W multiple sequence alignment' $TREE_DIR/total.aln
@@ -1691,7 +1691,7 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
     """
     species_name_col = int(species_name_col)
     for g in os.listdir(Single_Copy_Orthologue_Sequences):
-        if 'paml_aln' in g:
+        if g.endswith('.cds.paml_aln'):
             with open(g) as fh:
                 fh.readline()
                 for line in fh():
