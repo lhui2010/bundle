@@ -1635,5 +1635,34 @@ def edta(genome=None, cds=None, species='others', threads=40):
     qsub(cmd, cpus=5, name='EDTA')
 
 
+calcKs_OF_sh = r"""
+cd {0}
+# export MAX_N_PID_4_TCOFFEE=1000
+for g in OG*
+do
+    t_coffee ${g}.fa -mode fmcoffee  > {g}.pep.aln &&  pal2nal.pl ${g}.pep.aln ${g}.cds   >${g}.paml_aln
+done
+"""
+
+
+def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None):
+    """
+    :param Single_Copy_Orthologue_Sequences: The directory of Single_Copy_Orthologue_Sequences (in orthofinder2)
+    :return:
+    """
+    os.chdir(Single_Copy_Orthologue_Sequences)
+    cds_dict = SeqIO.to_dict(SeqIO.parse(total_cds, "fasta"))
+    for g in os.listdir('.'):
+        if 'OG' not in g:
+            continue
+        pep_dict = SeqIO.to_dict(SeqIO.parse(g, "fasta"))
+        with open(g + '.cds', 'w') as fh:
+            for p in pep_dict:
+                fh.write(cds_dict[p].format('fasta'))
+        cmd = "t_coffee {0} -mode fmcoffee  > {0}.aln &&  pal2nal.pl {0}.aln {0}.cds   >{0}.paml_aln".format(g)
+        qsub(cmd)
+        break
+
+
 if __name__ == "__main__":
     emain()
