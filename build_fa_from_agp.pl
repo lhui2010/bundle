@@ -44,6 +44,8 @@ select STDOUT;
 
 my %chr_seq;
 my $print;
+my @chr_list;
+my %chr_in_list;
 while(<AGP>)
 {
 ##Ragoo AGP v2.0
@@ -53,6 +55,12 @@ while(<AGP>)
     next if (/^#/);
 
     my ($chr, $start, $end, undef, $type, $scaff_id, undef, $scaff_len, $strand)=split;
+
+    if(not exists($chr_in_list{$chr}))
+    {
+        push @chr_list, $chr;
+        $chr_in_list{$chr} = 1;
+    }
 
     if($type eq "W")
     {
@@ -69,7 +77,8 @@ while(<AGP>)
     }
 }
 
-for my $chr( sort {substr($a, 3)<=>substr($b,3)} keys %chr_seq)
+#for my $chr( sort {substr($a, 3)<=>substr($b,3)} keys %chr_seq)
+for my $chr(@chr_list)
 {
     print ">$chr\n";
     &formated_print($chr_seq{$chr});

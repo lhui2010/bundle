@@ -1,0 +1,13 @@
+Warning: Permanently added the ECDSA host key for IP address '172.65.251.78' to the list of known hosts.
+From gitlab.com:lhui2010/bundle
+   a1d1778..287f0c0  master     -> origin/master
+Updating a1d1778..287f0c0
+Fast-forward
+ wrapper/iga/assembly/hic.py | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+From gitlab.com:lhui2010/bundle
+   287f0c0..6603aac  master     -> origin/master
+Updating 287f0c0..6603aac
+Fast-forward
+ wrapper/iga/annotation/isoseq.py | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
