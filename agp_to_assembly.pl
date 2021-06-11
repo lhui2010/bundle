@@ -59,7 +59,7 @@ while(<>)
 
 for my $i (0..$#tigid)
 {
-    print ">", $tigid[$i], "\t", $i + 1, "\t", $len{$tigid[$i]}, "\n";
+    print ">", $tigid[$i], " ", $i + 1, " ", $len{$tigid[$i]}, "\n";
 }
 
 for my $c (@list)
