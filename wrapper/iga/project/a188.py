@@ -1635,6 +1635,13 @@ def edta(genome=None, cds=None, species='others', threads=40):
     qsub(cmd, cpus=5, name='EDTA')
 
 
+# The following three function is run sequentially
+# $qsub  -V -b y -N SoybExtract -cwd "
+# python -m iga.project.a188 calcKs_OF OrthoFinder/Results_Jun10/Single_Copy_Orthologue_Sequences soy5.cds
+# python -m iga.project.a188 collect_calcKs_OF OrthoFinder/Results_Jun10/Single_Copy_Orthologue_Sequences > single_copy_cds.aln"
+# python -m iga.project.a188 get_dist single_copy_cds.aln
+# Output Dist is single_copy_cds.aln.dist
+
 calcKs_OF_sh = r"""
 cd {0}
 # export MAX_N_PID_4_TCOFFEE=1000
@@ -1691,6 +1698,7 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
     :return: STDOUT, need to redirect to a file
     """
     species_name_col = int(species_name_col)
+    print('CLUSTAL W multiple sequence alignment')
     for g in os.listdir(Single_Copy_Orthologue_Sequences):
         if g.endswith('paml_aln'):
             with open(os.path.join(Single_Copy_Orthologue_Sequences, g)) as fh:
@@ -1711,6 +1719,7 @@ get_dist_sh="""
 trimal -in {0} > {0}.trim
 distmat -nucmethod 4  -sequence {0}.trim -outfile {0}.trim.dist
 """
+
 
 def get_dist(aln=None):
     """
