@@ -454,7 +454,7 @@ python3 $PLOTSR $REF.$QRY.syri.out {0} {1} -H 8 -W 5
 """
 
 
-def syri(ref=None, qry=None, threads=6, submit='T', bychr='F'):
+def syri(ref=None, qry=None, threads=6, submit='T', bychr='F', node='rock0[12]'):
     """
     Syri Wrapper
     :param ref:
@@ -481,7 +481,7 @@ def syri(ref=None, qry=None, threads=6, submit='T', bychr='F'):
         for chr_ref, chr_qry in zip(ref_list, qry_list):
             prefix = get_prefix(chr_ref)
             cmd = 'conda activate syri' + syri_sh.format(chr_ref, chr_qry)
-            qsub(cmd, cpus=threads, name='syri.' + prefix)
+            qsub(cmd, cpus=threads, name='syri.' + prefix, node=node)
 
 
 def syri_batch(genome_list=None, bychr='F', node='rock0[12]'):
