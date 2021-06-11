@@ -1712,7 +1712,7 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
                         (id, seq) = line.split()
                         id_list = id.split('_')
                         newid = id_list[species_name_col]
-                        print(f'{newid:<30}{seq}')
+                        print("{: <30}{}".format(newid, seq))
 
 
 get_dist_sh="""
