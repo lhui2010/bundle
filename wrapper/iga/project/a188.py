@@ -1721,13 +1721,16 @@ distmat -nucmethod 4  -sequence {0}.trim -outfile {0}.trim.dist
 """
 
 
-def get_dist(aln=None):
+def get_dist(aln=None, qsub='F'):
     """
     :param aln:
     :return:
     """
     cmd = get_dist_sh.format(aln)
-    qsub(cmd, cpus=1, normal='T')
+    if qsub == 'T':
+        qsub(cmd, cpus=1, normal='T')
+    else:
+        sh(cmd)
 
 if __name__ == "__main__":
     emain()
