@@ -1693,9 +1693,9 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
     species_name_col = int(species_name_col)
     for g in os.listdir(Single_Copy_Orthologue_Sequences):
         if g.endswith('paml_aln'):
-            with open(os.path.join(Single_Copy_Orthologue_Sequences,g)) as fh:
+            with open(os.path.join(Single_Copy_Orthologue_Sequences, g)) as fh:
                 fh.readline()
-                for line in fh():
+                for line in fh:
                     line = line.rstrip()
                     if line == "":
                         print(line)
