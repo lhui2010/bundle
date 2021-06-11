@@ -1707,5 +1707,18 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
                         print(f'{newid:<30}{seq}')
 
 
+get_dist_sh="""
+trimal -in {0} > {0}.trim
+distmat -nucmethod 4  -sequence {0}.trim -outfile {0}.trim.dist
+"""
+
+def get_dist(aln=None):
+    """
+    :param aln:
+    :return:
+    """
+    cmd = get_dist_sh.format(aln)
+    qsub(cmd, cpus=1, normal='T')
+
 if __name__ == "__main__":
     emain()
