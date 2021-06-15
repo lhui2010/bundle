@@ -24,7 +24,7 @@ trinity_sh = r"""
 Trinity --SS_lib_type RF \
         --genome_guided_bam {0} \
           --genome_guided_max_intron 15000 \
-          --max_memory 20G --CPU {1}"
+          --max_memory 20G --CPU {1}
 """
 
 
