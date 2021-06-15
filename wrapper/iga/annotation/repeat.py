@@ -7,6 +7,8 @@ import os.path as op
 
 from iga.apps.base import emain, conda_act, bsub
 
+# def repeat_mask():
+
 
 def goto_workdir(program, sample=''):
     """

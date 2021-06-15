@@ -80,7 +80,7 @@ def split_fasta(fasta, workdir, chunk=100, bypart='F'):
             fasta, workdir, str(chunk))).split()
     else:
         file_list = []
-        #https://github.com/uditvashisht/split-fasta/blob/master/splitfasta/__main__.py
+        # https://github.com/uditvashisht/split-fasta/blob/master/splitfasta/__main__.py
         with open(fasta, 'r') as f:
             data = f.read().split('>')
             for i, j in enumerate(data[1:], start=1):
@@ -102,6 +102,7 @@ def get_prefix(name):
     :return:
     """
     return op.basename(name).split('.')[0]
+
 
 def sh(cmd, debug=False, parallel='F', cpus=1):
     """
@@ -473,7 +474,7 @@ class DictDb:
         """
         return_text = ''
         if self.has_section:
-            #logger.debug('sections are {}'.format(self.dictdb.keys()))
+            # logger.debug('sections are {}'.format(self.dictdb.keys()))
             for section in self.dictdb:
                 return_text += ('[{}]'.format(section) + "\n")
                 # logger.debug('section is {}'.format(section))
@@ -565,7 +566,7 @@ class VersatileTable:
                 # logger.debug("Treating {} and {} as non-seperator lines".format(this_arg))
                 key = content.strip()
                 value = None
-            #if section if null charactor, will not used by dictdb.change_val
+            # if section if null charactor, will not used by dictdb.change_val
             self.dictdb.update_val(key=key, val=value, section=section)
 
     def get_text(self):
@@ -645,7 +646,7 @@ class Config(VersatileTable):
         # logger.debug(cfg_type)
         # logger.debug(cfg.cfg[cfg_type])
         self.multiple_section_list = ['highlight', 'plot', 'link', 'zoom', 'tick',
-                                     'pairwise', 'rule', 'axis', 'background']
+                                      'pairwise', 'rule', 'axis', 'background']
         self.format = ''
         try:
             self.content = cfg.cfg[cfg_type]
@@ -658,14 +659,14 @@ class Config(VersatileTable):
                 logger.error("External config load error, exiting")
                 return 1
         if 'circos' in cfg_type:
-            #circos format is a bit weird, so handle it seperately
+            # circos format is a bit weird, so handle it seperately
             self.format = 'circos'
 
         if self.format == '':
             super().__init__(self.content)
         elif self.format == 'circos':
             super().__init__()
-            self.section_seperator='-+-'
+            self.section_seperator = '-+-'
             self.load_circos()
 
     def load_circos(self):
@@ -683,7 +684,7 @@ class Config(VersatileTable):
         if self.format == '':
             super().update(args, use_semicolon_sep)
         elif self.format == 'circos':
-            #like plots.plot.
+            # like plots.plot.
             mylist = args.split(';')
             section = ''
             for this_arg in mylist:
@@ -730,7 +731,7 @@ class Config(VersatileTable):
                 # Skip blank lines
                 continue
             elif line.startswith('</'):
-                #End of xx block
+                # End of xx block
                 # logger.debug(line)
                 # logger.debug(section)
                 section.pop()
@@ -770,12 +771,12 @@ class Config(VersatileTable):
                     param = this_section.pop()
                 else:
                     this_section = []
-                    #First condition test on whether to print </tag> lines
+                    # First condition test on whether to print </tag> lines
                 result_text += self.get_circos_section(last_section, this_section)
                 last_section = this_section
                 # logger.debug(self.dictdb.dictdb)
                 if val is None:
-                    #<<include ideogram.conf>> lines
+                    # <<include ideogram.conf>> lines
                     result_text += "{}\n".format(param)
                 else:
                     result_text += "{}{}{}\n".format(param, self.seperator, val)

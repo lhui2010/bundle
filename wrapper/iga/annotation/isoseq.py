@@ -11,7 +11,6 @@ import coloredlogs
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
-
 # 0 subreads.bam
 # 1 workdir
 # 2 output.bam
@@ -112,20 +111,32 @@ def isoseq_pb(subreads=None, primer=None, workdir='', threads=50):
     :param threads:  threads
     :return:
     """
-    #subreads = subreads.replace(' ', ',')
-    #subreads = subreads.split(',')
+    # subreads = subreads.replace(' ', ',')
+    # subreads = subreads.split(',')
 
     prefix = get_prefix(subreads)
 
-    #abspath_list(subreads)
+    # abspath_list(subreads)
 
-    #subreads = ','.join(subreads)
+    # subreads = ','.join(subreads)
 
     if (workdir == ''):
         workdir = "workdir_isoseq_" + prefix
-   #logging.debug(workdir)
+    # logging.debug(workdir)
     cmd = conda_act.format('isoseq3') + isoseq_pb_sh.format(workdir, subreads, primer, threads)
     bsub(cmd, name="isoseq3" + prefix, cpus=threads)
+
+
+# 0 input
+
+isoseq3_cluster_sh = """
+isoseq3 cluster {0} {1} --verbose --use-qvs -j {2}
+"""
+
+# def isoseq3_cluster(BAM=None, threads=20):
+#
+#     sam_merge = "samtools merge {}"
+#     cmd = conda_act.format('isoseq3') + iso
 
 
 if __name__ == "__main__":
