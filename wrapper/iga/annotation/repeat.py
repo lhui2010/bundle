@@ -23,7 +23,7 @@ RepeatMasker -lib ref-families.fa {0} -pa {1} -dir {0}.custom_lib.out"
 
 
 # species Viridiplantae
-def repeatmasker(genome, species='', denovo='T', threads=30):
+def repeatmasker(genome=None, species='', denovo='T', threads=30):
     """
     :param genome:
     :param species:
