@@ -42,7 +42,7 @@ def repeatmasker(genome=None, species='', denovo='T', threads=30):
     else:
         logging.error("Either provide a species name or use denovo prediction mode")
         exit(1)
-    bsub(cmd, name="repeat_masker_{}".format(genome), threads=threads)
+    bsub(cmd, name="repeat_masker_{}".format(genome), cpus=threads)
 
 
 def goto_workdir(program, sample=''):
