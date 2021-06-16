@@ -6,7 +6,7 @@ import os
 
 import os.path as op
 
-from iga.apps.base import emain, conda_act, bsub
+from iga.apps.base import emain, conda_act, bsub, get_prefix
 
 # def repeat_mask():
 
@@ -42,7 +42,8 @@ def repeatmasker(genome=None, species='', denovo='T', threads=30):
     else:
         logging.error("Either provide a species name or use denovo prediction mode")
         exit(1)
-    bsub(cmd, name="repeat_masker_{}".format(genome), cpus=threads)
+    prefix = get_prefix(genome)
+    bsub(cmd, name="repeat_masker_{}".format(prefix), cpus=threads)
 
 
 def goto_workdir(program, sample=''):
