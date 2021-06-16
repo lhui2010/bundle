@@ -6,9 +6,19 @@ import os
 
 import os.path as op
 
-from iga.apps.base import emain, conda_act, bsub, get_prefix
+from iga.apps.base import emain, conda_act, bsub, get_prefix, sh
 
 # def repeat_mask():
+
+
+def clean_fasta_name(fasta=None):
+    """
+    sed "s/|arrow_np1212//; s/:::fragment//; s/:::debris//" elumb.contig.fa.origin_name > elumb.contig.fa
+    :return:
+    """
+    sedcmd = """sed "s/|arrow_np1212//; s/:::fragment//; s/:::debris//" {0} > {0}.mod""".format(fasta)
+    stdout = sh(sedcmd)
+    print(stdout)
 
 
 # 0 ref.fa
