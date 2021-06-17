@@ -47,7 +47,7 @@ def reads_align_assembly(reads=None, ref=None, threads=30, output=''):
     else:
         prefix = output
     align_cmd = align_sh.format(ref, read1, read2, threads)
-    trinity_cmd = trinity_sh.format(read1 + ".bam", threads, prefix)
+    trinity_cmd = trinity_sh.format(read1 + ".bam", threads, read1)
     cmd = align_cmd + trinity_cmd
     bsub(cmd, cpus=threads, name="Trinity_Guided_read1")
     logging.info("Results is {}/Trinity-GG.fasta".format(prefix))
