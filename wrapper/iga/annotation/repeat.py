@@ -27,8 +27,8 @@ def clean_fasta_name(fasta=None):
 repeat_masker_sh = r"""
 BuildDatabase -name {0} -engine ncbi {0} 
 RepeatModeler -engine ncbi -pa {1} -database {0}
-mkdir -p {0}.custom_lib.out
-RepeatMasker -lib ref-families.fa {0} -pa {1} -dir {0}.custom_lib.out"
+mkdir -p custom_lib.out
+RepeatMasker -lib ref-families.fa {0} -pa {1} -dir custom_lib.out"
 """
 
 
@@ -54,6 +54,48 @@ def repeatmasker(genome=None, species='', denovo='T', threads=30):
         exit(1)
     prefix = get_prefix(genome)
     bsub(cmd, name="repeat_masker_{}".format(prefix), cpus=threads)
+
+
+post_repeatmasker_sh = r"""
+species=Viridiplantae
+cd {0}
+mkdir -p Full_mask
+## unzip
+gunzip *lib.out/*.cat.gz
+cat *lib.out/*.cat >full_mask.cat
+## to mask.out
+ProcessRepeats -species $species full_mask.cat
+## create GFF3
+rmOutToGFF3.pl full_mask.out > full_mask.gff3
+
+## isolate complex repeats
+grep -v -e "Satellite" -e ")n" -e "-rich" full_mask.gff3 \
+     > full_mask.complex.gff3
+
+## reformat to work with MAKER
+cat full_mask.complex.gff3 | \
+ perl -ane '$id; if(!/^\#/){@F = split(/\t/, $_); chomp $F[-1];$id++; $F[-1] .= "\;ID=$id"; $_ = join("\t", @F)."\n"} print $_' \
+         > full_mask.complex.reformat.gff3
+
+echo "Repeat GFF file is located in "
+echo "$PWD/full_mask.complex.reformat.gff3"
+```
+
+# Step3. Get soft masked genome
+ 
+```
+bedtools maskfasta -soft -fi elumb.contig.fa -bed full_mask.complex.reformat.gff3 \
+-fo elumb.contig.masked.fa
+```
+"""
+
+
+def post_repeat_masker(dir=None):
+    """
+    Post repeat process
+    :param dir:
+    :return:
+    """
 
 
 def goto_workdir(program, sample=''):

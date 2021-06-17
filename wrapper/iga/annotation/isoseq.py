@@ -76,7 +76,12 @@ def isoseq_bgi(subreads=None, workdir=''):
 isoseq_pb_sh = r"""mkdir -p {0}
 cd {0}
 ln -s ../{1}
-ln -s ../{2}
+if [ ! -e {2} ]
+then
+    ln -s ../{2}
+else
+    echo "{2} already exist, will not try re-link"
+fi
 
 ROOT=$PWD
 INPUTBAM={1}

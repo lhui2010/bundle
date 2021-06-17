@@ -1647,12 +1647,13 @@ cd {0}
 # export MAX_N_PID_4_TCOFFEE=1000
 for g in OG*
 do
-    t_coffee ${g}.fa -mode fmcoffee  > {g}.pep.aln &&  pal2nal.pl ${g}.pep.aln ${g}.cds   >${g}.paml_aln
+    #t_coffee ${g}.fa -mode fmcoffee  > {g}.pep.aln &&  pal2nal.pl ${g}.pep.aln ${g}.cds   >${g}.paml_aln
+    muscle -clw -in ${g}.fa -out {g}.pep.aln &&  pal2nal.pl ${g}.pep.aln ${g}.cds   >${g}.paml_aln
 done
 """
 
 
-def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
+def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F', submit='T'):
     """
     :param Single_Copy_Orthologue_Sequences: The directory of Single_Copy_Orthologue_Sequences (in orthofinder2)
     :return: group.paml_aln which is coding sequences alignment guided by protein alignment
@@ -1671,8 +1672,10 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F'):
                 for p in pep_dict:
                     fh.write(cds_dict[p].format('fasta'))
         cmd = "t_coffee {0} -mode fmcoffee  > {0}.aln &&  pal2nal.pl {0}.aln {0}.cds   >{0}.paml_aln".format(g)
-        sh(cmd)
-           #, name=g, normal='T')
+        if submit == 'T':
+            qsub(cmd, name=g, normal='T')
+        else:
+            sh(cmd)
         if debug == 'T':
             count += 1
             if count > 5:
@@ -1693,7 +1696,7 @@ distmat -nucmethod 4  -sequence $TREE_DIR/total.trimal.aln -outfile $TREE_DIR/to
 
 def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1):
     """
-    :param Single_Copy_Orthologue_Sequences:
+    :param Single_Copy_Orthologue_Sequences: directory of that directory
     :param species_name: if zemay_A188_oGxxx, then species name A188 is 1 (split('_')[1])
     :return: STDOUT, need to redirect to a file
     """
@@ -1715,7 +1718,7 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
                         print("{: <30}{}".format(newid, seq))
 
 
-get_dist_sh="""
+get_dist_sh = """
 trimal -in {0} > {0}.trim
 distmat -nucmethod 4  -sequence {0}.trim -outfile {0}.trim.dist
 """
