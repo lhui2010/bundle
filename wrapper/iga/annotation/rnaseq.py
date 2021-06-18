@@ -26,7 +26,7 @@ Trinity --SS_lib_type RF \
         --genome_guided_bam {0} \
           --genome_guided_max_intron 15000 \
           --max_memory 20G --CPU {1} \
-          --output {2} 
+          --output {2}_trinity 
 """
 
 
@@ -48,9 +48,12 @@ def reads_align_assembly(reads=None, ref=None, threads=30, output=''):
         prefix = output
     align_cmd = align_sh.format(ref, read1, read2, threads)
     trinity_cmd = trinity_sh.format(read1 + ".bam", threads, read1)
-    cmd = align_cmd + trinity_cmd
+    if os.path.exists(read1 + ".bam"):
+        cmd = trinity_cmd
+    else:
+        cmd = align_cmd + trinity_cmd
     bsub(cmd, cpus=threads, name="Trinity_Guided_read1")
-    logging.info("Results is {}/Trinity-GG.fasta".format(prefix))
+    logging.info("Results is {}_trinity/Trinity-GG.fasta".format(prefix))
 
 
 if __name__ == "__main__":
