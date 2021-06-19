@@ -1720,8 +1720,8 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
 
 
 get_dist_sh = """
-trimal -in {0} > {0}.trim
-distmat -nucmethod 4  -sequence {0}.trim -outfile {0}.trim.dist
+trimal -nogaps -in {0} > {0}.trim
+distmat -nucmethod 2  -sequence {0}.trim -outfile {0}.trim.dist
 """
 
 
