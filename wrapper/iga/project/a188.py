@@ -1721,7 +1721,7 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
 
 get_dist_sh = """
 trimal -nogaps -in {0} > {0}.trim
-for i in `seq 5`
+for i in `seq 0 5`
 do
     distmat -nucmethod $i  -sequence {0}.trim -outfile {0}.trim.dist$i
 done
