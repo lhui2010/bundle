@@ -1636,11 +1636,12 @@ def edta(genome=None, cds=None, species='others', threads=40):
 
 
 # The following three function is run sequentially
-# $qsub  -V -b y -N SoybExtract -cwd "
+#
 # python -m iga.project.a188 calcKs_OF OrthoFinder/Results_Jun10/Single_Copy_Orthologue_Sequences soy5.cds
 # python -m iga.project.a188 collect_calcKs_OF OrthoFinder/Results_Jun10/Single_Copy_Orthologue_Sequences > single_copy_cds.aln"
 # python -m iga.project.a188 get_dist single_copy_cds.aln
-# Output Dist is single_copy_cds.aln.dist
+#
+# Output Dist is single_copy_cds.aln.dist[012345]
 
 calcKs_OF_sh = r"""
 cd {0}
