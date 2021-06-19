@@ -31,7 +31,7 @@ then
     RepeatModeler -engine ncbi -pa {1} -database {0}
 fi
 mkdir -p custom_lib.out
-RepeatMasker -lib {0}-families.fa {0} -pa {1} -dir custom_lib.out"
+RepeatMasker -lib {0}-families.fa {0} -pa {1} -dir custom_lib.out
 """
 
 
