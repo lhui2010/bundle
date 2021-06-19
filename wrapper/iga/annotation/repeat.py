@@ -25,10 +25,13 @@ def clean_fasta_name(fasta=None):
 # 1 repeat.gff
 # 2 threads
 repeat_masker_sh = r"""
-BuildDatabase -name {0} -engine ncbi {0} 
-RepeatModeler -engine ncbi -pa {1} -database {0}
+if [ ! -e {0}-families.fa ];
+then
+    BuildDatabase -name {0} -engine ncbi {0} 
+    RepeatModeler -engine ncbi -pa {1} -database {0}
+fi
 mkdir -p custom_lib.out
-RepeatMasker -lib ref-families.fa {0} -pa {1} -dir custom_lib.out"
+RepeatMasker -lib {0}-families.fa {0} -pa {1} -dir custom_lib.out"
 """
 
 

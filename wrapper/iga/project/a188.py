@@ -1637,7 +1637,8 @@ def edta(genome=None, cds=None, species='others', threads=40):
 
 # The following three function is run sequentially
 #
-# python -m iga.project.a188 calcKs_OF OrthoFinder/Results_Jun10/Single_Copy_Orthologue_Sequences soy5.cds
+# CDS=
+# python -m iga.project.a188 calcKs_OF OrthoFinder/Results_Jun10/Single_Copy_Orthologue_Sequences $CDS
 # python -m iga.project.a188 collect_calcKs_OF OrthoFinder/Results_Jun10/Single_Copy_Orthologue_Sequences > single_copy_cds.aln"
 # python -m iga.project.a188 get_dist single_copy_cds.aln
 #
