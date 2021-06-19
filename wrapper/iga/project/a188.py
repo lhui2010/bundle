@@ -1671,8 +1671,8 @@ def calcKs_OF(Single_Copy_Orthologue_Sequences=None, total_cds=None, debug='F', 
             with open(g + '.cds', 'w') as fh:
                 for p in pep_dict:
                     fh.write(cds_dict[p].format('fasta'))
-        #cmd = "t_coffee {0} -mode fmcoffee  > {0}.aln &&  pal2nal.pl {0}.aln {0}.cds   >{0}.paml_aln".format(g)
-        cmd = "muscle -clw -in {0} -out {0}.aln && sed -i 's/MUSCLE (3.7)/CLUSTAL W/' {0}.aln &&  pal2nal.pl {0}.aln {0}.cds   >{0}.paml_aln".format(g)
+        cmd = "t_coffee {0}  > {0}.aln &&  pal2nal.pl {0}.aln {0}.cds   >{0}.paml_aln".format(g)
+        # cmd = "muscle -clw -in {0} -out {0}.aln && sed -i 's/MUSCLE (3.7)/CLUSTAL W/' {0}.aln &&  pal2nal.pl {0}.aln {0}.cds   >{0}.paml_aln".format(g)
         if submit == 'T':
             qsub(cmd, name=g, normal='T')
         else:
