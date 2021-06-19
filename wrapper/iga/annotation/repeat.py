@@ -25,7 +25,7 @@ def clean_fasta_name(fasta=None):
 # 1 repeat.gff
 # 2 threads
 repeat_masker_sh = r"""
-if [ ! -e {0}-families.fa ];
+if [ ! -e {0} ];
 then
     BuildDatabase -name {0} -engine ncbi {0} 
     RepeatModeler -engine ncbi -pa {1} -database {0}
