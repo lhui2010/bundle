@@ -1708,6 +1708,7 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
     for g in os.listdir(Single_Copy_Orthologue_Sequences):
         if g.endswith('paml_aln'):
             g_abs_path = os.path.join(Single_Copy_Orthologue_Sequences, g)
+            sh('trimal -nogaps -in {} -out {}.format'.format(g_abs_path))
             if os.path.getsize(g_abs_path) == 0:
                 continue
             with open(g_abs_path) as fh:
