@@ -1710,7 +1710,7 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
             g_abs_path = os.path.join(Single_Copy_Orthologue_Sequences, g)
             if os.path.getsize(g_abs_path) == 0:
                 continue
-            with open(os.path.join(Single_Copy_Orthologue_Sequences, g_abs_path)) as fh:
+            with open(g_abs_path) as fh:
                 fh.readline()
                 for line in fh:
                     line = line.rstrip()
