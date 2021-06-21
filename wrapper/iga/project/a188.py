@@ -1714,8 +1714,8 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
                 fh.readline()
                 for line in fh:
                     line = line.rstrip()
-                    if line == "":
-                        print(line)
+                    if line.startswith(' '):
+                        print('')
                         continue
                     else:
                         (id, seq) = line.split()
