@@ -1708,8 +1708,20 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
     for g in os.listdir(Single_Copy_Orthologue_Sequences):
         if g.endswith('paml_aln'):
             g_abs_path = os.path.join(Single_Copy_Orthologue_Sequences, g)
-            sh('trimal -nogaps -in {0} -out {0}.format'.format(g_abs_path))
             if os.path.getsize(g_abs_path) == 0:
+                continue
+            sh('trimal -nogaps -in {0} -out {0}.format'.format(g_abs_path))
+            if not os.path.exists(g_abs_path + '.format'):
+                #there is a bug in pal2nal
+                #sometime will output
+                #
+                # solyc_BGV006775_Solyc07g150117.1.1     ATCTAATGATTCTGGACGTAATCCTGGACGTGAAGA
+                # solyc_BGV006865_Solyc07g150117.1.1     CTAATGATTCTGGACGTAATCCTGGACGTGAAG---AAT
+                # solyc_Brandywine_Solyc07g150117.1.1    ATCTAATGATTCTGGACGTAATCCTGGACGTGAAGA
+                # solyc_Floradade_Solyc07g150117.1.1     ATC4TAATGATTCTGGACGTAATCCTGGACGTGAAGA
+                # solyc_M82_Solyc07g150117.1.1           ATCTAATGATTCTGGACGTAATCCTGGACGTGAAGA
+                #
+                # uder/Results_Jun10/Single_Copy_Orthologue_Sequences/OG0019286.fa.paml_aln (END)
                 continue
             with open(g_abs_path + '.format') as fh:
                 fh.readline()
