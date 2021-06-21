@@ -1707,9 +1707,10 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
     print('CLUSTAL W multiple sequence alignment')
     for g in os.listdir(Single_Copy_Orthologue_Sequences):
         if g.endswith('paml_aln'):
-            if os.path.getsize(g) == 0:
+            g_abs_path = os.path.join(Single_Copy_Orthologue_Sequences, g)
+            if os.path.getsize(g_abs_path) == 0:
                 continue
-            with open(os.path.join(Single_Copy_Orthologue_Sequences, g)) as fh:
+            with open(os.path.join(Single_Copy_Orthologue_Sequences, g_abs_path)) as fh:
                 fh.readline()
                 for line in fh:
                     line = line.rstrip()
