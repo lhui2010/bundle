@@ -1711,7 +1711,7 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
             sh('trimal -nogaps -in {} -out {}.format'.format(g_abs_path))
             if os.path.getsize(g_abs_path) == 0:
                 continue
-            with open(g_abs_path) as fh:
+            with open(g_abs_path + '.format') as fh:
                 fh.readline()
                 for line in fh:
                     line = line.rstrip()
