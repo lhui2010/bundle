@@ -1719,7 +1719,11 @@ def collect_calcKs_OF(Single_Copy_Orthologue_Sequences=None, species_name_col=1)
                         print('')
                         continue
                     else:
-                        (id, seq) = line.split()
+                        try:
+                            (id, seq) = line.split()
+                        except ValueError:
+                            logging.debug(line)
+                            continue
                         id_list = re.split(r'[-_]', id)
                         newid = id_list[species_name_col]
                         print("{: <30}{}".format(newid, seq))
