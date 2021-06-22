@@ -346,7 +346,8 @@ def braker(genome=None, protein=None, estbam=None, workdir='', send_to_augustus=
     """
     if workdir == '':
         workdir = 'workdir_braker_{}'.format(genome)
-    cmd = breaker_sh.format(genome, protein, estbam, workdir)
+    cmd = conda_act.format('braker2')
+    cmd += breaker_sh.format(genome, protein, estbam, workdir)
     bsub(cmd, name='braker_train')
     return 0
 
