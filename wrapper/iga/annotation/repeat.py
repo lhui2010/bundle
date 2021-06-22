@@ -78,7 +78,7 @@ grep -v -e "Satellite" -e ")n" -e "-rich" full_mask.gff3 \
 
 ## reformat to work with MAKER
 cat full_mask.complex.gff3 | \
- perl -ane '$id; if(!/^\#/){@F = split(/\t/, $_); chomp $F[-1];$id++; $F[-1] .= "\;ID=$id"; $_ = join("\t", @F)."\n"} print $_' \
+ perl -ane '$id; if(!/^\#/){{@F = split(/\t/, $_); chomp $F[-1];$id++; $F[-1] .= "\;ID=$id"; $_ = join("\t", @F)."\n"}} print $_' \
          > full_mask.complex.reformat.gff3
 
 echo "Repeat GFF file is located in "
