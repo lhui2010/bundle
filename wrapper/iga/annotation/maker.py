@@ -20,8 +20,7 @@ import coloredlogs
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
-
-#0 repeatmask.gff
+# 0 repeatmask.gff
 prep_repeat_sh = """
 GFF={0}
 PREFIX=${{GFF%.gff}}
@@ -44,7 +43,7 @@ def prep_repeat_gff(GFF=None):
     cmd = ''
     if re.search(r'.out$', GFF):
         cmd = "rmOutToGFF3.pl {0} > {0}.gff\n".format(GFF)
-    cmd += prep_repeat_sh.format(GFF+".gff")
+    cmd += prep_repeat_sh.format(GFF + ".gff")
 
     bsub(cmd, name="format_repeat_mask")
     return 0
@@ -178,7 +177,8 @@ def fastq2gff(fastq=None, genome=None, output='', workdir=''):
         logging.debug(output)
     else:
         logging.debug("Output file is {}".format(gff))
-    return gff
+    format_gt_gff_to_maker_gff(gff)
+    return "rawgff: {0}\nformated gff for maker: {0}.gff".format(gff)
 
 
 def format_gt_gff_to_maker_gff(gff=None):
@@ -313,6 +313,42 @@ def format_gt_gff_to_maker_gff(gff=None):
     with open(output_file, 'w') as fh:
         fh.write(output_buff)
     return output_file
+
+
+# 0 reference genome.fasta
+# 1 protein seqeunce.fasta
+# 2 est.bam
+
+breaker_sh = r"""
+wd={3}
+
+if [ -d $wd ]; then
+    rm -r $wd
+fi
+
+REF={0}
+PEP={1}
+ESTBAM={2}
+
+( time braker.pl --genome=${{REF}} --prot_seq=${{PEP}} --prg=gth --bam=${{ESTBAM}} --gth2traingenes \
+--softmasking --workingdir=$wd ) &> $wd.log
+"""
+
+
+def braker(genome=None, protein=None, estbam=None, workdir='', send_to_augustus='F'):
+    """
+    :param genome: genome.fasta
+    :param protein: protein.fasta
+    :param estbam: est.bam
+    :param workdir: default is workdir_braker_genome
+    :param send_to_augustus: whether to copy the trained hmm to augustus lib dir
+    :return: workdir/species/Sp_5/
+    """
+    if workdir == '':
+        workdir = 'workdir_braker_{}'.format(genome)
+    cmd = breaker_sh.format(genome, protein, estbam, workdir)
+    bsub(cmd, name='braker_train')
+    return 0
 
 
 def fix_comma_in_parent():
@@ -461,7 +497,6 @@ ZOE_HMM_DIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
 
 """
 
-
 # 0 workdir
 # 1 prev_round
 # 2 current_round
@@ -567,11 +602,11 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         sh(job_list, parallel='T', cpus=cpus)
 
 
-#0 reference.fa
-#1 est.gff
-#2 flcdna.gff
-#3 pep.gff
-#4 repeat.gff
+# 0 reference.fa
+# 1 est.gff
+# 2 flcdna.gff
+# 3 pep.gff
+# 4 repeat.gff
 maker_pipe_sh = """#!/bin/bash
 set -eo
 

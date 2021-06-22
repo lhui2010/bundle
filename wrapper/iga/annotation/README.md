@@ -10,7 +10,6 @@
     - Softmasked genome (complex repeat only, for maker and braker annotation)
 
 ```
-
 # Step1. Run repeatmasker with both homology and de novo approach
 python -m iga.annotation.repeat repeatmasker --species Viridiplantae elumb.contig.fa --threads 10
 ## Output:
@@ -29,39 +28,11 @@ python -m iga.annotation.repeat repeatmasker --denovo T elumb.contig.fa --thread
 
 # Step2. Combine the two result 
 
-species=Viridiplantae
-cd {0}
-mkdir -p Full_mask
-## unzip
-gunzip *lib.out/*.cat.gz
-cat *lib.out/*.cat >full_mask.cat
-## to mask.out
-ProcessRepeats -species $species full_mask.cat
-## create GFF3
-rmOutToGFF3.pl full_mask.out > full_mask.gff3
+python -m iga.annotation.repeat post_repeatmasker workdir_repeatmask_elumb.contig.fa --genome elumb.contig.fa
 
-## isolate complex repeats
-grep -v -e "Satellite" -e ")n" -e "-rich" full_mask.gff3 \
-     > full_mask.complex.gff3
-
-## reformat to work with MAKER
-cat full_mask.complex.gff3 | \
- perl -ane '$id; if(!/^\#/){@F = split(/\t/, $_); chomp $F[-1];$id++; $F[-1] .= "\;ID=$id"; $_ = join("\t", @F)."\n"} print $_' \
-         > full_mask.complex.reformat.gff3
-
-echo "Repeat GFF file is located in "
-echo "$PWD/full_mask.complex.reformat.gff3"
-```
-
-# Step3. Get soft masked genome
- 
-```
-bedtools maskfasta -soft -fi elumb.contig.fa -bed full_mask.complex.reformat.gff3 \
--fo elumb.contig.masked.fa
 ```
 
 ### Prepare RNA-seq evidence
-
 
 #### Get flnc reads (fasta format)
 
@@ -78,16 +49,25 @@ python -m iga.annotation.rnaseq reads_align_assembly "zenin.ssRNA.ZnY5_1.clean.f
 #### RNA-Seq fasta to gff
 
 ```
-python -m iga.annotation.maker fastq2gff 
+# daemon will not exist until the job finished
+python -m iga.annotation.maker fastq2gff est.fasta genome.fasta
 ```
 
 ### Prepare Protein evidence
+
+```
+python -m iga.annotation.maker prep_genblast elumb.contig.fa.masked.fa pep/elumb.homologous_pep.fa
+```
 
 * Input: 
     - rna_fasta.bam
     - protein_evidence.fasta
     - Genome (soft masked of complex region)
 * OutputHMM: test_datisca/species/Sp_5/
+
+
+### BRAKER
+
 
 ```
 wd=test_datisca
@@ -104,8 +84,6 @@ ESTBAM=Trinity-GG.fasta.bam
 --softmasking --workingdir=$wd ) &> $wd.log
 ```
 
-
-### BRAKER
 
 
 ### MAKER
