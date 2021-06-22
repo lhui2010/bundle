@@ -168,7 +168,7 @@ def fastq2gff(fastq=None, genome=None, output='', workdir=''):
     # workdir_sh.format(workdir) +
     cmd = conda_act.format('EDTA') + \
           fastq2gff_sh.format(genome, fastq)
-    job_id = bsub(cmd)
+    job_id = bsub(cmd, name='fastq2gff')
     waitjob(job_id)
     rawgff = fastq + '.rawgff'
     gff = format_gt_gff_to_maker_gff(rawgff)
