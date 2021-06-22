@@ -65,8 +65,9 @@ cd {0}
 mkdir -p Full_mask
 ## unzip
 gunzip *lib.out/*.cat.gz
-cat *lib.out/*.cat >full_mask.cat
+cat *lib.out/*.cat >Full_mask/full_mask.cat
 ## to mask.out
+cd Full_mask
 ProcessRepeats -species $species full_mask.cat
 ## create GFF3
 rmOutToGFF3.pl full_mask.out > full_mask.gff3
@@ -82,23 +83,31 @@ cat full_mask.complex.gff3 | \
 
 echo "Repeat GFF file is located in "
 echo "$PWD/full_mask.complex.reformat.gff3"
-```
 
+cd ../..
 # Step3. Get soft masked genome
- 
-```
-bedtools maskfasta -soft -fi elumb.contig.fa -bed full_mask.complex.reformat.gff3 \
--fo elumb.contig.masked.fa
-```
 """
 
 
-def post_repeat_masker(dir=None):
+# 0
+# 1 genome.fasta
+# 2 genome.masked.fasta
+get_mask_fasta_sh = r"""
+bedtools maskfasta -soft -fi {0} -bed {0}/Full_mask/full_mask.complex.reformat.gff3 \
+-fo {0}.masked.fa
+"""
+
+
+def post_repeatmasker(dir=None, genome=''):
     """
     Post repeat process
     :param dir:
     :return:
     """
+    cmd = post_repeatmasker_sh.format(dir)
+    if genome != '':
+        cmd += get_mask_fasta_sh.format(dir, genome)
+    bsub(cmd)
 
 
 def goto_workdir(program, sample=''):
