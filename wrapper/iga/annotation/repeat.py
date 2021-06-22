@@ -89,12 +89,12 @@ cd ../..
 """
 
 
-# 0
+# 0 workdir
 # 1 genome.fasta
-# 2 genome.masked.fasta
+# Output genome.masked.fasta
 get_mask_fasta_sh = r"""
-bedtools maskfasta -soft -fi {0} -bed {0}/Full_mask/full_mask.complex.reformat.gff3 \
--fo {0}.masked.fa
+bedtools maskfasta -soft -fi {1} -bed {0}/Full_mask/full_mask.complex.reformat.gff3 \
+-fo {1}.masked.fa
 """
 
 
