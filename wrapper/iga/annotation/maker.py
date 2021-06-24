@@ -12,7 +12,7 @@ from parse import parse
 
 from iga.annotation.gff import GFF
 from iga.apps.base import sh, conda_act, Config, abspath_list, split_fasta, mkdir, \
-    mv, waitjob, bsub, emain
+    mv, waitjob, bsub, emain, get_prefix
 
 import logging
 import coloredlogs
@@ -318,6 +318,8 @@ def format_gt_gff_to_maker_gff(gff=None, max_intron_size=20000):
 # 0 reference genome.fasta
 # 1 protein seqeunce.fasta
 # 2 est.bam
+# 3 workdir
+# 4 species prefix
 
 breaker_sh = r"""
 wd={3}
@@ -331,11 +333,11 @@ PEP={1}
 ESTBAM={2}
 
 ( time braker.pl --genome=${{REF}} --prot_seq=${{PEP}} --prg=gth --bam=${{ESTBAM}} --gth2traingenes \
---softmasking --workingdir=$wd ) &> $wd.log
+--softmasking --workingdir=$wd --species {4} ) &> $wd.log
 """
 
 
-def braker(genome=None, protein=None, estbam=None, workdir='', send_to_augustus='F'):
+def braker(genome=None, protein=None, estbam=None, workdir='', send_to_augustus='F', species=''):
     """
     :param genome: genome.fasta
     :param protein: protein.fasta
@@ -346,8 +348,12 @@ def braker(genome=None, protein=None, estbam=None, workdir='', send_to_augustus=
     """
     if workdir == '':
         workdir = 'workdir_braker_{}'.format(genome)
+    if species == '':
+        prefix = get_prefix(genome)
+    else:
+        prefix = species
     cmd = conda_act.format('braker2')
-    cmd += breaker_sh.format(genome, protein, estbam, workdir)
+    cmd += breaker_sh.format(genome, protein, estbam, workdir, prefix)
     bsub(cmd, name='braker_train')
     return 0
 
