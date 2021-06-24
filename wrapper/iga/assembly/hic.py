@@ -322,9 +322,11 @@ def liftover():
     return 0
 
 
-def buildchr():
+def buildchr(genome=None, agp=None):
     """ build chromosome based on .assembly or .agp
     """
+    cmd = "build_fa_from_agp.pl {0} {1} > {0}.chr.fa".format(genome, agp)
+    bsub(cmd, name='buildchr')
     return 0
 
 
