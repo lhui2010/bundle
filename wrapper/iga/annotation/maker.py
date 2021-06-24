@@ -333,7 +333,7 @@ PEP={1}
 ESTBAM={2}
 
 ( time braker.pl --genome=${{REF}} --prot_seq=${{PEP}} --prg=gth --bam=${{ESTBAM}} --gth2traingenes \
---softmasking --workingdir=$wd --species {4} ) &> $wd.log
+--softmasking --workingdir=$wd --species {4}_braker ) &> $wd.log
 """
 
 
