@@ -201,7 +201,7 @@ def format_gt_gff_to_maker_gff(gff=None, max_intron_size=20000):
     output_file = gff + ".gff"
     output_buff = ""
     prefix = re.sub(r'\..*', '', qry1_file)
-    intron_cutoff = max_intron_size
+    intron_cutoff = int(max_intron_size)
     source = 'Trinity_Minimap'
     last_chr = ''
     last_end = ''
