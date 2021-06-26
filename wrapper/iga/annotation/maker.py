@@ -318,6 +318,7 @@ def format_gt_gff_to_maker_gff(gff=None, max_intron_size=20000):
 def cat_est(est_files=None):
     """
     Sometimes different tissue will have duplicated fasta header name. This will rename those ests and
+    cat_est workdir_isoseq_elumb/*subreads.clustered.hq.fasta.gz > total_flnc.fasta
     :param est_files:
     :return:
     """
@@ -330,7 +331,7 @@ def cat_est(est_files=None):
     elif 'Trinity' in est_files[0]:
         # elumb.lncRNA.EuG11_1.clean.fq.gz_trinity/Trinity-GG.fasta
         match_from = "(.*).clean.*"
-    if '.gz' in est_files[0]:
+    if est_files[0].endswith('.gz'):
         cat = 'zcat'
     else:
         cat = 'cat'
