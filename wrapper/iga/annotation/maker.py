@@ -177,8 +177,7 @@ def fastq2gff(fastq=None, genome=None, output='', workdir=''):
         logging.debug(output)
     else:
         logging.debug("Output file is {}".format(gff))
-    format_gt_gff_to_maker_gff(gff)
-    return "rawgff: {0}\nformated gff for maker: {0}.gff".format(gff)
+    return gff
 
 
 def format_gt_gff_to_maker_gff(gff=None, max_intron_size=20000):
