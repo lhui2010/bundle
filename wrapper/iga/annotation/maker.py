@@ -470,6 +470,7 @@ $PASAHOME/Launch_PASA_pipeline.pl \
 
 def pasa_refine(genome=None, transcript=None, gff=None, use_grid='F'):
     r"""
+    pasa_refine ref.fa flnc_rna.fasta genome.maker.gff  --use_grid T
     :param genome: the assembled genome (fasta)
     :param transcript: the assembled transcripts (fasta)
     :param gff: the existing annotation (gff3)
@@ -659,6 +660,10 @@ python -m iga.annotation.maker maker_collect     ${{REF}}_R${{ROUND}}
 cd ${{REF}}_R${{ROUND}}
 python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
 cd ..
+
+#-+-Final Pasa Refine
+cd ${{REF}}_R${{ROUND}}
+python -m iga.annotation.maker pasa_refine ${{REF}} ${{REF}}_R${{ROUND}}/genome.maker.gff $CDNAFASTA
 """
 
 
