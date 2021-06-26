@@ -104,7 +104,7 @@ def get_prefix(name):
     return op.basename(name).split('.')[0]
 
 
-def sh(cmd, debug=False, parallel='F', cpus=1):
+def sh(cmd, debug=False, parallel='F', cpus=1, warning='T'):
     """
     run command directly with subprocess.run
     :param cmd:
@@ -124,7 +124,8 @@ def sh(cmd, debug=False, parallel='F', cpus=1):
             ret = subprocess.check_output(prior_cmd + cmd, stderr=subprocess.STDOUT, shell=True).decode()
         except subprocess.CalledProcessError as cpe:
             ret = cpe.output.decode()
-        logger.warning(ret)
+        if warning == 'T':
+            logger.warning(ret)
     return ret
 
 
