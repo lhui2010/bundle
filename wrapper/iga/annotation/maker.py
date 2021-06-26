@@ -412,11 +412,10 @@ subcluster_builder.dbi:-m=50
 
 #-+- Align transcript to genome and create the original sqlite db (~3h in singularity gmap mode)
 # Transcripts' name should not contain '/' character
-mv {1} {1}.bak
-sed 's/\///' {1}.bak > {1}
+sed 's/\///' {1} > {1}.rename
 $PASAHOME/Launch_PASA_pipeline.pl \
     -c pasa.alignAssembly.sqlite.txt -C -R -g {0} \
-    -t {1}  \
+    -t {1}.rename  \
      --ALIGNERS gmap,blat --CPU 20
   
 #-+- Rename maker.gff(necessary?)
@@ -463,7 +462,7 @@ cDNA_annotation_comparer.dbi:--GENETIC_CODE=<__GENETIC_CODE__>
 $PASAHOME/Launch_PASA_pipeline.pl \
     -c pasa.annotCompare.config -A \
     -g {0} \
-    -t {1}
+    -t {1}.rename
 
 """
 
