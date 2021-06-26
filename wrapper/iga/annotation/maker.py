@@ -327,6 +327,9 @@ def cat_est(est_files=None):
     if 'isoseq' in est_files[0]:
         # workdir_isoseq_elumb/elumb.flcdna.pb.EuY3.leaf4.subreads.clustered.hq.fasta.gz
         match_from = r'.*.pb.(.*).subreads.*'
+    elif 'Trinity' in est_files[0]:
+        # elumb.lncRNA.EuG11_1.clean.fq.gz_trinity/Trinity-GG.fasta
+        match_from = "(.*).clean.*"
     if '.gz' in est_files[0]:
         cat = 'zcat'
     else:
