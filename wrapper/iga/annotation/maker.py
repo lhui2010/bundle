@@ -478,7 +478,7 @@ def pasa_refine(genome=None, transcript=None, gff=None, use_grid='F'):
     """
     cmd = pasa_refine_sh.format(genome, transcript, gff)
     if use_grid == 'T':
-        bsub(cmd, direct_submit='F', cpus=5)
+        bsub(cmd, direct_submit='F', cpus=5, name='pasa_refine')
     else:
         sh(cmd)
 
