@@ -337,7 +337,7 @@ def cat_est(est_files=None):
             prefix = result[1]
         else:
             logging.error('Cant find prefix in {0} with pattern {1}'.format(t, match_from))
-        cmd = '{} {} | sed "s/>/>{}/;s/\//_/"'.format(cat, t, prefix)
+        cmd = '{} {} | sed "s/>/>{}/;s/\//_/; s/\./_/; s/\s.*//;"'.format(cat, t, prefix)
         result = sh(cmd, warning='F')
         print(result)
 
