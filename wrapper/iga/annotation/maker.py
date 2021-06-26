@@ -315,6 +315,35 @@ def format_gt_gff_to_maker_gff(gff=None, max_intron_size=20000):
     return output_file
 
 
+def cat_est(est_files=None):
+    """
+    Sometimes different tissue will have duplicated fasta header name. This will rename those ests and
+    :param est_files:
+    :return:
+    """
+    if ' ' in est_files:
+        est_files = est_files.split()
+
+    if 'isoseq' in est_files[0]:
+        # workdir_isoseq_elumb/elumb.flcdna.pb.EuY3.leaf4.subreads.clustered.hq.fasta.gz
+        match_from = r'.*.pb.(.*).subreads.*'
+    if '.gz' in est_files[0]:
+        cat = 'zcat'
+    else:
+        cat = 'cat'
+    for t in est_files:
+        result = re.search(match_from, t)
+        if result is not None:
+            prefix = result[1]
+        else:
+            logging.error('Cant find prefix in {0} with pattern {1}'.format(t, match_from))
+        cmd = '{} t | sed "s/>/>{}/;s/\//_/"'.format(cat, prefix)
+        result = sh(cmd)
+        print(result)
+
+
+
+
 # 0 reference genome.fasta
 # 1 protein seqeunce.fasta
 # 2 est.bam
