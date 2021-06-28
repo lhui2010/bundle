@@ -499,7 +499,7 @@ $PASAHOME/Launch_PASA_pipeline.pl \
 """
 
 
-def pasa_refine(genome=None, transcript=None, gff=None, use_grid='F'):
+def pasa_refine(genome=None, transcript=None, gff=None, use_grid='T'):
     r"""
     pasa_refine ref.fa flnc_rna.fasta genome.maker.gff  --use_grid T
     :param genome: the assembled genome (fasta)
