@@ -865,7 +865,7 @@ def maker_collect(workdir=None, use_grid='T'):
     """
     cmd = collect_maker_sh.format(workdir)
     if use_grid == 'T':
-        job = bsub(cmd, direct_submit='F')
+        job = bsub(cmd, direct_submit='F', name='maker_collect')
         waitjob(job)
     else:
         res = sh(cmd)
