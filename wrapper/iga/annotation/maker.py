@@ -1240,6 +1240,16 @@ def liftover_by_agp(gff=None, agp=None):
                 print(new_line)
 
 
+# 0 pep.fasta
+
+anno_func_sh = r"""
+# blast swissprot: 
+# blast tair: 
+# Eggnog: 
+# Interproscan: Get GO/KEGG/InterPro domains
+"""
+
+
 def add_func(gff=None, table=None, tag='GO', pos='2'):
     r"""
     Embed function information into gff files:
