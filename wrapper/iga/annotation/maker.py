@@ -695,6 +695,10 @@ cd ..
 #-+-Final Pasa Refine
 cd ${{REF}}_R${{ROUND}}
 python -m iga.annotation.maker pasa_refine ${{REF}} ${{REF}}_R${{ROUND}}/genome.maker.gff $CDNAFASTA
+cp ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3 ref.fa.pasa.gff3
+gff_genome_to_genes.pl ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3 ref.fa > ref.fa.pasa.cds
+cds2aa.pl ref.fa.pasa.cds > ref.fa.pasa.pep
+python -m iga.assembly.assess busco --mode prot ref.fa.pasa.pep
 """
 
 

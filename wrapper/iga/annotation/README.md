@@ -84,6 +84,4 @@ ESTBAM=Trinity-GG.fasta.bam
 --softmasking --workingdir=$wd ) &> $wd.log
 ```
 
-
-
 ### MAKER
