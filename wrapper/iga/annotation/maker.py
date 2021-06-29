@@ -1141,6 +1141,15 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', a
     return 0
 
 
+def check_repeat_overlap(maker_gff=None, repeat_gff=None):
+    sh('bedtools covergae -a {} -b {}'.format(maker_gff, repeat_gff))
+
+
+def check_aed_dist(maker_gff=None):
+    result = sh('AED_cdf_generator.pl -b 0.025 {}'.format(maker_gff),)
+    print(result)
+
+
 def str_to_class(str1):
     return getattr(sys.modules[__name__], str1)
 
@@ -1164,6 +1173,7 @@ def liftover_by_agp(gff=None, agp=None):
     gff_genome_to_genes.pl genome.lifted.gff.cds CORNE_v1.0.chr.fa > genome.lifted.gff.cds.fa
     cds2aa.pl genome.lifted.gff.cds.fa > genome.lifted.gff.cds.fa.pep
     """
+    # from RaGOO
     # chr name of contig
     reverse_strand = {'-': '+', '+': '-'}
     chrd = {}

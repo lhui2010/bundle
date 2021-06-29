@@ -108,6 +108,7 @@ def sh(cmd, debug=False, parallel='F', cpus=1, warning='T'):
     """
     run command directly with subprocess.run
     :param cmd:
+    :param warning: [T/F], wether to output warning with STDOUT
     :return:
     """
     ret = ''
