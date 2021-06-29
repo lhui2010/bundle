@@ -520,8 +520,9 @@ def pasa_refine(genome=None, transcript=None, gff=None, use_grid='T'):
 maker_rename_sh = r"""
 maker_map_ids --abrv_gene '' --prefix {1} --justify 8 --suffix '-t' --iterate 1 {0}  > {0}.map.txt
 #Caution map_gff_ids will rewrite the file instead of generating a new one
+first_only.pl  {0}.map.txt >  {0}.map_uniq.txt
 cp {0} {0}.format.gff
-map_gff_ids {0}.map.txt {0}.format.gff
+map_gff_ids {0}.map_uniq.txt {0}.format.gff
 """
 
 
@@ -1163,6 +1164,7 @@ lift_over.py
 
 def liftover_by_agp(gff=None, agp=None):
     """
+    liftover script from RaGOO
     lift over gff files based on agp file, this is used when annotation genes on contig level and need to transfer to
     chromosome level
     :param gff:
