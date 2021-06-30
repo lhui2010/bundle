@@ -345,8 +345,6 @@ def cat_est(est_files=None):
         print(result)
 
 
-
-
 # 0 reference genome.fasta
 # 1 protein seqeunce.fasta
 # 2 est.bam
@@ -1147,7 +1145,7 @@ def check_repeat_overlap(maker_gff=None, repeat_gff=None):
 
 
 def check_aed_dist(maker_gff=None):
-    result = sh('AED_cdf_generator.pl -b 0.025 {}'.format(maker_gff),)
+    result = sh('AED_cdf_generator.pl -b 0.025 {}'.format(maker_gff), )
     print(result)
 
 
@@ -1248,6 +1246,42 @@ anno_func_sh = r"""
 # Eggnog: 
 # Interproscan: Get GO/KEGG/InterPro domains
 """
+
+
+def anno_func(pep=None, interproscan='T', eggnog='T', tair='T', swissprot='T'):
+    """
+    :param pep: fasta format of peptide to be annotated with function
+    :param interproscan:
+    :param eggnog:
+    :param tair:
+    :param swissprot:
+    :return:
+    """
+    db_database = {
+        'swissprot': '/ds3200_1/users_root/yitingshuang/lh/database/function/swissprot_viridiplantae+AND+reviewed_yes_20200518.pep',
+        'tair10': '/ds3200_1/users_root/yitingshuang/lh/database/function/tair10.pep'}
+    joblist = []
+    if interproscan == 'T':
+        cmd = "interproscan.sh -f tsv -dp  -pa  -goterms -i {0} -b {0}.ipr".format(pep)
+        job = bsub(cmd, name='iprscan', cpus=4)
+        joblist.append(job)
+    if eggnog == 'T':
+        cmd = 'emapper.py -m diamond --target_taxa "Viridiplantae" -o {0}.eggnog -i {0} --cpu 6'.format(pep)
+        job = bsub(cmd, name='eggnog', cpus=6)
+        joblist.append(job)
+    if tair == 'T':
+        db = db_database['tair10']
+        cmd = "blastp -subject {0} -query {1} -out {1}.tair10.bln -evalue 1e-5 -outfmt 6 -num_threads 6".format(db, pep)
+        job = bsub(cmd, name='tair10', cpus=6)
+        joblist.append(job)
+    if swissprot == 'T':
+        db = db_database['swissprot']
+        cmd = "blastp -subject {0} -query {1} -out {1}.swissprot.bln -evalue 1e-5 -outfmt 6 -num_threads 6"
+        cmd = cmd.format(db, pep)
+        job = bsub(cmd, name='swissprot', cpus=6)
+        joblist.append(job)
+    waitjob(joblist)
+    return 0
 
 
 def add_func(gff=None, table=None, tag='GO', pos='2'):
