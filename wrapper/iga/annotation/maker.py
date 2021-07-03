@@ -693,11 +693,19 @@ cd ..
 
 #-+-Final Pasa Refine
 cd ${{REF}}_R${{ROUND}}
-python -m iga.annotation.maker pasa_refine ${{REF}} ${{REF}}_R${{ROUND}}/genome.maker.gff $CDNAFASTA
+python -m iga.annotation.maker pasa_refine ref.fa genome.maker.gff ../$CDNAFASTA
+chmod -w ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3
 cp ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3 ref.fa.pasa.gff3
-gff_genome_to_genes.pl ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3 ref.fa > ref.fa.pasa.cds
-cds2aa.pl ref.fa.pasa.cds > ref.fa.pasa.pep
-python -m iga.assembly.assess busco --mode prot ref.fa.pasa.pep
+python -m iga.annotation.maker maker_rename_gff ref.fa.pasa.gff3
+grep trna genome.maker.gff > trna.gff
+cat ref.fa.pasa.gff3 trna.gff > ${{REF}}.gene_structure.gff3
+gff_genome_to_genes.pl ${{REF}}.gene_structure.gff3 ref.fa > ${{REF}}.gene_structure.cds
+cds2aa.pl ${{REF}}.gene_structure.cds > ${{REF}}.gene_structure.pep
+python -m iga.assembly.assess busco --mode prot ${{REF}}.gene_structure.pep
+
+#-+-Functional annotation
+
+
 """
 
 
@@ -1248,18 +1256,21 @@ anno_func_sh = r"""
 """
 
 
-def anno_func(pep=None, interproscan='T', eggnog='T', tair='T', swissprot='T'):
+def anno_func(pep=None, interproscan='T', eggnog='F', tair='T', medtr5='T', swissprot='T'):
     """
     :param pep: fasta format of peptide to be annotated with function
     :param interproscan:
-    :param eggnog:
+    :param eggnog: currently not stable
     :param tair:
+    :param medtr5: medicagov5 pep database
     :param swissprot:
     :return:
     """
     db_database = {
         'swissprot': '/ds3200_1/users_root/yitingshuang/lh/database/function/swissprot_viridiplantae+AND+reviewed_yes_20200518.pep',
-        'tair10': '/ds3200_1/users_root/yitingshuang/lh/database/function/tair10.pep'}
+        'swissprot_desc': '/ds3200_1/users_root/yitingshuang/lh/database/function/swissprot_viridiplantae+AND+reviewed_yes_20200518.pep.description',
+        'tair10': '/ds3200_1/users_root/yitingshuang/lh/database/function/tair10.pep',
+        'medtr5': '/ds3200_1/users_root/yitingshuang/lh/database/function/medtrv5.pep'}
     joblist = []
     if interproscan == 'T':
         cmd = "interproscan.sh -f tsv -dp  -pa  -goterms -i {0} -b {0}.ipr".format(pep)
@@ -1281,6 +1292,15 @@ def anno_func(pep=None, interproscan='T', eggnog='T', tair='T', swissprot='T'):
         job = bsub(cmd, name='swissprot', cpus=6)
         joblist.append(job)
     waitjob(joblist)
+    func_dict = {}
+    bln_cmd = "cut -f1,2 {0} |first_only.pl >> {1}"
+    sh(bln_cmd.format('{0}.tair10.bln'.format(pep), '{0}.tair10.bln.func'.format(pep)))
+    bln_desc_cmd = "cut -f1,2 {0} |first_only.pl > {0}.tmp; replace_tab.pl {1} {0}.tmp >> {0}.func"
+    sh(bln_desc_cmd.format('{0}.swissprot.bln'.format(pep), db_database['swissprot_desc']))
+    # _bln2table(func_dict, '{0}.medicago.bln', header='Homolog')
+    # _ipr2table(func_dict, 'xx', header='GO')
+    # _ipr2table(func_dict, 'xx', header='PFAM')
+
     return 0
 
 
