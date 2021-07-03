@@ -86,7 +86,7 @@ alias pm='python -m '
 #https://www.ibm.com/support/knowledgecenter/SSWRJV_10.1.0/lsf_command_ref/bjobs.o.1.html
 #https://serverfault.com/questions/532309/setting-the-job-name-column-width-for-the-lsf-bjobs-command
 alias bj='bjobs -o "JOBID:10 SUBMIT_TIME:13 USER:5 STAT:5 QUEUE:6 SLOTS:5 EXEC_HOST:20 JOB_NAME"'
-alias bjl='bjobs |les'
+alias bjl='bjobs -o "JOBID:10 SUBMIT_TIME:13 USER:5 STAT:5 QUEUE:6 SLOTS:5 EXEC_HOST:20 JOB_NAME" |les'
 alias ls='ls --color=tty'
 alias bs='bash'
 alias les='less -SN'
@@ -97,6 +97,7 @@ alias lth='ls -lth |head'
 #alias rm='rm -i'
 alias vi='vim'
 alias vc='vim ~/.bashrc'
+alias vh='vim ~/.bash_history'
 alias sc='source ~/.bashrc'
 alias sfat='ssh -Y fat01'
 alias s1='ssh -Y cn01'
@@ -121,6 +122,7 @@ alias bsub512='bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%
 alias bsub1T='bsub   -R "span[hosts=1]" -q Q64C1T_X4  -o output.%J -e error.%J'
 alias bsub2T='bsub   -R "span[hosts=1]" -q Q48C2T_X1  -o output.%J -e error.%J'
 alias bsub3T='bsub   -R "span[hosts=1]" -q Q64C3T_X1  -o output.%J -e error.%J'
+alias bsub6T='bsub   -R "span[hosts=1]" -q Q88C6T_X1  -o output.%J -e error.%J'
 alias bsubI='bsub -q Q104C512G_X4  -Ip bash'
 alias bsubI1T='bsub -q Q64C1T_X4 -Ip bash'
 alias gtp='pushd $BD; git pull; popd'
@@ -144,13 +146,19 @@ body() {
 }
 
 availq() {
+    echo "HOST_NAME          STATUS       JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV"
+    bhosts |grep "node0[2345]"
+    bhosts |grep "node1[0123]"
+    echo ""
     echo "                 TotalCpu     UsedCpu    RestCPU"
     cpu_total=256
-    cpu_used=`bjobs -u all |grep "node0[2345]" |wc -l | sed 's/ .*//'`
+#    cpu_used=`bjobs -u all |grep "node0[2345]" |wc -l | sed 's/ .*//'`
+    cpu_used=`bjobs -u all |grep node0[2345] |awk '{print $1"\t"$6}' |perl -ne 'my @e=split; print $e[-1], "\n";' | sed "s/^node.*/1/; s/\*.*//; " |sum.pl 0`
     cpu_left=`expr $cpu_total  - $cpu_used`
     echo "Q64C1T_X4:       $cpu_total          $cpu_used        $cpu_left"
     cpu_total=416
-    cpu_used=`bjobs -u all |grep "node1[0123]" |wc -l | sed 's/ .*//'`
+    #cpu_used=`bjobs -u all |grep "node1[0123]" |wc -l | sed 's/ .*//'`
+    cpu_used=`bjobs -u all |grep node1[0123] |awk '{print $1"\t"$6}' |perl -ne 'my @e=split; print $e[-1], "\n";' | sed "s/^node.*/1/; s/\*.*//; " |sum.pl 0`
     cpu_left=`expr $cpu_total  - $cpu_used`
     echo "Q104C512G_X4:    $cpu_total          $cpu_used        $cpu_left"
     echo ""

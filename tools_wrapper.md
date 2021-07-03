@@ -66,6 +66,21 @@ bwa index consensus.fasta
 bwa mem consensus.fasta -t 40 read1.gz read2.gz >bwa.sam 2>bwa.err
 bwa mem consensus.fasta -t 40 read1.gz >bwa.sam 2>bwa.err
 
+
+#### check contamination
+
+```
+# bwa mapping
+
+samtools view -f 4 falcon_v340.fasta.bam |head -4000 |sam2fq.pl  |fq2fa.pl - >unmapped.fa
+
+seqtk seq -A unmapped.fq > unmapped.fa
+
+diamond blastx --db nr.dmnd --query unmapped.fq --out unmapped.fq.tab
+
+blastn -query unmapped.fa -out out.xml -max_target_seqs 1 -outfmt 5 -db ~/lh/database/nt -num_threads 2 -evalue 1e-5
+```
+
 #### samtools
 samtools view -hbS xx.sam >ss.bam
 samtools mpileup -uvf M445.chr.fa M441_sequences_to_M445_genome.bam  >tmp.vcf
