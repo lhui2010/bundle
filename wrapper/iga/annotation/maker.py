@@ -539,6 +539,7 @@ def maker_rename_gff(gff=None, prefix='MAKER', comment_print='F'):
             if line.startswith('#'):
                 if comment_print == 'T':
                     fh_out.write(line)
+                continue
             result = re.search(r'ID=(.*?);', line)
             if result is not None and result[1] is not None and result[1] in gff_rename_dict:
                 keyword = result[1]
