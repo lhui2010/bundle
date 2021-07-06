@@ -541,12 +541,12 @@ def maker_rename_gff(gff=None, prefix='MAKER'):
             keyword = ''
             result = re.search(r'ID=(.*?);|Parent=(.*?);|Name=(.*?);', line)
             if result is not None:
-                for i in range(1, 4):
+                # First replace ID
+                # Then replace Parent
+                for i in range(1, 3):
                     if result[i] is not None and result[i] in gff_rename_dict:
                         keyword = result[i]
-            if keyword != '':
-                assert keyword in gff_rename_dict, "{} not in gff rename tab".format(keyword)
-                line = re.sub(keyword, gff_rename_dict[keyword], line)
+                        line = re.sub(keyword, gff_rename_dict[keyword], line)
             print(line)
     return 0
 
