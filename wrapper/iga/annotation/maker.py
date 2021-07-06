@@ -542,7 +542,7 @@ def maker_rename_gff(gff=None, prefix='MAKER'):
             result = re.search(r'ID=(.*?);|Parent=(.*?);|Name=(.*?);', line)
             if result is not None:
                 for i in range(1, 4):
-                    if result[i] is not None:
+                    if result[i] is not None and result[i] in gff_rename_dict:
                         keyword = result[i]
             if keyword != '':
                 assert keyword in gff_rename_dict, "{} not in gff rename tab".format(keyword)
