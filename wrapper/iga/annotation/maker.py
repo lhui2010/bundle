@@ -1281,7 +1281,7 @@ anno_func_sh = r"""
 """
 
 
-def anno_func(pep=None, interproscan='T', eggnog='F', tair='T', medtr5='T', swissprot='T'):
+def func_anno(pep=None, interproscan='T', eggnog='F', tair='T', medtr5='T', swissprot='T'):
     """
     :param pep: fasta format of peptide to be annotated with function
     :param interproscan:
