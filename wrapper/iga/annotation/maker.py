@@ -527,7 +527,7 @@ cp {0} {0}.format.gff
 def maker_rename_gff(gff=None, prefix='MAKER'):
     cmd = maker_rename_sh.format(gff, prefix)
     sh(cmd)
-    gff_rename_tab = gff + ".map_uniq.txt"
+    gff_rename_tab = gff + ".K"
     gff_rename_dict = {}
     with open(gff_rename_tab) as fh:
         for line in fh:
@@ -545,7 +545,7 @@ def maker_rename_gff(gff=None, prefix='MAKER'):
                     if result[i] is not None:
                         keyword = result[i]
             if keyword != '':
-                assert keyword in gff_rename_tab, "{} not in gff rename tab".format(keyword)
+                assert keyword in gff_rename_dict, "{} not in gff rename tab".format(keyword)
                 line = re.sub(keyword, gff_rename_tab[keyword], line)
             print(line)
     return 0
