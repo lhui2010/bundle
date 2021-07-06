@@ -520,13 +520,38 @@ maker_map_ids --abrv_gene '' --prefix {1} --justify 8 --suffix '-t' --iterate 1 
 #Caution map_gff_ids will rewrite the file instead of generating a new one
 first_only.pl  {0}.map.txt >  {0}.map_uniq.txt
 cp {0} {0}.format.gff
-map_gff_ids {0}.map_uniq.txt {0}.format.gff
+# map_gff_ids {0}.map_uniq.txt {0}.format.gff
 """
 
 
 def maker_rename_gff(gff=None, prefix='MAKER'):
     cmd = maker_rename_sh.format(gff, prefix)
     sh(cmd)
+    gff_rename_tab = gff + ".map_uniq.txt"
+    gff_rename_dict = {}
+    with open(gff_rename_tab) as fh:
+        for line in fh:
+            mylist = line.rstrip().split()
+            gff_rename_dict[mylist[0]] = mylist[1]
+    with open(gff) as fh:
+        for line in fh:
+            if line.startswith('#'):
+                print(line.rstrip())
+            line = line.rstrip()
+            keyword = ''
+            result = re.search(r'ID=(.*?);|Parent=(.*?);|Name=(.*?);', line)
+            if result is not None:
+                for i in range(1, 4):
+                    if result[i] is not None:
+                        keyword = result[i]
+            if keyword != '':
+                assert keyword in gff_rename_tab, "{} not in gff rename tab".format(keyword)
+                line = re.sub(keyword, gff_rename_tab[keyword], line)
+            print(line)
+    return 0
+
+
+
 
 
 # environment for maker
