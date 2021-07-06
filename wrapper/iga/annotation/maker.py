@@ -519,12 +519,12 @@ maker_rename_sh = r"""
 maker_map_ids --abrv_gene '' --prefix {1} --justify 8 --suffix '-t' --iterate 1 {0}  > {0}.map.txt
 #Caution map_gff_ids will rewrite the file instead of generating a new one
 first_only.pl  {0}.map.txt >  {0}.map_uniq.txt
-cp {0} {0}.format.gff
+# cp {0} {0}.format.gff
 # map_gff_ids {0}.map_uniq.txt {0}.format.gff
 """
 
 
-def maker_rename_gff(gff=None, prefix='MAKER'):
+def maker_rename_gff(gff=None, prefix='MAKER', comment_print='F'):
     output = gff.replace('.gff', '') + '.format.gff'
     cmd = maker_rename_sh.format(gff, prefix)
     sh(cmd)
@@ -537,7 +537,8 @@ def maker_rename_gff(gff=None, prefix='MAKER'):
     with open(gff) as fh, open(output, 'w') as fh_out:
         for line in fh:
             if line.startswith('#'):
-                print(line.rstrip())
+                if comment_print == 'T':
+                    fh_out.write(line)
             result = re.search(r'ID=(.*?);', line)
             if result is not None and result[1] is not None and result[1] in gff_rename_dict:
                 keyword = result[1]
