@@ -538,6 +538,18 @@ def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYNAL', output=''):
         bedpe.get_mosaic(output)
 
 
+def sv_within_contig():
+    pass
+
+
+# /lustre/home/liuhui/bin/bundle/fagap2bed.py fasta > gap.bed
+# bedtools intersect -b A188.gap.bed -a A188_B73.total.SYN.mosaic >  A188_B73.total.SYN.mosaic.with_gap
+# bedtools intersect -b A188.gap.bed -a A188_B73.total.SYN >  A188_B73.total.SYN.with_gap
+# unselectItem.pl 8 8 A188_B73.total.SYN.with_gap A188_B73.total.SYN > A188_B73.total.SYN.no_gap
+# unselectItem.pl 6 6 A188_B73.total.SYN.mosaic.with_gap A188_B73.total.SYN.mosaic > A188_B73.total.SYN.mosaic.no_gap
+# grep NOT combined.bedpe.filter  |awk -F'\t' 'BEGIN{SUM=0}{ SUM+=$3-$2 }END{print SUM}'
+
+
 def format_syri_offset(offset1=None, offset2=None, syri_file=None, pos1='2,3', pos2='7,8', print_out='T'):
     r"""
     %s 100 10 > syri.out. coordinates will be added (left +99, right +9) automatically

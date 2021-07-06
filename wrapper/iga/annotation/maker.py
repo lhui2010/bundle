@@ -1266,6 +1266,7 @@ def anno_func(pep=None, interproscan='T', eggnog='F', tair='T', medtr5='T', swis
     :param swissprot:
     :return:
     """
+    blast_cpus = '12'
     db_database = {
         'swissprot': '/ds3200_1/users_root/yitingshuang/lh/database/function/swissprot_viridiplantae+AND+reviewed_yes_20200518.pep',
         'swissprot_desc': '/ds3200_1/users_root/yitingshuang/lh/database/function/swissprot_viridiplantae+AND+reviewed_yes_20200518.pep.description',
@@ -1273,35 +1274,189 @@ def anno_func(pep=None, interproscan='T', eggnog='F', tair='T', medtr5='T', swis
         'medtr5': '/ds3200_1/users_root/yitingshuang/lh/database/function/medtrv5.pep'}
     joblist = []
     if interproscan == 'T':
-        cmd = "interproscan.sh -f tsv -dp  -pa  -goterms -i {0} -b {0}.ipr".format(pep)
-        job = bsub(cmd, name='iprscan', cpus=4)
-        joblist.append(job)
-    if eggnog == 'T':
-        cmd = 'emapper.py -m diamond --target_taxa "Viridiplantae" -o {0}.eggnog -i {0} --cpu 6'.format(pep)
-        job = bsub(cmd, name='eggnog', cpus=6)
-        joblist.append(job)
+        ipr_out = pep + '.ipr'
+        if not os.path.exists("{0}.ipr".format(pep)):
+            cmd = "interproscan.sh -f tsv -dp  -pa  -goterms -i {0} -b {0}.ipr".format(pep)
+            job = bsub(cmd, name='iprscan', cpus=4)
+            joblist.append(job)
+    # Currently eggnog bin has a bug, so skip this step
+    # if eggnog == 'T':
+    #     cmd = 'emapper.py -m diamond --target_taxa "Viridiplantae" -o {0}.eggnog -i {0} --cpu 6'.format(pep)
+    #     job = bsub(cmd, name='eggnog', cpus=6)
+    #     joblist.append(job)
     if tair == 'T':
-        db = db_database['tair10']
-        cmd = "blastp -subject {0} -query {1} -out {1}.tair10.bln -evalue 1e-5 -outfmt 6 -num_threads 6".format(db, pep)
-        job = bsub(cmd, name='tair10', cpus=6)
-        joblist.append(job)
+        tair_out = pep + ".tair10.bln"
+        if not os.path.exists("{0}.tair10.bln".format(pep)):
+            db = db_database['tair10']
+            cmd = "blastp -subject {0} -query {1} -out {1}.tair10.bln " \
+                  "-evalue 1e-5 -outfmt 6 -num_threads {2}".format(db, pep, blast_cpus)
+            job = bsub(cmd, name='tair10', cpus=6)
+            joblist.append(job)
     if swissprot == 'T':
-        db = db_database['swissprot']
-        cmd = "blastp -subject {0} -query {1} -out {1}.swissprot.bln -evalue 1e-5 -outfmt 6 -num_threads 6"
-        cmd = cmd.format(db, pep)
-        job = bsub(cmd, name='swissprot', cpus=6)
-        joblist.append(job)
+        swissprot_out  = pep + ".swissprot.bln"
+        if not os.path.exists("{0}.swissprot.bln".format(pep)):
+            db = db_database['swissprot']
+            cmd = "blastp -subject {0} -query {1} -out {1}.swissprot.bln -evalue 1e-5 -outfmt 6 -num_threads " + blast_cpus
+            cmd = cmd.format(db, pep)
+            job = bsub(cmd, name='swissprot', cpus=6)
+            joblist.append(job)
+    if medtr5 == 'T':
+        medtr5_out = pep + ".medtr5.bln"
+        if not os.path.exists("{0}.medtr5.bln".format(pep)):
+            db = db_database['medtr5']
+            cmd = "blastp -subject {0} -query {1} -out {1}.medtr5.bln -evalue 1e-5 -outfmt 6 -num_threads " + blast_cpus
+            cmd = cmd.format(db, pep)
+            job = bsub(cmd, name='medtr5', cpus=6)
+            joblist.append(job)
     waitjob(joblist)
-    func_dict = {}
-    bln_cmd = "cut -f1,2 {0} |first_only.pl >> {1}"
-    sh(bln_cmd.format('{0}.tair10.bln'.format(pep), '{0}.tair10.bln.func'.format(pep)))
-    bln_desc_cmd = "cut -f1,2 {0} |first_only.pl > {0}.tmp; replace_tab.pl {1} {0}.tmp >> {0}.func"
-    sh(bln_desc_cmd.format('{0}.swissprot.bln'.format(pep), db_database['swissprot_desc']))
-    # _bln2table(func_dict, '{0}.medicago.bln', header='Homolog')
-    # _ipr2table(func_dict, 'xx', header='GO')
-    # _ipr2table(func_dict, 'xx', header='PFAM')
-
+    # func_dict = {}
+    result = parse_func_result(ipr_file=ipr_out, medtr_bln=medtr5_out, tair_bln=tair_out, swissprot_bln=swissprot_out)
+    print("Gene\tGO\tKEGG\tTAIR10\tMedtr5\tIPR\tPfam\tNote")
+    for g in result:
+        template = "{}\t" * 8
+        template = template.rstrip()
+        print(template.format(g, g.go, g.kegg, g.tair, g.medtr, g.ipr, g.pfam, g.swissprot))
     return 0
+
+
+class IprClass:
+    def __init__(self):
+        self.go = ''
+        self.ipr = ''
+        self.pfam = ''
+        self.kegg = ''
+        self.tair = ''
+        self.medtr = ''
+        self.swissprot = ''
+
+    def add_ipr(self, token):
+        tokenl = token.split('|')
+        for t in tokenl:
+            if t != '-' and t not in self.ipr:
+                if self.ipr != '':
+                    self.ipr += ","
+                self.ipr += t
+
+    def add_go(self, token):
+        tokenl = token.split('|')
+        for t in tokenl:
+            if t != '-' and t not in self.go:
+                if self.go != '':
+                    self.go += ","
+                self.go += t
+
+    def add_kegg(self, token):
+        tokenl = token.split('|')
+        for t in tokenl:
+            if t != '-' and t not in self.kegg and t.startswith('KEGG'):
+                if self.kegg != '':
+                    self.kegg += ","
+                self.kegg += t
+
+    def add_pfam(self, token):
+        tokenl = token.split('|')
+        for t in tokenl:
+            if t != '-' and t not in self.pfam:
+                if self.pfam != '':
+                    self.pfam += ","
+                self.pfam += t
+
+    def add_tair(self, token):
+        tokenl = token.split('|')
+        for t in tokenl:
+            if t != '-' and t not in self.tair:
+                if self.tair != '':
+                    self.tair += ","
+                self.tair += t
+
+    def add_medtr(self, token):
+        tokenl = token.split('|')
+        for t in tokenl:
+            if t != '-' and t not in self.medtr:
+                if self.medtr != '':
+                    self.medtr += ","
+                self.medtr += t
+
+    def add_swissprot(self, token):
+        tokenl = token.split('|')
+        for t in tokenl:
+            if t != '-' and t not in self.swissprot:
+                if self.swissprot != '':
+                    self.swissprot += ","
+                self.swissprot += t
+
+
+def best_hit_from_blast(bln=None, print_out='F'):
+    """
+    Get best (First hits from blast result (format 6)
+    :param bln:
+    :return:
+    """
+    hit_ortho = {}
+
+    if os.path.exists(bln):
+        logging.error("{} do not exist".format(bln))
+        return hit_ortho
+
+    with open(bln) as fh:
+        for line in fh:
+            mylist = line.strip().split()
+            if mylist[0] not in hit_ortho:
+                hit_ortho[mylist[0]] = mylist[-1]
+
+    if print_out == 'T':
+        for k in hit_ortho:
+            print("{}\t{}".format(k, hit_ortho[k]))
+    return hit_ortho
+
+
+### parsing the IPRScan output
+### making gene-model wise annotation list
+def parse_func_result(ipr_file=None, medtr_bln='', tair_bln='', swissprot_bln=''):
+    # 1-based column
+    # 4,5
+    # Pfam    PF00657
+    #
+    # 12
+    # IPR001087
+    #
+    # 14
+    # GO
+    #
+    # 15
+    # KEGG
+    ipr_out = defaultdict(IprClass)
+    with open(ipr_file) as fh:
+        for line in fh:
+            line = line.strip()
+            token = line.split('\t')
+            gene_id = token[0]
+            token_ipr = token[11]
+            token_pfam = token[4]
+            if not token_pfam.startswith('PF'):
+                token_pfam = '-'
+            # GO:12312|GO:12321 -
+            token_go = token[13].split('|')
+            # KEGG: 21|KEGG: 32 -
+            token_kegg = token[14].split('|')
+            if token_ipr != '-':
+                ipr_out[gene_id].add_ipr(token_ipr)
+                ipr_out[gene_id].add_go(token_ipr)
+                ipr_out[gene_id].add_kegg(token_ipr)
+                ipr_out[gene_id].add_pfam(token_ipr)
+    if tair_bln != "":
+        tair_ortho = best_hit_from_blast(tair_bln)
+        for g in tair_ortho:
+            ipr_out[g].add_medtr(tair_ortho[g])
+    if medtr_bln != "":
+        medtr_ortho = best_hit_from_blast(medtr_bln)
+        for g in medtr_ortho:
+            ipr_out[g].add_medtr(medtr_ortho[g])
+    if swissprot_bln != "":
+        swiss_ortho = best_hit_from_blast(swissprot_bln)
+        for g in swiss_ortho:
+            ipr_out[g].add_medtr(swiss_ortho[g])
+    return ipr_out
 
 
 def add_func(gff=None, table=None, tag='GO', pos='2'):
