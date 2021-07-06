@@ -525,7 +525,7 @@ first_only.pl  {0}.map.txt >  {0}.map_uniq.txt
 
 
 def maker_rename_gff(gff=None, prefix='MAKER', comment_print='F'):
-    output = gff.replace('.gff', '') + '.format.gff'
+    output = gff.replace('.gff3', '').replace('.gff', '') + '.format.gff'
     cmd = maker_rename_sh.format(gff, prefix)
     sh(cmd)
     gff_rename_tab_file = gff + ".map_uniq.txt"
