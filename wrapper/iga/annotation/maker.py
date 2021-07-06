@@ -525,6 +525,7 @@ cp {0} {0}.format.gff
 
 
 def maker_rename_gff(gff=None, prefix='MAKER'):
+    output = gff.replace('.gff', '') + '.format.gff'
     cmd = maker_rename_sh.format(gff, prefix)
     sh(cmd)
     gff_rename_tab_file = gff + ".map_uniq.txt"
@@ -533,25 +534,20 @@ def maker_rename_gff(gff=None, prefix='MAKER'):
         for line in fh:
             mylist = line.rstrip().split()
             gff_rename_dict[mylist[0]] = mylist[1]
-    with open(gff) as fh:
+    with open(gff) as fh, open(output, 'w') as fh_out:
         for line in fh:
             if line.startswith('#'):
                 print(line.rstrip())
-            line = line.rstrip()
-            keyword = ''
-            result = re.search(r'ID=(.*?);|Parent=(.*?);|Name=(.*?);', line)
-            if result is not None:
-                # First replace ID
-                # Then replace Parent
-                for i in range(1, 3):
-                    if result[i] is not None and result[i] in gff_rename_dict:
-                        keyword = result[i]
-                        line = re.sub(keyword, gff_rename_dict[keyword], line)
-            print(line)
+            result = re.search(r'ID=(.*?);', line)
+            if result is not None and result[1] is not None and result[1] in gff_rename_dict:
+                keyword = result[1]
+                line = re.sub(keyword, gff_rename_dict[keyword], line)
+            result = re.search(r'Parent=(.*?);', line.replace('\n', ';'))
+            if result is not None and result[1] is not None and result[1] in gff_rename_dict:
+                keyword = result[1]
+                line = re.sub(keyword, gff_rename_dict[keyword], line)
+            fh_out.write(line)
     return 0
-
-
-
 
 
 # environment for maker
@@ -1318,7 +1314,7 @@ def anno_func(pep=None, interproscan='T', eggnog='F', tair='T', medtr5='T', swis
             job = bsub(cmd, name='tair10', cpus=6)
             joblist.append(job)
     if swissprot == 'T':
-        swissprot_out  = pep + ".swissprot.bln"
+        swissprot_out = pep + ".swissprot.bln"
         if not os.path.exists("{0}.swissprot.bln".format(pep)):
             db = db_database['swissprot']
             cmd = "blastp -subject {0} -query {1} -out {1}.swissprot.bln -evalue 1e-5 -outfmt 6 -num_threads " + blast_cpus
