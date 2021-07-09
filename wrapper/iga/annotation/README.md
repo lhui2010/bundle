@@ -133,10 +133,27 @@ cd ${REF}_R${ROUND}
 python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
 cd ..
 
+```
 
-python -m iga.annotation.maker pasa_refine ref.fa ../flnc_rna.fasta genome.maker.gff --use_grid T
+###  Refine, Rename and functional annotation
+
+```
+cd ${{REF}}_R${{ROUND}}
+python -m iga.annotation.maker pasa_refine ref.fa genome.maker.gff ../$CDNAFASTA
+cp ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3 ref.fa.pasa.gff3
+chmod -w ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3
+
+python -m iga.annotation.maker maker_rename_gff ref.fa.pasa.gff3
+grep -i trna genome.maker.gff > trna.gff
+cat ref.fa.pasa.gff3 trna.gff > ${{REF}}.gene_structure.gff3
+gff_genome_to_genes.pl ${{REF}}.gene_structure.gff3 ref.fa > ${{REF}}.gene_structure.cds
+cds2aa.pl ${{REF}}.gene_structure.cds > ${{REF}}.gene_structure.pep
+python -m iga.assembly.assess busco --mode prot ${{REF}}.gene_structure.pep
 
 $bsub512 "python -m iga.annotation.maker maker_rename_gff pasa_raw.gff3"
 grep trna ../genome.maker.gff > trna.gff
 
+$bsub512 "python -m iga.annotation.maker maker_rename_gff pasa_raw.gff3 --prefix ELUMB"
+$bsub512 "gff_genome_to_genes.pl pasa_raw.format.gff ref.fa > pasa_raw.format.gff.cds && cds2aa.pl pasa_raw.format.gff.cds > pasa_raw.format.gff.pep "
+python -m iga.annotation.maker func_anno pasa_raw.format.gff.pep
 ```
