@@ -34,59 +34,49 @@ python -m iga.annotation.repeat post_repeatmasker workdir_repeatmask_elumb.conti
 
 ### Prepare RNA-seq evidence
 
-#### Get flnc reads (fasta format)
+```
+cd reads/species
+#$for i in *flcdna*bam; do python -m iga.annotation.isoseq isoseq_pb --threads 30 ${i} ${i}.IsoSeqPrimers.fasta; done
+REF=sesep.genome.fa
+mkdir -p annotation_evidence
+# align and assemble RNA-Seq reads with Trinity. Make sure Hisat2 index is available
+# This step may use 2h for each library
+python -m iga.annotation.rnaseq reads_align_assembly  "sesep.ssRNA.CAS_Y5.leaf1_1.clean.fq.gz sesep.ssRNA.CAS_Y5.leaf1_2.clean.fq.gz"  $REF --threads 20
+python -m iga.annotation.rnaseq reads_align_assembly  "sesep.ssRNA.CAS_Y6.leaf2_1.clean.fq.gz sesep.ssRNA.CAS_Y6.leaf2_2.clean.fq.gz"  $REF --threads 20
+python -m iga.annotation.rnaseq reads_align_assembly  "sesep.ssRNA.CAS_Y7.leaf3_1.clean.fq.gz sesep.ssRNA.CAS_Y7.leaf3_2.clean.fq.gz"  $REF --threads 20
+
+# waiting for job to finish
+# Rename, and merge transcript.fasta in seperater folder into one single file. Local run for the following two lines
+# This step is fasta
+python -m iga.annotation.maker cat_est workdir_isoseq_*/*hq.fasta.gz > annotation_evidence/flnc_rna.fasta
+python -m iga.annotation.maker cat_est *trinity/*GG.fasta > annotation_evidence/rnaseqGG.fasta 
+cd annotation_evidence
+
+# Submit to grid to execute. But this step is quite fasta, depending on the size of the est.fasta file.
+python -m iga.annotation.maker fastq2gff flnc_rna.fasta ../${REF}
+python -m iga.annotation.maker fastq2gff rnaseq.fasta ../${REF}
+
 
 ```
-for i in *flcdna*bam; do python -m iga.annotation.isoseq isoseq_pb $i elumb.flcdna.pb.primer.fasta; done
-```
 
-#### Assemble RNA-Seq reads
-
-```
-python -m iga.annotation.rnaseq reads_align_assembly "zenin.ssRNA.ZnY5_1.clean.fq.gz zenin.ssRNA.ZnY5_2.clean.fq.gz" zeins.contig.fa --threads 2
-```
-
-#### RNA-Seq fasta to gff
-
-```
-# daemon will not exist until the job finished
-python -m iga.annotation.maker fastq2gff est.fasta genome.fasta
-```
 
 ### Prepare Protein evidence
 
 ```
+# One
 python -m iga.annotation.maker prep_genblast elumb.contig.fa.masked.fa pep/elumb.homologous_pep.fa
-```
-
 * Input: 
     - rna_fasta.bam
     - protein_evidence.fasta
     - Genome (soft masked of complex region)
 * OutputHMM: test_datisca/species/Sp_5/
-
-
-### BRAKER
-
-
-```
-wd=test_datisca
-
-if [ -d $wd ]; then
-    rm -r $wd
-fi
-
-REF=Datisca_v2.masked.fa
-PEP=total_ortho.pep
-ESTBAM=Trinity-GG.fasta.bam
-
-( time braker.pl --genome=${REF} --prot_seq=${PEP} --prg=gth --bam=${ESTBAM} --gth2traingenes \
---softmasking --workingdir=$wd ) &> $wd.log
 ```
 
-### MAKER
 
+
+### Maker
 ```
+
 
 REF=elumb.contig.fa.masked.fa
 FLNCESTGFF=flnc_rna.gff
@@ -133,27 +123,45 @@ cd ${REF}_R${ROUND}
 python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
 cd ..
 
+
+# For Fourth Round, one can also use braker trained hmm. to see whether is better than round3
+# Note one need to modify pep.fa and est.bam
+python -m iga.annotation.maker braker --prefix elumb.contig.fa.masked.fa pep/elumb.homologous_pep.fa est/both_merge.bam
+# Output trained hmm is located in /ds3200_1/users_root/yitingshuang/lh/anaconda3/envs/braker2/config/
+# with species name is previously defined prefix
+
+#-+-Fourth Round #augustus is directly trained
+ROUND=4
+PREV=2
+# python -m iga.annotation.maker deploy_augustus
+python -m iga.annotation.maker maker_run         ${REF} ${ESTGFF} ${PEPGFF} ${REPEATGFF} --round ${ROUND} --augustus_species Sp_8 --snap_hmm ${REF}_R${P
+#--queue Q64C1T_X4
+python -m iga.annotation.maker maker_check_resub ${REF}_R${ROUND}
+python -m iga.annotation.maker maker_collect     ${REF}_R${ROUND}
+cd ${REF}_R${ROUND}
+python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
+cd ..
+
 ```
 
 ###  Refine, Rename and functional annotation
 
 ```
+ROUND=3
+
+# Genes will be renamed to ELUMB0001, transcripts will be renamed to ELUMB0001-t1
+GenePrefix=ELUMB
+
 cd ${{REF}}_R${{ROUND}}
 python -m iga.annotation.maker pasa_refine ref.fa genome.maker.gff ../$CDNAFASTA
 cp ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3 ref.fa.pasa.gff3
 chmod -w ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3
 
-python -m iga.annotation.maker maker_rename_gff ref.fa.pasa.gff3
+bsub512 "python -m iga.annotation.maker maker_rename_gff ref.fa.pasa.gff3 --prefix ELUMB"
 grep -i trna genome.maker.gff > trna.gff
 cat ref.fa.pasa.gff3 trna.gff > ${{REF}}.gene_structure.gff3
 gff_genome_to_genes.pl ${{REF}}.gene_structure.gff3 ref.fa > ${{REF}}.gene_structure.cds
 cds2aa.pl ${{REF}}.gene_structure.cds > ${{REF}}.gene_structure.pep
 python -m iga.assembly.assess busco --mode prot ${{REF}}.gene_structure.pep
-
-$bsub512 "python -m iga.annotation.maker maker_rename_gff pasa_raw.gff3"
-grep trna ../genome.maker.gff > trna.gff
-
-$bsub512 "python -m iga.annotation.maker maker_rename_gff pasa_raw.gff3 --prefix ELUMB"
-$bsub512 "gff_genome_to_genes.pl pasa_raw.format.gff ref.fa > pasa_raw.format.gff.cds && cds2aa.pl pasa_raw.format.gff.cds > pasa_raw.format.gff.pep "
 python -m iga.annotation.maker func_anno pasa_raw.format.gff.pep
 ```
