@@ -732,6 +732,7 @@ cds2aa.pl ${{REF}}.gene_structure.cds > ${{REF}}.gene_structure.pep
 python -m iga.assembly.assess busco --mode prot ${{REF}}.gene_structure.pep
 
 #-+-Functional annotation
+python -m iga.annotation.maker func_anno ${{REF}}.gene_structure.pep
 
 
 """
