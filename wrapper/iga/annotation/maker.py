@@ -674,21 +674,24 @@ maker_pipe_sh = """#!/bin/bash
 set -eo
 
 REF={0}
-ESTGFF={1}
-CDNAFASTA={2}
-PEPGFF={3}
-REPEATGFF={4}
+FLNCESTGFF={1}
+ESTGFF={2}
+CDNAFASTA={3}
+PEPGFF={4}
+REPEATGFF={5}
+
 
 #-+-First Round
 ROUND=1
-python -m iga.annotation.maker deploy_augustus
-python -m iga.annotation.maker maker_run         ${{REF}} ${{ESTGFF}} ${{PEPGFF}} ${{REPEATGFF}} --cpus 2
-python -m iga.annotation.maker maker_check_resub ${{REF}}_R1
-python -m iga.annotation.maker maker_collect     ${{REF}}_R1
-python -m iga.annotation.maker maker_train       ${{REF}}_R1 --cdna_fasta ${{CDNAFASTA}}  --snap 'F' --augustus F
-cd ${{REF}}_R${{ROUND}}
+#python -m iga.annotation.maker deploy_augustus
+python -m iga.annotation.maker maker_run         ${REF} ${FLNCESTGFF} ${PEPGFF} ${REPEATGFF} --cpus 2
+python -m iga.annotation.maker maker_check_resub ${REF}_R1
+python -m iga.annotation.maker maker_collect     ${REF}_R1
+python -m iga.annotation.maker maker_train       ${REF}_R1 --cdna_fasta ${CDNAFASTA}  --snap 'T' --augustus F
+cd ${REF}_R${ROUND}
 python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
 cd ..
+
 
 #-+-Second Round
 #python -m iga.annotation.maker deploy_augustus
@@ -734,7 +737,7 @@ python -m iga.assembly.assess busco --mode prot ${{REF}}.gene_structure.pep
 """
 
 
-def maker_pipe(ref_genome='', est_gff='', flcdna_fasta='', pep_gff='', repeat_gff=''):
+def maker_pipe(ref_genome='', flnc_GFF='', est_gff='', flcdna_fasta='', pep_gff='', repeat_gff=''):
     """
     :param ref_genome: fasta format of reference genome
     :param est_gff: GFF format of aligned transcripts
@@ -743,7 +746,7 @@ def maker_pipe(ref_genome='', est_gff='', flcdna_fasta='', pep_gff='', repeat_gf
     :param repeat_gff: GFF format of repeat elements
     :return: print maker pipeline commands
     """
-    cmd = maker_pipe_sh.format(ref_genome, est_gff, flcdna_fasta, pep_gff, repeat_gff)
+    cmd = maker_pipe_sh.format(ref_genome, flnc_GFF, est_gff, flcdna_fasta, pep_gff, repeat_gff)
     print(cmd)
 
 
