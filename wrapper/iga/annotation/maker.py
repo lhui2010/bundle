@@ -684,11 +684,11 @@ REPEATGFF={5}
 #-+-First Round
 ROUND=1
 #python -m iga.annotation.maker deploy_augustus
-python -m iga.annotation.maker maker_run         ${REF} ${FLNCESTGFF} ${PEPGFF} ${REPEATGFF} --cpus 2
-python -m iga.annotation.maker maker_check_resub ${REF}_R1
-python -m iga.annotation.maker maker_collect     ${REF}_R1
-python -m iga.annotation.maker maker_train       ${REF}_R1 --cdna_fasta ${CDNAFASTA}  --snap 'T' --augustus F
-cd ${REF}_R${ROUND}
+python -m iga.annotation.maker maker_run         ${{REF}} ${{FLNCESTGFF}} ${{PEPGFF}} ${{REPEATGFF}} --cpus 2
+python -m iga.annotation.maker maker_check_resub ${{REF}}_R1
+python -m iga.annotation.maker maker_collect     ${{REF}}_R1
+python -m iga.annotation.maker maker_train       ${{REF}}_R1 --cdna_fasta ${CDNAFASTA}  --snap 'T' --augustus F
+cd ${{REF}}_R${{ROUND}}
 python -m iga.assembly.assess busco --mode prot total.all.maker.proteins.fasta
 cd ..
 
