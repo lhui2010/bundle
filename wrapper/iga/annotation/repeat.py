@@ -36,10 +36,13 @@ RepeatMasker -lib {0}-families.fa {0} -pa {1} -dir custom_lib.out
 
 
 # species Viridiplantae
-def repeatmasker(genome=None, species='', denovo='T', threads=30):
+def repeatmasker(genome=None, species='Viridiplantae', denovo='T', threads=30):
     """
+    python -m iga.annotation.repeat repeatmasker --species Viridiplantae --denovo F sesep.genome.fa
+    python -m iga.annotation.repeat repeatmasker --species '' --denovo T sesep.genome.fa
+    Default is custom annotation only
     :param genome:
-    :param species:
+    :param species: like Viridiplantae
     :param denovo:
     :return:
     """
