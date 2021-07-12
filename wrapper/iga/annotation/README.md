@@ -28,7 +28,7 @@ python -m iga.annotation.repeat repeatmasker --denovo T elumb.contig.fa --thread
 
 # Step2. Combine the two result 
 
-python -m iga.annotation.repeat post_repeatmasker workdir_repeatmask_elumb.contig.fa --genome elumb.contig.fa
+python -m iga.annotation.repeat post_repeatmasker workdir_repeatmask_elumb.contig.fa  elumb.contig.fa
 
 ```
 

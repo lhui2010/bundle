@@ -13,6 +13,12 @@ from iga.apps.base import sh, emain, conda_act, abspath_list, get_prefix, bsub
 # 3: threads
 # Output: reads1.bam
 
+def prepare():
+    print("""
+    
+    python -m iga.annotation.rnaseq reads_align_assembly "elumb.lncRNA.EuG11_1.clean.fq.gz elumb.lncRNA.EuG11_2.clean.fq.gz" $REF --threads 20
+    """)
+
 align_sh = r"""
 hisat2 --rna-strandness RF --mp 3,1 -p {3} -x {0} -1 {1} -2 {2} | samtools sort -@ {3} -o {1}.bam 
 # && stringtie -p $threads -o $newID.with_novel.gtf  $newID.bam
@@ -33,14 +39,15 @@ Trinity --SS_lib_type RF \
 def reads_align_assembly(reads=None, ref=None, threads=30, output=''):
     """
     Align RNA-Seq reads to reference and assemble with tirinity
+
     Make sure hisat2-index exists
     :param reads: "root_1.fq.gz root_2.fq.gz"
     :param ref: AA.genome
     :param threads: 30 default
     :return:
     """
-    if ' ' in reads:
-        (read1, read2) = reads.split()
+    if ' ' in reads or '\t' in reads:
+        (read1, read2) = reads.strip().split()
     else:
         logging.warning("Single End reads found!")
     if output == '':

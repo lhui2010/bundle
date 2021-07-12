@@ -101,7 +101,7 @@ bedtools maskfasta -soft -fi {1} -bed {0}/Full_mask/full_mask.complex.reformat.g
 """
 
 
-def post_repeatmasker(dir=None, genome=''):
+def post_repeatmasker(dir=None, genome=None):
     """
     Post repeat process
     :param dir:
