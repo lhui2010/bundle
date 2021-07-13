@@ -679,6 +679,7 @@ ESTGFF={2}
 CDNAFASTA={3}
 PEPGFF={4}
 REPEATGFF={5}
+PREFIX={6}
 
 
 #-+-First Round
@@ -724,7 +725,7 @@ cd ${{REF}}_R${{ROUND}}
 python -m iga.annotation.maker pasa_refine ref.fa genome.maker.gff ../$CDNAFASTA
 chmod -w ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3
 cp ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3 ref.fa.pasa.gff3
-python -m iga.annotation.maker maker_rename_gff ref.fa.pasa.gff3
+python -m iga.annotation.maker maker_rename_gff --prefix $PREFIX ref.fa.pasa.gff3
 grep trna genome.maker.gff > trna.gff
 cat ref.fa.pasa.gff3 trna.gff > ${{REF}}.gene_structure.gff3
 gff_genome_to_genes.pl ${{REF}}.gene_structure.gff3 ref.fa > ${{REF}}.gene_structure.cds
@@ -738,7 +739,7 @@ python -m iga.annotation.maker func_anno ${{REF}}.gene_structure.pep
 """
 
 
-def maker_pipe(ref_genome='', flnc_GFF='', est_gff='', flcdna_fasta='', pep_gff='', repeat_gff=''):
+def maker_pipe(ref_genome='', flnc_GFF='', est_gff='', flcdna_fasta='', pep_gff='', repeat_gff='', prefix=''):
     """
     :param ref_genome: fasta format of reference genome
     :param est_gff: GFF format of aligned transcripts
@@ -747,7 +748,7 @@ def maker_pipe(ref_genome='', flnc_GFF='', est_gff='', flcdna_fasta='', pep_gff=
     :param repeat_gff: GFF format of repeat elements
     :return: print maker pipeline commands
     """
-    cmd = maker_pipe_sh.format(ref_genome, flnc_GFF, est_gff, flcdna_fasta, pep_gff, repeat_gff)
+    cmd = maker_pipe_sh.format(ref_genome, flnc_GFF, est_gff, flcdna_fasta, pep_gff, repeat_gff, prefix)
     print(cmd)
 
 
