@@ -19,7 +19,18 @@ def prepare():
     python -m iga.annotation.rnaseq reads_align_assembly "elumb.lncRNA.EuG11_1.clean.fq.gz elumb.lncRNA.EuG11_2.clean.fq.gz" $REF --threads 20
     """)
 
+# 0 ref
+# 1 reads1
+# 2 read2
+# 3 thread
 align_sh = r"""
+
+# if [ ! -e {0}.1.ht2 ]
+# then
+#     echo "hisat2-index not exists building
+#     hisat2-build {0} {0}
+# fi
+
 hisat2 --rna-strandness RF --mp 3,1 -p {3} -x {0} -1 {1} -2 {2} | samtools sort -@ {3} -o {1}.bam 
 # && stringtie -p $threads -o $newID.with_novel.gtf  $newID.bam
 """

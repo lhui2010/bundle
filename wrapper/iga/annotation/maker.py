@@ -508,7 +508,8 @@ def pasa_refine(genome=None, transcript=None, gff=None, use_grid='T'):
     """
     cmd = pasa_refine_sh.format(genome, transcript, gff)
     if use_grid == 'T':
-        bsub(cmd, direct_submit='F', cpus=5, name='pasa_refine')
+        jobid = bsub(cmd, direct_submit='F', cpus=5, name='pasa_refine')
+        waitjob(jobid)
     else:
         sh(cmd)
 
@@ -722,7 +723,7 @@ cd ..
 
 #-+-Final Pasa Refine
 cd ${{REF}}_R${{ROUND}}
-python -m iga.annotation.maker pasa_refine ref.fa genome.maker.gff ../$CDNAFASTA
+python -m iga.annotation.maker pasa_refine ref.fa  ../$CDNAFASTA genome.maker.gff
 chmod -w ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3
 cp ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3 ref.fa.pasa.gff3
 python -m iga.annotation.maker maker_rename_gff --prefix $PREFIX ref.fa.pasa.gff3
