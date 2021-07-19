@@ -446,7 +446,9 @@ sed 's/\///' {1} > {1}.rename
 $PASAHOME/Launch_PASA_pipeline.pl \
     -c pasa.alignAssembly.sqlite.txt -C -R -g {0} \
     -t {1}.rename  \
-     --ALIGNERS gmap,blat --CPU 20
+     --ALIGNERS gmap --CPU 20
+     
+#      --ALIGNERS gmap,blat --CPU 20
   
 #-+- Rename maker.gff(necessary?)
 
