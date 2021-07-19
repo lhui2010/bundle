@@ -148,8 +148,9 @@ def prep_fastx2gff(fastx=None, genome=None, output='', workdir=''):
 # 1 qry fasta
 fastq2gff_sh = """
 minimap2 -t20 -C5 -ax splice {0} {1} |samtools view -F 256 -b >{1}.bam
-bedtools bamtobed -split -i {1}.bam > {1}.bed 
-gt bed_to_gff3 {1}.bed | sort -k9,9 -k1,1 -k7,7 -k4,4n |awk '$3-$2 > 1' > {1}.rawgff
+bedtools bamtobed -split -i {1}.bam > {1}.raw.bed 
+awk '$3-$2 > 1' {1}.raw.bed  > {1}.bed 
+gt bed_to_gff3 {1}.bed | sort -k9,9 -k1,1 -k7,7 -k4,4n  > {1}.rawgff
 """
 
 
