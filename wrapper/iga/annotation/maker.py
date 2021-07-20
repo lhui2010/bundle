@@ -730,7 +730,7 @@ python -m iga.annotation.maker pasa_refine ref.fa  ../$CDNAFASTA genome.maker.gf
 chmod -w ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3
 cp ref.fa.sqlite.gene_structures_post_PASA_updates.*.gff3 ref.fa.pasa.gff3
 python -m iga.annotation.maker maker_rename_gff --prefix $PREFIX ref.fa.pasa.gff3
-grep trna genome.maker.gff > trna.gff
+grep trna ref.fa.pasa.format.gff > trna.gff
 cat ref.fa.pasa.gff3 trna.gff > ${{REF}}.gene_structure.gff3
 gff_genome_to_genes.pl ${{REF}}.gene_structure.gff3 ref.fa > ${{REF}}.gene_structure.cds
 cds2aa.pl ${{REF}}.gene_structure.cds > ${{REF}}.gene_structure.pep
