@@ -4,7 +4,7 @@ Isoseq relevant utils
 import logging
 import os
 
-from iga.apps.base import sh, emain, conda_act, abspath_list, get_prefix, bsub
+from iga.apps.base import sh, emain, conda_act, abspath_list, get_prefix, bsub, waitjob
 
 
 # 0: Reference (Hisat2-build)
@@ -71,8 +71,9 @@ def reads_align_assembly(reads=None, ref=None, threads=30, output=''):
         cmd = trinity_cmd
     else:
         cmd = align_cmd + trinity_cmd
-    bsub(cmd, cpus=threads, name="Trinity_Guided_read1")
+    jobid = bsub(cmd, cpus=threads, name="Trinity_Guided_read1")
     logging.info("Results is {}_trinity/Trinity-GG.fasta".format(prefix))
+    waitjob(jobid)
 
 
 if __name__ == "__main__":
