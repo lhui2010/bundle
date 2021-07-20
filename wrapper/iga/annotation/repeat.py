@@ -6,7 +6,8 @@ import os
 
 import os.path as op
 
-from iga.apps.base import emain, conda_act, bsub, get_prefix, sh
+from iga.apps.base import emain, conda_act, bsub, get_prefix, sh, waitjob
+
 
 # def repeat_mask():
 
@@ -59,7 +60,8 @@ def repeatmasker(genome=None, species='Viridiplantae', denovo='T', threads=30):
         logging.error("Either provide a species name or use denovo prediction mode")
         exit(1)
     prefix = get_prefix(genome)
-    bsub(cmd, name="repeat_masker_{}".format(prefix), cpus=threads)
+    jobid = bsub(cmd, name="repeat_masker_{}".format(prefix), cpus=threads)
+    waitjob(jobid)
 
 
 post_repeatmasker_sh = r"""
