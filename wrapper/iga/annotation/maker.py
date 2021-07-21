@@ -1470,14 +1470,20 @@ def parse_func_result(ipr_file=None, medtr_bln='', tair_bln='', swissprot_bln=''
             if not token_pfam.startswith('PF'):
                 token_pfam = '-'
             # GO:12312|GO:12321 -
-            token_go = token[13].split('|')
+            try:
+                token_go = token[13].split('|')
+            except IndexError:
+                token_go = '-'
             # KEGG: 21|KEGG: 32 -
-            token_kegg = token[14].split('|')
+            try:
+                token_kegg = token[14].split('|')
+            except IndexError:
+                token_kegg = '-'
             if token_ipr != '-':
                 ipr_out[gene_id].add_ipr(token_ipr)
-                ipr_out[gene_id].add_go(token_ipr)
-                ipr_out[gene_id].add_kegg(token_ipr)
-                ipr_out[gene_id].add_pfam(token_ipr)
+                ipr_out[gene_id].add_go(token_go)
+                ipr_out[gene_id].add_kegg(token_kegg)
+                ipr_out[gene_id].add_pfam(token_pfam)
     if tair_bln != "":
         tair_ortho = best_hit_from_blast(tair_bln)
         for g in tair_ortho:
