@@ -1471,12 +1471,12 @@ def parse_func_result(ipr_file=None, medtr_bln='', tair_bln='', swissprot_bln=''
                 token_pfam = '-'
             # GO:12312|GO:12321 -
             try:
-                token_go = token[13].split('|')
+                token_go = token[13]
             except IndexError:
                 token_go = '-'
             # KEGG: 21|KEGG: 32 -
             try:
-                token_kegg = token[14].split('|')
+                token_kegg = token[14]
             except IndexError:
                 token_kegg = '-'
             if token_ipr != '-':
