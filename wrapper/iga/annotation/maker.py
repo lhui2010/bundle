@@ -1308,8 +1308,8 @@ def func_anno(pep=None, interproscan='T', eggnog='F', tair='T', medtr5='T', swis
         'medtr5': '/ds3200_1/users_root/yitingshuang/lh/database/function/medtrv5.pep'}
     joblist = []
     if interproscan == 'T':
-        ipr_out = pep + '.ipr'
-        if not os.path.exists("{0}.ipr".format(pep)):
+        ipr_out = pep + '.ipr.tsv'
+        if not os.path.exists("{0}.ipr.tsv".format(pep)):
             cmd = "interproscan.sh -f tsv -dp  -pa  -goterms -i {0} -b {0}.ipr".format(pep)
             job = bsub(cmd, name='iprscan', cpus=4)
             joblist.append(job)
