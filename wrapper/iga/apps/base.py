@@ -225,7 +225,7 @@ ROOT=$PWD
 date
 """
         bsub_buff = newbsub + cmd
-        rand_digit = str(time.time()).replace('.', '')[7:11]
+        rand_digit = str(time.time()).replace('.', '')[7:11] + str(time.time()).replace('.', '')[-2:]
         bsub_sh = ".".join(['bsub', name, rand_digit, 'sh'])
         with open(bsub_sh, 'w') as fh:
             fh.write(bsub_buff)
