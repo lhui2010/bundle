@@ -1346,10 +1346,11 @@ def func_anno(pep=None, interproscan='T', eggnog='F', tair='T', medtr5='T', swis
     # func_dict = {}
     result = parse_func_result(ipr_file=ipr_out, medtr_bln=medtr5_out, tair_bln=tair_out, swissprot_bln=swissprot_out)
     print("Gene\tGO\tKEGG\tTAIR10\tMedtr5\tIPR\tPfam\tNote")
-    for g in result:
+    for gene_name in result:
         template = "{}\t" * 8
         template = template.rstrip()
-        print(template.format(g, g.go, g.kegg, g.tair, g.medtr, g.ipr, g.pfam, g.swissprot))
+        g = result[gene_name]
+        print(template.format(gene_name, g.go, g.kegg, g.tair, g.medtr, g.ipr, g.pfam, g.swissprot))
     return 0
 
 
