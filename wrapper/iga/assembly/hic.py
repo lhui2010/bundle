@@ -316,13 +316,13 @@ def agp2assembly(agp=None):
     print(stdout)
 
 
-def liftover():
+def lift_over():
     """ lift over gff annotation from contig to chromosome 
     """
     return 0
 
 
-def buildchr(genome=None, agp=None):
+def build_chr(genome=None, agp=None):
     """ build chromosome based on .assembly or .agp
     """
     cmd = "build_fa_from_agp.pl {0} {1} > {0}.chr.fa".format(genome, agp)
