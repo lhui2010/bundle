@@ -1429,7 +1429,7 @@ def best_hit_from_blast(bln=None, print_out='F'):
     """
     hit_ortho = {}
 
-    if os.path.exists(bln):
+    if not os.path.exists(bln):
         logging.error("{} do not exist".format(bln))
         return hit_ortho
 
