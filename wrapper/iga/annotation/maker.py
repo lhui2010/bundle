@@ -669,6 +669,74 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         sh(job_list, parallel='T', cpus=cpus)
 
 
+prepare_pipe_sh = r"""
+
+#!/bin/bash
+
+set -eo
+
+PREFIX=cechi
+REF=cechi.contig.fa
+PEP=arath_med_sprot.pep
+
+python -m iga.annotation.repeat repeatmasker --species Viridiplantae --denovo F ${{REF}} &
+python -m iga.annotation.repeat repeatmasker --species '' --denovo T ${{REF}} &
+wait
+python -m iga.annotation.repeat post_repeatmasker workdir_repeatmask_${{REF}} ${{REF}}
+
+$PWD/workdir_repeatmask_${{REF}}/Full_mask/full_mask.complex.reformat.gff3
+
+ln -s $PWD/workdir_repeatmask_${{REF}}/Full_mask/full_mask.complex.reformat.gff3 repeat.gff
+
+REPEAT_GFF=repeat.gff
+
+# cp workdir_repeatmask_${{REF}}/Full
+
+MASKEDREF=${{REF}}.masked.fa
+
+if [ ! -e  ${{MASKEDREF}} ]
+then
+    echo "Error, masked genome not exists, check log"
+    exit
+fi
+
+python -m iga.annotation.maker prep_genblast ${{MASKEDREF}} ${{PEP}}
+
+ln -s ${{REF}}.${{PEP}}..gff genblast.gff
+
+hisat2-build ${{REF}} ${{REF}}
+
+python -m iga.annotation.rnaseq  reads_align_assembly ${{REF}} "cechi.ssRNAbgi.CC_Y5_1.clean.fq.gz cechi.ssRNAbgi.CC_Y5_2.clean.fq.gz" &
+python -m iga.annotation.rnaseq  reads_align_assembly ${{REF}} "cechi.ssRNAbgi.CC_Y7_1.clean.fq.gz cechi.ssRNAbgi.CC_Y7_2.clean.fq.gz" &
+python -m iga.annotation.rnaseq  reads_align_assembly ${{REF}} "cechi.ssRNAbgi.CC_Y9_1.clean.fq.gz cechi.ssRNAbgi.CC_Y9_2.clean.fq.gz" &
+
+wait
+
+python -m iga.annotation.maker cat_est ${{ISOSEQDIR}}/*hq.fasta.gz > flnc.fasta
+python -m iga.annotation.maker cat_est *trinity/Trinity-GG.fasta > rnaseq.fasta
+
+python -m iga.annotation.maker fastq2gff flnc.fasta ${{REF}} # output flnc.fasta.rawgff.gff
+python -m iga.annotation.maker fastq2gff flnc.fasta ${{REF}}  # output rnaseq.fasta.rawgff.gff
+
+cat flnc.fasta.rawgff.gff rnaseq.fasta.rawgff.gff > total_est.gff
+
+FLNCFASTA=flnc.fasta
+FLNCGFF=flnc.fasta.rawgff.gff
+ESTGFF=total_est.gff
+REPEAT_GFF=$PWD/workdir_repeatmask_${{REF}}/Full_mask/full_mask.complex.reformat.gff3
+PEPGFF=genblast.gff
+
+python -m iga.annotation.maker maker_pipe --ref_genome ${{MASKEDREF}} \
+    --flnc_GFF ${{FLNCGFF}} --est_gff ${{ESTGFF}} --flcdna_fasta ${{FLNCFASTA}} \
+    --pep_gff ${{PEPGFF}} --repeat_gff ${{REPEAT_GFF}} --prefix $PREFIX > maker.sh
+
+"""
+
+
+def prepare_pipe():
+    print(prepare_pipe_sh)
+
+
 # 0 reference.fa
 # 1 est.gff
 # 2 flcdna.gff
