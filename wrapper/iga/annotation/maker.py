@@ -734,7 +734,7 @@ python -m iga.annotation.maker maker_pipe --ref_genome ${{MASKEDREF}} \
 
 
 def prepare_pipe():
-    print(prepare_pipe_sh)
+    print(prepare_pipe_sh.format())
 
 
 # 0 reference.fa
