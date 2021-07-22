@@ -669,9 +669,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         sh(job_list, parallel='T', cpus=cpus)
 
 
-prepare_pipe_sh = r"""
-
-#!/bin/bash
+prepare_pipe_sh = r"""#!/bin/bash
 
 set -eo
 
@@ -1556,7 +1554,7 @@ def parse_func_result(ipr_file=None, medtr_bln='', tair_bln='', swissprot_bln=''
     if tair_bln != "":
         tair_ortho = best_hit_from_blast(tair_bln)
         for g in tair_ortho:
-            ipr_out[g].add_medtr(tair_ortho[g])
+            ipr_out[g].add_tair(tair_ortho[g])
     if medtr_bln != "":
         medtr_ortho = best_hit_from_blast(medtr_bln)
         for g in medtr_ortho:
@@ -1564,7 +1562,7 @@ def parse_func_result(ipr_file=None, medtr_bln='', tair_bln='', swissprot_bln=''
     if swissprot_bln != "":
         swiss_ortho = best_hit_from_blast(swissprot_bln)
         for g in swiss_ortho:
-            ipr_out[g].add_medtr(swiss_ortho[g])
+            ipr_out[g].add_swissprot(swiss_ortho[g])
     return ipr_out
 
 
@@ -1615,7 +1613,6 @@ def add_func(gff=None, table=None, tag='GO', pos='2'):
                 except IndexError:
                     logger.error("Error on line {}, list {} and pos {}".format(line, mylist, this_pos))
                     continue
-
     logger.warning("Modifying GFF complete")
     gff_db.print_out()
 
