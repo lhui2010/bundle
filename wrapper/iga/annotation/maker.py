@@ -1437,7 +1437,7 @@ def best_hit_from_blast(bln=None, print_out='F'):
         for line in fh:
             mylist = line.strip().split()
             if mylist[0] not in hit_ortho:
-                hit_ortho[mylist[0]] = mylist[-1]
+                hit_ortho[mylist[0]] = mylist[1]
 
     if print_out == 'T':
         for k in hit_ortho:
