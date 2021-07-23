@@ -336,7 +336,7 @@ def assembly2fasta(assembly=None, contig=None):
         # >ptg000009l:::fragment_1 1 41627194
         # >ptg000009l:::fragment_2:::debris 2 2500000
         # >ptg000009l:::fragment_3 3 106601513
-    # Output
+    # Output (STDOUT)
         ptg000009l:::fragment_1          0                      41627194
         ptg000009l:::fragment_2:::debris 41627194               41627194 + 2500000
         ptg000009l:::fragment_3          41627194 + 2500000     41627194 + 2500000 + 106601513
@@ -353,9 +353,12 @@ def assembly2fasta(assembly=None, contig=None):
             (contig_id, contig_order, contig_size) = line[1:].strip().split()
             contig_size = int(contig_size)
             pure_contig_id = re.sub(r':.*', '', contig_id)
-            fh_out.write("{}\t{}\t{}\n".format(contig_id, start_offset[pure_contig_id],
-                                      contig_size + start_offset[pure_contig_id]))
+            fh_out.write("{}\t{}\t{}\t{}\n".format(pure_contig_id, start_offset[pure_contig_id],
+                                      contig_size + start_offset[pure_contig_id], contig_id))
             start_offset[pure_contig_id] += contig_size
+    cmd = 'bedtools getfasta -name+ -fi {} -bed {}'.format(contig, bed_out)
+    result = sh(cmd)
+    print(result)
 
 
 if __name__ == '__main__':
