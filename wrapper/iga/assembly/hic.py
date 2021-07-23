@@ -332,6 +332,7 @@ def build_chr(genome=None, agp=None):
 
 def assembly2fasta(assembly=None, contig=None):
     """
+    3d-DNA's post assembly is quite slow for large genome, this script is an alternative way to do it.
     # Input
         # >ptg000009l:::fragment_1 1 41627194
         # >ptg000009l:::fragment_2:::debris 2 2500000
@@ -346,7 +347,7 @@ def assembly2fasta(assembly=None, contig=None):
     """
     start_offset = defaultdict(int)
     bed_out = assembly + ".bed"
-    with open(assembly) as fh, open(bed_out) as fh_out:
+    with open(assembly) as fh, open(bed_out, 'w') as fh_out:
         for line in fh:
             if not line.startswith('>'):
                 continue
