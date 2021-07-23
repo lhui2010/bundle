@@ -330,5 +330,33 @@ def build_chr(genome=None, agp=None):
     return 0
 
 
+def assembly2fasta(assembly=None, contig=None):
+    """
+    # Input
+        # >ptg000009l:::fragment_1 1 41627194
+        # >ptg000009l:::fragment_2:::debris 2 2500000
+        # >ptg000009l:::fragment_3 3 106601513
+    # Output
+        ptg000009l:::fragment_1          0                      41627194
+        ptg000009l:::fragment_2:::debris 41627194               41627194 + 2500000
+        ptg000009l:::fragment_3          41627194 + 2500000     41627194 + 2500000 + 106601513
+    :param assembly:
+    :param contig:
+    :return:
+    """
+    start_offset = defaultdict(int)
+    bed_out = assembly + ".bed"
+    with open(assembly) as fh, open(bed_out) as fh_out:
+        for line in fh:
+            if not line.startswith('>'):
+                continue
+            (contig_id, contig_order, contig_size) = line[1:].strip().split()
+            contig_size = int(contig_size)
+            pure_contig_id = re.sub(r':.*', '', contig_id)
+            fh_out.write("{}\t{}\t{}\n".format(contig_id, start_offset[pure_contig_id],
+                                      contig_size + start_offset[pure_contig_id]))
+            start_offset[pure_contig_id] += contig_size
+
+
 if __name__ == '__main__':
     emain()
