@@ -57,12 +57,10 @@ REF={0}
 QRY={1}
 PREFIX={2}
 
-touch ${{REF}} && rm ${{REF}}
 ln -s ${{REF}}
 # ln -s ${{REF}}.nin
 # ln -s ${{REF}}.nhr
 # ln -s ${{REF}}.nsq
-touch ${{QRY}} && rm ${{QRY}}
 ln -s ${{QRY}}
 REF=`basename ${{REF}}`
 QRY=`basename ${{QRY}}`
