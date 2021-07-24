@@ -147,7 +147,7 @@ def filter_early_stop(fasta=None):
             print(k)
 
 
-def run(qry=None, ref=None, PREFIX=''):
+def run(qry=None, ref=None, PREFIX=None):
     """
     run genblast
     :param qry:
@@ -161,7 +161,13 @@ def run(qry=None, ref=None, PREFIX=''):
     cmd = cmd2.format(qry, ref, PREFIX)
     job = sh(cmd)
     if type(job) == int:
-        logging.error("Genblast failed with return code {}".format(job))
+        logging.error("Genblast (h2) failed with return code {}".format(job))
+        sh("rm {}.genblast_1.1c_2.3_s2_tdshift2_tddis0_tcls0.0_m2_score_i0_d16_0".format(PREFIX))
+        cmd = cmd1.format(qry, ref, PREFIX)
+        job = sh(cmd)
+        if type(job) == int:
+            logging.error("Genblast (h1) failed with return code {}".format(job))
+            exit(1)
 
 
 if __name__ == "__main__":
