@@ -679,6 +679,13 @@ PEP=arath_med_sprot.pep
 
 python -m iga.annotation.repeat repeatmasker --species Viridiplantae --denovo F ${{REF}} &
 python -m iga.annotation.repeat repeatmasker --species '' --denovo T ${{REF}} &
+
+hisat2-build ${{REF}} ${{REF}}
+
+python -m iga.annotation.rnaseq  reads_align_assembly ${{REF}} "cechi.ssRNAbgi.CC_Y5_1.clean.fq.gz cechi.ssRNAbgi.CC_Y5_2.clean.fq.gz" &
+python -m iga.annotation.rnaseq  reads_align_assembly ${{REF}} "cechi.ssRNAbgi.CC_Y7_1.clean.fq.gz cechi.ssRNAbgi.CC_Y7_2.clean.fq.gz" &
+python -m iga.annotation.rnaseq  reads_align_assembly ${{REF}} "cechi.ssRNAbgi.CC_Y9_1.clean.fq.gz cechi.ssRNAbgi.CC_Y9_2.clean.fq.gz" &
+
 wait
 python -m iga.annotation.repeat post_repeatmasker workdir_repeatmask_${{REF}} ${{REF}}
 
@@ -702,13 +709,6 @@ python -m iga.annotation.maker prep_genblast ${{MASKEDREF}} ${{PEP}}
 
 ln -s ${{REF}}.${{PEP}}..gff genblast.gff
 
-hisat2-build ${{REF}} ${{REF}}
-
-python -m iga.annotation.rnaseq  reads_align_assembly ${{REF}} "cechi.ssRNAbgi.CC_Y5_1.clean.fq.gz cechi.ssRNAbgi.CC_Y5_2.clean.fq.gz" &
-python -m iga.annotation.rnaseq  reads_align_assembly ${{REF}} "cechi.ssRNAbgi.CC_Y7_1.clean.fq.gz cechi.ssRNAbgi.CC_Y7_2.clean.fq.gz" &
-python -m iga.annotation.rnaseq  reads_align_assembly ${{REF}} "cechi.ssRNAbgi.CC_Y9_1.clean.fq.gz cechi.ssRNAbgi.CC_Y9_2.clean.fq.gz" &
-
-wait
 
 python -m iga.annotation.maker cat_est ${{ISOSEQDIR}}/*hq.fasta.gz > flnc.fasta
 python -m iga.annotation.maker cat_est *trinity/Trinity-GG.fasta > rnaseq.fasta
