@@ -4,7 +4,7 @@ genblast relevant utils
 
 import re
 
-from iga.apps.base import emain
+from iga.apps.base import emain, sh
 from Bio import SeqIO
 
 import logging
@@ -145,6 +145,22 @@ def filter_early_stop(fasta=None):
         for k in genome_dict.keys():
             SeqIO.write(genome_dict[k], output_handle, "fasta")
             print(k)
+
+
+def run(qry=None, ref=None, PREFIX=''):
+    """
+    run genblast
+    :param qry:
+    :param ref:
+    :return:
+    """
+    cmd2 = "genblast -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 \
+-x 20 -n 20 -v 2 -h 2 -j 0 -norepair -gff -cdna -pro -o {}.genblast"
+    cmd1 = "genblast -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 \
+-x 20 -n 20 -v 2 -h 2 -j 0 -norepair -gff -cdna -pro -o {}.genblast"
+    cmd = cmd2.format(qry, ref, PREFIX)
+    job = sh(cmd)
+    print(job)
 
 
 if __name__ == "__main__":
