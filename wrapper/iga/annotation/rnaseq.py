@@ -47,7 +47,7 @@ Trinity --SS_lib_type RF \
 """
 
 
-def reads_align_assembly(reads=None, ref=None, threads=30, output=''):
+def reads_align_assembly(ref=None, reads=None, threads=30, output=''):
     """
     Align RNA-Seq reads to reference and assemble with tirinity
 
