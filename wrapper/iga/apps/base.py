@@ -124,7 +124,8 @@ def sh(cmd, debug=False, parallel='F', cpus=1, warning='T'):
         try:
             ret = subprocess.check_output(prior_cmd + cmd, stderr=subprocess.STDOUT, shell=True).decode()
         except subprocess.CalledProcessError as cpe:
-            ret = cpe.output.decode() + cpe.returncode
+            # cpe.output.decode() +
+            ret = cpe.returncode
         if warning == 'T':
             logger.warning(ret)
     return ret

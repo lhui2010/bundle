@@ -160,7 +160,8 @@ def run(qry=None, ref=None, PREFIX=''):
 -x 20 -n 20 -v 2 -h 1 -j 0 -norepair -gff -cdna -pro -o {}.genblast"
     cmd = cmd2.format(qry, ref, PREFIX)
     job = sh(cmd)
-    print(job)
+    if type(job) == int:
+        logging.error("Genblast failed with return code {}".format(job))
 
 
 if __name__ == "__main__":
