@@ -157,7 +157,7 @@ def run(qry=None, ref=None, PREFIX=''):
     cmd2 = "genblast -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 \
 -x 20 -n 20 -v 2 -h 2 -j 0 -norepair -gff -cdna -pro -o {}.genblast"
     cmd1 = "genblast -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 \
--x 20 -n 20 -v 2 -h 2 -j 0 -norepair -gff -cdna -pro -o {}.genblast"
+-x 20 -n 20 -v 2 -h 1 -j 0 -norepair -gff -cdna -pro -o {}.genblast"
     cmd = cmd2.format(qry, ref, PREFIX)
     job = sh(cmd)
     print(job)
