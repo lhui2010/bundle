@@ -676,9 +676,12 @@ prepare_pipe_sh = r"""#!/bin/bash
 
 set -eo
 
-PREFIX=cechi
-REF=cechi.contig.fa
+# User defined variables
+PREFIX=CLPLA
+REF=clpla.contig.fa
 PEP=arath_med_sprot.pep
+ISOSEQDIR=workdir_isoseq_clpla
+# User defined variables end
 
 python -m iga.annotation.repeat repeatmasker --species Viridiplantae --denovo F ${{REF}} &
 python -m iga.annotation.repeat repeatmasker --species '' --denovo T ${{REF}} &
@@ -706,8 +709,7 @@ fi
 
 python -m iga.annotation.maker prep_genblast ${{MASKEDREF}} ${{PEP}}
 
-ln -s ${{REF}}.${{PEP}}..gff genblast.gff
-
+ln -s ${{MASKEDREF}}.${{PEP}}..gff genblast.gff
 
 python -m iga.annotation.maker cat_est ${{ISOSEQDIR}}/*hq.fasta.gz > flnc.fasta
 python -m iga.annotation.maker cat_est *trinity/Trinity-GG.fasta > rnaseq.fasta
