@@ -87,6 +87,7 @@ alias pm='python -m '
 #https://serverfault.com/questions/532309/setting-the-job-name-column-width-for-the-lsf-bjobs-command
 alias bj='bjobs -o "JOBID:10 SUBMIT_TIME:13 USER:5 STAT:5 QUEUE:6 SLOTS:5 EXEC_HOST:20 JOB_NAME"'
 alias bjl='bjobs -o "JOBID:10 SUBMIT_TIME:13 USER:5 STAT:5 QUEUE:6 SLOTS:5 EXEC_HOST:20 JOB_NAME" |les'
+alias bjal='bash /ds3200_1/users_root/yitingshuang/lh/bin/bjobs_cumulate_stdout.sh'
 alias ls='ls --color=tty'
 alias bs='bash'
 alias les='less -SN'
@@ -94,6 +95,9 @@ alias lese='less -SN'
 alias ll='ls -hl'                              # long list
 alias lt='ls -lth'
 alias lth='ls -lth |head'
+alias lth20='ls -lth |head -20'
+alias lth30='ls -lth |head -30'
+alias lth50='ls -lth |head -50'
 #alias rm='rm -i'
 alias vi='vim'
 alias vc='vim ~/.bashrc'
@@ -367,3 +371,6 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/kmer/bin/genomes
 #####################################
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/ParaAT2.0:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/ParaAT2.0:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/nextflow_install:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/interproscan/interproscan-5.52-86.0:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/interproscan/interproscan-5.52-86.0:$PATH
