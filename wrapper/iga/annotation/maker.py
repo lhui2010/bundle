@@ -700,8 +700,6 @@ ln -s $PWD/workdir_repeatmask_${{REF}}/Full_mask/full_mask.complex.reformat.gff3
 
 REPEAT_GFF=repeat.gff
 
-# cp workdir_repeatmask_${{REF}}/Full
-
 MASKEDREF=${{REF}}.masked.fa
 
 if [ ! -e  ${{MASKEDREF}} ]
@@ -719,7 +717,7 @@ python -m iga.annotation.maker cat_est ${{ISOSEQDIR}}/*hq.fasta.gz > flnc.fasta
 python -m iga.annotation.maker cat_est *trinity/Trinity-GG.fasta > rnaseq.fasta
 
 python -m iga.annotation.maker fastq2gff flnc.fasta ${{REF}} # output flnc.fasta.rawgff.gff
-python -m iga.annotation.maker fastq2gff flnc.fasta ${{REF}}  # output rnaseq.fasta.rawgff.gff
+python -m iga.annotation.maker fastq2gff rnaseq.fasta ${{REF}}  # output rnaseq.fasta.rawgff.gff
 
 cat flnc.fasta.rawgff.gff rnaseq.fasta.rawgff.gff > total_est.gff
 
