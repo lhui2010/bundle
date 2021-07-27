@@ -692,8 +692,6 @@ python -m iga.annotation.rnaseq  reads_align_assembly ${{REF}} "cechi.ssRNAbgi.C
 wait
 python -m iga.annotation.repeat post_repeatmasker workdir_repeatmask_${{REF}} ${{REF}}
 
-$PWD/workdir_repeatmask_${{REF}}/Full_mask/full_mask.complex.reformat.gff3
-
 ln -s $PWD/workdir_repeatmask_${{REF}}/Full_mask/full_mask.complex.reformat.gff3 repeat.gff
 
 REPEAT_GFF=repeat.gff
