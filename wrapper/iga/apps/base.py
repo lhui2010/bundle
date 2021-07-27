@@ -119,12 +119,13 @@ def sh(cmd, debug=False, parallel='F', cpus=1, warning='T'):
         if type(cmd) != list:
             cmd = cmd.split('\n')
         with Pool(int(cpus)) as p:
-            logger.warning(p.map(sh, cmd))
+            logger.info(p.map(sh, cmd))
     else:
         try:
             ret = subprocess.check_output(prior_cmd + cmd, stderr=subprocess.STDOUT, shell=True).decode()
         except subprocess.CalledProcessError as cpe:
             # cpe.output.decode() +
+            logging.error(cpe.output.decode())
             ret = cpe.returncode
         if warning == 'T':
             logger.warning(ret)
