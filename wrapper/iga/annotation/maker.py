@@ -722,7 +722,7 @@ cat flnc.fasta.rawgff.gff rnaseq.fasta.rawgff.gff > total_est.gff
 FLNCFASTA=flnc.fasta
 FLNCGFF=flnc.fasta.rawgff.gff
 ESTGFF=total_est.gff
-REPEAT_GFF=$PWD/workdir_repeatmask_${{REF}}/Full_mask/full_mask.complex.reformat.gff3
+REPEAT_GFF=repeat.gff
 PEPGFF=genblast.gff
 
 python -m iga.annotation.maker maker_pipe --ref_genome ${{MASKEDREF}} \
