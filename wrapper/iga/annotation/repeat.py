@@ -112,7 +112,8 @@ def post_repeatmasker(dir=None, genome=None):
     cmd = post_repeatmasker_sh.format(dir)
     if genome != '':
         cmd += get_mask_fasta_sh.format(dir, genome)
-    bsub(cmd, name='post_repeatmasker')
+    jobid = bsub(cmd, name='post_repeatmasker')
+    waitjob(jobid)
 
 
 def goto_workdir(program, sample=''):

@@ -337,7 +337,7 @@ def assembly2fasta(assembly=None, contig=None):
         # >ptg000009l:::fragment_1 1 41627194
         # >ptg000009l:::fragment_2:::debris 2 2500000
         # >ptg000009l:::fragment_3 3 106601513
-    # Output (assembly.fasta)
+    # Output ([assembly].fasta file, not STDOUT)
         ptg000009l:::fragment_1          0                      41627194
         ptg000009l:::fragment_2:::debris 41627194               41627194 + 2500000
         ptg000009l:::fragment_3          41627194 + 2500000     41627194 + 2500000 + 106601513
