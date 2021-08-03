@@ -781,7 +781,7 @@ cd ..
 #-+-Third Round #augustus is directly trained
 ROUND=3
 PREV=2
-python -m iga.annotation.maker deploy_augustus
+# python -m iga.annotation.maker deploy_augustus
 python -m iga.annotation.maker maker_run         ${{REF}} ${{ESTGFF}} ${{PEPGFF}} ${{REPEATGFF}} --round ${{ROUND}} \
 --augustus_species ${{REF}}_R${{PREV}}_direct --snap_hmm ${{REF}}_R${{PREV}} --update "trna=1;alt_splice=1"
 #--queue Q64C1T_X4
