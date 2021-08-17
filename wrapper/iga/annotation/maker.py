@@ -69,7 +69,7 @@ QRY=`basename ${{QRY}}`
 # -x 20 -n 20 -v 2 -h 2 -j 0 -norepair -gff -cdna -pro -o $PREFIX.genblast
 # change to -h 1 if the above command failed
 
-python -m iga.annotation.genblast run $QRY $REF $PREFIX
+python -m iga.annotation.genblast run $QRY $REF $PREFIX --rank {3}
 
 python -m iga.annotation.genblast filter_genblast $PREFIX.genblast*.gff > $PREFIX.slim.genblast.gff
 
@@ -81,7 +81,7 @@ sed 's/transcript/protein_match/; s/coding_exon/match_part/' $PREFIX.filter.genb
 """
 
 
-def prep_genblast(genome=None, protein=None, chunk=100, output=''):
+def prep_genblast(genome=None, protein=None, rank=3, chunk=100, output=''):
     """
     Run genblast from protein to genome, output maker compatible gffs as well as normal gffs
     Relative path
@@ -108,7 +108,7 @@ def prep_genblast(genome=None, protein=None, chunk=100, output=''):
         # mv(protein_i, protein_i + '.run/' + protein_i)
         os.chdir(protein_i + '.run')
         final_prefix = protein_i
-        cmd = prep_genblast_sh.format(abs_ref, "../" + protein_i, final_prefix)
+        cmd = prep_genblast_sh.format(abs_ref, "../" + protein_i, final_prefix, rank)
         job_list.append(bsub(cmd, name='genblast'))
     waitjob(job_list)
     if output == '':

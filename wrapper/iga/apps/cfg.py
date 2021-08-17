@@ -8,7 +8,7 @@ from collections import defaultdict
 cfg = defaultdict(str)
 seperator = defaultdict(str)
 
-__all__ = ['cfg', 'seperator', 'falcon', 'maker']
+__all__ = ['cfg', 'seperator']
 
 __author__ = ['Hui Liu <lhui2010@gmail.com>']
 
