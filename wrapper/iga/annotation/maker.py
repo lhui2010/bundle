@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
 # 0 repeatmask.gff
-prep_repeat_sh = """
+prep_repeat_sh = r"""
 GFF={0}
 PREFIX=${{GFF%.gff}}
 grep -v -e "Satellite" -e ")n" -e "-rich" ${{GFF}} \
