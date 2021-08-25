@@ -481,7 +481,10 @@ def syri(ref=None, qry=None, threads=6, submit='T', bychr='F', node='rock0[12]')
         for chr_ref, chr_qry in zip(ref_list, qry_list):
             prefix = get_prefix(chr_ref)
             cmd = 'conda activate syri' + syri_sh.format(chr_ref, chr_qry)
-            qsub(cmd, cpus=threads, name='syri.' + prefix, node=node)
+            if node != '':
+                qsub(cmd, cpus=threads, name='syri.' + prefix, node=node)
+            else:
+                qsub(cmd, cpus=threads, name='syri.' + prefix, node=node)
 
 
 def syri_batch(genome_list=None, bychr='F', node='rock0[12]', threads=8):
@@ -642,10 +645,11 @@ def synal_to_paf(synal_file=None):
     return 0
 
 
-def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None, postprocess='F'):
+def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None, postprocess='T', cpus=1):
     """
     SyRI fails to find syntenic region at the end of chromosome1. resulting 40 Mb FP unsyntenic regions
     This script is used to fix this problem. The input argument is directory where syri was executed
+    postprocess: [T]/F, T is used to generated curated result
     :return:
     """
     # A188.genome.chr1.B73.genome.chr1.syri
@@ -672,7 +676,7 @@ def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None, postprocess='F'):
             out_qry.write(qry_fadt[qry_chr][qry_offset - 1:].format('fasta'))
         with open(ref_tail_fa, 'w') as out_ref:
             out_ref.write(ref_fadt[ref_chr][ref_offset - 1:].format('fasta'))
-        syri(qry_tail_fa, ref_tail_fa, submit='T')
+        syri(qry_tail_fa, ref_tail_fa, submit='T', cpus=1)
     if postprocess == "T":
         formated_SYN = format_syri_offset(qry_offset, ref_offset,
                                           "{}/{}.{}.syri.out".format(putative_dir, qry_tail_fa, ref_tail_fa),
