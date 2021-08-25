@@ -873,7 +873,7 @@ def mosaic_ratio(fai=None, stat=None):
 
 
 def mosaic_ratio2(mosaic=None, synal=None):
-    """
+    r"""
     Calculate mosaic ratio based on mosaic region size and chromosome size
     :param mosaic_file:
     :param synal_file:
