@@ -512,8 +512,9 @@ def syri_batch(genome_list=None, bychr='F', node='rock0[12]', threads=8):
 
 def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYNAL', output=''):
     """
-    %s syri.synal.txt > syri.unsynal.txt
-    convert lastz result to bedpe like result by complementing syntenic regions
+    synal_to_mosaic syri.synal.txt
+    or synal_to_mosaic syri.out
+    convert syri.out result to bedpe like result by complementing syntenic regions
     Input eg:
     A188_2  1307    3091    -       -       B73_2   12548   14331   SYNAL1  SYN1    SYNAL   -
     A188_2  12474   16885   -       -       B73_2   31212   35640   SYNAL2  SYN2    SYNAL   -
