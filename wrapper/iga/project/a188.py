@@ -645,7 +645,7 @@ def synal_to_paf(synal_file=None):
     return 0
 
 
-def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None, postprocess='T', threads=1):
+def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None, postprocess='F', threads=1):
     """
     SyRI fails to find syntenic region at the end of chromosome1. resulting 40 Mb FP unsyntenic regions
     This script is used to fix this problem. The input argument is directory where syri was executed
