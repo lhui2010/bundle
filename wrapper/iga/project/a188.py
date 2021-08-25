@@ -649,7 +649,7 @@ def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None, postprocess='F', threa
     """
     SyRI fails to find syntenic region at the end of chromosome1. resulting 40 Mb FP unsyntenic regions
     This script is used to fix this problem. The input argument is directory where syri was executed
-    postprocess: [T]/F, T is used to generated curated result
+    postprocess: [T]/F, First round run with F, Second round run with T. T is used to generated curated result
     :return:
     """
     # A188.genome.chr1.B73.genome.chr1.syri
