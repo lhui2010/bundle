@@ -676,7 +676,7 @@ def fix_syri_end(syri_out=None, qry_fa=None, ref_fa=None, postprocess='T', cpus=
             out_qry.write(qry_fadt[qry_chr][qry_offset - 1:].format('fasta'))
         with open(ref_tail_fa, 'w') as out_ref:
             out_ref.write(ref_fadt[ref_chr][ref_offset - 1:].format('fasta'))
-        syri(qry_tail_fa, ref_tail_fa, submit='T', cpus=1, node='')
+        syri(qry_tail_fa, ref_tail_fa, submit='T', cpus=cpus, node='')
     if postprocess == "T":
         formated_SYN = format_syri_offset(qry_offset, ref_offset,
                                           "{}/{}.{}.syri.out".format(putative_dir, qry_tail_fa, ref_tail_fa),
