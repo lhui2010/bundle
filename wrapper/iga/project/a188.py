@@ -543,6 +543,11 @@ def synal_to_mosaic(synal_file=None, syriout='F', syn_tag='SYNAL', output=''):
 
 
 def sv_within_contig():
+    r"""
+    Find SV within contigs.
+    
+    :return:
+    """
     pass
 
 

@@ -281,6 +281,7 @@ def is_job_finished(joblist=None):
 
 def waitjob(joblist=None):
     """
+    waitjob "101,102" or 101
     a while loop for check_job_status,
     won't leave unless all jobs are finished
     :param joblist:
