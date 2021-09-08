@@ -113,7 +113,7 @@ def clean_fraser(left=None, right=None, source='hic', headcrop=10, tailcrop=145,
 
     :param left:
     :param right:
-    :param source: hic/sgs/lncrna/ssRNA/wgbs
+    :param source: hic/sgs/lncrna/ssrna/wgbs
     :param headcrop: default 10
     :param tailcrop: default 145
     :param mode: [normal|polish], normal sliding window is 4:15, polish sliding window is 1:10
