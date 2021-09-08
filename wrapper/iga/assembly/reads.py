@@ -125,7 +125,7 @@ def clean_fraser(left=None, right=None, source='hic', headcrop=10, tailcrop=145,
         'lncrna': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/lncRNA.fa',
         'sgs': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/sgs.fa',
         'smallrna': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/smallRNA.fa',
-        'ssRNA': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/ssRNA.fa',
+        'ssrna': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/ssRNA.fa',
         'wgbs': '/ds3200_1/users_root/yitingshuang/applications/Trimmomatic-0.38/adapters/frasergen/WGBS.fa'
     }
 
