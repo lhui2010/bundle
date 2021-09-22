@@ -648,9 +648,19 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     # evm=/home/yanhui/anaconda3/envs/repeat/bin/evidence_modeler.pl
     # tRNAscan-SE=/home/yanhui/anaconda3/envs/repeat/bin/tRNAscan-SE
     maker_exes = ["makeblastdb", "blastn", "blastx", "tblastx", "RepeatMasker", "exonerate", "snap", "augustus", "evm", "tRNAscan-SE"]
+    abbr_to_exe = {"makeblastdb":"makeblastdb",
+        "blastn":"blastn",
+        "blastx":"blastx",
+        "tblastx":"tblastx",
+        "RepeatMasker":"RepeatMasker",
+        "exonerate":"exonerate",
+        "snap":"snap",
+        "augustus":"augustus",
+        "evm":"evidence_modeler.pl",
+        "tRNAscan-SE":"tRNAscan-SE"}
     maker_exe_paths = ['']
     for exe in maker_exes:
-        exe_path = which(exe)
+        exe_path = which(abbr_to_exe[exe])
         if exe_path is None:
             logging.error("Can't find {} in system PATH".format(exe))
             exit(1)
