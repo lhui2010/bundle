@@ -561,6 +561,24 @@ def maker_rename_gff(gff=None, prefix='MAKER', comment_print='F'):
     return 0
 
 
+def which(executable, path=None):
+    """Find if 'executable' can be run. Looks for it in 'path'
+    (string that lists directories separated by 'os.pathsep';
+    defaults to os.environ['PATH']). Checks for all executable
+    extensions. Returns full path or None if no command is found.
+    """
+    # https://gist.github.com/techtonik/4368898
+    if path is None:
+        path = os.environ['PATH']
+    paths = path.split(os.pathsep)
+    for p in paths:
+        f = os.path.join(p, executable)
+        if os.path.isfile(f):
+            return f
+    else:
+        return None
+
+
 # environment for maker
 maker_env_sh = r"""
 ZOE_HMM_DIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
@@ -619,6 +637,25 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     #    logger.warning([estgff, pepgff, rmgff])
     # Preparing cfg files
     cfg_exe = Config('maker_exe')
+    # makeblastdb=/home/yanhui/anaconda3/envs/repeat/bin/makeblastdb
+    # blastn=/home/yanhui/anaconda3/envs/repeat/bin/blastn
+    # blastx=/home/yanhui/anaconda3/envs/repeat/bin/blastx
+    # tblastx=/home/yanhui/anaconda3/envs/repeat/bin/tblastx
+    # RepeatMasker=/home/yanhui/anaconda3/envs/repeat/bin/RepeatMasker
+    # exonerate=/home/yanhui/anaconda3/envs/repeat/bin/exonerate
+    # snap=/home/yanhui/anaconda3/envs/repeat/bin/snap
+    # augustus=/home/yanhui/anaconda3/envs/repeat/bin/augustus
+    # evm=/home/yanhui/anaconda3/envs/repeat/bin/evidence_modeler.pl
+    # tRNAscan-SE=/home/yanhui/anaconda3/envs/repeat/bin/tRNAscan-SE
+    maker_exes = ["makeblastdb", "blastn", "blastx", "tblastx", "RepeatMasker", "exonerate", "snap", "augustus", "evm", "tRNAscan-SE"]
+    maker_exe_paths = ['']
+    for exe in maker_exes:
+        exe_path = which(exe)
+        if exe_path is None:
+            logging.error("Can't find {} in system PATH".format(exe))
+            exit(1)
+        maker_exe_paths.append(exe_path)
+        cfg_exe.update('{}={}'.format(exe, exe_path))
     cfg_bopts = Config('maker_bopts')
     cfg = Config('maker')
     cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
