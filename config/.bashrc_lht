@@ -151,7 +151,7 @@ body() {
 
 availq() {
     echo "HOST_NAME          STATUS       JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV"
-    bhosts |grep "node0[2345]"
+    bhosts |grep "node0[12345]"
     bhosts |grep "node1[0123]"
     echo ""
     echo "                 TotalCpu     UsedCpu    RestCPU"
@@ -167,7 +167,7 @@ availq() {
     echo "Q104C512G_X4:    $cpu_total          $cpu_used        $cpu_left"
     echo ""
     lsload |head -1
-    lsload |sort -k1,1V |grep "node0[2345]"
+    lsload |sort -k1,1V |grep "node0[12345]"
     lsload |sort -k1,1V |grep "node1[0123]"
 }
 
@@ -374,3 +374,6 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/ParaAT2.0:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/nextflow_install:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/interproscan/interproscan-5.52-86.0:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/interproscan/interproscan-5.52-86.0:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/syri/syri_1.4/syri/bin:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/Platanus_allee_v2.2.2_Linux_x86_64:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/lh_bin:$PATH

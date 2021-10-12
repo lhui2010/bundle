@@ -22,6 +22,8 @@ while(<>)
         $rna_id = $id;
         $gene_id = $id;
         $gene_id =~ s/T\d+$//;
+        $gene_id =~ s/-t\d+$//;
+        $gene_id =~ s/\.m\d+$//;
     }
 
 	$seq =~ s/\n//g;

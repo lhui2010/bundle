@@ -12,6 +12,7 @@ from Bio import SeqFeature
 from Bio.SeqRecord import SeqRecord
 import sys
 import re
+import os
 #import pprint
 
 import argparse
@@ -67,6 +68,8 @@ for rec in GFF.parse(in_handle):
                     id_dict[gene_name] = feat.sub_features[sub_index].id
 in_handle.close()
 
-for gene in list(id_dict):
-
-    print (id_dict[gene], "\t", gene)
+with open(args.in_file + '.longest_gene', 'w') as fh:
+    for gene in list(id_dict):
+        fh.write(id_dict[gene] + "\n")
+        #fh.write(id_dict[gene], "\t", gene)
+# os.system("grep -f {0}.longest_gene  {0} > {0}.longest".format(args.in_file))

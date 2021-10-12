@@ -66,6 +66,12 @@ bwa index consensus.fasta
 bwa mem consensus.fasta -t 40 read1.gz read2.gz >bwa.sam 2>bwa.err
 bwa mem consensus.fasta -t 40 read1.gz >bwa.sam 2>bwa.err
 
+##### This is a short post on how to remap short reads in an aligned BAM using bwa-mem. My recommendation is (requiring bash)
+
+samtools collate -Oun128 in.bam | samtools fastq -OT RG,BC - \
+  | bwa mem -pt8 -CH <(samtools view -H in.bam|grep ^@RG) ref.fa - \
+  | samtools sort -@4 -m4g -o out.bam -
+
 
 #### check contamination
 
