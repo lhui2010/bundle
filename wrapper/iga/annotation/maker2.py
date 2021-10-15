@@ -503,7 +503,7 @@ $PASAHOME/Launch_PASA_pipeline.pl \
 """
 
 
-def pasa_refine(genome=None, transcript=None, gff=None, use_grid='T'):
+def pasa_refine(genome=None, transcript=None, gff=None, use_grid='F'):
     r"""
     pasa_refine ref.fa flnc_rna.fasta genome.maker.gff  --use_grid T
     :param genome: the assembled genome (fasta)
@@ -595,6 +595,73 @@ maker_run_sh = r"""
 cd {}
 maker *ctl >> maker.out 2>> maker.err
 """
+
+def split_fasta():
+    pass
+
+
+def split_genome(genome=None, round=1):
+    # mkdir maker_R1/
+    # touch maker_R1/1.fa 2.fa 3.fa
+
+    workdir = genome + '_R' + str(round)
+    mkdir(workdir)
+    os.chdir(workdir)
+    split_fasta(genome, workdir)
+
+
+
+
+def prepare_cfg(estgff=None, pepgff=None,
+              rmgff=None, round=1, species='', use_grid='T', cpus=2,
+              augustus_species='', snap_hmm='', queue='Q104C512G_X4', update='', workdir = ''):
+    snap_hmm_dir = '/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/'
+    # default returned a string with file names, changing it into list type
+
+    [estgff, pepgff, rmgff] = abspath_list([estgff, pepgff, rmgff])
+    cfg_exe = Config('maker_exe')
+    # makeblastdb=/home/yanhui/anaconda3/envs/repeat/bin/makeblastdb
+    # blastn=/home/yanhui/anaconda3/envs/repeat/bin/blastn
+    # blastx=/home/yanhui/anaconda3/envs/repeat/bin/blastx
+    # tblastx=/home/yanhui/anaconda3/envs/repeat/bin/tblastx
+    # RepeatMasker=/home/yanhui/anaconda3/envs/repeat/bin/RepeatMasker
+    # exonerate=/home/yanhui/anaconda3/envs/repeat/bin/exonerate
+    # snap=/home/yanhui/anaconda3/envs/repeat/bin/snap
+    # augustus=/home/yanhui/anaconda3/envs/repeat/bin/augustus
+    # evm=/home/yanhui/anaconda3/envs/repeat/bin/evidence_modeler.pl
+    # tRNAscan-SE=/home/yanhui/anaconda3/envs/repeat/bin/tRNAscan-SE
+    maker_exes = ["makeblastdb", "blastn", "blastx", "tblastx", "RepeatMasker", "exonerate", "snap", "augustus", "evm", "tRNAscan-SE"]
+    abbr_to_exe = {"makeblastdb":"makeblastdb",
+        "blastn":"blastn",
+        "blastx":"blastx",
+        "tblastx":"tblastx",
+        "RepeatMasker":"RepeatMasker",
+        "exonerate":"exonerate",
+        "snap":"snap",
+        "augustus":"augustus",
+        "evm":"evidence_modeler.pl",
+        "tRNAscan-SE":"tRNAscan-SE"}
+    maker_exe_paths = ['']
+    for exe in maker_exes:
+        exe_path = which(abbr_to_exe[exe])
+        if exe_path is None:
+            logging.error("Can't find {} in system PATH".format(exe))
+            exit(1)
+        maker_exe_paths.append(exe_path)
+        cfg_exe.update('{}={}'.format(exe, exe_path))
+
+    cfg_bopts = Config('maker_bopts')
+    cfg = Config('maker')
+    cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
+    cfg.write_to_file(op.join(workdir, "maker_opts.ctl"))
+    cfg_exe.write_to_file(op.join(workdir, 'maker_exe.ctl'))
+    cfg_bopts.write_to_file(op.join(workdir, 'maker_bopts.ctl'))
+    cmd = maker_run_sh.format(workdir)
+
+
+def maker_run_single_fasta(genome=None, opts=None, exe=None, bopts=None):
+    """maker --genome *ctl """
+    pass
 
 
 def maker_run(genome=None, estgff=None, pepgff=None,
@@ -1016,7 +1083,7 @@ cat *.run/*.fa > ref.fa
 date"""
 
 
-def maker_collect(workdir=None, use_grid='T'):
+def maker_collect(workdir=None, use_grid='F'):
     """
     Collect maker result from a paralleled run in workdir
     :param workdir:
@@ -1258,7 +1325,7 @@ echo "Successfully finished"
 """
 
 
-def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', augustus_direct='T',
+def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='F', augustus_direct='T',
                 cdna_fasta=''):
     """
     :param workdir:
