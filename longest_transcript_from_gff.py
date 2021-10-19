@@ -72,4 +72,4 @@ with open(args.in_file + '.longest_gene', 'w') as fh:
     for gene in list(id_dict):
         fh.write(id_dict[gene] + "\n")
         #fh.write(id_dict[gene], "\t", gene)
-# os.system("grep -f {0}.longest_gene  {0} > {0}.longest".format(args.in_file))
+os.system("select_ID_from_GFF.pl {0}.longest_gene  {0} > {0}.longest".format(args.in_file))
