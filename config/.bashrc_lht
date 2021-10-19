@@ -72,6 +72,7 @@ export PATH=/ds3200_1/users_root/yitingshuang/applications/BEASTv1.10.4/bin/:$PA
 
 #####################################
 ####LH add start
+alias act='eval "$(/ds3200_1/users_root/yitingshuang/lh/miniconda3/bin/conda shell.bash hook)"'
 alias ping='ping -c 5'
 alias logsh='cat >>shell'
 alias logjob='date >> ~/lh/running_jobs.txt; pwd >> ~/lh/running_jobs.txt; cat >> ~/lh/running_jobs.txt'
@@ -194,17 +195,17 @@ tailf() ( # args: <file> [<number-of-header-lines>]
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/ds3200_1/users_root/yitingshuang/lh/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/ds3200_1/users_root/yitingshuang/lh/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/ds3200_1/users_root/yitingshuang/lh/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/ds3200_1/users_root/yitingshuang/lh/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+#  __conda_setup="$('/ds3200_1/users_root/yitingshuang/lh/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#  if [ $? -eq 0 ]; then
+#      eval "$__conda_setup"
+#  else
+#      if [ -f "/ds3200_1/users_root/yitingshuang/lh/anaconda3/etc/profile.d/conda.sh" ]; then
+#          . "/ds3200_1/users_root/yitingshuang/lh/anaconda3/etc/profile.d/conda.sh"
+#      else
+#          export PATH="/ds3200_1/users_root/yitingshuang/lh/anaconda3/bin:$PATH"
+#      fi
+#  fi
+#  unset __conda_setup
 # <<< conda initialize <<<
 # export PATH="/ds3200_1/users_root/yitingshuang/lh/anaconda3/bin:$PATH"  # commented out by conda initialize
 export HB="/ds3200_1/users_root/yitingshuang/lh/bin/bundle/lh_bin"
@@ -244,7 +245,7 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/vcftools/bin:$PATH
 
 #boost package
 #export LD_LIBRARY_PATH='/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:/ds3200_1/users_root/yitingshuang/lh/lib/lib64:/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib:/ds3200_1/lsf9/9.1/linux2.6-glibc2.3-x86_64/lib:/ds3200_1/proc/beagle/lib:/usr/local/lib:/usr/lib64:/ds3200_1/openmpi-3.1.0/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64:/ds3200_1/proc/NCBI-NGS/lib64:/ds3200_1/proc/ncbi-vdb/lib64:::/ds3200_1/proc/beagle/lib:/ds3200_1/proc/HTS_lib/lib:/usr/local/mpc-1.1.0/lib:/usr/local/gmp-6.1.2/lib:/usr/local/mpfr-4.0.1/lib:/ds3200_1/users_root/yitingshuang/.config/gscp/'
-export LD_LIBRARY_PATH='/ds3200_1/proc/beagle/lib:/usr/local/lib:/usr/lib64:/ds3200_1/openmpi-3.1.0/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64:/ds3200_1/proc/NCBI-NGS/lib64:/ds3200_1/proc/ncbi-vdb/lib64:::/ds3200_1/proc/beagle/lib:/ds3200_1/proc/HTS_lib/lib'
+export LD_LIBRARY_PATH='/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:/ds3200_1/proc/beagle/lib:/usr/local/lib:/usr/lib64:/ds3200_1/openmpi-3.1.0/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64:/ds3200_1/proc/NCBI-NGS/lib64:/ds3200_1/proc/ncbi-vdb/lib64:::/ds3200_1/proc/beagle/lib:/ds3200_1/proc/HTS_lib/lib':$LD_LIBRARY_PATH
 export LDFLAGS=-L/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib
 export CFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include
 export CXXFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include
@@ -308,7 +309,7 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/FastUniq/source:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/RepeatMasker/util:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/path.bash.inc' ]; then . '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/path.bash.inc'; fi
+# if [ -f '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/path.bash.inc' ]; then . '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/completion.bash.inc' ]; then . '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/completion.bash.inc'; fi
@@ -377,3 +378,4 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/interproscan/interproscan-5
 export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/syri/syri_1.4/syri/bin:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/Platanus_allee_v2.2.2_Linux_x86_64:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/lh_bin:$PATH
+
