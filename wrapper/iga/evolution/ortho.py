@@ -23,7 +23,7 @@ python -m jcvi.compara.synteny depth --histogram ${{QRY}}.${{REF}}.anchors
 def mcscanx(prefix1=None, prefix2=None, threads=1, min_gene_in_block=5, max_gene_gap=25, no_html="T", runKs='T',
             use_grid = 'T', top_num=10):
     """
-    The mcscanx wrapper
+    ⭐️️The mcscanx wrapper
     :param prefix1: like Cercis_chinensis. Require Cercis_chinensis.pep and Cercis_chinensis.gff3 exists
     :param prefix2: '' means self comparison
     :param min_gene_in_block:  -s 5
@@ -55,14 +55,13 @@ def mcscanx(prefix1=None, prefix2=None, threads=1, min_gene_in_block=5, max_gene
     # run
     sh(cmd)
     if runKs == 'T':
-        ks_dist(prefix1, prefix2, threads)
         if prefix2 == prefix1:
             combine_pep = prefix1 + '.pep'
             combine_cds = prefix1 + '.cds'
         else:
             sh("cat {0}.cds {1}.cds > {2}.cds".format(prefix1, prefix2, combine_prefix))
             sh("cat {0}.pep {1}.pep > {2}.pep".format(prefix1, prefix2, combine_prefix))
-        kaks(combine_ortho, combine_pep, combine_pep, threads=threads, use_grid=use_grid)
+        kaks(combine_ortho, combine_cds, combine_pep, threads=threads, use_grid=use_grid)
     return 0
 
 
