@@ -158,7 +158,6 @@ def firstn(file=None, field=1, num_extract=10, print_to_screen='T', output=''):
     return 0
 
 
-
 def filter_bln(bln=None, eval=1e-5, bitscore=0):
     """
     filter blast based on evalue (1e-5 by default) and bitscore (no filter by default)
@@ -168,27 +167,30 @@ def filter_bln(bln=None, eval=1e-5, bitscore=0):
     :param bitscore: int format
     :return:
     """
-    eval = float(eval)
-    bitscore = int(bitscore)
-    with open(bln) as fh:
-        for line in fh:
-            if line.startswith("#"):
-                continue
-            mylist = line.rstrip().split()
-            qry = mylist[0]
-            ref = mylist[1]
-            try:
-                this_bitscore = float(mylist[-1])
-                this_eval = float(mylist[-2])
-            except ValueError:
-                logger.error(line)
-                continue
-            if bitscore == 0 or this_bitscore > bitscore:
-                bitscore_true = True
-            if this_eval < eval:
-                eval_true = True
-            if bitscore_true and eval_true:
-                print(line, end='')
+    cmd = """awk '$11 < {0} && $12 > {1}' {2} """.format(eval, bitscore, bln)
+    result = sh(cmd)
+    print(result)
+    # eval = float(eval)
+    # bitscore = int(bitscore)
+    # with open(bln) as fh:
+    #     for line in fh:
+    #         if line.startswith("#"):
+    #             continue
+    #         mylist = line.rstrip().split()
+    #         qry = mylist[0]
+    #         ref = mylist[1]
+    #         try:
+    #             this_bitscore = float(mylist[-1])
+    #             this_eval = float(mylist[-2])
+    #         except ValueError:
+    #             logger.error(line)
+    #             continue
+    #         if bitscore == 0 or this_bitscore > bitscore:
+    #             bitscore_true = True
+    #         if this_eval < eval:
+    #             eval_true = True
+    #         if bitscore_true and eval_true:
+    #             print(line, end='')
 
 
 if __name__ == "__main__":
