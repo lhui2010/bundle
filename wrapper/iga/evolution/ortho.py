@@ -16,7 +16,7 @@ grep -v "#" {0}.anchors > {0}.ortho
 QRY=ae
 REF=ce
 python -m jcvi.graphics.dotplot ${{QRY}}.${{REF}}.anchors
-python -m jcvi.compara.synteny depth --histogram ${QRY}.${REF}.anchors
+python -m jcvi.compara.synteny depth --histogram ${{QRY}}.${{REF}}.anchors
 """
 
 
