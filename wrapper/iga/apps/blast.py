@@ -106,7 +106,7 @@ def filter_reciprocal_best(bln=None):
             print(qry_line[k])
 
 
-def extract_top_n_hits(bln=None, top_num=10):
+def extract_top_n_hits(bln=None, top_num=10, output=''):
     """
     A script function like blastall -v and -b:
     If you used to filter top 5 hits with blastall: blastall -v 5 -b 5
@@ -115,6 +115,8 @@ def extract_top_n_hits(bln=None, top_num=10):
     :param bln:
     :return:
     """
+    if output == '':
+        output = "{0}.top{1}".format(bln, top_num)
     cmd = """sort -k1,1 -k12,12gr -k11,11g -k3,3gr {0} > {0}.sorted.qry
 # The following command is too slow, deprecated
 # Then get the top 5 hits for every query: 
@@ -128,7 +130,7 @@ sort -k2,2 -k12,12gr -k11,11g -k3,3gr {0} > {0}.sorted.ref
     sh(cmd)
     firstn(sorted_qry, field=1, num_extract=top_num, print_to_screen='F', output=sorted_qry + '.top')
     firstn(sorted_ref, field=2, num_extract=top_num, print_to_screen='F', output=sorted_ref + '.top')
-    sh("""cat {0}.sorted.qry.top {0}.sorted.ref.top > {0}.top{1}""".format(bln, top_num))
+    sh("""cat {0}.sorted.qry.top {0}.sorted.ref.top > {2}""".format(bln, top_num, output))
 
 
 def firstn(file=None, field=1, num_extract=10, print_to_screen='T', output=''):

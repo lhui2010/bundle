@@ -3,8 +3,7 @@ Ortholog calculation related utils
 """
 from iga.apps.base import emain, bsub, sh
 import os.path as op
-from iga.apps.blast import blastp
-
+from iga.apps.blast import blastp, extract_top_n_hits
 
 # 0 prefix
 mcscanx_sh="""
@@ -22,7 +21,7 @@ python -m jcvi.compara.synteny depth --histogram ${QRY}.${REF}.anchors
 
 
 def mcscanx(prefix1=None, prefix2='', threads=1, min_gene_in_block=5, max_gene_gap=25, no_html="T", runKs='T',
-            use_grid = 'T'):
+            use_grid = 'T', top_num=10):
     """
     The mcscanx wrapper
     :param prefix1: like Cercis_chinensis. Require Cercis_chinensis.pep and Cercis_chinensis.gff3 exists
@@ -48,7 +47,8 @@ def mcscanx(prefix1=None, prefix2='', threads=1, min_gene_in_block=5, max_gene_g
 
     # prepare gff3 and blast
     if (not op.exists(combine_blast)):
-        blastp(prefix1 + ".pep", prefix2 + ".pep", threads=threads, output=combine_blast, use_grid=use_grid)
+        blastp(prefix1 + ".pep", prefix2 + ".pep", threads=threads, output=combine_blast + ".raw", use_grid=use_grid)
+        extract_top_n_hits(combine_blast + ".raw", top_num=top_num, output=combine_blast)
     sh("format_mcscan_gff.pl {0} > {1}".format(combine_gff3, combine_gff))
     # mcscanx_sh
     cmd = mcscanx_sh.format(combine_prefix, min_gene_in_block, max_gene_gap)
