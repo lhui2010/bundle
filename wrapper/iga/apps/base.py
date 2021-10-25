@@ -906,10 +906,10 @@ def fmain(func_name, args):
         k_arg = getattr(real_arg, k)
         if number_args == '+' and len(k_arg) > 1:
             # passing spaced args as a list
-            logging.debug(k_arg)
+            # logging.debug(k_arg)
             position_result.append(k_arg)
         else:
-            logging.debug(k_arg[0])
+            # logging.debug(k_arg[0])
             position_result.append(k_arg[0])
 
     # used to debug
