@@ -116,8 +116,8 @@ sort -k2,2 -k12,12gr -k11,11g -k3,3gr {0} > {0}.sorted.ref
     sorted_qry = bln + '.sorted.qry'
     sorted_ref = bln + '.sorted.ref'
     sh(cmd)
-    firstn(sorted_qry, field=1, num_extract=10, output=sorted_qry + 'top')
-    firstn(sorted_ref, field=2, num_extract=10, output=sorted_ref + 'top')
+    firstn(sorted_qry, field=1, num_extract=10, print_to_screen='F', output=sorted_qry + '.top')
+    firstn(sorted_ref, field=2, num_extract=10, print_to_screen='F', output=sorted_ref + '.top')
     sh("""cat {0}.sorted.qry.top {0}.sorted.ref.top > {0}.top{1}""".format(bln, top_num))
 
 
@@ -148,8 +148,7 @@ def firstn(file=None, field=1, num_extract=10, print_to_screen='T', output=''):
             else:
                 if(print_to_screen== 'T'):
                     print(line, end='')
-                else:
-                    buffer += line
+                buffer += line
     if(output != ''):
         with open(output, 'w') as fh:
             fh.write(buffer)
