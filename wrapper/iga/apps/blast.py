@@ -136,6 +136,7 @@ def firstn(file=None, field=1, num_extract=10, print_to_screen='T', output=''):
     :param print_to_screen: [T/F]
     :return:
     """
+    field = int(field)
     num_extract = int(num_extract)
     field = int(field) - 1
     count_dict = defaultdict(int)
