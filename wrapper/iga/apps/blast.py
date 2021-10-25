@@ -180,15 +180,13 @@ def filter_bln(bln=None, eval=1e-5, bitscore=0):
             if line.startswith("#"):
                 continue
             mylist = line.rstrip().split()
-            qry = mylist[0]
-            ref = mylist[1]
             try:
                 this_bitscore = float(mylist[-1])
                 this_eval = float(mylist[-2])
             except ValueError:
                 logger.error(line)
                 continue
-            if bitscore == 0 or this_bitscore > bitscore:
+            if this_bitscore > bitscore:
                 bitscore_true = True
             if this_eval < eval:
                 eval_true = True
