@@ -1,7 +1,7 @@
 """
 Ortholog calculation related utils
 """
-from iga.apps.base import emain, bsub, sh
+from iga.apps.base import emain, bsub, sh, waitjob
 import os.path as op
 from iga.apps.blast import blastp, extract_top_n_hits
 
@@ -110,8 +110,8 @@ ORTHO={0}
 CDS={1}
 PEP={2}
 echo {3} > proc
-ParaAT.pl -h $ORTHO -n $CDS -a $PEP -p proc -o ParaAT.out -f axt -k
-join_kaks.pl ParaAT.out/*.kaks >kaks_result
+ParaAT.pl -h $ORTHO -n $CDS -a $PEP -p proc -o $ORTHO.ParaAT.out -f axt -k
+join_kaks.pl $ORTHO.ParaAT.out/*.kaks >$ORTHO.kaks
 """
 
 
@@ -125,7 +125,8 @@ def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T'):
     """
     cmd = kaks_sh.format(ortho, cds, pep, threads)
     if use_grid == 'T':
-        bsub(cmd, name="kaks", cpus=threads)
+        jobid = bsub(cmd, name="kaks", cpus=threads)
+        waitjob(jobid)
     else:
         sh(cmd)
 
