@@ -36,8 +36,6 @@ def mcscanx(prefix1=None, prefix2=None, threads=1, min_gene_in_block=5, max_gene
         combine_prefix = prefix1 + '.' + prefix1
         sh('cp {0}.gff3 {0}.{0}.gff3'.format(prefix1))
     else:
-        prefix2 = prefix1[1]
-        prefix1 = prefix1[0]
         sh('cat {0}.gff3 {1}.gff3 > {0}.{1}.gff3'.format(prefix1, prefix2))
         combine_prefix = prefix1 + '.' + prefix2
     # input
@@ -58,7 +56,7 @@ def mcscanx(prefix1=None, prefix2=None, threads=1, min_gene_in_block=5, max_gene
     sh(cmd)
     if runKs == 'T':
         ks_dist(prefix1, prefix2, threads)
-        if prefix2 == '':
+        if prefix2 == prefix1:
             combine_pep = prefix1 + '.pep'
             combine_cds = prefix1 + '.cds'
         else:
