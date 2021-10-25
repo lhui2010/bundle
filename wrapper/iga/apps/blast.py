@@ -49,7 +49,7 @@ def blastn(ref=None, qry=None, threads=5):
     """
     cmd = blastn_sh.format(ref, qry, qry)
     job = bsub(cmd, name='blast', cpus=5)
-    #waitjob(job)
+    # waitjob(job)
     return 0
 
 
@@ -114,6 +114,38 @@ for next in $(cut -f1 {0}.sorted.ref | sort -u); do grep -w -m {1} "$next" {0}.s
 cat {0}.sorted.qry.top{1} {0}.sorted.ref.top{1} > {0}.top{1}
 """.format(bln, top_num)
     sh(cmd)
+
+
+def filter_bln(bln=None, eval=1e-5, bitscore=0):
+    """
+    filter blast based on evalue (1e-5 by default) and bitscore (no filter by default)
+    output: STDOUT
+    :param bln: the fmt6 blast file
+    :param eval: float format
+    :param bitscore: int format
+    :return:
+    """
+    eval = float(eval)
+    bitscore = int(bitscore)
+    with open(bln) as fh:
+        for line in fh:
+            if line.startswith("#"):
+                continue
+            mylist = line.rstrip().split()
+            qry = mylist[0]
+            ref = mylist[1]
+            try:
+                this_bitscore = float(mylist[-1])
+                this_eval = float(mylist[-2])
+            except ValueError:
+                logger.error(line)
+                continue
+            if bitscore == 0 or this_bitscore > bitscore:
+                bitscore_true = True
+            if this_eval < eval:
+                eval_true = True
+            if bitscore_true and eval_true:
+                print(line, end='')
 
 
 if __name__ == "__main__":
