@@ -15,8 +15,8 @@ tail -n +12 {0}.collinearity |sed "s/^#.*/###/; s/.*:\s\+//" > {0}.anchors
 grep -v "#" {0}.anchors |awk '{{print $1"\t"$2}}' > {0}.ortho
 QRY=ae
 REF=ce
-python -m jcvi.graphics.dotplot ${{QRY}}.${{REF}}.anchors
-python -m jcvi.compara.synteny depth --histogram ${{QRY}}.${{REF}}.anchors
+bsub "python -m jcvi.graphics.dotplot ${{QRY}}.${{REF}}.anchors"
+bsub "python -m jcvi.compara.synteny depth --histogram ${{QRY}}.${{REF}}.anchors"
 """
 
 
