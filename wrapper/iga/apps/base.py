@@ -842,6 +842,11 @@ def fmain(func_name, args):
     execute functions directly via command line interface
     :param func_name: the name of the function
     :param args: the args, usually sys.argv[2:]
+    eg:
+        def extract_top_n_hits(bln=None, top_num=5):
+    Rules:
+        1. Positional arguments are represented with value None,
+        2. Optional arguments are alwasy following positional arguments
     :return:
     """
     # parser = argparse.ArgumentParser(
@@ -901,8 +906,10 @@ def fmain(func_name, args):
         k_arg = getattr(real_arg, k)
         if number_args == '+' and len(k_arg) > 1:
             # passing spaced args as a list
+            logging.debug(k_arg)
             position_result.append(k_arg)
         else:
+            logging.debug(k_arg[0])
             position_result.append(k_arg[0])
 
     # used to debug

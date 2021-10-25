@@ -96,7 +96,7 @@ def filter_reciprocal_best(bln=None):
             print(qry_line[k])
 
 
-def extract_top_n_hits(bln=None,top_num=5):
+def extract_top_n_hits(bln=None, top_num=5):
     """
     A script function like blastall -v and -b:
     If you used to filter top 5 hits with blastall: blastall -v 5 -b 5
