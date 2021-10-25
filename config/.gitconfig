@@ -1,0 +1,12 @@
+[user]
+	emal = lhui2010@gmail.com
+	name = lhui2010
+	email = lhui2010@gmail.com
+
+[push]
+    default = simple
+[credential]
+	helper = cache
+[filesystem "Azul Systems, Inc.|11.0.1|fs01"]
+	timestampResolution = 21691 microseconds
+	minRacyThreshold = 0 nanoseconds
