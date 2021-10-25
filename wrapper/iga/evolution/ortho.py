@@ -20,7 +20,7 @@ python -m jcvi.compara.synteny depth --histogram ${QRY}.${REF}.anchors
 """
 
 
-def mcscanx(prefix1=None, threads=1, min_gene_in_block=5, max_gene_gap=25, no_html="T", runKs='T',
+def mcscanx(prefix1=None, prefix2=None, threads=1, min_gene_in_block=5, max_gene_gap=25, no_html="T", runKs='T',
             use_grid = 'T', top_num=10):
     """
     The mcscanx wrapper
@@ -32,8 +32,7 @@ def mcscanx(prefix1=None, threads=1, min_gene_in_block=5, max_gene_gap=25, no_ht
     :param comparison_type: intra (-b 1), inter (-b 2), both intra and inter (-b 0, default)
     :return:
     """
-    if type(prefix1) is str:
-        prefix2 = prefix1
+    if prefix1 == prefix2:
         combine_prefix = prefix1 + '.' + prefix1
         sh('cp {0}.gff3 {0}.{0}.gff3'.format(prefix1))
     else:
