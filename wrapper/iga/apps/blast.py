@@ -96,7 +96,7 @@ def filter_reciprocal_best(bln=None):
             print(qry_line[k])
 
 
-def extract_top_n_hits(bln=None, top_num=5):
+def extract_top_n_hits(bln=None, top_num=10):
     """
     A script function like blastall -v and -b:
     If you used to filter top 5 hits with blastall: blastall -v 5 -b 5
@@ -106,14 +106,57 @@ def extract_top_n_hits(bln=None, top_num=5):
     :return:
     """
     cmd = """sort -k1,1 -k12,12gr -k11,11g -k3,3gr {0} > {0}.sorted.qry
-# Then get the top 5 hits for every query:
-for next in $(cut -f1 {0}.sorted.qry | sort -u); do grep -w -m {1} "$next" {0}.sorted.qry; done > {0}.sorted.qry.top{1}
+# The following command is too slow, deprecated
+# Then get the top 5 hits for every query: 
+# for next in $(cut -f1 {0}.sorted.qry | sort -u); do grep -w -m {1} "$next" {0}.sorted.qry; done > {0}.sorted.qry.top{1}
 sort -k2,2 -k12,12gr -k11,11g -k3,3gr {0} > {0}.sorted.ref
 # Then get the top 5 hits for every query:
-for next in $(cut -f1 {0}.sorted.ref | sort -u); do grep -w -m {1} "$next" {0}.sorted.ref; done > {0}.sorted.ref.top{1}
-cat {0}.sorted.qry.top{1} {0}.sorted.ref.top{1} > {0}.top{1}
+# for next in $(cut -f1 {0}.sorted.ref | sort -u); do grep -w -m {1} "$next" {0}.sorted.ref; done > {0}.sorted.ref.top{1}
 """.format(bln, top_num)
+    sorted_qry = bln + '.sorted.qry'
+    sorted_ref = bln + '.sorted.ref'
     sh(cmd)
+    firstn(sorted_qry, field=1, num_extract=10, output=sorted_qry + 'top')
+    firstn(sorted_ref, field=2, num_extract=10, output=sorted_ref + 'top')
+    sh("""cat {0}.sorted.qry.top {0}.sorted.ref.top > {0}.top{1}""".format(bln, top_num))
+
+
+def firstn(file=None, field=1, num_extract=10, print_to_screen='T', output=''):
+    """
+    extract first n lines.
+    Eg:
+        python firstn bln field=1 num_extract=10
+        Output(STDOUT):
+        first 10 lines of each query (on column1)
+    If you want to extract first 10 lines of ref genes of a blast (if it's sorted, it will be top ten hits of ref gene)
+        python firstn bln field=2 num_extract=10
+    :param file:
+    :param field:
+    :param num_extract:
+    :param print_to_screen: [T/F]
+    :return:
+    """
+    field = int(field) - 1
+    count_dict = defaultdict(int)
+    buffer = ''
+    with open(file) as fh:
+        for line in fh:
+            mylist = line.rstrip().split()
+            count_dict[mylist[field]] += 1
+            if count_dict[mylist[field]] > num_extract:
+                continue
+            else:
+                if(print_to_screen== 'T'):
+                    print(line, end='')
+                else:
+                    buffer += line
+    if(output != ''):
+        with open(output, 'w') as fh:
+            fh.write(buffer)
+    else:
+        return buffer
+    return 0
+
 
 
 def filter_bln(bln=None, eval=1e-5, bitscore=0):
