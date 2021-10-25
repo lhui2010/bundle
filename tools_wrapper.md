@@ -517,3 +517,9 @@ ls *genome | parallel -j 5 samtools faidx {}
 cat list |parallel -j100 echo {}
 
 #### fastp
+
+#### MSScanX
+MCScanX ./mcscan_run/AesCer
+
+$ls mcscan_run/
+tail -n +12 *ty |sed "s/^#.*/###/; s/.*:\s\+//" > ce_ae.anchors
