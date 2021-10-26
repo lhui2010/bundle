@@ -59,6 +59,8 @@ def mcscanx(prefix1=None, prefix2=None, threads=1, min_gene_in_block=5, max_gene
             combine_pep = prefix1 + '.pep'
             combine_cds = prefix1 + '.cds'
         else:
+            combine_cds = combine_prefix + '.cds'
+            combine_pep = combine_prefix + '.pep'
             sh("cat {0}.cds {1}.cds > {2}.cds".format(prefix1, prefix2, combine_prefix))
             sh("cat {0}.pep {1}.pep > {2}.pep".format(prefix1, prefix2, combine_prefix))
         kaks(combine_ortho, combine_cds, combine_pep, threads=threads, use_grid=use_grid)
