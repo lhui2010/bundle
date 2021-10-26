@@ -523,3 +523,7 @@ MCScanX ./mcscan_run/AesCer
 
 $ls mcscan_run/
 tail -n +12 *ty |sed "s/^#.*/###/; s/.*:\s\+//" > ce_ae.anchors
+
+#### gff_to_cds
+mamba install gffread
+
