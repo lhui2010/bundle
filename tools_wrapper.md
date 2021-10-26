@@ -106,6 +106,7 @@ samtools view -f 4 falcon_v340.fasta.bam |head -4000 |sam2fq.pl  |fq2fa.pl - >un
 ```
 bswitch target_quename 5309(job_id)
 bsub -m "hostA hostD hostB" myjob
+bsub -J ${p:0:3}
 https://www.ibm.com/support/knowledgecenter/en/SSETD4_9.1.3/lsf_admin/job_view_all.html
 
 #Change Priority
@@ -526,4 +527,4 @@ tail -n +12 *ty |sed "s/^#.*/###/; s/.*:\s\+//" > ce_ae.anchors
 
 #### gff_to_cds
 mamba install gffread
-
+gffread -x ${p}.cds -g ${p}.fa ${i}   # ${p}.cds is output
