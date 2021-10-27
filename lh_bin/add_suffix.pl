@@ -49,6 +49,10 @@ for my $f(@files)
             #     die "Unequal gene and mRNA number";
             # }
             chomp;
+            if($_ eq "")
+            {
+                next;
+            }
             my @e=split/\t/, $_;
             $e[0].=$suffix;
 

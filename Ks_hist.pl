@@ -1,6 +1,6 @@
 
 
-my $max = 3;
+my $max = 6;
 my $min = 0;
 my $sep = 0.1;
 

@@ -329,7 +329,6 @@ export GBLAST_PATH=/ds3200_1/users_root/yitingshuang/lh/bin/genblast_v139
 ##BUSCO
 export BUSCO_CONFIG_FILE=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
 
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/htop:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/allHiC/bin/ALLHiC/bin:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/allHiC/bin/ALLHiC/scripts:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/lastz-1.04.03/bin:$PATH

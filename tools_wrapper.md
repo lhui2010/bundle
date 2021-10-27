@@ -520,6 +520,8 @@ cat list |parallel -j100 echo {}
 #### fastp
 
 #### MSScanX
+i=abc.gff;python -m jcvi.formats.gff bed --type=mRNA --key=ID ${i} -o ${i%.gff3}.bed
+
 MCScanX ./mcscan_run/AesCer
 
 $ls mcscan_run/
