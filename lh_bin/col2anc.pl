@@ -1,9 +1,13 @@
 #!/usr/bin/perl -w
 
-# !Important!
-# filename fasta, gff, and gene name must be suffixed with species abbreviation.
-# like chr01_arath. arath.peach.collinearity
 # Perl script for converting MCScanX's collinearity file to MCScan(jcvi)'s anchor file
+#
+# !Important!
+# filename fasta, gff, and gene name must be suffixed with species abbreviation (First 3 char of Genera name with First 2 char of Species name).
+# Eg:
+#     ChrID:    chr01_arath 
+#     GeneID:   AT01g00001_arath
+#     Filename: Arath_thaliana.peach.collinearity
 
 # ############### Parameters ###############
 # # MATCH_SCORE: 50
