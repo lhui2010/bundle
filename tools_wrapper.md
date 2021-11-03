@@ -530,3 +530,20 @@ tail -n +12 *ty |sed "s/^#.*/###/; s/.*:\s\+//" > ce_ae.anchors
 #### gff_to_cds
 mamba install gffread
 gffread -x ${p}.cds -g ${p}.fa ${i}   # ${p}.cds is output
+
+#### conda environment
+conda
+
+##### yicluster
+mamba install -c bioconda -c conda-forge  parallel exonerate phyx  bowtie2 bandage spades raxml-ng sra-tools phyx Beast   Gblocks corset Salmon TransDecoder  Trinity Bowtie2 FastQC Transrate  cd-hit Blat perl julia iqtree=2.1.2 MAFFT bioconductor-deseq2  r-ggplot2 bioconductor-ggtree tmux taxonkit ipython bioconductor-decipher r-mclust
+mamba create -n eggnog -c bioconda noarch::eggnog-mapper=2.1.6
+###### lht
+mamba install gffread
+mamba create -n r  r-ggplot2 bioconductor-ggtree ipython bioconductor-decipher bioconductor-deseq2 r-mclust
+mamba create -n gatk4 python=3.6 gatk4
+
+#### pip environment
+pip install jcvi
+iga
+pip install gff3tool
+
