@@ -239,10 +239,14 @@ class BlastTable:
         """
         :return: the formated string (m8 format/outfmt6) of blast object, no return
         """
-        mylist = [self.qry_id, self.ref_id, self.perc_identity, self.aln_len, self.mismatch, self.gaps,
-                  self.qry_range[0], self.qry_range[1],
-                  self.ref_range[0], self.ref_range[1],
-                  self.e_value, self.bit_score]
+        mylist = [self.qry_id, self.ref_id,
+                  str(self.perc_identity),
+                  str(self.aln_len),
+                  str(self.mismatch),
+                  str(self.gaps),
+                  str(self.qry_range[0]), str(self.qry_range[1]),
+                  str(self.ref_range[0]), str(self.ref_range[1]),
+                  str(self.e_value), str(self.bit_score)]
         return "\t".join(mylist)
 
 
