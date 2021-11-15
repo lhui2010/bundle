@@ -156,6 +156,7 @@ def rename_orthofinder_blast(seqid=None, blast=None):
                 bln.ref_id = rename_dict[bln.ref_id]
             except KeyError:
                 logging.error("Can't find key {} or {}".format(bln.qry_id, bln.ref_id))
+                exit(1)
             print(bln.get_line())
 
 
