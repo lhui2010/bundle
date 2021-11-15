@@ -161,10 +161,10 @@ def firstn(file=None, field=1, num_extract=10, print_to_screen='T', output=''):
             if count_dict[mylist[field]] > num_extract:
                 continue
             else:
-                if(print_to_screen== 'T'):
+                if (print_to_screen == 'T'):
                     print(line, end='')
                 buffer += line
-    if(output != ''):
+    if (output != ''):
         with open(output, 'w') as fh:
             fh.write(buffer)
     else:
@@ -207,6 +207,43 @@ def filter_bln(bln=None, eval=1e-5, bitscore=0):
                 eval_true = True
             if bitscore_true and eval_true:
                 print(line, end='')
+
+
+# 2021-11-15
+# Modified from https://hub.fastgit.org/biopython/biopython/blob/master/Bio/Blast/ParseBlastTable.py
+# Fields: query id (1), subject id(2), % identity(3), alignment length(4),
+#    mismatches(5), gap opens(6), q. start(7), q. end(8),
+#    s. start(9), s. end(10), evalue(11), bit score(12)
+class BlastTable:
+    """
+    Container for Blast Table Entry, the field values from the table.
+    qry_range is a list containing two element: query start and query end
+
+    """
+
+    def __init__(self, in_rec):
+        """Initialize the class."""
+        bt_fields = in_rec.rstrip().split()
+        self.qry_id = bt_fields[0]
+        self.ref_id = bt_fields[1]
+        self.perc_identity = float(bt_fields[2])
+        self.aln_len = int(bt_fields[3])
+        self.mismatch = int(bt_fields[4])
+        self.gaps = int(bt_fields[5])
+        self.qry_range = (int(bt_fields[6]), int(bt_fields[7]))
+        self.ref_range = (int(bt_fields[8]), int(bt_fields[9]))
+        self.e_value = float(bt_fields[10])
+        self.bit_score = float(bt_fields[11])
+
+    def get_line(self):
+        """
+        :return: the formated string (m8 format/outfmt6) of blast object, no return
+        """
+        mylist = [self.qry_id, self.ref_id, self.perc_identity, self.aln_len, self.mismatch, self.gaps,
+                  self.qry_range[0], self.qry_range[1],
+                  self.ref_range[0], self.ref_range[1],
+                  self.e_value, self.bit_score]
+        return "\t".join(mylist)
 
 
 if __name__ == "__main__":

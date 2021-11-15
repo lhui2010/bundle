@@ -6,7 +6,7 @@ import os.path as op
 from iga.apps.blast import blastp, extract_top_n_hits
 
 # 0 prefix
-mcscanx_sh="""
+mcscanx_sh = """
 # prepare {0}.gff and blast
 format_mcscan_gff.pl {0}.gff3 > {0}.gff
 
@@ -21,7 +21,7 @@ bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jc
 
 
 def mcscanx(prefix1=None, prefix2=None, threads=1, min_gene_in_block=5, max_gene_gap=25, no_html="T", runKs='T',
-            use_grid = 'T', top_num=10):
+            use_grid='T', top_num=10):
     """
     ⭐️️The mcscanx wrapper
     :param prefix1: like Cercis_chinensis. Require Cercis_chinensis.pep and Cercis_chinensis.gff3 exists
@@ -131,6 +131,31 @@ def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T'):
         waitjob(jobid)
     else:
         sh(cmd)
+
+
+from iga.apps.blast import BlastTable
+
+
+def rename_orthofinder_blast(seqid=None, blast=None):
+    """
+    :param seqid: The "SequenceIDs.txt" produced by orthofinder
+    :param blast: The Blast file (like Blast0_0.txt) produced by orthofinder
+    :return: STDOUT of renamed blast file
+    """
+    rename_dict = {}
+    with open(seqid) as fh:
+        for line in fh:
+            (name_abbr, name_raw) = line.rstrip().split(': ', 1)
+            rename_dict[name_abbr] = name_raw
+    with open(blast) as fh:
+        for line in fh:
+            bln = BlastTable(line)
+            try:
+                bln.qry_id = rename_dict[bln.qry_id]
+                bln.ref_id = rename_dict[bln.qry_id]
+            except KeyError:
+                raise("Can't find key {} or {}".format(bln.qry_id, bln.ref_id))
+            print(bln.get_line())
 
 
 if __name__ == "__main__":
