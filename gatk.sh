@@ -4,7 +4,7 @@
 
 if [ -z $2 ]
 then
-    echo "Usage: gatk.sh fq1 fq2 ref(bwa-indexed) reference sample thread"
+    echo "Usage: gatk.sh fq1 fq2 reference(bwa-indexed) sample thread"
     exit 
 fi
 

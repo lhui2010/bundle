@@ -226,7 +226,7 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/bundle/lh_bin:$PATH
 #$. /ds3200_1/users_root/yitingshuang/lh/anaconda2/etc/profile.d/conda.sh
 #$export PATH=/ds3200_1/users_root/yitingshuang/lh/anaconda2/bin:$PATH
 
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/gatk-4.1.4.0:$PATH
+# export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/gatk-4.1.4.0:$PATH
 
 #Autojump
 [[ -s /ds3200_1/users_root/yitingshuang/.autojump/etc/profile.d/autojump.sh ]] && source /ds3200_1/users_root/yitingshuang/.autojump/etc/profile.d/autojump.sh
