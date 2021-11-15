@@ -32,7 +32,7 @@ bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jc
 """
 
 
-def mcscanx(prefix1=None, prefix2=None, threads=1, min_gene_in_block=5, max_gene_gap=25, no_html="T", runKs='T',
+def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene_gap=25, no_html="T", runKs='T',
             use_grid='T', top_num=10):
     """
     ⭐️️The mcscanx wrapper, execution eg:
@@ -77,7 +77,7 @@ def mcscanx(prefix1=None, prefix2=None, threads=1, min_gene_in_block=5, max_gene
             combine_pep = combine_prefix + '.pep'
             sh("cat {0}.cds {1}.cds > {2}.cds".format(prefix1, prefix2, combine_prefix))
             sh("cat {0}.pep {1}.pep > {2}.pep".format(prefix1, prefix2, combine_prefix))
-        kaks(combine_ortho, combine_cds, combine_pep, threads=threads, use_grid=use_grid)
+        kaks(combine_ortho, combine_cds, combine_pep, threads=threads, use_grid=use_grid, wait='F')
     return 0
 
 
@@ -105,7 +105,7 @@ cut -f1,2 {1}.{2}.anchors |grep -v "#" > {1}.{2}.ortho
     ortho_file = ".".join([prefix1, prefix2, 'ortho'])
     cds_total = ".".join([prefix1, prefix2, 'cds'])
     pep_total = ".".join([prefix1, prefix2, 'pep'])
-    kaks(ortho_file, cds_total, pep_total, threads=threads, use_grid=use_grid)
+    kaks(ortho_file, cds_total, pep_total, threads=threads, use_grid=use_grid, wait='F')
     return 0
 
 
@@ -132,7 +132,7 @@ rm -rf $ORTHO.ParaAT.out
 """
 
 
-def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T'):
+def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T', wait='T'):
     """
     :param ortho: eg CORNE00006074-t2        CsaV3_1G039430
     :param cds: cds fasta
@@ -143,7 +143,8 @@ def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T'):
     cmd = kaks_sh.format(ortho, cds, pep, threads)
     if use_grid == 'T':
         jobid = bsub(cmd, name="kaks", cpus=threads)
-        waitjob(jobid)
+        if wait == 'T':
+            waitjob(jobid)
     else:
         sh(cmd)
 
