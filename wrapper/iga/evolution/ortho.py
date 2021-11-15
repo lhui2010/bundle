@@ -1,6 +1,8 @@
 """
 Ortholog calculation related utils
 """
+import os
+
 from iga.apps.base import emain, bsub, sh, waitjob
 import os.path as op
 from iga.apps.blast import blastp, extract_top_n_hits
@@ -140,6 +142,7 @@ from iga.apps.blast import BlastTable
 
 def rename_orthofinder_blast(seqid=None, blast=None):
     """
+    rename the seqid in orthofinder blast to original gene name
     :param seqid: The "SequenceIDs.txt" produced by orthofinder
     :param blast: The Blast file (like Blast0_0.txt) produced by orthofinder
     :return: STDOUT of renamed blast file
@@ -161,6 +164,35 @@ def rename_orthofinder_blast(seqid=None, blast=None):
                 logging.error("Can't find key {} or {}".format(bln.qry_id, bln.ref_id))
                 exit(1)
             print(bln.get_line())
+
+
+def mv_orthofinder_blast(SpeciesID=None, dir='.'):
+    """
+    rename Blast9_8.txt.out to Arabidopsis_thaliana.Solanum_penellii.blast
+    :param SpeciesID:
+    :param dir:
+    :return:
+    """
+    mv_dict = {}
+    with open(SpeciesID) as fh:
+        for line in fh:
+            (sp_abbr, name_raw) = line.rstrip().split(': ', 1)
+            name_raw = name_raw.replace('.fasta', '')
+            mv_dict[sp_abbr] = name_raw
+    files = os.listdir(dir)
+    for f in files:
+        if f.startswith('Blast'):
+            f_format = f.split('.')[0].replace('Blast', '')
+            (qry, ref) = f_format.split('_')
+            try:
+                qry_new = mv_dict[qry]
+                ref_new = mv_dict[ref]
+            except KeyError:
+                logging.error("Can't find key {} or {}".format(qry, ref))
+                exit(1)
+            old_name = f
+            new_name = "{}.{}.blast".format(qry_new, ref_new)
+            sh('mv {} {}'.format(old_name, new_name))
 
 
 if __name__ == "__main__":
