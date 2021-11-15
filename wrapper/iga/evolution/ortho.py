@@ -148,7 +148,7 @@ def rename_orthofinder_blast(seqid=None, blast=None):
     with open(seqid) as fh:
         for line in fh:
             (name_abbr, name_raw) = line.rstrip().split(': ', 1)
-            name_raw = re.sub(r'\s.*', '', name_raw)
+            # name_raw = re.sub(r'\s.*', '', name_raw)
             rename_dict[name_abbr] = name_raw
     with open(blast) as fh:
         for line in fh:
