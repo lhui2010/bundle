@@ -10,9 +10,10 @@ import logging
 import re
 
 # 0 prefix
-# 1min_gene_in_block
-# 2max_gene_gap
-#
+# 1 min_gene_in_block
+# 2 max_gene_gap
+# 3 qry
+# 4 ref
 mcscanx_sh = """
 # prepare {0}.gff and blast
 format_mcscan_gff.pl {0}.gff3 > {0}.gff
@@ -20,6 +21,9 @@ format_mcscan_gff.pl {0}.gff3 > {0}.gff
 MCScanX {0} -s {1} -m {2} -a
 tail -n +12 {0}.collinearity |sed "s/^#.*/###/; s/.*:\s\+//" > {0}.anchors
 grep -v "#" {0}.anchors |awk '{{print $1"\t"$2}}' > {0}.ortho
+awk '$3=="mRNA"'  {3}.gff3 |gff2bed.pl > {3}.bed
+awk '$3=="mRNA"'  {4}.gff3 |gff2bed.pl > {4}.bed
+
 # QRY=
 # REF=
 bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jcvi.graphics.dotplot {0}.anchors"
@@ -60,7 +64,7 @@ def mcscanx(prefix1=None, prefix2=None, threads=1, min_gene_in_block=5, max_gene
         extract_top_n_hits(combine_blast + ".raw", top_num=top_num, output=combine_blast)
     sh("format_mcscan_gff.pl {0} > {1}".format(combine_gff3, combine_gff))
     # mcscanx_sh
-    cmd = mcscanx_sh.format(combine_prefix, min_gene_in_block, max_gene_gap)
+    cmd = mcscanx_sh.format(combine_prefix, min_gene_in_block, max_gene_gap, prefix1, prefix2)
     # run
     sh(cmd)
     if runKs == 'T':
