@@ -120,13 +120,15 @@ def extract_top_n_hits(bln=None, eval=1e-5, top_num=10, output=''):
     if output == '':
         output = "{0}.top{1}".format(bln, top_num)
     cmd = """
-awk '$11 < {2}' {0} |sort -k1,1 -k12,12gr -k11,11g -k3,3gr > {0}.sorted.qry
+awk '$11 < 1e-05' {0} > {0}.filter_eval
+
+sort -k1,1 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.qry
 
 # The following command is too slow, deprecated
 # Then get the top 5 hits for every query: 
 # for next in $(cut -f1 {0}.sorted.qry | sort -u); do grep -w -m {1} "$next" {0}.sorted.qry; done > {0}.sorted.qry.top{1}
 
-awk '$11 < {2}' {0} |sort -k2,2 -k12,12gr -k11,11g -k3,3gr  > {0}.sorted.ref
+sort -k2,2 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.ref
 
 # Then get the top 5 hits for every query:
 # for next in $(cut -f1 {0}.sorted.ref | sort -u); do grep -w -m {1} "$next" {0}.sorted.ref; done > {0}.sorted.ref.top{1}
