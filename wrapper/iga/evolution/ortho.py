@@ -4,6 +4,7 @@ Ortholog calculation related utils
 from iga.apps.base import emain, bsub, sh, waitjob
 import os.path as op
 from iga.apps.blast import blastp, extract_top_n_hits
+import logging
 
 # 0 prefix
 mcscanx_sh = """
@@ -152,9 +153,9 @@ def rename_orthofinder_blast(seqid=None, blast=None):
             bln = BlastTable(line)
             try:
                 bln.qry_id = rename_dict[bln.qry_id]
-                bln.ref_id = rename_dict[bln.qry_id]
+                bln.ref_id = rename_dict[bln.ref_id]
             except KeyError:
-                raise("Can't find key {} or {}".format(bln.qry_id, bln.ref_id))
+                logging.error("Can't find key {} or {}".format(bln.qry_id, bln.ref_id))
             print(bln.get_line())
 
 
