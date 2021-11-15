@@ -20,7 +20,7 @@ format_mcscan_gff.pl {0}.gff3 > {0}.gff
 
 MCScanX {0} -s {1} -m {2} -a
 tail -n +12 {0}.collinearity |sed "s/^#.*/###/; s/.*:\s\+//" > {0}.anchors
-grep -v "#" {0}.anchors |awk '{{print $1"\t"$2}}' > {0}.ortho
+# grep -v "#" {0}.anchors |awk '{{print $1"\t"$2}}' > {0}.ortho
 col2anc.pl {0}.anchors > {0}.ortho
 awk '$3=="mRNA"'  {3}.gff3 |gff2bed.pl > {3}.bed
 awk '$3=="mRNA"'  {4}.gff3 |gff2bed.pl > {4}.bed
