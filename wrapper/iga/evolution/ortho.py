@@ -10,6 +10,9 @@ import logging
 import re
 
 # 0 prefix
+# 1min_gene_in_block
+# 2max_gene_gap
+#
 mcscanx_sh = """
 # prepare {0}.gff and blast
 format_mcscan_gff.pl {0}.gff3 > {0}.gff
@@ -17,19 +20,20 @@ format_mcscan_gff.pl {0}.gff3 > {0}.gff
 MCScanX {0} -s {1} -m {2} -a
 tail -n +12 {0}.collinearity |sed "s/^#.*/###/; s/.*:\s\+//" > {0}.anchors
 grep -v "#" {0}.anchors |awk '{{print $1"\t"$2}}' > {0}.ortho
-QRY=ae
-REF=ce
-bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jcvi.graphics.dotplot ${{QRY}}.${{REF}}.anchors"
-bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jcvi.compara.synteny depth --histogram ${{QRY}}.${{REF}}.anchors"
+# QRY=
+# REF=
+bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jcvi.graphics.dotplot {0}.anchors"
+bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jcvi.compara.synteny depth --histogram {0}.anchors"
 """
 
 
 def mcscanx(prefix1=None, prefix2=None, threads=1, min_gene_in_block=5, max_gene_gap=25, no_html="T", runKs='T',
             use_grid='T', top_num=10):
     """
-    ⭐️️The mcscanx wrapper
+    ⭐️️The mcscanx wrapper, execution eg:
+        bsub python -m iga.evolution.ortho mcscanx Cercis_chinensis Cercis_chinensis
     :param prefix1: like Cercis_chinensis. Require Cercis_chinensis.pep and Cercis_chinensis.gff3 exists
-    :param prefix2: '' means self comparison
+    :param prefix2: Can be the same with prefix1, which will perform intra comparison only.
     :param min_gene_in_block:  -s 5
     :param max_gene_gap:-m 25
     :param no_html: [T/F]. T means do not produce html (MCScanX -a)
@@ -106,7 +110,7 @@ cut -f1,2 {1}.{2}.anchors |grep -v "#" > {1}.{2}.ortho
 # 3 number of threads
 kaks_sh = """
 #Presequitence 
-#1. ParaAT 
+#1. ParaAT (Modified to use NG86 model)
 #2. KaKsCalculator
 #Note:
 #gene naming like following will fail
