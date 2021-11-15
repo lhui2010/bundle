@@ -123,6 +123,7 @@ PEP={2}
 echo {3} > proc
 ParaAT.pl -h $ORTHO -n $CDS -a $PEP -p proc -o $ORTHO.ParaAT.out -f axt -k
 join_kaks.pl $ORTHO.ParaAT.out/*.kaks >$ORTHO.kaks
+rm -rf $ORTHO.ParaAT.out
 """
 
 
