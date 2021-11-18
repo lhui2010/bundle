@@ -45,6 +45,8 @@ bsub512 "python $BD/wrapper/kmer_wrapper.py Eu_1.fq.gz Eu_2.fq.gz "
 def genomescope(fastq=None, prefix='', threads=64, kmer=21, output='', wait='F', usegrid='T'):
     r"""
     Estimate genome size, heterozygosity, repeat with jellyfish and genomescope
+    Eg:
+        python -m iga.assembly.kmer genomescope D20211105_00026_RUN338_1.fq.gz D20211105_00026_RUN338_2.fq.gz
     :param fastq:
     :param prefix:
     :param threads:
@@ -103,6 +105,8 @@ rm -rf {2}.freq.gz
 def gce(fastq=None, prefix='', threads=64, kmer=23, workdir='', usegrid='T'):
     r"""
     Estimate genome size, heterozygosity, repeat with kmerfreq and gce
+    eg:
+        python -m iga.assembly.kmer gce D20211105_00026_RUN338_1.fq.gz D20211105_00026_RUN338_2.fq.gz
     :param fastq:
     :param prefix:
     :param threads:

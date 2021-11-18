@@ -149,5 +149,20 @@ def clean_fraser(left=None, right=None, source='hic', headcrop=10, tailcrop=145,
     return 0
 
 
+check_contamination_sh=r"""
+# samtools view -f 4 falcon_v340.fasta.bam |head -4000 |sam2fq.pl  |fq2fa.pl - >unmapped.fa
+
+zcat fq.gz |head -10000
+
+seqtk seq -A unmapped.fq > unmapped.fa
+
+diamond blastx --db nr.dmnd --query unmapped.fq --out unmapped.fq.tab
+
+blastn -query unmapped.fa -out out.xml -max_target_seqs 1 -outfmt 5 -db ~/lh/database/nt -num_threads 2 -evalue 1e-5
+"""
+
+def check_contamination(reads=None):
+
+
 if __name__ == "__main__":
     emain()
