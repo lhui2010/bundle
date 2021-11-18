@@ -34,6 +34,7 @@ mkdir {1}.tmp
 ls {0} > FILES
 kmc -k{3} -t{2} -m64 -ci1 -cs10000 @FILES reads {1}.tmp/
 kmc_tools transform reads histogram {1}.reads.histo -cx10000
+# ~/lh/projects/buzzo/kmer/bin/genomescope2.0/genomescope.R now
 genomescope.R -i {1}.reads.histo -k {3} -o {4}
 """
 
