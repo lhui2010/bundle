@@ -162,7 +162,7 @@ blastn -query unmapped.fa -out out.xml -max_target_seqs 1 -outfmt 5 -db ~/lh/dat
 """
 
 def check_contamination(reads=None):
-
+    pass
 
 if __name__ == "__main__":
     emain()
