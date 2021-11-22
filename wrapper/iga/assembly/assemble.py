@@ -417,7 +417,7 @@ def platanus(fastq=None, threads=20, mem=400):
         for q in fastq:
             if '.gz' in q:
                 new_name = q.replace('.gz', '')
-                job = bsub('gzip -dc {} > {}'.format(q, new_name), name='gzip -dc')
+                job = bsub('gzip -dc {} > {}'.format(q, new_name), name='gzip')
                 job_list.append(job)
                 fastq_list.append(new_name)
         waitjob(job_list)
