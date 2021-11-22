@@ -402,7 +402,7 @@ def platanus(fastq=None, threads=20, mem=400):
     r"""
     assemble with platanus
     Eg：
-        platanus --clean F --mem 100000 --threads 20 fastq1.gz fastq2.gz
+        platanus --mem 100000 --threads 20 fastq1.gz fastq2.gz
     :param fastq:
     :param mem: (Gb)
     :return:
