@@ -398,16 +398,30 @@ platanus assemble -f {0} -t {1} -o {2}_assembly.fa -m {3}
 """
 
 
-def platanus(fastq=None, clean='F', threads=20, mem=400):
+def platanus(fastq=None, threads=20, mem=400):
     r"""
     assemble with platanus
+    Eg：
+        platanus --clean F --mem 100000 --threads 20 fastq1.gz fastq2.gz
     :param fastq:
-    :param clean: [T/F] if T, use fastp to clean
     :param mem: (Gb)
     :return:
     """
+    # clean='F',
+    # :param clean: [T/F] if T, use fastp to clean
+    fastq_list = []
+    job_list = []
+    if type(fastq) == str:
+        fastq = [fastq]
     if type(fastq) == list:
-        fastq = " ".join(fastq)
+        for q in fastq:
+            if '.gz' in q:
+                new_name = q.replace('.gz', '')
+                job = bsub('gzip -dc {} > {}'.format(q, new_name), name='gzip -dc')
+                job_list.append(job)
+                fastq_list.append(new_name)
+        waitjob(job_list)
+        fastq = " ".join(fastq_list)
     prefix = get_prefix(fastq.split()[0])
     cmd = platanus_sh.format(fastq, threads, prefix, mem)
     bsub(cmd, name='platanus', cpus=threads)
