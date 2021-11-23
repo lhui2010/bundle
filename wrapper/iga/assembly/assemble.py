@@ -415,7 +415,7 @@ def platanus(fastq=None, threads=20, mem=400):
         fastq = [fastq]
     if type(fastq) == list:
         for q in fastq:
-            if '.gz' in q:
+            if q.endswith('.gz'):
                 new_name = q.replace('.gz', '')
                 job = bsub('gzip -dc {} > {}'.format(q, new_name), name='gzip')
                 job_list.append(job)
