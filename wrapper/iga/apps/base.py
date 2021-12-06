@@ -46,7 +46,7 @@ def read_table(table, sep='\t', key_pos = 0):
         csv_reader = DictReader(read_obj, delimiter='\t')
         table_key = csv_reader.fieldnames[key_pos]
         for row in csv_reader:
-            result_dict[table_key] = row
+            result_dict[row[table_key]] = row
     return result_dict
     #return csv_reader
     #dict_from_csv = pd.read_csv('csv_file.csv', header=None, index_col=0, squeeze=True).to_dict()

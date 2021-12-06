@@ -9,7 +9,7 @@ from iga.apps.blast import blastp, extract_top_n_hits
 import logging
 import re
 
-#Require col2anc.pl located in bundle/
+# Require col2anc.pl located in bundle/
 # 0 prefix
 # 1 min_gene_in_block
 # 2 max_gene_gap
@@ -64,7 +64,8 @@ def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene
     # prepare gff3 and blast
     if (not op.exists(combine_blast)):
         if not op.exists(combine_blast + '.raw'):
-            blastp(prefix1 + ".pep", prefix2 + ".pep", threads=threads, output=combine_blast + ".raw", use_grid=use_grid)
+            blastp(prefix1 + ".pep", prefix2 + ".pep", threads=threads, output=combine_blast + ".raw",
+                   use_grid=use_grid)
         extract_top_n_hits(combine_blast + ".raw", top_num=top_num, output=combine_blast)
     sh("format_mcscan_gff.pl {0} > {1}".format(combine_gff3, combine_gff))
     # mcscanx_sh
@@ -161,7 +162,7 @@ def kaks_to_block(kaks=None, anchor=None):
     Returns:
         block file with ks values
     """
-    #Input Example
+    # Input Example
     # ==> Lotus_japonicus.Cercis_chinensis.ortho.kaks <==
     # Sequence	Method	Ka	Ks	Ka/Ks	P-Value(Fisher)	Length	S-Sites	N-Sites	Fold-Sites(0:2:4)	Substitutions	S-Substitutions	N-Substitutions	Fold-S-Substitutions(0:2:4)	Fold-N-Substitutions(0:2:4)	Divergence-Time	Substitution-Rate-Ratio(rTC:rAG:rTA:rCG:rTG:rCA/rCA)	GC(1:2:3)	ML-Score	AICc	Akaike-Weight	Model
     # Lj1g0000004.1.Lj1.0v1_Lojap-CECHI00000888-t1_Cechi	NG	1.47498	2.15355	0.684908	0.0163294	1824	422.829	1401.17	NA	1203	299.167	903.833	NANA	1.63228	1:1:1:1:1:1	0.374816(0.44469:0.361173:0.318584)	NA	NA	NA	NA
@@ -188,7 +189,7 @@ def kaks_to_block(kaks=None, anchor=None):
     #         genepair_to_ks[genepair] = ks
     block_header = ''
     block_pair = []
-    with open(anchor)as fh:
+    with open(anchor) as fh:
         for line in fh:
             if line.startswith('#'):
                 # ### Alignment 0: score=812.0 e_value=1.7e-48 N=17 Contig00029_Lojap&chr05_Cechi minus
@@ -215,17 +216,21 @@ def __get_block_ks__(block_header, block_pair, genepair_to_ks):
     sum_ks = 0
     new_block_pair = ""
     for p in block_pair:
-        (qry, ref, score) = p.rstrip().split()
+        logging.debug(p)
+        logging.debug(genepair_to_ks.keys())
+        logging.debug(genepair_to_ks)
+        mylist = p.rstrip().split()
+        (qry, ref) = mylist[:2]
         pair = qry + '-' + ref
         pair_ks = genepair_to_ks[pair]['Ks']
         new_block_pair += "\n{}\t{}\t{}".format(qry, ref, pair_ks)
-        sum_ks += pair_ks
+        sum_ks += float(pair_ks)
     mean_ks = sum_ks / len(block_pair)
     new_block_header = block_header.rstrip() + "\t" + "Ks={}".format(mean_ks)
     return new_block_header + new_block_pair
 
 
-#-----------------------------------
+# -----------------------------------
 
 from iga.apps.blast import BlastTable
 
