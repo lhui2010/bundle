@@ -199,7 +199,7 @@ def kaks_to_block(kaks=None, anchor=None):
                 block_pair = []
             else:
                 block_pair.append(line)
-    last_block = __get_block_ks__(block_header, block_pair)
+    last_block = __get_block_ks__(block_header, block_pair, genepair_to_ks)
     print(last_block)
 
 
