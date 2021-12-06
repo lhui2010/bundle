@@ -152,7 +152,7 @@ def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T', wait='T'):
         sh(cmd)
 
 
-def kaks_to_block(kaks, anchor):
+def kaks_to_block(kaks=None, anchor=None):
     """
     kaks_to_block  xx-yy.kaks xx-yy.anchor
     Args:
