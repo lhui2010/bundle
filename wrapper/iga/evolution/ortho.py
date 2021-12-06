@@ -214,6 +214,7 @@ def __get_block_ks__(block_header, block_pair, genepair_to_ks):
 
     """
     sum_ks = 0
+    count_ks = len(block_pair)
     new_block_pair = ""
     for p in block_pair:
         logging.debug(p)
@@ -226,13 +227,16 @@ def __get_block_ks__(block_header, block_pair, genepair_to_ks):
             pair_ks = genepair_to_ks[pair]['Ks']
         except KeyError:
             logging.error("Can't find gene pair {0} in Ks dictionary, continue without {0}".format(pair))
+            count_ks -= 1
             continue
         new_block_pair += "\n{}\t{}\t{}".format(qry, ref, pair_ks)
         try:
             sum_ks += float(pair_ks)
         except ValueError:
             logging.error("NA value of Ks found in {}, continue without it".format(pair))
-    mean_ks = sum_ks / len(block_pair)
+            count_ks -= 1
+            continue
+    mean_ks = sum_ks / count_ks
     new_block_header = block_header.rstrip() + "\t" + "Ks={}".format(mean_ks)
     return new_block_header + new_block_pair
 
