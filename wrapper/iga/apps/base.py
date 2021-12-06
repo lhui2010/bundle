@@ -43,7 +43,7 @@ def read_table(table, sep='\t', key_pos = 0):
     """
     result_dict = {}
     with open(table, 'r') as read_obj:
-        csv_reader = DictReader(read_obj, delimiter='\t')
+        csv_reader = DictReader(read_obj, delimiter=sep)
         table_key = csv_reader.fieldnames[key_pos]
         for row in csv_reader:
             result_dict[row[table_key]] = row

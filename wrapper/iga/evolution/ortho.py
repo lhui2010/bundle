@@ -178,7 +178,9 @@ def kaks_to_block(kaks=None, anchor=None):
     # LjContig00029g0005450.1.Lj1.0v1_Lojap	CECHI00016433-t1_Cechi	0
     # LjContig00029g0008644.1.Lj1.0v1_Lojap	CECHI00016432-t2_Cechi	3e-89
     # LjContig00029g0008860.1.Lj1.0v1_Lojap	CECHI00016427-t1_Cechi	3e-67
+    logging.info("Reading ks table with DictReader")
     genepair_to_ks = read_table(kaks)
+    logging.info("Reading ks table Complete")
     # with open(kaks) as fh:
     #     for line in fh:
     #         if line.startswith('Sequence'):
