@@ -278,7 +278,6 @@ def select_block_by_ks(anchor_ks=None, min_ks=0, max_ks=0.7):
 
 from iga.apps.blast import BlastTable
 
-
 def rename_orthofinder_blast(seqid=None, blast=None):
     """
     rename the seqid in orthofinder blast to original gene name

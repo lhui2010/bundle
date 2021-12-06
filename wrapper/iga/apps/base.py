@@ -52,6 +52,30 @@ def read_table(table, sep='\t', key_pos = 0):
     #dict_from_csv = pd.read_csv('csv_file.csv', header=None, index_col=0, squeeze=True).to_dict()
 
 
+def join_table(table=None, sep="\t", retain_col="Ks"):
+    """
+    Input:
+        xx-yy.ks
+        yy-zz.ks
+    Args:
+        table:
+        sep:
+        retain_col:
+    Returns:
+        ks  file
+        ..  xx-yy
+        ..  yy-zz
+    """
+    if type(table) == str:
+        logging.error("Please input at least two tables")
+        exit()
+    print("{}\t{}".format("file", retain_col))
+    for t in table:
+        t_read = read_table(t)
+        for k in t_read:
+            print("{}\t{}".format(t, t_read[k][retain_col]))
+
+
 ## Some examples.
 # logger.debug("this is a debugging message")
 # logger.info("this is an informational message")
