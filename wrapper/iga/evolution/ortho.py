@@ -203,7 +203,8 @@ def kaks_to_block(kaks=None, anchor=None):
             else:
                 block_pair.append(line)
     last_block = __get_block_ks__(block_header, block_pair, genepair_to_ks)
-    print(last_block)
+    if last_block is not None:
+        print(last_block)
 
 
 def __get_block_ks__(block_header, block_pair, genepair_to_ks):
@@ -238,7 +239,11 @@ def __get_block_ks__(block_header, block_pair, genepair_to_ks):
             logging.error("NA value of Ks found in {}, continue without it".format(pair))
             count_ks -= 1
             continue
-    mean_ks = sum_ks / count_ks
+    try:
+        mean_ks = sum_ks / count_ks
+    except ZeroDivisionError:
+        logging.error("No ks found in block {}".format(block_header))
+        return None
     new_block_header = block_header.rstrip() + "\t" + "Ks={}".format(mean_ks)
     return new_block_header + new_block_pair
 
