@@ -219,9 +219,9 @@ def __get_block_ks__(block_header, block_pair, genepair_to_ks):
     count_ks = len(block_pair)
     new_block_pair = ""
     for p in block_pair:
-        logging.debug(p)
-        logging.debug(genepair_to_ks.keys())
-        logging.debug(genepair_to_ks)
+        # logging.debug(p)
+        # logging.debug(genepair_to_ks.keys())
+        # logging.debug(genepair_to_ks)
         mylist = p.rstrip().split()
         (qry, ref) = mylist[:2]
         pair = qry + '-' + ref
