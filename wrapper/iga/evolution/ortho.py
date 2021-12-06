@@ -256,7 +256,7 @@ def select_block_by_ks(anchor_ks = None, min_ks=0, max_ks=0.7):
         for line in fh:
             if line.startswith('#'):
                 ks = line.rstrip().split()[-1].replace('Ks=', '')
-                if ks > min_ks and ks < max_ks:
+                if ks > float(min_ks) and ks < float(max_ks):
                     flag = True
                     print(line, end = '')
             elif(flag):
