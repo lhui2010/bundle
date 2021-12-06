@@ -230,6 +230,27 @@ def __get_block_ks__(block_header, block_pair, genepair_to_ks):
     return new_block_header + new_block_pair
 
 
+def select_block_by_ks(anchor_ks = None, min_ks=0, max_ks=0.7):
+    """
+    20211206
+    Args:
+        anchor_ks: Input from kaks_to_block()
+        min_ks:
+        max_ks:
+
+    Returns:
+
+    """
+    with open(anchor_ks) as fh:
+        for line in fh:
+            if line.startswith('#'):
+                ks = line.rstrip().split()[-1].replace('Ks=')
+                if ks > min_ks and ks < max_ks:
+                    flag = True
+                    print(line, end = '')
+            elif(flag):
+                print(line, end = '')
+
 # -----------------------------------
 
 from iga.apps.blast import BlastTable
