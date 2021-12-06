@@ -241,7 +241,7 @@ def __get_block_ks__(block_header, block_pair, genepair_to_ks):
     return new_block_header + new_block_pair
 
 
-def select_block_by_ks(anchor_ks = None, min_ks=0, max_ks=0.7):
+def select_block_by_ks(anchor_ks=None, min_ks=0, max_ks=0.7):
     """
     20211206
     Args:
@@ -252,15 +252,20 @@ def select_block_by_ks(anchor_ks = None, min_ks=0, max_ks=0.7):
     Returns:
 
     """
+    flag = False
     with open(anchor_ks) as fh:
         for line in fh:
             if line.startswith('#'):
                 ks = line.rstrip().split()[-1].replace('Ks=', '')
+                ks = float(ks)
                 if ks > float(min_ks) and ks < float(max_ks):
                     flag = True
-                    print(line, end = '')
-            elif(flag):
-                print(line, end = '')
+                    print(line, end='')
+                else:
+                    flag = False
+            elif flag:
+                print(line, end='')
+
 
 # -----------------------------------
 
