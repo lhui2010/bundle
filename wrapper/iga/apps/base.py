@@ -18,6 +18,8 @@ import time
 from iga.apps import cfg
 from iga.utils.natsort import natsorted
 
+from csv import DictReader
+
 from rich.logging import RichHandler
 
 """
@@ -27,6 +29,27 @@ The basic library for iga, some of the functions are adapted from jcvi
 # Create a logger object.
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
+
+
+#2021 1206
+def read_table(table, sep='\t', key_pos = 0):
+    """
+    Args:
+        table:
+    Returns:
+        csv_reader object
+        print(row['Id'], row['Name'])
+
+    """
+    result_dict = {}
+    with open(table, 'r') as read_obj:
+        csv_reader = DictReader(read_obj, delimiter='\t')
+        table_key = csv_reader.fieldnames[key_pos]
+        for row in csv_reader:
+            result_dict[table_key] = row
+    return result_dict
+    #return csv_reader
+    #dict_from_csv = pd.read_csv('csv_file.csv', header=None, index_col=0, squeeze=True).to_dict()
 
 
 ## Some examples.
