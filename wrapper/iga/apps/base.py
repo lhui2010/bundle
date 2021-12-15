@@ -452,15 +452,18 @@ def dmain(mainfile, type="action"):
         if action[0] == "_":  # hidden namespace
             continue
         pd = get_module_docstring(ps)
-        action_help = (
-            [
-                x.rstrip(":.,\n")
-                for x in pd.splitlines(True)
-                if len(x.strip()) > 10 and x[0] != "%"
-            ][0]
-            if pd
-            else "no docstring found"
-        )
+        try:
+            action_help = (
+                [
+                    x.rstrip(":.,\n")
+                    for x in pd.splitlines(True)
+                    if len(x.strip()) > 10 and x[0] != "%"
+                ][0]
+                if pd
+                else "no docstring found"
+            )
+        except IndexError:
+            action_help = "no docstring found"
         actions.append((action, action_help))
 
     a = ActionDispatcher(actions)
