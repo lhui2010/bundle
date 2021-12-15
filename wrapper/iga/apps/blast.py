@@ -141,7 +141,7 @@ sort -k2,2 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.ref
     sh("""cat {0}.sorted.qry.top {0}.sorted.ref.top > {2}""".format(bln, top_num, output))
 
 
-def extract_reciprocal_best_hits(bln=None, eval=1e-5, top_num=10, output=''):
+def extract_reciprocal_best_hits(bln=None, eval=1e-5, top_num=1, output=''):
     """
     A script function like blastall -v and -b:
     If you used to filter top 5 hits with blastall: blastall -v 5 -b 5
