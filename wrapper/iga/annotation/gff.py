@@ -63,8 +63,8 @@ class Feat:
             attr_list = self.attributes.rstrip(';').split(';')
             for a in attr_list:
                 try:
-                    (attr_key, attr_value) = parse("{}={}", a)
-                except TypeError:
+                    (attr_key, attr_value) = a.split('=')
+                except IndexError:
                     logger.error("Type Error on line {}, list {} and attribute: {}".format(self.attributes, attr_list, a))
                     continue
                 self.attr_dict[attr_key] = attr_value
