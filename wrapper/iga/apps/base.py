@@ -340,8 +340,7 @@ def waitjob(joblist=None):
 
 
 conda_act = r"""
-source ~/lh/anaconda3/etc/profile.d/conda.sh
-conda activate {}
+source activate {}
 """
 
 workdir_sh = r"""
