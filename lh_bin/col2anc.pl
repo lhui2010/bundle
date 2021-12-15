@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
 # Perl script for converting MCScanX's collinearity file to MCScan(jcvi)'s anchor file
+# eg: perl .collinearity > .anchors
 #
 # !Important!
 # filename fasta, gff, and gene name must be suffixed with species abbreviation (First 3 char of Genera name with First 2 char of Species name).

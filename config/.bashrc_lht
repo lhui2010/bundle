@@ -314,13 +314,13 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/RepeatMasker/uti
 # The next line enables shell command completion for gcloud.
 if [ -f '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/completion.bash.inc' ]; then . '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/completion.bash.inc'; fi
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/last/bin:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/x86_64-linux:$PATH
+# export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/x86_64-linux:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/p7zip/bin:$PATH
 
 ##Latex
-export MANPATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/2018/texmf-dist/doc/man:$MANPATH
-export INFOPATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/2018/texmf-dist/doc/info:$INFOPATH
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/2018/bin/x86_64-linux:$PATH
+export MANPATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/2021/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/2021/texmf-dist/doc/info:$INFOPATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/2021/bin/x86_64-linux:$PATH
 
 ##Genblast
 #Use this env_var to find formatdb and genblast

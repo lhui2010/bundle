@@ -1,0 +1,46 @@
+
+args = commandArgs(trailingOnly=TRUE)
+
+self_kaks = read.table('Cercis_chinensis.Cercis_chinensis.ortho.kaks', header = T)
+compare_kaks = read.table('Cercis_chinensis.Aristolochia_fimbriata.ortho.kaks', header = T)
+cusat_kaks = read.table('Aristolochia_fimbriata.Aristolochia_fimbriata.ortho.kaks', header = T)
+
+library(ggplot2)
+self_kaks_filter = self_kaks[self_kaks$Ks<6,]
+compare_kaks_filter = compare_kaks[compare_kaks$Ks<6,]
+cusat_kaks_filter = cusat_kaks[cusat_kaks$Ks<6,]
+
+a=data.frame(Ks=self_kaks_filter$Ks,    Type='Cercis')
+b=data.frame(Ks=compare_kaks_filter$Ks, Type='Cercis vs. Aristolochia')
+e = data.frame(Ks=cusat_kaks_filter$Ks, Type='Aristolochia')
+c = rbind(a,b,e)
+
+# annotation <- data.frame(
+#    x = c(1.4),
+#    y = c(0.6),
+#    label = c('67mya')
+# )
+
+pdf("ksplot.pdf")
+
+
+# c$Type <- factor(c$Type, levels=c("self", "cross", "cusat"), labels=c(expression(italic('Cercis'), expression(italic('Cercis vs. Aristolochia')), expression(itali
+#c('Aristolochia')))))
+
+#  ggplot(c, aes(Ks, fill = Type)) +
+#     geom_histogram(binwidth = 0.05,alpha=0.5, position="identity")
+#  scale_fill_discrete(labels = c(expression(italic('Cercis')),
+#                                 expression(italic('Cercis vs. Aristolochia')),
+#                                 expression(italic('Aristolochia'))))
+  #geom_density(color=NA, binwidth = 0.005,alpha=0.5, position="identity")
+
+# Add text
+p<-ggplot(c, aes(Ks, after_stat(density), color = Type, linetype="a")) +
+    geom_density(color=NA, binwidth = 0.005,alpha=0.5, position="identity")
+    #geom_density(color=NA, binwidth = 0.005,alpha=0.5, position="identity")
+#  scale_fill_discrete(labels = c(expression(italic('Cercis')),
+#                                 expression(italic('Cercis vs. Aristolochia')),
+#                                 expression(italic('Aristolochia'))))
+p
+dev.off()
+

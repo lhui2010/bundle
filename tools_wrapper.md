@@ -529,7 +529,7 @@ tail -n +12 *ty |sed "s/^#.*/###/; s/.*:\s\+//" > ce_ae.anchors
 
 #### gff_to_cds
 mamba install gffread
-gffread -x ${p}.cds -g ${p}.fa ${i}   # ${p}.cds is output
+gffread -x ${p}.cds -g ${p}.fa ${p}.gff   # ${p}.cds is output
 
 #### conda environment
 conda
