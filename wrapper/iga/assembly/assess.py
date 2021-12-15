@@ -69,7 +69,8 @@ def lai(genome=None, threads=50):
 # 4 lineage
 
 busco_sh = """
-busco -f -c {0} -m {1} -i {2} -o {3} -l {4}
+# 1215, add --offline option
+busco --offline -f -c {0} -m {1} -i {2} -o {3} -l {4}
 """
 
 
