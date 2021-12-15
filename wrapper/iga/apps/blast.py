@@ -141,6 +141,41 @@ sort -k2,2 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.ref
     sh("""cat {0}.sorted.qry.top {0}.sorted.ref.top > {2}""".format(bln, top_num, output))
 
 
+def extract_reciprocal_best_hits(bln=None, eval=1e-5, top_num=10, output=''):
+    """
+    A script function like blastall -v and -b:
+    If you used to filter top 5 hits with blastall: blastall -v 5 -b 5
+    You can run this script on blast file that has no filter before
+    :param top_num: default 10
+    :param bln: the blast file (outfmt6 or m8)
+    :param eval: default 1e-5
+    :return:
+    """
+    if output == '':
+        output = "{0}.top{1}".format(bln, top_num)
+    cmd = """
+awk '$11 < 1e-05' {0} > {0}.filter_eval
+
+sort -k1,1 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.qry
+
+# The following command is too slow, deprecated
+# Then get the top 5 hits for every query: 
+# for next in $(cut -f1 {0}.sorted.qry | sort -u); do grep -w -m {1} "$next" {0}.sorted.qry; done > {0}.sorted.qry.top{1}
+
+sort -k2,2 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.ref
+
+# Then get the top 5 hits for every query:
+# for next in $(cut -f1 {0}.sorted.ref | sort -u); do grep -w -m {1} "$next" {0}.sorted.ref; done > {0}.sorted.ref.top{1}
+""".format(bln, top_num, eval)
+    sorted_qry = bln + '.sorted.qry'
+    sorted_ref = bln + '.sorted.ref'
+    sh(cmd)
+    firstn(sorted_qry, field=1, num_extract=top_num, print_to_screen='F', output=sorted_qry + '.top')
+    firstn(sorted_ref, field=2, num_extract=top_num, print_to_screen='F', output=sorted_ref + '.top')
+    sh("""cut -f1,2 {0}.sorted.qry.top {0}.sorted.ref.top |uniq -c | grep "2 " |awk '{{print $2}}' > {2}""".format(
+        bln, top_num, output))
+
+
 def firstn(file=None, field=1, num_extract=10, print_to_screen='T', output=''):
     """
     extract first n lines.
