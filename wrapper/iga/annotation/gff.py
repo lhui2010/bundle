@@ -7,8 +7,6 @@ from collections import OrderedDict, defaultdict
 from itertools import chain
 from statistics import mean
 
-from parse import parse
-
 from iga.apps.base import emain, sh
 
 import logging
