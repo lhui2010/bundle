@@ -42,11 +42,11 @@ def hifiasm(ccs_reads=None, threads=64, prefix='', submit='T', queue='Q104C512G_
     :param queue: Default is Q104C512G_X4, could also be Q64C1T_X4
     :return:
     """
-    ccs_reads = op.abspath(ccs_reads)
     if prefix == '':
         prefix = get_prefix(ccs_reads)
     if ccs_reads.endswith('.bam'):
         ccs_reads = bam2fastx(ccs_reads, format='fastq')
+    ccs_reads = op.abspath(ccs_reads)
     cmd_sh = hifiasm_sh.format(ccs_reads, prefix, threads)
     bsub(cmd_sh, queue=queue, name='hifiasm.' + prefix, submit=submit, cpus=threads)
 
