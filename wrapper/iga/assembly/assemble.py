@@ -35,7 +35,7 @@ awk '/^S/{{print ">"$2;print $3}}' ${{PREFIX}}.p_ctg.gfa > ${{PREFIX}}.p_ctg.fa 
 def hifiasm(ccs_reads=None, threads=64, prefix='', submit='T', queue='Q104C512G_X4'):
     r"""
     flye runs on single machine
-    :param ccs_reads:
+    :param ccs_reads: bam or fastq
     :param threads: default is 64, dependes how many available of host machine
     :param prefix: (species name)
     :param submit: T stands for submit this job to lsf, other value indicate output shell script but do not submit
@@ -45,6 +45,8 @@ def hifiasm(ccs_reads=None, threads=64, prefix='', submit='T', queue='Q104C512G_
     ccs_reads = op.abspath(ccs_reads)
     if prefix == '':
         prefix = get_prefix(ccs_reads)
+    if ccs_reads.endswith('.bam'):
+        ccs_reads = bam2fastx(ccs_reads, format='fastq')
     cmd_sh = hifiasm_sh.format(ccs_reads, prefix, threads)
     bsub(cmd_sh, queue=queue, name='hifiasm.' + prefix, submit=submit, cpus=threads)
 
@@ -210,7 +212,7 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
     logger.debug(subreads)
 
     if '.bam' in subreads:
-        subreads = bam2fastq(subreads)
+        subreads = bam2fastx(subreads)
 
     subreads = op.abspath(subreads)
 
@@ -240,12 +242,13 @@ def canu(subreads=None, genome_size=None, prefix='', type='pacbio', etc='', subm
     bsub(cmd_sh, queue=queue, name='canu.' + prefix, submit=submit)
 
 
-def bam2fastq(subreads=None, submit='T'):
+def bam2fastx(subreads=None, submit='T', format='fasta'):
     """
-    Input zeins.bam zeins.bam.pbi
+    Input zeins.bam
     Output zeins.fasta.gz
-    :param subreads:
+    :param subreads: Zeins.bam [Requires zeins.bam.pbi to be exist]
     :param submit: [T/F] whether to use bsub to submit
+    :Note requires bam2fastx conda package
     :return:
     """
     if type(subreads) == list:
@@ -259,13 +262,19 @@ def bam2fastq(subreads=None, submit='T'):
         return 1
 
     prefix = get_prefix(subreads)
-    cmd = 'bam2fasta -o {0} {1}'.format(prefix, subreads)
+    if format == 'fasta':
+        cmd = 'bam2fasta -o {0} {1}'.format(prefix, subreads)
+    elif format == 'fastq':
+        cmd = 'bam2fastq -o {0} {1}'.format(prefix, subreads)
     if submit == 'T':
         job = bsub(cmd, name='bam2fasta')
         waitjob(job)
     else:
         sh(cmd)
-    return '{0}.fasta.gz'.format(prefix)
+    if format == 'fasta':
+        return '{0}.fasta.gz'.format(prefix)
+    elif format == 'fastq':
+        return '{0}.fastq.gz'.format(prefix)
 
 
 # 0 cfg_file
@@ -286,7 +295,7 @@ def falcon(subreads=None, genome_size=None, prefix='', etc='', submit='T'):
     logger.debug(subreads)
 
     if '.bam' in subreads:
-        subreads = bam2fastq(subreads)
+        subreads = bam2fastx(subreads)
 
     # Change Mb to bp
     if 'M' or 'm' in genome_size:
