@@ -51,7 +51,13 @@ def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene
     """
     if prefix1 == prefix2:
         combine_prefix = prefix1 + '.' + prefix1
-        sh('cp {0}.gff3 {0}.{0}.gff3'.format(prefix1))
+        if op.exists(prefix1 + '.gff3'):
+            sh('cp {0}.gff3 {0}.{0}.gff3'.format(prefix1))
+        elif op.exists(prefix1 + '.gff'):
+            sh('cp {0}.gff {0}.{0}.gff3'.format(prefix1))
+        else:
+            logging.error("You need to provide the gff3 file with format {}.gff3".format(prefix1))
+            exit(1)
     else:
         if op.exists(prefix1 + '.gff3') and op.exists(prefix2 + '.gff3'):
             sh('cat {0}.gff3 {1}.gff3 > {0}.{1}.gff3'.format(prefix1, prefix2))
