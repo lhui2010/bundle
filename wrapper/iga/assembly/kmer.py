@@ -57,6 +57,8 @@ def genomescope(fastq=None, prefix='', threads=64, kmer=21, output='', wait='F',
     :return:
     """
     # assembly, subreads
+    if type(fastq) == str:
+        fastq = [fastq]
     if (prefix == ''):
         prefix = os.path.splitext(os.path.basename(fastq[0]))[0]
     if (output == ''):
