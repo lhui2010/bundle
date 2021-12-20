@@ -1,0 +1,219 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ "$TERM" = "xterm" ] || [ "$TERM" = "xterm-256color" ]
+then
+    #we're on the system console or maybe telnetting in
+  # export PS1="\[\033]2;\h:\u \w\007\033[33;1m\]\u \[\033[36;1m\]\w\[\033[0m\]\n\[\e[32;1m\]$ \[\e[0m\]"
+    #export PS1="\[\033]2;\h:\u \$PWD\007\033[33;1m\]\u@\h \033[35;1m\t\n\033[0m\[\033[36;1m\]\$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
+    export PS1="\[\033]2;\h:\u \$PWD\007\033[33;1m\]\u@\h \033[35;1m\t \e[4;1m \$(date +%d.%m.%Y) \n\033[0m\[\033[36;1m\]\$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
+    #export PS1="\[\033]2;\h:\u \w\007\033[33;1m\]\u@\h \033[35;1m\t\n\033[0m\[\033[36;1m\]\w\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
+else
+    #we're not on the console, assume an xterm
+    #export PS1="\[\033]2;\h:\u \$PWD\007\033[33;1m\]\u@\h \033[35;1m\t\n\033[0m\[\033[36;1m\]\$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
+    export PS1="\[\033]2;\h:\u \$PWD\007\033[33;1m\]\u@\h \033[35;1m\t \e[4;1m \$(date +%d.%m.%Y) \n\033[0m\[\033[36;1m\]\$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
+    #export PS1="\[\033[33;1m\]\h:\u \[\033[37;1m\]\w\$\[\033[0m\]"
+fi
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+export HISTSIZE=200000000
+export HISTFILESIZE=500000000
+export LANG=en_US.UTF-8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################
+####LH add start
+alias ping='ping -c 5'
+alias logsh='date >>shell;cat >>shell'
+alias logjob='date >> ~/lh/running_jobs.txt; pwd >> ~/lh/running_jobs.txt; cat >> ~/lh/running_jobs.txt'
+alias checkjob='tail ~/lh/running_jobs.txt'
+alias vijob='vi ~/lh/running_jobs.txt'
+alias tma='tmux a'
+alias bj='bjobs'
+alias bjl='bjobs |less'
+alias bgrep='bjobs | grep'
+alias bjt='bjobs|tail'
+alias pm='python -m '
+#https://www.ibm.com/support/knowledgecenter/SSWRJV_10.1.0/lsf_command_ref/bjobs.o.1.html
+#https://serverfault.com/questions/532309/setting-the-job-name-column-width-for-the-lsf-bjobs-command
+#alias bj='bjobs -o "JOBID:10 SUBMIT_TIME:13 USER:5 STAT:5 QUEUE:6 SLOTS:5 EXEC_HOST:20 JOB_NAME"'
+#alias bjl='bjobs -o "JOBID:10 SUBMIT_TIME:13 USER:5 STAT:5 QUEUE:6 SLOTS:5 EXEC_HOST:20 JOB_NAME" |les'
+alias ls='ls --color=tty'
+alias bs='bash'
+alias les='less -SN'
+alias lese='less -SN'
+alias ll='ls -hl'                              # long list
+alias lt='ls -lth'
+alias lth='ls -lth |head'
+alias lth20='ls -lth |head -20'
+alias lth30='ls -lth |head -30'
+alias lth50='ls -lth |head -50'
+#alias rm='rm -i'
+alias vi='vim'
+alias vc='vim ~/.bashrc'
+alias vh='vim ~/.bash_history'
+alias sc='source ~/.bashrc'
+alias sch='source /home/liuhui/.bashrc; export HOME=/home/liuhui'
+alias sfat='ssh -Y fat01'
+alias s1='ssh -Y cn01'
+alias s2='ssh -Y cn02'
+alias s3='ssh -Y cn03'
+alias s4='ssh -Y cn04'
+alias chd='chmod 755 *.sh *.pl *.py'
+alias tp='top -u liuhui'
+alias addpwd='echo "export PATH=$PWD:\$PATH" >>~/.bashrc'
+#alias qs='qsub  -V -b y -N output -cwd -l h_vmem=1G'
+alias qs='qsub  -V -b y -N output -cwd '
+alias ql='qstat -u "*" -f'
+alias bsub512='bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J'
+alias bsub1T='bsub   -R "span[hosts=1]" -q Q64C1T_X4  -o output.%J -e error.%J'
+alias bsub2T='bsub   -R "span[hosts=1]" -q Q48C2T_X1  -o output.%J -e error.%J'
+alias bsub3T='bsub   -R "span[hosts=1]" -q Q64C3T_X1  -o output.%J -e error.%J'
+alias bsub6T='bsub   -R "span[hosts=1]" -q Q88C6T_X1  -o output.%J -e error.%J'
+alias bsubI='bsub -q Q104C512G_X4  -Ip bash'
+alias bsubI1T='bsub -q Q64C1T_X4 -Ip bash'
+alias gtp='pushd ${BD}; git pull; popd'
+alias gtps='cd ${BD}; git add . && git commit -m "CMD update" && git push; cd -'
+
+alias newbsub='echo  "#!/bin/bash
+#BSUB -J hybrid_job_name      # job name
+#BSUB -n 1                   # number of tasks in job
+#BSUB -q Q104C512G_X4              # queue
+#BSUB -e errors.%J     # error file name in which %J is replaced by the job ID
+#BSUB -o output.%J     # output file name in which %J is replaced by the job ID
+
+set -euxo pipefail 
+
+ROOT=\$PWD"'
+
+body() {
+    IFS= read -r header
+    printf '%s\n' "$header"
+    "$@"
+}
+
+availq() {
+    echo "HOST_NAME          STATUS       JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV"
+    bhosts |grep "node0[12345]"
+    bhosts |grep "node1[0123]"
+    echo ""
+    echo "                 TotalCpu     UsedCpu    RestCPU"
+    cpu_total=256
+#    cpu_used=`bjobs -u all |grep "node0[2345]" |wc -l | sed 's/ .*//'`
+    cpu_used=`bjobs -u all |grep node0[2345] |awk '{print $1"\t"$6}' |perl -ne 'my @e=split; print $e[-1], "\n";' | sed "s/^node.*/1/; s/\*.*//; " |sum.pl 0`
+    cpu_left=`expr $cpu_total  - $cpu_used`
+    echo "Q64C1T_X4:       $cpu_total          $cpu_used        $cpu_left"
+    cpu_total=416
+    #cpu_used=`bjobs -u all |grep "node1[0123]" |wc -l | sed 's/ .*//'`
+    cpu_used=`bjobs -u all |grep node1[0123] |awk '{print $1"\t"$6}' |perl -ne 'my @e=split; print $e[-1], "\n";' | sed "s/^node.*/1/; s/\*.*//; " |sum.pl 0`
+    cpu_left=`expr $cpu_total  - $cpu_used`
+    echo "Q104C512G_X4:    $cpu_total          $cpu_used        $cpu_left"
+    echo ""
+    lsload |head -1
+    lsload |sort -k1,1V |grep "node0[12345]"
+    lsload |sort -k1,1V |grep "node1[0123]"
+}
+
+
+tt () {
+    perl $BD/lh_bin/print_head.pl $1 |column -s $'\t' -t   |less -S
+}
+
+t () {
+    column -s $'\t' -t  "$1" | less -S
+}
+tailf() ( # args: <file> [<number-of-header-lines>]
+  trap 'tput csr 0 "$((LINES-1))"' INT
+  tput csr "$((1+${2-1}))" "$((LINES-1))"
+  tput clear
+  {
+    head -n"${2-1}"
+    printf "%${COLUMNS}s\n" "" | tr ' ' =
+    tail -n "$((LINES-1-${2-1}))" -f
+  } < "$1"
+)
+
+
+
+export BD="${HOME}/bin/bundle"
+export HB="${BD}/lh_bin"
+alias vw="vim ${BD}/tools_wrapper.md"
+
+
+
+#VCFtools
+
+#boost package
+
+#bamtools
+
+#common lib
+
+#Maker v3.01.02
+
+#augustus
+
+#snap
+
+#export PERL5LIB=/usr/lib64/perl5/:$PERL5LIB
+
+# The next line updates PATH for the Google Cloud SDK.
+
+# The next line enables shell command completion for gcloud.
+
+##Latex
+
+##Genblast
+#Use this env_var to find formatdb and genblast
+
+##BUSCO
+
+
+#export LD_LIBRARY_PATH=/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:$LD_LIBRARY_PATH
+
+
+##BRAKER
+export ALIGNMENT_TOOL_PATH=~/lh/anaconda3/envs/braker2/bin
+##
+
+##genomescope2.0
+
+
+####LH add end
+#####################################
+export PATH=/nfs/liuhui/bin/bundle/lh_bin:$PATH
+
+[[ -s /nfs/liuhui/.autojump/etc/profile.d/autojump.sh ]] && source /nfs/liuhui/.autojump/etc/profile.d/autojump.sh
+
+alias tolava='ssh openlava@localhost'
+
+## latex
+# export MANPATH=/nfs/apps/packages/texlive/2021/texmf-dist/doc/man:$MANPATH
+# export INFOPATH=/nfs/apps/packages/texlive/2021/texmf-dist/doc/info:$INFOPATH
+# export PATH=/nfs/apps/packages/texlive/2021/bin/x86_64-linux:$PATH
+export PATH=/nfs/liuhui/bin/eggnog-mapper-2.1.6:$PATH
+export PATH=/nfs/liuhui/bin/bundle/executables:$PATH
+export PATH=/nfs/liuhui/bin/MCScanX-master:$PATH
