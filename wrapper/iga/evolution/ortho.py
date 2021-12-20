@@ -56,7 +56,7 @@ def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene
         if op.exists(prefix1 + '.gff3') and op.exists(prefix2 + '.gff3'):
             sh('cat {0}.gff3 {1}.gff3 > {0}.{1}.gff3'.format(prefix1, prefix2))
         elif op.exists(prefix1 + '.gff') and op.exists(prefix2 + '.gff'):
-            sh('cat {0}.gff3 {1}.gff3 > {0}.{1}.gff3'.format(prefix1, prefix2))
+            sh('cat {0}.gff {1}.gff > {0}.{1}.gff3'.format(prefix1, prefix2))
         else:
             logging.error("You need to provide the gff3 file with format {}.gff3 {}.gff3".format(prefix1, prefix2))
             exit(1)
