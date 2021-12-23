@@ -109,6 +109,14 @@ set -euxo pipefail
 
 ROOT=\$PWD"'
 
+downlht (){
+        scp -r -6 yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:$1 ./
+    }
+
+uplht (){
+        scp -r -6 $1 yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:/ds3200_1/users_root/yitingshuang/lh/
+    }
+
 body() {
     IFS= read -r header
     printf '%s\n' "$header"
