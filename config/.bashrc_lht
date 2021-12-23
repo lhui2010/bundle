@@ -22,6 +22,8 @@ else
     export PS1="\[\033]2;\h:\u \$PWD\007\033[33;1m\]\u@\h \033[35;1m\t \e[4;1m \$(date +%d.%m.%Y) \n\033[0m\[\033[36;1m\]\$PWD\[\033[0m\]\n\[\e[32;1m\]$\[\033[0m\]"
     #export PS1="\[\033[33;1m\]\h:\u \[\033[37;1m\]\w\$\[\033[0m\]"
 fi
+
+# export TERM='xterm-256color'
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
