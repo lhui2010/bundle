@@ -176,6 +176,10 @@ export PATH=$HB:$PATH
 export PATH=$BD/Rscripts:$PATH
 export PATH=$BD:$PATH
 
+# Server optimization
+ulimit -s 65536
+
+
 
 
 #VCFtools
