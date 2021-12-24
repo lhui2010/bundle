@@ -109,6 +109,8 @@ set -euxo pipefail
 
 ROOT=\$PWD"'
 
+export TERM=xterm
+
 downlht (){
         scp -r -6 yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:$1 ./
     }
@@ -166,9 +168,13 @@ tailf() ( # args: <file> [<number-of-header-lines>]
 
 
 
+#On every server
 export BD="${HOME}/bin/bundle"
 export HB="${BD}/lh_bin"
 alias vw="vim ${BD}/tools_wrapper.md"
+export PATH=$HB:$PATH
+export PATH=$BD/Rscripts:$PATH
+export PATH=$BD:$PATH
 
 
 
@@ -212,7 +218,6 @@ export ALIGNMENT_TOOL_PATH=~/lh/anaconda3/envs/braker2/bin
 
 ####LH add end
 #####################################
-export PATH=/nfs/liuhui/bin/bundle/lh_bin:$PATH
 
 [[ -s /nfs/liuhui/.autojump/etc/profile.d/autojump.sh ]] && source /nfs/liuhui/.autojump/etc/profile.d/autojump.sh
 
