@@ -175,6 +175,7 @@ alias vw="vim ${BD}/tools_wrapper.md"
 export PATH=$HB:$PATH
 export PATH=$BD/Rscripts:$PATH
 export PATH=$BD:$PATH
+shopt -s direxpand
 
 # Server optimization
 ulimit -s 65536
@@ -234,3 +235,5 @@ alias tolava='ssh openlava@localhost'
 export PATH=/nfs/liuhui/bin/eggnog-mapper-2.1.6:$PATH
 export PATH=/nfs/liuhui/bin/bundle/executables:$PATH
 export PATH=/nfs/liuhui/bin/MCScanX-master:$PATH
+export PATH=/nfs/liuhui/bin/bundle/Rscripts:$PATH
+export PATH=/nfs/liuhui/bin/bundle/Rscripts:$PATH
