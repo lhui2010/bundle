@@ -83,10 +83,11 @@ def busco(genome_fasta=None, mode='genome', lineage='embryophyta_odb10', threads
     :param output:
     :return:
     """
-    busco_export = r"""
-    #export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
-    export BUSCO_CONFIG_FILE=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
-    """
+    #Now exporting in bashrc
+    # busco_export = r"""
+    # #export AUGUSTUS_CONFIG_PATH=/tmp/lh_config
+    # export BUSCO_CONFIG_FILE=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
+    # """
     # deploy_augustus = r"""
     # touch /tmp/lh_config && rm -fr /tmp/lh_config && cp -fr  /ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/config /tmp/lh_config
     # """

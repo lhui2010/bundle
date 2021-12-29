@@ -14,6 +14,35 @@ import coloredlogs
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
+# .format(ont_reads, prefix, threads)
+# 0 ont_reads
+# 1 prefix
+# 2 threads
+nextdenovo_sh = r"""
+ls {0} > input.fofn
+echo > run.cfg
+nextDenovo run.cfg
+"""
+
+def nextdenovo(ont_reads=None, threads=64, prefix='', submit='T', queue='Q104C512G_X4'):
+    r"""
+    flye runs on single machine
+    :param ccs_reads: bam or fastq
+    :param threads: default is 64, dependes how many available of host machine
+    :param prefix: (species name)
+    :param submit: T stands for submit this job to lsf, other value indicate output shell script but do not submit
+    :param queue: Default is Q104C512G_X4, could also be Q64C1T_X4
+    :return:
+    """
+    print('unfinished')
+    exit(1)
+    if prefix == '':
+        prefix = get_prefix(ont_reads)
+    ont_reads = op.abspath(ont_reads)
+    cmd_sh = nextdenovo_sh.format(ont_reads, prefix, threads)
+    bsub(cmd_sh, queue=queue, name='nextdenovo.' + prefix, submit=submit, cpus=threads)
+
+
 
 # 0 reads.fasta
 # 1 prefix, like altr
