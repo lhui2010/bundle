@@ -151,11 +151,12 @@ def get_prefix(name):
     return op.basename(name).split('.')[0]
 
 
-def sh(cmd, debug=False, parallel='F', cpus=1, warning='T'):
+def sh(cmd, debug=False, parallel='F', cpus=1, warning='T', return_code='F'):
     """
     run command directly with subprocess.run
     :param cmd:
     :param warning: [T/F], wether to output warning with STDOUT
+    :param return_code: [T/F], if T, return return code like 255 instead of stderr message
     :return:
     """
     ret = ''
@@ -173,7 +174,10 @@ def sh(cmd, debug=False, parallel='F', cpus=1, warning='T'):
         except subprocess.CalledProcessError as cpe:
             # cpe.output.decode() +
             logging.error(cpe.output.decode())
-            ret = cpe.returncode
+            if return_code == 'T':
+                ret = cpe.returncode
+            else:
+                ret = cpe.output.decode()
         if warning == 'T':
             logger.warning(ret)
     return ret
