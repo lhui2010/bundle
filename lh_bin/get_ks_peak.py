@@ -44,11 +44,16 @@ GMM_input=df['Ks'].values
 GMM_input=GMM_input.reshape(-1,1)
 #res=GaussianMixture(n_components=3, covariance_type='spherical').fit(GMM_input)
 
+if len(sys.argv) > 2:
+    peak_num = int(sys.argv[2])
+else:
+    peak_num = 3
+
 # Repeat 100 times
 bic_dict = {}
 with open(sys.argv[1] + ".KsGMM", 'w') as fh:
     for i in range(0,100):
-        res=GaussianMixture(n_components=3).fit(GMM_input)
+        res=GaussianMixture(n_components=peak_num).fit(GMM_input)
         res_bic = res.bic(GMM_input)
         mean = []
         sigma = []
