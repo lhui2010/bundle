@@ -177,6 +177,9 @@ export PATH=$BD/Rscripts:$PATH
 export PATH=$BD:$PATH
 shopt -s direxpand
 
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+
 # Server optimization
 ulimit -s 65536
 
@@ -244,3 +247,4 @@ export PATH=/nfs/liuhui/bin/NextDenovo:$PATH
 export PATH=/nfs/liuhui/bin/NextPolish:$PATH
 export PATH=/nfs/liuhui/bin/wtdbg-2.5_x64_linux:$PATH
 export PATH=/nfs/liuhui/bin/MCScanX-master/downstream_analyses:$PATH
+export PATH=/nfs/liuhui/bin/purge_dups-1.2.5/bin:$PATH
