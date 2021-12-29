@@ -179,7 +179,7 @@ def sh(cmd, debug=False, parallel='F', cpus=1, warning='T', return_code='F'):
             else:
                 ret = cpe.output.decode()
         if warning == 'T':
-            logger.warning(ret)
+            logging.warning(ret)
     return ret
 
 
