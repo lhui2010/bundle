@@ -94,7 +94,7 @@ def busco(genome_fasta=None, mode='genome', lineage='embryophyta_odb10', threads
     if (output == ''):
         output = os.path.basename(genome_fasta) + ".busco.embryophyta.v4.1.2"
     # cmd = conda_act.format('busco') + deploy_augustus + busco_sh.format(threads, mode, genome_fasta, output, lineage)
-    cmd = conda_act.format('busco') + busco_export + busco_sh.format(threads, mode, genome_fasta, output, lineage)
+    cmd = conda_act.format('busco') + busco_sh.format(threads, mode, genome_fasta, output, lineage)
     #    cmd = conda_act
     if (usegrid == 'T'):
         bsub(cmd, cpus=5, name="busco" + genome_fasta)
