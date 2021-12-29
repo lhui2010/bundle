@@ -317,7 +317,7 @@ def is_job_finished(joblist=None):
             joblist = [joblist]
     for j in joblist:
         status = sh("bjobs {}".format(j))
-        logging.warning(status)
+        # logging.warning(status)
         # if re.search(r'{}  yitings DONE'.format(j), status) or \
         #         re.search(r'{}  yitings EXIT'.format(j), status) or \
         if re.search(r'{}   DONE'.format(j), status) or \
