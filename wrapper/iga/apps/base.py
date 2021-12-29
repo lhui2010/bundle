@@ -269,7 +269,6 @@ def bsub(cmd, queue='Q104C512G_X4', direct_submit='F', cpus=1, name='', submit='
     else:
         newbsub = r"""#!/bin/bash
 set -exo pipefail
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/ActivePerl-5.24/bin:$PATH;
 ROOT=$PWD
 date
 """
