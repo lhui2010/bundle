@@ -37,7 +37,7 @@ RepeatMasker -lib {0}-families.fa {0} -pa {1} -dir custom_lib.out
 
 
 # species Viridiplantae
-def repeatmasker(genome=None, species='', denovo='T', threads=30):
+def repeatmasker(genome=None, species='', denovo='T', threads=30, wait='T'):
     """
     python -m iga.annotation.repeat repeatmasker --species Viridiplantae --denovo F sesep.genome.fa
     python -m iga.annotation.repeat repeatmasker --species '' --denovo T sesep.genome.fa
@@ -63,7 +63,8 @@ def repeatmasker(genome=None, species='', denovo='T', threads=30):
     #12.29 I manage repeatmask env in EDTA
     cmd = conda_act.format('EDTA') + cmd
     jobid = bsub(cmd, name="repeat_masker_{}".format(prefix), cpus=threads)
-    waitjob(jobid)
+    if wait == 'T':
+        waitjob(jobid)
 
 
 post_repeatmasker_sh = r"""
