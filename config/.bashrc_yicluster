@@ -54,7 +54,7 @@ alias vijob='vi ~/lh/running_jobs.txt'
 alias tma='tmux a'
 alias bj='bjobs'
 alias bjl='bjobs |less'
-alias bgrep='bjobs | grep'
+alias bjg="bjobs -l |grep 'Job Name'"
 alias bjt='bjobs|tail'
 alias pm='python -m '
 #https://www.ibm.com/support/knowledgecenter/SSWRJV_10.1.0/lsf_command_ref/bjobs.o.1.html
@@ -209,7 +209,7 @@ ulimit -s 65536
 #Use this env_var to find formatdb and genblast
 
 ##BUSCO
-
+export BUSCO_CONFIG_FILE=~/projects/buzzo/busco/myconfig.ini
 
 #export LD_LIBRARY_PATH=/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:$LD_LIBRARY_PATH
 
@@ -237,3 +237,10 @@ export PATH=/nfs/liuhui/bin/bundle/executables:$PATH
 export PATH=/nfs/liuhui/bin/MCScanX-master:$PATH
 export PATH=/nfs/liuhui/bin/bundle/Rscripts:$PATH
 export PATH=/nfs/liuhui/bin/bundle/Rscripts:$PATH
+export PATH=/nfs/liuhui/.conda/envs/EDTA/share/EDTA/bin/LTR_FINDER_parallel:$PATH
+export PATH=/nfs/liuhui/.conda/envs/EDTA/share/EDTA/bin/LTR_HARVEST_parallel:$PATH
+export PATH=/nfs/liuhui/bin/NextDenovo:$PATH
+export PATH=/nfs/liuhui/bin/NextDenovo:$PATH
+export PATH=/nfs/liuhui/bin/NextPolish:$PATH
+export PATH=/nfs/liuhui/bin/wtdbg-2.5_x64_linux:$PATH
+export PATH=/nfs/liuhui/bin/MCScanX-master/downstream_analyses:$PATH
