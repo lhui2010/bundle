@@ -37,7 +37,7 @@ RepeatMasker -lib {0}-families.fa {0} -pa {1} -dir custom_lib.out
 
 
 # species Viridiplantae
-def repeatmasker(genome=None, species='Viridiplantae', denovo='T', threads=30):
+def repeatmasker(genome=None, species='', denovo='T', threads=30):
     """
     python -m iga.annotation.repeat repeatmasker --species Viridiplantae --denovo F sesep.genome.fa
     python -m iga.annotation.repeat repeatmasker --species '' --denovo T sesep.genome.fa
@@ -60,6 +60,8 @@ def repeatmasker(genome=None, species='Viridiplantae', denovo='T', threads=30):
         logging.error("Either provide a species name or use denovo prediction mode")
         exit(1)
     prefix = get_prefix(genome)
+    #12.29 I manage repeatmask env in EDTA
+    cmd = conda_act('EDTA') + cmd
     jobid = bsub(cmd, name="repeat_masker_{}".format(prefix), cpus=threads)
     waitjob(jobid)
 
