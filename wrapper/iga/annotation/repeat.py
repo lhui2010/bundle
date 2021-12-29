@@ -61,7 +61,7 @@ def repeatmasker(genome=None, species='', denovo='T', threads=30):
         exit(1)
     prefix = get_prefix(genome)
     #12.29 I manage repeatmask env in EDTA
-    cmd = conda_act('EDTA') + cmd
+    cmd = conda_act.format('EDTA') + cmd
     jobid = bsub(cmd, name="repeat_masker_{}".format(prefix), cpus=threads)
     waitjob(jobid)
 
