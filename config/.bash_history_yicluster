@@ -1,0 +1,8418 @@
+ls
+for i in *.gcc; do make  -f $i; done
+for i in *.gcc; do make -j 10 -f $i; done
+for i in *.gcc; do make  -f $i; done
+ls
+ls raxml*
+cp raxml* ../bin/
+cd ../bin/
+ls
+cd
+ls
+cd Documents/
+ls
+ls  /etc/environment
+les  /etc/environment
+less  /etc/environment
+ls /etc/profile.d/
+echo "export PATH=/nfsshare/bin/:$PATH" >> /etc/profile.d/path.sh
+sudo echo "export PATH=/nfsshare/bin/:$PATH" >> /etc/profile.d/path.sh
+sudo echo "export PATH=/nfsshare/bin/:\$PATH" >> /etc/profile.d/path.sh
+ll /etc/profile.d/
+sudo touch /etc/profile.d/path.sh
+sudo echo "export PATH=/nfsshare/bin/:\$PATH" >> /etc/profile.d/path.sh
+ll /etc/profile.d/path.sh
+sudo su ;  echo "export PATH=/nfsshare/bin/:\$PATH" >> /etc/profile.d/path.sh
+cd /etc/profile.d/
+ll
+less less.sh
+ll
+ll path.sh 
+more  path.sh 
+vi path.sh 
+sudo vi path.sh 
+vi path.sh 
+ll
+ls
+cd
+ls
+cp -r Documents/ nfs/
+cd Documents/
+ll
+cd ..
+cd -
+ls
+ll
+cd -
+ls
+mv Documents .Documents
+ln -s /nfsshare/liuhui/Documents/
+ll
+cd Documents/
+ll
+vi 05.add_sys_path.sh
+ll
+more 05.add_sys_path.sh 
+ll
+grep yum *
+raxmlHPC-PTHREADS-AVX
+ll
+pwd
+cd ..
+ll
+cd -
+ll
+lt
+cd nfs
+cd -
+cd nfsshare/
+ll
+cd apps/
+ll
+sudo su guwei
+groups liuhui
+groups guwei
+which module
+module list
+module avail
+vc
+vi ~/.bashrc 
+vi /etc/profile.d/modules.sh 
+module avail
+ll /etc/modulefiles/
+ll /etc/modulefiles/mpi/
+less /etc/modulefiles/mpi/openmpi-x86_64 
+ll
+bwa
+which bwa
+ls
+cd nfs
+ll
+cd ../
+cd nfsshare/
+ll
+cd apps/
+ll
+./Miniconda3-py39_4.9.2-Linux-x86_64.sh 
+ls /nfsshare/
+ll
+sudo vi /etc/passwd
+sudo vi /etc/default/useradd 
+ll
+cd /
+ls
+cd
+vi /etc/fstab 
+sudo vi /etc/fstab 
+sudo mkdir /nfs
+sudo umount /nfsshare 
+sudo mount.nfs4 -v 192.168.211.173:/nfs /nfshare
+sudo mount.nfs4 -v 192.168.211.173:/nfs /nfs
+sudo umount /nfsshare/
+vi /etc/fstab 
+vi /etc/passwd
+vi /etc/default/useradd
+sudo mount.nfs4 -v 192.168.211.173:/nfs /nfs
+ll /nfsshare/
+sudo rmdir /nfsshare/
+ll /nfs/
+ll
+rm nfs nfsshare Documents 
+ln -s /nfs/liuhui/Documents/
+ln -s /nfs/liuhui nfs
+ll
+mv nfs nfsshare
+ln -s /nfs
+ll
+sudo vi /etc/profile.d/path.sh 
+ll
+cd nfs
+ls
+ll
+module avail
+ls
+cd /nfs/
+ll
+cd apps/
+ls
+pwd
+./Miniconda3-py39_4.9.2-Linux-x86_64.sh 
+ls
+ls bin/
+ls modules
+pwd
+./Miniconda3-py39_4.9.2-Linux-x86_64.sh 
+cat >> ~/.bashrc 
+eval "$(/nfs/apps/miniconda3/bin/conda shell.YOUR_SHELL_NAME hook)"
+eval "$(/nfs/apps/miniconda3/bin/conda shell.bash hook)"
+vi /etc/default/useradd
+vi ~/.bashrc 
+ls
+ll
+ls
+cd miniconda3/
+ls
+ll
+cd bin/
+ls
+conda install -c bioconda -c conda-forge mamba
+mamba install -c bioconda -c conda-forge  parallel exonerate phyx treePL bowtie2 bandage spades raxml-ng sra-tools phyx Beast BAMM phyparts PhyloNetworks phylonet Gblocks corset Salmon TransDecoder  Trinity Bowtie2 FastQC Transrate BLAST cd-hit PyPHLAWD plot-ks TreSpEx kaks-calculator Blat perl julia iqtree=2.1.3 MAFFT
+mamba install -c bioconda -c conda-forge  parallel exonerate phyx  bowtie2 bandage spades raxml-ng sra-tools phyx Beast BAMM  Gblocks corset Salmon TransDecoder  Trinity Bowtie2 FastQC Transrate BLAST cd-hit Blat perl julia iqtree=2.1.2 MAFFT
+mamba install -c bioconda -c conda-forge  parallel exonerate phyx  bowtie2 bandage spades raxml-ng sra-tools phyx Beast   Gblocks corset Salmon TransDecoder  Trinity Bowtie2 FastQC Transrate BLAST cd-hit Blat perl julia iqtree=2.1.2 MAFFT
+mamba install -c bioconda -c conda-forge  parallel exonerate phyx  bowtie2 bandage spades raxml-ng sra-tools phyx Beast   Gblocks corset Salmon TransDecoder  Trinity Bowtie2 FastQC Transrate  cd-hit Blat perl julia iqtree=2.1.2 MAFFT
+ping 13.250.177.223
+ping 223.5.5.5
+firefox
+ping github.com
+mamba install -c bioconda -c conda-forge  parallel exonerate phyx  bowtie2 bandage spades raxml-ng sra-tools phyx Beast   Gblocks corset Salmon TransDecoder  Trinity Bowtie2 FastQC Transrate  cd-hit Blat perl julia iqtree=2.1.2 MAFFT
+ls
+cd nfs/
+ls
+cd apps/
+ls
+cat >>using_conda.txt
+ls
+cd miniconda3/
+ls
+cd bin/
+ls
+pwd
+ll
+cd ..
+ls
+ll
+cd ..
+ls
+vi path.sh
+pwd -P
+vi path.sh
+pwd
+ls $PWD/path.sh
+sudo vi /etc/profile.d/path.sh 
+cd /etc/profile.d/
+ln -s /nfs/apps/path.sh 
+ll path.sh 
+sudo rm path.sh 
+sudo ln -s /nfs/apps/path.sh 
+ll
+vi path.sh 
+vc
+vi ~/.bashrc 
+ll
+cd /nfs/
+ls
+cd apps/
+ls
+cd bin/
+ll
+ln -s /nfs/apps/
+cd apps/
+ll
+vc
+cd
+tail .bashrc
+eval "$(/nfs/apps/miniconda3/bin/conda shell.bash hook)"
+ll
+mamba install -c bioconda bioconductor-deseq2
+mamba install -c bioconda bioconductor-deseq2  r-ggplot2 bioconductor-ggtree
+ps ux
+eval "$(/nfs/apps/miniconda3/bin/conda shell.bash hook)"
+mamba install -y -c bioconda bioconductor-deseq2  r-ggplot2 bioconductor-ggtree
+ll /nfs/apps/miniconda3/pkgs/
+rm /nfs/apps/miniconda3/pkgs.pid9131.conda_lock 
+mamba install -y -c bioconda bioconductor-deseq2  r-ggplot2 bioconductor-ggtree
+mamba remove  bioconductor-deseq2  r-ggplot2 bioconductor-ggtree
+mamba install -y -c bioconda bioconductor-deseq2  r-ggplot2 bioconductor-ggtree
+R
+last
+last |head
+ll
+df -h
+sudo vi /etc/sysconfig/network-scripts/ifcfg-em1
+sudo service network restart
+ssh 192.168.119.150
+rpm -q autofs
+ls
+sudo yum install autofs
+sudo vim /etc/auto.master
+sudo vim /etc/fstab 
+sudo vim /etc/auto.master
+sudo vim /etc/auto.nfsdb
+sudo systemctl start autofs.service
+cd /nfs/
+ls
+ll
+ll liuhui/
+systemctl enable autofs.service
+sudo systemctl enable autofs.service
+vim /etc/auto.nfsdb
+ls
+ll
+cd nfs
+ll
+cd liuhui/
+lt
+ll
+ll -th
+touch a
+ll
+rm a
+ll
+cd /nfs/
+ll
+cd apps/
+ll
+cd ..
+ll
+sudo mv openlava apps/
+sudo su
+lsid
+ll
+cd /opt/openlava-2.2/
+ll
+cd etc/
+ll
+vi lsf.cluster.openlava 
+sudo vi lsf.cluster.openlava 
+lsid
+sudo vi /etc/hosts
+ll
+vi lsf.cluster.openlava 
+ping yimiddle
+more /etc/sysconfig/iptables
+more /etc/sysconfig/iptables-config 
+sudo iptables -I INPUT -s 192.168.119.0/28 -p udp --match multiport --dports 1024:65535 -j ACCEPT
+sudo iptables -I INPUT -s 192.168.119.0/28 -p tcp --match multiport --dports 1024:65535 -j ACCEPT
+sudo iptables-save|sudo tee /etc/sysconfig/iptables
+ls
+/etc/init.d/openlava restart
+sudo /etc/init.d/openlava restart
+hostnamectl status
+/etc/init.d/openlava restart
+bhosts
+sudo /etc/init.d/openlava restart
+bhosts
+vi /etc/hosts
+ls
+ll
+sudo hostnamectl set-hostname yi02
+ll
+sudo hostnamectl set-hostname yi01
+lsid
+bhosts
+ll
+vi /etc/hosts
+sudo vim /etc/hosts
+ll
+cd nfs
+ll
+cd apps/openlava/
+ll
+cd /opt/
+ll
+cd openlava-2.2/
+ll
+cd etc/
+ls
+ll
+lt 
+ll -th
+sudo su
+sudo /etc/init.d/openlava restart
+bhosts
+yum 
+ll /etc/yum.repos.d/
+less /etc/yum.repos.d/CentOS-Base.repo 
+sudo yum upgrade
+yum install yum-fastestmirror
+sudo yum install yum-fastestmirror
+sudo more /etc/yum/pluginconf.d/fastestmirror.conf
+sudo more /var/cache/yum/timedhosts.txt
+ll /var/cache/yum/x86_64/7/timedhosts.txt 
+more /var/cache/yum/x86_64/7/timedhosts.txt 
+sudo su
+ping baidu.com
+ll
+bhosts
+cd /nfs/
+ls
+cd liuhui/
+ls
+cd ..
+ls
+cd apps/
+ls
+conda activate
+vc
+vi ~/.bashrc 
+ls
+cd miniconda3/
+cd etc/
+ls
+ll 
+ll conda/
+cd ../
+ls
+sourvi /etc/profile.d/path.sh 
+vi /etc/profile.d/path.sh 
+ll
+cd ..
+ls
+more using_conda.txt 
+more path.sh 
+ls
+source /nfs/apps/miniconda3/etc/profile.d/conda.sh 
+conda activate
+ls
+vi using_conda.txt 
+mamba install tmux
+tmux
+conda install -c conda-forge tmux
+mamba install -c conda-forge tmux
+ls /nfs/backup/
+bhosts
+ssh yi02
+ssh -p 201 yi02
+bhosts
+ll
+bhosts
+bsub -m yi04 "bsub -m "node01" "hostname;whoami;sleep 60"
+cd
+ls
+cd /nfs/liuhui/
+ll
+bsub -m yi04 "hostname;whoami;sleep 60"
+ll
+bj
+bjobs
+ll
+bpeek 101
+bj
+bhosts
+bj
+bjobs
+bsub -m yi04 -n 255 "hostname;whoami;sleep 60"
+bjobs
+bhosts
+ll
+tma
+tmux new -s lh
+ls
+ll
+bhosts
+bhosts -l yi02
+bhosts 
+ping yi02
+ll
+bsub -o output.%J -e error.%J  -m yi04 -n 255 "hostname;whoami;sleep 60"
+bj
+bjobs
+bhosts
+ll
+bjobs
+ll
+bjobs
+ll 
+more output.103 
+ll
+cd
+ll
+rm test.dbf 
+ll
+bhosts
+bhosts -h
+bhosts yi02
+bhosts -l yi02
+ll
+bj
+bjobs
+bhosts
+ssh yi04
+ll
+vi /etc/passwd
+sudo su yanhui
+ll
+top
+bhosts
+ll
+bhosts
+cd /nfs/liuhui/
+bsub -e error3 -o output3 -m yi02 'hostname;date;whoami'
+bj
+bjobs
+bhosts
+ll
+bjobs
+ll
+more *r
+more *3
+ll
+more output3
+ll
+bjobs
+bhosts
+ll
+bhosts
+ll
+cd nfs
+ll
+sudo su
+cd liuhui/
+ll
+cd Documents/
+ll
+more 05.add_sys_path.sh 
+cat >> 06.add_autofs.sh
+history |less
+ll
+vi 06.add_autofs.sh 
+history |less
+vi 07.openlarva.sh
+ll
+more 07.openlarva.sh 
+ll
+scp liuhui@yi02:/etc/passwd ./
+scp -P 201 liuhui@yi02:/etc/passwd ./
+ll
+diff -y /etc/passwd passwd |less
+scp  liuhui@yi04:/etc/passwd ./passwd4
+diff -y /etc/passwd passwd4 |less
+diff -y /etc/passwd passwd |less
+ll
+vi 08.useradd.sh
+sudo su
+ls
+ll
+vi 08.useradd.sh 
+chmod +x  08.useradd.sh 
+sudo su
+sudo vi /etc/shadow
+sudoedit /etc/shadow
+bjobs
+ll
+sudo su
+ll
+bhosts
+sudo su liushuiyin
+ll
+bjobs
+bhosts
+ssh yi02
+ssh -p 201 yi02
+bhosts
+bjobs
+cd /nfs/
+ls
+ll
+ll backup/
+ll -th backup/
+ll -th backup/jin
+ll -th backup/jinjianjun/
+ll -th backup/
+ll  backup/
+ll
+bhosts 
+route
+bqueus
+bqueues 
+bhosts
+top
+ll
+bhosts
+man bhosts
+beast -v
+beast 
+ls
+cd apps/
+ll
+wget https://github.com/CompEvol/beast2/releases/download/v2.6.6/BEAST_with_JRE.v2.6.6.Linux.tgz
+ls /nfs/liushuiyin/applications/beast/bin
+sudo ls /nfs/liushuiyin/applications/beast/bin
+sudo ls -l /nfs/liushuiyin/applications/beast/bin/
+/nfs/liushuiyin/applications/beast/bin/beast
+ls
+cd
+sudo cp -r /nfs/liushuiyin/applications/beast/ .
+ls
+cd beast/
+ll
+cd bin/
+ls
+./bea
+./beast 
+ll
+ls
+cd ..
+ls
+cd ..
+ll
+mv beast apps/beast2
+ll
+rm -r apps/beast2/
+ll
+sudo chown liuhui.liuhui beast/
+ll
+mv beast apps/beast2
+rm -r apps/beast2/
+sudo chown -R liuhui.liuhui beast/
+ll beast/
+ll beast/bin/
+mv beast apps/beast2
+cd apps/
+ll
+cd modules
+ls
+module avail
+which module
+ll
+cd cactus/
+ll
+more progressiveCactus.sh 
+cd ..
+ll
+mkdir beast
+cd beast/
+cp ../cactus/progressiveCactus.sh ./beast2.sh
+vi beast2.sh 
+pwd
+cd ../../beast2/
+pwd
+ls
+cd bin/
+pwd
+cd ~/
+ls
+cd nfs
+ls
+ll
+cd liu
+cd apps/
+ll
+cd modules
+ls
+cd beast/
+ll
+vi beast2.sh 
+ll
+cd ..
+ls
+cd ..
+ls
+cd modules-5.0.0/
+ll
+vi README.md 
+vc
+vi /etc/profile.d/modules.sh 
+ll
+mroe /etc/profile.d/modules.sh 
+more /etc/profile.d/modules.sh 
+sudo yum remove modules
+sudo yum remove module
+ls
+. init/bash
+ll bin/libexec/modulecmd.tcl 
+ll
+. init/bash
+module avail
+which module
+. init/bash
+module avail
+sudo yum remove modules
+sudo rm -r /etc/profile.d/modules.*
+ll /etc/share/
+ll /etc/modulefiles
+sudo yum remove openmpi
+ls
+ll /etc/modulefiles
+ll /usr/share/
+ll /usr/share/Modules/*/
+modules avail
+module avail
+modules avail
+sudo rm -r /usr/share/Modules/
+ll /usr/share/Modules/
+ll /usr/share/Modules/bin/
+suro rm -r /usr/share/Modules/
+sudo rm -r /usr/share/Modules/
+ll
+cd apps/
+ls
+cd modules-5.0.0/
+ls
+cd in
+mkdir install
+cd install/
+ll
+cd init/
+ll
+ll $PWD/bash
+cd -P .
+ll $PWD/bash
+pwd
+. /nfs/apps/modules-5.0.0/install/init/bash
+module avail
+module load beast2
+module load beast
+ll
+beast
+ll
+cd ..
+ll
+vi /etc/profile.d/path.sh 
+ll
+cd ..
+ls
+cd ..
+ls
+vi path.sh 
+ls $PWD/path.sh 
+vi /etc/profile.d/path.sh 
+ll /etc/profile.d/path.sh 
+vi /etc/profile.d/path.sh 
+ll
+vi path.sh 
+cd bin/
+pwd
+vi ../path.sh 
+cd ../miniconda3/bin/
+pwd
+cd ..
+ls
+cd ..
+ll
+vi path.sh 
+ll
+cd /n
+cd /nfs/
+ls
+ll
+cd liu
+cd liuhui/
+ll
+cd ..
+cd apps/
+ll
+cd bin/
+ls
+ll
+cd ..
+ls
+ll
+cd modules
+ll
+more dot 
+more modules
+rm dot module-git module-info modules null use.own 
+ll
+mv beast beast2
+ll
+module avail
+cp beast2/beast2.sh ./
+module avail
+ll
+mv beast2.sh beast2
+module avail
+ll
+ls beast2/
+mv beast2/beast2.sh beast
+module avail
+ll
+vi beast
+ls beast2
+mv beast beast2/beast.sh
+ll
+cd beast2/
+ls
+mv beast.sh beast2.sh 
+module avail
+beast
+ls
+ll
+vi beast2.sh 
+cd /nfs/apps/
+ll
+cd beast2/bin/
+ls
+pwd
+cd
+ls
+cd apps/modules
+ls
+cd beast2/
+ls
+vi beast2.sh 
+ll
+cd ..
+ls
+mkdir python2
+cd python2/
+cp ../cactus/progressiveCactus.sh ./python2.sh
+ll
+vi python2.sh 
+module avail
+module load python2
+which python
+python
+cd /nfs/
+ls
+cd apps/
+ls
+ll
+mkdir packages
+which blastp
+which raxmlHPC
+mv ncbi-blast-2.12.0+* standard-RAxML-master ShortStack-3.8.5 Trimmomatic-0.38 hisat2-2.2.1 hifiasm-0.14 EDTA-master cactus-bin-v2.0.1 bwa-0.7.17 beast2 packages/
+ll
+mv modules-5.0.0.tar.gz Miniconda3-py39_4.9.2-Linux-x86_64.sh packages/
+ls
+ll
+cd packages/
+ls
+cd ../
+ls
+cd modules
+ls
+cd cactus/
+ll
+vi progressiveCactus.sh 
+cd ..
+ls
+cd beast2/
+ll
+vi beast2.sh 
+module avail
+module load beast2
+beast
+ll
+cd 
+ls
+ll
+vi /etc/passwd
+sudo vi /etc/passwd
+ll
+top
+ll
+module avail
+module unload beast2
+module avail
+ll /nfs/apps/modules
+ll
+cd
+ll
+module load beast2
+module purge
+module avail
+ll
+ls
+cd apps/bin/
+ls
+ll
+rm hisat2 hisat2-build 
+ln -s ../packages/hisat2-2.2.1/hisat2
+ln -s ../packages/hisat2-2.2.1/hisat2-build
+ll
+cd ..
+cd -
+ls
+touch loadconda
+more ../using_conda.txt 
+ls
+vi loadconda 
+chmod +x  loadconda 
+loadconda
+conda activate
+more loadconda 
+source /nfs/apps/miniconda3/etc/profile.d/conda.sh
+conda init bash
+conda activate
+vi ~/.bashrc 
+. "/nfs/apps/miniconda3/etc/profile.d/conda.sh"
+conda activate
+. "/nfs/apps/miniconda3/etc/profile.d/conda.sh"
+conda activate
+ll
+cd apps/
+ls
+vi path.sh 
+conda activate
+conda env list
+vi /etc/passwd
+grep -v nologin /etc/passwd
+ll /nfs/openlava
+ll
+sudo su openlava
+ll
+conda env lsit
+conda env list
+ll
+cd apps/
+ll
+ll openlava/
+vi openlava/lsf.conf 
+netstat -n
+netstat -n |less
+netstat  |less
+netstat -n |less
+vi openlava/lsf.conf 
+ll
+sudo su openlava
+ll
+vi /etc/passwd
+ll
+pwd
+bhosts
+ssh yi04
+bjl
+bjobs
+bhosts
+ll
+cd ba
+cd nfs
+ll
+cd liuhui/
+ll
+cd Documents/
+ll
+cd -
+cd
+cd /nfs/
+ls
+cd backup/
+ll
+cd liuhui/
+ll
+tma
+tmux a
+top
+bjobsd
+bjobs
+bhosts
+bjl
+bjobs -u all
+ssh yi04
+uptime
+ls
+cd /nfs/
+ll
+cd apps/
+ll
+cd bin/
+ll
+cd ..
+ls
+ll
+cd packages/
+ls
+cd cactus-bin-v2.0.1/
+ls
+ll
+pwd
+ls $PWD/BIN-INSTALL.md 
+ll
+cd
+ll
+bj
+bjobs -u all
+bhosts
+lsload
+ssh yi02
+ssh -p 201 yi02
+ll
+ls
+mamba install -c bioconda taxonkit
+ll
+taxonkit -h
+mkdir ~/.taxonkit
+cd .taxonkit/
+rz
+# Received /Users/liuhui/Downloads/taxdump.tar.gz
+ll
+tar -xvzf taxdump.tar.gz 
+cd
+taxonkit name2taxid Aeschynomene_evenia
+taxonkit name2taxid "Aeschynomene evenia"
+taxonkit name2taxid Aeschynomene evenia
+echo Aeschynomene | taxonkit name2taxid
+echo Aeschynomene | taxonkit name2taxid | taxonkit lineage -r -L
+echo Aeschynomene | taxonkit name2taxid | taxonkit lineage -r -L -i 2
+echo Aeschynomene | taxonkit name2taxid | taxonkit list --show-rank --show-name --indent
+echo Aeschynomene | taxonkit name2taxid | taxonkit list --show-rank --show-name 
+echo Aeschynomene | taxonkit name2taxid | taxonkit list --show-rank --show-name  --ids
+echo Aeschynomene | taxonkit name2taxid | taxonkit list --show-rank --show-name  --ids -
+taxonkit name2taxid
+echo Aeschynomene | taxonkit name2taxid
+echo Aeschynomene | taxonkit name2taxid |awk '{print $2}' | taxonkit list --show-rank --show-name  --ids -
+echo Aeschynomene | taxonkit name2taxid |awk '{print $2}' | taxonkit list --show-rank --show-name  --ids 
+taxonkit list --show-rank --show-name  --ids 48134
+echo "Aeschynomene evenia" | taxonkit name2taxid
+taxonkit list --show-rank --show-name  --ids 561484
+echo "Aeschynomene evenia" | taxonkit lineage  -d "-" -t -r
+echo 561484 | taxonkit lineage  -d "-" -t -r
+ls
+sudo vi /etc/passwd
+ll
+cd /nfs/
+ll
+cd liuhui/
+ll
+ll Documents/
+ll /home/
+ll /home/liuhui/
+cp -r ~/.taxonkit/ ./
+ll
+touch .Xauthority
+cp -r /home/liuhui/.bash* ./
+cp -r /home/liuhui/.ssh/ ./
+ll
+rm output* error*
+ll
+lt
+echo "Aeschynomene evenia" | taxonkit name2taxid
+echo 561484 | taxonkit lineage  -d "-" -t -r
+cat >>taxonkit.sh
+echo "Aeschynomene evenia" | taxonkit name2taxid |cut -f2 |taxonkit lineage  -d "-" -t -r
+echo "Aeschynomene evenia" | taxonkit name2taxid |cut -f2 |taxonkit lineage  -d "-" -t -r > tmp
+vi tmp 
+vi get_taxon_lineage.sh
+chd
+chmod +x get_taxon_lineage.sh 
+ll
+vi input_list
+vi taxonkit.sh 
+ls
+vi get_taxon_lineage.sh 
+./get_taxon_lineage.sh input_list 
+vi get_taxon_lineage.sh 
+./get_taxon_lineage.sh input_list 
+./get_taxon_lineage.sh input_list  > input_list.with_lineage
+vi input_list
+
+ls
+mkdir bin
+cd bin/
+ls
+git clone https://gitlab.com/lhui2010/bundle.git
+ll
+cd bundle/
+ls
+cd config/
+ll
+cp .bashrc_lht  ~/.bashrc 
+ll
+t input_list.with_lineage 
+vi input_list
+vi get_taxon_lineage.sh 
+./get_taxon_lineage.sh "Eperua falcata"
+vi get_taxon_lineage.sh 
+./get_taxon_lineage.sh "Eperua falcata"
+vi get_taxon_lineage.sh 
+./get_taxon_lineage.sh "Eperua falcata"
+vi get_taxon_lineage.sh 
+./get_taxon_lineage.sh "Eperua falcata"
+./get_taxon_lineage.sh "Dipteryx alata"
+ls
+cat >> input_list.with_lineage 
+vi input_list.with_lineage 
+sort -k3,3 input_list.with_lineage 
+sort -k4,4 input_list.with_lineage 
+sort -k4,4 input_list.with_lineage  |t
+sort -k4,4 input_list.with_lineage  > input_list.with_lineage.sort
+t input_list.with_lineage.sort 
+ll
+which python
+ll
+bj
+bhosts
+bjobs
+bjobs -u all
+bjobs -u all |less
+ls
+ll
+lsload
+ll
+bjl
+bjobs
+bhosts
+bjobs -u all
+lsload
+ll
+ll *
+ls
+ll
+mv input_list legume_genome_list
+rename input_list legume_genome_list *
+ll
+les legume_genome_list.with_lineage.sort
+wc -l legume_genome_list.with_lineage.sort
+sz legume_genome_list.with_lineage.sort
+# Sent -> /Users/liuhui/Downloads/
+ll
+vi tmp
+awk '{print $1"。"$2"。专利公布号："$3}' tmp
+vi tmp2
+sort tmp2 |uniq -c
+ls
+lt
+vi get_taxon_lineage.sh 
+vi legume_genome_list
+./get_taxon_lineage.sh legume_genome_list > legume_genome_list.with_lineage
+les *with_lineage
+vi legume_genome_list
+vi legume_genome_list.with_lineage
+vi legume_genome_list
+vi get_taxon_lineage.sh 
+./get_taxon_lineage.sh legume_genome_list > legume_genome_list.with_lineage
+les legume_genome_list.with_lineage
+wc -l legume_genome_list legume_genome_list.with_lineage
+tail legume_genome_list
+tail legume_genome_list.with_lineage
+lth
+cd bin/bundle/lh_bin/
+addpwd
+ls
+cd -
+ls
+sc
+lth
+unselectItem.pl legume_genome_list.with_lineage legume_genome_list
+vi legume_genome_list
+wc -l legume_genome_list legume_genome_list.with_lineage
+vi legume_genome_list
+vi legume_genome_list.with_lineage
+cut -f1 legume_genome_list.with_lineage  > legume_genome_list.with_lineage.f1
+lth
+diff legume_genome_list legume_genome_list.with_lineage.f1
+vi legume_genome_list.with_lineage
+vi legume_genome_list
+vi legume_genome_list.with_lineage
+ll
+vi taxonkit.sh 
+bash taxonkit.sh >> legume_genome_list.with_lineage
+vi legume_genome_list.with_lineage
+echo "Eperua falcata" > tmp
+./get_taxon_lineage.sh tmp
+./get_taxon_lineage.sh tmp >> legume_genome_list
+./get_taxon_lineage.sh tmp >> legume_genome_list.with_lineage
+vi legume_genome_list
+vi legume_genome_list.with_lineage
+wc -l legume_genome_list legume_genome_list.with_lineage
+vi *eag
+vi *eage
+lt
+sz legume_genome_list.with_lineage
+# Sent -> /Users/liuhui/Downloads/
+lth
+rm legume_genome_list.with_lineage.f1 legume_genome_list.with_lineage.sort
+les *ge
+ssh yimiddle
+ssh -p 201 yimiddle
+ssh -p 201 yi02
+ls
+which conda
+sudo su yanhui
+ls
+mamba install ipython
+ipython
+ssh -p 201 yi02
+ls
+ll
+vi new_legume_genome_list
+./get_taxon_lineage.sh new_legume_genome_list 
+./get_taxon_lineage.sh new_legume_genome_list > new_legume_genome_list.with_lineage
+more new_legume_genome_list
+more new_legume_genome_list.with_lineage 
+vi new_legume_genome_list.with_lineage 
+vi tmp
+ll
+tmux
+ls
+tmux a
+ipython
+htop
+ls
+cd projects/
+lt
+cd fge
+cd genomes/
+ll
+mkdir Fagales
+cd Fagales/
+ll
+which python
+sudo su
+cd
+cd bin/
+ls
+which pip
+pip install jcvi
+python -m jcvi.apps.base
+python -m jcvi.apps.fetch phytozome
+rm .phytozome_*
+cd
+ls 
+cd projects/
+ls
+cd genomes/
+ll
+cd Fagales/
+ll
+python -m jcvi.apps.fetch phytozome
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/apps/biomart.py
+python -m jcvi.apps.fetch phytozome
+python -m jcvi.apps.fetch phytozome 
+python -m jcvi.apps.fetch phytozome Bplatyphylla
+python -m jcvi.apps.fetch phytozome Bplatyphylla_679
+python -m jcvi.apps.fetch phytozome Bplatyphylla_679_v1.0
+ll
+vi .phytozome_directory_V12.xml 
+ll
+cd 
+ls
+cd projects/
+ls
+cd genomes/
+ls
+cd Fabales/
+ls
+rm *.OK
+ls
+ls -d */
+rm *.contig
+rm *.n50
+ls
+rm *.fai
+ls
+rm -r delete/
+ls
+mv *pl *py *txt *list document/
+ls
+rm tmp*
+mv shell *sh document/
+ls
+rm chromosome.txt.sort 
+ls
+mv plabidb.txt.sort previous_chr.txt.sort document/
+ls
+rm README.md 
+ls
+ls *.* |wc -l
+mv *orig document/
+ls
+ls *.* |wc -l
+ls |grep -v ".fa\|.gff\|.cds\|.pep"
+ls *.* |les
+ls
+chmod -x *.*
+ls
+cd new/
+ls
+chmod +x *.cds *.pep *.fa *.gff
+ls
+for i in cds pep gff fa; do cp *.${i} ../; done
+ll
+mkdir projects
+cd projects/
+ll
+mkdir genomes
+l
+ll
+cd genomes/
+ls
+ll
+scp -r yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/genomes/Fabales ./
+ll
+cd Fabales/
+ll
+cd ../Fagales/
+ll
+ls
+ll
+cd ../Fabales/
+ls
+bhosts
+ll
+ls
+vw
+vc
+ls ~/bin/bundle/
+vc
+sc
+ls
+ll
+ls
+vw
+vc
+gtp
+ls ~/bin/bundle/
+pushd ~/bin/bundle
+popd
+vc
+gtp
+sc
+gtp
+pushd ~/bin/bundle
+popd
+pushd $BD
+pushd `ls -d $BD`
+ls -d $BD
+echo $HOME
+vc
+sc
+gtp
+ll
+ls
+vw
+which last
+vw
+python -m jcvi.formats.fasta format
+ls
+mkdir mcscan
+cd mcscan/
+for i in ../*cds ../*gff; do ln -s $i; done
+ls *cds |wc -l
+ls *gff |wc -l
+ls
+bsub512 "python -m jcvi.formats.gff bed --type=mRNA --key=ID --primary_only Dalbergia_odorifera.gff -o Dalbergia_odorifera.bed"
+bsub512 "python -m jcvi.formats.fasta format Dalbergia_odorifera.cds Dalbergia_odorifera.cds.format "
+lth
+les error.1024 
+les output.102
+les output.1024
+lth
+les Dalbergia_odorifera.cds.format
+head Dalbergia_odorifera.cds.format Dalbergia_odorifera.cds
+les Dalbergia_odorifera.gff 
+cd ..
+head -2 Dalbergia_odorifera.gff 
+cd -
+ls
+head -1 *cds |les
+ll Dalbergia_odorifera.*
+head Dalbergia_odorifera.cds*
+ls
+cd ..
+scp  yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/genomes/Fabales/Dalbergia_odorifera.* ./
+rm Dalbergia_odorifera.*
+scp  yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/genomes/Fabales/Dalbergia_odorifera.* ./
+rm Dalbergia_odorifera.fa.*
+ll Dalbergia_odorifera.*
+chmod -w Dalbergia_odorifera.*
+ll Dalbergia_odorifera.*
+rm Dalbergia_odorifera.OK
+cd -
+ls
+lth
+les Dalbergia_odorifera.bed
+rm Dalbergia_odorifera.bed Dalbergia_odorifera.cds.format output.102* error.102*
+ls
+lth
+vi getbed.sh
+ls Cercis_chinensis.*
+vi getbed.sh
+which bsub512
+vi getbed.sh
+bsub512 -J jcvi -m yi04 < getbed.sh 
+logsh
+bj
+bjobs
+ls
+lth
+ll
+lth
+les *.err
+bj
+bjobs
+sudo su
+ll
+les *log
+ll
+rm *.log *.err
+ls
+lth
+rm error.1026 output.1026 
+ls *bed |wc -l
+ls *gff |wc -l
+ls
+vi shell 
+vi getbed.sh 
+bsub512 -J jcvi -m yi04 < getbed.sh 
+bj
+lth
+ls
+lth
+bj
+vc
+sc
+top
+bj
+bjl
+top
+htop
+otp
+bjl
+lsload
+lth
+les *.err
+ll Abrus_precatorius.bed*
+ll Abrus_precatorius.*
+head Abrus_precatorius.Abrus_precatorius.err
+vi getbed.sh 
+Abrus_precatorius Abrus_precatorius.cds
+lastal -u 0 -P 24 -i3G -f BlastTab Abrus_precatorius Abrus_precatorius.cds
+which lastal
+cd
+ls
+lastal
+sudo su openlava
+lt
+cd -
+ls
+ls *cds |wc -l
+ls *bed |wc -l
+ls *gff |wc -l
+les error.1071 
+vi Cajanus_cajan.gff
+les error.1071 
+vi Phaseolus_acutifolius.gff
+les error.1071 
+vi Cajanus_cajan.gff
+ls
+vi Cajanus_cajan.gff
+les error.1071 
+vi shell 
+vi getbed.sh 
+les error.1071 
+ls *bed > tmp
+ls *gff > tmp1
+vi tmp tmp1
+diff -y tmp tmp1
+vi Medicago_polymorpha.gff 
+vi Senna_tora.gff 
+more getbed.sh 
+les Senna_tora.gff
+python -m jcvi.formats.gff bed --type=mRNA --key=ID Senna_tora.gff -o Senna_tora.bed
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/formats/gff.py
+vi Senna_tora.gff 
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/formats/gff.py
+vi Senna_tora.gff 
+vi Medicago_polymorpha.gff 
+ls
+vi getbed.sh 
+python -m jcvi.formats.gff bed --type=mRNA --key=ID Senna_tora.gff -o Senna_tora.bed
+python -m jcvi.formats.gff bed --type=mRNA --key=ID Medicago_polymorpha.gff -o Medicago_polymorpha.bed
+vi getbed.sh 
+bs getbed.sh 
+bjl
+lth
+bjl
+lt
+lth
+ll core.*
+lth
+bjl
+lth
+ll core.*
+lt *err
+les Spatholobus_suberectus.Spatholobus_suberectus.err
+lsload
+ssh yi04
+lt
+ls
+lth
+ll *err *log
+les Zenia_insignis.Zenia_insignis.err
+ll Zenia_insignis.*
+rm *.anchors *.last* *.pdf
+ls
+lth
+rm core.*
+lth
+les *err
+ll *err |les
+vi getbed.sh 
+bash getbed.sh 
+bjl
+bj
+bjobs
+vi getbed.sh 
+bjobs -l 1203
+ll Cercis_c*
+lth
+les Cercis_chinensis.Abrus_precatorius.log
+les Cercis_chinensis.Abrus_precatorius.err
+vi getbed.sh 
+bash getbed.sh 
+lth
+rm core.260308 
+lth
+les Cercis_chinensis.Abrus_precatorius.log 
+lth
+les Cercis_chinensis.Abrus_precatorius.err 
+lastal
+les Cercis_chinensis.Abrus_precatorius.err 
+lastal -u 0 -P 24 -i3G -f BlastTab Abrus_precatorius Cercis_chinensis.cds >./Cercis_chinensis.Abrus_precatorius.last
+which lastal
+sudo su miniconda
+sudo su openlava
+vc
+ls
+cd /home/liuhui/
+ls
+vi .bash_r
+vi .bashrc 
+vi .bash_history 
+sudo su openlava
+sudo su
+ls
+ll
+cd /nfs/liuhui/projects/genomes/Fabales/mcscan/
+ls
+lastal -u 0 -P 24 -i3G -f BlastTab Abrus_precatorius.cds Cercis_chinensis.cds >./Cercis_chinensis.Abrus_precatorius.last
+lastal -u 0 -P 24 -i3G -f BlastTab Abrus_precatorius Cercis_chinensis.cds >./Cercis_chinensis.Abrus_precatorius.last
+mkdir tmp
+ll tmp
+rm tmp tmp1
+mkdir tmp
+cp Abrus_precatorius* Cercis_chinensis.cds tmp/
+cd tmp/
+ll
+lastal -u 0 -P 24 -i3G -f BlastTab Abrus_precatorius Cercis_chinensis.cds >./Cercis_chinensis.Abrus_precatorius.last
+chmod +w *
+lastal -u 0 -P 24 -i3G -f BlastTab Abrus_precatorius Cercis_chinensis.cds >./Cercis_chinensis.Abrus_precatorius.last
+scl enable devtoolset-7 bash
+top
+bj
+cd tmp/
+lastal -u 0 -P 24 -i3G -f BlastTab Abrus_precatorius Cercis_chinensis.cds >./Cercis_chinensis.Abrus_precatorius.last
+ll
+vw
+lastdb Abrus_precatorius Abrus_precatorius.cds
+lastal -u 0 -P 24 -i3G -f BlastTab Abrus_precatorius Cercis_chinensis.cds >./Cercis_chinensis.Abrus_precatorius.last
+lt
+cd ..
+ls
+vi getbed.sh 
+bsub512 -J jcvi -m yi04 < getbed.sh 
+bj
+cd
+ls
+cd .ssh/
+ll
+cat id_rsa.pub  >> authorized_keys 
+vi authorized_keys 
+ssh yi04
+ls
+cd
+tma
+which tmux
+tmux a 
+ls
+j fabales
+ll
+cd projects/
+lt
+cd genomes/Fabales/
+ll
+lth
+cd mcscan/
+lth
+rm core.*
+lth
+les Cercis_chinensis.Abrus_precatorius.err
+ll Cercis_chinensis.*
+ll Cercis_chinensis.Abrus_precatorius.*
+ll Abrus_precatorius.*
+ls
+vi getbed.sh 
+cd ..
+cd -
+ls
+cd ..
+lth
+scp Senna_tora.gff Medicago_polymorpha.gff  yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/genomes/Fabales/
+ls
+cd mcscan/
+ls
+vi *sh
+ls *sh
+more shell 
+mv getbed.sh ../
+rm *
+ls
+rm -r tmp/
+mv ../getbed.sh ./
+vi getbed.sh 
+ls ../*gff
+vi getbed.sh 
+bsub512 -J jcvi -m yi04 < getbed.sh 
+bjl
+lt
+lth
+ls
+lth
+top\
+bjl
+lth
+bj
+lth
+les error.1207 
+lth
+bjl
+vi getbed.sh 
+lth
+bj
+les Cercis_chinensis.Abrus_precatorius.err 
+vi getbed.sh 
+bash getbed.sh 
+vi getbed.sh 
+bj
+lth
+bjl
+lth
+ls
+cd projects/genomes/Fabales/mcscan/
+ls
+lastal -u 0 -P 24 -i3G -f BlastTab Abrus_precatorius Cercis_chinensis.cds >./Cercis_chinensis.Abrus_precatorius.last
+which lastal
+ssh yi04
+scl enable devtoolset-7 bash
+sudo su openlava
+j mcscan
+cd projects/genomes/Fabales/mcscan/
+lastal -u 0 -P 96 -i3G -f BlastTab Abrus_precatorius Abrus_precatorius.cds > ./Abrus_precatorius.Abrus_precatorius.last
+ll Abrus_precatorius.*
+lastdb Abrus_precatorius Abrus_precatorius.cds 
+lastal -u 0 -P 96 -i3G -f BlastTab Abrus_precatorius Abrus_precatorius.cds > ./Abrus_precatorius.Abrus_precatorius.last
+lth
+history |grep mamba install
+mamba create -n lncRNA -c bioconda bioconductor-decipher 
+ll
+cd projects/
+lt
+cd genomes/
+ll
+cd Fabales/
+lt
+ls
+cd mcscan/
+ll
+ls
+ll *pdf
+bjl
+lt error.1207 
+les error.1207 
+lt *err
+les *err
+ll Abrus_precatorius.Abrus_precatorius*
+les Abrus_precatorius.Abrus_precatorius.err
+which lastal
+les Abrus_precatorius.Abrus_precatorius.err
+which lastdb
+les Abrus_precatorius.Abrus_precatorius.err
+ssh yi04
+ls
+les *.err
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/compara/catalog.py
+grep "lastal" /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/compara/*.py
+grep "lastal" /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/apps/*
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/apps/align.py
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/compara/catalog.py
+ls
+ls *sh
+more getbed.sh 
+python -m jcvi.compara.catalog ortholog -h
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/compara/catalog.py
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/apps/base.py 
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/apps/align.py 
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/compara/catalog.py
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/apps/align.py 
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/compara/catalog.py
+vi /nfs/liuhui/.local/lib/python3.9/site-packages/jcvi/apps/align.py 
+sudo su openlava
+history |grep mamba install
+history |grep mamba 
+cd /home/liuhui/
+grep mamba .bash_history 
+ls
+cd
+history |grep conda
+vim --version
+ls
+vi tmp.py
+which vi
+vim
+ll
+cd
+git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+sudo su openlava
+git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+gtp
+ls
+python -m jcvi.compara.catalog ortholog -h
+ll .local/
+ll .local/bin/
+pip install jcvi
+ipython
+ls
+j
+git clone git://github.com/wting/autojump.git
+cd autojump/
+./install.py 
+vc
+ll
+cd
+ll
+mv autojump bin/
+sc
+cp $BD/config/.vimrc ./
+cp $BD/config/.gitconfig ./
+vi .gitconfig 
+vi .vimrc
+cd $BD
+ls
+vi genblast_wrapper.py 
+vi .gitc
+vi ~/.vimrc 
+vi genblast_wrapper.py 
+vi ~/.vimrc
+vi genblast_wrapper.py 
+vi ~/.vimrc
+vi genblast_wrapper.py 
+vi ~/.vimrc
+vi genblast_wrapper.py 
+bjl
+top
+bj
+top
+bj
+which conda
+conda activate
+top
+sudo su openlava
+cd /nfs/apps/packages/
+mount -o loop texlive2021-20210325.iso /nfs/apps/packages/tex
+sudo mount -o loop texlive2021-20210325.iso /nfs/apps/packages/tex
+ll tex
+cd
+vi ~/.ssh/id_rsa.pub 
+sudo su openlava
+lth
+vc
+sc
+j mcscan
+ls
+vi getbed.sh 
+bash getbed.sh 
+ll Cercis_chinensis.Abrus_precatorius*
+vi getbed.sh 
+ls
+ll *bed
+ll *last
+ls
+for i in *.bed; do bsub512 "lastal -u 0 -P 96 -i3G -f BlastTab $i ${i%.bed}.cds > ./${i%.bed}.${i%.bed}.last"; done
+ls
+ll *last
+bj
+lth
+les error.1552 
+rm output.15* error.15*
+bj
+for i in *.bed; do bsub512 "lastal -u 0 -P 96 -i3G -f BlastTab ${i%.bed} ${i%.bed}.cds > ./${i%.bed}.${i%.bed}.last"; done
+lth
+les error.1596
+for i in *.bed; do lastal -u 0 -P 96 -i3G -f BlastTab ${i%.bed} ${i%.bed}.cds > ./${i%.bed}.${i%.bed}.last; done
+free -g
+for i in *.bed; do echo $i; lastal -u 0 -P 96 -i3G -f BlastTab ${i%.bed} ${i%.bed}.cds > ./${i%.bed}.${i%.bed}.last; done
+lastal -u 0 -P 96 -i3G -f BlastTab Aeschynomene_evenia Aeschynomene_evenia.cds > tmp
+lastdb Aeschynomene_evenia Aeschynomene_evenia.cds; lastal -u 0 -P 96 -i3G -f BlastTab Aeschynomene_evenia Aeschynomene_evenia.cds > tmp
+rm output.1* error.1*
+for i in *.bed; do bsub512 "lastdb ${i%.bed} ${i%.bed}.cds; lastal -u 0 -P 96 -i3G -f BlastTab ${i%.bed} ${i%.bed}.cds > ./${i%.bed}.${i%.bed}.last"; done
+lth
+bjl
+lth
+bjl
+lth
+bj
+lbj
+ls
+bj
+lth
+bj
+vi getbed.sh 
+ls
+bj
+ls
+bj
+lth
+rm output.16* error.16*
+ls
+vi getbed.sh 
+lth
+jobs
+lth
+ll /nfs/apps/packages/
+j
+cd projects/
+ls
+cd genomes/
+ls
+cd Fabales/
+cd mcscan/
+ls
+vi getbed.sh 
+chmod -w getbed.sh 
+rm *
+ls
+vi getbed.sh 
+python -m jcvi
+vi getbed.sh 
+bsub512 -J jcvi -m yi04 < getbed.sh 
+lt
+bj
+ls
+bj
+lth
+vi getbed.sh 
+bjl 
+lth
+les error.1348 
+lth
+lt *last
+ls
+lt |les
+lt *.last |les
+lt core.*
+lt *.last |les
+bjl
+lt *.err *log
+les Lotus_japonicus.Lotus_japonicus.err
+
+les Lotus_japonicus.Lotus_japonicus.err
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/compara/catalog.py
+les Lotus_japonicus.Lotus_japonicus.err
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/compara/synteny.py
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/apps/align.py 
+ls
+vi getbed.sh 
+rm core.*
+vi getbed.sh
+bs getbed.sh
+bjl
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/apps/align.py 
+ls
+ll core.*
+lt *last
+les Cercis_chinensis.Aeschynomene_evenia.err 
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/apps/align.py 
+vi getbed.sh 
+bs getbed.sh 
+bj
+bjobs -l 1523
+ll Cercis_chinensis.Abrus_precatorius.*
+more Cercis_chinensis.Abrus_precatorius.err 
+bj
+lastdb Abrus_precatorius Abrus_precatorius.cds
+lastal -u 0 -P 256 -i3G -f BlastTab Abrus_precatorius Cercis_chinensis.cds >./Cercis_chinensis.Abrus_precatorius.last
+bjobs -l 1523
+lth
+lt *last
+vi getbed.sh 
+chmod +w getbed.sh 
+vi getbed.sh 
+bsub512 -J jcvi -m yi04 < getbed.sh 
+ssh yi04
+lth
+les error.1
+les error.1524
+ls
+vi getbed.sh 
+bsub512 -J jcvi -m yi04 < getbed.sh 
+rm core.*
+lth
+rm *.1524
+lth
+lt *.err *log
+les Cercis_chinensis.Abrus_precatorius.err 
+vi ~/.bashrc 
+ssh yi04
+conda activate
+bsub512 -J jcvi -m yi04 < getbed.sh 
+lth
+rm core.*
+rm error.1348 output.1348 
+lth
+bj
+lth
+bkill 1525
+lth
+bkill 1526
+ssh yi04
+tolava
+tolava 
+mamba create -n eggnog -c bioconda noarch::eggnog-mapper
+mamba create -n eggnog -c bioconda noarch::eggnog-mapper=2.1.6
+toadmin 
+tolava 
+pip install eggnog-mapper
+ll
+ll .l
+ll .local/
+ll .local/bin/
+which diamond
+pip remove eggnog-mapper
+pip delete eggnog-mapper
+pip help
+pip uninstall eggnog-mapper
+pip install jcvi
+ls
+tolava 
+ls
+lth
+cd bin/
+ls
+wget https://github.com/eggnogdb/eggnog-mapper/archive/refs/tags/2.1.6.tar.gz
+ll
+tar -xvzf 2.1.6.tar.gz 
+cd eggnog-mapper-2.1.6/
+ls
+lt
+vi README.md 
+pip install -r requirements.txt
+ll ~/.local/
+ls
+ll
+addpwd 
+cd data/
+ll
+pwd
+download_eggnog_data.py 
+sc
+tolava
+top
+ll
+cd projects/
+ls
+cd genomes/
+ll
+cd Fabales/
+ll
+ls
+ls document/
+ls
+ls new/
+mv new newly_sequenced
+mv newly_sequenced document/
+ls
+mv document .document
+ls
+cd mcscan/s
+cd mcscan/
+ll
+lth
+bjl
+lth
+cd ..
+cd -
+lth
+bjl
+top
+top -u liuhui
+ls
+lth
+ssh yi02
+ssh -p 201 yi02
+bjl
+lth
+ll *pdf
+cd ..
+mkdir -p ~/projects/phyleg
+mv mcscan ~/projects/phyleg/
+cd ~/projects/phyleg/
+ll
+cd mcscan/
+ll
+ls
+cd ..
+ls
+ln -s ~/projects/genomes/Fabales leggenome
+ll
+ls leggenome/
+cd ../genomes/Fabales/
+ls
+pwd
+ls
+cd ..
+ls
+cd ../
+ls
+cd phyleg/
+ls
+mkdir genefamily
+cd genefamily/
+ll
+cd ..
+rmdir genefamily/
+ls
+ll
+ll
+cd projects/genomes/Fabales/
+ll
+cd mcscan/
+ls
+ls *sh
+mv getbed.sh mcscan.sh
+vi mcscan.sh 
+ls *bed |wc -l
+ls *gff |wc -l
+ll *bed |les
+vi mcscan.sh 
+vw
+vi mcscan.sh 
+bs mcscan.sh 
+bjl
+top
+ll
+lth
+ping www.baidu.com
+download_eggnog_data.py -help
+download_eggnog_data.py --help
+man wget
+bjl
+bjobs -u all |less
+cd ..
+ls
+ls *.fa |wc -l
+ls *.fa  > fasta
+ls *.gff > gff
+vi fasta 
+vi gff 
+diff fasta gff 
+ll
+ls
+cd ..
+python -m jcvi.apps.fetch phytozome 
+python -m jcvi.apps.fetch phytozome Athaliana
+ls
+python -m jcvi.apps.fetch phytozome Athaliana --assembly True
+python -m jcvi.apps.fetch phytozome Athaliana --assembly 
+lt
+rm Athaliana_167_TAIR10.*
+ll
+vc
+ll /nfs/apps/packages/texlive/2021/texmf-dist/doc/man
+ls
+vc
+tolava 
+download_eggnog_data.py 
+download_eggnog_data.py --help
+download_eggnog_data.py -d Viridiplantae -P -M 
+ls
+nohup wget -cnH --user-agent=Mozilla/5.0 --relative --no-parent --reject "index.html*" --cut-dirs=4 -e robots=off -O eggnog.db.gz http://eggnogdb.embl.de/download/emapperdb-5.0.2/eggnog.db.gz &
+lth
+les nohup.out 
+ cat >> unzip.sh
+lt
+top
+ls
+python -m jcvi.apps.fetch phytozome 
+cd
+ls
+cd projects/
+ll
+orthofinder --version
+ps ux
+lth
+jobs
+lt
+orthofinder --version
+ll
+lth
+lt
+top
+ps aux |less
+ls
+tma
+vc
+tma
+sc
+tma
+ls
+tmux new -s lh
+ls
+sz projects/phyleg/mcscan.tgz 
+# Sent -> /Users/liuhui/Downloads/
+top
+bjl
+top
+bj
+bhosts
+lsload
+bjobs -u all |less
+ssh yi02
+ssh -p 201 yi02
+ls
+bhosts
+lsload
+ls
+ll
+cd Documents/
+ls
+cd -
+cd projects/
+lt
+cd phyleg/
+lt
+cd mcscan/
+ls
+cd ..
+lls
+ls
+cd projects/
+lt
+cd phyleg/
+lt
+cd mcscan/
+ls
+cd ..
+ls
+ll
+cd leggenome/
+l
+ll
+ls *cds |wc -l
+ls *fa |wc -l
+ls
+ls *fa |wc -l
+ls *cds |wc -l
+ls
+cd projects/
+lt
+cd genomes/
+lt
+cd Fabales/
+lt
+pwd
+which mamba
+vc
+tolava
+ls
+gtp
+vw
+pushd $BD
+git checkout tools_wrapper.md 
+gtp
+ls
+vw
+ls
+popd
+ls
+gffread -h
+bhosts
+lsload
+bqueues
+ll
+les Senna_tora.cds 
+ls
+tma
+tmux new -s lh
+top
+bj
+bhosts
+lth
+bj
+lt
+lth
+tma
+ls
+cd projects/
+lt
+cd phyleg/
+lt
+ll
+mkdir ks
+cd ks/
+scp  yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/mcscanx_pipe/*.kaks ./
+lt
+j ks
+lt
+sz ksplot.pdf 
+# Sent -> /Users/liuhui/Downloads/
+lth
+sz ksplot.pdf 
+# Sent -> /Users/liuhui/Downloads/
+conda activate
+R
+ls
+cd projects/
+lt
+cd phyleg/
+lt
+cd ks/
+ll
+R
+lt
+cd projects/k
+cd projects/phyleg/ks/
+lt
+R
+scp  yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/mcscanx_pipe/ks.rscript ./
+lt
+vi ks.rscript 
+Rscript ks
+conda activate
+Rscript ks
+Rscript ks.rscript 
+vi ks.rscript 
+Rscript ks.rscript 
+lth
+mv ksplot.pdf ksplot.hist_and_density.pdf
+sz ksplot.hist_and_density.pdf 
+# Sent -> /Users/liuhui/Downloads/
+vi ks.rscript 
+Rscript ks.rscript 
+mv ksplot.pdf ksplot.hist_and_density.pdf
+sz ksplot.hist_and_density.pdf 
+# Sent -> /Users/liuhui/Downloads/
+vi ks.rscript 
+Rscript ks.rscript 
+mv ksplot.pdf ksplot.hist_and_density.pdf
+sz ksplot.hist_and_density.pdf 
+# Sent -> /Users/liuhui/Downloads/
+cd /home/
+ls
+ll
+cd liuhui/
+ll
+cd projects/
+ll
+cd hic_plot/
+ll
+ll workdir_juicer_*/
+ll workdir_juicer_*/3ddna/*.0.hic
+ls *.fa |wc -l
+ll
+scp  yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/figures/01.final_hic_plot/workdir_juicer_cechi/3ddna/cechi.0.hic ./
+scp yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/figures/01.final_hic_plot/workdir_juicer_chpum/3ddna/chpum.0.hic ./
+ll
+cp */3ddna/*.0.hic ./
+ll
+ll *.hic
+ls *.hic |wc -l
+scp yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/figures/01.final_hic_plot/workdir_juicer_chpum/3ddna/chpum.0.assembly ./
+scp  yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/figures/01.final_hic_plot/workdir_juicer_cechi/3ddna/cechi.0.assembly ./
+ll
+cp */3ddna/*.0.assembly ./
+lt
+ll *.assembly *.hic
+top
+htop
+top
+ls
+ls ../..
+ls ..
+/home/liuhui/bin/miniconda3/bin/htop 
+ll
+df -h
+scp  yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/assembly/total/altra.fa ./
+scp  yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/assembly/total/zeins.fa ./
+lth
+scp  yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/assembly/Alnus_trabeculosa/ALTRY4_[12].fq.gz.clean.fq.gz  ./ 
+scp yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/chensiyun/genomes/ZnY1_1/hic/zenin.hic.ZnY2_H.leaf_[12].fq.clean.fq.gz ./
+ll
+ls *sh
+more shell 
+bhosts
+ll
+lth
+mv zenin.hic.ZnY2_H.leaf_2.fq.clean.fq.gz zenin.hic_2.fq.gz
+mv zenin.hic.ZnY2_H.leaf_1.fq.clean.fq.gz zenin.hic_1.fq.gz
+lth
+mv ALTRY4_1.fq.gz.clean.fq.gz altra.hic_1.fq.gz
+mv ALTRY4_2.fq.gz.clean.fq.gz altra.hic_2.fq.gz
+lth
+more shell 
+pm iga.assembly.hic juicer_pipe
+bhosts
+lsloads
+lsload
+ll
+more shell 
+lth
+ls *.hic |wc
+for i in zeins.fa altra.fa ; do do j=${i%.fa}; pm iga.assembly.hic juicer_pipe ${i} "${j}.hic_1.fq.gz ${j}.hic_2.fq.gz"; done
+for i in zeins.fa altra.fa ;  do j=${i%.fa}; pm iga.assembly.hic juicer_pipe ${i} "${j}.hic_1.fq.gz ${j}.hic_2.fq.gz"; done
+bkill 3770 3771
+bj
+lt
+lth
+vi bsub.juicer.zeins.027512.sh 
+bhosts
+bsub -m yi02 -n 40 < bsub.juicer.zeins.027512.sh
+bsub -m yi02 -n 40 < bsub.juicer.altra.027847.sh
+bj
+bjl
+bj
+top
+lt
+lth
+top
+lth
+bj
+top
+ssh -p 201 yi02
+bj
+bjl
+ssh yi04
+cd
+gtp
+pm iga
+ls
+cd bin/bundle/wrapper/
+ls
+pip install -e .
+cd /home/
+ls
+cd liuhui/
+lt
+cd projects/
+ll
+cd hic_plot/
+lt
+ls
+lth
+top
+lt
+lth
+lt workdir_juicer_zeins/
+les workdir_juicer_zeins/jc.err 
+les workdir_juicer_zeins/fastq/
+ll zeins.hic_1.fq.gz
+ll
+ll ze*
+rename zenin zeins zenin.hic_*
+ls
+ll zeins.*
+lt
+ls
+rm -r workdir_juicer_zeins/
+bsub -m yi02 -n 40 < bsub.juicer.zeins.027512.sh
+lth
+vc
+sc
+ll
+last |less
+top
+ps aux |grep liushuiyin
+top
+top -u liushuiyin
+top
+ll
+tma
+bjobs -u all |less
+ssh -p 201 yi02
+ssh yi04
+ssh -p 201 yi02
+lt
+tma
+vi /etc/hosts
+lt
+rm tmp
+lt
+rm tmp2 
+lt
+tma
+top
+lth
+cd /home/liuhui/
+lt
+cd projects/
+lt
+cd hic_plot/
+lt
+lth
+cd workdir_juicer_altra/
+lth
+lt 3ddna/
+cd ..
+lth
+more nohup.out 
+which lastz
+source /home/liuhui/.bashrc 
+which lastz
+lt
+lth
+tma
+logsh
+lth
+bjl
+lth
+df -h
+bj
+lth
+bj
+lth
+tp
+top
+lt
+lth
+lt workdir_juicer_altra/
+top
+bhosts
+bjobs -u all
+bjobs -u all |less
+lt
+lth
+lt workdir_juicer_
+lt workdir_juicer_altra/
+lt workdir_juicer_altra/splits/
+bj
+lt
+lth
+cd workdir_juicer_altra/
+lt
+lt splits/
+bj
+bkill 3887
+lt
+nohup bash bsub.juicer.zeins.027512.sh &
+lth
+top
+moer nohup.out 
+more nohup.out 
+lt
+cd ..
+lt
+lth
+nohup bash bsub.juicer.zeins.027512.sh &
+top
+tp
+top -u liuhui
+jobs
+lt
+bj
+lth
+lt workdir_juicer_zeins/
+lt workdir_juicer_zeins/aligned/
+tp
+top
+jobs
+fg
+lth
+rm -r workdir_juicer_altra/ workdir_juicer_zeins/ &
+vi shell 
+source /home/liuhui/.bashrc 
+bjl
+ssh -p 201 yi02
+tma
+ll
+lt
+cd projects/phyleg/ks/
+lt
+vi ks.rscript 
+les Aristolochia_fimbriata.Aristolochia_fimbriata.ortho.kaks 
+les Cercis_chinensis.Aristolochia_fimbriata.ortho.kaks 
+grep CECHI00013210 Cercis_chinensis.Aristolochia_fimbriata.ortho.kaks
+les Cercis_chinensis.Cercis_chinensis.ortho.kaks 
+vi ks.rscript 
+Rscript ks.rscript 
+lth
+mv ksplot.pdf ksplot.1027.pdf
+sz ksplot.1027.pdf 
+# Sent -> /Users/liuhui/Downloads/
+vi ks.rscript 
+Rscript ks.rscript 
+vi ks.rscript 
+Rscript ks.rscript 
+lth
+mv ksplot.pdf ksplot.1027.pdf
+sz ksplot.1027.pdf 
+# Sent -> /Users/liuhui/Downloads/
+vi ks.rscript 
+Rscript ks.rscript 
+mv ksplot.pdf ksplot.1027.pdf
+sz ksplot.1027.pdf 
+# Sent -> /Users/liuhui/Downloads/
+lth
+md5sum Aristolochia_fimbriata.Aristolochia_fimbriata.ortho.kaks
+vi ks.rscript 
+Rscript ks.rscript 
+vi ks.rscript 
+wc -l Aristolochia_fimbriata.Aristolochia_fimbriata.ortho.kaks
+vi ks.rscript 
+Rscript ks.rscript 
+vi ks.rscript 
+Rscript ks.rscript 
+lth
+mv ksplot.pdf ksplot.1027.pdf
+sz ksplot.1027.pdf 
+# Sent -> /Users/liuhui/Downloads/
+vi ks.rscript 
+Rscript ks.rscript 
+vi ks.rscript 
+R
+Rscript ks.rscript 
+vi ks.rscript 
+Rscript ks.rscript 
+vi ks.rscript 
+Rscript ks.rscript 
+vi ks.rscript 
+Rscript ks.rscript 
+lth
+mv ksplot.pdf ksplot.1027.pdf
+sz ksplot.1027.pdf 
+# Sent -> /Users/liuhui/Downloads/
+vi ks.rscript 
+cat >tmp
+vi tmp 
+ls
+./get_taxon_lineage.sh tmp 
+ll
+lt
+cd projects/phyleg/ks/
+lt
+vi ks.rscript 
+Rscript ks.rscript 
+vi ks.rscript 
+Rscript ks.rscript 
+vi ks.rscript 
+Rscript ks.rscript 
+lth
+mv ksplot.pdf ksplot.1102.pdf
+sz ksplot.1102.pdf 
+# Sent -> /Users/liuhui/Downloads/
+top
+top
+ssh yi04
+ping 192.168.119.1
+ll
+cd projects/
+ll
+cd /home/
+ls
+cd liuhui/
+lt
+cd projects/
+ll
+cd hic_plot/
+ll
+ll -S *.hic
+ll cechi*
+sz cechi.0.hic cechi.0.assembly
+cd /home/liuhui/projects/hic_plot/
+cp cechi.0.hic cechi.0.assembly ~/
+ll /home/liuhui/projects/hic_plot/*.hic /home/liuhui/projects/hic_plot/*.assembly
+ll
+ll juicebox/
+ll
+more taxonkit.sh 
+python -c 'import graphviz'
+rz
+# Received /Users/liuhui/Downloads/Debrujin.py
+python Debrujin.py 
+Graphviz
+vc
+tolava 
+python Debrujin.py 
+lth
+sz *pdf
+# Cancelled transfer
+ipython
+top
+which mpirun
+mpiexec -h
+ls
+which conda
+vi shell 
+nohup bash shell &
+lt
+top
+lth
+tail nohup.out 
+lt
+jobs
+lt
+lth
+fg
+lt
+lth
+mv workdir_juicer_altra workdir_juicer_altra.rm
+mv workdir_juicer_zeins workdir_juicer_zeins.rm
+ls -d *.rm
+rm -r *.rm &
+rm nohup.out 
+nohup bash shell &
+top
+htop
+ll
+ls
+cd
+cd projects/
+lt
+cd phyleg/
+lt
+cd /home/liuhui/
+lt
+cd pro
+ssh -p 201 yi02
+ls
+ls fasta 
+ls gff 
+cd ..
+mv Fabales .Fabales.bak
+rsync -a yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/genomes/Fabales /nfs/liuhui/projects/genomes/
+ls
+ps ux
+cd Fabales/
+ll
+lt
+rm *
+ll .document/
+rm -r .document/
+lt
+scp yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/genomes/Fabales/*.* ./
+ls
+bhosts
+tma
+bsub
+ll
+tmux new -s lh
+tma
+ll
+top
+lt
+les graph.2
+source activate
+mamba create -n merqury -c conda-forge -c bioconda merqury openjdk=11
+source activate merqury
+which source
+cd
+ls
+mkdir tests
+cd tests/
+ls
+mkdir merqury
+cd merqury/
+ls
+echo $
+echo $MERQURY
+ls
+vi test.sh
+vi  test.sh
+bsub -J test_merqury -m yi02 < test.sh 
+top
+bhosts
+bj
+lt
+ll -th
+lt
+ll -th
+bj
+lt
+lth
+ls
+lth
+lt |les
+sz *png
+# Sent -> /Users/liuhui/Downloads/
+ls
+cd bin/
+ls
+cd ..
+cd ../apps/
+ls
+cd packages/
+ll
+cd tex
+ll
+cd ..
+bsub "tar -cf ~/tex.tar tex"
+bj
+cd
+ll
+bj
+lt
+bj
+lth
+ls $PWD/tex.tar
+lt
+cd /mnt/workdisk/
+ll
+cd yanhui/
+ll
+pwd
+ll
+bhosts 
+top
+maker -CTL 2>/dev/null
+ll
+top
+top -u liushuiyin
+sudo killall -u liushuiyin
+top -u liushuiyin
+sudo killall -u liushuiyin
+top -u liushuiyin
+top -u zhangrong
+ll
+which mpirun 
+which mpiexec
+cd /home/liuhui/
+ll
+cd projects/
+ll
+cd buzzo/
+ll
+cd platanus/
+ll
+more run.sh 
+ls out_contig.fa
+ls input/
+cd input/
+ll
+more shell 
+scp yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/duparquetia/whfs-xs-200576_202111171153/whfs-xs-200576_BGI/DNA/1.rawdata/ECC14_200576-D20211105_00026/moderate_clean/D20211105_00026_RUN338_1.fq.gz.clean.fq.gz ./
+scp yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/duparquetia/whfs-xs-200576_202111171153/whfs-xs-200576_BGI/DNA/1.rawdata/ECC14_200576-D20211105_00026/moderate_clean/D20211105_00026_RUN338_[12].fq.gz.clean.fq.gz  ./
+ll
+mkdir K37
+lt K37/
+lt K63
+ll
+cd ..
+mkdir soapdenovo_ecc14
+mv input/D20211105_00026_RUN338_* soapdenovo_ecc14/
+cp input/shell input/soap.config soapdenovo_ecc14/
+cd soapdenovo_ecc14/
+ll
+more shell 
+which SOAPdenovo-127mer
+ls ../input/
+les ../input/output.557 
+source /home/liuhui/.bashrc 
+which SOAPdenovo-127mer
+ll
+vi shell 
+vi soap.config 
+ls *gz >> soap.config 
+vi soap.config 
+ll
+more shell 
+vi shell 
+bhosts
+vi shell 
+more shell 
+bsub512 -m yi02 -J soap -n 20 "SOAPdenovo-127mer all -s soap.config -o dp_soap -p 20 -R"
+vi shell 
+top
+lt
+ll -th
+top
+ls
+ll
+mkdir k83
+cd k83/
+cp ../soap.config ./
+for i in ../*gz; do ln -s $i; done
+ll
+vi soap.config 
+more ../../input/K63/soap.config 
+more ../../input/K63/shell 
+cd ..
+ls
+bj
+bkill 6253
+more ../input/K63/shell 
+bsub512 -m yi02 -J soap -n 20 "SOAPdenovo-63mer all -s soap.config -o dp_soap -p 20 -R -K 63"
+ll -th
+logsh
+which conda
+source activate
+mamba install -c bioconda soapec 
+soapec
+which SOAPdenovo-127mer 
+lt /home/liuhui/bin/miniconda3/bin/ |head
+c_rehash -h
+c_rehash --help
+c_rehash --
+c_rehash -h
+lt /home/liuhui/bin/miniconda3/bin/scripts |head
+lt
+ll -th
+more error.6253 
+vi soap.config 
+bj
+ll -th
+rm output.6253 error.6253 
+lt
+cd k83/
+lt
+cd ..
+rm -r k83/
+more shell 
+for i in 73 83 93 ; do bsub512 -m yi02 -J soapK${i} -n 20 "mkdir -p K${i}; cd K${i}; for j in ../*gz ../*config; do ln -s $j; done SOAPdenovo-127mer all -s soap.config -o dp_soap -p 20 -R -K ${i}"; done
+bj
+ll
+more error.6255 
+bj
+more error.625
+more error.625*
+bj
+rm output.625* error.625*
+ll
+for i in 73 83 93 ; do bsub512 -m yi02 -J soapK${i} -n 20 "mkdir -p K${i}; cd K${i}; for j in ../*gz ../*config; do ln -s $j; done; SOAPdenovo-127mer all -s soap.config -o dp_soap -p 20 -R -K ${i}"; done
+bj
+more error.6258 
+lt
+ll K73/
+bj
+lt
+lt K73/
+lt K*3/
+ls
+for i in 73 83 93 ; do bsub512 -m yi02 -J soapK${i} -n 20 "mkdir -p K${i}; cd K${i};  ln -s ../D20211105_00026_RUN338_1.fq.gz.clean.fq.gz; ln -s ../D20211105_00026_RUN338_2.fq.gz.clean.fq.gz; ln -s ../soap.config; SOAPdenovo-127mer all -s soap.config -o dp_soap -p 20 -R -K ${i}"; done
+bj
+lt
+rm error.62* output.62*
+bj
+lt
+lt K73/
+cd K73/
+lt
+more soap.config 
+cd ..
+top
+logsh
+lt
+sudo su liushuiyin
+ll
+vc
+sch
+vc
+sc
+sch
+cd
+which sch
+. /home/liuhui/.bashrc 
+cd
+cd /home/liuhui/
+ll
+vc
+sc
+sch
+cd
+ll
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/
+ll
+lt
+bj
+cd soapdenovo_ecc14/
+ll
+ll K*/*contig
+more shell 
+SOAPdenovo-127mer
+SOAPdenovo-127mer all
+ll
+mkdir K23
+mv * K23/
+mv K23/soap.config ./
+mv K23/*fq.gz ./
+ll
+mv K23/K* ./
+ll
+cd K23/
+ln -s ../soap.config 
+for i in  ../*gz; do ln -s $i; done
+ll
+les *preArc
+les *path
+les *vertex
+lt
+les dp_soap.links
+les dp_soap.scafSeq
+which conda
+conda activate
+mamba install -c bioconda soapdenovo2-gapcloser 
+which conda
+lt ~/bin/miniconda3/bin/ |head
+c_rehash 
+c_rehash -h
+cd ..
+rz
+# Received /Users/liuhui/Desktop/GapCloser
+cd -
+lt
+cd ..
+ll
+./GapCloser 
+cd -
+lt
+cd ..
+for i in K*/*.contig; do bsub -J n50 -m yi02 "N50v1.pl ${i} > ${i}.n50"; done
+bj
+ll
+bj
+conda env list
+python -m iga.assembly.assess
+python -m iga.assembly.assess busco
+python -m iga.assembly.assess busco -h
+for i in K*/*.contig; do python -m iga.assembly.assess busco ${i} --threads 30; done
+for i in K* ; do pushd $i; python -m iga.assembly.assess busco ${i} --threads 30; popd; done
+bj
+more K*/*50
+ll K83/
+ll
+cd ..
+ll
+bj
+lt
+cd -
+lt
+lt K93/
+cd K93/
+more bsub.buscoK93.021187.sh 
+cd ..
+for i in K* ; do pushd $i; bsub512 -n 30 "source activate busco; busco -f -c 30 -m genome -i dp_soap.contig -o K93.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+bj
+lt
+lt K*/*contig
+bj
+bjobs -l 6280
+ll
+for i in K73 K83 K93 ; do pushd $i; bsub512 -n 30 "source activate busco; busco -f -c 30 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+bj
+lt
+cd K83/
+lt
+les bsub.buscoK83.020902.sh 
+cd ..
+bj
+lt
+cd K83/
+lt
+cd -
+vc
+which sc
+sc
+conda activatre
+conda activate
+cd
+cd -
+which bsub512
+for i in K73 K83 K93 ; do pushd $i; bsub512 -n 30 "source activate busco; busco -f -c 30 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+bjl
+bj
+top
+bj
+lt
+lt K*/*50
+more K*/*50
+sch
+ll
+vi /etc/fstab 
+quotacheck liushuiyin
+quota liushuiyin
+quota liuhui
+ls
+mkdir test
+cd test
+ll
+df -h
+for i in `seq 300000`; do touch $i; done
+cd 
+ll
+ls -dil test
+lt
+cd test
+more 300000
+ll 300000
+cd ..
+bsub -J rm "rm -rf ./test/"
+bj
+ssh yi04
+ls -dil test
+ssh yi04
+top
+bjl
+bhosts
+bjl
+cd
+ll
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/
+lt
+more out_contig.fa.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.out_contig.fa.busco.embryophyta.v4.1.2.txt 
+c soapdenovo_ecc14/
+cd soapdenovo_ecc14/
+ll
+more K*/*v4.1.2/*summary
+ll K*/
+ll K*/*2/
+more K*/*2/short*txt
+cd K23/K93.busco.embryophyta.v4.1.2/
+l
+ll
+cd run_embryophyta_odb10/
+ll
+lt
+lt metaeuk_output/
+lt
+cd ..
+ls
+lt
+cd logs/
+lt
+cd ..
+lt
+cd run_embryophyta_odb10/
+lt
+ll */*png
+ll */*jpg
+cd ../..
+cd -
+ll
+les short_summary.txt 
+ssh yi04
+df -k
+df -i
+man df
+ll
+lt
+ll
+sch
+cd
+ll
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/
+ll
+lt
+more out_contig.fa.n50 
+les run.sh 
+les out_contig.fa.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.out_contig.fa.busco.embryophyta.v4.1.2.txt 
+cd soapdenovo_ecc14/
+ll
+cd K83/
+ll
+more K83.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.K83.busco.embryophyta.v4.1.2.txt 
+more *50
+ll
+vi get_taxon_lineage.sh 
+vi baidu_bean_name.txt
+./get_taxon_lineage.sh baidu_bean_name.txt 
+ls
+vi tmp
+./get_taxon_lineage.sh tmp 
+ll
+vi .ssh/authorized_keys 
+R
+bjl
+bj
+bhosts
+bjobs -u all |les
+sch
+cd
+ll
+cd projects/
+ll
+cd buzzo/
+ll
+cd platanus/
+ll
+more run.sh 
+ll input/
+cd input/
+more shell 
+ll *sh
+lt
+more shell 
+more soap.config 
+top
+lt
+htop
+lt
+ll
+lt
+cd projects/
+l
+lt
+cd phyleg/
+lt
+cd ks/
+lt
+more ks.rscript 
+ls
+lt
+vi ks.rscript 
+lth
+tma
+lth
+vi ks.rscript 
+cd ..
+ls
+cd ..
+ls
+cd 
+ls
+lt
+les legume_genome_list.with_lineage 
+awk '$2=="Papilionoideae"'
+awk '$2=="Papilionoideae"' legume_genome_list.with_lineage 
+less legume_genome_list.with_lineageq
+less legume_genome_list.with_lineage
+awk '$3=="Papilionoideae"' legume_genome_list.with_lineage 
+less legume_genome_list.with_lineage
+awk '$4=="Papilionoideae"' legume_genome_list.with_lineage 
+awk '$4=="Papilionoideae"' legume_genome_list.with_lineage  |cut -f1
+awk '$4=="Papilionoideae"' legume_genome_list.with_lineage
+awk '$4=="Papilionoideae"' legume_genome_list.with_lineage > Papilionoideae.tribe
+vi Papilionoideae.tribe 
+cut -f1,2,5 Papilionoideae.tribe 
+cut -f1,2,6 Papilionoideae.tribe 
+vi Papilionoideae.tribe 
+cut -f1,2,3 Papilionoideae.tribe 
+cut -f1,2,4 Papilionoideae.tribe 
+cut -f1,4 Papilionoideae.tribe 
+cut -f1,4 Papilionoideae.tribe |sort -k2,2
+cut -f1,4 Papilionoideae.tribe |sort -k3,3
+ll
+sz tmp 
+# Sent -> /Users/liuhui/Downloads/
+rz
+# Received /Users/liuhui/Downloads/tmp
+ll
+sz rm
+**0100000063f694
+�**0100000063f694
+sch
+bj
+bhosts 
+man seq
+sc
+sch
+cd
+ll
+cd projects/buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+ll
+ln -s D20211105_00026_RUN338_1.fq.gz.clean.fq.gz Duparquetia_orchidacea_libA_1.fq.gz.clean.fq.gz
+ln -s D20211105_00026_RUN338_2.fq.gz.clean.fq.gz Duparquetia_orchidacea_libA_2.fq.gz.clean.fq.gz
+ll
+ls *lib* >> soap.config 
+vi soap.config 
+ll
+vi assemble.sh 
+which bash
+lt
+newbsub >> assemble.sh 
+vi assemble.sh 
+top
+htop
+ll
+vi assemble.sh 
+lt
+vi soap.config 
+SOAPdenovo-127mer 
+which SOAPdenovo-127mer 
+vi soap.config 
+vi assemble.sh 
+bsub < assemble.sh 
+bj
+htop
+df -h
+htop
+vi assemble.sh 
+lt
+lt K17/
+lt
+cd K17/
+lt
+tp
+cd
+ll
+cd projects/buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+ll
+for i in `seq 21 63 4` ; do echo  "mkdir -p K${i}; cd K${i};  ln -s ../D20211105_00026_RUN338_1.fq.gz.clean.fq.gz; ln -s ../D20211105_00026_RUN338_2.fq.gz.clean.fq.gz; ln -s ../soap.config; SOAPdenovo-127mer all -s soap.config -o dp_soap -p 20 -R -K ${i}" >> assemble.sh; done
+vi as
+ll
+for i in `seq 21 2 63` ; do echo  "mkdir -p K${i}; cd K${i};  ln -s ../D20211105_00026_RUN338_1.fq.gz.clean.fq.gz; ln -s ../D20211105_00026_RUN338_2.fq.gz.clean.fq.gz; ln -s ../soap.config; SOAPdenovo-127mer all -s soap.config -o dp_soap -p 20 -R -K ${i}" >> assemble.sh; done
+vi assemble.sh 
+mkdir runLibA
+mv K* runLibA/
+cp soap.config runLibA/
+ll
+vi soap.config 
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/duparquetia/sgs_data/Duparquetia_orchidacea_libB_1.fq.gz.clean.fq.gz
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/duparquetia/sgs_data/Duparquetia_orchidacea_libB_2.fq.gz.clean.fq.gz
+bj
+top
+sch
+cd
+ll
+cd projects/buzzo/platanus/
+l
+lt
+cd soapdenovo_ecc14/
+lt
+cd K17/
+lt
+bj
+bhosts
+ll
+top
+ll
+lt
+cd ..
+ls
+vi assemble.sh 
+bjobs -u liushuiyin
+ll
+cp assemble.sh assemble2.sh
+vi assemble2.sh 
+nohup bash assemble2.sh >assemble2.sh.log 2>assemble2.sh.err &
+vi assemble2.sh
+top
+htop
+top
+lt
+more soap.config 
+top
+lt
+les assemble2.sh.err 
+ll Duparquetia_orchidacea_libA_2.fq.gz.clean.fq.gz
+ll K23/
+vi assemble
+ll *lib*gz
+vi assemble.sh 
+vi soap.config 
+vi assemble
+vi assemble.sh 
+bj
+bkill 6366
+lt
+fg
+rm assemble2.sh.err assemble2.sh.log
+lt
+rm -r K23 K17 soap_denovo.err soap_denovo.log
+lt
+vi assemble.sh 
+bsub < assemble.sh 
+bj
+bhoss
+bhosts
+bj
+lt
+lt K17/
+cd K17/
+more *err
+top
+lt
+more *err
+vi ../soap.config 
+lt
+les *err
+SOAPdenovo-127mer 
+SOAPdenovo-127mer all
+lt
+tail assemble.sh.err 
+tp
+top
+bj
+bhosts
+top
+lt
+les *err
+tma
+top
+tp
+top -u liuhui
+bj
+sch
+cd
+ll
+cd projects/
+ll
+cd buzzo/
+ll
+lt
+cd platanus/soapdenovo_ecc14/
+lt
+les *err
+les soap_denovo.log 
+cd K17/
+lt
+les *err
+cd ..
+ls
+lt
+vi assemble.sh 
+bsub < assemble.sh 
+bj
+bhosts
+bj
+lt
+lt K23/
+cd K23/
+tail assemble.sh.err 
+free -g
+top
+bj
+lt
+cd ..
+lt
+vi assemble.sh 
+ls
+cd runLibA/K23/
+lt
+less output.6280 
+less output.6254 
+less output.6261
+less output.6263 
+less output.6262 
+lt
+cd ..
+lt
+cd ..
+lt
+SOAPdenovo-127mer all
+free -g
+expr 274      +   273
+ls
+vi assemble
+vi assemble.sh 
+bj
+bkill 6370
+lt
+rm -r K23/
+bj
+vi assemble
+vi assemble.sh 
+bj
+bkill 6370
+bj
+lt
+rm soap_denovo.log soap_denovo.err
+bsub < assemble.sh 
+bj
+vi assemble
+vi assemble.sh 
+SOAPdenovo-63mer
+SOAPdenovo-63mer all
+bj
+bkill 6371
+lt
+top
+top -u liuhui
+bj
+lt
+less soap_denovo.err 
+cd K17/
+lt
+elss *err
+les *err
+cd ..
+ls
+vi assemble.sh 
+lt
+rm -r K23/
+bsub < assemble.sh 
+bj
+bhosts
+bj
+lt
+top
+top -u liuhui
+htop
+top
+top -u liuhui
+lt
+les assemble.sh 
+lt K17/
+top
+bj
+bhosts
+bjobs |less
+bjobs -u all |less
+top
+top -u liuhui
+bj
+lt
+free -g
+lt
+cd projects/
+lt
+sch
+cd
+ll
+cd projects/o
+
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+lt K2
+lt K23/
+cd K23/
+tail assemble.sh.err 
+cd ../K25/
+lt
+tail assemble.sh.err 
+cd ..
+lt
+bj
+bkill 6372
+bj
+lt
+vi assemble
+vi assemble.sh 
+cd
+ll
+cd projects/
+ll
+cd buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+bj
+rm -r K* &
+ls
+lt
+cd runLibA/
+ll
+cd K23/
+ll
+lt
+more shell 
+vi soap.config 
+cd ..
+ls
+vi assemble.sh
+ll
+lt
+rm .assemble.sh.swp 
+vi assemble
+vi assemble.sh
+lt
+bj
+vi assemble.sh 
+bsub < assemble
+bsub < assemble.sh 
+lt
+bj
+lt
+lt K23/
+cd K23/
+tail assemble.sh.err 
+lt
+cd ..
+lt
+cd -
+lt
+tail assemble.sh.err 
+lt
+cd ..
+lt
+les soap_denovo.err 
+bj
+lt
+cd K23/
+lt
+top
+bhosts
+lt
+d f-h
+df -h
+bj
+ll
+top
+top -u liuhui
+top
+lt
+sch
+cd
+bjobs -u all |less
+lt
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+cd K23/
+lt
+python -m iga.assembly.assess busco -h
+python -m iga.assembly.assess busco --threads 20 dp_soap.contig
+bkill 6403
+bj
+lth
+vi bsub.buscodp_soap.contig.100417.sh 
+nohup bash bsub.buscodp_soap.contig.100417.sh  &
+lth
+les nohup.out 
+lt
+les nohup.out 
+vi bsub.buscodp_soap.contig.100417.sh 
+ls ~/lh/
+lt
+top
+tp
+lt
+les busco_86703.log 
+more ../runLibA/K23/busco_downloads/*/
+ll ../runLibA/K23/busco_downloads/*/
+ll
+lt
+lt busco_downloads/
+mkdir -p /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/
+source activate busco
+which busco
+find ~/bin/miniconda3/envs/busco/ -name "*ini"
+ll
+touch /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
+vi /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
+ls
+cp -r ../runLibA/K23/busco_downloads/ /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/
+ll /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/
+ll /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini 
+ls /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini 
+les /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini 
+lt /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/busco_downloads/
+lt /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/busco_downloads/lineages/
+lt /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/busco_downloads/lineages/embryophyta_odb10/
+lt
+cd
+lt
+cd projects/
+lt
+cd buzzo/
+lt
+cd busco/
+lt
+cd busco_downloads/
+lt
+cd lineages/
+lt
+cd ..
+lt
+more myconfig.ini 
+vc
+lt
+cd
+cd projects/
+lt
+cd pl
+lt
+cd buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+cd K23/
+lt
+les busco_86703.log 
+top
+top -u liuhui
+top
+lt
+lt dp_soap.contig
+lt dp_soap.contig.busco.embryophyta.v4.1.2/
+lt dp_soap.contig.busco.embryophyta.v4.1.2/run_embryophyta_odb10/
+lt dp_soap.contig.busco.embryophyta.v4.1.2/run_embryophyta_odb10/metaeuk_output/
+lt dp_soap.contig.busco.embryophyta.v4.1.2/run_embryophyta_odb10/metaeuk_output/initial_results/
+top
+ll
+sch
+cd
+ll
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/soapdenovo_ecc14/
+lt
+cd K2
+cd K23/
+lt
+cd ..
+ll
+vw
+bsub512 "fastqc -o clean_libB_qc Duparquetia_orchidacea_libB_1.fq.gz.clean.fq.gz Duparquetia_orchidacea_libB_2.fq.gz.clean.fq.gz"
+lt
+lth
+bjl
+lt
+les error.6404 
+bj
+bsub512 "fastqc  Duparquetia_orchidacea_libB_1.fq.gz.clean.fq.gz Duparquetia_orchidacea_libB_2.fq.gz.clean.fq.gz"
+bj
+lt
+bj
+lt
+bj
+bkill 6405
+nohup fastqc  Duparquetia_orchidacea_libB_1.fq.gz.clean.fq.gz Duparquetia_orchidacea_libB_2.fq.gz.clean.fq.gz &
+lt
+rm error.6405 output.6405 error.6404 output.6404
+lt
+bj
+tail nohup.out 
+lt
+top
+lt
+top
+lt
+top
+lt
+cd K25/
+lt
+tail *err
+cd ..
+lt
+platanus
+platanus assemble
+lt
+cd ..
+ll
+more run.sh 
+cd input/
+ll
+cd ..
+lt
+cd soapdenovo_ecc14/
+lt
+ll *lib*gz
+cat >gzip.sh
+nohup bash gzip.sh &
+lt
+bj
+lt
+top
+df -h
+lt
+cd K23/
+lt
+cd ..
+lt
+tail nohup.out 
+lth
+sz *qc*
+# Sent -> /Users/liuhui/Downloads/
+ls *qc*
+sz *qc*
+# Sent -> /Users/liuhui/Downloads/
+lt
+conda env list
+mamba create -n getorganelle -c bioconda getorganelle
+lt
+free -g
+top
+source activate getorganelle
+get_organelle_config.py --add embplant_pt,embplant_mt
+vi /home/liuhui/bin/miniconda3/envs/getorganelle/bin/get_organelle_config.py
+get_organelle_config.py --add embplant_pt,embplant_mt
+get_organelle_from_reads.py -1 Arabidopsis_simulated.1.fq.gz -2 Arabidopsis_simulated.2.fq.gz -t 1 -o Arabidopsis_simulated.plastome -F embplant_pt -R 10
+ls *gz
+cat >>get_plast.sh
+nohup bash get_plast.sh &
+lth
+lt
+top
+vc
+tp
+lth
+lt Arabidopsis_simulated.plastome/
+more Arabidopsis_simulated.plastome/get_org.log.txt 
+lt
+tail nohup.out 
+lt
+lt Arabidopsis_simulated.plastome/
+top
+ps ux
+lt
+tail nohup.out 
+lt
+lt K25/
+cd K25/
+lt
+tail assemble.sh.err 
+lt
+top
+lt
+jobs
+sch
+ll
+lt
+bjl
+ll
+cd projects/o
+cd projects/
+l
+lt
+cd phyleg/
+lt
+cd leggenome/
+lt
+cd ..
+ls
+lt
+cd ..
+lt
+cd
+lt
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+ll
+lt
+lt */*contig
+vi assemble.sh 
+bj
+bkill 6388
+bsub < assemble
+lt
+bsub < assemble.sh 
+lt
+bjl
+bj
+lt
+lth
+top
+bhosts
+bj
+bkill 6388
+lth
+top
+lt
+bj
+lh
+cd K29/
+lt
+cd ..
+ls
+bj
+bkill 6388
+top
+bj
+lt
+les soap_denovo.err 
+lt
+top
+les soap_denovo.err 
+les soap_denovo.log 
+top
+lt
+vi assemble.sh 
+bj
+bkill 6406
+lt
+cd K43/
+lt
+rm soap.config 
+ll
+lt
+cd ..
+bj
+bhosts
+vi assemble.sh 
+bsub < assemble.sh 
+bj
+cd K43/
+lt
+top
+lt
+cd ..
+lt
+bj
+lt
+lt K29/
+rm -r K29/
+lt
+cd K43/
+lt
+top
+htop
+top
+lt
+lth
+sch
+cd
+lt
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/
+l
+lt
+cd soapdenovo_ecc14/
+lt
+lt K43/
+cd K43/
+more assemble.sh.err 
+sch
+cd
+ls
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/soapdenovo_ecc14/
+lt
+cd K43/
+lt
+c d../Ar
+cd ../Arabidopsis_simulated.plastome/
+lt
+sz embplant_pt.K115.scaffolds.graph1.1.path_sequence.fasta embplant_pt.K115.scaffolds.graph1.2.path_sequence.fasta
+# Sent -> /Users/liuhui/Downloads/
+lt
+cd ..
+ls
+lt
+vi assemble.sh 
+vi get_plast.sh 
+bhosts
+nhup bash get_plast.sh &
+lt
+nohup bash get_plast.sh &
+lt
+tail nohup.out 
+source activate getorganelle
+nohup bash get_plast.sh &
+lt
+tail nohup.out 
+mv Arabidopsis_simulated.plastome Duparquetia.plast
+ll
+cd Duparquetia.
+cd Duparquetia.plast/
+lt
+rz
+# Received /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/91.assembly/Zenia_plast.fasta
+lt
+vw
+source deactivate
+conda deactivate
+vi get_plast.sh 
+vw
+lastz
+lt
+mamba install -c bioconda lastz
+which conda
+sch
+which conda
+conda activate 
+which lastz
+vw
+conda env list
+vw
+lt
+for i in *path_sequence.fasta;do lastz --gfextend --chain --gapped --ambiguous=n --format=mapping --identity=97  --continuity=1 ${i} Zenia_plast.fasta > ${i}.lastz; done
+more *lastz
+les *lastz
+vw
+pafCoordsDotPlotly.R
+vw
+lt
+les embplant_pt.K115.scaffolds.graph1.1.path_sequence.fasta.lastz
+cd ~/bin/
+git clone https://github.com/tpoorten/dotPlotly.git
+ls
+lt
+rz
+# Received /Users/liuhui/Downloads/dotPlotly-master.zip
+unzip dotPlotly-master.zip 
+cd dotPlotly-master/
+ll
+./pafCoordsDotPlotly.R 
+vi pafCoordsDotPlotly.R 
+which R
+mamba install -c bioconda r-optparse
+mamba  install -c conda-forge r-plotly
+lt
+./pafCoordsDotPlotly.R 
+./pafCoordsDotPlotly.R  -h
+addpwd
+which sc
+sc
+conda activate
+cd
+which conda
+ls
+cd projects/
+t
+lt
+cd buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+vi get_plast.sh 
+cd Duparquetia.plast/
+lt
+otp
+top
+lt
+vw
+echi 'for i in *path_sequence.fasta;do lastz --gfextend --chain --gapped --ambiguous=n --format=mapping --identity=97  --continuity=1 ${i} Zenia_plast.fasta > ${i}.lastz; done ' >> plot.sh
+echo 'for i in *path_sequence.fasta;do lastz --gfextend --chain --gapped --ambiguous=n --format=mapping --identity=97  --continuity=1 ${i} Zenia_plast.fasta > ${i}.lastz; done ' >> plot.sh
+vi plot.sh 
+vw
+vi plot.sh 
+nohup bash plot.sh &
+lt
+tail nohup.out 
+lt
+sz *png
+# Sent -> /Users/liuhui/Downloads/
+les *paf
+les embplant_pt.K115.scaffolds.graph1.2.path_sequence.fasta
+mv embplant_pt.K115.scaffolds.graph1.2.path_sequence.fasta embplant_pt.K115.scaffolds.graph1.2.path_sequence.fasta.1
+mv embplant_pt.K115.scaffolds.graph1.1.path_sequence.fasta embplant_pt.K115.scaffolds.graph1.1.path_sequence.fasta.1
+les *.1
+ls *.1
+for i in *.1; do sed "s/-.*//" $i > ${i%.1}; done
+lt
+nohup bash plot.sh &
+lt
+pafCoordsDotPlotly.R -h
+vi `which pafCoordsDotPlotly.R `
+nohup bash plot.sh &
+lt
+rm *png
+lt
+sz *pdf
+# Sent -> /Users/liuhui/Downloads/
+les nohup.out 
+les *paf
+which minimap2
+minimap2 -h
+lt
+les nohup.out 
+mamba install minimap2
+which minimap2 
+conda deactivate
+which conda
+sch
+which conda
+conda activate
+which minimap
+which minimap2
+vc
+sch
+j duparquetia
+lt
+conda activate
+vi plot.sh 
+nohup bash plot.sh &
+lt
+which minimap2
+lt
+les *paf
+les nohup.out 
+les *paf
+les nohup.out 
+vi `which pafCoordsDotPlotly.R `
+les *paf
+vi `which pafCoordsDotPlotly.R `
+les nohup.out 
+vi `which pafCoordsDotPlotly.R `
+lt
+vi Zenia_plast.fasta 
+vi `which pafCoordsDotPlotly.R `
+les nohup.out 
+vi `which pafCoordsDotPlotly.R `
+vi plot.sh 
+bash plot.sh 
+vi plot.sh 
+vi `which pafCoordsDotPlotly.R `
+bash plot.sh 
+vi `which pafCoordsDotPlotly.R `
+ls $BD
+find $BD *.R
+find $BD -name "*.R"
+ll
+/nfs/liuhui/bin/bundle/lh_bin/lastz_plot.R
+for i in *lastz; do /nfs/liuhui/bin/bundle/lh_bin/lastz_plot.R $i; done
+lt
+sz *lastz.pdf
+# Sent -> /Users/liuhui/Downloads/
+for i in *path_sequence.fasta;do lastz --gfextend --chain --gapped --ambiguous=n --format=mapping --identity=90  --continuity=1 ${i} Zenia_plast.fasta > ${i}.lastz; done
+for i in *lastz; do /nfs/liuhui/bin/bundle/lh_bin/lastz_plot.R $i; done
+sz *lastz.pdf
+# Sent -> /Users/liuhui/Downloads/
+lt
+sz embplant_pt.K115.scaffolds.graph1.2.path_sequence.fasta embplant_pt.K115.scaffolds.graph1.1.path_sequence.fasta 
+# Sent -> /Users/liuhui/Downloads/
+df -h
+top
+sudo vi /etc/sysconfig/network-scripts/ifcfg-enp50s0f0 
+sudo vi /etc/sysconfig/network-scripts/ifcfg-em1 
+top
+htop
+source activate
+top
+htop
+top
+bhosts
+ifconfig
+ping 8.8.8.8
+vi /etc/sysconfig/network-scripts/ifcfg-em0
+vi /etc/sysconfig/network-scripts/ifcfg-em1 
+sudo vi /etc/sysconfig/network-scripts/ifcfg-em1 
+bhosts
+ssh yi02
+ssh -p 201 yi02
+ssh yi01
+top
+bj
+ls
+sch
+lt
+cd
+ls
+cd projects/
+lt
+cd buzzo/
+ls
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+ls
+lt K127/
+more K127/assemble.sh.err 
+lt K*/
+lt K*/*.contig
+cd K103
+cd K107/
+lt
+more assemble.sh.err 
+cd ..
+lt
+lth
+les soap_denovo.log 
+top
+free -g
+lt
+ls
+rm -r K107/ K127/
+ls
+vi assemble.sh 
+lt
+vi assemble.sh 
+less soap_denovo.err 
+less soap_denovo.log 
+lt
+vi assemble.sh 
+df -h
+which conda
+conda activate
+lth
+mv soap_denovo.err soapdenovo.err.1
+mv soap_denovo.log soapdenovo.log.1
+vi assemble.sh 
+bhosts
+vi assemble.sh 
+bsub < assemble.sh 
+lt
+lth
+top
+lt
+ls
+bj
+ls
+ps ux
+lth
+vi get_plast.sh 
+lt Duparquetia.mito1/
+lses Duparquetia.mito1/get_org.log.txt 
+les Duparquetia.mito1/get_org.log.txt 
+ps ux
+kill 60797
+ps ux |les
+kill 17758
+ps ux |les
+kill 67120
+ps ux |les
+top
+lt
+lth
+cd K71/
+lt
+les assemble.sh.err 
+top
+free -g
+bhosts
+top
+ssh -p 201 yi02
+top
+lth
+bj
+bjl
+sch
+cd
+ls
+cd projects/
+conda activate
+ll
+lt
+cd buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+python -m iga.assembly.assess busco -h
+ll */*contig
+htop
+cat >>busco.sh
+ busco.sh 
+nohup bash busco.sh &
+lt
+tail -f nohup.out 
+lt
+vi busco.sh 
+more /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini
+ll /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/busco_downloads/
+which gtp
+echo $BD
+gtp
+which python
+python -m iga.annotaion
+python -m iga
+python -m iga.assembly
+python -m iga.assembly.fdsa
+python -m iga.assembly.assemble
+cd /home/liuhui/bin/bundle/
+git pull
+cd -
+vc
+lt
+rm nohup.out 
+vi busco.sh 
+bhosts
+lt
+vi busco.sh 
+nohup bash busco.sh &
+lt
+les nohup.out 
+vi busco.sh 
+ls -d K*/
+vi busco.sh 
+lt
+rm nohup.out 
+nohup bash busco.sh &
+top
+lt
+tail -f nohup.out 
+top
+lt
+les nohup.out 
+vi busco.sh 
+rm nohup.out 
+nohup bash busco.sh &
+top
+cd K23/
+lt
+mv dp_soap.contig.busco.embryophyta.v4.1.2 dp_soap.contig.busco.embryophyta.v4.1.2.1
+lt
+cd ../K25/
+lt
+lt ../K27/
+lt
+top
+jobs
+cd ..
+lt
+tail nohup.out 
+les nohup.out 
+lt K23/
+lt
+cd K23/
+lt
+fg
+lt dp_soap.contig.busco.embryophyta.v4.1.2.1/
+rm -r dp_soap.contig.busco.embryophyta.v4.1.2.1
+lt
+cd ..
+nohup bash busco.sh &
+lt
+bj
+top
+lt
+top
+jobs
+lt
+les nohup.out 
+cd K23/
+lt
+rm busco_96625.log busco_86376.log
+tail busco_98644.log 
+less /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/myconfig.ini 
+lt /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/busco_downloads/
+lt /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/busco_downloads/lineages/
+lt /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/busco/busco_downloads/lineages/embryophyta_odb10/
+lt
+lt busco_downloads/
+les nohup.out 
+lth
+les busco_98644.log 
+les nohup.out 
+conda activate busco
+busco -h
+ltbj
+bj
+top
+bj
+tp
+lt
+les busco_98644.log 
+fg
+ping www.baidu.com
+curl https://busco-data.ezlab.org/v5/data/file_versions.tsv
+lt
+conda deactivate
+vc
+export BD=/home/liuhui/bin/bundle
+gtp
+lt
+rm -r dp_soap.contig.busco.embryophyta.v4.1.2 busco_98644.log
+lt
+cd ..
+lt
+rm nohup.out 
+nohup bash busco.sh &
+top
+lt
+cd -
+lt
+les busco_105803.log 
+top
+lt
+tial busco_105803.log 
+les busco_105803.log 
+top
+lth
+les busco_105803.log 
+cd ..
+lt
+tail nohup.out 
+top
+htop
+yum install -y ohpc-ganglia
+sudo yum install  ohpc-ganglia
+sudo yum install ganglia-gmetad
+sudo yum install ganglia-gmetad.x86_64
+yum install ganglia-gmond
+sudo yum install ganglia-gmond
+ll
+bj
+top
+sch
+cd 
+lt
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+lt K*/*contig
+vi assemble
+vi assemble.sh 
+lt -d */*embryo*/
+more  */*embryo*/*summary*
+top
+bj
+sch
+cd
+lt
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/soapdenovo_ecc14/
+lt
+l */*contig
+lt */*contig
+lt K83/
+lt -d */
+lt -d */*embryo*/
+which conda
+cd
+cd -
+ls
+ls *sh
+more sh
+tma
+vw
+history |less
+history |grep activate busco
+cd
+lt
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/soapdenovo_ecc14/
+lt
+l */*contig
+lt */*contig
+lt K83/
+lt -d */
+lt -d */*embryo*/
+which conda
+cd
+cd -
+ls
+ls *sh
+more sh
+tma
+vw
+history |less
+history |grep activate busco
+history |grep 'activate busco'
+ls -d K*/
+ls -d */*embryo*/
+for i in K101 K107 K127 K77 K87 K93 K97; do ls ${i}/*contig;done
+bhosts
+for i in K77 K87 K93 K97; do pushd $i; bsub512 -m yi02 -J ${i}.busco  -n 12 "source activate busco; busco -f -c 40 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+logsh
+more */*/*summary*
+vi assemble.sh 
+ls
+vi assemble.sh 
+fg
+vi assemble.sh 
+top
+vi assemble.sh 
+bsub < assemble.sh 
+bj
+lt
+lth
+conda activate
+conda activate busco
+which conda
+conda deactivate
+sch
+which conda
+conda activate
+conda activate busco
+which busco
+for i in K77 K87 K93 K97; do pushd $i; bsub512 -m yi02 -J ${i}.busco  -n 12 "busco -f -c 30 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+lt K77/
+less K77/error.6429 
+busco -h
+bj
+for i in `seq 6434 6437`; do bkill $i; done
+bhosts
+ls */*contig
+bj
+for i in K77 K87 K93 K97; do pushd $i; bsub512 -m yi02 -J ${i}.busco  -n 12 "busco --off-line -f -c 30 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+logsh
+bj
+lt K77/
+less K77/error.6438 
+ls
+for i in K77 K87 K93 K97; do pushd $i; bsub512 -m yi02 -J ${i}.busco  -n 12 "busco --offline -f -c 30 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+bj
+top
+lt
+top
+ps ux |grep metaeuk
+top
+htop
+conda deactivate
+htop
+bj
+top
+bj
+lt
+sch
+cd
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/soapdenovo_ecc14/
+lt
+ls
+more K*/*/*summary
+more K*/*/*summary*
+ls */*contig
+for i in */*.contig; do N50v1.pl ${i} > ${i}.n50; done
+bg
+jobs
+top
+fg
+for i in */*.contig; do bsub -m yi02 "N50v1.pl ${i} > ${i}.n50" ; done
+bjl
+bj
+top
+sch
+ll
+cd
+l
+ll
+which conda
+bj
+lt
+ls
+lt
+top
+bj
+top
+lt
+cd projects/o
+cd projects/
+lt
+cd buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+more K*/*/*summary*
+ls
+cd runLibA/
+lt
+cd K23/
+lt
+more */*summary*
+cd -
+cd ..
+tma
+more K*/*/*summary*
+lth
+ls -d */*embryo*/
+bhosts
+for i in K65 K67 K69 ; do pushd $i; bsub512 -m yi02 -J ${i}.busco  -n 12 "busco --offline -f -c 30 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+bj
+bhosts
+bhosts 
+bhosts
+bj
+lt
+which cond
+which conda
+act
+conda activate
+conda activate busco
+for i in K65 K67 K69 ; do pushd $i; bsub512 -m yi02 -J ${i}.busco  -n 12 "busco --offline -f -c 30 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+bj
+lt
+lth
+bj
+top
+lt
+grep N50 */*50
+more K71/dp_soap.contig.n50 
+sch
+python -m jcvi
+python -m jcvi.graphics.dotplot
+python -m jcvi.graphics.dotplot -h
+cd
+python -m jcvi.graphics.dotplot
+bj
+top
+ls
+cd projects/
+lt
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/polygala/public/frasergen/backup/lab/2021/whfs-xs-200576/whfs-xs-200576_DNA_PacBio/Pta3Y1/2.HiFi/workdir_hifiasm_m64062_211127_063831/m64062_211127_063831.p_ctg.fa
+conda activate
+python -m iga.assembly.assess busco m64062_211127_063831.p_ctg.fa 
+bj
+lt
+bj
+top
+bj
+lt
+lt m64062_211127_063831.p_ctg.fa.busco.embryophyta.v4.1.2/
+lt m64062_211127_063831.p_ctg.fa.busco.embryophyta.v4.1.2/logs/
+conda env list
+python -m iga.assembly.assess lai m64062_211127_063831.p_ctg.fa 
+bj
+lt
+vi bsub.LAIm64062_211127_063831.799497.sh 
+bj
+lt
+bj
+bhosts
+bsub512 -m yi02 -J lai -n 7 < bsub.LAIm64062_211127_063831.799497.sh 
+bj
+lt
+bj
+lt
+bj
+lt
+top
+tp
+lt
+bj
+lt
+top
+lt
+N50v1.pl m64062_211127_063831.p_ctg.fa > m64062_211127_063831.p_ctg.fa.n50
+more m64062_211127_063831.p_ctg.fa.n50
+lt
+sch
+lt
+bj
+lt
+top
+sch
+cd
+cd projects/
+lt
+lt m64062_211127_063831.p_ctg.fa.busco.embryophyta.v4.1.2
+lt workdir_LAI_m64062_211127_063831.p_ctg.fa/ |head
+les error.6465
+conda activate
+conda activate EDTA
+which LTR_FINDER_parallel
+find /home/liuhui/bin/miniconda3/envs/EDTA/ -name LTR_FINDER_parallel
+ll /home/liuhui/bin/miniconda3/envs/EDTA/share/EDTA/bin/LTR_FINDER_parallel
+cd ~/bin/miniconda3/envs/EDTA/bin/
+ln -s /home/liuhui/bin/miniconda3/envs/EDTA/share/EDTA/bin/LTR_FINDER_parallel
+ls /home/liuhui/bin/miniconda3/envs/EDTA/share/EDTA/bin/
+lt
+cd -
+lt
+mv workdir_LAI_m64062_211127_063831.p_ctg.fa workdir_LAI_m64062_211127_063831.p_ctg.fa.1
+vi bsub.LAIm64062_211127_063831.799497.sh
+bhosts
+bsub512 -J lh_EDTA -n 12 < bsub.LAIm64062_211127_063831.799497.sh
+lt
+more m64062_211127_063831.p_ctg.fa.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.m64062_211127_063831.p_ctg.fa.busco.embryophyta.v4.1.2.txt 
+lt
+less error.6466 
+bsub512 -m yi02 -J lh_EDTA -n 12 < bsub.LAIm64062_211127_063831.799497.sh
+rm error.6466 output.6466 error.6465 output.6465 
+lt
+less error.6467 
+which conda
+conda deactivate
+sch
+conda acvitate
+conda activate
+conda activate EDTA
+which LTR_retriever
+ll -d ~/bin/miniconda3/envs/EDTA/bin/LTR_FINDER_parallel/
+cd ~/bin/miniconda3/envs/EDTA/share/EDTA/bin/LTR_FINDER_parallel/
+addpwd
+ls
+vc
+export PATH=/home/liuhui/bin/miniconda3/envs/EDTA/share/EDTA/bin/LTR_FINDER_parallel:$PATH
+lt
+LTR_FINDER_parallel 
+cd -
+lt
+vi bsub.LAIm64062_211127_063831.799497.sh 
+bsub512 -m yi02 -J lh_EDTA -n 12 < bsub.LAIm64062_211127_063831.799497.sh
+bj
+lt
+lt workdir_LAI_m64062_211127_063831.p_ctg.fa
+rm -r workdir_LAI_m64062_211127_063831.p_ctg.fa.1/
+bj
+conda deactivate
+which conda
+lt
+cd buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+ls
+ls -d */*embryo*/
+conda activate busco
+for i in K73 K75 ; do pushd $i; bsub512 -m yi02 -J ${i}.busco  -n 12 "busco --offline -f -c 30 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+bj
+bkill 6469 6470
+for i in K73 K75 ; do pushd $i; bsub512 -m yi02 -J ${i}.busco  -n 5 "busco --offline -f -c 30 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+bj
+bkill 6471 6472
+for i in K73 K75 ; do pushd $i; bsub512 -m yi02 -J ${i}.busco  -n 4 "busco --offline -f -c 30 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+bj
+top
+tp
+lt
+lth
+bj
+conda deactivate
+lt
+cd
+ls
+lt
+cd projects/
+lt
+ll
+sch
+cd
+ls
+cd projects/
+lt
+cp m64062_211127_063831.p_ctg.fa PtaY3.contig.fa
+mv PtaY3.contig.fa Pta.contig.fa 
+gzip Pta.contig.fa 
+sz Pta.contig.fa.gz 
+# Sent -> /Users/liuhui/Downloads/
+sch
+gtp
+git config --global --rebase
+git config --global pull.rebase false
+gtp
+ls
+cd bin/bundle/
+ls
+cd executables/
+ls
+./KaKs_Calculator 
+addpwd
+sc
+cd
+cd projects/
+lt
+cd workdir_LAI_m64062_211127_063831.p_ctg.fa/
+lth
+head *LAI
+conda activate
+lt
+lth
+less m64062_211127_063831.p_ctg.fa.out.LAI
+cd ..
+ls
+conda env list
+python -m iga.assembly.assemble flye
+python -m iga.assembly.assemble flye -h
+bhosts
+lt
+vi bsub.LAIm64062_211127_063831.799497.sh 
+conda activate EDTA
+cd -
+lt
+cd -
+ls
+cd workdir_LAI_m64062_211127_063831.p_ctg.fa/
+lth
+LAI -h
+mkdir lai
+cd lai/
+ls ../*ptg.fa
+ls ../*.fa
+ln -s ../m64062_211127_063831.p_ctg.fa
+ln -s ../m64062_211127_063831.p_ctg.fa.out
+ln -s ../m64062_211127_063831.p_ctg.fa.pass.list
+ll
+echo "LAI -genome m64062_211127_063831.p_ctg.fa -intact m64062_211127_063831.p_ctg.fa.pass.list -all m64062_211127_063831.p_ctg.fa.out " > LAI.sh
+vi LAI.sh 
+nohup bash LAI.sh &
+lt
+tail nohup.out 
+LAI
+lt
+les *ava.out
+top
+lt
+les 
+les m64062_211127_063831.p_ctg.fa.out.LAI.LTRlist
+lt
+lt ../
+lt ../*.ava.out
+bj
+lt
+lt
+cd ..
+ls
+cd ..
+cd pro
+cd
+lt
+rm graph.*
+lt
+cd projects/
+lt
+cd phyleg/
+lt
+cd ks/
+lt
+cd ..
+conda env list
+cd 
+cd bin/
+ls
+scp -r yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/bin/MCScanX-master/ ./
+lt
+cd MCScanX-master/
+lt
+./MCScanX
+make clean
+make -j 10
+which g++
+vc
+module avail
+vc
+source /opt/rh/devtoolset-7/enable
+which g++
+ls
+make -j 10
+scl disable devtoolset-7 bash
+scl disable
+vi /opt/rh/devtoolset-7/enable 
+tolava
+lt
+cd bin/
+ls
+cd MCScanX-master/
+lt
+./MCScanX
+./MCScanX -h
+addpwd 
+vc
+cd
+ls
+ll .bashrc 
+grep -v ds3200 .bashrc .bashrc.new
+grep -v ds3200 .bashrc >.bashrc.new
+vi .bashrc.new 
+gtp
+cp .bashrc.new /nfs/liuhui/bin/bundle/config/.bashrc_yicluster
+rm .bashrc
+ln -s /nfs/liuhui/bin/bundle/config/.bashrc_yicluster .bashrc
+lt
+echo $LD_LIBRARY_PATH 
+rpm --eval "%{_libdir}")
+rpm --eval "%{_libdir}"
+ls /usr/lib64/lib64/lib
+ls /usr/lib64/lib
+scl enable devtoolset-7 bash
+vc
+ls $BD/lh_bin/print*
+vc
+vi ~/.ssh/id_rsa.pub 
+gtps
+vc
+cd $BD
+lt
+sch
+which cond
+which conda
+cd
+lt
+cd projects/
+lt
+echo $BD
+gtps
+lt
+cd ..
+mv bundle bundle.1
+git clone git@gitlab.com:lhui2010/bundle.git
+cp bundle.1/config/.bashrc_yicluster bundle/config/
+ll ~/.bashrc
+gtps
+lt
+vc
+ssh -p 201 yi02
+lt
+vc
+tolava
+bj
+bhosts
+bsub -n 201 "sleep 1m"
+bj
+bjobs -l 6475
+bj
+sudo su
+bsub -n 201 "sleep 1m"
+bj
+bjobs -l 6476
+sudo su
+which mbatchd
+sudo su
+bsub -n 201 "sleep 1m"
+bsub -n 200 "sleep 1m"
+bsub -n 1 "sleep 1m"
+bj
+bjobs -l 6579
+bj
+sudo su
+bjobs
+bjobs -l 6579
+bjobs
+bkill 6579
+lt
+bj
+bsub -n 200 "sleep 1m"
+bsub -n 1 "sleep 1m"
+bj
+bsub -n 200 "sleep 1m"
+bj
+bjobs -l 6682
+bj
+lt
+blimits
+bj
+bjobs -u all
+top
+bj
+lt
+sudo su
+tog
+tolav
+tolava
+bj
+bjobs -u all |less
+bhosts
+top
+mamba conda install -c bioconda anchorwave
+mamba create -n anchorwave -c bioconda anchorwave
+cd bin/ls
+cd bin/
+ls
+git clone https://github.com/baoxingsong/anchorwave.git
+mamba create -n anchorwave -c bioconda -c conda-forge anchorwave
+lt
+cmake
+lt
+sch
+cd
+lt
+cd projects/
+ot
+lt
+cd buzzo/
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+ls */*contig
+ls -d */*embryo*/
+which conda
+conda activate busco
+bhosts
+top
+expr 96 - 32
+for i in K79 K81 ; do pushd $i; bsub512 -m yi02 -J ${i}.busco  -n 8 "busco --offline -f -c 30 -m genome -i dp_soap.contig -o ${i}.busco.embryophyta.v4.1.2 -l embryophyta_odb10" ; popd; done
+bj
+top
+ls
+more K*/*/*summary*
+grep "C:" K*/*/*summary*
+conda deactivate
+conda install -c bioconda ragtag
+mamba create -n ragtag -c bioconda ragtag
+conda activate ragtag
+mkdir scaffolding
+ln -s K71/dp_soap.contig scaffolding/duparquetia.contig
+cd scaffolding/
+scp -r yitingshuang@192.168.71.98:/ds3200_1/users_root/yitingshuang/lh/genomes/Fabales/Zenia_insignis.fa ./
+lt
+rm duparquetia.contig 
+ln -s ../K71/dp_soap.contig
+bsub512 -J ragtag -m yi02 "ragtag.py scaffold Zenia_insignis.fa dp_soap.contig "
+logsh
+lt
+top
+lt
+top
+sch
+cd
+j scaffold
+lt
+lt ragtag_output/
+top
+lt
+bj
+bpeek 6689
+cd ragtag_output/
+lt
+les *log
+cd ..
+ll
+ll ../K71/dp_soap.contig
+cd -
+lt
+bpeek 6689
+top
+ls
+cd projects/
+ls
+cd phyleg/
+ls
+ll
+echo "/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX" > download.txt
+cd
+ls
+vi .bashrc.new 
+ll .bashrc
+vi .bashrc
+ls
+vc
+gtp
+gtps
+lt
+cd projects/
+lt
+cd phyleg/
+lt
+more download.txt 
+sc
+tma
+tmux new -s lh
+tmux --version
+tmux -V
+cd
+cd -
+pushd ~
+git clone https://hub.fastgit.org/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
+popd
+ls
+tmux new -s lh
+ls
+cd mcscanX/
+lt
+python -m iga
+which python
+python -m iga.evolution
+python -m iga.evolution.ortho
+python -m iga.evolution.ortho mcscanx
+ls
+more *list
+cd ..
+ls
+echo 'for i in *Senna_tora; do bsub512 "python -m iga.evolution.ortho mcscanx ${i} Senna_tora"; done' > mcscanX.sh
+pgrep scp
+ps ux
+pgrep holo
+df -h
+lth
+ls
+ll
+vi mcscanX.sh 
+ll
+vi mcscanX.sh 
+vc
+sc
+ls
+tma
+cd projects/
+lt
+cd phyleg/
+lt
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/gff3_list
+ll
+vi gff3_list
+vi mcscanX.sh
+bsub512
+which bsub512
+vi mcscanX.sh
+les gff3_list 
+vi mcscanX.sh
+lt
+vi mcscanX.sh
+ls -d $PWD/mcscansX
+ls -d $PWD/mcscanX
+vi mcscanX.sh 
+vi waitjob.sh
+bash waitjob.sh 
+vi waitjob.sh
+bash waitjob.sh 
+vi waitjob.sh
+bash waitjob.sh 
+vi waitjob.sh
+tma
+vc
+tma
+gtp
+ll
+top
+bhosts
+tma
+vi ~/bin/bundle/wrapper/iga/evolution/ortho.py 
+tma
+ls
+ll
+bhosts
+ll
+more download.txt 
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX
+ls
+cd mcscanX/
+ls
+ls -d */
+rm -r KaKs.yn00/
+bg
+ls
+ls *gff3 |wc -l
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/*.gff3
+ls
+vc
+ls
+sc
+ll
+lt
+tma
+bj
+top
+sch
+echo $BD
+gtp
+git config --global pull.rebase false
+gtp
+cd
+vi mcscanX.sh 
+vi waitjob.sh 
+vi mcscanX.sh 
+ls
+vi waitjob.sh 
+sh waitjob.sh 
+vi waitjob.sh 
+vi mcscanX.sh 
+head /nfs/liuhui/projects/phyleg/gff3_list
+vi mcscanX.sh 
+ll
+ll leggenome/
+ll
+vi mcscanX.sh
+vi ~/bin/bundle/wrapper/iga/evolution/ortho.py 
+which col2anc.pl
+vi ~/bin/bundle/wrapper/iga/evolution/ortho.py 
+python -m jcvi
+python -m jcvi.apps.base
+python -m jcvi.apps.base less
+ls ~/.local/lib/python3.8/site-packages/jcvi/
+ls
+ll
+vi ~/bin/bundle/wrapper/iga/evolution/ortho.py 
+vi mcscanX.sh 
+bash mcscanX.sh 
+ps ux
+kill 9791
+ps ux
+bj
+top
+lth
+bjobs -u liuhui
+top
+bj
+top
+lt
+cd mcscanX/
+lth
+top
+cd ..
+ls
+cd -
+lt
+cd ..
+ls
+cd -
+ll Senna_tora.*
+cd ..
+ls
+ll
+cp gff3_list gff3_list.1
+cd -
+ll
+chmod -w Senna_tora.cds 
+chmod -w Senna_tora.gff3 
+chmod -w Senna_tora.pep
+cd ..
+ls
+ll
+vi gff3_list3
+cp gff3_list2
+cp gff3_list gff3_list2
+vi gff3_list2 
+ls
+cp mcscanX.sh mcscanX2.sh
+vi mcscanX2.sh 
+more *list2
+bash mcscanX2.sh 
+ls
+cd ..
+ls
+vi mcscanX.sh 
+more ~/.ssh/id_rsa.pub 
+lt
+vi mcscanX.sh 
+vc
+cd mcscanX/
+for i in Senna_tora; do for j in cds pep gff3; do scp -r -6 yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:${i}.${j}; done; done
+for i in Senna_tora; do for j in cds pep gff3; do scp -r -6 yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:${i}.${j} ./; done; done
+for i in Senna_tora; do for j in cds pep gff3; do scp -r -6 yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/${i}.${j} ./; done; done
+ll Senna_tora.*
+cd ..
+vi mcscanX.sh
+bash mcscanX.sh 
+ps ux
+pkill blast
+pkill blastp
+ps ux
+pkill MCScanX
+ps ux
+pkill python
+ps ux
+lt
+vi mcscanX.sh 
+bash mcscanX.sh 
+ls
+cd mcscanX/
+ls
+chmod +w *
+ls
+cd ..
+ls
+vi bj
+bj
+vi mcscanX
+vi mcscanX.sh 
+bash mcscanX.sh 
+ll
+lth
+vi mcscanX.sh 
+cd mcscanX/
+ll Cercis_chinensis.Zenia_insignis.cds 
+ll
+cd ..
+vi mcscanX.sh 
+sc
+ls
+lt
+cd projects/
+lt
+cd phyleg/
+lt
+bj
+lt
+cd mcscanX/
+lt Zenia_insignis.Senna_tora.*
+lt -d Zenia_insignis.Senna_tora.*
+less Zenia_insignis.Senna_tora.err 
+less Zenia_insignis.Senna_tora.ortho
+lt Zenia_insignis.cds Zenia_insignis.pep 
+lt Senna_tora.cds Senna_tora.pep 
+lth
+less Medicago_ruthenica.Senna_tora.ortho.ParaAT.out/*
+less error.6844
+less error.6871 
+less -S error.6871 
+find $BD -name "join_kaks.pl"
+cd $BD
+addpwd
+cd -
+bj
+ls
+cd ..
+ls
+vi mcscanX.sh 
+ll
+mkdir -p $BD/bash_template
+gtp
+cp waitjob.sh $BD/bash_template/
+vi tmp
+mv tmp tmp.sh
+vi tmp.sh 
+bash tmp.sh 
+vi tmp.sh 
+bash tmp.sh 
+vi tmp.sh 
+bash tmp.sh 
+vi tmp.sh 
+bash tmp.sh 
+vi tmp.sh 
+bash tmp.sh 
+vi tmp.sh 
+bash tmp.sh 
+vi tmp.sh 
+ls
+lt
+vi mcscanX.sh 
+lt
+vi tmp.sh 
+bash tmp.sh 
+which join_kaks.pl
+cd $BD
+ls
+lth
+ls lh_bin/
+ls
+touch a
+touch b
+mv -i a b
+rm a b
+ls
+mv -i *pl *py lh_bin/
+ls
+mv *sh bash_template/
+ls
+ll
+more nohup.out 
+rm nohup.out 
+ls
+lt
+cd lh_bin/
+mkdir foobar
+mv foobar* foobar/
+cd ..
+ls
+mv foobar_req_1.py.bak lh_bin/foobar/
+ll
+mkdir lh_bin/scripts_bak
+mv *py lh_bin/scripts_bak/
+ll
+ls Rscripts/
+mv -i *.R Rscripts/
+cd Rscripts/
+pwd
+vc
+gtps
+lt
+cd -
+ls
+lt
+vi .gitignore 
+ls __pycache__/
+ls lh_bin/assembly_agp2bedpe.py 
+ls python_package/
+ll python_package/
+mv -i python_package/merge_bed_to_bedpe.py  lh_bin/
+rm -r python_package/
+ll
+lt executables/
+lt
+rm -r __pycache__/
+gtps
+lt
+cd
+ll wr
+cd $BD
+cd -
+cd $BD/wrapper
+lt
+more MANIFEST.in 
+cd
+lt
+cd projects/
+lt
+cd phyleg/
+lt
+cd mcscan
+lt
+ll
+cd ..
+ll
+vi gff3_list
+cd mcscanX/
+ls -d *out
+ls -d *out |wc -l
+cd -
+ll
+vi mcscanX.sh 
+grep Zenia\|Lysi gff3_list
+grep Zenia gff3_list.1
+grep Lys gff3_list.1
+vi mcscanX.sh 
+tma
+lt
+cp mcscanX.sh $BD/bash_template/
+gtps
+bjl
+bhosts
+top
+bj
+df -h
+top
+lt
+bjl
+tp
+bjl
+top
+j mcscanX
+lth 
+bjl
+bpeek 6850
+bpeek 6850 |head
+bpeek 6850 >~/tmp
+less -S ~/tmp 
+ll Trifolium_subterraneum.Senna_tora.pep
+ll Trifolium_subterraneum.Senna_tora.cds
+head -1 Trifolium_subterraneum.Senna_tora.pep
+head -1 Trifolium_subterraneum.Senna_tora.cds
+grep ">" Trifolium_subterraneum.Senna_tora.pep |tail -n 1
+less Trifolium_subterraneum.Senna_tora.ortho
+grep Tsud_chr1.g22200.1.au_Trsub Trifolium_subterraneum.Senna_tora.pep
+less -S ~/tmp 
+les Trifolium_subterraneum.Senna_tora.ortho.ParaAT.out
+ll Trifolium_subterraneum.Senna_tora.ortho.ParaAT.out/Tsud_chr1.g21950.1.au_Trsub-Sto*
+which ParaAT.pl
+cd $BD/executables
+lt
+./Epal2nal.pl 
+./ParaAT.pl 
+vi ./ParaAT.pl 
+ll
+tma
+cd
+cd bin/
+ls
+downlht /ds3200_1/users_root/yitingshuang/lh/bin/KaKs_Calculator2.0.tgz
+ll
+tar -xvzf KaKs_Calculator2.0.tgz 
+cd KaKs_Calculator2.0/
+ll
+cll
+cd bin/
+ls
+lt
+cd Linux/
+lt
+chmod +x KaKs_Calculator 
+./KaKs_Calculator 
+./KaKs_Calculator -h
+md5sum KaKs_Calculator 
+md5sum $BD/executables/KaKs_Calculator 
+lt
+cd ../..
+ls
+cd
+tma
+to
+top
+tp
+bjl
+top 
+bj
+bpeek 6776
+which join_kaks.pl
+bjobs -l 6776
+bj
+bjl
+lt
+sch
+lt
+wc -l legume_genome_list new_legume_genome_list
+cd projects/
+lt
+cd genomes/
+lt
+cd Fabales/
+ls
+ls *gff|wc -l
+ls *gff > ../gff3_list
+cd ..
+echo 'Astragalus sinicus' >> gff3_list 
+echo 'Melilotus albus' >> gff3_list 
+vi gff3_list 
+lt
+mv gff3_list all_legume_list.txt
+sz all_legume_list.txt 
+# Sent -> /Users/liuhui/Downloads/
+tma
+bjl
+tp
+bjl
+bpeek 7154 |tail
+echo $ARG_MAX
+ulimit
+ulimit -s
+ulimit -s 65536
+ulimit
+ulimit -s 65536
+ulimit -s
+vc
+gtp
+gtps
+bj
+cd
+lt
+cd projects/
+lt
+cd buzzo/platanus/
+lt
+cd soapdenovo_ecc14/
+lt
+cd runLibA/
+cd ../scaffolding/
+lt
+lt ragtag_output/
+more shell 
+act
+conda activate
+cd
+ls
+cd bin/
+ls
+wget https://hub.fastgit.org/malonge/RaGOO/archive/refs/tags/v1.11.tar.gz
+rz
+# Received /Users/liuhui/Downloads/RaGOO-1.11.tar.gz
+lt
+tar -xvzf RaGOO-1.11.tar.gz 
+cd RaGOO-1.11/
+ls
+python setup.py install
+ragoo.py -h
+cd
+cd projects/
+ls
+cd buzzo/
+ls
+cd platanus/soapdenovo_ecc14/
+lt
+cd scaffolding/
+lt
+bsub512 -m yi02 -J ragoo "ragoo.py dp_soap.contig Zenia_insignis.fa |tee ragoo.out"
+bj
+bhosts
+lt
+bj
+logsh
+lth
+bj
+lt ragoo_output/
+les ragoo_output/contigs_against_ref.paf.log 
+lt
+tail ragoo
+tail ragoo.out 
+cd ragoo_output/
+lt
+les *paf
+cd orderings/
+lt
+les chr01_Zeins_orderings.txt 
+lt
+cd ..
+lt
+cd groupings/
+lt
+les *
+lt
+ll
+cd ..
+ll
+ll groupings/ orderings/
+lt
+more *log
+cd ..
+lt
+tail -f ragoo.out 
+cd -
+lt
+lt orderings/
+tp
+htop
+bj
+lt
+lt orderings/
+bjl
+lt
+cd ..
+lt
+les ragoo.out 
+tp
+lt
+cd ragoo_output/
+lt
+gtp
+cd
+ls
+cd projects/
+lt
+ps ux
+bj
+ps ux
+j ragoo
+lt
+cd ..
+ls
+lt
+rz
+# Received /Users/liuhui/Downloads/GapCloser
+rz
+# Received /Users/liuhui/Downloads/GapCloser.sh
+lt
+lth
+ls
+./GapCloser
+more GapCloser.sh 
+vi GapCloser.sh 
+ll
+cp ../K71/soap.config ./
+lt
+more soap.config 
+ls ../Duparquetia*gz
+ll
+vi GapCloser.sh 
+ln -s ragoo_output/ragoo.fasta dp_scaffold.fasta
+vi GapCloser
+vi GapCloser.sh 
+bhosts
+bsub -J gapclose_ragoo -m yi02 -n 12 < GapCloser.sh 
+top
+lt
+vi GapCloser.sh 
+top
+tp
+bj
+tp
+bj
+bpeek 7154 |tail
+bkill 6772 6776 6838 6841 6850 7154
+bj
+ls
+lt
+cd astragalus/
+lt
+bsub gzip -d *
+cd ..
+ls
+cd ziyunying/
+lt
+cp 04.Assemble/ziyunying.Assemble.fa ./
+cp 05.Anno/03.structure_annotation/ziyunying.structure.gff3 ./
+ll
+gffread 
+vw
+ll
+bsub -o gffread.out -e gffread.err 'gffread -x ziyunying.cds -g ziyunying.Assemble.fa ziyunying.structure.gff3'
+lt
+bj
+lth
+les gffread.err 
+select_fasta.pl evm.model.ctg1112.85 ziyunying.cds 
+les gffread.err 
+les *gff3
+fa_pos.pl ziyunying.Assemble.fa Chr1 15637152 15637722
+lt
+lth
+ls -d $BD/*/
+lt
+cd ..
+lt
+cd astragalus/
+lt
+head -1 GWHBEDJ00000000.Protein.faa GWHBEDJ00000000.CDS.fasta
+grep GWHPBEDJ000001 *
+bjl
+ls
+bjl
+ulimit -s
+tma
+tmux new -s lh
+ls
+cd projects/
+ls
+cd genomes/Fabales/
+lth
+tma
+bjl
+bjobs -l 7268
+cd bin/
+ls
+gtp
+cd bundle
+ls
+cd Rscripts/
+ls
+chmod +x get_ks_peak.R 
+addpwd
+conda env list
+R
+which R
+tolava
+lt
+addpwd
+sc
+cd
+ls
+cd projects/
+lt
+cd phyleg/
+ls
+cd mcscanX/
+ls
+mkdir peak
+cd peak/
+for i in ../*kaks; do ln -s $i; done
+ls
+ls $BD/Rscripts 
+get_ks_peak.R Nissolia_schottii.Zenia_insignis.ortho.kaks
+ls
+for i in *kaks; do bsub -e $i.err -o $i.out "get_ks_peak.R $i"; done
+logsh
+ls
+sch
+cd
+ls
+cd projects/
+lt
+cd buzzo/platanus/
+lt
+cd soapdenovo_ecc14/
+ls
+cd K71/
+ls
+more */*summary*
+more *50
+ls
+bj
+lth
+cd ../scaffolding/
+lt
+les dp_scaffold.GC.fasta
+more GapCloser.log 
+bj 
+lt
+more GapCloser
+more GapCloser.sh 
+lt
+mv GapCloser.log GapCloser.log.1
+mv dp_scaffold.GC.fasta dp_scaffold.GC.fasta.1
+mv dp_scaffold.GC.fasta.fill dp_scaffold.GC.fasta.fill.1
+lt
+bsub512 -J gapclose_ragoo -m yi02 -n 12 < GapCloser.sh 
+1ls
+cd ..
+ls
+cd ../
+ls
+mkdir pta
+mv ~/projects/m64062_211127_063831.p_ctg.fa* pta/
+ls ~/
+ls ~/projects/
+mv ~/projects/bsub.* ~/projects/workdir_LAI_m64062_211127_063831.p_ctg.fa/ pta/
+mv ~/projects/Pta.contig.fa.gz pta/Pta_canu.contig.fa.gz
+ls ~/projects/
+lt
+cd pta/
+lt
+mkdir canu
+mv * canu/
+ll
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/polygala/Pta_flye_contig.fa
+bj
+python -m iga.assembly.assess lai Pta_flye_contig.fa 
+bkill 7712
+lt
+bsub512 -n 35 -m yi02 -J LAIPta_flye_contig < bsub.LAIPta_flye_contig.543598.sh
+bj
+top
+bhosts
+bj
+cd ../
+lt
+cd soapdenovo_ecc14/scaffolding/
+lt
+mv GapCloser.log.1 GapCloser.log
+mv dp_scaffold.GC.fasta.1 dp_scaffold.GC.fasta
+mv dp_scaffold.GC.fasta.fill.1 dp_scaffold.GC.fasta.fill
+bj
+ls
+lt
+vi GapCloser.sh 
+bhosts
+bsub512 -J gapclose_ragoo -m yi02 -n 1 < GapCloser.sh 
+bj
+bkill 7711
+bkill 7713
+ls
+cd ../../
+ls
+cd pta/
+lt
+bj
+lt
+bj
+bhosts
+top
+htop
+bsub512 -n 2 -m yi02 -J LAIPta_flye_contig < bsub.LAIPta_flye_contig.543598.sh
+bj
+bhosts
+tp
+bj
+bpeek 7436
+bj
+bpeek 7267
+ulimit -s
+bj
+bkill 7247 7250 7256 7267 7436
+bj
+bjl
+bj
+tma
+ll
+cd projects/
+lt
+cd phyleg/
+lt
+bj
+bhosts
+lt
+cd mcscan
+cd ../mcscanX/
+lt
+ls -d *.out
+vi bsub.kaks.*
+ls -d *.ParaAT.out > paraat_list.txt
+vi paraat_list.txt 
+ulimit -s
+for i in `cat paraat_list.txt`; do bsub -m yi04 "join_kaks.pl ${i}/*.kaks > ${i%.ParaAT.out}.kaks"; done
+bjl
+lth
+bj
+lth
+for i in `cat paraat_list.txt`; do bsub512 -m yi04 "join_kaks.pl ${i}/*.kaks > ${i%.ParaAT.out}.kaks"; exit;done
+j mcscanx
+ls
+find Medicago_ruthenica.Senna_tora.ortho.ParaAT.out -name "*.kaks" |xargs -0 ls  |wc -l
+find Medicago_ruthenica.Senna_tora.ortho.ParaAT.out -name "*.kaks" |xargs ls -lrt  |wc -l
+find Medicago_ruthenica.Senna_tora.ortho.ParaAT.out -name "*.kaks" |xargs ls -lrt  |head
+find Medicago_ruthenica.Senna_tora.ortho.ParaAT.out -name "*.kaks" |xargs ls -rt  |head
+find Medicago_ruthenica.Senna_tora.ortho.ParaAT.out -name "*.kaks" |xargs ls -rt  |wc -l
+find Medicago_ruthenica.Senna_tora.ortho.ParaAT.out -name "*.kaks" |xargs ls -rt  |join_kaks.pl > tmp
+vi tmp 
+find Medicago_ruthenica.Senna_tora.ortho.ParaAT.out -name "*.kaks" |xargs ls -rt  |xargs join_kaks.pl > tmp
+vi tmp 
+ll tmp 
+find Medicago_ruthenica.Senna_tora.ortho.ParaAT.out -name "*.kaks" |xargs join_kaks.pl > tmp
+ll tmp 
+find Abrus_precatorius.Senna_tora.ortho.ParaAT.out -name *.kaks |xargs join_kaks.pl > Abrus_precatorius.Senna_tora.ortho.kaks
+ll Abrus_precatorius.Senna_tora.ortho.ParaAT.out.k
+ll -d Abrus_precatorius.Senna_tora.ortho.ParaAT.out
+find Abrus_precatorius.Senna_tora.ortho.ParaAT.out/ -name *.kaks |xargs join_kaks.pl > Abrus_precatorius.Senna_tora.ortho.kaks
+find $PWD/Abrus_precatorius.Senna_tora.ortho.ParaAT.out/ -name *.kaks |xargs join_kaks.pl > Abrus_precatorius.Senna_tora.ortho.kaks
+ls -d $PWD/Abrus_precatorius.Senna_tora.ortho.ParaAT.out/
+find $PWD/Abrus_precatorius.Senna_tora.ortho.ParaAT.out/ -name "*.kaks" |xargs join_kaks.pl > Abrus_precatorius.Senna_tora.ortho.kaks
+find $PWD/Abrus_precatorius.Senna_tora.ortho.ParaAT.out/ -name '*.kaks' |xargs join_kaks.pl > Abrus_precatorius.Senna_tora.ortho.kaks
+lth
+les Abrus_precatorius.Senna_tora.ortho.kaks 
+bj
+lth
+ll *kaks |les
+ll -S *kaks |les
+vi $BD/Rscripts/get_ks_peak.R 
+ls
+get_ks_peak.R Nissolia_schottii.Zenia_insignis.ortho.kaks
+vi $BD/Rscripts/get_ks_peak.R 
+get_ks_peak.R Nissolia_schottii.Zenia_insignis.ortho.kaks
+get_ks_peak.R Nissolia_schottii.Zenia_insignis.ortho.kaks 2
+tma
+toyi03
+ssh yi04
+j test_GM
+logsh
+lth
+les b100.txt 
+sort -k1,1n b100.txt  |head -1
+ls
+Rscript get_ks_peak.R Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks 3
+more shell 
+lth
+for i in `seq 100`; do python get_ks_peak.py Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks >> b100_2.txt; done &
+lth
+bj
+lth
+les b100_2.txt 
+jobs
+les b100_2.txt 
+sort -k1,1n b100.txt  |head -1
+sort -k1,1n b100_2.txt  |head -1
+vi get_ks_peak.py 
+python get_ks_peak.py Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks >> b100_3.txt &
+lth
+sort -k1,1n b100_2.txt  |head -1
+vi get_ks_peak.py 
+python get_ks_peak.py 
+vi get_ks_peak.py 
+python get_ks_peak.py Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks 
+vi get_ks_peak.py 
+python get_ks_peak.py Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks 
+lt
+les *KsGMM
+vi get_ks_peak.
+vi get_ks_peak.py 
+les *KsGMM
+python get_ks_peak.py Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks 
+vi get_ks_peak.py 
+cp get_ks_peak.py /nfs/liuhui/bin/bundle/lh_bin/
+cd ../
+ls
+cd mcscanX/
+cd ..
+ls
+cp 03.summary_peak.sh 04.find_peak_sklearn.sh
+vi 04.find_peak_sklearn.sh 
+cd /nfs/liuhui/bin/bundle/lh_bin/
+chd
+cd -
+vi 04.find_peak_sklearn.sh 
+bash 04.find_peak_sklearn.sh 
+bj
+bjobs -l 9102
+cd mcscanX/
+lth
+les Abrus_precatorius.Abrus_precatorius.ortho.kaks.GMMbest 
+cd ..
+vi 04.find_peak_sklearn.sh 
+bash 04.find_peak_sklearn.sh 
+bj
+bj |wc
+vi 04.find_peak_sklearn.sh 
+bj |wc
+cd mcscanX/
+lth
+les Spatholobus_suberectus.Medicago_truncatula.ortho.kaks.GMMerr 
+ll Spatholobus_suberectus.Medicago_truncatula.ortho.kaks
+ll *GMMerr
+les Trifolium_pratense.Lysidice_rhodostegia.ortho.kaks
+cd -
+bj |wc
+bjl
+tp
+bhosts 
+lsload
+vi 04.find_peak_sklearn.sh 
+vi get_ks_peak.py 
+lt
+gtps
+bj
+lsload
+tp
+bj
+ls
+cd leggenome/
+ls
+ls *.fa |wc -l
+cd ..
+mkdir repeat_mask
+cd repeat_mask/
+ls
+for i in ../leggenome/*.fa; do ln -s $i; done
+ls
+conda activate EDTA
+cd
+cd bin/
+ls
+bj
+j mcscanx
+lth
+les output.7818 
+rm output.* error.*
+for i in `cat paraat_list.txt`; do bsub512 -m yi04 "join_kaks.pl ${i}/*.kaks > ${i%.ParaAT.out}.kaks";done
+lth
+ll error.7*
+les error.7*
+lth
+ls Medicago_ruthenica.Senna_tora.ortho.ParaAT.out/*kaks |wc -l
+find Medicago_ruthenica.Senna_tora.ortho.ParaAT.out -name "*kaks" |xargs ls -l |wc -l
+rm output.7* error.7*
+for i in `cat paraat_list.txt`; do bsub512 -m yi04 "find ${i} -name "*.kaks" |xargs ls -rt |xargs join_kaks.pl > ${i%.ParaAT.out}.kaks";done
+lth
+les Senna_septemtrionalis.Medicago_truncatula.ortho.kaks
+les paraat_list.txt 
+bj
+lth
+cd
+bj |grep kaks > tmp
+vi tmp 
+awk '{print $1}' tmp > tmp.id
+vi tmp.id 
+for i in `cat tmp.id`; do bkill $i; done
+tma
+lth
+cd -
+lth
+les error.8022 
+vi paraat_list.txt 
+les error.*
+for i in `cat paraat_list.txt`; do bsub512 -m yi04 "rm ; find ${i} -name "*.kaks" |xargs join_kaks.pl > ${i%.ParaAT.out}.kaks";break;done
+lth
+bj
+lth
+bj
+lth
+les error.8023
+for i in `cat paraat_list.txt`; do bsub512 -m yi04 "rm ${i%.ParaAT.out}.kaks; find ${i} -name "*.kaks" |xargs join_kaks.pl > ${i%.ParaAT.out}.kaks";break;done
+lth
+les error.8024 
+for i in `cat paraat_list.txt`; do echo"rm ${i%.ParaAT.out}.kaks; find ${i} -name "*.kaks" |xargs join_kaks.pl > ${i%.ParaAT.out}.kaks";break;done
+for i in `cat paraat_list.txt`; do echo "rm ${i%.ParaAT.out}.kaks; find ${i} -name "*.kaks" |xargs join_kaks.pl > ${i%.ParaAT.out}.kaks";break;done
+for i in `cat paraat_list.txt`; do echo "rm ${i%.ParaAT.out}.kaks; find ${i} -name '*.kaks' |xargs join_kaks.pl > ${i%.ParaAT.out}.kaks";break;done
+lth
+for i in `cat paraat_list.txt`; do bsub512 "rm ${i%.ParaAT.out}.kaks; find ${i} -name '*.kaks' |xargs join_kaks.pl > ${i%.ParaAT.out}.kaks";break;done
+lth
+bj
+lth
+tp
+lth
+rm output.* error.*
+for i in `cat paraat_list.txt`; do bsub -J join_kaks -m yi04 "rm ${i%.ParaAT.out}.kaks; find ${i} -name '*.kaks' |xargs join_kaks.pl > ${i%.ParaAT.out}.kaks";done
+lth
+sz Nissolia_schottii.*pdf
+# Sent -> /Users/liuhui/Downloads/
+for i in *.kaks; do bsub -e $i.err "get_ks_peak.R $i > $i.peak"; break; done
+lth
+bj
+lth
+for i in *.kaks; do bsub -e $i.err "get_ks_peak.R $i > $i.Gnull.peak ; get_ks_peak.R $i 2 > $i.G2.peak"; break; done
+lth
+les Abrus_precatorius.Lysidice_rhodostegia.ortho.kaks.err 
+more Abrus_precatorius.Lysidice_rhodostegia.ortho.kaks.G2.peak Abrus_precatorius.Lysidice_rhodostegia.ortho.kaks.Gnull.peak
+lth
+vi paraat_list.txt 
+lt
+bj
+vi $BD/Rscripts/get_ks_peak.R 
+for i in *.kaks; do bsub -e $i.err "get_ks_peak.R $i > $i.Gnull.peak ; get_ks_peak.R $i 2 > $i.G2.peak"; break; done
+lth
+rm Abrus_precatorius.Lysidice_rhodostegia.ortho.kaks.kspeak.G.2.pdf
+rm Nissolia_schottii.Zenia_insignis.ortho.kaks.kspeak.G.2.pdf
+lth
+bj
+lth
+bj
+lth
+bj
+lth
+bj
+lth
+les Abrus_precatorius.Lysidice_rhodostegia.ortho.kaks.err 
+more Abrus_precatorius.Lysidice_rhodostegia.ortho.kaks.G2.peak Abrus_precatorius.Lysidice_rhodostegia.ortho.kaks.Gnull.peak
+lth
+for i in *.kaks; do bsub -e $i.err "get_ks_peak.R $i > $i.Gnull.peak ; get_ks_peak.R $i 2 > $i.G2.peak"; done
+ls *.kaks |wc -l
+bjl
+bjobs -l 8281
+lth 
+bjl
+les Vigna_subterranea.Cercis_chinensis.ortho.kaks.err
+les *.peak
+ls *.peak |head
+head -6 Abrus_precatorius.Lysidice_rhodostegia.ortho.kaks.Gnull.peak |tail -n 1
+ll *.Medicago*.Gnull.peak
+bj
+les *.Medicago*.Gnull.peak
+head -6 *.Medicago*.Gnull.peak  |tail -n 1
+head -6 Senna_tora.Medicago_truncatula.ortho.kaks.Gnull.peak |tail -n 1
+head -6 Senna_tora.Medicago_truncatula.ortho.kaks.Gnull.peak |tail -n 1 |cut -f1
+head -6 Senna_tora.Medicago_truncatula.ortho.kaks.Gnull.peak |tail -n 1 |awk '{print $1}'
+vi ../gff3_list
+ls *gff3 | les
+ls *gff3 |grep -VP "\..*_" |les
+ls *gff3 |grep -V "\..*_" |les
+ls *gff3 |grep -vP '\..*_' |les
+cp ../gff3_list ./
+vi summary_peak.sh
+more Medicago_truncatula.Medicago_truncatula.ortho.kaks.Gnull.peak
+chmod -w *.kaks
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/*.kaks
+ls
+vi summary_peak.sh
+ll *.Medicago*.kaks
+echo 'for i in *.kaks; do bsub -e $i.err "get_ks_peak.R $i > $i.Gnull.peak ; get_ks_peak.R $i 2 > $i.G2.peak"; done' > ../02.get_peak.sh
+for i in *.kaks; do bsub -e $i.err "get_ks_peak.R $i > $i.Gnull.peak ; get_ks_peak.R $i 2 > $i.G2.peak"; done
+lt *.sh
+lt *.sh|head
+mv summary_peak.sh ../
+cd ..
+mv summary_peak.sh 03.summary_peak.sh
+vi 03.summary_peak.sh 
+ll Medicago_truncatula.Medicago_truncatula.ortho.kaks.Gnull.peak
+bjl
+ll Medicago_truncatula.Medicago_truncatula.ortho.kaks
+ll mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks.Gnull.peak
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh 
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh 
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh 
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh 
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh 
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh 
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh 
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh > peak_medicago.txt
+logsh
+sz peak_medicago.txt 
+# Sent -> /Users/liuhui/Downloads/
+sz mcscanX/Astragalus_sinicus*.pdf
+**0100000063f694
+�**0100000063f694
+# Sent -> /Users/liuhui/Downloads/
+lt mcscanX/Astragalus_sinicus*.pdf
+cd mcscanX/
+ll Astragalus_sinicus.*
+ll
+cd ..
+ll
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh > peak_medicago.txt
+sz peak_medicago.txt 
+# Cancelled transfer
+sz peak_medicago.txt 
+# Sent -> /Users/liuhui/Downloads/
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh > peak_medicago.txt
+sz peak_medicago.txt 
+# Sent -> /Users/liuhui/Downloads/
+sz peak_medicago.txt 
+# Sent -> /Users/liuhui/Downloads/
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh > peak_medicago.txt
+sz peak_medicago.txt 
+# Sent -> /Users/liuhui/Downloads/
+ll mcscanX/Astragalus_sinicus*
+vi 03.summary_peak.sh 
+more mcscanX/Astragalus_sinicus.Astragalus_sinicus.ortho.kaks.Gnull.peak
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh > peak_medicago.txt
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh > peak_medicago.txt
+more peak_medicago.txt 
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh > peak_medicago.txt
+lth
+vi peak_medicago.txt 
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh > peak_medicago.txt
+sz peak_medicago.txt 
+# Sent -> /Users/liuhui/Downloads/
+cd mcscanX/
+ll Lysidice_rhodostegia.*
+ls Lysidice_rhodostegia.Medicago_truncatula.ortho.ParaAT.out |wc -l
+ll Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks
+les Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks
+cd ..
+cd -
+ll Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks*
+les Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks.err 
+les Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks
+cut -f4 Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks |les
+cd ..
+cd -
+for i in Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks; do bsub -e $i.err "get_ks_peak.R $i ; get_ks_peak.R $i 2"; break; done  
+for i in Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks; do  "get_ks_peak.R $i ; get_ks_peak.R $i 2"; break; done  
+for i in Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks; do get_ks_peak.R $i ; get_ks_peak.R $i 2; break; done  
+vi $BD/Rscripts/get_ks_peak.R 
+get_ks_peak.R Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks
+vi $BD/Rscripts/get_ks_peak.R 
+cut -f4 Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks |les
+cut -f4 Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks |sort -k1,1 |les
+cut -f4 Lysidice_rhodostegia.Medicago_truncatula.ortho.kaks |sort -k1,1 |grep -v "NA" |tail
+vi $BD/Rscripts/get_ks_peak.R 
+for i in *.kaks; do echo -n "$i    "; grep Ks $i |wc -l; done
+les Cicer_reticulatum.Senna_tora.ortho.kaks
+ls *kaks.1
+for i in *.kaks; do mv ${i} ${i}.1; head -1 ${i}.1 > ${i}; grep -v "Ks" ${i}.1 >> ${i}; done
+lth
+for i in *.kaks; do bsub -e $i.err "get_ks_peak.R $i > $i.Gnull.peak ; get_ks_peak.R $i 2 > $i.G2.peak"; done
+cd ..
+ls
+lt
+chd
+kl
+ll
+chmod -x mcscan*sh
+ll
+mv mcscanX.sh 01.mcscanX.sh
+ll
+chmod +x 01.mcscanX.sh 
+ltrh
+lth
+ll
+vi 03.summary_peak.sh 
+bj
+bjl
+lth
+bj
+lth
+bj
+cd -
+ll *peak |les
+ll *.peak |les
+cd ..
+ls
+lt
+vi 03.summary_peak.sh 
+bj
+cd -
+ll
+bash 03.summary_peak.sh 
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh > peak_medicago.txt
+sz peak_medicago.txt 
+# Sent -> /Users/liuhui/Downloads/
+cd mcscanX/
+ll Lysidice_rhodostegia.*pdf
+sz Lysidice_rhodostegia.*pdf
+# Sent -> /Users/liuhui/Downloads/
+sz Medicago_truncatula.Medicago_truncatula.*pdf
+# Sent -> /Users/liuhui/Downloads/
+more Medicago_truncatula.Medicago_truncatula.ortho.kaks.Gnull.peak 
+more Zenia_insignis.Zenia_insignis.*Gnull.peak
+more Senna_tora.*Gnull.peak
+more Senna_septemtrionalis.Senna_septemtrionalis.ortho.kaks.Gnull.peak 
+grep  -A2 mean Senna_septemtrionalis.Senna_septemtrionalis.ortho.kaks.Gnull.peak
+grep  -A2 mean Senna_septemtrionalis.Senna_septemtrionalis.ortho.kaks.Gnull.peak |tail -n 1
+ls
+cd ..
+ll
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh 
+bash 03.summary_peak.sh > peak_medicago.txt
+sz peak_medicago.txt 
+# Sent -> /Users/liuhui/Downloads/
+les peak_medicago.txt 
+sz peak_medicago.txt 
+# Sent -> /Users/liuhui/Downloads/
+sz mcscanX/Aeschynomene_evenia.Medicago_truncatula.ortho.kaks.kspeak.Gnull.pdf 
+# Sent -> /Users/liuhui/Downloads/
+sz mcscanX/Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks.kspeak.Gnull.pdf 
+# Sent -> /Users/liuhui/Downloads/
+sz mcscanX/Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks.kspeak.G2.pdf 
+# Sent -> /Users/liuhui/Downloads/
+more mcscanX/Medicago_truncatula.Medicago_truncatula.*G2*peak
+ll
+vi 02.get_peak.sh 
+cd -
+for i in *.kaks; do bsub -e $i.err "get_ks_peak.R $i 3 > $i.G3.peak"; done
+bjl
+lth
+less Trifolium_subterraneum.Trifolium_subterraneum.ortho.kaks.G3.peak 
+cd ..
+ls
+vi 03.summary_peak.sh 
+cp 03.summary_peak.sh 03.summary_peak.sh.1
+vi 03.summary_peak.sh 
+bash 03.summary_peak.sh
+lth
+sz peak_medicago.txt 
+# Sent -> /Users/liuhui/Downloads/
+more mcscanX/Zenia_insignis.Zenia_insignis.ortho.kaks.G3.peak 
+sz mcscanX/Zenia_insignis.Zenia_insignis.ortho.kaks.G*pdf
+**0100000063f694
+�**0100000063f694
+# Sent -> /Users/liuhui/Downloads/
+sz mcscanX/Senna_tora.Senna_tora.ortho.kaks.*pdf
+# Sent -> /Users/liuhui/Downloads/
+more mcscanX/Senna_tora.Senna_tora.ortho.kaks.*.peak
+lt
+vi peak_medicago.txt 
+vi 03.summary_peak.sh
+bash 03.summary_peak.sh > peak_medicago.txt
+vi peak_medicago.txt 
+sz peak_medicago.txt 
+# Sent -> /Users/liuhui/Downloads/
+sz mcscanX/Aeschynomene_evenia.Aeschynomene_evenia.*pdf
+# Sent -> /Users/liuhui/Downloads/
+les mcscanX/Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks
+awk '$3>1' mcscanX/Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks |les
+awk '$5>1' mcscanX/Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks |les
+awk '$5 != "NA" && $5>1' mcscanX/Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks |les
+mkdir test_prune_selection
+cp mcscanX/Aeschynomene_evenia*.ortho.kaks test_prune_selection/
+cd test_prune_selection/
+ll
+for i in *.kaks; do mv ${i} ${i}.1; head -1 ${i}.1 >> ${i}; awk '$5 != "NA" && $5<=1' ${i}.1 > ${i}; done
+lth
+ll
+cp ../02.get_peak.sh ./
+vi 02.get_peak.sh 
+bs 02.get_peak.sh 
+cp ../03.summary_peak.sh ./
+vi 03.summary_peak.sh 
+ll
+lth
+les Aeschynomene_evenia.Zenia_insignis.ortho.kaks.err 
+les Aeschynomene_evenia.Zenia_insignis.ortho.kaks
+for i in *.kaks; do head -1 ${i}.1 >> ${i}; awk '$5 != "NA" && $5<=1' ${i}.1 >> ${i}; done
+for i in *.kaks; do head -1 ${i}.1 > ${i}; awk '$5 != "NA" && $5<=1' ${i}.1 >> ${i}; done
+ls *sh
+vi 02.get_peak.sh 
+bash 02.get_peak.sh 
+bj
+lth
+bj
+lth
+ll *sh
+vi 03.summary_peak.sh 
+ll
+bj
+lth
+more *peak
+bj
+more *peak
+bj
+lt
+ll *peak
+bj
+ll *peak
+more Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks*peak
+grep -A3 mean Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks*peak
+sz Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks*pdf
+# Sent -> /Users/liuhui/Desktop/
+top
+ls
+cd ..
+cd mcscanX/
+grep -A3 mean Chamaecrista_pumila.Chamaecrista_pumila.*peak
+sz Chamaecrista_pumila.*pdf
+# Sent -> /Users/liuhui/Downloads/
+grep -A3 mean Chamaecrista_fasciculata.Chamaecrista_fasciculata.*peak
+sz Chamaecrista_fasciculata.Chamaecrista_fasciculata.*pdf
+# Sent -> /Users/liuhui/Downloads/
+ls
+mkdir ../test_GMM
+cp Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks ../test_GMM/
+cd ../test_GMM/
+lt
+ll
+les Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks 
+cp $BD/Rscripts/get_ks_peak.R .
+shopt -s direxpand
+vc
+gtp
+gtps
+ls
+vi get_ks_peak.R 
+Rscript get_ks_peak.R Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks 2
+Rscript get_ks_peak.R Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks 3
+more ../mcscanX/Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks.G3.peak 
+tolava 
+lt
+python -c 'import sklearn'
+lt
+ll
+les *kaks
+vi get_ks_peak.R 
+vi get_ks_peak.python
+vi get_ks_peak.py
+lt
+les *kaks
+cut -f4 *kaks |grep -v Ks |grep -v NA > input.eg
+vi input.eg 
+lt
+vi get_ks_peak.py 
+python get_ks_peak.
+python get_ks_peak.py 
+vi get_ks_peak.py 
+python get_ks_peak.py 
+vi get_ks_peak.py 
+python get_ks_peak.py 
+vi get_ks_peak.py 
+python get_ks_peak.py 
+lt
+vi get_ks_peak.py 
+python get_ks_peak.py 
+vi get_ks_peak.py 
+python get_ks_peak.py 
+vi get_ks_peak.py 
+python get_ks_peak.py 
+vi get_ks_peak.py 
+python get_ks_peak.py 
+vi get_ks_peak.py 
+python get_ks_peak.py 
+top
+vi get_ks_peak.
+vi get_ks_peak.py 
+ls
+head *kaks > eg.kaks
+sz eg.kaks 
+# Sent -> /Users/liuhui/Downloads/
+lt
+vi get_ks_peak.R
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.
+vi get_ks_peak.py 
+vi get_ks_peak.
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+ls
+vi get_ks_peak.
+vi get_ks_peak.R 
+Rscript get_ks_peak.R ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+Rscript get_ks_peak.R ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks 3
+vi get_ks_peak.R
+Rscript get_ks_peak.R ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks 3
+vi get_ks_peak.R
+Rscript get_ks_peak.R ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks 3
+vi get_ks_peak.R
+Rscript get_ks_peak.R ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks 3
+vi get_ks_peak.R
+Rscript get_ks_peak.R ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks 3
+ls
+Rscript get_ks_peak.R Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+Rscript get_ks_peak.R Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks 3
+python get_ks_peak.py  Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.R
+vi get_ks_peak.py 
+python get_ks_peak.py ../mcscanX/Medicago_truncatula.Medicago_truncatula.ortho.kaks
+vi get_ks_peak.py 
+for i in `seq 100`; do python get_ks_peak.py Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks; done
+vi get_ks_peak.py 
+for i in `seq 100`; do python get_ks_peak.py Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks; done
+for i in `seq 10`; do python get_ks_peak.py Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks; done
+for i in `seq 100`; do python get_ks_peak.py Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.kaks >> b100.txt; done
+ll
+mamba create -n longstitch -c bioconda -c conda-forge longstitch
+conda activate longstitch
+ls $CONDA_DEFAULT_ENV/
+ls /nfs/liuhui/.conda/envs/longstitch/share/
+find /nfs/liuhui/.conda/envs/longstitch/ -name ./run_longstitch_demo.sh
+find /nfs/liuhui/.conda/envs/longstitch/ -name run_longstitch_demo.sh
+ll
+cd projects/
+lt
+mkdir -p buzzo
+cd buzzo/
+ll
+mkdir longstitch
+cd longstitch/
+rz
+# Received /Users/liuhui/Downloads/LongStitch-master.zip
+ll
+rz
+# Received /Users/liuhui/Downloads/SLR-master.zip
+lt
+bj
+ls
+cd bin/
+ls
+rz 
+# Received /Users/liuhui/Downloads/EDTA-2.0.0.tar.gz
+ll
+tar -xvzf EDTA-2.0.0.tar.gz 
+cd EDTA-2.0.0/
+ll
+vi README.md 
+mamba env create -f EDTA.yml
+conda activate EDTA
+which LTR_retriever
+cd ~/.conda/envs/EDTA/bin/
+ls
+cd ../share/
+ls
+cd LTR_Finder/
+ls
+ll
+cd build/
+lt
+cd ..
+cd source/
+ll
+cd -
+ls
+cd ..
+ls
+cd ..
+find . -iname "LTR_finder_parallel"
+cd ./share/EDTA/bin/
+ll
+more README.md 
+lt
+cd LTR_FINDER_parallel/
+ls
+addpwd 
+cd ..
+lt
+cd HelitronScanner/
+ll
+cd -
+ll
+cd LTR_HARVEST_parallel/
+ls
+addpwd
+cd ../
+ll
+cd
+LTR_HARVEST_parallel
+cd -
+ls
+ll
+cd TIR-Learner2.5/
+ll
+cd -
+ll
+cd HelitronScanner/
+ll
+cd
+ls
+python -m iga.annotation
+conda deactivate
+python -m iga.annotation
+python -m iga.annotation.repeat
+python -m iga.annotation.repeat repeatmasker -h
+cd bin/
+ls
+lt
+mkdir baum
+cd baum/
+lt
+rz
+# Received /Users/liuhui/OneDrive/Software/BioInfor/Bio_Software/BAUMsoft.tar.gz
+lt
+tar -xvzf BAUMsoft.tar.gz 
+lt
+cd BAUMsoft/
+ll
+vi MANUAL.md 
+mkdir dependency
+cd dependency/
+lt ../src/
+ll
+wget http://www.phrap.org/consed/distributions/29.0/consed_linux.tar.gz
+ll
+lt
+conda env list
+mamba create -n gemoma -c bioconda gemoma  
+–-
+which pip
+pip install paralleltask
+ll
+cd projects/
+lt
+cd buzzo/
+lt
+cd
+cd bin/
+cd ne
+rz
+# Received /Users/liuhui/Downloads/NextDenovo.tgz
+lt
+tar -xvzf NextDenovo.tgz 
+cd NextDenovo/
+ll
+./nextDenovo 
+addpwd
+lt
+addpwd
+cd ..
+rz 
+# Received /Users/liuhui/Downloads/NextPolish.tgz
+tar -xvzf NextPolish.tgz 
+cd Next
+cd NextPolish/
+ll
+addpwd
+./nextPolish 
+ls
+ll
+l
+ll
+cd
+cd projects/
+lt
+cd buzzo/
+lt
+mkdir duparquetia
+cd duparquetia/
+ll
+scp 192.168.119.11:/mnt/mobile_drive/DataFraser6/duparquetia/ONT/pass.fq.gz ./
+scp -P201 192.168.119.11:/mnt/mobile_drive/DataFraser6/duparquetia/ONT/pass.fq.gz ./
+ll
+more ~/bin/NextDenovo/test_data/run.cfg 
+ll
+vi run_nextdenovo.sh
+ls pass.fq.gz > input.fofn
+vi run_nextdenovo.sh
+lt
+chd
+vi run_nextdenovo.sh 
+mv run_nextdenovo.sh run.cfg
+bsub512 -m yi04 -J dup_nextdenovo "nextDenovo run.cfg |tee nextdenovo.log"
+bj
+lt
+sc
+top
+tp
+bsub512 -m yi04 -J dup_nextdenovo "nextDenovo run.cfg |tee nextdenovo.log"
+rm error.9362 output.9362 
+bj
+lt
+more run.cfg 
+ssh yi04
+bj
+lth
+les error.9363 
+lt /nfs/liuhui/projects/buzzo/duparquetia/duparquetia_ont_asm/03.ctg_graph/nd.asm.fasta
+vi run.cfg 
+les *info
+vi run.cfg 
+bsub512 -m yi04 -J dup_nextdenovo "nextDenovo run.cfg |tee nextdenovo.log"
+lt
+les error.9363 
+mamba create -n flye flye
+mamba create -c bioconda -c conda-forge -n flye flye
+python -m iga.assembly.assemble flye
+python -m iga.assembly.assemble flye -h
+conda activate flye
+flye -h
+ls
+more *cfg
+bsub -n 60 -J dup_flye -o dupflye.log -e dupflye.err "flye --nano-raw pass.fq.gz -g 516m -o duparquetia.flye -t 60" 
+logsh
+lth
+les pid76720.log.info 
+vi run.cfg 
+bsub512 -m yi04 -J dup_nextdenovo "nextDenovo run.cfg "
+rm pid76720.log.info output.9364 error.9364
+bj
+lth
+ls
+lt
+mv pid73710.log.info output.9363 error.9363 duparquetia_ont_asm/
+ll
+lt
+bj
+bhosts 
+bj
+bhosts 
+bj |wc -l
+bjobs -l 9366
+bhosts 
+bj
+lth
+les error.9366 
+conda deactivate
+rm error.9366 output.9366 
+lt
+bsub512 -m yi04 -J dup_nextdenovo "nextDenovo run.cfg "
+bj
+lt
+cd ~/bin/
+ls
+rz
+# Received /Users/liuhui/Downloads/wtdbg-2.5_x64_linux.tgz
+tar -xvzf wtdbg-2.5_x64_linux.tgz 
+cd wtdbg-2.5_x64_linux/
+ls
+addpwd
+sc
+top
+lt
+ls
+ll /home/liuhui/projects/buzzo/platanus/soapdenovo_ecc14/Duparquetia*gz
+ll
+cd projects/buzzo/
+ll
+cd duparquetia/
+ls
+mkdir input_sgs_reads
+cd input_sgs_reads/
+nohup cp /home/liuhui/projects/buzzo/platanus/soapdenovo_ecc14/Duparquetia*gz ./ &
+lt
+conda env list
+conda env list
+sch
+cd
+conda env list
+ls
+cd projects/buz
+cd projects/buzzo/
+ll
+ps ux
+lt
+cd busco/
+ll
+more myconfig.ini 
+cd ..
+nohup cp -r busco/ /nfs/liuhui/projects/buzzo/ &
+echo $BUSCO_CONFIG_FILE 
+vc
+more ~/projects/buzzo/busco/myconfig.ini
+cdf ~/projects/buzzo/busco/myconfig.ini
+cd ~/projects/buzzo/busco/
+lt
+echo  /nfs/liuhui/projects/buzzo/busco/busco_downloads >> myconfig.ini 
+vi myconfig.ini 
+lt
+cd ..
+c
+vc
+sc
+echo $BUSCO_CONFIG_FILE 
+cd -
+j dupar
+lt
+bj
+lt
+moer error.9367 
+more error.9367 
+vi run.cfg 
+bsub512 -m yi04 -J dup_nextdenovo "nextDenovo run.cfg "
+lt
+wtdbg2.pl
+bsub512 -m yi04 "wtdbg2.pl -x ont -t 50 -g 516m -t 16 -i pass.fq.gz -fo dup_wtdbg2"
+logsh
+lt
+bj
+lt
+bj
+lth
+les error.9369 
+ll
+bsub512 -m yi04 "wtdbg2.pl -x ont -t 50 -g 516m -t 16 -o dup_wtdbg2 pass.fq.gz"
+lt
+rm error.9369  output.9369 
+lt
+more error.9370 
+wtdbg2.pl 
+vi `which wtdbg2.pl `
+which minimap2
+which minimap
+tog
+tolava 
+bsub512 -m yi04 "wtdbg2.pl -x ont -t 50 -g 516m -t 16 -o dup_wtdbg2 pass.fq.gz"
+lt
+rm output.9370 error.9370
+lt
+more pid768
+rm error.9367 output.9367 pid76866.log.info
+more pid76898.log.info 
+lt
+bj
+lt
+ssh yi04
+lt
+les pid76898.log.info 
+lt
+vi input.fofn 
+vi nextdenovo.log 
+vi run.cfg 
+mv duparquetia_ont_asm duparquetia_ont_asm.default
+bsub512 -m yi04 -J dup_nextdenovo "nextDenovo run.cfg "
+bj
+lt
+lth
+les error.9368 
+rm error.9368 output.9368 pid76898.log.info
+lth
+les pid88696.log.info
+ll /nfs/liuhui/projects/buzzo/duparquetia/duparquetia_ont_asm
+les pid88696.log.info
+bj
+lth
+mamba create -n quickmerge -c conda-forge -c bioconda quickmerge
+lt
+bjl
+les dup_wtdbg2.events
+N50v1.pl dup_wtdbg2.raw.fa
+lt
+les pid88696.log.info 
+cd duparquetia.flye/
+lt
+tail flye.log 
+cd 00-assembly/
+lt
+N50v1.pl draft_assembly.fasta
+lt
+lt ../..
+lt
+cd ..
+lt
+lt 10-consensus/
+cd 00-assembly/
+python -m iga.assembly.assemble 
+python -m iga.assembly.polish
+python -m iga.assembly.polish nextpolish
+python -m iga.assembly.polish nextpolish -h
+ls
+ll
+cp draft_assembly.fasta draft_assembly.fasta.1
+chmod -w draft_assembly.fasta.1 
+ll
+python -m iga.assembly.polish nextpolish draft_assembly.fasta 'a.fq b.fq'
+bkill 9373
+lt
+vi bsub.nextpolishdraft_assembly.831449.sh 
+lt ../../input_sgs_reads/
+lt
+ln -s ../../input_sgs_reads/Duparquetia_orchidacea_libA_1.fq.gz.clean.fq.gz
+ln -s ../../input_sgs_reads/Duparquetia_orchidacea_libA_2.fq.gz.clean.fq.gz
+ll
+vi bsub.nextpolishdraft_assembly.831449.sh 
+ll
+ln -s ../../pass.fq.gz 
+ll
+ls pass.fq.gz > lgs.fofn
+vi bsub.nextpolishdraft_assembly.831449.sh 
+lt
+lt ../../input_sgs_reads/
+lt
+top
+lt
+bj
+lt
+lt ../../
+cd ../
+lt
+cd ..
+lt
+conda env list
+mamba create -n busco -c conda-forge -c bioconda busco
+gtp
+sc
+ps ux
+top
+tp
+bjl
+tp
+ps ux  |grep wtdbg
+tp
+lt
+cd projects/
+tp
+ps ux |les
+ls
+lt
+tp
+htop
+top
+htop
+lsload
+bjl
+tp
+lt
+cd -
+lt
+python -m iga.assembly.assess busco dup_wtdbg2.cns.fa
+gtp
+python -m iga.assembly.assess busco dup_wtdbg2.cns.fa
+bj
+lth
+les pid88696.log.info 
+les error.9372 
+lt
+bjl
+mv duparquetia_ont_asm duparquetia_ont_asm.r2
+lt
+mv error.9372 output.9372 pid88696.log.info duparquetia_ont_asm.r2/
+lt
+mkdir duparquetia_wtdbg2_asm
+mv dup_wtdbg2.* duparquetia_wtdbg2_asm/
+lt
+ln -s duparquetia_wtdbg2_asm/dup_wtdbg2.cns.fa
+ll
+tail busco_24845.log 
+bj
+lth
+lt
+les error.9371 
+mv error.9371 output.9371 duparquetia_wtdbg2_asm/
+lt
+bj 
+bjobs -l 9374
+bkill 9374
+lt
+rm dup_wtdbg2.cns.fa 
+lt
+rm busco_24845.log bsub.buscodup_wtdbg2.cns.fa.074473.sh
+cd duparquetia_wtdbg2_asm/
+lt
+rm -r dup_wtdbg2.cns.fa.busco.embryophyta.v4.1.2/
+lt
+python -m iga.assembly.assess busco dup_wtdbg2.cns.fa
+bj
+lth
+cd ..
+lt
+les error.9374 
+rm error.9374 output.9374 
+lt
+vi run.cfg 
+more shell 
+bsub512 -n 30 -m yi04 -J dup_nextdenovo "nextDenovo run.cfg "
+logsh
+lt
+cd duparquetia.flye/
+lt
+cd 40-polishing/
+lt
+more minimap.stderr 
+cd ..
+lt
+cd 30-contigger/
+lt
+cd ../00-assembly/
+lt
+cd ../
+lt
+cd 30-contigger/
+lt
+N50v1.pl contigs.fasta
+les contigs_stats.txt 
+lt
+cp ../00-assembly/bsub.nextpolishdraft_assembly.831449.sh ./
+ln -s ../../input_sgs_reads/Duparquetia_orchidacea_libA_1.fq.gz.clean.fq.gz
+ln -s ../../input_sgs_reads/Duparquetia_orchidacea_libA_2.fq.gz.clean.fq.gz
+ll
+vi bsub.nextpolishdraft_assembly.831449.sh 
+ls $PWD/contigs.fasta
+vi bsub.nextpolishdraft_assembly.831449.sh 
+lt
+bsub512 -n 30 -m yi04 -J nextpolish < bsub.nextpolishdraft_assembly.831449.sh 
+bj
+bjl
+lt
+bj
+lt
+bjobs -l 9377
+bhosts 
+bjobs -l 9377
+bjl
+bjobs -l 9377
+lt
+more error.9377 
+cp ../00-assembly/lgs.fofn ./
+more lgs.fofn 
+lt
+ls /nfs/liuhui/projects/buzzo/duparquetia/pass.fq.gz > lgs.fofn 
+rm -r output.9377 error.9377 workdir_nextpolish_draft_assembly/
+bsub512 -n 30 -m yi04 -J nextpolish < bsub.nextpolishdraft_assembly.831449.sh 
+logsh
+lt
+more error.9378 
+lt
+vi bsub.nextpolishdraft_assembly.831449.sh 
+ls $PWD/lgs.fofn
+vi bsub.nextpolishdraft_assembly.831449.sh 
+rm -r output.9378 error.9378 workdir_nextpolish_draft_assembly/
+lt
+bsub512 -n 30 -m yi04 -J nextpolish < bsub.nextpolishdraft_assembly.831449.sh 
+bj
+lt
+bj
+lth
+bj
+lth
+bjl
+lt
+les error.9379 
+more workdir_nextpolish_draft_assembly/03_polish.sgs_round0/00.lgs_polish/01.db_split.sh.work/db_split3/nextPolish.sh.e
+which samtools
+ls /nfs/liuhui/bin/NextPolish/bin/samtools
+ls /nfs/liuhui/bin/NextPolish/bin/
+ls /nfs/liuhui/bin/NextPolish/
+ls /nfs/liuhui/bin/NextPolish/util/
+ls /nfs/liuhui/bin/NextPolish/util/samtools/
+cd /nfs/liuhui/bin/NextPolish/
+lt
+make -j 20
+find . -name curses.h
+lt
+lt bin/
+find . -name htslib
+cd lib/htslib/
+ls
+vi curses.h
+cd -
+make -j 20
+cd -
+vi curses.h
+cd ../..
+make -j 20
+cd -
+vi curses.h
+cd -
+make -j 20
+tolava 
+ls /nfs/apps/openlava/
+cp /nfs/apps/miniconda3/include/curses.h  lib/htslib/
+make -j 20
+ll
+cd ..
+mv NextPolish NextPolish.1
+lt
+mv NextPolish.1 NextPolish
+cd NextPolish/
+ll
+make -j 20
+vc
+for i in CXXFLAGS CFLAGS CPPFLAGS; do export ${i}=-I/nfs/apps/miniconda3/include; done
+echo $CXXFLAGS 
+rm lib/htslib/curses.h 
+make -j 20
+cd /nfs/liuhui/bin/NextPolish/util/samtools/
+gcc -g -Wall -O2 -I. -I../../lib/htslib/ -I./lz4 -I/nfs/apps/miniconda3/include -c -o bam_tview_curses.o bam_tview_curses.c
+cd ../..
+make -j 20
+find /nfs/apps/miniconda3/ -name "bzlib.h"
+ls */*cram
+find . -name cram
+cp /nfs/apps/miniconda3/pkgs/bzip2-1.0.8-h7f98852_4/include/bzlib.h ./lib/htslib/cram/
+make -j 20
+cp /nfs/apps/miniconda3/pkgs/bzip2-1.0.8-h7f98852_4/include/bzlib.h ./lib/htslib/
+make -j 20
+find /nfs/apps/miniconda3/ -name "lzma.h"
+cp /nfs/apps/miniconda3/pkgs/xz-5.2.5-h7b6447c_0/include/lzma.h ./lib/htslib/
+make -j 20
+sudo su
+pushd ~/Documents/
+ll
+vi 09.install_lib.sh
+bash 09.install_lib.sh 
+bash 09.install_lib.sh
+vi 09.install_lib.sh
+bash 09.install_lib.sh
+popd
+ls
+make -j 20
+vc
+vw
+ldconfig
+pushd ~/Documents/
+lt
+more 09.install_lib.sh 
+vi 09.install_lib.sh 
+bash 09.install_lib.sh 
+cd -
+ll
+make -j 20
+lt
+cd bin/
+ls
+popd
+ls
+cd
+cd projects/buzzo/
+lt
+cd duparquetia/
+lt
+les error.9376 
+lt
+cd duparquetia_wtdbg2_asm/
+lt
+more error.9375  
+lt
+more */*sum*
+cd ..
+ll
+cd duparquetia.flye/
+lt
+lt 40-polishing/
+bjl
+lt
+cd 30-contigger/
+lt
+rm -r workdir_nextpolish_draft_assembly output.9379 error.9379
+more shell 
+bsub512 -n 30 -m yi04 -J nextpolish < bsub.nextpolishdraft_assembly.831449.sh
+lt
+bjl
+lt
+cd ..
+lt
+cd ..
+lt
+mv duparquetia_ont_asm duparquetia_ont_asm.r3
+mv pid165192.log.info output.9376 error.9376 duparquetia_ont_asm.r3/
+cd duparquetia_ont_asm.r3/
+lt
+cd 03.ctg_graph/
+lt
+python -m iga.assembly.assess busco nd.asm.fasta
+lt
+cd ../..
+lt
+cd duparquetia.flye/
+lt
+cd 40-polishing/
+lt
+tail minimap.stderr 
+cp ../30-contigger/bsub.nextpolishdraft_assembly.831449.sh ./
+ll
+vi bsub.nextpolishdraft_assembly.831449.sh 
+lt
+vi bsub.nextpolishdraft_assembly.831449.sh 
+lt
+les consensus_1.fasta 
+lt
+cd ../30-contigger/
+lt
+cd workdir_nextpolish_draft_assembly/
+lt
+tail pid18047.log.info 
+cd ../
+lt
+cd ../40-polishing/
+lt
+N50v1.pl consensus_1.fasta 
+lt
+les minimap.e
+les minimap.er
+les minimap.stderr 
+lt
+cd ../
+lt
+cd 30-contigger/
+lt
+lt workdir_nextpolish_draft_assembly/
+lt
+vi bsub.nextpolishdraft_assembly.831449.sh 
+lt
+python -m iga.assembly.assess busco contigs.fasta
+bj
+bjl
+bhosts 
+lsload
+bj
+lt
+tail busco_144065.log 
+N50v1.pl contigs.fasta > contigs.fasta.n50 &
+lt
+more *50
+lt
+bjl
+lth
+more *50
+lt
+cp contigs.fasta contigs.fasta.1 &
+lt
+top
+lt
+cd workdir_nextpolish_draft_assembly/
+lt
+cd 03_polish.sgs_round0/
+lt
+ls
+ll
+cd -
+lt
+les pid18047.log.info 
+lt
+more *cfg
+lt
+cd ..
+lt
+lt 40
+lt ../40-polishing/
+bjl
+top
+lt
+les busco_144065.log 
+bjl
+les busco_144065.log 
+tp
+lt
+cd contigs.fasta.busco.embryophyta.v4.1.2/
+lt
+cd run_embryophyta_odb10/
+lt
+more short_summary.txt 
+cd -
+cd ..
+lt
+bjl
+lt workdir_nextpolish_draft_assembly/
+les workdir_nextpolish_draft_assembly/pid18047.log.info 
+lt ..
+cd ..
+les flye.log 
+lt
+cp 40-polishing/bsub.nextpolishdraft_assembly.831449.sh ./
+ll
+chd
+ll
+chmod -w assembly.fasta 
+ll
+ls /nfs/liuhui/projects/buzzo/duparquetia/duparquetia.flye/assembly.fasta 
+vi bsub.nextpolishdraft_assembly.831449.sh 
+bhosts 
+lslo
+lsload
+bsub512 -n 30 -m yi04 -J nextpolish_flye < bsub.nextpolishdraft_assembly.831449.sh
+logsh
+lt
+bjl
+tma
+lth
+cd projects/
+lt
+cd buzzo/
+lt
+cd duparquetia/
+lt
+les dupflye.err 
+cd duparquetia.flye/
+lt
+lt 40-polishing/
+bjl
+lt
+cd ../
+lt
+cd duparquetia_wtdbg2_asm/
+lt
+cp ../duparquetia.flye/bsub.nextpolishdraft_assembly.831449.sh ./
+lt
+ls $PWD/dup_wtdbg2.cns.fa
+vi bsub.nextpolishdraft_assembly.831449.sh 
+bsub512 -m yi04 -n 30 -J wtdbg_polish < dup_wtdbg2.cns.fa
+bj
+bjl
+bhosts 
+lslo
+logsh
+ssh yi04
+bjl
+bpeek 9384
+bkill 9384
+lt
+bsub512 -m yi04 -n 30 -J wtdbg_polish < bsub.nextpolishdraft_assembly.831449.sh
+rm ctg2 ctg1
+lth
+rm output.9384 error.9384 
+lth
+bjl
+lt
+cd ../duparquetia_ont_asm.r3/
+lt
+lsload
+lt
+cd 03.ctg_graph/
+lt
+more nd.asm.fasta.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.nd.asm.fasta.busco.embryophyta.v4.1.2.txt 
+lt
+les 03.ctg_cns.sh
+cp ../../duparquetia.flye/bsub.nextpolishdraft_assembly.831449.sh ./
+lt
+ls ..
+lt
+ls $PWD/nd.asm.fasta
+vi bsub.nextpolishdraft_assembly.831449.sh 
+bsub512 -m yi04 -n 30 -J nd_polish < bsub.nextpolishdraft_assembly.831449.sh
+bjl
+cd ../..
+lt
+cd duparquetia.flye/
+lt
+cd 30-contigger/
+lt
+les error.9382 
+cd workdir_nextpolish_draft_assembly/
+lt
+les pid18047.log.info 
+cd ..
+ll
+lt
+ssh yi04
+lt
+cd ..
+lt
+les assembly_info.txt
+N50v1.pl assembly.fasta > assembly.fasta.n50
+more assembly.fasta.n50
+lt
+lt 40-polishing/
+lt
+ll
+cd ..
+lt
+more duparquetia_ont_asm.r3/03.ctg_graph/nd.asm.fasta.stat 
+N50v1.pl duparquetia_wtdbg2_asm/dup_wtdbg2.cns.fa > duparquetia_wtdbg2_asm/dup_wtdbg2.cns.fa.n50
+more duparquetia_wtdbg2_asm/dup_wtdbg2.cns.fa.n50
+more duparquetia_wtdbg2_asm/dup_wtdbg2.cns.fa.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.dup_wtdbg2.cns.fa.busco.embryophyta.v4.1.2.txt 
+lt
+bjl
+ssh yi04
+lt
+mv dupflye.* duparquetia.flye/
+lt
+vi run.cfg 
+cd duparquetia_ont_asm.r3/
+lt
+les pid165192.log.info 
+lt
+les pid165192.log.info 
+cd /nfs/liuhui/projects/buzzo/duparquetia/duparquetia_ont_asm/02.cns_align/01.seed_cns.sh.work
+lt
+cd 01.raw_align/
+lt
+ls 01.db_split.sh.work/
+ls 01.db_split.sh.work/db_split1/
+lt 01.db_split.sh.work/db_split1/
+more 01.db_split.sh.work/db_split1/*.e
+lt
+more 01.db_split.sh
+/nfs/liuhui/bin/NextDenovo/bin/seq_dump
+cd 02.raw_align.sh.work/
+cd -
+more 02.raw_align.sh
+lt
+les 03.sort_align.sh
+more 03.sort_align.sh
+ll
+cd 03.sort_align.sh.work/
+ll
+cd sort_align1/
+lt
+les *ovl
+les *ovl.bl
+cd ../../
+lt
+cd ..
+lt
+cd 02.cns_align/
+lt
+cd 01.seed_cns.sh.work/
+lt
+lt seed_cns1/
+more seed_cns1/nextDenovo3.sh
+cd ..
+lt
+lt 02.cns_align.sh.work/
+lt 02.cns_align.sh.work/cns_align01/
+more 02.cns_align.sh.work/cns_align01/nextDenovo3.sh
+cd ..
+lt
+cd 03.ctg_graph/
+lt
+more 01.ctg_graph.sh
+ll /nfs/liuhui/projects/buzzo/duparquetia/duparquetia_ont_asm/03.ctg_graph/01.ctg_graph.input.seqs
+les 01.ctg_graph.input.seqs
+ll ../02.cns_align/01.seed_cns.sh.work/seed_cns*/cns.fasta
+ll
+less 01.ctg_graph.input.seqs 
+cd ..
+lt
+cd 01.raw_align/
+ll
+less 01.db_split.sh
+lt 01.db_split.sh.work/
+lt 01.db_split.sh.work/db_split1/
+more 01.db_split.sh
+/nfs/liuhui/bin/NextDenovo/bin/seq_dump
+mkdir tmp
+cd tmp/
+ll
+/nfs/liuhui/bin/NextDenovo/bin/seq_dump -f 0.2k -s 300 -b 1g -n 5 -d . /nfs/liuhui/projects/buzzo/duparquetia/input.fofn
+lt
+less /nfs/liuhui/projects/buzzo/duparquetia/input.fofn 
+lt
+rm *
+/nfs/liuhui/bin/NextDenovo/bin/seq_dump -f 0.2k -s 500 -b 1g -n 5 -d . /nfs/liuhui/projects/buzzo/duparquetia/input.fofn
+lt
+cd ..
+mv tmp split_200_500
+mkdir split_200_900
+cd split_200_900/
+/nfs/liuhui/bin/NextDenovo/bin/seq_dump -f 200 -s 900 -b 1g -n 5 -d . /nfs/liuhui/projects/buzzo/duparquetia/input.fofn
+lt
+ll
+cd ..
+mkdir split_200_1000
+cd split_200_1000/
+/nfs/liuhui/bin/NextDenovo/bin/seq_dump -f 200 -s 1000 -b 1g -n 5 -d . /nfs/liuhui/projects/buzzo/duparquetia/input.fofn &
+cd ../../..
+ls
+cd duparquetia_ont_asm.default/
+lt
+les pid73710.log.info 
+les ../duparquetia_ont_asm.r2/pid88696.log.info 
+cd -
+cd duparquetia_ont_asm.r3/
+lt
+cd 01.raw_align/
+ll
+cd split_200_1000/
+lt
+jos
+ll
+ll ../../../duparquetia_ont_asm.default/01.raw_align/
+ll ../../../duparquetia_ont_asm.default/01.raw_align/*bit
+ll
+ll ../../../duparquetia_ont_asm.default/01.raw_align/*bit
+ll ../split_200_500/
+ll
+cd ../../
+ls
+cd ..
+ls
+ll
+vi run.cfg 
+ll
+bsub512 -m yi04 -J dup_nextdenovo "nextDenovo run.cfg "
+lt
+bjl
+bhosts 
+lslo
+lsload
+ssh yi04
+tolava 
+lt
+les pid47042.log.info 
+ll duparquetia_ont_asm/
+ll duparquetia_ont_asm/01.raw_align/
+les pid47042.log.info 
+lt
+cd duparquetia_ont_asm
+lt
+cd 03.ctg_graph/
+ll
+vi 01.ctg_graph.sh
+ll 01.ctg_graph.sh.work/
+ll 01.ctg_graph.sh.work/ctg_graph1/
+cd 01.ctg_graph.sh.work/ctg_graph1/
+lt
+more nextDenovo4.sh
+/nfs/liuhui/bin/NextDenovo/bin/nextgraph
+ll
+mkdir graph2
+cd graph2/
+cp ../nextDenovo4.sh ./
+ll
+vi nextDenovo4.sh 
+/nfs/liuhui/bin/NextDenovo/bin/nextgraph
+lt
+vi nextDenovo4.sh 
+bsub512 -m yi04 < nextDenovo4.sh 
+lt
+more error.9388 
+/nfs/liuhui/bin/NextDenovo/bin/nextgraph
+nextDenovo -h
+ls
+lt
+cd ../..
+ls
+cd ..
+lt
+vi run.cfg 
+bsub512 -m yi04 -J dup_nextdenovo "nextDenovo run.cfg "
+lt
+mv pid47042.log.info output.9387 error.9387 duparquetia_ont_asm/
+lt
+les pid69790.log.info 
+vi run.cfg 
+cd -
+tl
+lt
+cd 03.ctg_graph/
+lt
+cd 03.ctg_cns.sh.work/
+lt
+cd ..
+lt
+cd 01.ctg_graph.sh.work/
+lt
+cd ctg_graph1/
+lt
+cd graph2/
+lt
+more nextDenovo4.sh 
+/nfs/liuhui/bin/NextDenovo/bin/nextgraph
+vi run.cfg 
+ll
+vi nextDenovo4.sh 
+cp nextDenovo4.sh nextDenovo4.sh.1
+vi nextDenovo4.sh 
+bsub512 < nextDenovo4.sh
+lt
+les error.9388 
+bjl
+lt
+vi nextDenovo4.sh 
+mv nd.asm.p.fasta nd.asm.p.q3.fsata
+bsub512 < nextDenovo4.sh
+lt
+ls /nfs/liuhui/bin/NextDenovo/bin/nextgraph
+ll /nfs/liuhui/bin/NextDenovo/
+ll /nfs/liuhui/bin/NextDenovo/lib/
+find /nfs/liuhui/bin/NextDenovo/ -iname "*graph*"
+ll /nfs/liuhui/bin/NextDenovo/bin/nextgraph 
+vi /nfs/liuhui/bin/NextDenovo/bin/nextgraph 
+lt
+N50v1.pl nd.asm.p.q1.fasta
+/nfs/liuhui/bin/NextDenovo/bin/nextgraph
+man seq
+ll
+vi nextDenovo4.sh
+bsub512 < nextDenovo4.sh
+rm output.93* error.93*
+lt
+/nfs/liuhui/bin/NextDenovo/bin/nextgraph
+lt
+vi nextDenovo4.sh
+bsub512 < nextDenovo4.sh
+/nfs/liuhui/bin/NextDenovo/bin/nextgraph
+bj
+lth
+lt
+/nfs/liuhui/bin/NextDenovo/bin/nextgraph
+vi 
+vi nextDenovo4.sh
+bsub512 < nextDenovo4.sh
+lt
+/nfs/liuhui/bin/NextDenovo/bin/nextgraph
+lt
+vi nextDenovo4.sh
+bsub512 < nextDenovo4.sh
+lth
+bj
+lth
+vi nextDenovo4.sh
+bsub512 < nextDenovo4.sh
+vi nextDenovo4.sh
+lt
+lth
+bjl
+lth
+/nfs/liuhui/bin/NextDenovo/bin/nextgraph
+vi nextDenovo4.sh
+bsub512 < nextDenovo4.sh
+lth
+bjl
+lsload
+lt ~/projects/buzzo/duparquetia/duparquetia.flye/l
+lt ~/projects/buzzo/duparquetia/duparquetia.flye/
+lt ~/projects/buzzo/duparquetia/duparquetia.flye/workdir_nextpolish_flye_assembly/
+lt ~/projects/buzzo/duparquetia/duparquetia.flye/workdir_nextpolish_flye_assembly/03_polish.sgs_round0/
+lth
+cd
+cd projects/buzzo/duparquetia/
+lt
+cd duparquetia_wtdbg2_asm/
+lt
+lt workdir_nextpolish_wtdbg2_assembly/
+lt workdir_nextpolish_wtdbg2_assembly/03_polish.sgs_round0/
+lt workdir_nextpolish_wtdbg2_assembly/03_polish.sgs_round0/03.kmer_count/
+lt workdir_nextpolish_wtdbg2_assembly/03_polish.sgs_round0/03.kmer_count/05.polish.ref.sh
+lt workdir_nextpolish_wtdbg2_assembly/03_polish.sgs_round0/03.kmer_count/05.polish.ref.sh.work/
+lt workdir_nextpolish_wtdbg2_assembly/03_polish.sgs_round0/03.kmer_count/05.polish.ref.sh.work/polish_genome
+lt workdir_nextpolish_wtdbg2_assembly/03_polish.sgs_round0/03.kmer_count/05.polish.ref.sh.work/polish_genome31/
+les workdir_nextpolish_wtdbg2_assembly/03_polish.sgs_round0/03.kmer_count/05.polish.ref.sh.work/polish_genome31/*.e
+lsload
+ssh yi04
+lth
+bjobs
+bjobs -h
+bjobs -J
+man bjobs 
+bjobs -A -l
+man bjobs 
+bjl
+ls
+bj
+bjobs -l
+bjobs -l |less
+bjobs -l |grep 'Job Name'
+cd ../
+lt
+cd duparquetia.flye/
+lt
+cd 30-contigger/
+lt
+les error.9382 
+cd workdir_nextpolish_draft_assembly/
+lt
+les pid18047.log.info 
+lt 03_polish.sgs_round0/
+lt 03_polish.sgs_round0/ |head
+lt 03_polish.sgs_round0/02.score_chain/
+lt 03_polish.sgs_round0/02.score_chain/03.map.ref.sh.work/
+lt 03_polish.sgs_round0/02.score_chain/03.map.ref.sh.work/map_genome30/
+cd ../..
+ls
+cd ..
+lt
+cd duparquetia_ont_asm.r3/
+lt
+cd 03.ctg_graph/
+lt
+les error.9386
+cd workdir_nextpolish_nd_assembly/
+lt
+python -m iga.assembly.assess busco nd_assembly.1.fa 
+bjl
+lt
+cd nd_assembly.1.fa.busco.embryophyta.v4.1.2/
+lt
+cd -
+ll /nfs/liuhui/projects/buzzo/duparquetia/duparquetia_ont_asm.r3/03.ctg_graph/nd.asm.fasta
+lt
+cd ..
+ll
+more nd.asm.fasta.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.nd.asm.fasta.busco.embryophyta.v4.1.2.txt 
+bjl
+bjobs -l |grep 'Job Name'
+cd ../..
+ls
+cd duparquetia.flye/
+ll
+cd 40-polishing/
+ll
+ls
+cd ..
+ll
+cd workdir_nextpolish_flye_assembly/
+ll
+bjobs -l |grep 'Job Name'
+bjobs -l 9383
+ll
+cat >>wait_run.sh
+nohup bash wait_run.sh &
+lt
+les nohup.out 
+bjobs 9383
+lth
+les nohup.out 
+cd ..
+lt
+cd ..
+lt
+cd duparquetia_wtdbg2_asm/
+lt
+cd workdir_nextpolish_wtdbg2_assembly/
+lt
+bjobs -l |grep 'Job Name'
+cp ../../duparquetia.flye/workdir_nextpolish_flye_assembly/wait_run.sh ./
+echo 9385 wtdbg2_assembly.0.fa  >> wait_run.sh 
+vi wait_run.sh 
+nohup bash wait_run.sh &
+lt
+bj
+tp
+cd projects/
+lt
+cd buzzo/
+lt
+cd ../
+lt
+cd phyleg/
+lt
+cd mcscanX/
+ls
+ls *GMMbest
+les *GMMbest
+for i in *GMMbest; do echo -en "${i%.ortho.kaks.GMMbest}\t"; awk '{print $1}' ${i}; done
+for i in *GMMbest; do echo -en "${i%.ortho.kaks.GMMbest}\t"; awk '{print $1}' ${i}; done > ../04.find_peak_sklearn.sh.out
+cd ..
+les 04.find_peak_sklearn.sh.out 
+les *out
+vi calc_common_WGD.pl
+lt
+perl calc_common_WGD.pl 04.find_peak_sklearn.sh.out  > 04.find_peak_sklearn.sh.out.stat
+les *stat
+vi stat2matrix.py
+lt
+vi stat2matrix.py
+python stat2matrix.py 04.find_peak_sklearn.sh.out.stat 
+vi stat2matrix.py
+python stat2matrix.py 04.find_peak_sklearn.sh.out.stat 
+sz 04.find_peak_sklearn.sh.out.stat
+# Sent -> /Users/liuhui/Downloads/
+python stat2matrix.py 04.find_peak_sklearn.sh.out.stat > 04.find_peak_sklearn.sh.out.stat.mtx
+sz 04.find_peak_sklearn.sh.out.stat.mtx 
+# Sent -> /Users/liuhui/Downloads/
+vi stat2matrix.py
+python stat2matrix.py 04.find_peak_sklearn.sh.out.stat > 04.find_peak_sklearn.sh.out.stat.mtx
+lt
+sz 04.find_peak_sklearn.sh.out.stat.xls
+# Sent -> /Users/liuhui/Downloads/
+grep Spatholobus ~/legume_genome_list.with_lineage 
+ls
+ll
+cd leggenome/
+ll
+cd -
+lt
+cd repeat_mask/
+ls
+gtp
+python -m iga.annotation.repeat
+python -m iga.annotation.repeat repeatmasker
+for i in *.fa; do python -m iga.annotation.repeat repeatmasker $i; break; done
+gtp
+python -m iga.annotation.repeat repeatmasker
+for i in *.fa; do python -m iga.annotation.repeat repeatmasker $i; break; done
+bjobs 9399
+lth
+lt workdir_repeatmask_Abrus_precatorius.fa/
+bkill 9399
+bjobs 9399
+bkill 9399
+lt
+ls
+rm bsub.repeat_masker_Abrus_precatorius.771902.sh 
+rm -r workdir_repeatmask_Abrus_precatorius.fa/
+ls
+gtp
+ls *fa.*
+rm *fa.*
+rm output.9399 error.9399 
+for i in *.fa; do python -m iga.annotation.repeat repeatmasker --threads 20 --wait F $i; done
+lt
+ls
+logsh
+bjl
+bhosts 
+bjl
+lsload
+bj |wc -l
+bjl
+bjobs -l 9411
+bjl
+lsload
+lt
+ls *sh
+vi bsub.repeat_masker_*sh
+bj
+bjl
+ls
+ls -d */ |wc -l
+bjobs -l |grep 'Job Name'
+bkill 9409 9427 9448 9437 9414 9411
+bjl
+bj
+for i in `seq 9413 9448`; do bmod -n 10 $i; done
+bj
+bhosts 
+top
+ls
+bjobs -l |grep 'Job Name'
+bjobs -l |grep 'Job Name' |grep masker > tmp
+vi tmp 
+ls
+rm bsub.repeat_masker_Chamaecrista_pumila.930425.sh 
+rm bsub.repeat_masker_Cercis_chinensis.929864.sh 
+rm bsub.repeat_masker_Zenia_insignis.952215.sh 
+rm bsub.repeat_masker_Senna_septemtrionalis.948482.sh 
+rm bsub.repeat_masker_Lysidice_rhodostegia.939142.sh 
+rm bsub.repeat_masker_Cladrastis_platycarpa.931227.sh 
+ls
+bjl
+tp
+bj
+awk '{print $1}' tmp > tmp.id
+vi tmp.id 
+for i in `cat tmp.id`; do bkill $i; done
+ls
+rm output.94* error.94*
+ls
+ls workdir_repeatmask_*/
+rm -r workdir_repeatmask_*
+ls
+les *sh
+i=Arachis_
+echo ${i:3}
+echo ${i3:}
+echo ${i:3}
+echo ${i::3}
+bj
+ls
+ls *fa |wc
+for i in *.fa; do bsub512 -m 'yi02 yi04' -J ${i::5} -n 5 < bsub.repeat_masker_${i%.fa}.*.sh; done
+logsh
+bj
+bj |wc
+bjobs -l |grep 'Job Name'
+ls
+cd ..
+ls
+lt
+cd repeat_mask/
+lth
+cd -
+top
+ll
+lslo
+lsload
+ls
+lt
+bhosts 
+ssh yi04 
+lt
+j dupar
+lt
+cd duparquetia_wtdbg2_asm/
+lt
+more cd workdir_nextpolish_wtdbg2_assembly/
+ltcd workdir_nextpolish_wtdbg2_assembly/
+cd workdir_nextpolish_wtdbg2_assembly
+lt
+tail nohup.out 
+les nohup.out 
+vi wait_run.sh 
+bash wait_run.sh 
+lth
+bj
+lth
+cd ../../duparquetia_ont_asm.r3/
+lt
+lt 03.ctg_graph/
+lt 03.ctg_graph/workdir_nextpolish_nd_assembly/
+cd 03.ctg_graph/workdir_nextpolish_nd_assembly/
+more nd_assembly.1.fa.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.nd_assembly.1.fa.busco.embryophyta.v4.1.2.txt 
+cd ..
+lt
+top
+lt
+cd -
+lt
+cd ../
+ll
+cd duparquetia_wtdbg2_asm/
+lt
+cd workdir_nextpolish_wtdbg2_assembly/
+lth
+more wait_run.sh 
+python -m iga.apps.base waitjob 9385
+gtp
+python -m iga.apps.base waitjob 9385
+gtp
+python -m iga.apps.base waitjob 9385
+gtp
+bjl
+python -m iga.apps.base waitjob 9452
+gtp
+python -m iga.apps.base waitjob 9452
+lsload
+top
+tp
+lt
+cd ..
+lt
+vw
+vc
+sc
+bjg
+lt
+cd duparquetia.flye/
+lt
+cd workdir_nextpolish_flye_assembly/
+lt
+les nohup.out 
+jobs
+ps ux
+jobs
+lt
+lt 03_polish.sgs_round0/
+lt 03_polish.sgs_round0/ |head
+top
+detect_syntenic_tandem_arrays
+which MCScanX
+ls ~/bin/MCScanX-master/
+ls ~/bin/MCScanX-master/downstream_analyses/
+ ~/bin/MCScanX-master/downstream_analyses/detect_collinear_tandem_arrays -h
+cd ~/bin/MCScanX-master/downstream_analyses/
+addpwd
+sc
+top
+cd -
+cd
+cd projects/phyleg/
+ls
+cd mcscanX/
+mkdir test_tandem
+cd test_tandem/
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/Senna_tora.Senna_tora.* 
+lt
+detect_collinear_tandem_arrays -h
+detect_collinear_tandem_arrays -h -g Senna_tora.Senna_tora.gff -b Senna_tora.Senna_tora.blast -c Senna_tora.Senna_tora.collinearity -o tmp.out
+les tmp.out 
+cut -f1,3 tmp.out |les
+ll
+les *ortho.kaks
+cut -f1,3 tmp.out |sed "s/\t/-/" > ortho.txt
+les ortho.txt 
+vi ortho.txt 
+selectItem.pl ortho.txt Senna_tora.Senna_tora.ortho.kaks > ortho.txt.kaks
+les ortho.txt.kaks 
+vi *kaks
+vi ortho.txt
+vi ortho.txt.kaks 
+get_ks_peak.R ortho.txt.kaks 
+lth
+sz *pdf
+# Sent -> /Users/liuhui/Downloads/
+get_ks_peak.R ortho.txt.kaks 3
+sz *pdf
+# Sent -> /Users/liuhui/Downloads/
+get_ks_peak.py ortho.txt.kaks 
+vi `which get_ks_peak.py`
+lt
+get_ks_peak.py ortho.txt.kaks 
+cd ..
+ls
+cd ..
+ls
+lt
+vi *stat
+cp 04.find_peak_sklearn.sh.out 04.find_peak_sklearn.sh.out.1
+vi 04.find_peak_sklearn.sh.out
+chd
+lt
+perl calc_common_WGD.pl 04.find_peak_sklearn.sh.out  > 04.find_peak_sklearn.sh.out.stat
+python stat2matrix.py 04.find_peak_sklearn.sh.out.stat > 04.find_peak_sklearn.sh.out.stat.mtx
+les *mtx
+sz 04.find_peak_sklearn.sh.out.stat.xls
+# Sent -> /Users/liuhui/Downloads/
+cd mcscanX/
+ls *gff3 |wc -l
+chmod -w *.blast
+ll -S *.blast
+ll *.collinearity |wc -l
+chmod -w *.collinearity
+ll *.collinearity |les
+nohup downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/*.blast /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/*.collinearity &
+tma 
+lth
+bjl
+bjg
+bjobs -l 9383
+j flye
+lth
+lt workdir_nextpolish_flye_assembly/
+lt
+lsload
+lth
+cd workdir_nextpolish_flye_assembly/
+lth
+lt
+more pid18506.log.info 
+tail pid18506.log.info 
+lth
+lt
+lt 03_polish.sgs_round0/
+lt 03_polish.sgs_round0/04.score_chain/
+top
+bjg
+top
+cd ~/projects/phyleg/mcscanX/test_tandem/
+lth
+lt
+les *GMM
+cd ../..
+lt
+vi 04.find_peak_sklearn.sh.out
+vi 04.find_peak_sklearn.sh.out.1
+ll
+lt
+perl calc_common_WGD.pl 04.find_peak_sklearn.sh.out  > 04.find_peak_sklearn.sh.out.stat
+python stat2matrix.py 04.find_peak_sklearn.sh.out.stat 
+sz 04.find_peak_sklearn.sh.out.stat.xls
+# Sent -> /Users/liuhui/Downloads/
+bjg
+lsload
+bhosts 
+ssh yi04
+lt
+j test_tand
+lth
+lt
+les *ty
+les *ortho
+les ortho.txt.kaks
+les Senna_tora.Senna_tora.collinearity 
+les tmp.out 
+grep -v ',' tmp.out 
+les tmp.out 
+lt
+les *collinearity
+lt
+grep Sto00g446190_Setor tmp.out 
+les *collinearity
+ll
+cp ../Senna_tora.Medicago_truncatula.blast ../Senna_tora.Medicago_truncatula.collinearity ../Senna_tora.Medicago_truncatula.gff ./ &
+cp ../Medicago_truncatula.Medicago_truncatula.blast ../Medicago_truncatula.Medicago_truncatula.collinearity ../Medicago_truncatula.Medicago_truncatula.gff ./ &
+lth
+ll ../Medicago_truncatula.Medicago_truncatula.blast
+ll ../Medicago_truncatula.Medicago_truncatula.collinearity
+ll ../Medicago_truncatula.Medicago_truncatula.
+ll ../Medicago_truncatula.Medicago_truncatula.*
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/Medicago_truncatula.Medicago_truncatula.collinearity
+lt
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/Medicago_truncatula.Medicago_truncatula.gff
+cp ../Medicago_truncatula.Medicago_truncatula.ortho.kaks ./ &
+cp ../Senna_tora.Medicago_truncatula.ortho.kaks ./ &
+vi remove_tandem.sh
+bash remove_tandem.sh
+vi remove_tandem.sh
+detect_syntenic_tandem_arrays
+detect_syntenic_tandem_arrays -h
+detect_collinear_tandem_arrays -h
+vi remove_tandem.sh
+bash remove_tandem.sh
+lth
+les Medicago_truncatula.Medicago_truncatula.tdarray.ortho
+lt
+vi remove_tandem.sh 
+les Medicago_truncatula.Medicago_truncatula.collinearity 
+les Medicago_truncatula.Medicago_truncatula.ortho.kaks 
+vi Medicago_truncatula.Medicago_truncatula.ortho.kaks 
+vi Medicago_truncatula.Medicago_truncatula.blast 
+vi Medicago_truncatula.Medicago_truncatula.ortho.kaks 
+lt
+vi Senna_tora.Medicago_truncatula.collinearity 
+vi Senna_tora.Medicago_truncatula.ortho.kaks 
+vi remove_tandem.sh 
+bash remove_tandem.sh 
+lt
+ll Senna_tora.Medicago_truncatula.*
+lth
+ll *tdarray.ortho.kaks
+rm Senna_tora.Medicago_truncatula.tdarray.ortho.kaks
+for i in *tdarray.ortho.kaks; do get_ks_peak.py  ${i} > ${i}.peak; done
+lt
+vi Senna_tora.Senna_tora.ortho.kaks
+vi *tdarray.ortho.kaks
+for i in *tdarray.ortho.kaks; do get_ks_peak.py  ${i} > ${i}.peak; done
+more *peak
+get_ks_peak.R  Medicago_truncatula.Medicago_truncatula.tdarray.ortho.kaks 3
+ll
+echo "0.8071775 2.0766934 2.8224255" > Medicago_truncatula.Medicago_truncatula.tdarray.ortho.kaks.peakR
+expr 0.08962987 + 0.62718555 + 0.28318458
+lth
+sz Medicago_truncatula.Medicago_truncatula.tdarray.ortho.kaks.kspeak.G3.pdf
+# Sent -> /Users/liuhui/Downloads/
+more *peak
+more ../Senna_tora.Medicago_truncatula.ortho.kaks.GMMbest 
+ll
+head Medicago_truncatula.Medicago_truncatula.tdarray Senna_tora.Medicago_truncatula.collinearity > prune_tandem.pl
+vi prune_tandem.pl 
+head -40 Medicago_truncatula.Medicago_truncatula.tdarray Senna_tora.Medicago_truncatula.collinearity > prune_tandem.pl
+vi prune_tandem.pl 
+cd ..
+ls
+cd ..
+ls
+cp calc_common_WGD.pl stat2matrix.py /nfs/liuhui/bin/bundle/lh_bin/
+gtps
+j tandem
+bjl
+bjg
+tma
+top
+to
+htop
+free -g
+j test_tandem
+lth
+bjl
+bjg
+j flyt
+ctma
+tma
+top
+cd -
+t
+tma
+j tandem
+lth
+lt
+vi prune_tandem.pl 
+perl prune_tandem.pl 
+vi prune_tandem.pl 
+perl prune_tandem.pl 
+vi prune_tandem.pl 
+perl prune_tandem.pl 
+vi prune_tandem.pl 
+perl prune_tandem.pl 
+vi prune_tandem.pl 
+perl prune_tandem.pl 
+perl prune_tandem.pl Medicago_truncatula.Medicago_truncatula.tdarray Medicago_truncatula.Medicago_truncatula.collinearity > Medicago_truncatula.Medicago_truncatula.notd.ortho
+les *notd.ortho
+vi prune_tandem.pl 
+lth
+les Medicago_truncatula.Medicago_truncatula.collinearity.anchors.ortho
+les Medicago_truncatula.Medicago_truncatula.collinearity.anchors
+vi prune_tandem.pl 
+perl prune_tandem.pl Medicago_truncatula.Medicago_truncatula.tdarray Medicago_truncatula.Medicago_truncatula.collinearity > Medicago_truncatula.Medicago_truncatula.notd.ortho
+les Medicago_truncatula.Medicago_truncatula.collinearity.anchors
+les Medicago_truncatula.Medicago_truncatula.notd.ortho
+les Medicago_truncatula.Medicago_truncatula.collinearity.anchors.ortho
+vi prune_tandem.pl 
+perl prune_tandem.pl Medicago_truncatula.Medicago_truncatula.tdarray Medicago_truncatula.Medicago_truncatula.collinearity > Medicago_truncatula.Medicago_truncatula.notd.ortho
+les Medicago_truncatula.Medicago_truncatula.notd.ortho
+vi prune_tandem.pl 
+perl prune_tandem.pl Medicago_truncatula.Medicago_truncatula.tdarray Medicago_truncatula.Medicago_truncatula.collinearity > Medicago_truncatula.Medicago_truncatula.notd.ortho
+les Medicago_truncatula.Medicago_truncatula.notd.ortho
+selectItem.pl Medicago_truncatula.Medicago_truncatula.notd.ortho Medicago_truncatula.Medicago_truncatula.ortho.kaks > Medicago_truncatula.Medicago_truncatula.notd.ortho.kaks
+les Medicago_truncatula.Medicago_truncatula.notd.ortho.kaks 
+get_ks_peak.py Medicago_truncatula.Medicago_truncatula.notd.ortho.kaks
+which selectItem.pl
+cp ~/bin/bundle/lh_bin/selectItem.pl ~/bin/bundle/lh_bin/selectItemH.pl
+vi ~/bin/bundle/lh_bin/selectItemH.pl
+selectItemH.pl Medicago_truncatula.Medicago_truncatula.notd.ortho Medicago_truncatula.Medicago_truncatula.ortho.kaks > Medicago_truncatula.Medicago_truncatula.notd.ortho.kaks
+get_ks_peak.py Medicago_truncatula.Medicago_truncatula.notd.ortho.kaks
+ll
+for i in blast ortho.kaks collinearity; for j in Zenia_insignis Cercis_chinensis    Lysidice_rhodostegia; do ll ../${j}.${j}.${i}; done; done
+for i in blast ortho.kaks collinearity; do for j in Zenia_insignis Cercis_chinensis    Lysidice_rhodostegia; do ll ../${j}.${j}.${i}; done; done
+for i in gff blast ortho.kaks collinearity; do for j in Zenia_insignis Cercis_chinensis    Lysidice_rhodostegia; do ll ../${j}.${j}.${i}; done; done
+for i in Zenia_insignis.Zenia_insignis.gff Cercis_chinensis.Cercis_chinensis.gff Lysidice_rhodostegia.Lysidice_rhodostegia.gff Zenia_insignis.Zenia_insignis.blast Zenia_insignis.Zenia_insignis.collinearity Cercis_chinensis.Cercis_chinensis.collinearity Lysidice_rhodostegia.Lysidice_rhodostegia.collinearity; do downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/${i}; done
+ls
+ls *gff
+cat >> dry_run.sh
+vi dry_run.sh 
+bash dry_run.sh 
+vi dry_run.sh 
+bash dry_run.sh 
+vi ll Cercis_chinensis.Cercis_chinensis.bl
+vi ll Cercis_chinensis.Cercis_chinensis.blast
+ll Cercis_chinensis.Cercis_chinensis.blast
+cp ../Cercis_chinensis.Cercis_chinensis.blast ../Lysidice_rhodostegia.Lysidice_rhodostegia.blast ../Zenia_insignis.Zenia_insignis.ortho.kaks ../Cercis_chinensis.Cercis_chinensis.ortho.kaks ../Lysidice_rhodostegia.Lysidice_rhodostegia.ortho.kaks ./
+ll
+bash dry_run.sh 
+lth
+vi dry_run.sh 
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/Cercis_chinensis.Cercis_chinensis.collinearity
+ll Cercis_chinensis.Cercis_chinensis.collinearity 
+les Cercis_chinensis.Cercis_chinensis.collinearity 
+vi dry_run.sh 
+bash dry_run.sh 
+lth
+les Cercis_chinensis.Cercis_chinensis.tdarray 
+vi dry_run.sh 
+bash dry_run.sh 
+vi dry_run.sh 
+chd
+bsub512 -m yi04 < dry_run.sh 
+ls
+cp prune_tandem.pl /nfs/liuhui/bin/bundle/lh_bin/
+cp dry_run.sh /nfs/liuhui/bin/bundle/lh_bin/mcscanx_prunetandem_and_select_Ks.sh
+gtps
+lth
+bj
+lsload
+lth
+ssh yi04
+bjt
+bkill 9493
+bj
+lth
+bsub512  < dry_run.sh 
+les error.9493 
+rm error.9493 output.9493 
+lth
+top
+bhosts 
+less /proc/cpuinfo 
+lth
+les *GMMpeak
+vi `which get_ks_peak.py `
+nohup get_ks_peak.py Cercis_chinensis.Cercis_chinensis.notd.ortho.kaks 2 &
+gtps
+lth
+more nohup.out 
+lth
+mv nohup.out Cercis_chinensis.Cercis_chinensis.notd.ortho.kaks.GMMpeak 
+lth
+more Cercis_chinensis.Cercis_chinensis.notd.ortho.kaks.GMMpeak 
+bj
+lth
+ls *gff
+lth
+wc -l Senna_tora.Medicago_truncatula.notd.ortho Senna_tora.Medicago_truncatula.collinearity.anchors.ortho
+rm core.30373 
+lth
+ll *GMMpeak
+ll
+ll *GMMpeak
+for i in Lysidice_rhodostegia Medicago_truncatula Senna_tora Zenia_insignis; do for j in Lysidice_rhodostegia Medicago_truncatula Senna_tora Zenia_insignis; do cp ../${i}.${j}.ortho.kaks.GMMbest ./ ; done; done
+ll *GMMbest
+rm Lysidice_rhodostegia.Lysidice_rhodostegia.ortho.kaks.GMMbest Medicago_truncatula.Medicago_truncatula.ortho.kaks.GMMbest Senna_tora.Senna_tora.ortho.kaks.GMMbest Zenia_insignis.Zenia_insignis.ortho.kaks.GMMbest
+ls
+lth
+bjt
+cp ../../calc_common_WGD.pl  ./
+cp ../../stat2matrix.py ./
+ll
+ls
+vi calc_common_WGD.pl 
+vi ../../04.find_peak_sklearn.sh
+more ../../shell 
+cd ../../
+ls
+lt
+history |grep sh.out |les
+logsh 
+cd -
+ls
+lth
+for i in *GMMbest ; do echo -en "${i%.ortho.kaks.GMMbest}\t"; awk '{print $1}' ${i}; done > allpeak.txt
+for i in *GMMpeak ; do echo -en "${i%.ortho.kaks.GMMpeak}\t"; awk '{print $1}' ${i}; done >> allpeak.txt
+more allpeak.txt 
+perl calc_common_WGD.pl allpeak.txt > allpeak.txt.stat
+more allpeak.txt.stat 
+perl stat2matrix.py allpeak.txt.stat 
+python stat2matrix.py allpeak.txt.stat 
+more allpeak.txt.stat.xls 
+sz allpeak.txt.stat.xls 
+# Sent -> /Users/liuhui/Downloads/
+tma
+ll
+ls
+vi dry_run.sh 
+python -m iga.evolution.ortho MCScanX
+python -m iga.evolution.ortho mcscanx
+lth
+vi dry_run.sh 
+cp dry_run.sh ../../
+cd ../../
+ls
+mv dry_run.sh 05.get_rest_peaks.sh
+vi 05.get_rest_peaks.sh 
+bash 05.get_rest_peaks.sh 
+vi 05.get_rest_peaks.sh 
+bash 05.get_rest_peaks.sh 
+vi 05.get_rest_peaks.sh 
+bash 05.get_rest_peaks.sh 
+vi 05.get_rest_peaks.sh 
+bash 05.get_rest_peaks.sh 
+bash 05.get_rest_peaks.sh  |wc -l
+vi 05.get_rest_peaks.sh 
+tolava 
+sudo su
+bj
+bjl
+lsload
+jobs
+bj
+bjobs
+bhosts 
+lsload
+tolava 
+bjl
+ls
+bj
+tp
+lt
+vi 05.get_rest_peaks.sh 
+cd mcscanX/
+ll -S * |less
+ll -S * |tail
+find . -name "*" -type f -size 0c
+man find
+find . -name "*" -type f -size 0c -maxdepth 1
+find . -name "*" -type f -size 0c -maxdepth 1 |xargs -n 1 rm 
+find . -name "*" -type f -size 0c -maxdepth 1
+cd ..
+lth
+vi 05.get_rest_peaks.sh 
+bsub512 -J mcscanx < 05.get_rest_peaks.sh 
+bj
+top
+lsload -E
+top
+bj
+bjobs -l 9596
+lsload -E
+lt
+lsload -E
+top
+ls
+bjt
+bjl
+bjobs -l 9596
+bpeek 9596
+ls
+cd projects/
+ls
+cd phyleg/
+lth
+cd mcscanX
+lth
+les  error.9597
+les error.9599
+lt -d Abrus_precatorius.Abrus_precatorius.*/
+lt -d Abrus_precatorius.Abrus_precatorius.*
+les error.9599
+les  error.9597
+lth
+lt |les
+bpeek 9596
+bjl
+lsload -E
+bjl
+top
+tp
+ll
+j mcscanx
+cd ..
+ls
+bjl
+lth
+vi 05.get_rest_peaks.sh 
+bash 05.get_rest_peaks.sh 
+vi 05.get_rest_peaks.sh 
+bash 05.get_rest_peaks.sh 
+vi 05.get_rest_peaks.sh 
+bash 05.get_rest_peaks.sh 
+vi 05.get_rest_peaks.sh 
+bash 05.get_rest_peaks.sh 
+bjl
+ls
+cd repeat_mask/
+lth
+lt
+lth
+lt workdir_repeatmask_Amphicarpaea_edgeworthii.fa/
+lt -d workdir_repeatmask_*/
+bjg |les
+bjg | les
+bjl
+ls
+lth
+cd
+ls
+cd projects/
+tma
+lt
+sch
+cd
+ll
+cd projects/
+lt
+cd buzzo/
+ls
+lt
+cd platanus/
+lt
+cd soapdenovo_ecc14/
+ls
+cd K71/
+ls
+ll
+cp dp_soap.contig /nfs/liuhui/projects/buzzo/duparquetia/quickmerge/soapdenovo.fa
+bjl
+lsload
+lsload -E
+bjl
+bpeek 9596
+top
+tp
+bjl
+ssh yi02
+ssh -p 201 yi02
+tma
+ssh -p 201 yi02
+lt
+cd projects/
+lt
+cd buzzo/
+lt
+cd duparquetia/
+lt
+cd quickmerge/
+ll
+cat *.fa > merge.fa
+ll
+python -m iga.assembly.assess busco merge.fa 
+btop 11952
+top
+bjl
+lsload
+lt
+cd ~/bin/
+ls
+rz
+# Received /Users/liuhui/Downloads/purge_dups-1.2.5.tar.gz
+tar -xvzf purge_dups-1.2.5.tar.gz 
+cd purge_dups-1.2.5/
+ls
+cd src/
+make 
+cd ../bin/
+ls
+addpwd 
+sc
+j quickmerge
+lt
+python -m iga.assembly.assemble purge_dups
+python -m iga.assembly.assemble purge_dups -h
+ll
+ln -s ../pass.fq.gz 
+python -m iga.assembly.assemble purge_dups merge.fa pass.fq.gz 
+logsh
+bjl
+lsload
+lsload -E
+lt
+more ../duparquetia.flye/workdir_nextpolish_flye_assembly/flye_assembly.1_.fa.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.flye_assembly.1_.fa.busco.embryophyta.v4.1.2.txt 
+lt
+conda activate quickmerge
+bjl
+bjg |les
+bjl
+lt workdir_purge_dups_pass/
+lt
+quickmerge -h
+lt
+cat wtdbg2_assembly.1.fa next_denovo.1.fa flye_assembly.1.fa tgs_assembly.fa
+cat wtdbg2_assembly.1.fa next_denovo.1.fa flye_assembly.1.fa >tgs_assembly.fa
+logsh
+lth
+bsub512 "merge_wrapper.py tgs_assembly.fa soapdenovo.fa "
+logsh $bsub512 "merge_wrapper.py tgs_assembly.fa soapdenovo.fa "
+j quickmerge
+logsh
+lt
+btop 12057
+merge_wrapper.p
+merge_wrapper.py
+conda activate quickmerge
+merge_wrapper.py
+lt
+vc
+gtps
+conda deactivate
+sc
