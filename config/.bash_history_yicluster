@@ -8432,3 +8432,897 @@ hi
 les .bash_history_yicluster 
 #1640821854
 history |les
+#1640822153
+gtps
+#1640839709
+bj |wc -l
+#1640839717
+cd 
+#1640839718
+cd projects/
+#1640839718
+lt
+#1640839720
+cd phyleg/
+#1640839722
+cd ../buzzo/
+#1640839723
+ls
+#1640839724
+cd duparquetia/
+#1640839725
+ll
+#1640839726
+lt
+#1640839727
+cd quickmerge/
+#1640839728
+lt
+#1640839740
+les busco_20153.log 
+#1640839742
+tp
+#1640839753
+bjg |les
+#1640839756
+tp
+#1640839765
+bjg |les
+#1640839774
+bjobs -l 11952
+#1640839786
+bj
+#1640839790
+lsload -E
+#1640839804
+tp
+#1640839814
+lsload
+#1640840105
+lsload -E
+#1640840108
+tp
+#1640840118
+lt
+#1640840121
+lt workdir_purge_dups_pass/
+#1640843748
+lsload
+#1640843760
+lsload xE
+#1640843767
+lsload -E
+#1640843774
+j tandem
+#1640843775
+ls
+#1640843818
+les Senna_tora.Senna_tora.notd.ortho.kaks
+#1640843894
+awk '$5<1' Senna_tora.Senna_tora.notd.ortho.kaks |wc -l
+#1640843904
+wc -l Senna_tora.Senna_tora.notd.ortho.kaks
+#1640843955
+awk '$5<1' Senna_tora.Senna_tora.notd.ortho.kaks > Senna_tora.Senna_tora.notd.ortho.kaks.neutral
+#1640843977
+get_ks_peak.py Senna_tora.Senna_tora.notd.ortho.kaks.neutral 
+#1640844029
+head -1 Senna_tora.Senna_tora.notd.ortho.kaks > Senna_tora.Senna_tora.notd.ortho.kaks.neutral 
+#1640844050
+awk '$5<1' Senna_tora.Senna_tora.notd.ortho.kaks >> Senna_tora.Senna_tora.notd.ortho.kaks.neutral
+#1640844082
+get_ks_peak.py Senna_tora.Senna_tora.notd.ortho.kaks.neutral > Senna_tora.Senna_tora.notd.ortho.kaks.neutral.best
+#1640844243
+more Senna_tora.Senna_tora.notd.ortho.kaks*best*
+#1640844294
+more Senna_tora.Senna_tora.notd.ortho.kaks.neutral.best Senna_tora.Senna_tora.notd.ortho.kaks.GMMpeak 
+#1640844375
+more Med*GMMpeak
+#1640844470
+more ../Senna_tora.Medicago_truncatula.*GMMbest
+#1640844566
+ls ../Senna_tora.Medicago_truncatula.*GMMbest
+#1640844586
+cp ../Senna_tora.Medicago_truncatula.ortho.kaks .
+#1640844693
+head -1 Medicago_truncatula.Medicago_truncatula.notd.ortho.kaks > Medicago_truncatula.Medicago_truncatula.notd.ortho.kaks.neutral
+#1640844739
+awk '$5<1' Medicago_truncatula.Medicago_truncatula.notd.ortho.kaks >> Medicago_truncatula.Medicago_truncatula.notd.ortho.kaks.neutral
+#1640844813
+head -1 Senna_tora.Medicago_truncatula.ortho.kaks > Senna_tora.Medicago_truncatula.ortho.kaks.neutral
+#1640844852
+awk '$5<1' Senna_tora.Medicago_truncatula.ortho.kaks >> Senna_tora.Medicago_truncatula.ortho.kaks.neutral
+#1640844922
+for i in *.neutral; do get_ks_peak.py $i >$i.peak;done
+#1640845131
+more *.peak
+#1640845149
+more *.neutral.peak
+#1640845339
+for i in Senna_tora.Medicago_truncatula.ortho.kaks.neutral; do get_ks_peak.py $i 2 >$i.peak;done
+#1640845405
+cp Senna_tora.Medicago_truncatula.ortho.kaks.neutral Senna_tora.Medicago_truncatula.ortho.kaks.neutral3
+#1640845429
+for i in Senna_tora.Medicago_truncatula.ortho.kaks.neutral3; do get_ks_peak.py $i >$i.peak;done
+#1640845494
+more *.neutral*peak
+#1640845846
+head Senna_tora.Medicago_truncatula.ortho.kaks.neutral3.KsGMM 
+#1640845861
+head Senna_tora.Medicago_truncatula.ortho.kaks.neutral.KsGMM 
+#1640845913
+wc -l Senna_tora.Medicago_truncatula.ortho.kaks.neutral
+#1640845922
+wc -l *.neutral
+#1640845964
+wc -l Senna_tora.Senna_tora.*
+#1640846021
+wc -l *.ortho
+#1640846221
+ls *pl
+#1640846252
+more prune_tandem.pl 
+#1640846336
+head Senna_tora.Senna_tora.*anchors.ortho
+#1640846363
+head Senna_tora.Senna_tora.*tdarray
+#1640846416
+grep Sto00g446250_Setor Senna_tora.Senna_tora.*tdarray
+#1640846441
+grep Sto00g446250_Setor Senna_tora.Senna_tora.*anchors.ortho
+#1640846492
+grep Sto00g446260_Setor Senna_tora.Senna_tora.*anchors.ortho
+#1640846536
+grep Sto12g400570_Setor Senna_tora.Senna_tora.*anchors.ortho
+#1640846885
+ls *GMM*
+#1640846945
+head Senna_tora.Senna_tora.tdarray.ortho.kaks.KsGMM
+#1640847036
+grep '>' ../Senna_tora.cds |wc -l
+#1640847066
+wc -l Senna_tora.Senna_tora.notd.ortho
+#1640848306
+j tandem
+#1640848395
+cp Senna_tora.Senna_tora.notd.ortho.kaks.neutral Senna_tora.Senna_tora.notd.ortho.kaks.neutral4
+#1640848430
+get_ks_peak.py Senna_tora.Senna_tora.notd.ortho.kaks.neutral4
+#1640848439
+get_ks_peak.py Senna_tora.Senna_tora.notd.ortho.kaks.neutral4 4
+#1640848620
+head -1 Senna_tora.Senna_tora.*KsGMM
+#1640849268
+wc -l *.anchors.ortho
+#1640849358
+wc -l ../Senna_septemtrionalis.Senna_septemtrionalis.*.anchors.ortho
+#1640849378
+wc -l ../Senna_septemtrionalis.Senna_septemtrionalis.*ortho
+#1640849435
+wc -l ../Senna_septemtrionalis.Senna_septemtrionalis.ortho.kaks
+#1640849455
+wc -l *.anchors.ortho
+#1640849831
+lt
+#1640849836
+lt merge.fa.busco.embryophyta.v4.1.2/
+#1640849838
+top
+#1640849843
+bj
+#1640849852
+bj |wc -l
+#1640849854
+bjl
+#1640849872
+lsload
+#1640849873
+lt
+#1640849881
+bj
+#1640849891
+cd
+#1640849892
+tolava 
+#1640849938
+tp
+#1640849950
+free -g
+#1640851058
+ll
+#1640851064
+lth
+#1640851065
+cd projects/
+#1640851066
+lt
+#1640851067
+cd phyleg/
+#1640851067
+lt
+#1640851070
+cd mcscanX/
+#1640851071
+lth
+#1640851159
+j merge
+#1640851160
+lth
+#1640851163
+ll
+#1640851170
+tp
+#1640851181
+lsload -E
+#1640851188
+tolava 
+#1640851224
+tp
+#1640851230
+lsload -E
+#1640851241
+lt
+#1640851248
+uplht merge.fa
+#1640851543
+lth
+#1640851547
+les busco_20153.log 
+#1640851597
+ll
+#1640851598
+lt
+#1640851601
+cd merge.fa.busco.embryophyta.v4.1.2/
+#1640851602
+lt
+#1640851604
+cd -
+#1640851604
+lt
+#1640851606
+lt workdir_purge_dups_pass/
+#1640851608
+bjl
+#1640851622
+bpeek 9449
+#1640851626
+bjl
+#1640851650
+tp
+#1640851686
+ls
+#1640851692
+cd
+#1640851696
+cd -
+#1640851696
+ll
+#1640851698
+lt
+#1640851807
+bjl
+#1640851898
+bj |grep Dec 29 15:0
+#1640851902
+bj |grep 'Dec 29 15:0'
+#1640851912
+cd ..
+#1640851913
+ls
+#1640851915
+cd ../
+#1640851920
+cd ../phyleg/repeat_mask/
+#1640851920
+ls
+#1640851927
+vi suspend.id
+#1640851936
+bj |grep 'Dec 29 15:0' > suspend.id
+#1640851940
+mv suspend.id suspend
+#1640851943
+les suspend 
+#1640851950
+mv suspend suspend.txt
+#1640851955
+les suspend.txt 
+#1640851961
+cut -f1  suspend.txt  > suspend.txt.id
+#1640851962
+vi suspend.txt.id 
+#1640851971
+awk '{print $1}'  suspend.txt  > suspend.txt.id
+#1640851972
+vi suspend.txt.id 
+#1640851993
+man bstop
+#1640852026
+man bresume
+#1640852049
+bjl
+#1640852054
+man bresume
+#1640852058
+man bstop
+#1640852067
+bjl
+#1640852070
+man bstop
+#1640852131
+lth
+#1640852137
+lsload
+#1640852145
+lsload -E
+#1640852151
+lth
+#1640852101
+tp
+#1640852160
+ssh yi04
+#1640852186
+bjl
+#1640852212
+ls
+#1640852216
+lt workdir_repeatmask_Abrus_precatorius.fa/
+#1640852218
+lt workdir_repeatmask_Abrus_precatorius.fa/RM_200246.WedDec291506162021/
+#1640852225
+lt workdir_repeatmask_Abrus_precatorius.fa/RM_200246.WedDec291506162021/round-6/
+#1640852379
+cd ../mcscanX
+#1640852380
+ls -d */
+#1640852391
+ls -d */ |grep -v ParaAT
+#1640852395
+cd peak/
+#1640852395
+ls
+#1640852398
+ll *pf
+#1640852400
+ll *pdf
+#1640852404
+cd ..
+#1640852406
+ls -d */ |grep -v ParaAT
+#1640852408
+cd ..
+#1640852409
+ls
+#1640852717
+vi suspend.txt.id 
+#1640852733
+j repeat
+#1640852734
+ll
+#1640852735
+ls
+#1640852737
+lth
+#1640852741
+vi suspend.txt
+#1640852749
+awk '{print $1}' suspend.txt > suspend.txt.id
+#1640852751
+vi suspend.txt.id 
+#1640852755
+vi suspend.txt
+#1640852766
+vi suspend.txt.id 
+#1640852782
+for i in `cat suspend.txt.id`; do bstop $i; done
+#1640852790
+logsh
+#1640852804
+bjl
+#1640852829
+lsload
+#1640852789
+tp
+#1640852848
+ssh yi04
+#1640852856
+bjl
+#1640852894
+lsload
+#1640852902
+bjl
+#1640852907
+lt
+#1640852909
+lth
+#1640853261
+lsload
+#1640853265
+tp
+#1640853273
+lsload -E
+#1640853218
+tp
+#1640853277
+ssh yi04
+#1640853284
+bjl
+#1640853295
+lsload -$
+#1640853297
+lsload -E
+#1640853386
+bjl
+#1640853422
+bhosts 
+#1640853457
+bjl
+#1640853482
+top
+#1640853494
+htop
+#1640853504
+free -g
+#1640853540
+ssh yi04
+#1640853569
+bjl
+#1640853601
+ls
+#1640853603
+top
+#1640853715
+bj |wc -l
+#1640853716
+bjl
+#1640853735
+bpeek 9596
+#1640853739
+bkill 9596
+#1640853761
+bjl
+#1640853804
+top
+#1640853806
+bjl
+#1640853811
+cd
+#1640853812
+cd projects/
+#1640853813
+lt
+#1640853815
+cd phyleg/
+#1640853815
+lt
+#1640853830
+cd ../buzzo/duparquetia/
+#1640853830
+lt
+#1640853832
+cd quickmerge/
+#1640853832
+lt
+#1640853834
+les busco_20153.log 
+#1640853839
+ps ux
+#1640853851
+lth
+#1640853853
+les busco_20153.log 
+#1640853865
+ll
+#1640854779
+lsload
+#1640854784
+top
+#1640854869
+ls
+#1640854871
+cd ../../
+#1640854872
+ls
+#1640854883
+cd ../phyleg/
+#1640854883
+ls
+#1640854885
+ll
+#1640854888
+cd leggenome/
+#1640854888
+ls
+#1640854913
+bsub -m yi04 'tar -cvzf leggenome.tgz *.fa'
+#1640854920
+btop 12528
+#1640854921
+lth
+#1640854885
+top
+#1640854944
+ssh yi04
+#1640854957
+lth
+#1640854959
+bjl
+#1640854974
+bjobs -l 12528
+#1640854984
+lth
+#1640855111
+cd /nfs/liuhui/projects/phyleg/leggenome/
+#1640855120
+nohup tar -cf leggenome.tar *.fa &
+#1640855120
+lth
+#1640855126
+bjl
+#1640855135
+bkill 12528
+#1640855137
+lth
+#1640855142
+rm leggenome.tgz
+#1640855143
+lth
+#1640857184
+top
+#1640855168
+ssh yi04
+#1640857252
+bj |wc -l
+#1640857254
+bjl
+#1640857269
+bhosts 
+#1640857366
+bjl
+#1640857483
+lsload
+#1640857529
+ls
+#1640857541
+cd ..
+#1640857542
+ls
+#1640857546
+cd repeat_mask/
+#1640857546
+ls
+#1640857551
+vi shell 
+#1640857563
+for i in `cat suspend.txt.id`; do bkill $i; done
+#1640857575
+vi shell 
+#1640857579
+bj
+#1640857580
+bjl
+#1640857582
+bhosts 
+#1640857626
+lsload
+#1640857629
+bjl
+#1640857634
+top
+#1640867504
+bj |wc -l
+#1640867505
+cd
+#1640867506
+ls
+#1640867507
+cd projects/
+#1640867508
+lt
+#1640867509
+cd phyleg/
+#1640867510
+lt
+#1640867529
+j dup
+#1640867529
+lt
+#1640867531
+cd quickmerge/
+#1640867532
+lt
+#1640867537
+lt merge.fa.busco.embryophyta.v4.1.2/
+#1640867541
+more merge.fa.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.merge.fa.busco.embryophyta.v4.1.2.txt 
+#1640867551
+ll
+#1640867553
+cd workdir_purge_dups_pass/
+#1640867554
+lt
+#1640867556
+bjl
+#1640867570
+bjg |grep purge
+#1640867576
+btop 11981
+#1640867581
+bjobs -l 11981
+#1640867615
+lsload
+#1640867626
+lsload -#
+#1640867627
+lsload -E
+#1640867653
+bjobs -l 11981
+#1640867658
+bhosts 
+#1640867672
+bjobs -l 11981
+#1640867673
+lt
+#1640867676
+cd ..
+#1640867676
+lt
+#1640867682
+les merged_out.fasta 
+#1640867688
+N50v1.pl merged_out.fasta > merged_out.fasta.n50 &
+#1640867689
+lt
+#1640867695
+lth
+#1640867699
+more merged_out.fasta.n50 
+#1640867724
+python -m iga.assembly.assess busco merged_out.fasta
+#1640867727
+bjl
+#1640867735
+lt
+#1640867739
+lsload -E
+#1640867741
+lsload
+#1640867746
+lt
+#1640868666
+conda activate EDTA
+#1640868713
+RepeatMasker -v
+#1640868730
+RepeatModeler -v
+#1640870582
+bjl
+#1640870586
+bj |wc -l
+#1640870587
+bjl
+#1640870603
+bpeek 10151
+#1640870610
+python -m jcvi
+#1640870616
+conda deactivate
+#1640870617
+python -m jcvi
+#1640870653
+bjg |les
+#1640870672
+which bjg
+#1640870676
+bjg |les
+#1640870695
+bjl
+#1640870707
+bjobs -l 10480
+#1640870722
+bpeek 10480
+#1640870725
+bjl
+#1640870728
+ssh yi02
+#1640870703
+top
+#1640870732
+ssh -p 201 yi02
+#1640870751
+lsload
+#1640870760
+lt
+#1640870762
+cd workdir_purge_dups_pass/
+#1640870762
+lt
+#1640870764
+cd ..
+#1640870765
+lt
+#1640870774
+bjg |grep purge
+#1640870779
+bjobs -l 11981
+#1640870784
+lth
+#1640870785
+lt workdir_purge_dups_pass/
+#1640870788
+lt
+#1640870793
+bjg |grep busco
+#1640870805
+top
+#1640870807
+lth
+#1640870810
+lt
+#1640870819
+lsload
+#1640870821
+j quickmerge
+#1640870822
+ls
+#1640870823
+ll
+#1640870825
+lt
+#1640870834
+vi bsub.buscomerged_out.fasta.725075.sh 
+#1640870843
+htop
+#1640870849
+nohup bash bsub.buscomerged_out.fasta.725075.sh &
+#1640870850
+top
+#1640870857
+lth
+#1640870865
+tail busco_119249.log 
+#1640870849
+ssh -p 201 yi02
+#1640872079
+lsload
+#1640872081
+bhosts 
+#1640908160
+bjl
+#1640908163
+bj |wc -l
+#1640908164
+bjl
+#1640908177
+lsload
+#1640908151
+ls
+#1640908153
+cd projects/
+#1640908153
+lt
+#1640908155
+cd phyleg/
+#1640908155
+lt
+#1640908157
+ll
+#1640908162
+cd
+#1640908247
+ls
+#1640908250
+c dpro
+#1640908251
+cd projects/
+#1640908251
+lt
+#1640908256
+cd phyleg/
+#1640908256
+lt
+#1640908259
+cd mcscanX/
+#1640908260
+ll
+#1640908262
+j dup
+#1640908263
+lth
+#1640908268
+bjl
+#1640908272
+bhosts 
+#1640908284
+bjl
+#1640908292
+ls
+#1640908294
+lt
+#1640908295
+top
+#1640908315
+lt
+#1640908318
+ll
+#1640908322
+lt
+#1640908324
+cd quickmerge/
+#1640908324
+lt
+#1640908330
+more merged_out.fasta.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.merged_out.fasta.busco.embryophyta.v4.1.2.txt 
+#1640908345
+ll
+#1640908347
+ll -h
+#1640908360
+ll *tgs*
+#1640908381
+bjg |grep purge
+#1640908384
+ls
+#1640908387
+lt
+#1640908423
+mkdir polish_tgs_again
+#1640908425
+cd polish_tgs_again/
+#1640908428
+ln -s ../tgs_assembly.fa 
+#1640908436
+cd ..
+#1640908438
+ls
+#1640908447
+cp duparquetia.flye/bsub.nextpolishdraft_assembly.831449.sh quickmerge/polish_tgs_again/
+#1640908449
+cd quickmerge/polish_tgs_again/
+#1640908449
+lt
+#1640908450
+ll
+#1640908452
+vi bsub.nextpolishdraft_assembly.831449.sh 
+#1640908463
+realpath tgs_assembly.fa
+#1640908465
+vi bsub.nextpolishdraft_assembly.831449.sh 
+#1640908523
+lt
+#1640908525
+les tgs_assembly.fa 
+#1640908536
+vi bsub.nextpolishdraft_assembly.831449.sh 
+#1640908544
+lt
+#1640908551
+vi bsub.nextpolishdraft_assembly.831449.sh 
+#1640908571
+nohup bash bsub.nextpolishdraft_assembly.831449.sh &
+#1640908572
+top
+#1640908585
+strace -p 108263
+#1640908612
+cd ../...
+#1640908613
+ll
+#1640908615
+cd ..
+#1640908616
+ll
+#1640908624
+lt -d */
+#1640908627
+lt workdir_purge_dups_pass/
+#1640908632
+tail workdir_purge_dups_pass/purge_dups.log 
+#1640908638
+ll
+#1640908642
+vw
+#1640908676
+echo $BD
