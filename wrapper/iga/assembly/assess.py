@@ -102,6 +102,39 @@ def busco(genome_fasta=None, mode='genome', lineage='embryophyta_odb10', threads
         sh(cmd)
 
 
+#0 ref
+#1 fq1
+#2 fq2
+#3 threads
+sgs_mapping_sh=r"""
+REF={0}
+FASTQ1={1}
+FASTQ2={2}
+THREADS={3}
+bwa index $REF
+bwa mem -t ${{THREADS}} $REF ${{FASTQ1}} ${{FASTQ2}} \
+| samtools view -@ ${{THREADS}} -bS - | samtools sort -@ 80 - > ${{REF}}.bam
+samtools index ${{REF}}.bam
+samtools flagstat -@ ${{THREADS}} ${{REF}}.bam >${{REF}}.bam.stat
+"""
+
+
+def sgs_mapping(ref=None, fq1=None, fq2=None, threads=40):
+    """
+    mapping sgs reads with bwa and calculate mapping ratio
+    Args:
+        ref:
+        fq1:
+        fq2:
+        threads:40
+    Returns:
+    """
+    cmd = sgs_mapping_sh.format(ref, fq1, fq2, threads)
+    bsub(cmd, name='bwa', cpus=threads)
+    return 0
+
+
+
 #
 # def main():
 #     prog_name = "busco_wrapper"
