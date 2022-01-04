@@ -11172,3 +11172,35 @@ wc -l *fai
 awk '$3>0.5' *frac |wc -l
 #1641278698
 vw
+#1641279064
+gtps
+#1641279385
+lt
+#1641279405
+touch check_TE_contamination.sh
+#1641279486
+conda activate EDTA
+#1641279507
+echo $CONDA_PR
+#1641279510
+echo $CONDA_PREFIX 
+#1641279409
+history |less
+#1641279730
+awk '$3<0.5' Senna_tora.cds.fai.size.repeat_frac |cut -f4 > Senna_tora.cds.clean.txt
+#1641279732
+les *txt
+#1641279735
+les Senna_tora.cds.fai.size.repeat_frac
+#1641279745
+awk '$3<0.5' Senna_tora.cds.fai.size.repeat_frac |cut -f1 > Senna_tora.cds.clean.txt
+#1641279746
+les Senna_tora.cds.fai.size.repeat_frac
+#1641279749
+les *txt
+#1641279877
+lth
+#1641279880
+vi check_TE_contamination.sh 
+#1641279924
+cp check_TE_contamination.sh  /nfs/liuhui/bin/bundle/bash_template/
