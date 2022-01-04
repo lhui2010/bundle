@@ -11204,3 +11204,89 @@ lth
 vi check_TE_contamination.sh 
 #1641279924
 cp check_TE_contamination.sh  /nfs/liuhui/bin/bundle/bash_template/
+#1641279926
+gtps
+#1641279934
+lth
+#1641280019
+bjl
+#1641280025
+conda deactivate
+#1641280030
+j mcscanx
+#1641280032
+lth
+#1641280047
+tail error.15017
+#1641280068
+history |grep xarg |les
+#1641280248
+more tmp
+#1641280252
+head tmp
+#1641280257
+tail -n2 tmp
+#1641280266
+vw
+#1641280272
+tail -n +2 tmp
+#1641280275
+tail -n +2 tmp |head
+#1641280277
+head tmp
+#1641280313
+head -1 Medicago_truncatula.Medicago_truncatula.ortho.kaks
+#1641280393
+echo -e "Sequence\tMethod\tKa\tKs\tKa/Ks\tP-Value(Fisher)\tLength\tS-Sites\tN-Sites\tFold-Sites(0:2:4)\tSubstitutions\tS-SubstitutionsN-Substitutions\tFold-S-Substitutions(0:2:4)\tFold-N-Substitutions(0:2:4)\tDivergence-Time\tSubstitution-Rate-Ratio(rTC:rAG:rTA:rCG:rTG:rCA/rCA)\tGC(1:2:3)\tML-Score\tAICc\tAkaike-Weight\tModel"
+#1641280499
+find . -mindepth 1 -maxdepth 1 -type d '*.ParaAT.out'
+#1641280507
+find . -mindepth 1 -maxdepth 1 -type d -name '*.ParaAT.out'
+#1641280559
+mkdir backup
+#1641280567
+bsub 'cp *.kaks backup/'
+#1641280568
+bj
+#1641280576
+bhosts 
+#1641280544
+top
+#1641280556
+tolava 
+#1641280564
+which tolava
+#1641280569
+ssh openlava@yi04
+#1641280622
+sudo /etc/init.d/openlava restart
+#1641280628
+bhosts 
+#1641280718
+bhosts 
+#1641280703
+sudo /etc/init.d/openlava restart
+#1641280668
+ssh -p 201 yi02
+#1641280682
+lt
+#1641280606
+ssh yi04
+#1641280748
+bhosts 
+#1641280752
+lth
+#1641280765
+ls ..
+#1641280777
+cd ..
+#1641280780
+vi join_kaks.sh
+#1641280821
+chmod +x join_kaks.sh
+#1641280822
+vi join_kaks.sh
+#1641280864
+bsub512 -J joinkaks < join_kaks.sh 
+#1641280873
+cp join_kaks.sh /nfs/liuhui/bin/bundle/bash_template/
