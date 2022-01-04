@@ -11092,3 +11092,61 @@ samtools faidx Senna_tora.cds
 gtp
 #1641274322
 ping www.baidu.com
+#1641274328
+gtps
+#1641274339
+lt
+#1641274343
+les *fai
+#1641274353
+cut -f1,2 Senna_tora.cds.fai > Senna_tora.cds.fai.size
+#1641274355
+vi Senna_tora.cds.fai.size 
+#1641274367
+cp sum.pl frac.pl
+#1641274368
+vi frac.pl 
+#1641274513
+perl frac.pl Senna_tora.bed.xrepeat.coverage.extract.sum Senna_tora.cds.fai.size > Senna_tora.cds.fai.size.repeat_frac
+#1641274516
+les Senna_tora.cds.fai.size.repeat_frac
+#1641274529
+les Senna_tora.bed.xrepeat.coverage.extract.sum Senna_tora.cds.fai.size
+#1641274537
+les Senna_tora.bed.xrepeat.coverage.extract.sum
+#1641274540
+les Senna_tora.bed.xrepeat.coverage.extract
+#1641274543
+les Senna_tora.bed.xrepeat.coverage
+#1641274550
+tt Senna_tora.bed.xrepeat.coverage 
+#1641274556
+cut -f4,8 Senna_tora.bed.xrepeat.coverage > Senna_tora.bed.xrepeat.coverage.extract
+#1641274563
+vi Senna_tora.bed.xrepeat.coverage.extract 
+#1641274588
+perl sum.pl Senna_tora.bed.xrepeat.coverage.extract  > Senna_tora.bed.xrepeat.coverage.extract.sum
+#1641274597
+perl frac.pl Senna_tora.bed.xrepeat.coverage.extract.sum Senna_tora.cds.fai.size > Senna_tora.cds.fai.size.repeat_frac
+#1641274599
+les *frac
+#1641274614
+awk '$3>0.5' *frac |wc -l
+#1641274625
+wc -l *frac
+#1641274627
+wc -l *fai
+#1641274661
+mv sum.pl sum_dict.pl
+#1641274665
+vi frac.pl 
+#1641274743
+vi sum_dict.pl 
+#1641274746
+vi frac.pl 
+#1641274748
+vi sum_dict.pl 
+#1641274804
+mv sum_dict.pl sumdict.pl
+#1641274811
+cp sumdict.pl frac.pl $HB
