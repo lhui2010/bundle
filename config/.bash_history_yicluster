@@ -11150,3 +11150,13 @@ vi sum_dict.pl
 mv sum_dict.pl sumdict.pl
 #1641274811
 cp sumdict.pl frac.pl $HB
+#1641274813
+gtps
+#1641274821
+vi frac.pl sumdict.pl 
+#1641274828
+cd $HB
+#1641274828
+chd
+#1641274829
+cd -
