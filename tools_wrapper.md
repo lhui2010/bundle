@@ -297,6 +297,15 @@ fastq-dump --outdir fastq --gzip --skip-technical  --readids --read-filter pass 
 
 ### slurm
 
+sinfo：显示系统资源使用情况
+squeue：显示作业状态
+srun：用于交互式作业提交
+sbatch：用于批处理作业提交
+salloc：用于分配模式作业提交
+scancel：用于取消已提交的作业
+scontrol：用于查询节点信息或正在运行的作业信息
+sacct：用于查看历史作业信息
+
 #### submit jobs
 sbatch submit.sh
 
@@ -306,11 +315,41 @@ head ~/Test_kmer/submit.sh
 #SBATCH -N 1
 #SBATCH -n 64
 
+#### interactive jobs
+srun -p com -w comput[1-2] -N 2 -n 40 -t 20 A.exe
+交互式提交A.exe程序。如果不关心节点和时间限制，可简写为srun -N 2 -n 40 A.exe
+-p com指定提交作业到com队列；
+-w comput[1-2] 指定使用节点comput[1-2]；
+-N 2 指定使用2个节点；
+-n 40 指定进程数为40；
+-t 20 指定作业运行时间限制为20分钟。
+
+#### ssh to node
+salloc分配模式作业提交
+
 #### view jobs
 squeue
+https://hpc.sicau.edu.cn/syzn/slurm.htm
+squeue -j 123456
+查看作业号为123456的作业信息
+squeue -u paratera
+查看超算账号为 paratera的作业信息
+squeue –p com
+查看提交到com队列的作业信息
+squeue -w comput1
+查看使用到comput1节点的作业信息
+
+
+#### view node statistics
+scontrol show node $i
+scontrol show job 123456
 
 #### view  node stat
-$sinfo -n p2407 -o '%c %m %O %T'
+指定显示节点comput1的使用情况
+sinfo -n p2407 -o '%c %m %O %T'
+指定显示队列com情况
+sinfo -p com
+
 
 #### gff2bed
 GFF=falcon_peps.gff
