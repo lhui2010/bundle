@@ -145,11 +145,16 @@ bqueues -l QGPU |grep HOSTS
     HOSTS:  node14
 ```
 
-
-
 #### Monitor jobs
 while true; do date; lsload |grep "HOST\|node02\|node03\|node04\|node05"; sleep 1m; done
 while [ `bjobs 127421 2>/dev/null |head -1 |awk '{print $1}'` == JOBID ]; do sleep 1m; done
+
+### sbatch
+```
+
+#Find idle nodes
+sinfo -N --states=idle
+```
 
 ### fastqc
 $bsub512 -J QC  'mkdir fastqc_dir && perl  /ds3200_1/proc/FastQC/fastqc -t 60 *gz -o fastqc_dir'
