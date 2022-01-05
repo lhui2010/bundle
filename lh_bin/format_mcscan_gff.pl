@@ -5,9 +5,10 @@
 
 while(<>)
 {
-    next unless (/mRNA/);
     chomp;
     my @e=split;
+    next unless ($e[2] eq mRNA);
+    chomp;
     if(/ID=(.*?);/ or /ID=(.*)$/ )
     {
         $mRNAID = $1;

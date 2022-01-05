@@ -96,7 +96,7 @@ alias bsub6T='bsub   -R "span[hosts=1]" -q Q88C6T_X1  -o output.%J -e error.%J'
 alias bsubI='bsub -q Q104C512G_X4  -Ip bash'
 alias bsubI1T='bsub -q Q64C1T_X4 -Ip bash'
 alias gtp='pushd ${BD}; git pull; popd'
-alias gtps='cd ${BD}; git add . && git commit -m "CMD update" && git push; cd -'
+alias gtps='pushd ${BD}; git add . && git commit -m "CMD update" && git push; popd'
 
 alias newbsub='echo  "#!/bin/bash
 #BSUB -J hybrid_job_name      # job name
@@ -262,3 +262,5 @@ export PATH=/nfs/liuhui/bin/NextPolish:$PATH
 export PATH=/nfs/liuhui/bin/wtdbg-2.5_x64_linux:$PATH
 export PATH=/nfs/liuhui/bin/MCScanX-master/downstream_analyses:$PATH
 export PATH=/nfs/liuhui/bin/purge_dups-1.2.5/bin:$PATH
+export PATH=/nfs/liuhui/bin/lazyb/bbmap:$PATH
+export PATH=/nfs/liuhui/bin/lazyb/LazyB-master:$PATH
