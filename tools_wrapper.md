@@ -302,14 +302,12 @@ fastq-dump --outdir fastq --gzip --skip-technical  --readids --read-filter pass 
 
 ### slurm
 
-sinfo：显示系统资源使用情况
-squeue：显示作业状态
-srun：用于交互式作业提交
-sbatch：用于批处理作业提交
-salloc：用于分配模式作业提交
-scancel：用于取消已提交的作业
-scontrol：用于查询节点信息或正在运行的作业信息
-sacct：用于查看历史作业信息
+#### Best Practice
+
+```
+sbatch --get-user-env -n 1 -N 1 -c 30 -p xhacnormalb bsub.repeat_masker_Chamaecrista_fasciculata.553526.sh
+
+```
 
 #### submit jobs
 sbatch submit.sh
@@ -344,7 +342,6 @@ squeue –p com
 squeue -w comput1
 查看使用到comput1节点的作业信息
 
-
 #### view node statistics
 scontrol show node $i
 scontrol show job 123456
@@ -355,8 +352,7 @@ sinfo -n p2407 -o '%c %m %O %T'
 指定显示队列com情况
 sinfo -p com
 
-
-#### gff2bed
+### gff2bed
 GFF=falcon_peps.gff
 grep -v "^#" ${GFF} |sed 's/;.*//; s/ID=//' | awk '$3=="protein_match"'| awk '{print $1"\t"$4"\t"$5"\t"$9"\t"$6"\t"$7}' >${GFF}.bed
 

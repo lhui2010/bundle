@@ -382,3 +382,4 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/Platanus_allee_v2.2.2_Linux
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/lh_bin:$PATH
 
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/MCScanX-master:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/MaSuRCA-4.0.6/bin:$PATH
