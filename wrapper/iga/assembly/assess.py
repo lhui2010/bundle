@@ -70,6 +70,7 @@ def lai(genome=None, threads=50):
 
 busco_sh = """
 # 1215, add --offline option
+export NUMEXPR_MAX_THREADS=272
 busco --offline -f -c {0} -m {1} -i {2} -o {3} -l {4}
 """
 
