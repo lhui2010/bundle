@@ -294,8 +294,8 @@ def select_block_by_ks(anchor_ks=None, min_ks=0, max_ks=0.7):
 commonWGD_sh = r"""
 selectItem.pl 0 0,1 ../{0}       ../{1} |sed "s/\t/-/" > {0}.left
 selectItem.pl 1 0,1 ../{0}       ../{2} |sed "s/\t/-/" > {0}.right
-selectItem.pl -h    ../{0}.left  ../{1}.kaks >{0}.left.kaks
-selectItem.pl -h    ../{0}.right ../{2}.kaks >{0}.right.kaks
+selectItem.pl -h    {0}.left  ../{1}.kaks >{0}.left.kaks
+selectItem.pl -h    {0}.right ../{2}.kaks >{0}.right.kaks
 get_ks_peak.py      {0}.left.kaks > ../{0}.left.peak
 get_ks_peak.py      {0}.right.kaks > ../{0}.right.peak
 get_ks_peak.py      {0}.kaks > ../{0}.orthopeak
