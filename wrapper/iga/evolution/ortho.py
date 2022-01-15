@@ -302,7 +302,7 @@ get_ks_peak.py {0}.kaks > {0}.orthopeak
 """
 
 
-def commonWGD(wgd_ortho=None):
+def commonWGD1(wgd_ortho=None):
     """
     Test if there was common WGD between xx and yy given xx.yy.ortho and xx.yy.ortho.ks as well as xx.xx.ortho[.ks] and
     yy.yy.ortho[.ks]
