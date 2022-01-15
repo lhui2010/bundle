@@ -317,6 +317,9 @@ def commonWGD1(wgd_ortho=None):
     mylist = wgd_ortho.split('.')
     wgd_left = '.'.join([mylist[0], mylist[0], 'ortho'])
     wgd_right = '.'.join([mylist[1], mylist[1], 'ortho'])
+    if wgd_right == wgd_left:
+        logging.info("Ignoring paralogous")
+        return 0
     cmd += commonWGD_sh.format(wgd_ortho, wgd_left, wgd_right)
     bsub(cmd, name='GMM_peak')
 
