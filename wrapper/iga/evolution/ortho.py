@@ -3,7 +3,7 @@ Ortholog calculation related utils
 """
 import os
 
-from iga.apps.base import emain, bsub, sh, waitjob, workdir_sh
+from iga.apps.base import emain, bsub, sh, waitjob, workdir_sh, mkdir
 import os.path as op
 from iga.apps.blast import blastp, extract_top_n_hits
 import logging
@@ -49,6 +49,19 @@ def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene
     :param comparison_type: intra (-b 1), inter (-b 2), both intra and inter (-b 0, default)
     :return:
     """
+    combine_prefix = prefix1 + '.' + prefix2
+    workdir = 'work.{}'.format(combine_prefix)
+    #workdir_sh.format(workdir)
+    mkdir(workdir)
+    sh("cp {}.pep  {}/".format(prefix1, workdir))
+    sh("cp {}.cds  {}/".format(prefix1, workdir))
+    sh("cp {}.gff3 {}/".format(prefix1, workdir))
+    sh("cp {}.pep  {}/".format(prefix2, workdir))
+    sh("cp {}.cds  {}/".format(prefix2, workdir))
+    sh("cp {}.gff3 {}/".format(prefix2, workdir))
+    sh("cp {}.blast {}/".format(combine_prefix, workdir))
+    os.chdir(workdir)
+
     if prefix1 == prefix2:
         combine_prefix = prefix1 + '.' + prefix1
         if op.exists(prefix1 + '.gff3'):
@@ -66,7 +79,6 @@ def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene
         else:
             logging.error("You need to provide the gff3 file with format {}.gff3 {}.gff3".format(prefix1, prefix2))
             exit(1)
-        combine_prefix = prefix1 + '.' + prefix2
     # input
     combine_blast = combine_prefix + '.blast'
     combine_gff3 = combine_prefix + '.gff3'
@@ -159,7 +171,7 @@ def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T', wait='T'):
     """
     cmd = kaks_sh.format(ortho, cds, pep, threads)
     if use_grid == 'T':
-        jobid = bsub(cmd, name="kaks", cpus=threads)
+        jobid = bsub(cmd, name="kaks -m yi04", cpus=threads)
         if wait == 'T':
             waitjob(jobid)
     else:
