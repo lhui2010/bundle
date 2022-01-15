@@ -304,6 +304,7 @@ get_ks_peak.py {0}.kaks > {0}.orthopeak
 
 def commonWGD1(wgd_ortho=None):
     """
+    Input Eg: Medicago_truncatula.Senna_tora.ortho
     Test if there was common WGD between xx and yy given xx.yy.ortho and xx.yy.ortho.ks as well as xx.xx.ortho[.ks] and
     yy.yy.ortho[.ks]
     Args:
@@ -313,8 +314,8 @@ def commonWGD1(wgd_ortho=None):
     Returns:
     """
     mylist = wgd_ortho.split('.')
-    wgd_left = '.'.join(mylist[0], mylist[0], 'ortho')
-    wgd_right = '.'.join(mylist[1], mylist[1], 'ortho')
+    wgd_left = '.'.join([mylist[0], mylist[0], 'ortho'])
+    wgd_right = '.'.join([mylist[1], mylist[1], 'ortho'])
     cmd = commonWGD_sh.format(wgd_ortho, wgd_left, wgd_right)
     bsub(cmd, name='GMM_peak')
 
