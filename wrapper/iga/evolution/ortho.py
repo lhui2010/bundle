@@ -288,9 +288,43 @@ def select_block_by_ks(anchor_ks=None, min_ks=0, max_ks=0.7):
                 print(line, end='')
 
 
+# 0: xx.yy.ortho
+# 1: xx.xx.ortho
+# 2: yy.yy.ortho
+commonWGD_sh = r"""
+selectItem.pl 0 0,1 {0} {1} |sed "s/\t/-/" > {0}.left
+selectItem.pl 1 0,1 {0} {2} |sed "s/\t/-/" > {0}.right
+selectItem.pl -h {0}.left {1}.kaks >{0}.left.kaks
+selectItem.pl -h {0}.right {1}.kaks >{0}.right.kaks
+get_ks_peak.py {0}.left.kaks > {0}.left.peak
+get_ks_peak.py {0}.right.kaks > {0}.right.peak
+get_ks_peak.py {0}.kaks > {0}.orthopeak
+"""
+
+
+def commonWGD(wgd_ortho=None):
+    """
+    Test if there was common WGD between xx and yy given xx.yy.ortho and xx.yy.ortho.ks as well as xx.xx.ortho[.ks] and
+    yy.yy.ortho[.ks]
+    Args:
+        wgd_ortho: like Medicago_truncatula.Senna_tora.ortho
+        requires the existence of Medicago_truncatula.Medicago_truncatula.ortho and Medicago_truncatula
+        also requires Medicago_truncatula.Senna_tora.ortho.kaks
+    Returns:
+    """
+    mylist = wgd_ortho.split('.')
+    wgd_left = '.'.join(mylist[0], mylist[0], 'ortho')
+    wgd_right = '.'.join(mylist[1], mylist[1], 'ortho')
+    cmd = commonWGD_sh.format(wgd_ortho, wgd_left, wgd_right)
+    bsub(cmd, name='GMM_peak')
+
+
+
+
 # -----------------------------------
 
 from iga.apps.blast import BlastTable
+
 
 def rename_orthofinder_blast(seqid=None, blast=None):
     """
