@@ -321,7 +321,7 @@ def commonWGD1(wgd_ortho=None):
         logging.info("Ignoring paralogous")
         return 0
     cmd += commonWGD_sh.format(wgd_ortho, wgd_left, wgd_right)
-    bsub(cmd, name='GMM_peak')
+    bsub(cmd, cpus=8, name='GMM_peak')
 
 
 
