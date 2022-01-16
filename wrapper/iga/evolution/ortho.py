@@ -171,7 +171,7 @@ def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T', wait='T'):
     """
     cmd = kaks_sh.format(ortho, cds, pep, threads)
     if use_grid == 'T':
-        jobid = bsub(cmd, name="kaks -m yi04", cpus=threads)
+        jobid = bsub(cmd, name="kaks", cpus=threads)
         if wait == 'T':
             waitjob(jobid)
     else:
