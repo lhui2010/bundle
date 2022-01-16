@@ -1,3 +1,4 @@
+#!/usr/bin/perl
 
 
 my $max = 6;

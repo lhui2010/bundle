@@ -13,7 +13,7 @@ while(<IN>)
 {
     my $name = "";
     my $name2 = "";
-	if(/ID=(.*?);Name/)
+	if(/ID=(.*?);Name/ or /ID=(.*?)$/ )
     {
         $name=$1;
     }

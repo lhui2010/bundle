@@ -264,3 +264,12 @@ export PATH=/nfs/liuhui/bin/MCScanX-master/downstream_analyses:$PATH
 export PATH=/nfs/liuhui/bin/purge_dups-1.2.5/bin:$PATH
 export PATH=/nfs/liuhui/bin/lazyb/bbmap:$PATH
 export PATH=/nfs/liuhui/bin/lazyb/LazyB-master:$PATH
+export PATH=/nfs/liuhui/bin/lazyb/abyss/bin:$PATH
+export PATH=/nfs/liuhui/bin/lazyb/abyss/bin:$PATH
+
+## Required for layzb
+# export LD_LIBRARY_PATH=/nfs/liuhui/.conda/envs/lazyb/lib
+
+# export PATH=/nfs/liuhui/bin/lazyb/MaSuRCA-4.0.6/bin:$PATH
+# export PATH=/nfs/liuhui/bin/lazyb/MaSuRCA-4.0.6/Flye/bin:$PATH
+export PATH=/nfs/liuhui/bin/blast-2.2.26/bin:$PATH
