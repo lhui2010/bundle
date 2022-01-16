@@ -107,7 +107,7 @@ def filter_reciprocal_best(bln=None):
             print(qry_line[k])
 
 
-def extract_top_n_hits(bln=None, eval=1e-5, top_num=10, output=''):
+def extract_top_n_hits(bln=None, eval=1e-5, top_num=10, output='', threads=4):
     """
     A script function like blastall -v and -b:
     If you used to filter top 5 hits with blastall: blastall -v 5 -b 5
@@ -122,17 +122,17 @@ def extract_top_n_hits(bln=None, eval=1e-5, top_num=10, output=''):
     cmd = """
 awk '$11 < 1e-05' {0} > {0}.filter_eval
 
-sort -k1,1 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.qry
+sort  --parallel={3} -k1,1 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.qry
 
 # The following command is too slow, deprecated
 # Then get the top 5 hits for every query: 
 # for next in $(cut -f1 {0}.sorted.qry | sort -u); do grep -w -m {1} "$next" {0}.sorted.qry; done > {0}.sorted.qry.top{1}
 
-sort -k2,2 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.ref
+sort  --parallel={3} -k2,2 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.ref
 
 # Then get the top 5 hits for every query:
 # for next in $(cut -f1 {0}.sorted.ref | sort -u); do grep -w -m {1} "$next" {0}.sorted.ref; done > {0}.sorted.ref.top{1}
-""".format(bln, top_num, eval)
+""".format(bln, top_num, eval, threads)
     sorted_qry = bln + '.sorted.qry'
     sorted_ref = bln + '.sorted.ref'
     sh(cmd)
@@ -156,13 +156,13 @@ def extract_reciprocal_best_hits(bln=None, eval=1e-5, top_num=1, output=''):
     cmd = """
 awk '$11 < 1e-05' {0} > {0}.filter_eval
 
-sort -k1,1 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.qry
+sort --parallel=4 -k1,1 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.qry
 
 # The following command is too slow, deprecated
 # Then get the top 5 hits for every query: 
 # for next in $(cut -f1 {0}.sorted.qry | sort -u); do grep -w -m {1} "$next" {0}.sorted.qry; done > {0}.sorted.qry.top{1}
 
-sort -k2,2 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.ref
+sort --parallel=4 -k2,2 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.ref
 
 # Then get the top 5 hits for every query:
 # for next in $(cut -f1 {0}.sorted.ref | sort -u); do grep -w -m {1} "$next" {0}.sorted.ref; done > {0}.sorted.ref.top{1}
