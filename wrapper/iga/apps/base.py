@@ -320,8 +320,8 @@ def is_job_finished(joblist=None):
         # logging.warning(status)
         # if re.search(r'{}  yitings DONE'.format(j), status) or \
         #         re.search(r'{}  yitings EXIT'.format(j), status) or \
-        if re.search(r'{}   DONE'.format(j), status) or \
-                re.search(r'{}   EXIT'.format(j), status) or \
+        if re.search(r'{}\s+DONE'.format(j), status) or \
+                re.search(r'{}\s+EXIT'.format(j), status) or \
                 re.search(r'Job .* is not found', status):
             if 'EXIT' in status:
                 logger.error("Job {} finished with error!".format(j))
