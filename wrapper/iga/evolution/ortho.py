@@ -59,7 +59,7 @@ def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene
     sh("cp {}.pep  {}/".format(prefix2, workdir))
     sh("cp {}.cds  {}/".format(prefix2, workdir))
     sh("cp {}.gff3 {}/".format(prefix2, workdir))
-    sh("cp {}.blast {}/".format(combine_prefix, workdir))
+    sh("ln -s ../{0}.blast {1}/{0}.blast.raw".format(combine_prefix, workdir))
     os.chdir(workdir)
 
     if prefix1 == prefix2:
