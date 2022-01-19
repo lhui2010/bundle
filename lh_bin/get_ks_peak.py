@@ -40,6 +40,7 @@ class mGausComp:
 
 data=pd.read_table(sys.argv[1])
 df=data.dropna(subset=['Ks'])
+df=df[df.Ks<6]
 GMM_input=df['Ks'].values
 GMM_input=GMM_input.reshape(-1,1)
 #res=GaussianMixture(n_components=3, covariance_type='spherical').fit(GMM_input)

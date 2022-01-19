@@ -842,8 +842,9 @@ sub KaKsCommands {
 	my @cmds = ();
 	for (my $i=0; $i<@files; $i++) {
 		my $file = $files[$i];
-        #my $cmd = $KaKsCMD." -i ".$file.".cds_aln.axt -m YN -o  ".$file.".cds_aln.axt.kaks >> msg.kaks";
-		my $cmd = $KaKsCMD." -i ".$file.".cds_aln.axt -m NG -o  ".$file.".cds_aln.axt.kaks >> msg.kaks";
+        my $cmd = $KaKsCMD." -i ".$file.".cds_aln.axt -m YN -o  ".$file.".cds_aln.axt.kaks >> msg.kaks";
+
+        ######my $cmd = $KaKsCMD." -i ".$file.".cds_aln.axt -m NG -o  ".$file.".cds_aln.axt.kaks >> msg.kaks";
 		push(@cmds, $cmd);
 	} 
 	chomp @cmds;

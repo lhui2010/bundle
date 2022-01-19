@@ -19839,3 +19839,4117 @@ lt
 wc -l *.ortho
 #1642314193
 gtp
+#1642314198
+gtps
+#1642314341
+mafft -h
+#1642314353
+lt
+#1642314357
+cd ../work.Cercis_chinensis.Cercis_chinensis/
+#1642314357
+lt
+#1642314371
+wc -l Cercis_chinensis.Cercis_chinensis.blast
+#1642314388
+ll Cercis_chinensis.Cercis_chinensis.blast
+#1642314395
+md5sum Cercis_chinensis.Cercis_chinensis.blast.raw
+#1642314423
+lt
+#1642314429
+lt
+#1642314485
+cd ..
+#1642314512
+vi run.sh 
+#1642314536
+bsub -m yi04 'python -m iga.evolution.ortho mcscanx --threads 40 Cercis_chinensis Cercis_chinensis'
+#1642314538
+logsh
+#1642314550
+blastp -v
+#1642314562
+which blastp
+#1642314568
+tolava
+#1642314737
+lt
+#1642314738
+ls
+#1642314748
+cd work.Cercis_chinensis.Cercis_chinensis/
+#1642314748
+lt
+#1642314762
+gtp
+#1642314777
+cd ../
+#1642314777
+ls
+#1642314786
+mv work.Cercis_chinensis.Cercis_chinensis work.Cercis_chinensis.Cercis_chinensis.1
+#1642314773
+tma
+#1642314835
+python -m iga.evolution.ortho mcscanx Cercis_chinensis Cercis_chinensis
+#1642314854
+bkill 21600
+#1642314863
+lt
+#1642314865
+rm -r work.Cercis_chinensis.Cercis_chinensis
+#1642314870
+rm -rf work.Cercis_chinensis.Cercis_chinensis
+#1642314864
+top
+#1642314941
+tolava
+#1642314908
+ssh -p 201 yi02
+#1642314989
+tolava
+#1642315065
+lt
+#1642315091
+gtp
+#1642315108
+cd ..
+#1642315110
+cd work.Cercis_chinensis.Cercis_chinensis
+#1642315111
+lth
+#1642315113
+lt
+#1642315124
+module load blast
+#1642315127
+blastp -v
+#1642315129
+lth
+#1642315152
+cd ../work.Cercis_chinensis.Cercis_chinensis.1/
+#1642315152
+lt
+#1642315175
+mv Cercis_chinensis.Cercis_chinensis.ortho.new
+#1642315182
+mv Cercis_chinensis.Cercis_chinensis.ortho Cercis_chinensis.Cercis_chinensis.ortho.new
+#1642315189
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX/test_pipeline/mcscanx_pipe/Cercis_chinensis.Cercis_chinensis.ortho
+#1642315193
+lth
+#1642315201
+les sort Cercis_chinensis.Cercis_chinensis.ortho > Cercis_chinensis.Cercis_chinensis.ortho.sort
+#1642315204
+sort Cercis_chinensis.Cercis_chinensis.ortho > Cercis_chinensis.Cercis_chinensis.ortho.sort
+#1642315212
+sort Cercis_chinensis.Cercis_chinensis.ortho.new > Cercis_chinensis.Cercis_chinensis.ortho.new.sort
+#1642315218
+diff Cercis_chinensis.Cercis_chinensis.ortho.sort Cercis_chinensis.Cercis_chinensis.ortho.new.sort |wc -l
+#1642315221
+diff Cercis_chinensis.Cercis_chinensis.ortho.sort Cercis_chinensis.Cercis_chinensis.ortho.new.sort |less
+#1642315233
+ls
+#1642315277
+cd ../
+#1642315294
+ll ../mcscanX/Cercis_chinensis.Cercis_chinensis.ortho.kaks
+#1642315296
+les ../mcscanX/Cercis_chinensis.Cercis_chinensis.ortho.kaks
+#1642315307
+cd work.Cercis_chinensis.Cercis_chinensis/
+#1642315316
+cp ../mcscanX/Cercis_chinensis.Cercis_chinensis.ortho.kaks CC_Jan15.kaks
+#1642315321
+cp ../../mcscanX/Cercis_chinensis.Cercis_chinensis.ortho.kaks CC_Jan15.kaks
+#1642315328
+ks_plot.R CC_Jan15.kaks
+#1642315332
+sz CC_Jan15.kaks.pdf 
+#1642315334
+# Sent -> /Users/liuhui/Downloads/
+#1642315375
+ls
+#1642315381
+lt
+#1642315387
+cd ../work.1
+#1642315392
+cd ../work.Cercis_chinensis.Cercis_chinensis.1/
+#1642315394
+llt
+#1642315394
+lt
+#1642315429
+cd ../work.Cercis_chinensis.Cercis_chinensis
+#1642315434
+wc -l CC_Jan15.kaks
+#1642315488
+lt
+#1642315491
+ll
+#1642315497
+cd ../work.Cercis_chinensis.Cercis_chinensis
+#1642315498
+lt
+#1642315502
+cd ../work.Cercis_chinensis.Cercis_chinensis.1/
+#1642315502
+lt
+#1642315506
+wc -l *ortho*
+#1642315519
+vi proc 
+#1642315525
+tma
+#1642315535
+history |less
+#1642315535
+history |less
+#1642315563
+ll
+#1642315569
+vi bsub.kaks.184368.sh 
+#1642315610
+bsub -m yi04 'ParaAT.pl -h Cercis_chinensis.Cercis_chinensis.ortho -n Cercis_chinensis.cds -a Cercis_chinensis.pep -p proc -o old.ParaAT.out -f axt -k'
+#1642315611
+logsh
+#1642315615
+lth
+#1642315626
+lt old.ParaAT.out/
+#1642315626
+lth
+#1642315630
+lt old.ParaAT.out/ |head
+#1642315638
+les old.ParaAT.out/CECHI00016733-t1_Cechi-CECHI00009840-t1_Cechi.cds_aln.axt
+#1642315650
+ll old.ParaAT.out/CECHI00016733-t1_Cechi-CECHI00009840-t1_Cechi.*
+#1642315655
+less old.ParaAT.out/CECHI00016733-t1_Cechi-CECHI00009840-t1_Cechi.kaks
+#1642315658
+les old.ParaAT.out/CECHI00016733-t1_Cechi-CECHI00009840-t1_Cechi.kaks
+#1642315661
+lth
+#1642315663
+lt
+#1642315673
+lt *pdf
+#1642315681
+lt *kaks
+#1642315688
+ks_plot.R Cercis_chinensis.Cercis_chinensis.ortho.kaks 
+#1642315704
+mv Cercis_chinensis.Cercis_chinensis.ortho.kaks.pdf Cercis_chinensis.Cercis_chinensis.ortho.kaks.newly_generated.pdf
+#1642315712
+mv Cercis_chinensis.Cercis_chinensis.ortho.kaks.newly_generated.pdf Cercis_chinensis.Cercis_chinensis.ortho.kaks.newly_generatedNG86.pdf
+#1642315714
+sz Cercis_chinensis.Cercis_chinensis.ortho.kaks.newly_generatedNG86.pdf
+#1642315716
+# Sent -> /Users/liuhui/Downloads/
+#1642315726
+lth
+#1642315888
+tolava
+#1642316257
+lth
+#1642316369
+which ParaAT.pl
+#1642316372
+vi ~/bin/bundle/executables/ParaAT.pl
+#1642316378
+cd ..
+#1642316379
+ls
+#1642316385
+cd work.Senna_tora.Senna_tora
+#1642316385
+lt
+#1642316392
+lt *ks
+#1642316404
+tma
+#1642316413
+bjl
+#1642316416
+lth
+#1642316453
+which clustalw2
+#1642316456
+bsub -m yi04 'ParaAT.pl -h Senna_tora.Senna_tora.ortho -n Senna_tora.cds -a Senna_tora.pep -p proc -o YN00.ParaAT.out -f axt -k'
+#1642316459
+vi proc 
+#1642316461
+lt
+#1642316464
+bjl
+#1642316473
+lt
+#1642316493
+les Senna_tora.Senna_tora.anchors
+#1642316499
+grep "#" Senna_tora.Senna_tora.anchors |wc -l
+#1642316534
+grep "#" ../work.Cercis_chinensis.Cercis_chinensis/*.anchors |wc -l
+#1642316538
+ls ../work.Cercis_chinensis.Cercis_chinensis/*.anchors |wc -l
+#1642316543
+ls ../work.Cercis_chinensis.Cercis_chinensis/
+#1642316552
+tma
+#1642316561
+bjobs 21601
+#1642316565
+bjl
+#1642314872
+python -m iga.evolution.ortho mcscanx --threads 40 Cercis_chinensis Cercis_chinensis 
+#1642316578
+lt
+#1642316580
+lth
+#1642316585
+cd work.Cercis_chinensis.Cercis_chinensis
+#1642316586
+lt
+#1642316603
+ll ../Cercis_chinensis.Cercis_chinensis.blast
+#1642316615
+cd ..
+#1642316575
+tma
+#1642316628
+lth
+#1642316630
+bjl
+#1642316633
+bj
+#1642316639
+lth
+#1642316653
+tail -n 1 -q YN00.ParaAT.out/*kaks > YN00.kaks
+#1642316657
+vi Senna_tora.Senna_tora.ortho.kaks
+#1642316659
+vi YN00.
+#1642316660
+vi YN00.kaks 
+#1642316668
+ks_plot.R YN00.kaks
+#1642316618
+python -m iga.evolution.ortho mcscanx --threads 40 Cercis_chinensis Cercis_chinensis 
+#1642316833
+lth
+#1642316838
+sz YN00.kaks.pdf 
+#1642316841
+# Sent -> /Users/liuhui/Downloads/
+#1642316874
+wc -l Senna_tora.Senna_tora.ortho.kaks
+#1642316881
+cp Senna_tora.Senna_tora.ortho.kaks.pdf NG86.kaks.pdf
+#1642316884
+sz NG86.kaks.pdf 
+#1642316887
+# Sent -> /Users/liuhui/Downloads/
+#1642316946
+lth
+#1642316956
+cd work.Cercis_chinensis.Cercis_chinensis
+#1642316956
+lth
+#1642316964
+les Cercis_chinensis.Cercis_chinensis.ortho.kaks 
+#1642316981
+ks_plot.R Cercis_chinensis.Cercis_chinensis.ortho.kaks 
+#1642316943
+tma
+#1642316988
+cd ../work.Cercis_chinensis.Cercis_chinensis/
+#1642316989
+lth
+#1642317000
+mv Cercis_chinensis.Cercis_chinensis.ortho.kaks.pdf Cercis_chinensis.Cercis_chinensis.YN00.kaks.pdf
+#1642317002
+sz Cercis_chinensis.Cercis_chinensis.YN00.kaks.pdf
+#1642317004
+# Sent -> /Users/liuhui/Downloads/
+#1642317005
+top
+#1642317200
+lth
+#1642317236
+cd ../work.Senna_tora.
+#1642317239
+cd ../work.Senna_tora.Senna_tora
+#1642317241
+cd ../work.Senna_tora.Senna_tora.1/
+#1642317243
+cd ../work.Senna_tora.Senna_tora
+#1642317244
+lt
+#1642317258
+vi `which ParaAT.pl`
+#1642317271
+bsub -m yi04 'ParaAT.pl -h Senna_tora.Senna_tora.ortho -n Senna_tora.cds -a Senna_tora.pep -p proc -o NG86.ParaAT.out -f axt -k'
+#1642317272
+lth
+#1642317277
+lt
+#1642317283
+lth
+#1642317285
+bjl
+#1642317292
+lth
+#1642317296
+tail braker.log 
+#1642317300
+les braker.gtf 
+#1642317301
+lt
+#1642317307
+gffread 
+#1642317318
+les braker.gtf
+#1642317325
+gt
+#1642317330
+conda activate EDTA
+#1642317337
+gt
+#1642317340
+gt -help
+#1642317347
+gt gtf_to_gff3
+#1642317404
+ll
+#1642317411
+gt gtf_to_gff3 braker.gtf > braker.gff3
+#1642317413
+lt
+#1642317423
+ls ..
+#1642317426
+lt
+#1642317446
+conda deactivate
+#1642317447
+lt
+#1642317448
+cd ..
+#1642317449
+ls
+#1642317449
+lt
+#1642317453
+vi braker.sh 
+#1642317459
+vi /nfs/liuhui/bin/braker/BRAKER/scripts/braker.pl 
+#1642317506
+lt
+#1642317507
+cd -
+#1642317508
+lt
+#1642317511
+vi gtf2gff3.pl
+#1642317527
+perl gtf2gff3.pl braker.gtf braker.gff3
+#1642317529
+les braker.gff3
+#1642317532
+vi /nfs/liuhui/bin/braker/BRAKER/scripts/braker.pl 
+#1642317535
+vi gtf2gff3.pl 
+#1642317553
+which gtf2gff.pl
+#1642317556
+ls
+#1642317557
+cd ..
+#1642317557
+lt
+#1642317560
+vi braker.sh 
+#1642317568
+export PATH=/nfs/liuhui/bin/braker/dependency/Augustus/bin:/nfs/liuhui/bin/braker/dependency/Augustus/scripts:$PATH
+#1642317568
+cd -
+#1642317575
+gtf2gff.pl 
+#1642317582
+lt
+#1642317585
+gtf2gff.pl 
+#1642317598
+gtf2gff.pl 
+#1642317600
+gtf2gff.pl < braker.gtf --out=braker.gff3
+#1642317606
+les braker.gff3 
+#1642317616
+gffread -h
+#1642317622
+vw
+#1642317655
+gffread -x Duparquetia_orchidacea.cds -g ../Duparquetia_orchidacea.fa.masked.fa braker.gff3 
+#1642317669
+vi *gff3
+#1642317680
+gffread -x Duparquetia_orchidacea.cds -g ../Duparquetia_orchidacea.fa.masked.fa braker.gtf 
+#1642317683
+lth
+#1642317694
+gtf2gff.pl
+#1642317709
+gtf2gff.pl -gff3 < braker.gtf --out=braker.gff3
+#1642317715
+les braker.gff3
+#1642317721
+gffread -x Duparquetia_orchidacea.cds -g ../Duparquetia_orchidacea.fa.masked.fa braker.gff3 
+#1642317729
+cds2aa.pl Duparquetia_orchidacea.cds > Duparquetia_orchidacea.pep
+#1642317734
+ll
+#1642317737
+lt
+#1642317747
+python -m iga.assembly.assess busco -h
+#1642317757
+python -m iga.assembly.assess busco --mode prot Duparquetia_orchidacea.pep
+#1642317758
+lth
+#1642317760
+lt
+#1642317814
+lth
+#1642317831
+lth
+#1642317835
+cd ../work.Senna_tora.
+#1642317838
+cd ../work.Senna_tora.Senna_tora
+#1642317838
+lt
+#1642317865
+tail -n 1 -q NG86.ParaAT.out/*kaks > ng686.kaks
+#1642317871
+vi YN00.kaks
+#1642317873
+vi ng686.kaks 
+#1642317879
+ks_plot.R ng686.kaks 
+#1642317889
+mv ng686.kaks.pdf senna.ng686.kaks.pdf
+#1642317290
+tma
+#1642317892
+sz senna.ng686.kaks.pdf 
+#1642317895
+# Sent -> /Users/liuhui/Downloads/
+#1642317963
+lth
+#1642317971
+gtp
+#1642318050
+lt
+#1642318055
+gtp
+#1642318062
+which blastp
+#1642318067
+cd ..
+#1642318067
+ls
+#1642318075
+cd -
+#1642318077
+ls
+#1642318253
+ll
+#1642318258
+j phyleg
+#1642318259
+ls
+#1642318261
+cd mcscanX2/
+#1642318262
+ll
+#1642318266
+top
+#1642318269
+lt
+#1642318279
+man sort
+#1642318297
+sort --parallel=1 -k1,1n Faidherbia_albida.Glycine_soja.blast > /dev/null &
+#1642318297
+top
+#1642318084
+tolava
+#1642318545
+which blast
+#1642318546
+which blastp
+#1642318550
+module load blast
+#1642318552
+which blastp
+#1642318595
+lt
+#1642318601
+ls
+#1642318631
+vi run.sh 
+#1642318648
+mkdir test
+#1642318650
+mv work.* test/
+#1642318651
+ls
+#1642318661
+grep "^_" *gff3
+#1642318678
+bjl
+#1642318681
+j duparquetia
+#1642318682
+lth
+#1642318683
+cd annotation/
+#1642318683
+lth
+#1642318686
+cd braker_double_masked_legprot/
+#1642318686
+lt
+#1642318687
+cd braker/
+#1642318688
+lt
+#1642318693
+more Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2.txt 
+#1642318739
+lt
+#1642318747
+grep ">" Duparquetia_orchidacea.cds |wc -l
+#1642318751
+cd ..
+#1642318753
+ll
+#1642318756
+mv braker braker.legprot
+#1642318794
+ll
+#1642318802
+mv braker.log braker.err braker.legprot/
+#1642318806
+cp braker.sh braker.legprot/
+#1642318818
+cp ../braker_run/odb10_plants.fasta  . &
+#1642318819
+lt
+#1642318827
+vi braker.sh 
+#1642318855
+bsub -o braker.log -e braker.err -J braker_dbmask_legprot -m yi04 -n 64 < braker.sh 
+#1642318857
+logsh
+#1642318862
+vi braker.sh 
+#1642318868
+lt
+#1642318875
+bjl
+#1642318884
+cd ..
+#1642318884
+ls
+#1642318885
+cd ..
+#1642318887
+ls
+#1642319155
+lth
+#1642319157
+lt
+#1642319159
+lth
+#1642319169
+lt
+#1642319170
+cd ..
+#1642319170
+lt
+#1642319174
+cd braker.legprot/
+#1642319174
+lt
+#1642319180
+more Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2.txt 
+#1642319233
+lt
+#1642319242
+cd Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2/
+#1642319243
+lt
+#1642319244
+cd ..
+#1642319244
+lt
+#1642319248
+cd ..
+#1642319249
+cd -
+#1642319252
+cd ..
+#1642319252
+lt
+#1642319254
+vi braker.sh 
+#1642319260
+cd -
+#1642319261
+lt
+#1642319264
+les Duparquetia_orchidacea.pep
+#1642319267
+les Duparquetia_orchidacea.cds
+#1642319274
+cd Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2/
+#1642319274
+lt
+#1642319279
+bjl
+#1642319285
+cd ..
+#1642319285
+lt
+#1642319300
+mkdir test_busco
+#1642319301
+cd test_busco/
+#1642319322
+cp ~/projects/phyleg/leggenome/Medicago_truncatula.pep ./
+#1642319329
+python -m iga.assembly.assess busco --mode prot Medicago_truncatula.pep 
+#1642319330
+lth
+#1642319336
+lt
+#1642319337
+bjl
+#1642319352
+ls
+#1642319356
+vi run.sh 
+#1642319393
+vi `which ParaAT.pl`
+#1642319415
+which blastp
+#1642319420
+vi run.sh 
+#1642318879
+tma
+#1642319431
+module load blast
+#1642319433
+blastp -v
+#1642319470
+bash run.sh 
+#1642319503
+ls
+#1642319435
+tma
+#1642319520
+cd ..
+#1642319471
+top
+#1642319479
+gtp
+#1642319569
+bjl
+#1642319576
+bjt
+#1642319527
+top
+#1642319587
+for i in `seq 21615 23729`;do bkill $i; done
+#1642319608
+bjl
+#1642319626
+bjobs |sort -k1,1n |les
+#1642319648
+top
+#1642319655
+for i in `seq 21611 21614`; do bkill $i; done
+#1642319656
+ls
+#1642319658
+rm -r work.*
+#1642319661
+rm -fr work.*
+#1642319687
+gtp
+#1642319693
+ls
+#1642319695
+vi run.sh 
+#1642319704
+bash run.sh 
+#1642319709
+bjl
+#1642319712
+otp
+#1642319713
+top
+#1642319718
+tp
+#1642319736
+cd work.Abrus_precatorius.Abrus_precatorius/
+#1642319736
+lt
+#1642319741
+cd ..
+#1642319741
+bj
+#1642319745
+bkill 23730
+#1642319746
+ls
+#1642319752
+vi run.sh 
+#1642319768
+rm -fr work.Abrus_precatorius.Abrus_precatorius/
+#1642319768
+ls
+#1642319769
+lth
+#1642319771
+rm *.log
+#1642319772
+lth
+#1642319775
+rm *.err
+#1642319776
+lth
+#1642319789
+chmod -w *.blast
+#1642319790
+ls
+#1642319802
+nohup bash run.sh &
+#1642319804
+tail nohup.out 
+#1642319806
+les nohup.out 
+#1642319807
+bjl
+#1642319857
+top
+#1642319862
+lth
+#1642319873
+ls -d work.*/
+#1642319876
+top
+#1642319879
+bjl
+#1642319920
+bhosts 
+#1642319923
+lsload
+#1642319928
+lsload -E
+#1642319930
+lsload
+#1642319959
+lsload -E
+#1642319964
+lsload 
+#1642319975
+bjobs |wc -l
+#1642319977
+bjl
+#1642319984
+bjobs |less
+#1642319992
+lth
+#1642319997
+les *.log
+#1642320001
+les nohup.out 
+#1642320009
+cd work.Abrus_precatorius.Abrus_precatorius/
+#1642320010
+lt
+#1642320018
+cd -
+#1642320028
+lt Abrus_precatorius.Abrus_precatorius.*
+#1642320036
+top
+#1642320043
+bjl
+#1642320053
+lt
+#1642320056
+bjobs |less
+#1642320064
+bjobs |wc -l
+#1642320074
+ls
+#1642400046
+bjl
+#1642400055
+top
+#1642400058
+bjl
+#1642400063
+j duparquetia
+#1642400064
+lt
+#1642400065
+cd annotation/
+#1642400065
+lt
+#1642400070
+cd braker_double_masked_legprot/
+#1642400070
+lt
+#1642400076
+les braker.err 
+#1642400078
+cd braker
+#1642400079
+lt
+#1642400086
+gtf2gff.pl -gff3 < braker.gtf --out=braker.gff3
+#1642400091
+cd ..
+#1642400091
+ls
+#1642400096
+vi braker.sh 
+#1642400180
+vi ~/.conda/envs/.conda_envs_dir_test 
+#1642400252
+lt
+#1642401536
+vi braker.sh 
+#1642401544
+export GENEMARK_PATH=/nfs/liuhui/bin/braker/dependency/gmes_linux_64
+#1642401544
+export PROTHINT_PATH=/nfs/liuhui/bin/braker/dependency/ProtHint/bin
+#1642401544
+export CDBTOOLS_PATH=/nfs/liuhui/bin/braker/dependency/cdbfasta
+#1642401544
+export PATH=/nfs/liuhui/bin/braker/dependency/GUSHR:$PATH
+#1642401544
+export MAKEHUB_PATH=/nfs/liuhui/bin/braker/dependency/MakeHub-1.0.5
+#1642401544
+export PATH=/nfs/liuhui/bin/braker/dependency:$PATH
+#1642401544
+export PATH=/nfs/liuhui/bin/braker/dependency/Augustus/bin:/nfs/liuhui/bin/braker/dependency/Augustus/scripts:$PATH
+#1642401544
+export AUGUSTUS_CONFIG_PATH=/nfs/liuhui/bin/braker/dependency/Augustus/config
+#1642401544
+export PATH=/nfs/liuhui/bin/braker/BRAKER/scripts:$PATH
+#1642401546
+cd -
+#1642401546
+lt
+#1642401553
+gtf2gff.pl -gff3 < braker.gtf --out=braker.gff3
+#1642401573
+gffread -x Duparquetia_orchidacea.cds -g ../Duparquetia_orchidacea.fa.masked.fa braker.gff3 
+#1642401583
+cds2aa.pl Duparquetia_orchidacea.cds > Duparquetia_orchidacea.pep &
+#1642401584
+lt
+#1642401585
+lth
+#1642401596
+python -m iga.assembly.assess busco --mode prot Duparquetia_orchidacea.pep
+#1642401597
+lth
+#1642401599
+lt
+#1642401600
+cd ../
+#1642401601
+lt
+#1642401603
+cd braker.legprot/
+#1642401604
+lt
+#1642401607
+cd test_busco/
+#1642401608
+lt
+#1642401611
+more Medicago_truncatula.pep.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.Medicago_truncatula.pep.busco.embryophyta.v4.1.2.txt 
+#1642401613
+cd -
+#1642401613
+lt
+#1642401614
+cd ..
+#1642401614
+lt
+#1642401615
+cd braker
+#1642401616
+lt
+#1642401618
+lth
+#1642401619
+bjl
+#1642401624
+lt
+#1642401636
+ls -d * |wc -l
+#1642401639
+ls
+#1642401651
+ls -w work.* |wc -l
+#1642401655
+ls -d work.* |wc -l
+#1642401661
+cd work.Senna_tora.Senna_tora/
+#1642401662
+lt
+#1642401668
+les Senna_tora.Senna_tora.ortho.kaks
+#1642401679
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks
+#1642401688
+realpath Senna_tora.Senna_tora.ortho.kaks.pdf
+#1642401626
+tma
+#1642401695
+sz /nfs/liuhui/projects/phyleg/mcscanX2/work.Senna_tora.Senna_tora/Senna_tora.Senna_tora.ortho.kaks.pdf
+#1642401699
+# Sent -> /Users/liuhui/Downloads/
+#1642402079
+ll ~/.conda/envs/braker/
+#1642402086
+ll ~/.conda/envs/braker/etc/
+#1642402099
+vi ~/.conda/envs/braker/etc/profile.d/gawk.sh 
+#1642402105
+cd ~/.conda/envs/braker/
+#1642402106
+ls
+#1642402107
+ll
+#1642402108
+ll */*.sh
+#1642402117
+vi bin/build_env_setup.sh 
+#1642402155
+vi /opt/conda/conda-bld/entrez-direct_1636051588534/_build_env
+#1642402157
+vi bin/build_env_setup.sh 
+#1642402177
+realpath bin/build_env_setup.sh
+#1642401699
+tma
+#1642402186
+source /nfs/liuhui/.conda/envs/braker/bin/build_env_setup.sh
+#1642402193
+which braker.pl
+#1642402201
+tma
+#1642402208
+. ~/.bashrc
+#1642402217
+source /nfs/liuhui/.bashrc
+#1642402254
+ll
+#1642402255
+lt
+#1642402257
+ll */*.sh
+#1642402447
+vi bin/conda_build.sh 
+#1642402462
+which activate
+#1642402466
+vi /nfs/apps/miniconda3/bin/activate
+#1642402480
+which conda
+#1642402483
+vi /nfs/apps/miniconda3/bin/conda
+#1642402526
+vi /nfs/apps/miniconda3/lib/python3.8/site-packages/conda/cli/main.py 
+#1642402234
+tma
+#1642406431
+bjl
+#1642406436
+top
+#1642406439
+ps ux
+#1642406441
+bjl
+#1642406443
+bj
+#1642406450
+bkill 24038 24350
+#1642406569
+bjl
+#1642406591
+j duparquetia.masurca
+#1642406592
+lth
+#1642406594
+cd workdir_nextpolish_masurca_assembly/
+#1642406595
+lt
+#1642406738
+cd ../..
+#1642407677
+lt
+#1642407679
+cd annotation/
+#1642407679
+lt
+#1642407682
+cd braker_double_masked_legprot/
+#1642407682
+lt
+#1642407684
+cd braker
+#1642407685
+lt
+#1642407688
+more */*summary*
+#1642407700
+cd ..
+#1642407700
+lt
+#1642407705
+python -m iga.assembly.assess busco --mode prot Duparquetia_orchidacea.fa.masked.fa
+#1642407711
+python -m iga.assembly.assess busco  Duparquetia_orchidacea.fa.masked.fa
+#1642407717
+lt
+#1642407723
+bjl
+#1642407726
+lt
+#1642407730
+les bsub.buscoDuparquetia_orchidacea.fa.masked.fa.705462.sh
+#1642407732
+rm bsub.buscoDuparquetia_orchidacea.fa.masked.fa.705462.sh
+#1642407735
+les error.32005 
+#1642407742
+rm output.32005 error.32005 
+#1642407742
+lt
+#1642407746
+cd Duparquetia_orchidacea.fa.masked.fa.busco.embryophyta.v4.1.2/
+#1642407746
+lt
+#1642407747
+cd run_embryophyta_odb10/
+#1642407748
+lt
+#1642407750
+cd ../..
+#1642407750
+lt
+#1642407758
+cd braker.legprot/
+#1642407759
+lt
+#1642407764
+ln -s ../Duparquetia_orchidacea.fa.masked.fa
+#1642407765
+ll
+#1642407776
+ln -s ../arath_med_sprot.pep 
+#1642407777
+ll
+#1642407783
+python -m iga.annotation.maker
+#1642407788
+python -m iga.annotation.maker prep_genblast -h
+#1642407790
+lth
+#1642407851
+lt
+#1642407852
+cd ..
+#1642407852
+lt
+#1642407854
+more braker.sh 
+#1642407899
+lt
+#1642407954
+bsub -m yi04 'gzip -c Duparquetia_orchidacea.fa.masked.fa >dp.genome.fa 
+#1642407957
+bsub -m yi04 'gzip -c Duparquetia_orchidacea.fa.masked.fa >dp.genome.fa.gz'
+#1642407958
+lth
+#1642407967
+cd braker.legprot/
+#1642407968
+lt
+#1642407976
+cd -
+#1642407978
+bjl
+#1642408014
+ll
+#1642408018
+cd braker
+#1642408018
+lth
+#1642408020
+lt
+#1642408024
+cd ..
+#1642408057
+lth
+#1642408060
+bjl
+#1642408065
+sz dp.genome.fa.gz 
+#1642408163
+# Sent -> /Users/liuhui/Downloads/
+#1642408181
+lt
+#1642408185
+vi braker.sh 
+#1642408189
+les braker.l
+#1642408192
+les braker.log 
+#1642408198
+cd braker
+#1642408198
+lt
+#1642408200
+les braker..l
+#1642408202
+les braker.log 
+#1642409315
+lt
+#1642409317
+cd ..
+#1642409317
+lt
+#1642409326
+more Duparquetia_orchidacea.fa.masked.fa.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.Duparquetia_orchidacea.fa.masked.fa.busco.embryophyta.v4.1.2.txt 
+#1642409328
+lt
+#1642409333
+cd braker.legprot/
+#1642409333
+lt
+#1642409351
+python -m iga.annotation.maker prep_genblast Duparquetia_orchidacea.fa.masked.fa arath_med_sprot.pep
+#1642409563
+lth
+#1642409566
+which genblast
+#1642409586
+ls
+#1642409588
+cd ~/bin/
+#1642409589
+ls
+#1642409591
+downlht /ds3200_1/users_root/yitingshuang/lh/bin/genblast_v139
+#1642409596
+cd genblast_v139/
+#1642409596
+ls
+#1642409605
+module load gcc
+#1642409606
+make all
+#1642409616
+make clean
+#1642409620
+module purge
+#1642409622
+make all
+#1642409626
+module purge
+#1642409627
+module load gcc
+#1642409628
+ls
+#1642409631
+make clean
+#1642409639
+make -j 4 all
+#1642409646
+lt
+#1642409647
+lth
+#1642409649
+ls
+#1642409651
+cd -
+#1642409656
+j anno
+#1642409656
+lth
+#1642409660
+ll
+#1642409666
+cd braker_double_masked_legprot/
+#1642409666
+lt
+#1642409677
+cd braker.legprot/
+#1642409677
+lth
+#1642409681
+ll
+#1642409685
+rm -r Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep
+#1642409689
+lt
+#1642409694
+python -m iga.annotation.maker -h
+#1642409700
+python -m iga.annotation.maker prep_genblast
+#1642409701
+python -m iga.annotation.maker prep_genblast -h
+#1642409709
+python -m iga.annotation.maker prep_genblast --rank 10 Duparquetia_orchidacea.fa.masked.fa arath_med_sprot.pep
+#1642409741
+lth
+#1642409745
+rm -r Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep
+#1642409750
+pushd ~/bin/genblast_v139/
+#1642409751
+ls
+#1642409753
+addpwd
+#1642409755
+popd
+#1642409755
+sc
+#1642409757
+lt
+#1642409793
+bpeek 32208
+#1642409797
+bjobs 32208
+#1642409759
+python -m iga.annotation.maker prep_genblast --rank 10 Duparquetia_orchidacea.fa.masked.fa arath_med_sprot.pep
+#1642409804
+bjl
+#1642409809
+lth
+#1642409812
+cd Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep/
+#1642409813
+lth
+#1642409814
+ls
+#1642409816
+ll
+#1642409820
+ll 9.fa.run/
+#1642409824
+cd 9.fa.run/
+#1642409825
+ll
+#1642409832
+more bsub.genblast.763766.sh 
+#1642409797
+j 9.fa
+#1642409798
+lth
+#1642409801
+bash bsub.genblast.763766.sh 
+#1642409805
+rm 9.fa
+#1642409806
+lt
+#1642409807
+rm 9.fa
+#1642409809
+bash bsub.genblast.763766.sh 
+#1642409811
+lt
+#1642409813
+rm Duparquetia_orchidacea.fa.masked.fa 
+#1642409814
+ll
+#1642409815
+bash bsub.genblast.763766.sh 
+#1642409865
+ssh yi04
+#1642409906
+which genblast
+#1642409911
+cd ~/bin/genblast_v139/
+#1642409912
+ls
+#1642409918
+grep formatdb *
+#1642409927
+vi gBlast.cpp 
+#1642409963
+make clean
+#1642409967
+make -j 10 all
+#1642409975
+cd -
+#1642409976
+lth
+#1642409983
+rm Duparquetia_orchidacea.fa.masked.fa 9.fa
+#1642409984
+lt
+#1642409986
+bash bsub.genblast.763766.sh 
+#1642410014
+pushd ~/bin/genblast_v139/
+#1642410018
+grep blastall *
+#1642410023
+vi gBlast.cpp 
+#1642410053
+make clean
+#1642410058
+make -j 10 all
+#1642410066
+popd
+#1642410066
+lt
+#1642410072
+rm 9.fa Duparquetia_orchidacea.fa.masked.fa
+#1642410073
+bash bsub.genblast.763766.sh 
+#1642410161
+lt
+#1642410164
+cd ../..
+#1642410165
+lt
+#1642410172
+rm -r Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep
+#1642410185
+python -m iga.annotation.maker prep_genblast --rank 5 Duparquetia_orchidacea.fa.masked.fa arath_med_sprot.pep
+#1642410271
+cd -
+#1642410272
+lt
+#1642410275
+ll
+#1642410278
+cd ../1.fa.run/
+#1642410278
+ll
+#1642410281
+vi bsub.genblast.187092.sh 
+#1642410284
+bjl
+#1642410286
+lt
+#1642410287
+bjl
+#1642410296
+bpeek 32358
+#1642410300
+cd ..
+#1642410301
+lt
+#1642410307
+cd 1.fa.run/
+#1642410308
+ls
+#1642410308
+ll
+#1642410367
+jobs -l 32308
+#1642410370
+bjobs -l 32308
+#1642410375
+ll
+#1642410376
+bash bsub.genblast.187092.sh 
+#1642410380
+lt
+#1642410400
+ssh -p 201 y02
+#1642410357
+top
+#1642410401
+ssh -p 201 yi02
+#1642410407
+bj
+#1642410421
+bjobs |sort -k1,1n
+#1642410432
+for i in `seq 32311 32395`; do bkill $i; done
+#1642410434
+bjl
+#1642410436
+ls
+#1642410437
+cd ../..
+#1642410438
+lt
+#1642410439
+rm -r Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep
+#1642410446
+lth
+#1642410479
+which genblast
+#1642410483
+which formatdb
+#1642410485
+which blastall
+#1642410486
+python -m iga.annotation.maker prep_genblast  Duparquetia_orchidacea.fa.masked.fa arath_med_sprot.pep 
+#1642410498
+ls
+#1642410512
+cd Duparquetia_orchidacea.*pep
+#1642410512
+ls
+#1642410514
+cd 1.fa.run/
+#1642410514
+ls
+#1642410518
+ll
+#1642410521
+bsub -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J -n 1 -J genblast < bsub.genblast.491384.sh
+#1642410528
+bsub -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J -n 1 -J genblast < bsub.genblast.488715.sh 
+#1642410534
+bjobs -l 32508
+#1642410540
+lt
+#1642410481
+genblast
+#1642410550
+ssh yi04
+#1642410557
+lt
+#1642410509
+cd /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_double_masked_legprot/braker.legprot/Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep/1.fa.run/
+#1642410510
+bash bsub.genblast.488715.sh 
+#1642410513
+lt
+#1642410517
+rm Duparquetia_orchidacea.fa.masked.fa*
+#1642410517
+lt
+#1642410518
+rm 1.fa 
+#1642410534
+bsub -m yi04 -J genblast < bsub.genblast.488715.sh 
+#1642410536
+bjl
+#1642410539
+bj
+#1642410540
+lth
+#1642410541
+bj
+#1642410542
+lt
+#1642410568
+bjobs -l 32509
+#1642410570
+lt
+#1642410593
+bsub -m yi04 -J genblast "bash bsub.genblast.488715.sh  > run.out 2>run.err"
+#1642410594
+lth
+#1642410596
+bjl
+#1642410602
+lt
+#1642410605
+bjl
+#1642410609
+lt
+#1642410614
+cd ..
+#1642410614
+lth
+#1642410616
+ls
+#1642410617
+cd -
+#1642410618
+lt
+#1642410626
+bsub -o runout -e runerr -m yi04 -J genblast "bash bsub.genblast.488715.sh  > run.out 2>run.err"
+#1642410627
+lt
+#1642410632
+bpeek 32510
+#1642410635
+bpeek 32511
+#1642410643
+lt
+#1642410646
+df -h
+#1642410655
+lt
+#1642410662
+lsload
+#1642410686
+bjl
+#1642410691
+lt
+#1642410710
+which bsub
+#1642410713
+ls /opt/openlava-2.2/bin/
+#1642410722
+lsacct -l 32509
+#1642410732
+lsacct  32509
+#1642410748
+brestart 32509
+#1642410761
+cd /opt/openlava-2.2/
+#1642410761
+ls
+#1642410762
+lt
+#1642410765
+cd l
+#1642410766
+cd log/
+#1642410767
+lt
+#1642410773
+les pim.log.yi04 
+#1642410787
+rm pim.log.yi04
+#1642410790
+df -h
+#1642410793
+sudo rm pim.log.yi04
+#1642410796
+ll
+#1642410801
+les lim.log.yi04 
+#1642410575
+ssh yi04
+#1642410888
+lt
+#1642410890
+more formatdb.log 
+#1642410906
+bsub512 -m yi04 'echo abc'
+#1642410907
+bjl
+#1642410913
+lt
+#1642410922
+iostat 
+#1642410927
+df -i
+#1642410934
+lt
+#1642410955
+cd /opt/openlava-2.2/
+#1642410956
+lt
+#1642410957
+cd l
+#1642410959
+cd log/
+#1642410959
+lt
+#1642410965
+less lim.log.
+#1642410967
+less lim.log.yi01 
+#1642410972
+les pim.log.yi01
+#1642411006
+/proc/32593/stat
+#1642411007
+stat
+#1642411013
+bsub512 -m yi04 'echo abc'
+#1642411014
+bjl
+#1642411017
+bjt
+#1642411021
+lt
+#1642411025
+more output.32513 
+#1642411028
+rm output.32513 error.32513 
+#1642411030
+j annotation
+#1642411031
+lt
+#1642411033
+cd braker_double_masked_legprot/
+#1642411033
+lt
+#1642411037
+cd braker.legprot/
+#1642411038
+lt
+#1642411043
+bjl
+#1642411047
+bjobs |sort -k1,1n
+#1642411057
+for i in `seq 32409 32505`;do bkill $i; done
+#1642411058
+lth
+#1642411060
+bjl
+#1642411062
+lt
+#1642411066
+rm -fr Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep
+#1642411068
+lth
+#1642411074
+python -m iga.annotation.maker prep_genblast  Duparquetia_orchidacea.fa.masked.fa arath_med_sprot.pep 
+#1642411106
+lt
+#1642411111
+cd Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep/
+#1642411111
+lt
+#1642411112
+ls
+#1642411114
+cd 1.fa.run/
+#1642411114
+lt
+#1642411117
+cd ..
+#1642411118
+ls
+#1642411124
+bjl
+#1642411126
+bjobs |sort -k1,1n
+#1642411146
+for i in `seq 32516 32610`;do bkill $i; done
+#1642411177
+lth
+#1642411178
+ls
+#1642411207
+bjl
+#1642411211
+ls *.run
+#1642411218
+rm *.run/*.fa
+#1642411219
+ls
+#1642411157
+cd /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_double_masked_legprot/braker.legprot/Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep
+#1642411157
+ls
+#1642411194
+for i in *.fa; do pushd ${i}.run; nohup bash bsub*.sh &; popd; done
+#1642411198
+for i in *.fa; do pushd ${i}.run; nohup bash bsub*.sh & popd; done
+#1642411200
+top
+#1642411221
+cd 9.fa.run/
+#1642411222
+lt
+#1642411226
+more nohup.out 
+#1642411247
+echo $RLIMIT_NPROC
+#1642411347
+export RLIMIT_NPROC=4124928
+#1642411352
+fg
+#1642411356
+f
+#1642411358
+fg
+#1642411363
+f
+#1642411372
+fg
+#1642411380
+ps ux
+#1642411451
+lt
+#1642411453
+les nohup.out 
+#1642411651
+gtp
+#1642411661
+cd ..
+#1642411225
+ssh yi04
+#1642411742
+ls
+#1642411743
+cd ..
+#1642411746
+rm -r Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep
+#1642411752
+python -m iga.annotation.maker prep_genblast  Duparquetia_orchidacea.fa.masked.fa arath_med_sprot.pep 
+#1642411787
+lt
+#1642411790
+cd Duparquetia_orchidacea.
+#1642411792
+cd Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep/
+#1642411793
+ls
+#1642411798
+ls */output*
+#1642411805
+ls */output* */error*
+#1642411811
+bjl
+#1642411816
+bpeek 32700
+#1642411824
+bjl
+#1642411757
+top
+#1642411765
+tp
+#1642411774
+bjobs |sort -k1,1n
+#1642411785
+for i in `seq 32621 32711`; do bkill $i; done
+#1642411786
+ls
+#1642411826
+ssh yi04
+#1642411858
+lt
+#1642411859
+ls
+#1642411862
+cd 1.fa.run/
+#1642411862
+lt
+#1642411798
+j 1.fa.run
+#1642411799
+ls
+#1642411800
+ll
+#1642411800
+cd ..
+#1642411801
+ll
+#1642411812
+for i in *.fa; do pushd ${i}.run; nohup bash bsub*.sh & popd; done
+#1642411815
+fg
+#1642411820
+f
+#1642411822
+fg
+#1642411865
+ps ux
+#1642411869
+pgrep genblast
+#1642411871
+fg
+#1642411896
+jobs
+#1642411897
+fg
+#1642411908
+top
+#1642411910
+fg
+#1642411917
+jobs
+#1642411917
+fg
+#1642411918
+jobs
+#1642411920
+cd 87.fa.run/
+#1642411920
+lt
+#1642411922
+les nohup.out 
+#1642411927
+les error.32700 
+#1642411933
+cd ..
+#1642411936
+ls */*output*
+#1642411940
+les 97.fa.run/output.32711 
+#1642411953
+les 97.fa.run/error.32711 
+#1642411956
+lt
+#1642411958
+ls
+#1642411964
+tail */nohup.out
+#1642412003
+ls
+#1642412006
+ls 87.fa.run/
+#1642412008
+ll 87.fa.run/
+#1642412011
+rm */*.fa
+#1642412021
+rm */nohup.out
+#1642412030
+for i in *.fa; do pushd ${i}.run; nohup bash bsub*.sh & popd; done
+#1642412036
+ls
+#1642412038
+cd 98.fa.run/
+#1642412038
+lt
+#1642412040
+tail nohup.out 
+#1642412044
+lt
+#1642412050
+cd -
+#1642412059
+rm */*.fa
+#1642412061
+rm */nohup.out
+#1642412081
+rm */*.blast */*.blast.report
+#1642412091
+rm */*d16_0
+#1642412099
+lt 98.fa.run/
+#1642412105
+rm */*d16_0.*
+#1642412121
+rm */*.masked.fa.*
+#1642412131
+for i in *.fa; do pushd ${i}.run; nohup bash bsub*.sh & popd; done
+#1642412135
+lt
+#1642412136
+ls
+#1642412139
+top
+#1642412154
+lt
+#1642412156
+lth
+#1642412173
+bjobs
+#1642412174
+jobs
+#1642412259
+ls
+#1642412260
+cd bin/
+#1642412260
+ls
+#1642412262
+cd /opt/openlava-2.2/
+#1642412262
+lt
+#1642412266
+cd etc/
+#1642412266
+lt
+#1642412269
+vi openlava.sh 
+#1642412285
+vi lsf.conf 
+#1642413328
+lth
+#1642413331
+cd ../
+#1642413331
+ls
+#1642413332
+l
+#1642413334
+lt
+#1642413337
+cd ..
+#1642413338
+lt
+#1642413346
+vi braker.sh 
+#1642413354
+braker.pl -h
+#1642413357
+vi braker.sh 
+#1642413363
+export GENEMARK_PATH=/nfs/liuhui/bin/braker/dependency/gmes_linux_64
+#1642413363
+export PROTHINT_PATH=/nfs/liuhui/bin/braker/dependency/ProtHint/bin
+#1642413363
+export CDBTOOLS_PATH=/nfs/liuhui/bin/braker/dependency/cdbfasta
+#1642413363
+export PATH=/nfs/liuhui/bin/braker/dependency/GUSHR:$PATH
+#1642413363
+export MAKEHUB_PATH=/nfs/liuhui/bin/braker/dependency/MakeHub-1.0.5
+#1642413363
+export PATH=/nfs/liuhui/bin/braker/dependency:$PATH
+#1642413363
+export PATH=/nfs/liuhui/bin/braker/dependency/Augustus/bin:/nfs/liuhui/bin/braker/dependency/Augustus/scripts:$PATH
+#1642413363
+export AUGUSTUS_CONFIG_PATH=/nfs/liuhui/bin/braker/dependency/Augustus/config
+#1642413363
+export PATH=/nfs/liuhui/bin/braker/BRAKER/scripts:$PATH
+#1642413366
+braker.pl -h
+#1642413407
+lt
+#1642413409
+vi braker.sh 
+#1642413430
+les braker.err 
+#1642413450
+cd ..
+#1642413453
+mkdir braker_loca
+#1642413459
+mv braker_loca braker_local
+#1642413463
+cd braker_local/
+#1642413481
+cp ../braker_double_masked_legprot/odb10_plants.fasta ../braker_double_masked_legprot/Duparquetia_orchidacea.fa.masked.fa ./ &
+#1642413482
+lt
+#1642413492
+cp ../braker_double_masked_legprot/braker.sh ./
+#1642413492
+ll
+#1642413494
+vi braker.sh 
+#1642413503
+nohup bash braker.sh &
+#1642413504
+lt
+#1642413511
+htop
+#1642413516
+lt
+#1642413518
+cd braker/
+#1642413518
+lt
+#1642413522
+cd -
+#1642413525
+top
+#1642413530
+htop
+#1642413561
+lth
+#1642413563
+tail nohup.out 
+#1642413579
+fg
+#1642413594
+lt
+#1642413597
+rm -r braker
+#1642413598
+lt
+#1642413600
+vi braker.sh 
+#1642413605
+nohup bash braker.sh &
+#1642413606
+lt
+#1642413609
+top
+#1642413613
+htop
+#1642413649
+lth
+#1642413652
+les nohup.out 
+#1642413657
+vi braker.sh 
+#1642413664
+les nohup.out 
+#1642413686
+fg
+#1642413688
+lt
+#1642413691
+rm -r braker nohup.out 
+#1642413692
+lt
+#1642413695
+vi braker.sh 
+#1642413700
+nohup bash braker.sh &
+#1642413700
+lt
+#1642413704
+les nohup.out 
+#1642413823
+lt
+#1642413836
+lt
+#1642413839
+bjobs 32208
+#1642413849
+ls
+#1642413710
+tail -f /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_local/braker/braker.log
+#1642413801
+htop
+#1642413818
+lth
+#1642413822
+cd braker/
+#1642413822
+lth
+#1642413824
+tail braker.log 
+#1642413830
+lt errors/
+#1642413831
+top
+#1642413951
+ll
+#1642413959
+lt
+#1642413962
+j
+#1642413963
+ls
+#1642413971
+j mcscanx2
+#1642413972
+ls
+#1642413979
+ll work.*/*.kaks
+#1642414026
+mkdir kaks
+#1642414039
+cp work.*/*.kaks work.*/*.ortho kaks/ &
+#1642414041
+cd kaks/
+#1642414042
+lth
+#1642423536
+ll ~/projects/buzzo/duparquetia/annotation/braker_double_masked_legprot/braker.legprot/Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep/9.fa.run
+#1642423598
+ll ~/projects/buzzo/duparquetia/annotation/braker_double_masked_legprot/braker.legprot/Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep/10.fa.run/
+#1642423606
+less ~/projects/buzzo/duparquetia/annotation/braker_double_masked_legprot/braker.legprot/Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep/10.fa.run/*report
+#1642423612
+lth
+#1642423618
+lt
+#1642423624
+les braker.log 
+#1642423662
+top
+#1642423688
+jobs
+#1642423691
+top
+#1642458782
+lth
+#1642458793
+gffread -x Duparquetia_orchidacea.cds -g ../Duparquetia_orchidacea.fa.masked.fa braker.gff3 
+#1642458803
+cds2aa.pl Duparquetia_orchidacea.cds > Duparquetia_orchidacea.pep &
+#1642458805
+lth
+#1642458818
+grep ">" Duparquetia_orchidacea.cds |wc -l
+#1642458819
+lth
+#1642458839
+python -m iga.assembly.assess busco --mode prot Duparquetia_orchidacea.pep 
+#1642458841
+lth
+#1642458843
+bjl
+#1642411866
+ssh yi04
+#1642414043
+top
+#1642458921
+top
+#1642459093
+lth
+#1642459098
+cd ..
+#1642459108
+ll *.fa.run/*.DNA
+#1642459112
+ll *.fa.run/*.report
+#1642459114
+ll
+#1642459115
+ls
+#1642459118
+cd 10.fa.run/
+#1642459118
+ll
+#1642459145
+vi bsub.genblast.754774.sh 
+#1642459151
+bash bsub.genblast.754774.sh 
+#1642459154
+vi bsub.genblast.754774.sh 
+#1642459160
+bash bsub.genblast.754774.sh 
+#1642459174
+lth
+#1642459182
+genblast -p genblastg -q 10.fa -t Duparquetia_orchidacea.fa.masked.fa -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 2 -h 2 -j 0 -norepair -gff -cdna -pro -o 10.fa.genblast
+#1642459188
+which genblast
+#1642459192
+cd ~/bin/genblast_v139/
+#1642459193
+ls
+#1642459200
+cd -
+#1642459245
+ll ~/bin/genblast_v139/genblast 
+#1642459250
+lt
+#1642459252
+module load gcc
+#1642459258
+genblast -p genblastg -q 10.fa -t Duparquetia_orchidacea.fa.masked.fa -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 2 -h 2 -j 0 -norepair -gff -cdna -pro -o 10.fa.genblast
+#1642459273
+les 10.fa.genblast
+#1642459293
+genblast
+#1642459309
+genblast -p genblastg -q 10.fa -t Duparquetia_orchidacea.fa.masked.fa -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 1 -h 1 -j 0 -norepair -gff -cdna -pro -o 10.fa.genblast
+#1642459402
+j annotation
+#1642459402
+lth
+#1642459405
+cd braker_local/
+#1642459406
+lth
+#1642459409
+ls
+#1642459410
+cd braker/
+#1642459410
+lt
+#1642459415
+cd Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2/
+#1642459416
+more short_summary.specific.embryophyta_odb10.Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2.txt 
+#1642459418
+cd ..
+#1642459419
+lt
+#1642459435
+conda activate gemoma
+#1642459455
+lt
+#1642459457
+les *.report
+#1642459469
+lt
+#1642459478
+gdb genblast -p genblastg -q 10.fa -t Duparquetia_orchidacea.fa.masked.fa -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 1 -h 1 -j 0 -norepair -gff -cdna -pro -o 10.fa.genblast
+#1642459522
+which genblast
+#1642459525
+ln -s ~/bin/genblast_v139/genblast
+#1642459528
+gdb genblast -p genblastg -q 10.fa -t Duparquetia_orchidacea.fa.masked.fa -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 1 -h 1 -j 0 -norepair -gff -cdna -pro -o 10.fa.genblast
+#1642459532
+gdb ./genblast -p genblastg -q 10.fa -t Duparquetia_orchidacea.fa.masked.fa -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 1 -h 1 -j 0 -norepair -gff -cdna -pro -o 10.fa.genblast
+#1642459577
+gdb ./genblast 
+#1642459703
+which genblast
+#1642459707
+pushd ~/bin/genblast_v139/
+#1642459707
+ls
+#1642459711
+which gcc
+#1642459715
+echo $LD_LIBRARY_PATH 
+#1642459722
+make clean
+#1642459737
+export LD_LIBRARY_PATH=/opt/ohpc/pub/compiler/gcc/7.2.0/lib64
+#1642459738
+ls
+#1642459742
+make -j 4 all
+#1642459750
+./genblast 
+#1642459730
+bash
+#1642459754
+popd
+#1642459755
+lt
+#1642459758
+gdb ./genblast 
+#1642459793
+sudo debuginfo-install glibc-2.17-324.el7_9.x86_64 libgcc-4.8.5-44.el7.x86_64 libstdc++-4.8.5-44.el7.x86_64
+#1642459825
+lt
+#1642459853
+pushd ~/bin/genblast_v139/
+#1642459853
+lt
+#1642459856
+make clean
+#1642459857
+ll
+#1642459861
+lt
+#1642459875
+downlht /ds3200_1/users_root/yitingshuang/lh/bin/genblast_v139/gBlast.cpp
+#1642459879
+lt
+#1642459884
+vi gBlast.cpp 
+#1642459898
+make -j 10 all
+#1642459906
+cd -
+#1642459906
+ls
+#1642459911
+genblast -p genblastg -q 10.fa -t Duparquetia_orchidacea.fa.masked.fa -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 1 -h 1 -j 0 -norepair -gff -cdna -pro -o 10.fa.genblast
+#1642459914
+lt
+#1642459919
+ssh -p yi02
+#1642459880
+cd /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_double_masked_legprot/braker.legprot/Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep/10.fa.run/
+#1642459883
+genblast -p genblastg -q 10.fa -t Duparquetia_orchidacea.fa.masked.fa -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 1 -h 1 -j 0 -norepair -gff -cdna -pro -o 10.fa.genblast
+#1642459922
+ssh -p201 yi02
+#1642459936
+lt
+#1642459971
+genblast -p genblastg -q 10.fa -t Duparquetia_orchidacea.fa.masked.fa -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 1 -h 2 -j 0 -norepair -gff -cdna -pro -o 10.fa.genblast
+#1642459976
+genblast -p genblastg -q 10.fa -t Duparquetia_orchidacea.fa.masked.fa -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 1 -h 2 -j 1 -norepair -gff -cdna -pro -o 10.fa.genblast
+#1642460014
+lt
+#1642460022
+les *cds
+#1642460033
+les 10.fa
+#1642460037
+les Duparquetia_orchidacea.fa.masked.fa
+#1642460056
+more bsub.genblast.754774.sh 
+#1642460050
+cd /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_double_masked_legprot/braker.legprot/Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep/10.fa.run/
+#1642460052
+genblast -p genblastg -q 10.fa -t Duparquetia_orchidacea.fa.masked.fa -e 1e-4 -g T -f F -a 0.5 -d 100000 -r 3 -c 0.5 -s 0 -i 15 -x 20 -n 20 -v 1 -h 2 -j 1 -norepair -gff -cdna -pro -o 10.fa.genblast
+#1642460118
+ssh yi04
+#1642460151
+lt
+#1642460184
+ls $CONDA_PREFIX/bin
+#1642460188
+GeMoMa 
+#1642460206
+GeMoMa GeMoMaPipeline
+#1642460230
+GeMoMa GeMoMaPipeline threads=<threads> outdir=<outdir> GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t=<target_genome> i=<reference_1_id> a=<reference_1_annotation> g=<reference_1_genome>
+#1642460234
+ls
+#1642460238
+cd ..
+#1642460238
+ls
+#1642460495
+cp ~/projects/phyleg/leggenome/Zenia_insignis.gff ./
+#1642460500
+cp ~/projects/phyleg/leggenome/Zenia_insignis.fa ./
+#1642460554
+ls
+#1642460582
+bsub512 -n 128 -J gemoma "GeMoMa GeMoMaPipeline threads=128 outdir=outdir GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t=Duparquetia_orchidacea.fa.masked.fa i=Zn a=Zenia_insignis.gff g=Zenia_insignis.fa"
+#1642460584
+logsh
+#1642460588
+lth
+#1642460524
+top
+#1642460594
+ssh yi04
+#1642460608
+top
+#1642468124
+bjl
+#1642468129
+lth
+#1642468134
+les error.32715 
+#1642468205
+which GeMoMa
+#1642468209
+vi ~/.conda/envs/gemoma/bin/GeMoMa
+#1642468233
+GeMoMa GeMoMaPipeline
+#1642468248
+vi ~/.conda/envs/gemoma/bin/GeMoMa
+#1642468274
+lt
+#1642468276
+rm -r GeMoMa_temp/
+#1642468280
+bsub512 -n 128 -J gemoma "GeMoMa GeMoMaPipeline threads=128 outdir=outdir GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t=Duparquetia_orchidacea.fa.masked.fa i=Zn a=Zenia_insignis.gff g=Zenia_insignis.fa"
+#1642468282
+logsh
+#1642468391
+bjl
+#1642468325
+top
+#1642469014
+bjl
+#1642468394
+ssh yi04
+#1642469092
+j braker_local
+#1642469093
+lht
+#1642469094
+lth
+#1642469100
+les error.32716 
+#1642469104
+cd outdir/
+#1642469105
+lt
+#1642469112
+grep ">" predicted_proteins.fasta |wc -l
+#1642469129
+python -m iga.assembly.assess busco --mode prot predicted_proteins.fasta 
+#1642469139
+pushd ~/bin/genblast_v139/
+#1642469145
+ll
+#1642469162
+mv genblast genblast.1
+#1642469163
+downlht /ds3200_1/users_root/yitingshuang/lh/bin/genblast_v139/genblast
+#1642469166
+./genblast
+#1642469170
+module load gcc
+#1642469174
+./genblast
+#1642469186
+ll /usr/lib64/libstdc++.so.6
+#1642469192
+module load boost
+#1642469194
+./genblast
+#1642469237
+export LD_LIBRARY_PATH="/usr/local/lib64/:$LD_LIBRARY_PATH"
+#1642469240
+./genblast
+#1642469252
+sudo yum install gcc
+#1642469265
+sudo yum install g++
+#1642469333
+source /opt/rh/devtoolset-7/enable 
+#1642469334
+ls
+#1642469336
+./genblast
+#1642469341
+echo $LD_LIBRARY_PATH 
+#1642469350
+./genblast.1 
+#1642469384
+ls
+#1642469388
+cd projects/
+#1642469388
+lt
+#1642469390
+cd phyleg/
+#1642469390
+lt
+#1642469392
+ls
+#1642469395
+cd leggenome/
+#1642469395
+ls
+#1642469397
+cd -
+#1642469397
+ls
+#1642469399
+j duparq
+#1642469400
+lth
+#1642469402
+cd annotation/
+#1642469403
+lt
+#1642469411
+uplht Duparquetia_orchidacea.fa.masked.fa 
+#1642469459
+gtp
+#1642469465
+j gemoma
+#1642469466
+lth
+#1642469472
+j braker_local
+#1642469472
+lt
+#1642469473
+cd outdir/
+#1642469474
+lt
+#1642469478
+more predicted_proteins.fasta.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.predicted_proteins.fasta.busco.embryophyta.v4.1.2.txt 
+#1642470032
+cd ..
+#1642470038
+mv outdir gemoma_outdir
+#1642470038
+lt
+#1642470049
+cd ..
+#1642470053
+mkdir braker_polished
+#1642470062
+cp /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_local/braker.sh braker_polished/
+#1642470063
+ll
+#1642470066
+cd braker_polished/
+#1642470071
+ln -s ../Duparquetia_orchidacea.fa.masked.fa 
+#1642470071
+ll
+#1642470075
+GAP.pl Duparquetia_orchidacea.fa.masked.fa 
+#1642470079
+lt
+#1642470081
+ll
+#1642470088
+rm Duparquetia_orchidacea.fa.masked.fa 
+#1642470094
+ln -s ../odb10_plants.fasta 
+#1642470112
+cd ../../duparquetia.masurca/workdir_nextpolish_masurca_assembly/
+#1642470121
+head -2  *LAI*/*LAI
+#1642470127
+cd -
+#1642470154
+ln -s ../../duparquetia.masurca/workdir_nextpolish_masurca_assembly/masurca_assembly.1.fa
+#1642470155
+ll
+#1642470159
+vi braker.sh 
+#1642470190
+bsub -o braker.log -e braker.err -J braker_dbmask_legprot -m yi04 -n 48 < braker.sh 
+#1642470191
+logsh
+#1642470213
+lt
+#1642470220
+bjl
+#1642470249
+lt
+#1642473810
+j repeat
+#1642473811
+ls
+#1642473815
+ll workdir_repeatmask_Senna_tora.fa/
+#1642473815
+ll
+#1642473817
+ls
+#1642473820
+cd workdir_repeatmask_Senna_tora.fa/
+#1642473820
+lt
+#1642473825
+cd custom_lib.out/
+#1642473826
+ll
+#1642473849
+cd custom_lib.out/
+#1642473851
+llll
+#1642473853
+lt
+#1642473878
+realpath Senna_tora.fa.cat.gz
+#1642473894
+cd ../..
+#1642473897
+ll Senna_tora.fa*
+#1642473902
+realpath Senna_tora.fa-families.fa
+#1642474027
+ll
+#1642470183
+top
+#1642470253
+ssh yi04
+#1642474125
+lt
+#1642474128
+les braker.err 
+#1642474155
+tail -n 3 braker.err 
+#1642474159
+less /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_polished/braker/errors/GeneMark-EP.stderr
+#1642474167
+vi braker
+#1642474169
+vi braker.sh 
+#1642474179
+conda activate braker
+#1642474182
+lt
+#1642474193
+mkdir log
+#1642474197
+mv braker.log braker.err log/
+#1642474209
+bsub -o braker.log -e braker.err -J braker_polished -m yi04 -n 48 < braker.sh 
+#1642474210
+lt
+#1642474213
+bjl
+#1642474223
+cd ..
+#1642474223
+lt
+#1642474226
+cd braker_masked/
+#1642474226
+ll
+#1642474227
+cd braker/
+#1642474228
+lt
+#1642474229
+lth
+#1642474235
+cd ..
+#1642474236
+ll
+#1642474237
+cd ..
+#1642474237
+lt
+#1642474257
+les error.21332
+#1642474261
+rm error.21332 output.21332
+#1642474268
+cd braker_masked/
+#1642474268
+lt
+#1642474270
+bjl
+#1642474280
+lt
+#1642474282
+lt braker
+#1642474294
+cd ..
+#1642474294
+lt
+#1642474307
+cd braker_run/
+#1642474307
+lt
+#1642474310
+lt braker
+#1642474314
+cd braker
+#1642474314
+lt
+#1642474319
+gtf2gff.pl -gff3 < braker.gtf --out=braker.gff3
+#1642474324
+vi ../braker.s
+#1642474331
+ls ../*sh
+#1642474332
+cd ..
+#1642474333
+ls
+#1642474334
+lt
+#1642474336
+cd -
+#1642474339
+cd ../..
+#1642474339
+ll
+#1642474343
+cd braker_local/
+#1642474344
+ll *sh
+#1642474347
+vi braker.sh 
+#1642474353
+cd -
+#1642474353
+lt
+#1642474355
+export GENEMARK_PATH=/nfs/liuhui/bin/braker/dependency/gmes_linux_64
+#1642474355
+export PROTHINT_PATH=/nfs/liuhui/bin/braker/dependency/ProtHint/bin
+#1642474355
+export CDBTOOLS_PATH=/nfs/liuhui/bin/braker/dependency/cdbfasta
+#1642474355
+export PATH=/nfs/liuhui/bin/braker/dependency/GUSHR:$PATH
+#1642474355
+export MAKEHUB_PATH=/nfs/liuhui/bin/braker/dependency/MakeHub-1.0.5
+#1642474355
+export PATH=/nfs/liuhui/bin/braker/dependency:$PATH
+#1642474355
+export PATH=/nfs/liuhui/bin/braker/dependency/Augustus/bin:/nfs/liuhui/bin/braker/dependency/Augustus/scripts:$PATH
+#1642474355
+export AUGUSTUS_CONFIG_PATH=/nfs/liuhui/bin/braker/dependency/Augustus/config
+#1642474355
+export PATH=/nfs/liuhui/bin/braker/BRAKER/scripts:$PATH
+#1642474356
+lth
+#1642474360
+cd braker_run/
+#1642474360
+lt
+#1642474363
+cd braker/
+#1642474363
+lt
+#1642474365
+gtf2gff.pl -gff3 < braker.gtf --out=braker.gff3
+#1642474411
+lth
+#1642474415
+les braker.gff3 
+#1642474429
+ls ..
+#1642474435
+gffread -x Duparquetia_orchidacea.cds -g ../Duparquetia_orchidacea.fa braker.gff3 
+#1642474453
+cds2aa.pl Duparquetia_orchidacea.cds > Duparquetia_orchidacea.pep &
+#1642474454
+lth
+#1642474464
+grep ">" Duparquetia_orchidacea.cds |wc -l
+#1642474466
+lth
+#1642474469
+lt ..
+#1642474471
+lth
+#1642474479
+python -m iga.assembly.assess busco --mode prot Duparquetia_orchidacea.pep
+#1642474484
+conda deactivate
+#1642474485
+python -m iga.assembly.assess busco --mode prot Duparquetia_orchidacea.pep
+#1642474486
+lth
+#1642474554
+bjl
+#1642474569
+cd ..lt
+#1642474571
+cd ..
+#1642474571
+lt
+#1642474572
+cd ..
+#1642474572
+ls
+#1642474577
+python -m iga.annotation.repeat
+#1642474579
+python -m iga.annotation.repeat edta
+#1642474584
+python -m iga.annotation.repeat edta Duparquetia_orchidacea.fa
+#1642474588
+bjl
+#1642474653
+lt
+#1642474656
+j repeat
+#1642474658
+cd -
+#1642474659
+lt
+#1642474664
+cd workdir_edta_Duparquetia_orchidacea.fa/
+#1642474664
+lt
+#1642474688
+ll
+#1642474699
+j repeat
+#1642474700
+lth
+#1642474705
+cd workdir_repeatmask_Senna_tora.fa/
+#1642474706
+ls
+#1642474707
+cd custom_lib.out/
+#1642474707
+lt
+#1642486067
+bjl
+#1642486149
+cd -
+#1642486153
+j braker
+#1642486153
+lth
+#1642486154
+lt
+#1642486155
+bjl
+#1642486158
+lt
+#1642486162
+cd ..
+#1642486163
+lt
+#1642486165
+cd braker_run/
+#1642486165
+lt
+#1642486166
+cd braker/
+#1642486167
+lt
+#1642486170
+more Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2.txt 
+#1642486181
+les error.32723 
+#1642486213
+cd ../..
+#1642486213
+ls
+#1642486215
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/duparquetia/genblast/Duparquetia_orchidacea.fa.masked.fa.genblast.pep
+#1642486229
+python -m iga.assembly.assess busco --mode prot Duparquetia_orchidacea.fa.masked.fa.genblast.pep 
+#1642486231
+bjl
+#1642486236
+lt
+#1642486283
+lth
+#1642486284
+bjl
+#1642486286
+lth
+#1642486292
+cd Duparquetia_orchidacea.fa.masked.fa.genblast.pep.busco.embryophyta.v4.1.2/
+#1642486292
+lt
+#1642486294
+cd -
+#1642486319
+lt
+#1642487303
+lth
+#1642487305
+bjl
+#1642487308
+top
+#1642487529
+j polished
+#1642487530
+lth
+#1642487531
+lt
+#1642487534
+tail braker.err 
+#1642487542
+les braker.err 
+#1642487551
+vi braker.1
+#1642487554
+vi braker.sh 
+#1642487560
+lt braker
+#1642487568
+lt
+#1642487572
+mv braker braker.bak
+#1642487577
+rm braker.err braker.log 
+#1642487580
+bsub -o braker.log -e braker.err -J braker_dbmask_legprot -m yi04 -n 48 < braker.sh 
+#1642487582
+lth
+#1642487584
+bjl
+#1642487592
+lth
+#1642487603
+bjl
+#1642487607
+lt
+#1642487610
+tail braker.err 
+#1642487618
+lt
+#1642487621
+conda activate braker
+#1642487623
+bsub -o braker.log -e braker.err -J braker_dbmask_legprot -m yi04 -n 48 < braker.sh 
+#1642487623
+lt
+#1642487629
+bjl
+#1642487641
+lt
+#1642487644
+tail braker.err 
+#1642487647
+bjl
+#1642487654
+bj
+#1642487655
+Duparquetia_orchidacea.fa.masked.fa.genblast.pep.busco.embryophyta.v4.1.2
+#1642487657
+rm braker.err braker.log 
+#1642487658
+bj
+#1642487659
+lt
+#1642487664
+bjobs
+#1642487667
+cd braker
+#1642487667
+lt
+#1642487604
+top
+#1642487699
+lbjl
+#1642487700
+bjl
+#1642487702
+lth
+#1642487703
+ps ux
+#1642487710
+cd Duparquetia_orchidacea.fa.masked.fa.genblast.pep.busco.embryophyta.v4.1.2/
+#1642487710
+lt
+#1642487713
+more short_summary.specific.embryophyta_odb10.Duparquetia_orchidacea.fa.masked.fa.genblast.pep.busco.embryophyta.v4.1.2.txt 
+#1642487734
+lt
+#1642487828
+ll
+#1642487830
+cd ..
+#1642487831
+ll
+#1642487835
+mkdir genblast_dir
+#1642487848
+mv bsub.buscoDuparquetia_orchidacea.fa.masked.fa.genblast.pep.230142.sh Duparquetia_orchidacea.fa.masked.fa.genblast.pep.busco.embryophyta.v4.1.2 Duparquetia_orchidacea.fa.masked.fa.genblast.pep genblast_dir/
+#1642487852
+ls -d *genblast*
+#1642487853
+cd genblast_dir/
+#1642487854
+ls
+#1642487859
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/duparquetia/genblast/Duparquetia_orchidacea.fa.masked.fa.genblast.gff
+#1642487896
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/duparquetia/genblast/Duparquetia_orchidacea.fa.masked.fa.arath_med_sprot.pep..gff
+#1642487900
+lt
+#1642487916
+ln -s../Duparquetia_orchidacea.fa.masked.fa
+#1642487920
+ln -s ../Duparquetia_orchidacea.fa.masked.fa
+#1642487921
+ll
+#1642487930
+cp ../braker_double_masked_legprot/braker.sh ./
+#1642487931
+ll
+#1642487937
+vi braker.sh 
+#1642487949
+mv Duparquetia_orchidacea.fa.masked.fa.arath_med_sprot.pep..gff Duparquetia_orchidacea.fa.masked.fa.arath_med_sprot.pep.gff
+#1642487955
+vi braker.sh 
+#1642487985
+conda activate braker
+#1642487986
+vi braker.sh 
+#1642487990
+bsub -o braker.log -e braker.err -J braker_genblast -m yi04 -n 48 < braker.sh 
+#1642487992
+bjl
+#1642487996
+bj
+#1642488005
+bjl
+#1642488009
+bjg
+#1642488087
+lt
+#1642488092
+vi braker.sh 
+#1642490054
+lt
+#1642490057
+bjl
+#1642490063
+cd ..
+#1642490064
+ls
+#1642490068
+uplht odb10_plants.fasta 
+#1642491617
+lll
+#1642491618
+ll
+#1642491620
+cd braker_run/
+#1642491621
+lt
+#1642491622
+cd braker/
+#1642491622
+lt
+#1642491628
+tail Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2.txt 
+#1642491650
+lt
+#1642491655
+grep ">" Duparquetia_orchidacea.pep |wc -l
+#1642491669
+cd ..
+#1642491669
+ls
+#1642491671
+lt
+#1642491672
+cd ..
+#1642491672
+lt
+#1642491681
+cd workdir_d
+#1642491686
+ls braker_double_masked_legprot/
+#1642491692
+ls braker_double_masked_legprot/braker.legprot/
+#1642491699
+ls braker_double_masked_legprot/braker
+#1642487670
+tail -f braker.log 
+#1642491710
+find . -iname  gemoma
+#1642491759
+history |less/
+#1642491759
+history |less/
+#1642491778
+lt
+#1642491761
+history |less
+#1642491804
+cd /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_double_masked_legprot/braker.legprot/Duparquetia_orchi
+#1642491822
+cd /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_double_masked_legprot/braker.legprot/Duparquetia_orchidacea.fa.masked.fa.genblast.arath_med_sprot.pep/
+#1642491822
+ll
+#1642491823
+ls
+#1642491825
+cd ..
+#1642491826
+ls
+#1642491832
+lth
+#1642491843
+cd ..
+#1642491844
+lth
+#1642491846
+lt
+#1642491851
+cd ..
+#1642491851
+lt
+#1642491856
+ls *sh
+#1642491862
+ls plants/
+#1642491864
+ls
+#1642491870
+ls genblast_dir/
+#1642491878
+ls genblast_dir/braker_local/
+#1642491879
+ls
+#1642491884
+ls braker_local/
+#1642491888
+cd braker_local/
+#1642491889
+ll
+#1642491900
+mkdir -p ../gemoma
+#1642491912
+mv GeMoMa_temp gemoma_outdir ../genblast_dir/
+#1642491922
+cp shell Zenia_insignis.fa Zenia_insignis.gff  ../genblast_dir/
+#1642491942
+cp shell Zenia_insignis.fa Zenia_insignis.gff  ../gemoma/
+#1642491949
+cd ../genblast_dir/
+#1642491949
+ls
+#1642491955
+mv gemoma_outdir GeMoMa_temp ../gemoma/
+#1642491956
+more shell 
+#1642491961
+mv shell ../gemoma/
+#1642491963
+lt
+#1642491967
+cd ../ge
+#1642491969
+cd ../gemoma/
+#1642491969
+ll
+#1642491972
+cd gemoma_outdir/
+#1642491972
+lth
+#1642491982
+lt
+#1642491985
+les final_annotation.gff
+#1642491993
+awk '$3=="gene"' final_annotation.gff |wc -l
+#1642491999
+grep ">" predicted_proteins.fasta |wc -l
+#1642492003
+mroe predicted_proteins.fasta.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.predicted_proteins.fasta.busco.embryophyta.v4.1.2.txt 
+#1642492008
+more predicted_proteins.fasta.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.predicted_proteins.fasta.busco.embryophyta.v4.1.2.txt 
+#1642492087
+cp ~/projects/phyleg/leggenome/Medicago_truncatula.fa ./ &
+#1642492091
+cp ~/projects/phyleg/leggenome/Medicago_truncatula.gff ./ &
+#1642492129
+cd gemoma/
+#1642492129
+lt
+#1642492143
+lt
+#1642492147
+mv Medicago_truncatula.* ../
+#1642492148
+cd ..
+#1642492150
+cpjobs ~/projects/phyleg/leggenome/Zenia_insignis.fa ./
+#1642492152
+jobs
+#1642492154
+lt
+#1642492158
+downlht /ds3200_1/users_root/yitingshuang/lh/database/GENOME/Arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa
+#1642492167
+downlht /ds3200_1/users_root/yitingshuang/lh/database/GENOME/Arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.32.gff3longest.gff
+#1642492897
+ll
+#1642492909
+mv Arabidopsis_thaliana.TAIR10.32.gff3longest.gff Arabidopsis_thaliana.gff
+#1642492914
+mv  Arabidopsis_thaliana.TAIR10.dna_sm.toplevel.fa Arabidopsis_thaliana.fa
+#1642492914
+ll
+#1642492916
+vi shell 
+#1642492971
+conda deactivate
+#1642492976
+conda activate gemoma
+#1642492977
+lt
+#1642492980
+tail -n 1 shell 
+#1642492986
+bsub512 -n 128 -J gemoma "GeMoMa GeMoMaPipeline threads=128 outdir=Mt.outdir GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t=Duparquetia_orchidacea.fa.masked.fa i=Mt a=Medicago_truncatula.gff g=Medicago_truncatula.fa"
+#1642492987
+vi shell 
+#1642493014
+tail -n 1 shell 
+#1642493017
+bsub512 -n 128 -J gemoma "GeMoMa GeMoMaPipeline threads=128 outdir=Mt.outdir GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t=Duparquetia_orchidacea.fa.masked.fa i=At a=Arabidopsis_thaliana.gff g=Arabidopsis_thaliana.fa"
+#1642493018
+lt
+#1642493026
+bkill 32807
+#1642493027
+vi shell 
+#1642493037
+tail -n 1 shell 
+#1642493041
+bsub512 -n 128 -J gemoma "GeMoMa GeMoMaPipeline threads=128 outdir=At.outdir GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t=Duparquetia_orchidacea.fa.masked.fa i=At a=Arabidopsis_thaliana.gff g=Arabidopsis_thaliana.fa"
+#1642493042
+l
+#1642493043
+tlt
+#1642493043
+lt
+#1642493045
+bjl
+#1642493048
+lt
+#1642493054
+mv GeMoMa_temp GeMoMa_temp.zn
+#1642493055
+lt
+#1642493058
+les error.32806 
+#1642493068
+ln -s ../Duparquetia_orchidacea.fa.masked.fa 
+#1642493071
+rm output.3280* error.3280*
+#1642493073
+vi shell 
+#1642493086
+GeMoMa GeMoMaPipeline
+#1642493105
+ll
+#1642493109
+ls GeMoMa_temp
+#1642493111
+rmdir GeMoMa_temp
+#1642493114
+bsub512 -n 128 -J gemoma "GeMoMa GeMoMaPipeline threads=128 outdir=At.outdir GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t=Duparquetia_orchidacea.fa.masked.fa i=At a=Arabidopsis_thaliana.gff g=Arabidopsis_thaliana.fa"
+#1642493117
+bsub512 -n 128 -J gemoma "GeMoMa GeMoMaPipeline threads=128 outdir=Mt.outdir GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t=Duparquetia_orchidacea.fa.masked.fa i=Mt a=Medicago_truncatula.gff g=Medicago_truncatula.fa"
+#1642493118
+bjl
+#1642493150
+cd /nfs/liuhui/projects/buzzo/duparquetia/annotation/gemoma
+#1642493156
+touch wait gemoma
+#1642493159
+cd ..
+#1642493160
+lth
+#1642493163
+cd braker_polished/
+#1642493164
+l
+#1642493165
+ls
+#1642493166
+lt
+#1642493171
+tail braker.log 
+#1642493183
+lt
+#1642493187
+cd braker.bak/
+#1642493187
+lt
+#1642493188
+lth
+#1642493193
+cd ..
+#1642493193
+lth
+#1642493197
+vi braker.sh 
+#1642493202
+les braker.err 
+#1642493215
+les error.32806 
+#1642493217
+lth
+#1642493221
+cd braker
+#1642493222
+lth
+#1642493225
+les GeneMark-EP.stdout 
+#1642493235
+cd ..
+#1642493235
+ls
+#1642493242
+ll
+#1642493245
+vi braker.sh 
+#1642493141
+tma
+#1642493254
+bjobs -l 32724
+#1642493247
+bjl
+#1642493264
+lth
+#1642493265
+vi braker.sh 
+#1642493284
+les braker.err 
+#1642493308
+tail -n 3
+#1642493318
+tail -n 3 braker.err
+#1642493325
+les /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_polished/braker/errors/GeneMark-EP.stderr
+#1642493328
+les /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_polished/braker/GeneMark-EP.stdout
+#1642493352
+ll
+#1642493364
+mv masurca_assembly.1.fa masurca1.fa
+#1642493364
+ll
+#1642493370
+vi shell 
+#1642493376
+vi braker
+#1642493378
+vi braker.sh 
+#1642493387
+more shell 
+#1642493389
+lt
+#1642493261
+tma
+#1642493395
+rm -r braker
+#1642493478
+lth
+#1642493478
+rm braker.err braker.log
+#1642493459
+bjl
+#1642496915
+tma
+#1642556629
+lth
+#1642556630
+bjl
+#1642556638
+th
+#1642556639
+lth
+#1642556644
+lt Mt.outdir/
+#1642557214
+lth
+#1642557605
+conda activate gemoma
+#1642557611
+GeMoMa GeMoMaPipeline
+#1642557617
+GeMoMa GAF
+#1642557719
+more ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtyl2jvLdoQ3B10tyjwqy/63XsVpJlnXoVZ0VtQUgf1ra4isRvPQ9dFdx6hPTfK2ezU77fPclSh9ASL6ya/BPR6hgEKZ4Dx0S4oIoR+3EM
+#1642557719
+zKRPyowyJmV1RjmTZlqbGDSJGkb1Krksz3bh1nk8zf3akibeG7q98GbBPXGZ9hGVNReCsNaH2lUuOaSvtmYo5XkXFYAsvZ/0T7CQ8BPMdK9o5QSE+PUPg7m0HxIcvDopFsBqAcD7IQbldgnb
+#1642557734
+vi .ssh/authorized_keys 
+#1642558039
+ll
+#1642558064
+GeMoMa GAF 2>&1 |less
+#1642558422
+ls
+#1642558430
+ls */*gff
+#1642558458
+bsub512 -J combine_gmm "GeMoMa GAF g=gemoma_outdir/final_annotation.gff g=Mt.outdir/final_annotation.gff g=At.outdir/final_annotation.gff"
+#1642558698
+lt
+#1642558704
+lth
+#1642558716
+vi braker.sh 
+#1642558732
+conda activate braker
+#1642558746
+bsub -o braker.log -e braker.err -J braker_polished -m yi04 -n 48 < braker.sh 
+#1642558747
+lth
+#1642558749
+bjl
+#1642558752
+th
+#1642558755
+lth
+#1642558762
+les error.32893 
+#1642558773
+les filtered_predictions.gff 
+#1642558918
+more shell 
+#1642558923
+logsh
+#1642558927
+lth
+#1642558933
+conda deactivate
+#1642558941
+ls
+#1642558957
+gffread -x Duparquetia_orchidacea.cds -g ../Duparquetia_orchidacea.fa filtered_predictions.gff 
+#1642559587
+th
+#1642559588
+lt
+#1642559590
+bjl
+#1642559700
+lth
+#1642559750
+cds2aa.pl Duparquetia_orchidacea.cds > Duparquetia_orchidacea.pep &
+#1642559751
+lth
+#1642559758
+grep ">" *cds |wc -l
+#1642559759
+lth
+#1642559767
+python -m iga.assembly.assess busco --mode prot Duparquetia_orchidacea.pep 
+#1642556635
+tma
+#1642570563
+lt braker |head
+#1642570569
+lth
+#1642570574
+more Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.Duparquetia_orchidacea.pep.busco.embryophyta.v4.1.2.txt 
+#1642570729
+lth
+#1642571033
+ls
+#1642571034
+lt
+#1642571042
+cp filtered_predictions.gff Duparquetia_orchidacea.gff
+#1642571044
+lth
+#1642571049
+cd /nfs/liuhui/projects/buzzo/duparquetia/annotation/gemoma/
+#1642571049
+lth
+#1642571053
+ll
+#1642571068
+cp Duparquetia_orchidacea.fa.masked.fa Duparquetia_orchidacea.softmasked.fa
+#1642571079
+lth
+#1642571091
+lt
+#1642571099
+bsub512 "tar -cvzf dp_genome.tgz Duparquetia_orchidacea.softmasked.fa Duparquetia_orchidacea.pep Duparquetia_orchidacea.cds Duparquetia_orchidacea.gff"
+#1642571107
+logsh 
+#1642571112
+lth
+#1642571113
+bjl
+#1642571118
+bhosts 
+#1642571126
+bjl
+#1642571133
+lth
+#1642571137
+tail braker.err 
+#1642571143
+more ~/.gm_key 
+#1642571127
+tma
+#1642571155
+bjobs -u all |less
+#1642571161
+lth
+#1642573148
+sz dp_genome.tgz 
+#1642573277
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/91.assembly/
+#1642573410
+ll
+#1642573416
+lth
+#1642573646
+mkdir ~/yanrui/mission2
+#1642573650
+mkdir -p ~/yanrui/mission2
+#1642573663
+cp Duparquetia_orchidacea.softmasked.fa ~/yanrui/mission2/ &
+#1642573668
+ll
+#1642573670
+cd ..
+#1642573671
+ll
+#1642573675
+cd ..
+#1642573676
+ll
+#1642573678
+cd input_sgs_reads/
+#1642573678
+ll
+#1642573690
+bsub 'cp Duparquetia_orchidacea_libA_1.fq.gz.clean.fq.gz Duparquetia_orchidacea_libA_2.fq.gz.clean.fq.gz ~/yanrui/'
+#1642573692
+bjl
+#1642573818
+ll /nfs/liuhui/yanrui/
+#1642574757
+cd ~/yanrui/
+#1642574757
+ll
+#1642574762
+mv Duparquetia_orchidacea_libA_* mission2/
+#1642574763
+ll mission2/
+#1642574764
+cd -
+#1642574765
+lt
+#1642575371
+j mcscanx2
+#1642575371
+ls
+#1642575373
+cd kaks/
+#1642575373
+lt
+#1642575374
+ls
+#1642575388
+cd ../../kaks/
+#1642575388
+ls
+#1642575391
+ls *sh
+#1642575396
+cd ..
+#1642575396
+ls
+#1642575405
+cd kaks/
+#1642575407
+more shell 
+#1642575414
+cd ..
+#1642575517
+vc
+#1642575623
+cd -
+#1642575623
+ls
+#1642575629
+cd ../mcscanX2/
+#1642575630
+ls
+#1642575631
+cd kaks/
+#1642575632
+ls
+#1642575639
+chmod -w *.kaks *.ortho
+#1642575641
+ls
+#1642575661
+ll ../../*sh
+#1642575676
+vi ../../05.get_rest_peaks.sh
+#1642575704
+python -m iga.evolution.ortho commonWGD1 Medicago_truncatula.Senna_tora.ortho
+#1642575706
+bjl
+#1642575710
+lth
+#1642575714
+ll work_Medicago_truncatula.Senna_tora.ortho/
+#1642575721
+ll work_Medicago_truncatula.Senna_tora.ortho/*left.kaks
+#1642575723
+cd work_Medicago_truncatula.Senna_tora.ortho/
+#1642575723
+lt
+#1642575733
+les Medicago_truncatula.Senna_tora.ortho.left.kaks
+#1642575738
+les Medicago_truncatula.Senna_tora.ortho.left
+#1642575749
+les ../Medicago_truncatula.Medicago_truncatula.ortho
+#1642575754
+lt
+#1642575762
+les ../Medicago_truncatula.Medicago_truncatula.ortho.kaks
+#1642575766
+cd ..
+#1642575775
+vi Medicago_truncatula.Medicago_truncatula.ortho.kaks 
+#1642575788
+cd -
+#1642575789
+lt
+#1642575791
+bjl
+#1642575795
+cd ..
+#1642575796
+python -m iga.evolution.ortho commonWGD1 Medicago_truncatula.Senna_tora.ortho
+#1642575798
+lth
+#1642575800
+les error.32939 
+#1642575803
+rm error.32939 output.32939 
+#1642575803
+lth
+#1642575813
+rm bsub.GMM_peak.704687.sh 
+#1642575814
+lth
+#1642575818
+lt work_Medicago_truncatula.Senna_tora.ortho/
+#1642575828
+lth
+#1642575833
+more *peak
+#1642575872
+cd -
+#1642575873
+lt
+#1642575883
+ks_plot.R Medicago_truncatula.Senna_tora.ortho.right.kaks
+#1642575887
+ks_plot.R Medicago_truncatula.Senna_tora.ortho.left.kaks
+#1642575890
+lth
+#1642575892
+sz *pdf
+#1642575900
+# Sent -> /Users/liuhui/Downloads/
+#1642575937
+lth
+#1642575942
+les Medicago_truncatula.Senna_tora.ortho.right.kaks.KsGMM 
+#1642575973
+cd ../
+#1642575974
+lth
+#1642575978
+les Medicago_truncatula.Senna_tora.ortho.kaks.KsGMM 
+#1642575994
+vi `which get_ks_peak.py`
+#1642576092
+lt
+#1642576093
+lth
+#1642576104
+get_ks_peak.R Medicago_truncatula.Senna_tora.ortho.kaks
+#1642576122
+get_ks_peak.py Medicago_truncatula.Senna_tora.ortho.kaks
+#1642576171
+vi `which get_ks_peak.R`
+#1642576202
+ks_plot.R Medicago_truncatula.Senna_tora.ortho.kaks
+#1642576215
+sz Medicago_truncatula.Senna_tora.ortho.kaks.pdf 
+#1642576218
+# Sent -> /Users/liuhui/Downloads/
+#1642576298
+ls
+#1642576305
+get_ks_peak.R Medicago_truncatula.Senna_tora.ortho.kaks 3
+#1642576316
+cd yanrui
+#1642576317
+ls
+#1642576323
+cd mission2/
+#1642576324
+ls
+#1642576331
+cd -
+#1642576332
+lth
+#1642576332
+conda activate base
+#1642576345
+get_ks_peak.R Medicago_truncatula.Medicago_truncatula.ortho.kaks 3
+#1642576352
+get_ks_peak.R Medicago_truncatula.Senna_tora.ortho.left.kaks 3
+#1642576361
+get_ks_peak.R Medicago_truncatula.Senna_tora.ortho.right.kaks 3
+#1642576438
+lt
+#1642576441
+les *left
+#1642576448
+les *right
+#1642576483
+cp Medicago_truncatula.Senna_tora.ortho.left Medicago_truncatula.Senna_tora.ortho.right > inpara.txt
+#1642576484
+vi inpara.txt 
+#1642576488
+cat Medicago_truncatula.Senna_tora.ortho.left Medicago_truncatula.Senna_tora.ortho.right > inpara.txt
+#1642576358
+conda create -n yr python=3.7
+#1642576493
+ls
+#1642576502
+vi inpara.txt 
+#1642576516
+les Medicago_truncatula.Senna_tora.ortho.left
+#1642576519
+les Medicago_truncatula.Senna_tora.ortho.right
+#1642576533
+mkdir text
+#1642576534
+ls
+#1642576544
+cd ..
+#1642576546
+python -m iga.evolution.ortho commonWGD1 Medicago_truncatula.Senna_tora.ortho
+#1642576551
+vi `which get_ks_peak.py`
+#1642576580
+j test_tandem
+#1642576594
+ll
+#1642576601
+cd clean_Senna_tora/
+#1642576602
+ll
+#1642576610
+lth
+#1642576545
+cp Duparquetia_orchidacea_libA_1.fq.gz.clean.fq.gz text/Duparquetia_orchidacea_libA_1.fq.gz.clean.fq.gz
+#1642576612
+top
+#1642576622
+ls
+#1642576625
+cd text/
+#1642576626
+ls
+#1642576627
+lth
+#1642576628
+cd ..
+#1642576630
+ls
+#1642576632
+mkdir test
+#1642576636
+cp *select* test/
+#1642576637
+cd test/
+#1642576638
+ll
+#1642576650
+more Medicago_truncatula.Medicago_truncatula.ortho.select_id.kaks.peak
+#1642576677
+top
+#1642576645
+cp Duparquetia_orchidacea_libA_2.fq.gz.clean.fq.gz text/Duparquetia_orchidacea_libA_2.fq.gz.clean.fq.gz
+#1642576802
+ls
+#1642576664
+get_ks_peak.py Medicago_truncatula.Medicago_truncatula.ortho.select_id.kaks
+#1642576837
+les *GMM
+#1642576852
+cd text/
+#1642576853
+ls
+#1642576871
+touch Duparquetia_orchidacea.softmasked.fa
+#1642576873
+ls
+#1642576886
+ln -s Duparquetia_orchidacea.softmasked.fa ../Duparquetia_orchidacea.softmasked.fa
+#1642576887
+ls
+#1642576972
+bsub bwa index -a is Duparquetia_orchidacea.softmasked.fa 
+#1642576981
+ls
+#1642577192
+rm Duparquetia_orchidacea.softmasked.fa.*
+#1642577193
+ls
+#1642577222
+mv Duparquetia_orchidacea.softmasked.fa Ref_genome.fa
+#1642577224
+ls
+#1642577254
+mv Duparquetia_orchidacea_libA_1.fq.gz.clean.fq.gz A1_R1.fa.gz
+#1642577257
+ls
+#1642577272
+mv Duparquetia_orchidacea_libA_2.fq.gz.clean.fq.gz A1_R2.fa.gz
+#1642577273
+ls
+#1642577295
+bsub bwa index -a is Ref_genome.fa
+#1642577300
+ls
+#1642577318
+bwa index -a is Ref_genome.fa
+#1642577324
+ls
+#1642577403
+for i in *_R1.fq.gz; do bwa mem -t 8 -R "@RG\tID:${i%_R1.fq.gz}\tSM:${i%_R1.fq.gz}\tPL:ILLUMINA" 202001_sin_ref.fa ${i%_R1.fq.gz}_R1.fq.gz ${i%_R1.fq.gz}_R2.fq.gz > ${i%_R1.fq.gz}.sam;  作者：铃_0d92; 链接：https://www.jianshu.com/p/0cc8cabae49b; 来源：简书; 
+#1642577425
+for i in *_R1.fq.gz; do bwa mem -t 8 -R "@RG\tID:${i%_R1.fq.gz}\tSM:${i%_R1.fq.gz}\tPL:ILLUMINA" 202001_sin_ref.fa ${i%_R1.fq.gz}_R1.fq.gz ${i%_R1.fq.gz}_R2.fq.gz > ${i%_R1.fq.gz}.sam
+#1642577448
+for i in *_R1.fq.gz; do bwa mem -t 8 -R "@RG\tID:${i%_R1.fq.gz}\tSM:${i%_R1.fq.gz}\tPL:ILLUMINA" 202001_sin_ref.fa ${i%_R1.fq.gz}_R1.fq.gz ${i%_R1.fq.gz}_R2.fq.gz > ${i%_R1.fq.gz}.sam;  作者：铃_0d92; 链接：https://www.jianshu.com/p/0cc8cabae49b; 来源：简书; 
+#1642577621
+for i in *_R1.fq.gz; do bwa mem -t 8 -R "@RG\tID:${i%_R1.fq.gz}\tSM:${i%_R1.fq.gz}\tPL:ILLUMINA" 202001_sin_ref.fa ${i%_R1.fq.gz}_R1.fq.gz ${i%_R1.fq.gz}_R2.fq.gz > ${i%_R1.fq.gz}.sam; done
+#1642577638
+ls
+#1642577656
+less Ref_genome.fa
+#1642577675
+rm Ref_genome.fa.*
+#1642577690
+ln -s Ref_genome.fa ../Duparquetia_orchidacea.softmasked.fa 
+#1642577691
+ls
+#1642577697
+rm .sam
+#1642577699
+ls
+#1642577706
+rm *.sam
+#1642577707
+ls
+#1642577714
+less Ref_genome.fa
+#1642577718
+cd ..
+#1642577719
+l
+#1642577721
+ls
+#1642577726
+les Duparquetia_orchidacea.softmasked.fa
+#1642577758
+cd text/
+#1642577759
+ls
+#1642577773
+ln -s Ref_genome.fa ../Duparquetia_orchidacea.softmasked.fa
+#1642577866
+rm Ref_genome.fa
+#1642577875
+touch Ref_genome.fa
+#1642577901
+la
+#1642577902
+ls
+#1642577922
+ln -s ../Duparquetia_orchidacea.softmasked.fa Ref_genome.fa 
+#1642577935
+rm Ref_genome.fa
+#1642577938
+ln -s ../Duparquetia_orchidacea.softmasked.fa Ref_genome.fa 
+#1642577942
+ls
+#1642577962
+bwa index -a is Ref_genome.fa
+#1642578462
+ls
+#1642578473
+for i in *_R1.fq.gz; do bwa mem -t 8 -R "@RG\tID:${i%_R1.fq.gz}\tSM:${i%_R1.fq.gz}\tPL:ILLUMINA" 202001_sin_ref.fa ${i%_R1.fq.gz}_R1.fq.gz ${i%_R1.fq.gz}_R2.fq.gz > ${i%_R1.fq.gz}.sam; done
+#1642578499
+ls
+#1642578510
+cat *.sam
+#1642578519
+rm *.sam
+#1642578686
+cd -
+#1642578688
+cd ../../
+#1642576792
+tp
+#1642578688
+ls
+#1642402556
+vi /nfs/apps/miniconda3/lib/python3.8/site-packages/conda/cli/activate.py 
+#1642578708
+ll
+#1642578709
+cd -
+#1642578711
+lt
+#1642578725
+wc -l Senna_tora.Senna_tora.ortho.kaks
+#1642578731
+get_ks_peak.py Senna_tora.Senna_tora.ortho.kaks
+#1642578767
+lth
+#1642578777
+cd ../../
+#1642578778
+ls
+#1642578781
+cd kaks/work_Medicago_truncatula.Senna_tora.ortho/
+#1642578781
+lt
+#1642578791
+ls
+#1642578794
+cd ../../
+#1642578797
+cd mcscan2
+#1642578802
+cd mcscanX2/
+#1642578802
+lt
+#1642578814
+cd kaks/
+#1642578814
+ls
+#1642578816
+lth
+#1642578826
+more *peak
+#1642578841
+wc -l Medicago_truncatula.Senna_tora.ortho.kaks
+#1642578853
+cd work_Medicago_truncatula.Senna_tora.ortho/
+#1642578854
+lt
+#1642578861
+cd -
+#1642578868
+les Medicago_truncatula.Senna_tora.ortho.kaks
+#1642578873
+t Medicago_truncatula.Senna_tora.ortho.kaks
+#1642578910
+which get_ks_peak.py
+#1642578912
+vi `which get_ks_peak.py`
+#1642579210
+get_ks_peak.py Senna_tora.Senna_tora.ortho.kaks
+#1642579226
+vi `which get_ks_peak.py`
+#1642579267
+get_ks_peak.py Senna_tora.Senna_tora.ortho.kaks
+#1642579294
+ls
+#1642579302
+python -m iga.evolution.ortho commonWGD1 Medicago_truncatula.Senna_tora.ortho
+#1642579344
+lth
+#1642579352
+rm error.32950 output.32950
+#1642579354
+lth
+#1642579354
+bjl
+#1642579362
+bpeek 32950
+#1642579368
+more *peak
+#1642579397
+cd -
+#1642579398
+lt
+#1642579404
+les *right
+#1642579409
+vi *right
+#1642579428
+cat Medicago_truncatula.Senna_tora.ortho.left Medicago_truncatula.Senna_tora.ortho.right inpara.txt 
+#1642579431
+cat Medicago_truncatula.Senna_tora.ortho.left Medicago_truncatula.Senna_tora.ortho.right > inpara.txt 
+#1642579433
+vi inpara.txt 
+#1642579438
+lt
+#1642579485
+selectItem.pl -h 0 0,1 inpara.txt ../Medicago_truncatula.Senna_tora.ortho |sed "s/\t/-/" > Medicago_truncatula.Senna_tora.ortho.between
+#1642579491
+les Medicago_truncatula.Senna_tora.ortho.between
+#1642579508
+selectItem.pl Medicago_truncatula.Senna_tora.ortho.between ../Medicago_truncatula.Senna_tora.ortho.kaks > Medicago_truncatula.Senna_tora.ortho.between.kaks
+#1642579511
+logsh
+#1642579521
+get_ks_peak.py Medicago_truncatula.Senna_tora.ortho.between.kaks 
+#1642579539
+selectItem.pl  0 0,1 inpara.txt ../Medicago_truncatula.Senna_tora.ortho |sed "s/\t/-/" > Medicago_truncatula.Senna_tora.ortho.between
+#1642579543
+selectItem.pl -h Medicago_truncatula.Senna_tora.ortho.between ../Medicago_truncatula.Senna_tora.ortho.kaks > Medicago_truncatula.Senna_tora.ortho.between.kaks
+#1642579544
+logsh
+#1642579548
+lth
+#1642579553
+les Medicago_truncatula.Senna_tora.ortho.between
+#1642579565
+les ../Medicago_truncatula.Senna_tora.ortho.kaks
+#1642579576
+vi ../Medicago_truncatula.Senna_tora.ortho.kaks
+#1642579589
+lt
+#1642579597
+selectItem.pl -h Medicago_truncatula.Senna_tora.ortho.between ../Medicago_truncatula.Senna_tora.ortho.kaks > Medicago_truncatula.Senna_tora.ortho.between.kaks
+#1642579598
+lth
+#1642579601
+get_ks_peak.py Medicago_truncatula.Senna_tora.ortho.between.kaks 
+#1642579653
+for i in Medicago_truncatula.Senna_tora.ortho.right.kaks Medicago_truncatula.Senna_tora.ortho.left.kaks; do get_ks_peak.py $i; done
+#1642578824
+bwa mem Ref_genome.fa A1_R1.fa.gz A1_R2.fa.gz > mem-pe.sam
+#1642579698
+ls
+#1642579718
+more ../*peak
+#1642579704
+less mem-pe.sam
+#1642579725
+rm mem-pe.sam
+#1642579726
+ls
+#1642579748
+expr 0.9210847983065471 + 0.6429587596878188
+#1642579777
+ll
+#1642579780
+lth
+#1642579787
+cd ..
+#1642579794
+get_ks_peak.py Senna_tora.Senna_tora.ortho.kaks
+#1642579835
+get_ks_peak.py Medicago_truncatula.Medicago_truncatula.ortho.kaks 
+#1642579894
+cd -
+#1642579894
+lt
+#1642579898
+les *.kaks
+#1642579921
+for i in  *.kaks; do awk '$5<1' $i > $i.neutral; done
+#1642579925
+les *neutral
+#1642579930
+vi *kaks
+#1642579935
+vi *neutral
+#1642579950
+wc -l *neutral
+#1642579954
+wc -l *.kaks
+#1642580020
+jobs
+#1642580021
+lth
+#1642580026
+for i in *.neutral; do get_ks_peak.py $i > $i.peak; done &
+#1642580061
+j clean
+#1642580062
+lt
+#1642580069
+realpath Senna_tora.cds.clean.txt
+#1642580070
+cd -
+#1642580083
+ls
+#1642580085
+cp /nfs/liuhui/projects/phyleg/mcscanX/test_tandem/clean_Senna_tora/Senna_tora.cds.clean.txt ./
+#1642580087
+lt
+#1642580092
+les Senna_tora.cds.clean.txt
+#1642580110
+vi Senna_tora.cds.clean.txt 
+#1642580114
+vi *right
+#1642580122
+wc -l *right
+#1642580129
+selectItem.pl Senna_tora.cds.clean.txt Medicago_truncatula.Senna_tora.ortho.right |wc -l
+#1642580304
+cd ..
+#1642580304
+ls
+#1642580316
+cd ../..
+#1642580317
+vi *sh
+#1642580328
+cd -
+#1642580332
+cp ../run.sh ./
+#1642580333
+vi run.sh 
+#1642580384
+bash run.sh 
+#1642580397
+vi run.sh 
+#1642580459
+gtp
