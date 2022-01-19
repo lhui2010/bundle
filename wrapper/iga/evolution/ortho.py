@@ -36,7 +36,7 @@ bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jc
 
 
 def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene_gap=25, no_html="T", runKs='T',
-            use_grid='T', top_num=10):
+            use_grid='T', top_num=10, model='NG'):
     """
     Prerequisites: MCScanX(github), KaKs_Calculator, ParaAT.pl
     ⭐️️The mcscanx wrapper, execution eg:
@@ -47,6 +47,7 @@ def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene
     :param max_gene_gap:-m 25
     :param no_html: [T/F]. T means do not produce html (MCScanX -a)
     :param comparison_type: intra (-b 1), inter (-b 2), both intra and inter (-b 0, default)
+    :param model: [NG] or YN used for Ks estimation in ParaAT.pl
     :return:
     """
     combine_prefix = prefix1 + '.' + prefix2
@@ -106,7 +107,7 @@ def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene
             combine_pep = combine_prefix + '.pep'
             sh("cat {0}.cds {1}.cds > {2}.cds".format(prefix1, prefix2, combine_prefix))
             sh("cat {0}.pep {1}.pep > {2}.pep".format(prefix1, prefix2, combine_prefix))
-        kaks(combine_ortho, combine_cds, combine_pep, threads=threads, use_grid=use_grid, wait='F')
+        kaks(combine_ortho, combine_cds, combine_pep, threads=threads, use_grid=use_grid, wait='F', model=model)
     return 0
 
 
@@ -142,6 +143,7 @@ cut -f1,2 {1}.{2}.anchors |grep -v "#" > {1}.{2}.ortho
 # 1 cds fasta
 # 2 pep fasta
 # 3 number of threads
+# 4 Model
 kaks_sh = """
 #Presequitence 
 #1. ParaAT (Modified to use NG86 model)
@@ -155,13 +157,13 @@ ORTHO={0}
 CDS={1}
 PEP={2}
 echo {3} > proc
-ParaAT.pl -h $ORTHO -n $CDS -a $PEP -p proc -o $ORTHO.ParaAT.out -f axt -k
+ParaAT.pl -h $ORTHO -n $CDS -a $PEP -p proc -o $ORTHO.ParaAT.out -f axt -k -M {4}
 join_kaks.pl $ORTHO.ParaAT.out/*.kaks >$ORTHO.kaks
 rm -rf $ORTHO.ParaAT.out
 """
 
 
-def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T', wait='T'):
+def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T', wait='T', model='NG'):
     """
     :param ortho: eg CORNE00006074-t2        CsaV3_1G039430
     :param cds: cds fasta
@@ -169,7 +171,7 @@ def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T', wait='T'):
     :param use_grid: [T/F]
     :return:
     """
-    cmd = kaks_sh.format(ortho, cds, pep, threads)
+    cmd = kaks_sh.format(ortho, cds, pep, threads, model)
     if use_grid == 'T':
         jobid = bsub(cmd, name="kaks", cpus=threads)
         if wait == 'T':
