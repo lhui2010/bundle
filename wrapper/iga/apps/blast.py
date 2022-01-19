@@ -109,6 +109,8 @@ def filter_reciprocal_best(bln=None):
 
 def extract_top_n_hits(bln=None, eval=1e-5, top_num=10, output='', threads=4):
     """
+    Deprecated, now filter evalue only, do not try other options!
+
     A script function like blastall -v and -b:
     If you used to filter top 5 hits with blastall: blastall -v 5 -b 5
     You can run this script on blast file that has no filter before
