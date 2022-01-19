@@ -120,7 +120,7 @@ def extract_top_n_hits(bln=None, eval=1e-5, top_num=10, output='', threads=4):
     if output == '':
         output = "{0}.top{1}".format(bln, top_num)
     cmd = """
-awk '$11 < 1e-05' {0} > {0}.blast
+awk '$11 < 1e-05' {0} > {0%.raw}.blast
 exit
 #debug
 awk '$11 < 1e-05' {0} > {0}.filter_eval
