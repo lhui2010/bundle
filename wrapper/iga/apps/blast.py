@@ -19,11 +19,11 @@ coloredlogs.install(level='DEBUG', logger=logger)
 # 5 out
 blastp_sh = r"""
 makeblastdb -in {0} -dbtype prot
-blastp  -num_threads {4} -db {0} -query {1}  -evalue {3} -outfmt 6 -out {5}
+blastp  -num_threads {4} -db {0} -query {1}  -evalue {3} -outfmt 6 -out {5} {6}
 """
 
 
-def blastp(ref=None, qry=None, threads=5, eval=1e-5, use_grid='T', output='-'):
+def blastp(ref=None, qry=None, threads=5, eval=1e-5, use_grid='T', output='-', other_param=''):
     r"""
     blastp wrapper, default STDOUT, can be changed with output argument
     :param output:
@@ -31,7 +31,7 @@ def blastp(ref=None, qry=None, threads=5, eval=1e-5, use_grid='T', output='-'):
     :param ref:
     :return:
     """
-    cmd = blastp_sh.format(ref, qry, qry, eval, threads, output)
+    cmd = blastp_sh.format(ref, qry, qry, eval, threads, output, other_param)
     if use_grid == 'T':
         job = bsub(cmd, cpus=threads, name='blastp')
         waitjob(job)

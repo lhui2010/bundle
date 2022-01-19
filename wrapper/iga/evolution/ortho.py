@@ -36,7 +36,7 @@ bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jc
 
 
 def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene_gap=25, no_html="T", runKs='T',
-            use_grid='T', top_num=10, model='NG', output=''):
+            use_grid='T', top_num=10, model='YN', output=''):
     """
     Prerequisites: MCScanX(github), KaKs_Calculator, ParaAT.pl
     ⭐️️The mcscanx wrapper, execution eg:
@@ -94,7 +94,7 @@ def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene
     if (not op.exists(combine_blast)):
         if not op.exists(combine_blast + '.raw'):
             blastp(prefix1 + ".pep", prefix2 + ".pep", threads=threads, output=combine_blast + ".raw",
-                   use_grid='F')
+                   use_grid='F', other_param=)
         extract_top_n_hits(combine_blast + ".raw", top_num=top_num, output=combine_blast, threads=threads)
     sh("format_mcscan_gff.pl {0} > {1}".format(combine_gff3, combine_gff))
     # mcscanx_sh
@@ -161,12 +161,14 @@ CDS={1}
 PEP={2}
 echo {3} > proc
 ParaAT.pl -h $ORTHO -n $CDS -a $PEP -p proc -o $ORTHO.ParaAT.out -f axt -k -M {4}
-join_kaks.pl $ORTHO.ParaAT.out/*.kaks >$ORTHO.kaks
+echo -e "Sequence\tMethod\tKa\tKs\tKa/Ks\tP-Value(Fisher)\tLength\tS-Sites\tN-Sites\tFold-Sites(0:2:4)\tSubstitutions\tS-SubstitutionsN-Substitutions\tFold-S-Substitutions(0:2:4)\tFold-N-Substitutions(0:2:4)\tDivergence-Time\tSubstitution-Rate-Ratio(rTC:rAG:rTA:rCG:rTG:rCA/rCA)\tGC(1:2:3)\tML-Score\tAICc\tAkaike-Weight\tModel" > $ORTHO.kaks  
+find $ORTHO.ParaAT.out/ -name '*.kaks' |xargs tail -q -n 1 >>$ORTHO.kaks
+# join_kaks.pl $ORTHO.ParaAT.out/*.kaks >$ORTHO.kaks
 rm -rf $ORTHO.ParaAT.out
 """
 
 
-def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T', wait='T', model='NG'):
+def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T', wait='T', model='YN'):
     """
     :param ortho: eg CORNE00006074-t2        CsaV3_1G039430
     :param cds: cds fasta
