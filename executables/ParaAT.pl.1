@@ -152,7 +152,6 @@ my $ProcessFile     =  "";
 my $OutputFolder    =  "";
 my $OutputFormat    =  "fasta";
 my $Code            =  "1";
-my $Model           =  "YN";
 
 my $KaKs_Calculator;
 my $RemoveMismatch ;
@@ -174,7 +173,6 @@ GetOptions(
     't|nomismatch!'  => \$RemoveMismatch,
     'k|kaks!'        => \$KaKs_Calculator,
     'v|verbose!'     => \$Verbose,
-    'M|model=s'     => \$Model,
     'help|?!'        => \$Help,
 ) or die "Incorrect usage!\n\n" && Usage();
 
@@ -844,7 +842,7 @@ sub KaKsCommands {
 	my @cmds = ();
 	for (my $i=0; $i<@files; $i++) {
 		my $file = $files[$i];
-        my $cmd = $KaKsCMD." -i ".$file.".cds_aln.axt -m ".$Model." -o  ".$file.".cds_aln.axt.kaks >> msg.kaks";
+        my $cmd = $KaKsCMD." -i ".$file.".cds_aln.axt -m YN -o  ".$file.".cds_aln.axt.kaks >> msg.kaks";
 
         ######my $cmd = $KaKsCMD." -i ".$file.".cds_aln.axt -m NG -o  ".$file.".cds_aln.axt.kaks >> msg.kaks";
 		push(@cmds, $cmd);
