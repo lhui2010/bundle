@@ -123,8 +123,8 @@ def extract_top_n_hits(bln=None, eval=1e-5, top_num=10, output='', threads=4):
         output = "{0}.top{1}".format(bln, top_num)
     cmd = """
 tmp={0}
-awk '$11 < 1e-05' {0} > ${{tmp%.raw}}
-exit
+# awk '$11 < 1e-05' {0} > ${{tmp%.raw}}
+# exit
 #debug
 awk '$11 < 1e-05' {0} > {0}.filter_eval
 
