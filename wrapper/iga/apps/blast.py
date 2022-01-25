@@ -143,7 +143,7 @@ sort  --parallel={3} -k2,2 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sort
     sorted_ref = bln + '.sorted.ref'
     sh(cmd)
     #debug
-    return 0
+    #return 0
     firstn(sorted_qry, field=1, num_extract=top_num, print_to_screen='F', output=sorted_qry + '.top')
     firstn(sorted_ref, field=2, num_extract=top_num, print_to_screen='F', output=sorted_ref + '.top')
     sh("""cat {0}.sorted.qry.top {0}.sorted.ref.top > {2}""".format(bln, top_num, output))
