@@ -25592,3 +25592,997 @@ top
 ssh -p 201 yi02
 #1642993386
 gtp
+#1642993392
+gtps
+#1642997682
+bjl
+#1642997684
+bpeek 42731
+#1642997638
+top
+#1642997686
+ssh -p 201 yi02
+#1643001603
+bjl
+#1643006012
+j hic
+#1643006013
+lt
+#1643006014
+cd workdir_juicer_Polygala_tatarinowii/
+#1643006014
+lth
+#1643006017
+cd aligned/
+#1643006017
+lt
+#1643006027
+TOP
+#1643006030
+top
+#1643008744
+bjl
+#1643008746
+lt
+#1643008751
+lth
+#1643008754
+bjl
+#1643012581
+top
+#1643012585
+tp
+#1643012594
+lt
+#1643012629
+ssh -p 201 yi02
+#1643012648
+lt
+#1643012649
+cd ..
+#1643012650
+lt
+#1643012650
+cd 3ddna/
+#1643012653
+lt
+#1643012657
+lth
+#1643012617
+j 3ddna
+#1643012619
+top
+#1643013205
+bjl
+#1643013208
+cd bin/
+#1643013208
+ls
+#1643013210
+wget https://github.com/gconant0/POInT/releases/download/v1.53/POInT_1.5.tar
+#1643013217
+lt
+#1643013224
+tar -xvf POInT_1.5.tar 
+#1643013226
+cd POInT_1.5/
+#1643013227
+ls
+#1643013228
+ll
+#1643013229
+cd src/
+#1643013230
+ls
+#1643013233
+ll plot.h 
+#1643013239
+ll structs.c 
+#1643013243
+cd ..
+#1643013244
+ls
+#1643013248
+vi INSTALL 
+#1643013281
+mkdir install
+#1643013289
+./configure.pl --prefix=/nfs/liuhui/bin/POInT_1.5/install
+#1643013294
+module load gcc
+#1643013295
+./configure.pl --prefix=/nfs/liuhui/bin/POInT_1.5/install
+#1643013304
+make -j 10
+#1643013375
+make install
+#1643013377
+ls
+#1643013379
+cd install/
+#1643013380
+ls
+#1643013382
+cd ..
+#1643013384
+rmdir install/
+#1643013384
+ls
+#1643013387
+./POInT
+#1643013389
+./POInT -h
+#1643013510
+find . -namels
+#1643013510
+ls
+#1643013512
+mkdir example
+#1643013515
+cd example/
+#1643013515
+ls
+#1643013517
+vi run.sh
+#1643013540
+bsub512 -J point_test < run.sh 
+#1643013540
+bjl
+#1643012620
+tp
+#1643013598
+lt
+#1643013603
+tp
+#1643013702
+lt
+#1643013704
+tp
+#1643013764
+lt
+#1643013946
+tp
+#1643013948
+lt
+#1643013956
+tp
+#1643013960
+ps ux |les
+#1643014086
+lt
+#1643014089
+top
+#1643013976
+tp
+#1643016438
+lth
+#1643014115
+tp
+#1643016552
+top
+#1643016560
+bjl
+#1643016564
+tma
+#1643012665
+ssh -p 201 yi02
+#1643016618
+tma
+#1643016643
+ls
+#1643016643
+cd bin/
+#1643016644
+ls
+#1643016645
+cd POInT_1.5/
+#1643016646
+lt
+#1643016647
+cd example/
+#1643016657
+lth
+#1643016659
+els error.42733 
+#1643016661
+les error.42733 
+#1643016666
+vi run.sh 
+#1643016678
+les output.42733 
+#1643016696
+lt
+#1643016698
+les output.42733 
+#1643016707
+les searchWGXexhaust_Grass_rho_OptOrder.txt0.tre 
+#1643016820
+more searchWGXexhaust_Grass_rho_OptOrder.txt0.tre 
+#1643017564
+j hic
+#1643017564
+lth
+#1643017566
+ll
+#1643017569
+ll /nfs/liuhui/projects/Polygala_tatarinowii/hic_notbakcup/whfs-xs-200576_202201201352/whfs-xs-200576_HiC_BGI_rawdata_20220119/Pto3Y2_1.fq.gz.clean.fq.gz
+#1643017620
+lt
+#1643017624
+cdf /nfs/liuhui/projects/Polygala_tatarinowii/hic_notbakcup/whfs-xs-200576_202201201352/whfs-xs-200576_HiC_BGI_rawdata_20220119/Pto3Y2_2.fq.gz.clean.fq.gz
+#1643017634
+cd /nfs/liuhui/projects/Polygala_tatarinowii/hic_notbakcup/whfs-xs-200576_202201201352/whfs-xs-200576_HiC_BGI_rawdata_20220119/
+#1643017634
+ll
+#1643017635
+lt
+#1643017657
+bsub512 "zcat Pto3Y2_1.fq.gz | wc -l > Pto3Y2_1.fq.gz.txt"
+#1643017661
+bjl
+#1643017664
+lt
+#1643017691
+lth
+#1643017692
+bjl
+#1643017759
+lt
+#1643017771
+lth
+#1643017786
+bsub512 "zcat Pto3Y2_2.fq.gz.clean.fq.gz | wc -l > Pto3Y2_2.fq.gz.clean.fq.gz.count"
+#1643017791
+lt
+#1643017846
+bjl
+#1643017851
+bkill 42735
+#1643017856
+bsub512 -m yi04 "zcat Pto3Y2_2.fq.gz.clean.fq.gz | wc -l > Pto3Y2_2.fq.gz.clean.fq.gz.count"
+#1643017856
+lt
+#1643017863
+rm output.42735 error.42735
+#1643017864
+lth
+#1643017865
+bjl
+#1643017905
+lth
+#1643017907
+bjl
+#1643018084
+lt
+#1643018450
+nohup curl -f -C - -o Pta3_HiC_cleaned_by_Fraser.tar.gz https://efile53.hpccube.com:65111/efile/share/L3B1YmxpYy9ob21lL2Zzcm9vdA==/JMmbyPHBE &
+#1643018451
+lt
+#1643018453
+lth
+#1643018456
+lt
+#1643018688
+lth
+#1643018696
+more Pto3Y2_1.fq.gz.txt Pto3Y2_2.fq.gz.clean.fq.gz.count
+#1643018896
+lt
+#1643018899
+j hic
+#1643018900
+lt
+#1643018902
+rz
+#1643018912
+# Received /Users/liuhui/Desktop/PolygalaHiC/Polygala_tatarinowii.contig.0.review.assembly
+#1643018931
+python -m iga.assembly.hic
+#1643018945
+python -m iga.assembly.hic post_assembly -h
+#1643018949
+lt
+#1643018973
+bsub512 "python -m iga.assembly.hic post_assembly  Polygala_tatarinowii.contig.0.review.assembly Polygala_tatarinowii.contig.fa workdir_juicer_Polygala_tatarinowii/aligned/merged_nodups.txt "
+#1643018975
+logsh
+#1643018978
+lt
+#1643018982
+lt workdir_juicer_Polygala_tatarinowii/
+#1643018984
+bjl
+#1643018986
+bjt
+#1643018989
+bkill 42738
+#1643018992
+bjt
+#1643018994
+bjl
+#1643018995
+lt
+#1643019001
+les bsub.post_assembly.978947.sh
+#1643019008
+vi *sh
+#1643019026
+bsub512 -J post_hic -m yi02 < bsub.post_assembly.978947.sh 
+#1643019026
+lt
+#1643019030
+rm error.42738 output.42738
+#1643019133
+lth
+#1643019138
+lt
+#1643019381
+lth
+#1643019387
+bjl
+#1643020260
+ls
+#1643020391
+bsub -n 50 'samtools view -@ 45 -bS yr1.sam > yr1.bam'
+#1643020397
+ls
+#1643020416
+less yr1.sam 
+#1643020425
+ls
+#1643020433
+less yr1.bam
+#1643020483
+bjobs
+#1643020513
+ls
+#1643020643
+bjobs
+#1643020646
+ls
+#1643020655
+less yr1.bam
+#1643021080
+ls
+#1643021087
+less yr1.bam
+#1643021094
+rm yr1.bam 
+#1643021161
+samtools view -@ 10 -bS yr1.sam > yr1.bam
+#1643021624
+ls
+#1643021629
+less yr1.bam
+#1643021694
+samtools sort -@ 8 yr1.bam yr1.bam.sort
+#1643021914
+ls
+#1643021919
+less yr.bam
+#1643021932
+ls
+#1643021941
+less yr.sam
+#1643021951
+ls
+#1643074389
+bjl
+#1643074393
+j hic
+#1643074499
+bjl
+#1643074501
+lt
+#1643075292
+lth
+#1643075300
+top
+#1643075625
+ls
+#1643075626
+j kaks
+#1643075689
+ls
+#1643075709
+cd kaks/
+#1643075710
+ls
+#1643075715
+cd ..
+#1643075719
+ls -d */
+#1643075733
+history |les
+#1643075770
+les kaks/*kaks
+#1643075776
+ls yn00_selected_top10/
+#1643075786
+mv kaks yn00_selected_top10/
+#1643075787
+ls
+#1643075797
+mkdir kaks_yn00_allblast
+#1643075815
+bsub -m yi04 "cp work.*/*.ortho work.*/*.kaks kaks_yn00_allblast/"
+#1643075818
+cd kaks_yn00_allblast/
+#1643075819
+ls
+#1643075941
+bjl
+#1643076368
+ls
+#1643076433
+echo "12|23|11" | awk '{split($0,a,"|"); print a[3],a[2],a[1]}'
+#1643076522
+vi getpeak.sh
+#1643076650
+bash getpeak.sh
+#1643076653
+vi getpeak.sh
+#1643076679
+bash getpeak.sh
+#1643076702
+ls Abrus_precatorius.*ortho |wc -l
+#1643076766
+vi getpeak.sh
+#1643076792
+bash getpeak.sh 
+#1643076794
+vi getpeak.sh
+#1643076799
+bash getpeak.sh 
+#1643076805
+vi getpeak.sh
+#1643076911
+bash getpeak.sh 
+#1643076914
+bjl
+#1643076917
+bjt
+#1643076950
+lth
+#1643076952
+cd work_Abrus_precatorius.Aeschynomene_evenia.ortho/
+#1643076953
+lt
+#1643076965
+les ../Medicago_truncatula.Medicago_truncatula.ortho
+#1643076969
+les ../Medicago_truncatula.Medicago_truncatula.ortho.kaks 
+#1643076974
+cd ..
+#1643076986
+vi Medicago_truncatula.Medicago_truncatula.ortho
+#1643077003
+sed "s/:/_/g" Medicago_truncatula.Medicago_truncatula.ortho |les
+#1643077013
+les Medicago_truncatula.Medicago_truncatula.ortho.kaks 
+#1643077019
+les Medicago_truncatula.Senna_tora.ortho.kaks 
+#1643077052
+for i in *.ortho; do sed -i "s/:/_/g" $i; done
+#1643077247
+bjt
+#1643077248
+cd -
+#1643077248
+lth
+#1643077255
+cd ..
+#1643077255
+lth
+#1643077264
+ll Abrus_precatorius.Aeschynomene_evenia*
+#1643077268
+les Abrus_precatorius.Aeschynomene_evenia.ortho.left.peak 
+#1643077277
+les Abrus_precatorius.Aeschynomene_evenia.ortho.right.peak 
+#1643077284
+les Abrus_precatorius.Aeschynomene_evenia.ortho.orthopeak
+#1643077287
+cd -
+#1643077288
+lt
+#1643077310
+for i in *.kaks; do ks_plot.R  $i; done
+#1643075627
+tma
+#1643077333
+cd /nfs/liuhui/projects/phyleg/mcscanX2/kaks_yn00_allblast/work_Abrus_precatorius.Aeschynomene_evenia.ortho/
+#1643077334
+lth
+#1643077336
+sz *pdf
+#1643077342
+# Sent -> /Users/liuhui/Downloads/
+#1643077371
+lth
+#1643077373
+cd ..
+#1643077374
+cd -
+#1643077383
+cp ../Abrus_precatorius.Aeschynomene_evenia.ortho.kaks ./
+#1643077391
+ks_plot.R Abrus_precatorius.Aeschynomene_evenia.ortho.kaks 
+#1643077399
+sz Abrus_precatorius.Aeschynomene_evenia.ortho.kaks.pdf
+#1643077402
+# Sent -> /Users/liuhui/Downloads/
+#1643077417
+cd ..
+#1643077427
+cd -
+#1643077428
+lt
+#1643077438
+cp ../Abrus_precatorius.Abrus_precatorius.ortho.kaks ./ &
+#1643077444
+cp ../Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks ./&
+#1643077446
+lt
+#1643077455
+for i in *.kaks; do bsub "ks_plot.R $i"; done
+#1643077457
+ll
+#1643077459
+lt
+#1643077461
+lth
+#1643077462
+lt
+#1643077486
+bjt
+#1643077488
+sz *pdf
+#1643077499
+# Sent -> /Users/liuhui/Downloads/
+#1643077508
+cd ..
+#1643077508
+ls
+#1643077526
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks 
+#1643077534
+sz Senna_tora.Senna_tora.ortho.kaks.pdf 
+#1643077536
+# Sent -> /Users/liuhui/Downloads/
+#1643077561
+wc -l Senna_tora.Senna_tora.ortho.kaks
+#1643077563
+cd ../..
+#1643077563
+ls
+#1643077570
+cd yn00/
+#1643077571
+ls
+#1643077572
+cd -
+#1643077578
+cd mcscanX2/
+#1643077584
+cd work.Senna_tora.Senna_tora/
+#1643077584
+lt
+#1643077597
+sz Senna_tora.Senna_tora.pdf
+#1643077600
+# Sent -> /Users/liuhui/Downloads/
+#1643077625
+les error.4120*
+#1643077652
+wc -l *.ortho *.kaks
+#1643077656
+les *.kaks
+#1643077677
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks 
+#1643077682
+sz Senna_tora.Senna_tora.pdf
+#1643077685
+# Cancelled transfer
+#1643077686
+lt
+#1643077691
+mv Senna_tora.Senna_tora.ortho.kaks.pdf Senna_tora.Senna_tora.ortho.kaks.dbg.pdf
+#1643077699
+sz Senna_tora.Senna_tora.ortho.kaks.dbg.pdf 
+#1643077701
+# Sent -> /Users/liuhui/Downloads/
+#1643077718
+vi `which ks_plot.R 
+#1643077721
+vi `which ks_plot.R`
+#1643077727
+les Senna_tora.Senna_tora.ortho.kaks
+#1643077739
+touch run.sh
+#1643077741
+cut -f4 Senna_tora.Senna_tora.ortho.kaks |sort -nr |head
+#1643077759
+cat Senna_tora.Senna_tora.ortho.kaks |sort -k4,4nr |les
+#1643077778
+les *kaks
+#1643077785
+cat Senna_tora.Senna_tora.ortho.kaks |sort -k4,4nr |les
+#1643077803
+lt
+#1643077815
+vi `which ks_plot.R`
+#1643077843
+sz Senna_tora.Senna_tora.ortho.kaks
+#1643077846
+# Sent -> /Users/liuhui/Downloads/
+#1643077873
+ls
+#1643077877
+cd yanrui
+#1643077878
+ls
+#1643077884
+cd mission2/
+#1643077884
+ls
+#1643077888
+cd text/
+#1643077889
+ls
+#1643077898
+rm yr1.bam 
+#1643077909
+rm yr1.sam 
+#1643077922
+ls
+#1643077955
+ls
+#1643077944
+vim run.sh 
+#1643077985
+get_ks_peak.py Senna_tora.Senna_tora.ortho.kaks
+#1643077996
+history |less
+#1643078052
+lt
+#1643078056
+lt
+#1643078055
+tma
+#1643078077
+vi Senna_tora.Senna_tora.ortho.kaks
+#1643078105
+cut -f4 Senna_tora.Senna_tora.ortho.kaks |sort -k1,1n > tmp
+#1643078106
+vi tmp 
+#1643078118
+get_ks_peak.py tmp 
+#1643078157
+vi tmp
+#1643078161
+get_ks_peak.py tmp 
+#1643078206
+cut -f4 Senna_tora.Senna_tora.ortho.kaks > tmp
+#1643078208
+get_ks_peak.py tmp 
+#1643078239
+get_ks_peak.py Senna_tora.Senna_tora.ortho.kaks
+#1643078278
+head Senna_tora.Senna_tora.ortho.kaks > tmp
+#1643078279
+vi tmp
+#1643078314
+vi `which get_ks_peak.py`
+#1643078354
+ks_plot.R tmp
+#1643078358
+sz tmp.pdf 
+#1643078361
+# Sent -> /Users/liuhui/Downloads/
+#1643078375
+les tmp
+#1643078387
+cut -f4 Senna_tora.Senna_tora.ortho.kaks > tmp
+#1643078389
+les tmp
+#1643078395
+ks_plot.R tmp
+#1643078403
+vi `which ks_plot.R`
+#1643078411
+cut -f1,4 Senna_tora.Senna_tora.ortho.kaks > tmp
+#1643078412
+les tmp
+#1643078419
+ks_plot.R tmp
+#1643078428
+sz tmp.pdf 
+#1643078430
+# Sent -> /Users/liuhui/Downloads/
+#1643078439
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks 
+#1643078455
+mv Senna_tora.Senna_tora.ortho.kaks.pdf Senna_tora.Senna_tora.dbg.ortho.kaks.pdf
+#1643078458
+sz Senna_tora.Senna_tora.dbg.ortho.kaks.pdf
+#1643078460
+# Sent -> /Users/liuhui/Downloads/
+#1643078488
+sort -k4,4 Senna_tora.Senna_tora.ortho.kaks > Senna_tora.Senna_tora.ortho.kaks.sor
+#1643078494
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks.sor
+#1643078499
+chmod -x ./run.sh 
+#1643078500
+sort -k4,4r Senna_tora.Senna_tora.ortho.kaks > Senna_tora.Senna_tora.ortho.kaks.sor
+#1643078502
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks.sor
+#1643078507
+vi Senna_tora.Senna_tora.ortho.kaks.sor
+#1643078520
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks.sor
+#1643078530
+sz Senna_tora.Senna_tora.dbg.ortho.kaks.sor.pdf
+#1643078531
+**0100000063f694
+#1643078541
+Š**0100000063f694
+#1643078593
+# Sent -> /Users/liuhui/Downloads/
+#1643078509
+less run.sh 
+#1643078620
+bsub -n 50 ./run.sh 
+#1643078622
+vi Senna_tora.Senna_tora.ortho.kaks.sor
+#1643078652
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks.sor
+#1643078655
+sz Senna_tora.Senna_tora.dbg.ortho.kaks.sor.pdf
+#1643078656
+**0100000063f694
+#1643078666
+Š**0100000063f694
+#1643078718
+# Sent -> /Users/liuhui/Downloads/
+#1643079186
+lt
+#1643079189
+sz Senna_tora.Senna_tora.dbg.ortho.kaks.sor.pdf
+#1643079192
+**0100000063f694
+#1643079202
+Š**0100000063f694
+#1643079238
+Š/nfs/liuhui/projects/phyleg/mcscanX2/work.Senna_tora.Senna_tora**0100000063f694
+#1643079260
+# Sent -> /Users/liuhui/Downloads/
+#1643079266
+cut -f1,4 Senna_tora.Senna_tora.ortho.kaks > tmp
+#1643079270
+ks_plot.R tmp
+#1643079281
+sz tmp.pdf
+#1643079283
+# Sent -> /Users/liuhui/Downloads/
+#1643081409
+ls
+#1643081410
+cd yanrui
+#1643081411
+ls
+#1643081414
+cd mission2/
+#1643081415
+ls
+#1643081416
+cd text/
+#1643081417
+ls
+#1643081440
+bjobs
+#1643082815
+les run.sh 
+#1643082827
+ls
+#1643082831
+les yr.bam 
+#1643079383
+top
+#1643082864
+which R
+#1643082868
+ll /nfs/apps/miniconda3/bin/R
+#1643082870
+lt
+#1643082884
+vi `which get_ks_peak.py 
+#1643082849
+less run.sh 
+#1643082899
+bsub -n 50 ./run.sh 
+#1643082886
+vi `which get_ks_peak.py `
+#1643083047
+ls
+#1643082941
+ipython
+#1643083209
+vi `which get_ks_peak.py`
+#1643083455
+ls
+#1643083457
+cd yanrui
+#1643083458
+ls
+#1643083460
+cd mission2/
+#1643083461
+ls
+#1643083463
+cd text/
+#1643083463
+ls
+#1643083376
+vi `which ks_plot.R `
+#1643083487
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks
+#1643083503
+mv Senna_tora.Senna_tora.ortho.kaks.pdf Senna_tora.Senna_tora.ortho.kaks.lunch.pdf
+#1643083507
+sz Senna_tora.Senna_tora.ortho.kaks.lunch.pdf
+#1643083510
+# Sent -> /Users/liuhui/Downloads/
+#1643083522
+vi `which ks_plot.R `
+#1643083542
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks
+#1643083560
+less run.sh 
+#1643083555
+vi `which ks_plot.R `
+#1643083592
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks
+#1643083596
+vi `which ks_plot.R `
+#1643083621
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks
+#1643083625
+vi `which ks_plot.R `
+#1643083721
+t Senna_tora.Senna_tora.ortho.kaks
+#1643083740
+bsub -n 50 'bwa mem Ref_genome.fa A1_R1.fa.gz A1_R2.fa.gz -R "@RG\tID:sample\tLB:sample\tSM:sample\tPL:ILLUMINA" \ 2>sample_map.log | samtools sort -@ 20 -O bam -o sample.sorted.bam 1>sample_sort.log 2>&1'
+#1643083741
+ls
+#1643083753
+ls -d ../*/
+#1643083763
+cd ../..
+#1643083764
+ls
+#1643083768
+les yn00/*kaks
+#1643083770
+t yn00/*kaks
+#1643083780
+head -1 yn00/*kaks
+#1643083801
+cd -
+#1643083802
+lt
+#1643083824
+bkill 
+#1643083807
+vi Senna_tora.Senna_tora.ortho.kaks
+#1643083915
+bkill bjobs -w
+#1643083928
+bjobs
+#1643083832
+t Senna_tora.Senna_tora.ortho.kaks
+#1643083949
+cd ../kaks_yn00_allblast/
+#1643083958
+lth
+#1643083979
+sed "s/S-SubstitutionsN-Substitutions/S-Substitutions\tN-Substitutions/" Senna_tora.Senna_tora.ortho.kaks > tmp
+#1643083981
+ls
+#1643083980
+t tmp 
+#1643083985
+t Senna_tora.Senna_tora.ortho.kaks
+#1643084000
+less sample_map.log 
+#1643084021
+gtp
+#1643084145
+bkill 42750
+#1643084270
+bsub -n 25 'bwa mem Ref_genome.fa A1_R1.fa.gz A1_R2.fa.gz -t 20 -R "@RG\tID:sample\tLB:sample\tSM:sample\tPL:ILLUMINA" 2>sample_map.log | samtools sort -@ 20 -O bam -o sample.sorted.bam 1>sample_sort.log 2>&1'
+#1643084274
+ls
+#1643084312
+cd /nfs/liuhui/projects/phyleg/mcscanX2/kaks_yn00_allblast/
+#1643084314
+lth
+#1643084265
+j yn00_allbalst
+#1643084272
+ks_plot.R Senna_tora.Senna_tora.ortho.kaks
+#1643084300
+lth
+#1643084304
+cd work_Abrus_precatorius.Aeschynomene_evenia.ortho/
+#1643084304
+lth
+#1643084305
+lt
+#1643084322
+cd ../../work.Senna_tora.Senna_tora/
+#1643084322
+lt
+#1643084332
+wc -l Senna_tora.Senna_tora.ortho.kaks
+#1643084343
+wc -l Senna_tora.Senna_tora.ortho
+#1643084003
+for i in *.kaks; do sed -i "s/S-SubstitutionsN-Substitutions/S-Substitutions\tN-Substitutions/" $i; done
+#1643084507
+cd ../work.Medicago_truncatula.Medicago_truncatula/
+#1643084519
+get_ks_peak.py Medicago_truncatula.Medicago_truncatula.ortho.kaks 
+#1643084556
+get_ks_peak.py ../work.Senna_tora.Senna_tora/Senna_tora.Senna_tora.ortho.kaks
+#1643084689
+t Senna_tora.Senna_tora.ortho.kaks
+#1643084582
+get_ks_peak.py ../work.Senna_tora.Medicago_truncatula/Senna_tora.Medicago_truncatula.ortho.kaks 
+#1643084708
+rm -r work_Abrus_precatorius.Aeschynomene_evenia.ortho/
+#1643084709
+lth
+#1643084716
+ls *ortho.* |grep -v ks
+#1643084721
+rm Abrus_precatorius.Aeschynomene_evenia.ortho.left.peak Abrus_precatorius.Aeschynomene_evenia.ortho.orthopeak Abrus_precatorius.Aeschynomene_evenia.ortho.right.peak
+#1643084724
+ls *pdf
+#1643084726
+rm *pdf
+#1643084727
+ls
+#1643084733
+ls *sh
+#1643084735
+vi bsub.GMM_peak.912046.sh 
+#1643084738
+rm bsub.GMM_peak.912046.sh 
+#1643084742
+vi getpeak.sh 
+#1643084750
+bash getpeak.sh 
+#1643084756
+vi getpeak.sh 
+#1643084762
+lth
+#1643084765
+cd work_Abrus_precatorius.Aeschynomene_evenia.ortho/
+#1643084766
+lt
+#1643084773
+lth
+#1643084774
+bjl
+#1643084784
+lth
+#1643084806
+bjl
+#1643084808
+top
+#1643084846
+vi `which ks_plot.R `
+#1643084871
+gtp

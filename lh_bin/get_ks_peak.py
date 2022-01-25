@@ -38,7 +38,7 @@ class mGausComp:
         return mean_res + "\t" + sigma_res
 
 
-data=pd.read_table(sys.argv[1])
+data=pd.read_table(sys.argv[1], index_col=False)
 df=data.dropna(subset=['Ks'])
 df=df[df.Ks<6]
 GMM_input=df['Ks'].values

@@ -2,7 +2,9 @@
 
 args = commandArgs(trailingOnly=TRUE)
 
-self_kaks = read.table(args[1], header = T)
+self_kaks = read.table(args[1], header = T, row.names = NULL)
+# print(head(self_kaks))
+# exit()
 pdf_name = paste(args[1], 'pdf', sep='.')
 
 library(ggplot2)
