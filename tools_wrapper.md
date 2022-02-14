@@ -587,3 +587,14 @@ pip install jcvi
 iga
 pip install gff3tool
 
+
+#### Trinity
+
+```
+for i in `cat id2`
+do
+    bsub -o $i.log -e $i.err -n 30 -J trinity "Trinity --SS_lib_type RF         --seqType fq         --max_memory 50G --CPU 30         --left ${i}_1.clean.fq.gz         --right ${i}_2.clean.fq.gz         --output ${i}_trinity "
+done
+
+$TRINITY_HOME/util/TrinityStats.pl $i > $i.stat
+```
