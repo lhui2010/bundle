@@ -487,7 +487,7 @@ def uniq_ortho(raw_ortho=None, uniq_ortho=None):
                 hit_table[tag2] = 1
                 hit_table[tag1] = 1
                 # write tag1 is enough since tag1 and tag2 are reciprocal.
-                fh_out.write(tag1)
+                fh_out.write(tag1 + "\n")
 
 
 if __name__ == "__main__":
