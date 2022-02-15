@@ -415,7 +415,7 @@ def rnaseqks(prefix1=None, prefix2=None, threads=4, runKs='T',
     : param prefix1: like Cercis_chinensis. Require Cercis_chinensis.pep and Cercis_chinensis.gff3 exists
     : param prefix2: Can be the same with prefix1, which will perform intra comparison only.
     : param model: YN[default] or NG used for Ks estimation in ParaAT.pl (modified to accept model arg input)
-    : param iden: min identity for blastp result (default 20%)
+    : param iden: min identity for blastp result (default 20% )
     :return:
     """
     combine_prefix = prefix1 + '.' + prefix2
