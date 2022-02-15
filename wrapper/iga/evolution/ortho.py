@@ -406,5 +406,89 @@ def mv_orthofinder_blast(SpeciesID=None, dir='.'):
             sh('mv {} {}'.format(old_name, new_name))
 
 
+def rnaseqks(prefix1=None, prefix2=None, threads=4, runKs='T',
+            use_grid='T', top_num=10, model='YN', iden=0.2, output=''):
+    """
+    Prerequisites: blast KaKs_Calculator, ParaAT.pl
+    ⭐️️The rnaseqks wrapper, execution eg:
+        bsub python -m iga.evolution.ortho mcscanx Cercis_chinensis Cercis_chinensis
+    : param prefix1: like Cercis_chinensis. Require Cercis_chinensis.pep and Cercis_chinensis.gff3 exists
+    : param prefix2: Can be the same with prefix1, which will perform intra comparison only.
+    : param model: YN[default] or NG used for Ks estimation in ParaAT.pl (modified to accept model arg input)
+    : param iden: min identity for blastp result (default 20%)
+    :return:
+    """
+    combine_prefix = prefix1 + '.' + prefix2
+    if output == '':
+        workdir = 'work.{}'.format(combine_prefix)
+    else:
+        workdir = output
+    #workdir_sh.format(workdir)
+    mkdir(workdir)
+    sh("cp {}.pep  {}/".format(prefix1, workdir))
+    sh("cp {}.cds  {}/".format(prefix1, workdir))
+    sh("cp {}.pep  {}/".format(prefix2, workdir))
+    sh("cp {}.cds  {}/".format(prefix2, workdir))
+    os.chdir(workdir)
+
+    # input
+    combine_blast = combine_prefix + '.blast'
+    # output
+    combine_ortho = combine_prefix + '.ortho'
+
+    # prepare gff3 and blast
+    if (not op.exists(combine_blast)):
+        if not op.exists(combine_blast + '.raw'):
+            blastp(prefix1 + ".pep", prefix2 + ".pep", threads=threads, output=combine_blast + ".raw",
+                   use_grid='F')
+        extract_top_n_hits(combine_blast + ".raw", top_num=top_num, output=combine_blast, threads=threads, iden=iden)
+    sh("cut -f1,2 {0} > {1}.raw".format(combine_blast, combine_ortho))
+    uniq_ortho(combine_ortho + '.raw', combine_ortho)
+
+    if runKs == 'T':
+        if prefix2 == prefix1:
+            combine_pep = prefix1 + '.pep'
+            combine_cds = prefix1 + '.cds'
+        else:
+            combine_cds = combine_prefix + '.cds'
+            combine_pep = combine_prefix + '.pep'
+            sh("cat {0}.cds {1}.cds > {2}.cds".format(prefix1, prefix2, combine_prefix))
+            sh("cat {0}.pep {1}.pep > {2}.pep".format(prefix1, prefix2, combine_prefix))
+        kaks(combine_ortho, combine_cds, combine_pep, threads=threads, use_grid=use_grid, wait='F', model=model)
+    return 0
+
+
+def uniq_ortho(raw_ortho, uniq_ortho):
+    """
+    A simple script to find unique ortho regardless of ref and qry position.
+    Two positional Args:
+        raw_ortho: raw ortho file, read in
+                   eg: At001g004t\tAt001g005t
+                       At001g005t\tAt001g004t
+        uniq_ortho: orthologs without redundant, write to
+                   eg: At001g004t\tAt001g005t (last row in former eg is removed)
+    Returns:
+    """
+    hit_table = {}
+    with open(raw_ortho) as fh, open(uniq_ortho, 'w') as fh_out:
+        for line in fh:
+            mylist = line.rstrip().split()
+            qry = mylist[0]
+            ref = mylist[1]
+            # Remove self ortholog like geneA-geneA, which makes no sense
+            if qry == ref:
+                continue
+            tag1 = qry + "\t" + ref
+            tag2 = ref + "\t" + qry
+            if tag1 in hit_table or tag2 in hit_table:
+                # Already recorded, continue
+                continue
+            else:
+                hit_table[tag2] = 1
+                hit_table[tag1] = 1
+                # write tag1 is enough since tag1 and tag2 are reciprocal.
+                fh_out.write(tag1)
+
+
 if __name__ == "__main__":
     emain()
