@@ -408,7 +408,7 @@ def mv_orthofinder_blast(SpeciesID=None, dir='.'):
 
 def rnaseqks(prefix1=None, prefix2=None, threads=4, runKs='T',
             use_grid='T', top_num=10, model='YN', iden=0.2, output=''):
-    """
+    r"""
     Prerequisites: blast KaKs_Calculator, ParaAT.pl
     ⭐️️The rnaseqks wrapper, execution eg:
         bsub python -m iga.evolution.ortho mcscanx Cercis_chinensis Cercis_chinensis
