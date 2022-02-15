@@ -458,7 +458,7 @@ def rnaseqks(prefix1=None, prefix2=None, threads=4, runKs='T',
     return 0
 
 
-def uniq_ortho(raw_ortho, uniq_ortho):
+def uniq_ortho(raw_ortho=None, uniq_ortho=None):
     """
     A simple script to find unique ortho regardless of ref and qry position.
     Two positional Args:
