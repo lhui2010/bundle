@@ -591,10 +591,21 @@ pip install gff3tool
 #### Trinity
 
 ```
+mamba create -n trinity -c bioconda cd-hit rsem trinity transdecoder
+
 for i in `cat id2`
 do
     bsub -o $i.log -e $i.err -n 30 -J trinity "Trinity --SS_lib_type RF         --seqType fq         --max_memory 50G --CPU 30         --left ${i}_1.clean.fq.gz         --right ${i}_2.clean.fq.gz         --output ${i}_trinity "
 done
 
 $TRINITY_HOME/util/TrinityStats.pl $i > $i.stat
+
+$TRINITY_HOME/util/align_and_estimate_abundance.pl --seqType fq \
+     --left data/GSNO_SRR1582648_1.fastq \
+     --right data/GSNO_SRR1582648_2.fastq  \
+     --transcripts trinity_out_dir/Trinity.fasta  \
+     --output_prefix GSNO_SRR1582648 \
+     --est_method RSEM  --aln_method bowtie2 \
+     --trinity_mode --prep_reference \
+     --output_dir GSNO_SRR1582648.RSEM
 ```
