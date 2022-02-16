@@ -32514,3 +32514,2089 @@ ls *sh
 vw
 #1644818953
 gtp
+#1644818962
+gtps
+#1644818992
+ll
+#1644818998
+ll *stat
+#1644819000
+more *stat
+#1644819092
+vw
+#1644819144
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644819194
+ll *fasta
+#1644819201
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644819278
+bash bsub.Trinity_Guided_read1.031464.sh 
+#1644819285
+ls Zollernia_splendens_Pap_1.clean.fq.gz
+#1644819289
+ls Zollernia_splendens_Pap_trinity.Trinity.fasta
+#1644819296
+chmod -w *.Trinity.fasta
+#1644819297
+ll *fasta
+#1644819300
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644819304
+which bowtie2
+#1644819305
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644819313
+$TRINITY_HOME/util/align_and_estimate_abundance.pl
+#1644819329
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644819362
+bash bsub.Trinity_Guided_read1.031464.sh 
+#1644819364
+bjl
+#1644819376
+vw
+#1644819381
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644819465
+mamba install -c bioconda cd-hit
+#1644819533
+cd-hit-est -h
+#1644819635
+ll
+#1644819644
+bjl
+#1644819653
+vi *sh
+#1644819676
+lth
+#1644819679
+les *err
+#1644819685
+vi *sh
+#1644819694
+$TRINITY_HOME/util/align_and_estimate_abundance.pl
+#1644819719
+vi *sh
+#1644819734
+$TRINITY_HOME/util/align_and_estimate_abundance.pl
+#1644819768
+lth
+#1644819770
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644819774
+rm *.err
+#1644819776
+bash bsub.Trinity_Guided_read1.031464.sh 
+#1644819778
+bjl
+#1644819779
+lth
+#1644819784
+bjl
+#1644819786
+les *err
+#1644819797
+rsem-calculate-expression
+#1644819812
+mamba install -c bioconda rsem
+#1644819848
+mamba install -c bioconda rsem perl=5.26.2
+#1644819890
+mamba install -c bioconda rsem 
+#1644819942
+rsem-calculate-expression
+#1644819947
+bash bsub.Trinity_Guided_read1.031464.sh 
+#1644819948
+bjl
+#1644819956
+lth
+#1644819974
+vw
+#1644819994
+bjl
+#1644819997
+lth
+#1644820016
+ls $conda_prefix/bin/*orf*
+#1644820026
+ls $CONDA_PREFIX/bin/*orf*
+#1644820032
+ls $CONDA_PREFIX/bin/
+#1644820085
+find /nfs/liuhui/.conda/envs/trinity/opt/trinity-2.13.2/ -name "*orf*"
+#1644820149
+find /nfs/liuhui/.conda/envs/trinity/opt/trinity-2.13.2/trinity-plugins/ -name "*ORF*"
+#1644820157
+find /nfs/liuhui/.conda/envs/trinity/ -name "*ORF*"
+#1644820168
+mamba install -c bioconda transdecoder
+#1644820239
+lth
+#1644820254
+transcripts_to_best_scoring_ORFs.pl
+#1644820257
+find /nfs/liuhui/.conda/envs/trinity/ -name "*ORF*"
+#1644820374
+TransDecoder.LongOrfs
+#1644820933
+ls
+#1644820935
+wget https://github.com/nstenz/plot-ks/raw/master/plot-ks.pl
+#1644820940
+perl plot-ks.pl 
+#1644820946
+lth
+#1644820959
+bsub512 "perl plot-ks.pl Andira_inermis_Pap_trinity.Trinity.fasta"
+#1644820965
+bjl
+#1644820969
+lth
+#1644820972
+les plot-ks-1644820962/
+#1644821204
+lt
+#1644821205
+lth
+#1644821206
+cd plot-ks-1644820962/
+#1644821207
+lt
+#1644821215
+les *cmd*
+#1644821243
+lth
+#1644821244
+bjl
+#1644821251
+lt
+#1644821289
+bjl
+#1644821291
+lth
+#1644821293
+lt *dir
+#1644821302
+les *dir/*pep
+#1644821306
+cd *dir/
+#1644821307
+lt
+#1644821318
+conda deactivate
+#1644821327
+python -m iga.assembly.assess busco --mode prot longest_orfs.pep 
+#1644821402
+bjl
+#1644821404
+lth
+#1644821407
+lt
+#1644821414
+bjl
+#1644821420
+lt
+#1644821428
+bjl
+#1644821499
+lth
+#1644821504
+bjl
+#1644821510
+vi bsub.buscolongest_orfs.pep.327796.sh 
+#1644821531
+bjobs -l 54357
+#1644821555
+bsub512 -n 5 < bsub.buscolongest_orfs.pep.327796.sh 
+#1644821556
+bjl
+#1644821559
+bjt
+#1644821563
+lt
+#1644821566
+bjt
+#1644821570
+lt
+#1644821573
+bjt
+#1644821583
+bjobs -l 
+#1644821589
+bjobs -l 54358
+#1644821592
+bjobs -l 54357
+#1644821606
+bjobs -l 54358
+#1644821619
+lt
+#1644821625
+nohup bash bsub.buscolongest_orfs.pep.327796.sh &
+#1644821626
+top
+#1644821635
+lt
+#1644821638
+bjl
+#1644821736
+lt
+#1644821748
+lt longest_orfs.pep.busco.embryophyta.v4.1.2/
+#1644821751
+bjl
+#1644821760
+tp
+#1644821770
+lth
+#1644821776
+lt ..
+#1644821783
+lt
+#1644821785
+les busco_30766.log 
+#1644821801
+vw
+#1644823304
+lt
+#1644823306
+jobs
+#1644823309
+lt
+#1644823310
+cd ..
+#1644823311
+lt
+#1644823313
+cd ..
+#1644823317
+cd 
+#1644823319
+j plot-ks
+#1644823320
+lt
+#1644823327
+les pipeliner.3946.cmds
+#1644823335
+more pipeliner.27461.cmds
+#1644823351
+cd ..
+#1644823351
+lt
+#1644823365
+cd -
+#1644823365
+lt
+#1644823446
+cd ..
+#1644823446
+ls
+#1644823448
+vi plot-ks
+#1644823451
+vi plot-ks.pl 
+#1644823465
+les no
+#1644823466
+lt
+#1644823467
+lth
+#1644823477
+les error.54356 
+#1644823513
+grep 'Running CMD' error.54356
+#1644823557
+ls *.fasta
+#1644823585
+for i in Dialium_schlechtneri_Dia_trinity.Trinity.fasta Umtiza_listeriana_Cae_trinity.Trinity.fasta Angylocalyx_braunii_Pap_trinity.Trinity.fasta Goniorrhachis_marginata_Det_trinity.Trinity.fasta Zollernia_splendens_Pap_trinity.Trinity.fasta; do bsub512 "perl plot-ks.pl $i"; done
+#1644823587
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644823599
+cd-hit-est
+#1644823608
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644823632
+lth
+#1644823633
+bjl
+#1644823637
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644823649
+lth
+#1644823650
+bjl
+#1644823655
+les error.54359 
+#1644823665
+lt |head -30
+#1644823675
+rm output.54363 error.54363 output.54361 error.54361 output.54360 output.54359 error.54360 error.54359 
+#1644823677
+lth
+#1644823678
+lt
+#1644823680
+les *RSEM
+#1644823691
+ls Andira*RSEM
+#1644823694
+ls Andira*RSEM/*stat
+#1644823696
+lth
+#1644823708
+les Goniorrhachis_marginata_Det.log
+#1644823724
+lt Goniorrhachis_marginata_Det_trinity
+#1644823735
+lth
+#1644823745
+les Goniorrhachis_marginata_Det.RSEM/RSEM.genes.results 
+#1644823750
+t Goniorrhachis_marginata_Det.RSEM/RSEM.genes.results 
+#1644823756
+tt Goniorrhachis_marginata_Det.RSEM/RSEM.genes.results 
+#1644823767
+awk '$6<1' Goniorrhachis_marginata_Det.RSEM/RSEM.genes.results  |wc -l
+#1644823773
+wc -l Goniorrhachis_marginata_Det.RSEM/RSEM.genes.results
+#1644823778
+awk '$6<1' Goniorrhachis_marginata_Det.RSEM/RSEM.genes.results  |les
+#1644823781
+tt Goniorrhachis_marginata_Det.RSEM/RSEM.genes.results 
+#1644823810
+les Goniorrhachis_marginata_Det_trinity.Trinity.fasta
+#1644823817
+tt Goniorrhachis_marginata_Det.RSEM/RSEM.genes.results 
+#1644823829
+les Goniorrhachis_marginata_Det_trinity.Trinity.fasta
+#1644823837
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644824007
+bjl
+#1644824008
+lth
+#1644824019
+lt plot-ks-1644823593/
+#1644824022
+bjl
+#1644824038
+ls -d plot-ks*/
+#1644824042
+cd plot-ks-1644820962/
+#1644824042
+lt
+#1644824054
+conda activate trinity
+#1644824067
+vi transdecoder_simple.sh
+#1644824167
+lth
+#1644824169
+cd ..
+#1644824182
+ls -d plot-ks*/
+#1644824186
+ls plot-ks*/
+#1644824207
+for i in Dialium_schlechtneri_Dia_trinity.Trinity.fasta Umtiza_listeriana_Cae_trinity.Trinity.fasta Angylocalyx_braunii_Pap_trinity.Trinity.fasta  Zollernia_splendens_Pap_trinity.Trinity.fasta; do bsub512 -m yi04 "perl plot-ks.pl $i"; done
+#1644824208
+bjl
+#1644824215
+lth
+#1644824219
+les error.54367 
+#1644824225
+ls plot-ks-1644824129
+#1644824232
+ls plot-ks*/
+#1644824249
+for i in Umtiza_listeriana_Cae_trinity.Trinity.fasta Angylocalyx_braunii_Pap_trinity.Trinity.fasta  Zollernia_splendens_Pap_trinity.Trinity.fasta; do bsub512 -m yi04 "perl plot-ks.pl $i"; sleep 10; done
+#1644824282
+ls
+#1644824285
+ls -d plot-ks*/
+#1644824287
+lth
+#1644824292
+les error.54369 
+#1644824298
+ls plot-ks*/
+#1644824302
+bjl
+#1644824338
+for i in Angylocalyx_braunii_Pap_trinity.Trinity.fasta; do bsub512 -m yi04 "perl plot-ks.pl $i"; sleep 10; done
+#1644824341
+bjl
+#1644824344
+bj
+#1644825251
+ bj
+#1644825254
+ls
+#1644825263
+ls *RSEM/
+#1644825277
+les Andira_inermis_Pap.RSEM/RSEM.isoforms.results.ok
+#1644825292
+vi id2
+#1644825299
+tt Goniorrhachis_marginata_Det.RSEM/RSEM.genes.results 
+#1644825422
+for i in `cat id2`; do awk '$6 > 1' $i.RSEM/RSEM.isoforms.results > $i.RSEM/RSEM.isoforms.pass; select_fasta.pl $i.RSEM/RSEM.isoforms.pass ${i}_trinity.Trinity.fasta > $i.RSEM/RSEM.isoforms.pass.fasta; done
+#1644825443
+cd Dialium_schlechtneri_Dia_trinity/
+#1644825449
+ls
+#1644825451
+cd -
+#1644825454
+ls
+#1644825458
+logsh
+#1644825463
+ls *sh
+#1644825465
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644825473
+vi id2 
+#1644825494
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1644825512
+bash bsub.Trinity_Guided_read1.031464.sh 
+#1644825513
+bjl
+#1644825521
+ls
+#1644825525
+lsd
+#1644825527
+ls -d */
+#1644825534
+cd plot-ks-1644823593/
+#1644825534
+ls
+#1644825535
+ll
+#1644825546
+mkdir tmp
+#1644825547
+cd tmp/
+#1644825550
+ln -s ../Goniorrhachis_marginata_Det_trinity.Trinity.fasta
+#1644825551
+ll
+#1644825694
+lt
+#1644825699
+cd ../..
+#1644825701
+ls plot-ks*/
+#1644825705
+ls plot-ks*/*.cds
+#1644825715
+ll plot-ks*/*.cds
+#1644825732
+cd plot-ks-1644824169/
+#1644825732
+lt
+#1644825761
+ll
+#1644825763
+cd-hit-est 
+#1644825815
+lt
+#1644825828
+vw
+#1644825834
+ls ../*sh
+#1644825836
+vi ../bsub.Trinity_Guided_read1.031464.sh 
+#1644825858
+cd-hit-est -n 5 -c 0.99 -i Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds -o Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds.nored
+#1644825906
+bsub512 -n 20 -J yi04 "cd-hit-est -T 20 -n 5 -c 0.99 -i Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds -o Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds.nored"
+#1644825907
+logsh
+#1644825911
+lth
+#1644825914
+bjl
+#1644825931
+lt
+#1644825934
+lth
+#1644825937
+bjg
+#1644825943
+bjobs -l 54373
+#1644825975
+bsub512 -n 20 -J cdhit -m yi04 "cd-hit -T 20 -n 5 -c 0.99 -i Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds -o Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds.nored.cd-hit"
+#1644826008
+which cdhit-est
+#1644826016
+ll `which cd-hit-est`
+#1644826019
+ll `which cd-hit`
+#1644826029
+diff `which cd-hit`  `which cd-hit-est`
+#1644826035
+md5sum `which cd-hit`  `which cd-hit-est`
+#1644826054
+lt
+#1644826057
+bjl
+#1644826061
+bpeek 54373
+#1644826069
+more shell 
+#1644826080
+bpeek 54373
+#1644826093
+ll
+#1644826100
+grep ">" Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.pep |wc -l
+#1644826102
+mor es
+#1644826103
+more shell 
+#1644826108
+les Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds
+#1644826121
+bjl
+#1644826537
+j mcscanx
+#1644826553
+lth
+#1644826538
+lth
+#1644826564
+les Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds.nored
+#1644826566
+ll
+#1644826579
+cds2aa.pl Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds.nored.cd-hit > Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds.nored.cd-hit.pep
+#1644826592
+les Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds.nored.cd-hit.pep 
+#1644826554
+les Medicago_truncatula*
+#1644827182
+j hic
+#1644827183
+ls
+#1644827186
+j hic
+#1644827193
+cd 
+#1644827193
+cd projects/
+#1644827194
+ls
+#1644827195
+ll
+#1644827196
+cd phyleg
+#1644827196
+ll
+#1644827200
+ls -d */
+#1644827205
+ssh -p yi02
+#1644827145
+ls
+#1644827145
+cd projects/
+#1644827146
+lt
+#1644827149
+j hic
+#1644827151
+cd/mn
+#1644827153
+cd /mnt/
+#1644827153
+ls
+#1644827154
+cd workdisk/
+#1644827154
+lt
+#1644827156
+cd liuhui/h
+#1644827156
+lt
+#1644827158
+cd liuhui/
+#1644827158
+lt
+#1644827161
+cd hic_plot/
+#1644827161
+lt
+#1644827162
+lth
+#1644827170
+ll
+#1644827171
+ll *.hic
+#1644827175
+ls *.hic |wc -l
+#1644827209
+ssh -p 201 yi02
+#1644827248
+history |less
+#1644827341
+cd
+#1644827360
+lth
+#1644827348
+find . -name "*.0.hic"
+#1644828014
+cd ..
+#1644828019
+ls plot-ks*/*cds
+#1644828059
+for i in plot-ks*/*cds; do bsub512 -n 20 -J cdhit -m yi04 "cd-hit -T 20 -n 5 -c 0.99 -i $i -o $i.cdhit"; done
+#1644828060
+logsh
+#1644828063
+bjl
+#1644828541
+lth
+#1644828544
+lt plot-ks-1644820962/
+#1644828570
+for i in plot-ks*/*cds.cdhit; do bsub512 -n 1 -J cdhit -m yi04 "cds2aa.pl $i > $i.pep"; done
+#1644828571
+logsh
+#1644828632
+j test
+#1644828632
+ls
+#1644828639
+cd ../..
+#1644828639
+ls
+#1644828641
+cd ng86/
+#1644828641
+ls
+#1644828644
+cd ..
+#1644828644
+ls
+#1644828646
+rmdir ng86/
+#1644828648
+cd ks/
+#1644828650
+ls -d */
+#1644828651
+ls
+#1644828652
+ll
+#1644828656
+les *kas
+#1644828657
+les *kaks
+#1644828664
+j medicago
+#1644828666
+ll
+#1644828679
+pushd ../../ng86_top10_version/work.Medicago_truncatula.Medicago_truncatula/
+#1644828680
+ll
+#1644828692
+ks_plot.R Medicago_truncatula.Medicago_truncatula.ortho.kaks
+#1644828697
+lth
+#1644828705
+mv Medicago_truncatula.Medicago_truncatula.ortho.kaks.pdf Medicago_truncatula.Medicago_truncatula.ortho.kaks.ng86.pdf
+#1644828708
+sz Medicago_truncatula.Medicago_truncatula.ortho.kaks.ng86.pdf
+#1644828711
+# Sent -> /Users/liuhui/Downloads/
+#1644828712
+popd
+#1644828713
+lth
+#1644828715
+ll *kaks
+#1644828725
+cd ../work.Medicago_truncatula.Medicago_truncatula/
+#1644828726
+lt
+#1644828735
+ks_plot.R Medicago_truncatula.Medicago_truncatula.ortho.kaks
+#1644828742
+mv Medicago_truncatula.Medicago_truncatula.ortho.kaks.pdf Medicago_truncatula.Medicago_truncatula.ortho.kaks.yn00.pdf
+#1644828742
+lth
+#1644828745
+sz Medicago_truncatula.Medicago_truncatula.ortho.kaks.yn00.pdf
+#1644828747
+# Sent -> /Users/liuhui/Downloads/
+#1644828765
+j ng86
+#1644828765
+ly
+#1644828766
+lt
+#1644828773
+les Medicago_truncatula.Medicago_truncatula.ortho.kaks
+#1644828803
+cp Medicago_truncatula.Medicago_truncatula.ortho.kaks ~/
+#1644828807
+popd
+#1644828809
+cd -
+#1644828818
+cp Medicago_truncatula.Medicago_truncatula.ortho.kaks ~/Medicago_truncatula.Medicago_truncatula.ortho.yn00.kaks
+#1644828818
+cd
+#1644828819
+ll
+#1644828824
+mv Medicago_truncatula.Medicago_truncatula.ortho.kaks Medicago_truncatula.Medicago_truncatula.ortho.ng86.kaks
+#1644828826
+wc -l *kaks
+#1644828828
+les *kaks
+#1644828840
+tt *kaks
+#1644828847
+t *kaks
+#1644828852
+ll *kaks
+#1644828853
+les *kaks
+#1644828956
+lth
+#1644828977
+lt
+#1644828981
+tt *kaks
+#1644828993
+for i in *.kaks; do cut -f4  $i > $i.ks; done
+#1644828994
+lth
+#1644829005
+for i in *.ks; do ks_plot.R  $i; done
+#1644829011
+les *.ks
+#1644829023
+for i in *.kaks; do cut -f1,4  $i > $i.ks; done
+#1644829025
+les *.ks
+#1644829031
+for i in *.kaks; do cut -f1,4  $i > $i.ks; done
+#1644829034
+for i in *.ks; do ks_plot.R  $i; done
+#1644829041
+ll *pdf
+#1644829045
+sz Medicago_truncatula.Medicago_truncatula.ortho.ng86.kaks.ks.pdf Medicago_truncatula.Medicago_truncatula.ortho.yn00.kaks.ks.pdf
+#1644829048
+# Sent -> /Users/liuhui/Downloads/
+#1644892253
+j yanhui
+#1644892255
+ls
+#1644892264
+cd annotation/
+#1644892264
+ls
+#1644892274
+ll
+#1644892315
+les rm.gff 
+#1644892368
+les repeat.yaml 
+#1644892376
+conda activate maker
+#1644892386
+which maker
+#1644892390
+which RepeatMasker
+#1644892394
+ll
+#1644892396
+cd result
+#1644892396
+lt
+#1644892398
+cd SETOR/
+#1644892399
+lt
+#1644892404
+tree .
+#1644892418
+cd ../../result.1/
+#1644892419
+tree 
+#1644892432
+ls
+#1644892435
+cd ..
+#1644892436
+ll
+#1644892442
+cd -
+#1644892442
+lt
+#1644892444
+les nohup.out 
+#1644892520
+cd ..
+#1644892521
+ls
+#1644892531
+mv result result.2
+#1644892531
+ls
+#1644892535
+vi run.sh 
+#1644892603
+ls log
+#1644892609
+ls result.2/
+#1644892612
+ls result.2/SETOR/
+#1644892618
+find . -name "log"
+#1644892627
+ls .snakemake/log/
+#1644892634
+lt .snakemake/log/
+#1644892641
+les .snakemake/log/2022-02-07T134115.602528.snakemake.log
+#1644892652
+ls .snakemake/
+#1644892657
+ls .snakemake/conda
+#1644892664
+ls
+#1644892668
+vi run.sh 
+#1644892740
+bsub512 -J snakemake < run.sh 
+#1644892741
+bjl
+#1644892744
+bj
+#1644892747
+top
+#1644892750
+bj
+#1644892764
+bjobs -u all |less
+#1644892775
+bj
+#1644892876
+ls
+#1644892901
+genblast
+#1644892908
+which genblast
+#1644892959
+ls
+#1644904482
+vw
+#1644904548
+j trans
+#1644904548
+ls
+#1644904549
+tma
+#1644904554
+j rna
+#1644904555
+lt
+#1644904568
+mkdir result
+#1644904573
+ll Andira_inermis_Pap_trinity
+#1644904584
+ls
+#1644904587
+ls -d */
+#1644904594
+ls plot-ks-1644824129/
+#1644904612
+cp plot-ks*/*cdhit plot-ks*/*cdhit.pep result/
+#1644904633
+cd result/ll
+#1644904634
+ll
+#1644904637
+cd result/
+#1644904637
+ll
+#1644904651
+rename .Trinity.fasta.transdecoder '' *
+#1644904652
+ll
+#1644904661
+rename cdhit '' *
+#1644904663
+vi readme
+#1644904700
+lt
+#1644904708
+rename cds.. '' *
+#1644904709
+ll
+#1644904714
+rename cds. cds *
+#1644904714
+ll
+#1644904722
+mv readme README.md
+#1644904723
+ll
+#1644904742
+bsub512 "tar -cvzf legume_basal_rna-seq_result.tgz *"
+#1644904743
+bjl
+#1644904745
+bj
+#1644904746
+lt
+#1644904762
+gtp
+#1644904769
+lth
+#1644904770
+bjl
+#1644904777
+cd ..
+#1644904779
+ls
+#1644904787
+vi ru
+#1644904790
+vi run.sh 
+#1644904792
+lth
+#1644904795
+les output.54389 
+#1644904804
+les error.54389 
+#1644904824
+hisat2-build
+#1644904825
+les error.54389 
+#1644904840
+ll SETOR
+#1644904846
+vi run.sh 
+#1644904849
+ls
+#1644904851
+vi run.sh 
+#1644904856
+les error.54389 
+#1644904890
+ls result
+#1644904893
+ls result/SETOR/
+#1644904895
+ls result/SETOR/R1
+#1644904900
+lth
+#1644904904
+realpath error.54389
+#1644904775
+tma
+#1644904984
+bjl
+#1644904986
+lth
+#1644904998
+rm error.54466 output.54466 
+#1644905149
+ll
+#1644905173
+rename _trinity '' *
+#1644905173
+ll
+#1644905186
+cd ../../../
+#1644905187
+ls
+#1644905190
+mkdir 02.ks
+#1644905195
+mv 02.ks 02.ksplot
+#1644905206
+cp 01.assemble/RNAseq/result/*cds 01.assemble/RNAseq/result/*pep 02.ksplot/
+#1644905224
+cd 02.ksplot/
+#1644905224
+ll
+#1644905241
+python -m iga.evolution.ortho kaks
+#1644905844
+j mcscan
+#1644905845
+ls
+#1644905851
+les Zenia_insignis.Zenia_insignis.blast
+#1644905856
+ls -d */
+#1644905860
+cd work.Zenia_insignis.Zenia_insignis/
+#1644905860
+ls
+#1644905863
+les *.blast
+#1644905948
+cut -f1,2 *.blast |les
+#1644905985
+cut -f1,2 *.blast |sort |wc -l
+#1644905992
+cut -f1,2 *.blast |sort |uniq|wc -l
+#1644906204
+pushd ~
+#1644906204
+ls
+#1644906209
+les Medicago_truncatula.Medicago_truncatula.ortho.yn00.kaks
+#1644906213
+cut -f1 Medicago_truncatula.Medicago_truncatula.ortho.yn00.kaks |les
+#1644906216
+cut -f1 Medicago_truncatula.Medicago_truncatula.ortho.yn00.kaks |wc -l
+#1644906220
+cut -f1 Medicago_truncatula.Medicago_truncatula.ortho.yn00.kaks |sort |uniq |wc -l
+#1644906280
+popd
+#1644906281
+lth
+#1644906287
+ls
+#1644906292
+head *blast > tmp
+#1644906295
+awk '$1< $2' tmp |les
+#1644906299
+wc -l tmp 
+#1644906305
+awk '$1> $2' tmp |les
+#1644906309
+les tmp 
+#1644906994
+popd
+#1644907001
+python -m iga.evolution.ortho 
+#1644907004
+gtp
+#1644907060
+ls
+#1644907061
+ll
+#1644907064
+python -m iga.evolution.ortho 
+#1644907084
+python -m iga.evolution.ortho rnaseqks
+#1644907143
+ gtp
+#1644907148
+python -m iga.evolution.ortho rnaseqks
+#1644907392
+gtp
+#1644907420
+python -m iga.evolution.ortho rnaseqks
+#1644907518
+gtp
+#1644910242
+python -m iga.evolution.ortho rnaseqks
+#1644910245
+ls
+#1644910253
+python -m iga.evolution.ortho rnaseqks Andira_inermis_Pap Andira_inermis_Pap
+#1644910259
+ls
+#1644910261
+rm -r work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644910262
+lt
+#1644910276
+bsub512 -J rnaks -m yi04 "python -m iga.evolution.ortho rnaseqks Andira_inermis_Pap Andira_inermis_Pap"
+#1644910277
+logsh
+#1644910280
+bjl
+#1644910282
+bj
+#1644910328
+lth
+#1644910330
+cd work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644910330
+lt
+#1644910343
+les Andira_inermis_Pap.Andira_inermis_Pap.blast.raw 
+#1644910349
+cd ..
+#1644910349
+lt
+#1644910352
+ll *cds
+#1644910361
+ls /nfs/liuhui/bin/bundle/bash_template/
+#1644910373
+vi /nfs/liuhui/bin/bundle/bash_template/clean_download_genome_name.sh 
+#1644910389
+which add_suffix.pl
+#1644910393
+vi `which add_suffix.pl`
+#1644910412
+ll
+#1644910417
+ll *cds
+#1644910439
+vi `which add_suffix.pl`
+#1644910446
+bsub512 "add_suffix.pl *.cds *.pep"
+#1644910447
+bj
+#1644910451
+lt
+#1644910453
+bj
+#1644910458
+lth
+#1644910603
+bj
+#1644910605
+les *.new
+#1644910633
+sed "s/\./_/" Umtiza_listeriana_Cae.cds.new |les
+#1644910662
+for i in *.new; do bsub "sed -i 's/\./_/' $i"; done
+#1644910666
+bj
+#1644910671
+top
+#1644910672
+bj
+#1644910673
+ll
+#1644910675
+les *.new
+#1644910688
+ls
+#1644910698
+vi /nfs/liuhui/bin/bundle/bash_template/clean_download_genome_name.sh 
+#1644910702
+for i in *.new; do mv ${i} ${i%.new}; done
+#1644910703
+ls
+#1644910706
+les *.cds
+#1644910709
+les output.54468 
+#1644910712
+rm output.54468 error.54468 
+#1644910713
+cd work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644910713
+lt
+#1644910717
+cd ..
+#1644910718
+ls
+#1644910719
+ll
+#1644910724
+bj
+#1644910725
+bjl
+#1644910731
+bjobs -l 54467
+#1644910738
+python -m iga.evolution.ortho rnaseqks  -h
+#1644910768
+ls
+#1644910778
+bsub512 -J rnaks_fast -m yi04 "python -m iga.evolution.ortho rnaseqks --threads 40 Andira_inermis_Pap Andira_inermis_Pap"
+#1644910781
+bjl
+#1644910788
+ls
+#1644910796
+cd work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644910796
+lth
+#1644910799
+lt
+#1644910801
+bj
+#1644910807
+bjobs -l 54467
+#1644910810
+bkill 54467
+#1644910811
+bj
+#1644910813
+ll
+#1644910822
+lt
+#1644910827
+les Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks 
+#1644910833
+les Andira_inermis_Pap.Andira_inermis_Pap.ortho
+#1644910865
+gtp
+#1644910967
+cd ..
+#1644910970
+cd -
+#1644910978
+bsub512 -J rnaks_fast -m yi04 "python -m iga.evolution.ortho rnaseqks --threads 40 Andira_inermis_Pap Andira_inermis_Pap"
+#1644910979
+logsh
+#1644910983
+ls
+#1644910984
+lth
+#1644911001
+bjl
+#1644911003
+cd work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644911004
+lth
+#1644911009
+les error.54484 
+#1644911016
+cd ..
+#1644911016
+lt
+#1644911020
+les error.54483 
+#1644911031
+rm error.544* output.544*
+#1644911032
+ls
+#1644911033
+rm -r work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644911035
+bsub512 -J rnaks_fast -m yi04 "python -m iga.evolution.ortho rnaseqks --threads 40 Andira_inermis_Pap Andira_inermis_Pap"
+#1644911037
+bjl
+#1644911039
+bj
+#1644911044
+lt
+#1644911047
+cd work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644911047
+l
+#1644911049
+lt
+#1644911056
+les *.raw
+#1644910976
+top
+#1644910983
+bjl
+#1644910986
+tp
+#1644911620
+lt
+#1644911059
+ssh yi04
+#1644911706
+lt
+#1644911712
+grep ">" *pep |wc -l
+#1644911713
+top
+#1644911636
+tp
+#1644912115
+ls
+#1644911719
+ssh yi04
+#1644912201
+lt
+#1644912205
+bjl
+#1644912149
+tp
+#1644912214
+ssh -p 201 yi02
+#1644914871
+lth
+#1644914875
+wc -l *.ortho
+#1644914987
+cd ../../mcscanX
+#1644914993
+cd work.Zenia_insignis.Zenia_insignis
+#1644915006
+ll Zenia_insignis.Zenia_insignis*
+#1644915054
+wc -l Zenia_insignis.Zenia_insignis.ortho
+#1644915066
+les Zenia_insignis.Zenia_insignis.ortho
+#1644915077
+python -m iga.evolution.ortho uniq_ortho
+#1644915085
+cp Zenia_insignis.Zenia_insignis.ortho ~/
+#1644915086
+cd
+#1644915093
+python -m iga.evolution.ortho uniq_ortho Zenia_insignis.Zenia_insignis.ortho Zenia_insignis.Zenia_insignis.ortho.out
+#1644915096
+les Zenia_insignis.Zenia_insignis.ortho.out 
+#1644915100
+wc -l Zenia_insignis.Zenia_insignis.ortho*
+#1644915167
+tp
+#1644915233
+ssh -p 201 yi02
+#1644915244
+lt
+#1644915247
+bjl
+#1644915253
+bpeek 54486
+#1644915269
+cd /nfs/liuhui/projects/phyleg/wgd_rnaseq/02.ksplot/work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644915270
+ls
+#1644915271
+lt
+#1644915280
+vi bsub.kaks.804183.sh 
+#1644915294
+cp bsub.kaks.804183.sh bsub.kaks.804183.yi04.sh
+#1644915296
+vi bsub.kaks.804183.yi04.sh
+#1644915384
+vi proc 
+#1644915399
+bsub512 -J fast_ks -n 60 <  bsub.kaks.804183.yi04.sh
+#1644915402
+bj
+#1644915404
+lth
+#1644915406
+bjl
+#1644915420
+bjobs -u all |less
+#1644915426
+lsload
+#1644915428
+bjl
+#1644915436
+bpeek 54489
+#1644915438
+bjl
+#1644915440
+lt
+#1644915446
+bpeek 54489
+#1644915452
+vi proc 
+#1644915454
+top
+#1644915559
+bjl
+#1644915562
+lt
+#1644915565
+top
+#1644918146
+bjl
+#1644918150
+lt
+#1644918152
+bjl
+#1644918157
+bpeek 54489
+#1644920451
+lth
+#1644920459
+ks_plot.R Andira_inermis_Pap.Andira_inermis_Pap.ortho.1.kaks
+#1644920471
+sz Andira_inermis_Pap.Andira_inermis_Pap.ortho.1.kaks.pdf 
+#1644920474
+# Sent -> /Users/liuhui/Downloads/
+#1644920534
+ll
+#1644920538
+cd ..
+#1644920539
+ls
+#1644920541
+cd -
+#1644920541
+ls
+#1644920543
+cd -
+#1644920544
+ls
+#1644920545
+cd ../01.assemble/
+#1644920546
+ls
+#1644920547
+cd RNAseq/
+#1644920548
+ls
+#1644920549
+cd plot-ks-164482
+#1644920555
+cd plot-ks-1644820962/
+#1644920556
+lt
+#1644920560
+cd blat-out/
+#1644920561
+lt
+#1644920563
+which blat
+#1644920566
+cd ..
+#1644920567
+lt
+#1644920570
+cd ..
+#1644920570
+lt
+#1644920572
+ls
+#1644920574
+lth
+#1644920577
+les output.54384 
+#1644920582
+lt |head -50
+#1644920584
+lt |head -30
+#1644920597
+rm error.54385 error.54383 output.54383 output.54382 error.54382 output.54386 error.54386 output.54381 error.54381 output.54384 error.54384
+#1644920599
+lt |head -30
+#1644920602
+les output.54385 
+#1644920604
+rm output.54385
+#1644920604
+lt
+#1644920606
+lt |head -30
+#1644920611
+les output.54375 
+#1644920634
+rm error.54375 output.54375 output.54376 error.54376 output.54378 error.54378 error.54377 output.54377 error.54380 output.54380 output.54379 error.54379
+#1644920635
+lt |head -30
+#1644920639
+les Dialium_schlechtneri_Dia.err 
+#1644920657
+cd plot-ks-1644824129/
+#1644920657
+ll
+#1644920660
+lt
+#1644920661
+cd ..
+#1644920662
+lt
+#1644920665
+lth
+#1644920695
+cd plot-ks-1644824169/
+#1644920696
+lt
+#1644920707
+cd ..
+#1644920711
+cd -
+#1644920716
+les output.54373
+#1644920722
+cd ..
+#1644920722
+lt
+#1644920725
+les plot-ks
+#1644920726
+les plot-ks.pl 
+#1644920729
+vi plot-ks.pl 
+#1644920772
+which KaKs_Calculator
+#1644920773
+vi plot-ks.pl 
+#1644920830
+cd -
+#1644920831
+ls
+#1644920835
+lt blat-out/
+#1644920848
+cd blat-out/
+#1644920850
+cd ../..
+#1644920854
+ls *sh
+#1644920857
+vi plot-ks
+#1644920859
+vi plot-ks.pl 
+#1644920899
+cp plot-ks.pl /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/plot-ks-1644824169/blat-out/
+#1644920900
+cd /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/plot-ks-1644824169/blat-out/
+#1644920901
+lt
+#1644920902
+vi plot-ks.pl 
+#1644921071
+ll
+#1644921073
+cd ..
+#1644921207
+ls
+#1644921217
+mv blat-out/plot-ks.pl .
+#1644921234
+chmod -w transdecoder.cds*
+#1644921238
+chmod -w transdecoder.pep
+#1644921247
+chmod -w *.transdecoder.cds*
+#1644921249
+chmod -w *.transdecoder.pep
+#1644921251
+chmod -w *.transdecoder.gff3
+#1644921252
+ll
+#1644921271
+chmod -w *decoder.bed
+#1644921272
+ll
+#1644921276
+perl plot-ks.pl Umtiza_listeriana_Cae_trinity.Trinity.fasta
+#1644921284
+vi plot-ks.pl 
+#1644921304
+perl plot-ks.pl .
+#1644921315
+ll
+#1644921324
+mv blat-out blat-out.1
+#1644921325
+perl plot-ks.pl .
+#1644921358
+ll Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.mRNA*
+#1644921359
+ll
+#1644921366
+ln -s Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.cds Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.mRNA
+#1644921369
+perl plot-ks.pl .
+#1644921372
+ls
+#1644921374
+rm -r blat-out
+#1644921376
+perl plot-ks.pl .
+#1644921398
+ll Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.mRNA.transdecoder.mRNA
+#1644921400
+ll
+#1644921417
+rm  Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.mRNA.transdecoder.mRNA
+#1644921422
+rm Umtiza_listeriana_Cae_trinity.Trinity.fasta.transdecoder.mRNA
+#1644921424
+vi plot-ks.pl 
+#1644921442
+perl plot-ks.pl .
+#1644921446
+rm -r blat-out
+#1644921447
+perl plot-ks.pl .
+#1644921462
+vi plot-ks.pl 
+#1644921473
+rm -r blat-out
+#1644921475
+perl plot-ks.pl .
+#1644922201
+lth
+#1644922209
+sz Umtiza_listeriana_Cae_trinity.Trinity-t300-mYN-b0.05-range\[0-3\].pdf 
+#1644922211
+# Sent -> /Users/liuhui/Downloads/
+#1644922234
+vi plot-ks.pl 
+#1644922271
+logsh
+#1644922280
+les *kaks
+#1644922343
+cd /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/plot-ks-1644824169/
+#1644922343
+lt
+#1644922354
+cp `which ks_plot.R ` ./
+#1644922355
+vi ks_plot.R 
+#1644922410
+Rscript ks_plot.R paralogs-t300-mYN.kaks
+#1644922433
+vi ks_plot.R 
+#1644922446
+Rscript ks_plot.R paralogs-t300-mYN.kaks
+#1644922475
+vi ks_plot.R 
+#1644922481
+Rscript ks_plot.R paralogs-t300-mYN.kaks
+#1644922503
+vi ks_plot.R 
+#1644922288
+ks_plot.R paralogs-t300-mYN.kaks 
+#1644922565
+lt
+#1644922573
+sz paralogs-t300-mYN.kaks.pdf 
+#1644922576
+# Sent -> /Users/liuhui/Downloads/
+#1644922581
+lth
+#1644922584
+sz paralogs-t300-mYN.kaks.pdf 
+#1644922588
+# Sent -> /Users/liuhui/Downloads/
+#1644922592
+rm geom_histogram
+#1644922593
+lth
+#1644922595
+rm paralogs-t300-mYN.kaks.pdf 
+#1644922596
+lth
+#1644922512
+Rscript ks_plot.R paralogs-t300-mYN.kaks
+#1644922610
+vi ks_plot.R 
+#1644922654
+les paralogs-t300-mYN.csv
+#1644922667
+find $BD -name "*hist*R"
+#1644922671
+vi /nfs/liuhui/bin/bundle/Rscripts/gghist.R
+#1644922687
+ll /nfs/liuhui/bin/bundle/Rscripts/gghist.R
+#1644922689
+vi /nfs/liuhui/bin/bundle/Rscripts/gghist.R
+#1644922694
+gtp
+#1644922702
+chmod +x /nfs/liuhui/bin/bundle/Rscripts/gghist.R
+#1644922710
+gghist.R paralogs-t300-mYN.csv 
+#1644922715
+lth
+#1644922720
+sz paralogs-t300-mYN.csv.pdf 
+#1644922722
+# Sent -> /Users/liuhui/Downloads/
+#1644922730
+cp /nfs/liuhui/bin/bundle/Rscripts/gghist.R ./
+#1644922731
+vi gghist.R 
+#1644922750
+Rscript gghist.R paralogs-t300-mYN.csv 
+#1644922756
+vi ks_plot.R 
+#1644922759
+Rscript gghist.R paralogs-t300-mYN.csv 
+#1644922761
+vi gghist.R 
+#1644922773
+Rscript gghist.R paralogs-t300-mYN.csv 
+#1644922779
+vi gghist.R 
+#1644922897
+cp gghist.R ../../../02.ksplot/
+#1644922902
+pushd ../../../02.ksplot/
+#1644922902
+lt
+#1644922905
+vi gghist.R 
+#1644922923
+v gghist.R work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644922924
+lt
+#1644922925
+mv gghist.R work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644922926
+lt
+#1644922927
+cd work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644922928
+lt
+#1644922942
+vi gghist.R 
+#1644923008
+Rscript gghist.R 
+#1644923018
+ln -s Andira_inermis_Pap.Andira_inermis_Pap.ortho.1.kaks Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1644923025
+bjl
+#1644923029
+bkill 54486
+#1644923023
+Rscript gghist.R Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1644923036
+vi gghist.R 
+#1644923068
+Rscript gghist.R Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1644923099
+les Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1644923115
+cut -f3 Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks |les
+#1644923118
+cut -f4 Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks |les
+#1644923124
+cut -f4 Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks |grep -v "Ks\|NA" |les
+#1644923130
+cut -f4 Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks |grep -v "Ks\|NA" >tmp
+#1644923132
+vi gghist.R 
+#1644923149
+Rscript gghist.R Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1644923161
+vi gghist.R 
+#1644923174
+Rscript gghist.R Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1644923184
+vi gghist.R 
+#1644923216
+Rscript gghist.R Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1644923239
+vi gghist.R 
+#1644923249
+Rscript gghist.R Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1644923262
+vi gghist.R 
+#1644923266
+Rscript gghist.R Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1644923279
+vi gghist.R 
+#1644923288
+Rscript gghist.R Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1644923300
+lth
+#1644923304
+sz Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks.pdf
+#1644923306
+# Sent -> /Users/liuhui/Downloads/
+#1644923327
+ls
+#1644923333
+lt
+#1644923336
+cd ..
+#1644923336
+ls
+#1644923338
+ll
+#1644923341
+ll *cds
+#1644923349
+more shell 
+#1644923390
+for i in Angylocalyx_braunii_Pap.cds Dialium_schlechtneri_Dia.cds Goniorrhachis_marginata_Det.cds Umtiza_listeriana_Cae.cds Zollernia_splendens_Pap.cds ; do bsub512 -J rnaks_fast -m yi04 "python -m iga.evolution.ortho rnaseqks --threads 40 ${i%.cds} ${i%.cds}"; done
+#1644923391
+logsh
+#1644923393
+lth
+#1644923395
+bjl
+#1644923407
+cd ..
+#1644923407
+ls
+#1644923409
+cd 01.assemble/
+#1644923410
+ls
+#1644923412
+cd RNAseq/
+#1644923412
+ls
+#1644923448
+cd -
+#1644923457
+cd ../02.ksplot/
+#1644923458
+ll
+#1644923460
+cd -
+#1644923460
+lt
+#1644923462
+cd RNAseq/
+#1644923462
+ls
+#1644923469
+ls -d plot-ks*/
+#1644923474
+ls plot-ks-1644820962/*pl
+#1644923479
+ls plot-ks*/*pl
+#1644923553
+vi plot-ks-1644824169/plot-ks.pl
+#1644923583
+for i in plot-ks-1644820962 plot-ks-1644823593 plot-ks-1644824129 plot-ks-1644824198 plot-ks-1644824259; do cp plot-ks-1644824169/plot-ks.pl $i/; bsub512 -m yi04  "perl plot-ks.pl ."; done
+#1644923586
+logsh
+#1644923590
+bjl
+#1644923614
+for i in plot-ks-1644820962 plot-ks-1644823593 plot-ks-1644824129 plot-ks-1644824198 plot-ks-1644824259; do cp plot-ks-1644824169/plot-ks.pl $i/; pushd $i; bsub512 -m yi04  "perl plot-ks.pl ."; popd; done
+#1644923616
+bjl
+#1644923620
+lsload
+#1644923623
+bjl
+#1644923643
+ls
+#1644923566
+j RNAseq
+#1644923648
+ssh yi04
+#1644923681
+ls
+#1644923685
+cd plot-ks-1644820962/
+#1644923686
+ll
+#1644923690
+more error.54501 
+#1644923696
+cd ..
+#1644923706
+chmod -w plot-ks*/*decoder.*
+#1644923719
+for i in plot-ks-1644820962 plot-ks-1644823593 plot-ks-1644824129 plot-ks-1644824198 plot-ks-1644824259; do cp plot-ks-1644824169/plot-ks.pl $i/; pushd $i; rm -r blat-out; bsub512 -m yi04  "perl plot-ks.pl ."; popd; sleep 10; done
+#1644923777
+bjl
+#1644972546
+j polot-ks
+#1644972546
+lth
+#1644972549
+j plot-ks
+#1644972549
+lt
+#1644972551
+cd ..
+#1644972554
+ll plot-ks*/*pdf
+#1644972557
+sz plot-ks*/*pdf
+#1644972560
+# Sent -> /Users/liuhui/Downloads/
+#1644972568
+j plot-ks
+#1644972570
+cd ..
+#1644972570
+ll
+#1644972575
+ls -d */
+#1644972795
+ls
+#1644972799
+vi plot-ks.pl 
+#1644972827
+ls
+#1644972832
+ls -d */
+#1644972835
+cd plot-ks-1644820962/Andira_inermis_Pap_trinity.Trinity.fasta.transdecoder_dir.__checkpoints
+#1644972839
+cd plot-ks-1644820962/
+#1644972844
+cd plot-ks-1644824259/
+#1644972848
+cd ..
+#1644972849
+ll
+#1644972850
+lt
+#1644972854
+les *csv
+#1644972866
+les self-blat.pslx 
+#1644972883
+wc -l self-blat.pslx 
+#1644972891
+wc -l paralogs-t300-mYN.kaks
+#1644972899
+vi plot-ks.pl 
+#1644972919
+les paralogs-t300.atx
+#1644972928
+vi plot-ks.pl 
+#1644973033
+ls
+#1644973034
+cd ..
+#1644973034
+ll
+#1644973053
+ls Goniorrhachis_marginata_Det_trinity/
+#1644973060
+ls plot-ks*/
+#1644973070
+cd ../../02.ksplot/work.Goniorrhachis_marginata_Det.Goniorrhachis_marginata_Det/
+#1644973071
+ll
+#1644973084
+lt
+#1644973086
+bjl
+#1644973095
+bsub512 -m yi04 < bsub.kaks.228107.sh 
+#1644973098
+cd ../
+#1644973100
+ls 
+#1644973103
+ls work.*/
+#1644973111
+cd work.Umtiza_listeriana_Cae.Umtiza_listeriana_Cae/
+#1644973112
+les error.54515 
+#1644973115
+lt
+#1644973117
+cd -
+#1644973125
+ll */*kaks
+#1644973134
+ls work.*/
+#1644973138
+cd work.Zollernia_splendens_Pap.Zollernia_splendens_Pap/
+#1644973143
+bsub512 -m yi04 < bsub.kaks.*.sh
+#1644973145
+cd ..
+#1644973148
+ls
+#1644973158
+ls work.*/*kaks
+#1644973162
+cd work.Dialium_schlechtneri_Dia.Dialium_schlechtneri_Dia/
+#1644973164
+bsub512 -m yi04 < bsub.kaks.*.sh
+#1644973167
+cd ../work.Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap
+#1644973168
+bsub512 -m yi04 < bsub.kaks.*.sh
+#1644973172
+cd ../work.Andira_inermis_Pap.Andira_inermis_Pap
+#1644973173
+bsub512 -m yi04 < bsub.kaks.*.sh
+#1644973174
+ls
+#1644973181
+cd ..
+#1644973182
+l
+#1644973182
+ls
+#1644973183
+bjl
+#1644973194
+top
+#1644973952
+ll
+#1644973990
+cd work.An
+#1644973992
+cd work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1644973992
+lt
+#1644973996
+les Andira_inermis_Pap.Andira_inermis_Pap.ortho
+#1644974056
+sort -k1,1 -k2,2 Andira_inermis_Pap.Andira_inermis_Pap.ortho > Andira_inermis_Pap.Andira_inermis_Pap.ortho.sort
+#1644974068
+vi onlyten.pl
+#1644974233
+perl onlyten.pl Andira_inermis_Pap.Andira_inermis_Pap.ortho.sort > Andira_inermis_Pap.Andira_inermis_Pap.ortho.sort.nolarge
+#1644974236
+les Andira_inermis_Pap.Andira_inermis_Pap.ortho.sort.nolarge 
+#1644974246
+wc -l Andira_inermis_Pap.Andira_inermis_Pap.ortho.sort.nolarge Andira_inermis_Pap.Andira_inermis_Pap.ortho.sort
+#1644974254
+les Andira_inermis_Pap.Andira_inermis_Pap.ortho.sort.nolarge 
+#1644974309
+lt
+#1644974314
+blastp -h
+#1644974324
+python -m iga.apps.blast
+#1644974327
+python -m iga.apps.blast blastp
+#1644974330
+python -m iga.apps.blast blastp -h
+#1644974351
+ls
+#1644974366
+python -m iga.apps.blast blastp --threads 50 --eval 10 --output Andira_inermis_Pap.Andira_inermis_Pap.blast10 Andira_inermis_Pap.pep Andira_inermis_Pap.pep
+#1644974373
+logsh
+#1644974375
+bjl
+#1644974379
+lth
+#1644974382
+les *blast10
+#1644974598
+ls
+#1644974600
+vi gghist.R 
+#1644974609
+Rscript gghist.R Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1644974633
+mv Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks.pdf Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks.YangYa.pdf
+#1644974635
+sz Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks.YangYa.pdf
+#1644974638
+# Sent -> /Users/liuhui/Downloads/
+#1644974732
+lth
+#1644974735
+les *blast10
+#1644974758
+lt
+#1644974759
+lth
+#1644974760
+bjl
+#1644974817
+lth
+#1644974842
+ls *pl
+#1644974846
+vi onlyten.pl 
+#1644974877
+chmod +x onlyten.pl 
+#1644974878
+gtp
+#1644974889
+cp onlyten.pl /nfs/liuhui/bin/bundle/lh_bin/
