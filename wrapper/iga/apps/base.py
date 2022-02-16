@@ -259,14 +259,14 @@ date
     return ret
 
 
-def bsub(cmd, queue='Q104C512G_X4', direct_submit='F', cpus=1, name='', submit='T'):
+def bsub(cmd, queue='Q104C512G_X4', direct_submit='F', cpus=1, name='', submit='T', options=''):
     """
     submit jobs via bsub
     When using variable export in a cmd ,use direct_submit = 'F'
     :param cmd:
     :return:
     """
-    bsub_cmd = 'bsub -R "span[hosts=1]" -q {0}  -o output.%J -e error.%J -n {1} '.format(queue, cpus)
+    bsub_cmd = 'bsub -R "span[hosts=1]" -q {0} -o output.%J -e error.%J -n {1} {2} '.format(queue, cpus, options)
     if name != '':
         bsub_cmd += "-J {} ".format(name)
     if direct_submit == 'T':

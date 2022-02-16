@@ -178,7 +178,7 @@ def kaks(ortho=None, cds=None, pep=None, threads=40, use_grid='T', wait='T', mod
     """
     cmd = kaks_sh.format(ortho, cds, pep, threads, model)
     if use_grid == 'T':
-        jobid = bsub(cmd, name="kaks", cpus=threads)
+        jobid = bsub(cmd, name="kaks", cpus=threads, options='-m yi04')
         if wait == 'T':
             waitjob(jobid)
     else:
@@ -407,7 +407,7 @@ def mv_orthofinder_blast(SpeciesID=None, dir='.'):
 
 
 def rnaseqks(prefix1=None, prefix2=None, threads=4, runKs='T',
-            use_grid='T', top_num=10, model='YN', iden=0.2, output=''):
+             use_grid='T', eval=10, max_hits=10, model='YN', iden=0.2, output=''):
     r"""
     Prerequisites: blast KaKs_Calculator, ParaAT.pl
     ⭐️️The rnaseqks wrapper, execution eg:
@@ -415,7 +415,8 @@ def rnaseqks(prefix1=None, prefix2=None, threads=4, runKs='T',
     : param prefix1: like Cercis_chinensis. Require Cercis_chinensis.pep and Cercis_chinensis.gff3 exists
     : param prefix2: Can be the same with prefix1, which will perform intra comparison only.
     : param model: YN[default] or NG used for Ks estimation in ParaAT.pl (modified to accept model arg input)
-    : param iden: min identity for blastp result (default 0.2 )
+    : param iden: min identity for blastp result (default 0.2 ), cannot be modified
+    : param max_hits: 10, cannot be modified.
     :return:
     """
     combine_prefix = prefix1 + '.' + prefix2
@@ -436,12 +437,16 @@ def rnaseqks(prefix1=None, prefix2=None, threads=4, runKs='T',
     # output
     combine_ortho = combine_prefix + '.ortho'
 
+    #Protein identity
+    piden=20
+
     # prepare gff3 and blast
     if (not op.exists(combine_blast)):
         if not op.exists(combine_blast + '.raw'):
             blastp(prefix1 + ".pep", prefix2 + ".pep", threads=threads, output=combine_blast + ".raw",
-                   use_grid='F')
-        extract_top_n_hits(combine_blast + ".raw", top_num=top_num, output=combine_blast, threads=threads, iden=iden)
+                   use_grid='F', eval=eval)
+        sh("awk '$3>={2}' {0} | onlyten.pl > {1}".format(combine_blast + ".raw", combine_blast, piden))
+        #extract_top_n_hits(combine_blast + ".raw", top_num=max_hits, output=combine_blast, threads=threads, iden=iden)
     sh("cut -f1,2 {0} > {1}.raw".format(combine_blast, combine_ortho))
     uniq_ortho(combine_ortho + '.raw', combine_ortho)
 
