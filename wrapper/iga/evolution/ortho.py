@@ -5,7 +5,7 @@ import os
 
 from iga.apps.base import emain, bsub, sh, waitjob, workdir_sh, mkdir
 import os.path as op
-from iga.apps.blast import blastp, extract_top_n_hits
+from iga.apps.blast import blastp, extract_top_n_hits, extract_reciprocal_best_hits
 import logging
 import re
 
@@ -407,7 +407,7 @@ def mv_orthofinder_blast(SpeciesID=None, dir='.'):
 
 
 def rnaseqks(prefix1=None, prefix2=None, threads=4, runKs='T',
-             use_grid='T', eval=10, max_hits=10, model='YN', iden=0.2, output=''):
+             use_grid='F', eval=10, max_hits=10, model='YN', iden=0.2, output=''):
     r"""
     Prerequisites: blast KaKs_Calculator, ParaAT.pl
     ⭐️️The rnaseqks wrapper, execution eg:
@@ -493,6 +493,64 @@ def uniq_ortho(raw_ortho=None, uniq_ortho=None):
                 hit_table[tag1] = 1
                 # write tag1 is enough since tag1 and tag2 are reciprocal.
                 fh_out.write(tag1 + "\n")
+
+
+def rbhks(prefix1=None, prefix2=None, threads=4, runKs='T',
+             use_grid='T', eval='1e-5', max_hits=10, model='YN', iden=0.2, output=''):
+    r"""
+    Prerequisites: blast, KaKs_Calculator, ParaAT.pl
+    ⭐️️The rbh_ks wrapper, execution eg:
+        bsub python -m iga.evolution.ortho rbhks Cercis_chinensis Cercis_chinensis
+    : param prefix1: like Cercis_chinensis. Require Cercis_chinensis.pep and Cercis_chinensis.gff3 exists
+    : param prefix2: Can be the same with prefix1, which will perform intra comparison only.
+    : param model: YN[default] or NG used for Ks estimation in ParaAT.pl (modified to accept model arg input)
+    : param iden: min identity for blastp result (default 0.2 ), cannot be modified
+    : param max_hits: 10, cannot be modified.
+    :return:
+    """
+    combine_prefix = prefix1 + '.' + prefix2
+    if output == '':
+        workdir = 'work.{}'.format(combine_prefix)
+    else:
+        workdir = output
+    #workdir_sh.format(workdir)
+    mkdir(workdir)
+    sh("cp {}.pep  {}/".format(prefix1, workdir))
+    sh("cp {}.cds  {}/".format(prefix1, workdir))
+    sh("cp {}.pep  {}/".format(prefix2, workdir))
+    sh("cp {}.cds  {}/".format(prefix2, workdir))
+    os.chdir(workdir)
+
+    # input
+    combine_blast = combine_prefix + '.blast'
+    # output
+    combine_ortho = combine_prefix + '.ortho'
+
+    #Protein identity
+    piden=20
+
+    # prepare gff3 and blast
+    if (not op.exists(combine_blast)):
+        if not op.exists(combine_blast + '.raw'):
+            blastp(prefix1 + ".pep", prefix2 + ".pep", threads=threads, output=combine_blast + ".raw",
+                   use_grid='F', eval=eval)
+        sh("awk '$3>={2}' {0} | onlyten.pl > {1}".format(combine_blast + ".raw", combine_blast, piden))
+        #extract_top_n_hits(combine_blast + ".raw", top_num=max_hits, output=combine_blast, threads=threads, iden=iden)
+    ("cut -f1,2 {0} > {1}.raw".format(combine_blast, combine_ortho))
+    extract_reciprocal_best_hits(bln=combine_blast, output=combine_ortho + '.raw')
+    uniq_ortho(combine_ortho + '.raw', combine_ortho)
+
+    if runKs == 'T':
+        if prefix2 == prefix1:
+            combine_pep = prefix1 + '.pep'
+            combine_cds = prefix1 + '.cds'
+        else:
+            combine_cds = combine_prefix + '.cds'
+            combine_pep = combine_prefix + '.pep'
+            sh("cat {0}.cds {1}.cds > {2}.cds".format(prefix1, prefix2, combine_prefix))
+            sh("cat {0}.pep {1}.pep > {2}.pep".format(prefix1, prefix2, combine_prefix))
+        kaks(combine_ortho, combine_cds, combine_pep, threads=threads, use_grid='F', wait='F', model=model)
+    return 0
 
 
 if __name__ == "__main__":
