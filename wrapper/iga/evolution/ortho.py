@@ -409,6 +409,7 @@ def mv_orthofinder_blast(SpeciesID=None, dir='.'):
 def rnaseqks(prefix1=None, prefix2=None, threads=4, runKs='T',
              use_grid='F', eval=10, max_hits=10, model='YN', iden=0.2, output=''):
     r"""
+    The YangYa(2015,MBE) pipeline for calculating paralog Ks
     Prerequisites: blast KaKs_Calculator, ParaAT.pl
     ⭐️️The rnaseqks wrapper, execution eg:
         bsub python -m iga.evolution.ortho mcscanx Cercis_chinensis Cercis_chinensis
@@ -498,6 +499,7 @@ def uniq_ortho(raw_ortho=None, uniq_ortho=None):
 def rbhks(prefix1=None, prefix2=None, threads=4, runKs='T',
              use_grid='T', eval='1e-5', max_hits=10, model='YN', iden=0.2, output=''):
     r"""
+    The Walker(2017) pipeline for calculating ortholog Ks
     Prerequisites: blast, KaKs_Calculator, ParaAT.pl
     ⭐️️The rbh_ks wrapper, execution eg:
         bsub python -m iga.evolution.ortho rbhks Cercis_chinensis Cercis_chinensis

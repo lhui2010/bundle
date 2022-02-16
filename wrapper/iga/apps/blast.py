@@ -180,7 +180,7 @@ sort --parallel=4 -k2,2 -k12,12gr -k11,11g -k3,3gr {0}.filter_eval > {0}.sorted.
     sh(cmd)
     firstn(sorted_qry, field=1, num_extract=top_num, print_to_screen='F', output=sorted_qry + '.top')
     firstn(sorted_ref, field=2, num_extract=top_num, print_to_screen='F', output=sorted_ref + '.top')
-    sh("""cut -f1,2 {0}.sorted.qry.top {0}.sorted.ref.top |sed "s/\t/-/" |sort |uniq -c | grep "2 " |awk '{{print $2}}' > {2}""".format(
+    sh("""cut -f1,2 {0}.sorted.qry.top {0}.sorted.ref.top |sort |uniq -c | grep "2 " |awk '{{print $2}}' > {2}""".format(
         bln, top_num, output))
 
 
