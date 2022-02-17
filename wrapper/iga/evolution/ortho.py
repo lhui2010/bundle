@@ -36,7 +36,7 @@ bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jc
 
 
 def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene_gap=25, no_html="T", runKs='T',
-            use_grid='T', top_num=10, model='YN', output=''):
+            use_grid='F', top_num=10, model='YN', output=''):
     """
     Prerequisites: MCScanX(github), KaKs_Calculator, ParaAT.pl
     ⭐️️The mcscanx wrapper, execution eg:
@@ -63,7 +63,8 @@ def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene
     sh("cp {}.pep  {}/".format(prefix2, workdir))
     sh("cp {}.cds  {}/".format(prefix2, workdir))
     sh("cp {}.gff3 {}/".format(prefix2, workdir))
-    sh("ln -s ../{0}.blast {1}/{0}.blast.raw".format(combine_prefix, workdir))
+    if os.path.exists(combine_prefix + ".blast"):
+        sh("ln -s ../{0}.blast {1}/{0}.blast.raw".format(combine_prefix, workdir))
     os.chdir(workdir)
 
     if prefix1 == prefix2:
