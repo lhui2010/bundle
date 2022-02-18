@@ -36912,3 +36912,353 @@ vw
 vi /nfs/liuhui/bin/bundle/lh_bin/remove_piden_niden.py
 #1645150103
 gtp
+#1645150108
+gtps
+#1645152068
+lth
+#1645152076
+bjl
+#1645152078
+jobs
+#1645152081
+tail nohup.out 
+#1645152085
+lth
+#1645152088
+date
+#1645152096
+les Andira_inermis_Pap.pep.yangya.bln
+#1645152207
+python /nfs/liuhui/bin/bundle/lh_bin/remove_piden_niden.py Andira_inermis_Pap.pep.yangya.bln > Andira_inermis_Pap.pep.yangya.bln.filter &
+#1645152208
+lth
+#1645152216
+rm Andira_inermis_Pap.pep.yangya.bln.filter
+#1645152221
+python /nfs/liuhui/bin/bundle/lh_bin/remove_piden_niden.py Andira_inermis_Pap.pep.yangya.bln
+#1645160499
+ls
+#1645164181
+lt
+#1645164186
+les Andira_inermis_Pap.pep.yangya.bln.filter 
+#1645164216
+python -m iga.evolution.ortho kaks
+#1645164220
+lth
+#1645164249
+bsub512 -n 10 'python -m iga.evolution.ortho kaks --threads 10 Andira_inermis_Pap.pep.yangya.bln.filter Andira_inermis_Pap.cds Andira_inermis_Pap.pep'
+#1645164252
+logsh
+#1645164256
+bjl
+#1645164275
+bjobs -l 57594
+#1645164298
+python -m iga.evolution.ortho kaks -h
+#1645164302
+bjt
+#1645164305
+bkill 57594
+#1645164313
+bsub512 -n 10 'python -m iga.evolution.ortho kaks --threads 10 Andira_inermis_Pap.pep.yangya.bln.filter Andira_inermis_Pap.cds Andira_inermis_Pap.pep --use_grid F'
+#1645164315
+bjl
+#1645164328
+lt
+#1645164349
+vi /nfs/liuhui/bin/bundle/lh_bin/remove_piden_niden.py
+#1645164367
+lth
+#1645164381
+rm output.5* error.5*
+#1645164382
+bjl
+#1645164383
+lt
+#1645164884
+lth
+#1645164886
+lt
+#1645164894
+ks_hist.R Andira_inermis_Pap.pep.yangya.bln.filter.kaks
+#1645164899
+sz Andira_inermis_Pap.pep.yangya.bln.filter.kaks.pdf 
+#1645164902
+# Sent -> /Users/liuhui/Downloads/
+#1645164978
+ls
+#1645164980
+lth
+#1645164983
+bjl
+#1645164907
+ps ux
+#1645164930
+ps ux |les
+#1645164991
+ssh yi04
+#1645165025
+lt
+#1645165026
+cd ..
+#1645165026
+lt
+#1645165032
+ll
+#1645165034
+cd ..
+#1645165034
+lt
+#1645166666
+j yanrui
+#1645166666
+lth
+#1645166668
+cd psmc/
+#1645166669
+lt
+#1645166673
+cd ..
+#1645166674
+lt
+#1645167136
+cd
+#1645167137
+ls
+#1645167137
+rz
+#1645167144
+# Received /Users/liuhui/Downloads/count_GC.py
+#1645167146
+python count_GC.py 
+#1645167149
+python count_GC.py  -h
+#1645167153
+ll
+#1645167165
+les Medicago_truncatula.Medicago_truncatula.ortho.ng86.kaks
+#1645167194
+cp projects/phyleg/mcscanX2/Medicago_truncatula.cds ./
+#1645167197
+ll
+#1645167211
+python count_GC.py Medicago_truncatula.cds Medicago_truncatula.cds.count
+#1645167386
+ll Medicago_truncatula.cds
+#1645167388
+les Medicago_truncatula.cds
+#1645167403
+head -11 Medicago_truncatula.cds > test
+#1645167412
+python count_GC.py test
+#1645167419
+python count_GC.py test test.out
+#1645167422
+les test.out 
+#1645167437
+vi count_GC.py 
+#1645167443
+time python count_GC.py test test.out
+#1645167501
+vi count_GC.py 
+#1645167545
+time python count_GC.py test test.out
+#1645167560
+vi count_GC.py 
+#1645167695
+python count_GC.py test test.out
+#1645167697
+time python count_GC.py test test.out
+#1645167704
+more test.out 
+#1645167758
+ls
+#1645167764
+split_fastav3.pl -h
+#1645167773
+split_fastav3.pl Medicago_truncatula.cds 40
+#1645167776
+bjl
+#1645167778
+lsload
+#1645167780
+ls
+#1645167783
+cd Medicago_truncatula.cds._/
+#1645167783
+ls
+#1645167792
+ll
+#1645167797
+cp ../count_GC.py ./
+#1645167797
+ls
+#1645167817
+for i in *.fa; do bsub512 -m yi02 'python count_GC.py $i $i.GC'; done
+#1645167822
+logsh
+#1645167824
+lth
+#1645167826
+bjl
+#1645167836
+logsh
+#1645167840
+lth
+#1645167842
+bjl
+#1645167904
+lth
+#1645167909
+les error.57634 
+#1645167928
+python count_GC.py 1.fa 1.fa.GC
+#1645167933
+lt
+#1645167938
+rm output.57* error.57*
+#1645167961
+for i in *.fa; do bsub512 -m yi02 'cd /nfs/liuhui/Medicago_truncatula.cds._; python count_GC.py $i $i.GC';break; done
+#1645167962
+bjl
+#1645168015
+lth
+#1645168018
+les error.57636 
+#1645168032
+wc -l 1.fa.GC
+#1645168037
+les error.57636 
+#1645168044
+vi count_GC.py 
+#1645168095
+python count_GC.py 1.fa 1.fa.GC
+#1645168119
+ssh -p 201
+#1645168053
+top
+#1645168058
+htop
+#1645168120
+ssh -p 201 yi02
+#1645168130
+lt
+#1645168132
+ls
+#1645168146
+cd ..
+#1645168147
+ls
+#1645168149
+rm -r Medicago_truncatula.cds._
+#1645168153
+rm -rf Medicago_truncatula.cds._
+#1645168156
+split_fastav3.pl Medicago_truncatula.cds 20
+#1645168168
+cd Medicago_truncatula.cds._/
+#1645168169
+cp ../count_GC.py ./
+#1645168170
+lt
+#1645168183
+for i in *.fa; do bsub512 -m yi01 'cd /nfs/liuhui/Medicago_truncatula.cds._; python count_GC.py $i $i.GC';done
+#1645168185
+bjl
+#1645168191
+bjobs -u all |les
+#1645168197
+lt
+#1645168198
+lth
+#1645168201
+les error.576*
+#1645168207
+rm output.576* error.576*
+#1645168227
+for i in *.fa; do bsub512  "python count_GC.py $i $i.GC";done
+#1645168229
+bjl
+#1645168233
+ls
+#1645168235
+lt
+#1645168245
+cp count_GC.py /nfs/liuhui/bin/bundle/lh_bin/
+#1645168255
+vi /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645168261
+chmod +w /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645168262
+vi /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645168283
+cd $HB
+#1645168288
+grep argparse *py
+#1645168294
+vi batch_blat.py 
+#1645168319
+cd -
+#1645168325
+vi /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645168402
+vi $HB/batch_lastz.py
+#1645168409
+vi /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645168853
+bjl
+#1645168854
+ls
+#1645168860
+time python count_GC.py 1.fa 1.fa.GC.1
+#1645168919
+time python ../count_GC.py 1.fa 1.fa.GC.2
+#1645168952
+vi ../count_GC.py 
+#1645168964
+vi count_GC.py 
+#1645168971
+vi /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645168985
+time count_GC.py 1.fa 1.fa.GC.3
+#1645168992
+chmod +x /nfs/liuhui/bin/bundle/lh_bin/count_GC.py
+#1645168994
+time count_GC.py 1.fa 1.fa.GC.3
+#1645169003
+time /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 1.fa 1.fa.GC.3
+#1645169007
+vi /nfs/liuhui/bin/bundle/lh_bin/count_GC.py
+#1645169010
+/nfs/liuhui/bin/bundle/lh_bin/count_GC.py
+#1645169014
+ll /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645169018
+vi  /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645169026
+/nfs/liuhui/bin/bundle/lh_bin/count_GC.py
+#1645169028
+/nfs/liuhui/bin/bundle/lh_bin/count_GC.py -h
+#1645169033
+vi  /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645169049
+/nfs/liuhui/bin/bundle/lh_bin/count_GC.py -h
+#1645169050
+/nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645169054
+python  /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645169056
+vi  /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645169113
+python  /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645169120
+time /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 1.fa 1.fa.GC.3
+#1645169136
+count_GC.py 
+#1645169138
+count_GC.py  -h
+#1645169145
+vi  /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
+#1645169156
+gtp
