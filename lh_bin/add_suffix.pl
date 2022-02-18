@@ -10,6 +10,9 @@
 # New file will be written to Arabidopsis.gff.new Arabidopsis.fa.new, etc
 @files=@ARGV;
 
+
+#TODO: 把特殊符号给替换了，比如 | :，不做的话，一些软件比如KaKs和唐海宝的流程都会改成下划线，造成基因名称无法对称的情况
+
 for my $f(@files)
 {
     my ($name, $type) = split/\./, $f;

@@ -40,6 +40,7 @@ done
 #### Blast
 makeblastdb -in input.fa -dbtype nucl   prot
 blastp -subject sub.fa -query qry.fa -out out.bln -evalue 1e-5 -outfmt 6 -num_threads 16
+blastp -db Andira_inermis_Pap.pep -query Andira_inermis_Pap.pep -out Andira_inermis_Pap.pep.yangya.bln -evalue 1e10 -outfmt "6 qseqid qlen sseqid slen frames pident nident length mismatch gapopen qstart qend sstart send evalue bitscore" -num_threads 10
 
 #### maker mapid
 cp assemblyv1.est2genome.gff assemblyv1.est2genome.gff.bak
