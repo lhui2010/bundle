@@ -37262,3 +37262,715 @@ count_GC.py  -h
 vi  /nfs/liuhui/bin/bundle/lh_bin/count_GC.py 
 #1645169156
 gtp
+#1645169170
+gtps
+#1645169178
+sz /nfs/liuhui/bin/bundle/lh_bin/count_GC.py
+#1645169181
+# Sent -> /Users/liuhui/Downloads/
+#1645169259
+ls
+#1645169260
+lth
+#1645169264
+rm *GC.*
+#1645169269
+rm count_GC.py 
+#1645169273
+rm ../count_GC.py 
+#1645169275
+lt
+#1645169284
+rm output.576* error.576*
+#1645169285
+ll
+#1645169291
+cat *GC > GC_all.txt
+#1645169293
+les GC_all.txt 
+#1645169337
+cut -f1,4 GC_all.txt > GC_all.txt.extract
+#1645169339
+les GC_all.txt.extract 
+#1645169344
+mkdir ../yangziheng
+#1645169352
+cp GC_all.txt GC_all.txt.extract ../yangziheng/
+#1645169353
+cd ..
+#1645169353
+ls
+#1645169362
+rm -r Medicago_truncatula.cds._
+#1645169368
+les Medicago_truncatula.cds.count
+#1645169376
+ls yangziheng/
+#1645169380
+lth
+#1645169386
+les Medicago_truncatula.cds.count
+#1645169389
+rm Medicago_truncatula.cds.count 
+#1645169400
+mv Medicago_truncatula.cds yangziheng/
+#1645169401
+ll
+#1645169406
+ll *kaks*
+#1645169408
+mv *kaks* yan
+#1645169410
+mv *kaks* yangziheng/
+#1645169411
+cd yangziheng/
+#1645169412
+lt
+#1645169416
+les *kaks
+#1645169444
+for i in *.kaks; do cut -f1,3 $i > $i.ks; done
+#1645169446
+les *.ks
+#1645169451
+for i in *.kaks; do cut -f1,4 $i > $i.ks; done
+#1645169453
+les *kaks
+#1645169457
+les *.ks
+#1645169459
+lt
+#1645169508
+les Medicago_truncatula.Medicago_truncatula.ortho.yn00.kaks.ks
+#1645169524
+ll *.ks
+#1645169529
+vi *ng86.kaks.ks
+#1645169551
+paste Medicago_truncatula.Medicago_truncatula.ortho.ng86.kaks.ks Medicago_truncatula.Medicago_truncatula.ortho.yn00.kaks.ks > combine.txt
+#1645169554
+vi combine.txt 
+#1645169567
+tt combine.txt 
+#1645169576
+awk '$1==$3' combine.txt  |wc -l
+#1645169577
+wc -l combine.txt 
+#1645169596
+selectItem.pl -k Medicago_truncatula.Medicago_truncatula.ortho.ng86.kaks.ks Medicago_truncatula.Medicago_truncatula.ortho.yn00.kaks.ks > combine.txt 
+#1645169597
+vi combine.txt 
+#1645169610
+awk '$1==$3' combine.txt  |wc -l
+#1645169613
+vi combine.txt 
+#1645169627
+cut -f1,2,4 combine.txt |les
+#1645169642
+cut -f1,2,4 combine.txt | sed "s/-/\t" > combine.txt.ks
+#1645169647
+cut -f1,2,4 combine.txt | sed "s/-/\t/" > combine.txt.ks
+#1645169649
+les combine.txt.ks 
+#1645169653
+vi combine.txt.ks 
+#1645169696
+ll
+#1645169702
+selectItem.pl -k combine.txt.ks GC_all.txt.extract |les
+#1645169727
+selectItem.pl -k combine.txt.ks GC_all.txt.extract > combine.txt.ks.addGCA
+#1645169740
+selectItem.pl -k combine.txt.ks.addGCA GC_all.txt.extract > combine.txt.ks.addGCAB
+#1645169742
+les combine.txt.ks.addGCAB
+#1645169745
+tt combine.txt.ks.addGCAB
+#1645169765
+cut -f1,2,3,4,6,8 combine.txt.ks.addGCAB |les
+#1645169784
+wc -l combine.txt.ks.addGCA
+#1645169792
+wc -l combine.txt.ks
+#1645169810
+selectItem.pl -k GC_all.txt.extract combine.txt.ks  > combine.txt.ks.addGCA
+#1645169819
+selectItem.pl -k GC_all.txt.extract GC_all.txt.extract > combine.txt.ks.addGCAB
+#1645169820
+les combine.txt.ks.addGCAB
+#1645169832
+les combine.txt.ks.addGCA
+#1645169860
+les *extract
+#1645169893
+bjl
+#1645169923
+les *GCA
+#1645169930
+selectItem.pl -k 0 3 GC_all.txt.extract combine.txt.ks.addGCA > combine.txt.ks.addGCAB
+#1645169933
+wc -l combine.txt.ks.addGCAB
+#1645169942
+vi combine.txt.ks.addGCA
+#1645169958
+les GC_all.txt.extract
+#1645169961
+les combine.txt.ks.addGCA
+#1645169972
+les combine.txt.ks.addGCAB
+#1645169979
+tt combine.txt.ks.addGCAB
+#1645170045
+awk '{print $5"\t"$6"\t"$7"\t"$8"\t"$2"\t"$4\n}' combine.txt.ks.addGCAB > combine.txt.ks.addGCAB.tzt
+#1645170051
+awk '{print $5"\t"$6"\t"$7"\t"$8"\t"$2"\t"$4"\n"}' combine.txt.ks.addGCAB > combine.txt.ks.addGCAB.tzt
+#1645170059
+mv combine.txt.ks.addGCAB.tzt combine.txt.ks.addGCAB.txt
+#1645170062
+les combine.txt.ks.addGCAB.txt 
+#1645170071
+awk '{print $5"\t"$6"\t"$7"\t"$8"\t"$2"\t"$4}' combine.txt.ks.addGCAB > combine.txt.ks.addGCAB.tzt
+#1645170073
+les combine.txt.ks.addGCAB.txt 
+#1645170086
+awk '{print $5"\t"$6"\t"$7"\t"$8"\t"$2"\t"$4}' combine.txt.ks.addGCAB > combine.txt.ks.addGCAB.txt
+#1645170093
+rm combine.txt.ks.addGCAB.tzt 
+#1645170098
+les combine.txt.ks.addGCAB.txt 
+#1645170152
+vi combine.txt.ks.addGCAB.txt 
+#1645170194
+ls /nfs/liuhui/bin/bundle/Rscripts/
+#1645170283
+lth
+#1645170306
+cp /nfs/liuhui/bin/bundle/Rscripts/ks_hist.R lm.R
+#1645170307
+vi lm.R 
+#1645170328
+head combine.txt.ks.addGCAB.txt >> lm.R 
+#1645170329
+vi lm.R 
+#1645170406
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645170521
+sz combine.txt.ks.addGCAB.txt.pdf 
+#1645170524
+# Sent -> /Users/liuhui/Downloads/
+#1645170544
+ll
+#1645170547
+vi lm.R 
+#1645170571
+les combine.txt.ks
+#1645170574
+les combine.txt.ks.addGCAB.txt
+#1645170596
+vi lm.R 
+#1645170628
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645170639
+sz combine.txt.ks.addGCAB.txt.pdf 
+#1645170641
+# Sent -> /Users/liuhui/Downloads/
+#1645170663
+vi lm.R 
+#1645170670
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645170675
+sz combine.txt.ks.addGCAB.txt.pdf 
+#1645170677
+# Sent -> /Users/liuhui/Downloads/
+#1645170693
+vi lm.R 
+#1645170705
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645170707
+sz combine.txt.ks.addGCAB.txt.pdf 
+#1645170710
+# Sent -> /Users/liuhui/Downloads/
+#1645170720
+vi lm.R 
+#1645170730
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645170733
+sz combine.txt.ks.addGCAB.txt.pdf 
+#1645170736
+# Sent -> /Users/liuhui/Downloads/
+#1645170749
+vi lm.R 
+#1645170771
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645170803
+vi lm.R 
+#1645170889
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645170895
+vi lm.R 
+#1645170935
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645170938
+vi lm.R 
+#1645170950
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645170957
+vi lm.R 
+#1645170964
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645171003
+vi lm.R 
+#1645171007
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645171012
+vi lm.R 
+#1645171027
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645171071
+vi lm.R 
+#1645171108
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645171506
+vi lm.R 
+#1645171521
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645171528
+sz combine.txt.ks.addGCAB.txt.pdf 
+#1645171531
+# Sent -> /Users/liuhui/Downloads/
+#1645171581
+vi lm.R 
+#1645171652
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645171665
+sz combine.txt.ks.addGCAB.txt.pdf 
+#1645171668
+# Sent -> /Users/liuhui/Downloads/
+#1645171698
+vi lm.R 
+#1645171706
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645171715
+sz combine.txt.ks.addGCAB.txt.pdf 
+#1645171718
+# Sent -> /Users/liuhui/Downloads/
+#1645171735
+vi lm.R 
+#1645171744
+Rscript lm.R combine.txt.ks.addGCAB.txt 
+#1645171747
+sz combine.txt.ks.addGCAB.txt.pdf 
+#1645171750
+# Sent -> /Users/liuhui/Downloads/
+#1645172895
+cd
+#1645172895
+ls
+#1645172896
+bjl
+#1645172910
+bjobs |wc -l
+#1645238660
+which cafe 
+#1645239148
+cd bin/
+#1645239148
+ls
+#1645239152
+wget git clone https://github.com/hahnlab/CAFE5.git
+#1645239155
+git clone https://github.com/hahnlab/CAFE5.git
+#1645239870
+ls
+#1645239873
+cd CAFE5/
+#1645239931
+mkdir -p `pwd`/bin
+#1645239932
+make -j 10 install prefix=`pwd`
+#1645239935
+ls
+#1645239945
+vi INSTALL 
+#1645239960
+make -j 10
+#1645239963
+vi INSTALL 
+#1645239986
+ll
+#1645239986
+cd src
+#1645239987
+ls
+#1645239991
+cd ..
+#1645239992
+ls
+#1645239997
+vi configure.ac 
+#1645240102
+mamba create -n cafe conda install -c bioconda cafe
+#1645240179
+bjl
+#1645240182
+bjobs |wc -l
+#1645240187
+lsload
+#1645240202
+for i in `seq 56709 57299`; do bmod -n 5 $i; done
+#1645240211
+bjl
+#1645240226
+ping www.baidu.com
+#1645240110
+mamba create -n cafe -c bioconda cafe
+#1645240761
+conda activate cafe
+#1645240766
+which cafe
+#1645240773
+rm ~/bin/cafe 
+#1645240775
+which cafe
+#1645240778
+cafe5 
+#1645240793
+cafe5  -h
+#1645240925
+cd bin/
+#1645240940
+cp CAFE/release/cafe ./cafe4
+#1645240945
+./cafe4
+#1645240948
+cafe5
+#1645240903
+top
+#1645249032
+ll
+#1645249036
+lt
+#1645249039
+cafe5
+#1645249194
+ll
+#1645249194
+cd
+#1645249195
+ls
+#1645249198
+j cafe
+#1645249198
+ls
+#1645249199
+cd
+#1645249200
+cd projects/
+#1645249201
+ls
+#1645249202
+cd phyleg
+#1645249206
+cd ../phyleg_orthofinder/
+#1645249207
+ls
+#1645249212
+ls fasta/
+#1645249216
+ls fasta/OrthoFinder/
+#1645249217
+ls fasta/OrthoFinder/Results_Feb16/
+#1645249223
+ls fasta/OrthoFinder/Results_Feb16/Orthogroup
+#1645249224
+ls fasta/OrthoFinder/Results_Feb16/Orthogroups
+#1645249229
+ln -ss fasta/OrthoFinder/Results_Feb16/Orthogroups/Orthogroups.GeneCount.tsv
+#1645249231
+ll
+#1645249234
+les Orthogroups.GeneCount.tsv 
+#1645249247
+tt Orthogroups.GeneCount.tsv 
+#1645249294
+sed "s/^/(null)\t/" Orthogroups.GeneCount.tsv > cafe.genefam.txt
+#1645249297
+les cafe.genefam.txt 
+#1645249300
+vi cafe.genefam.txt 
+#1645249330
+sed "s/^/(null)\t/;s/^.*Orthogroup/Desc\tOrthogroup/" Orthogroups.GeneCount.tsv > cafe.genefam.txt
+#1645249334
+les cafe.genefam.txt 
+#1645249348
+sed "s/^/(null)\t/;s/^.*Orthogroup/Desc\tFamily ID/" Orthogroups.GeneCount.tsv > cafe.genefam.txt
+#1645249350
+les cafe.genefam.txt 
+#1645249569
+ll
+#1645249616
+les cafe.genefam.txt 
+#1645249694
+cp 时间树sed_484_clock_ori.nwk.renamed.pruned.rooted.tre cafe.timetree.txt.1
+#1645249699
+cp cafe.timetree.txt.1 cafe.timetree.txt
+#1645249701
+vi cafe.timetree.txt
+#1645249737
+R
+#1645250647
+lt
+#1645250651
+les cafe.timetree.txt
+#1645250657
+vi cafe.timetree.txt
+#1645250676
+conda activate cafe
+#1645250680
+ls
+#1645250681
+lt
+#1645250685
+ls *pep
+#1645250687
+ls
+#1645250689
+cd ..
+#1645250689
+ls
+#1645250709
+for i in *pep; do echo ${i%.pep}; done
+#1645250717
+for i in *pep; do echo -n "${i%.pep}  "; done
+#1645250749
+for i in *pep; do echo ${i%.pep}; done
+#1645250758
+for i in *pep; do echo -n "${i%.pep}  "; done
+#1645250667
+tma
+#1645255813
+vw
+#1645250694
+vi cafe.timetree.txt
+#1645258277
+cafe5 
+#1645258284
+ls
+#1645258293
+bsub512 "cafe5 -i cafe.genefam.txt -t cafe.timetree.txt"
+#1645258296
+bjl
+#1645258302
+bkill 57974
+#1645258303
+ls
+#1645258306
+ss yi04
+#1645258230
+j phyleg_orthofinder
+#1645258234
+conda activate cafe
+#1645258240
+history |les
+#1645258292
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -k 2
+#1645258306
+vi cafe.genefam.txt 
+#1645258371
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -k 2
+#1645257838
+tma
+#1645258513
+vi ~/bin/CAFE5/examples/mammal_gene_families.txt 
+#1645258525
+tt ~/bin/CAFE5/examples/mammal_gene_families.txt 
+#1645258531
+vi ~/bin/CAFE5/examples/mammal_gene_families.txt 
+#1645258537
+tt ~/bin/CAFE5/examples/mammal_gene_families.txt 
+#1645258541
+vi ~/bin/CAFE5/examples/mammal_gene_families.txt 
+#1645258566
+ls
+#1645258567
+lt
+#1645258571
+vi cafe.genefam.txt 
+#1645258614
+cafe5
+#1645258548
+head cafe.genefam.txt > tmp
+#1645258618
+tma
+#1645258565
+tt tmp
+#1645258625
+cafe5 -i tmp -t cafe.timetree.txt -k 2
+#1645258632
+vi cafe.timetree.txt
+#1645258639
+vi tmp 
+#1645258646
+vi cafe.timetree.txt
+#1645258696
+cafe5 -i tmp -t cafe.timetree.txt -k 2
+#1645258705
+pushd ~/bin/CAFE5/
+#1645258705
+ls
+#1645258709
+cd examples/
+#1645258709
+ls
+#1645258718
+more mammals_tree.txt 
+#1645258732
+cafe5 -i mammal_gene_families.txt -t mammals_tree.txt
+#1645258735
+ls
+#1645258740
+vi mammal_gene_families.txt 
+#1645258758
+les mammals_tree.txt 
+#1645258762
+popd
+#1645258763
+ls
+#1645258766
+vi cafe.timetree.txt
+#1645258773
+vi cafe.genefam.txt 
+#1645258804
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -k 2
+#1645258821
+vi cafe.genefam.txt 
+#1645258853
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -k 2
+#1645258861
+pushd ~/bin/CAFE5/
+#1645258862
+ls
+#1645258936
+cd examples
+#1645259041
+lt
+#1645259046
+cd results/
+#1645259046
+lt
+#1645259048
+cd -
+#1645259048
+ls
+#1645259051
+lt
+#1645259053
+more all_cafe_commands.sh 
+#1645259064
+vi mammals_tree.txt 
+#1645259074
+vi mammal_gene_families.txt 
+#1645259090
+cafe5 -i mammal_gene_families.txt -t mammals_tree.txt
+#1645259106
+popd
+#1645259107
+ls
+#1645259117
+vi cafe.genefam.txt 
+#1645259155
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -k 2
+#1645259171
+cp cafe.timetree.txt cafe.timetree.txt.1
+#1645259174
+vi cafe.timetree.txt.1 
+#1645255673
+sudo su yanhui
+#1645259308
+cd /nfs/liuhui/projects/phyleg_orthofinder/
+#1645259309
+lth
+#1645259314
+sz cafe.timetree.txt
+#1645259316
+# Sent -> /Users/liuhui/Downloads/
+#1645259330
+vi cafe.timetree.txt
+#1645259346
+ll
+#1645259349
+vi cafe.genefam.txt 
+#1645259357
+tma
+#1645259287
+ps ux |grep sz
+#1645259291
+kill 113567
+#1645259199
+sz cafe.timetree.txt.1
+#1645259292
+tma
+#1645259310
+lsload
+#1645259371
+ssh yi04
+#1645259322
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -k 2
+#1645259402
+tma
+#1645259417
+lth
+#1645259423
+sz cafe.timetree.txt
+#1645259425
+# Sent -> /Users/liuhui/Downloads/
+#1645259363
+vi cafe.timetree.txt
+#1645259406
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -k 2
+#1645259411
+vi cafe.timetree.txt
+#1645259427
+vi cafe.genefam.txt 
+#1645259451
+les ~/bin/CAFE5/examples/mammal_gene_families.txt 
+#1645259456
+vi ~/bin/CAFE5/examples/mammal_gene_families.txt 
+#1645259464
+lth
+#1645259469
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -k 2
+#1645259478
+vi cafe.genefam.txt 
+#1645259486
+tt cafe.genefam.txt 
+#1645259500
+vi cafe.genefam.txt 
+#1645259510
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -k 2
+#1645259536
+vi cafe.timetree.txt
+#1645259549
+more 时间树sed_484_clock_ori.nwk.renamed.pruned.rooted.tre 
+#1645259559
+vi cafe.timetree.txt
+#1645259781
+cd ..
+#1645259781
+ls
+#1645259786
+more 时间树sed_484_clock_ori.nwk.renamed.pruned.rooted.tre 
+#1645259843
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -k 2
+#1645259858
+head cafe.genefam.txt > tmp
+#1645259859
+vi tmp 
+#1645259865
+vi cafe.genefam.txt 
+#1645259860
+vi 时间树sed_484_clock_ori.nwk.renamed.pruned.rooted.tre 
+#1645259440
+tma
+#1645255693
+sudo su yanhui
