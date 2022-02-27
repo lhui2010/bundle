@@ -14,7 +14,9 @@ from iga.apps.base import conda_act, bsub, waitjob, get_prefix, emain, abspath_l
 # 3 threads
 # 4 output
 gemoma_pipe_sh = r"""
-GeMoMa GeMoMaPipeline threads={3} outdir={4} GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t={0} i={4} a={2} g={1}"
+GeMoMa GeMoMaPipeline threads={3} outdir={4} GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t={0} i={4} a={2} g={1}
+
+
 # GeMoMa GeMoMaPipeline threads=128 outdir=Mt.outdir GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t=Duparquetia_orchidacea.fa.masked.fa i=Mt a=Medicago_truncatula.gff g=Medicago_truncatula.fa"
 # GeMoMa GeMoMaPipeline threads=128 outdir=At.outdir GeMoMa.Score=ReAlign AnnotationFinalizer.r=NO o=true t=Duparquetia_orchidacea.fa.masked.fa i=At a=Arabidopsis_thaliana.gff g=Arabidopsis_thaliana.fa"
 """
