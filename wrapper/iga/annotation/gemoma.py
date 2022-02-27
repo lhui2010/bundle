@@ -2,10 +2,11 @@
 gemoma relevant utils
 """
 import logging
+from os.path import abspath
 
 from iga.annotation.maker import maker_rename_gff
 from iga.annotation.repeat import goto_workdir
-from iga.apps.base import conda_act, bsub, waitjob, get_prefix, emain, abspath_list
+from iga.apps.base import conda_act, bsub, waitjob, get_prefix, emain, abspath_list, sh
 
 # 0 input_genome
 # 1 ortho_genome
@@ -56,6 +57,7 @@ def gemoma_gaf(dirs=None, outdir=''):
 def gemoma_pipe(input_genome=None, homo_genome='', homo_gff='', threads=40, outdir=''):
     """
     This is a wrapper that combines GeMoMaPipeline, GAF, and gff rename
+    homo_genome: seperated with ','
     Returns:
     """
     homo_genomes = homo_genome.split(',')
@@ -78,6 +80,7 @@ def gemoma_pipe(input_genome=None, homo_genome='', homo_gff='', threads=40, outd
     gff_prefix = genus[:2] + species[:3]
     gff_prefix = gff_prefix.upper()
     maker_rename_gff(gff='filtered_predictions.gff', prefix=gff_prefix)
+    sh("cp filtered_predictions.gff ../{0}.gemoma.gff")
     pass
 
 
