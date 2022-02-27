@@ -60,14 +60,14 @@ def gemoma_pipe(input_genome=None, homo_genome='', homo_gff='', threads=40, outd
     homo_genome: seperated with ','
     Returns:
     """
-    cmd = goto_workdir(input_genome+'.gemoma')
+    # cmd = goto_workdir(input_genome+'.gemoma')
 
     homo_genomes = homo_genome.split(',')
     homo_gffs = homo_gff.split(',')
 
-    sh(cmd)
-    for g in homo_genomes:
-        sh('ln -s ../{}'.format(g))
+    # sh(cmd)
+    # for g in homo_genomes:
+    #     sh('ln -s ../{}'.format(g))
 
     jobids = []
     for i in range(0, len(homo_genomes)):
