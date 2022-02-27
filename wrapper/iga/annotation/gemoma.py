@@ -63,20 +63,20 @@ def gemoma_pipe(input_genome=None, homo_genome='', homo_gff='', threads=40, outd
     cmd = goto_workdir(input_genome+'.gemoma')
 
     homo_genomes = homo_genome.split(',')
-    homo_gff = homo_gff.split(',')
-    homo_genomes = abspath_list(homo_genomes)
-    homo_gff = abspath_list(homo_gff)
+    homo_gffs = homo_gff.split(',')
 
     sh(cmd)
+    for g in homo_genomes:
+        sh('ln -s ../{}'.format(g))
 
     jobids = []
     for i in range(0, len(homo_genomes)):
-        jobid = gemoma_run(input_genome=input_genome, ortho_genome=homo_genomes[i], ortho_gff=homo_gff[i], output='', threads=threads)
+        jobid = gemoma_run(input_genome=input_genome, ortho_genome=homo_genomes[i], ortho_gff=homo_gffs[i], output='', threads=threads)
         jobids.append(jobid)
     waitjob(jobids)
 
     outdirs = []
-    for i in homo_genomes:
+    for i in homo_genomes + homo_gffs:
         outdirs.append(get_prefix(i))
     gemoma_gaf(dirs=outdirs)
 
