@@ -32,7 +32,7 @@ def gemoma_run(input_genome=None, ortho_genome=None, ortho_gff=None, output='', 
     Returns:
     """
     if output == '':
-        output = get_prefix(ortho_genome) + '.' + get_prefix(ortho_genome)
+        output = get_prefix(input_genome) + '.' + get_prefix(ortho_genome)
     cmd = conda_act.format('gemoma')
     cmd += gemoma_pipe_sh.format(input_genome, ortho_genome, ortho_gff, threads, output)
     jobid = bsub(cmd, name="gemoma_{}".format(output), cpus=threads)
