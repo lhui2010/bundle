@@ -86,7 +86,7 @@ def gemoma_pipe(input_genome=None, homo_genome='', homo_gff='', threads=40, outd
     gff_prefix = genus[:2] + species[:3]
     gff_prefix = gff_prefix.upper()
     maker_rename_gff(gff='filtered_predictions.gff', prefix=gff_prefix)
-    sh("cp filtered_predictions.gff ../{0}.gemoma.gff")
+    sh("cp filtered_predictions.gff {0}.gemoma.gff")
     pass
 
 
