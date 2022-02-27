@@ -78,8 +78,8 @@ def gemoma_pipe(input_genome=None, homo_genome='', homo_gff='', threads=40, outd
     waitjob(jobids)
 
     outdirs = []
-    for i in homo_genomes + homo_gffs:
-        outdirs.append(get_prefix(i))
+    for i in homo_genomes:
+        outdirs.append(get_prefix(input_genome) + get_prefix(i))
     gemoma_gaf(dirs=outdirs)
 
     (genus, species) = input_genome.split('.')[0].split('_')
