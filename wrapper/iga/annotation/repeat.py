@@ -106,7 +106,7 @@ bedtools maskfasta -soft -fi {1} -bed {0}/Full_mask/full_mask.complex.reformat.g
 """
 
 
-def post_repeatmasker(dir=None, genome=None):
+def post_repeatmasker(dir=None, genome=None, wait="T"):
     """
     Post repeat process
     :param dir:
@@ -116,7 +116,8 @@ def post_repeatmasker(dir=None, genome=None):
     if genome != '':
         cmd += get_mask_fasta_sh.format(dir, genome)
     jobid = bsub(cmd, name='post_repeatmasker')
-    waitjob(jobid)
+    if wait == "T":
+        waitjob(jobid)
 
 
 def goto_workdir(program, sample=''):
