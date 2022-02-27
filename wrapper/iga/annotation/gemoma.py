@@ -68,7 +68,7 @@ def gemoma_pipe(input_genome=None, homo_genome='', homo_gff='', threads=40, outd
     sh(cmd)
     jobids = []
     for i in range(0, len(homo_genomes)):
-        jobid = gemoma_run(input_genome=input_genome, ortho_genome=homo_genome[i], ortho_gff=homo_gff[i], output='', threads=threads)
+        jobid = gemoma_run(input_genome=input_genome, ortho_genome=homo_genomes[i], ortho_gff=homo_gff[i], output='', threads=threads)
         jobids.append(jobid)
     waitjob(jobids)
 
