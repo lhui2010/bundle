@@ -63,6 +63,7 @@ def gemoma_pipe(input_genome=None, homo_genome='', homo_gff='', threads=40, outd
     Returns:
     """
     # cmd = goto_workdir(input_genome+'.gemoma')
+    input_prefix = get_prefix(input_genome)
 
     homo_genomes = homo_genome.split(',')
     homo_gffs = homo_gff.split(',')
@@ -82,9 +83,10 @@ def gemoma_pipe(input_genome=None, homo_genome='', homo_gff='', threads=40, outd
         outdirs.append("{}.{}".format(get_prefix(input_genome), get_prefix(i)))
     gemoma_gaf(dirs=outdirs)
 
-    raw_gff = get_prefix(input_genome) + ".gff"
-    format_gff = get_prefix(input_genome) + "format.gff"
+    raw_gff = input_prefix + ".gff"
+    format_gff = input_prefix + ".format.gff"
     sh('mv filtered_predictions.gff {}'.format(raw_gff))
+    sh('mv protocol_GAF.txt {}.protocol_GAF.txt'.format(input_prefix))
 
     (genus, species) = input_genome.split('.')[0].split('_')
     gff_prefix = genus[:2] + species[:3]
