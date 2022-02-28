@@ -82,11 +82,15 @@ def gemoma_pipe(input_genome=None, homo_genome='', homo_gff='', threads=40, outd
         outdirs.append("{}.{}".format(get_prefix(input_genome), get_prefix(i)))
     gemoma_gaf(dirs=outdirs)
 
+    raw_gff = get_prefix(input_genome) + ".gff"
+    format_gff = get_prefix(input_genome) + "format.gff"
+    sh('mv filtered_predictions.gff {}'.format(raw_gff))
+
     (genus, species) = input_genome.split('.')[0].split('_')
     gff_prefix = genus[:2] + species[:3]
     gff_prefix = gff_prefix.upper()
-    maker_rename_gff(gff='filtered_predictions.gff', prefix=gff_prefix)
-    sh("cp filtered_predictions.gff {0}.gemoma.gff")
+    maker_rename_gff(gff=raw_gff, prefix=gff_prefix)
+    logging.info("The resulting gff is {}".format(format_gff))
     pass
 
 
