@@ -1,0 +1,12 @@
+[DEFAULT]
+ignoreip = 192.168.119.0/24 192.168.211.0/24
+bantime  = 2419200
+findtime  = 86400
+maxretry = 3
+maxmatches = %(maxretry)s
+
+[sshd]
+enabled = true
+port    = ssh
+action = iptables-allports
+logpath = /var/log/secure

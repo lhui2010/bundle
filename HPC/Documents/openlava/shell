@@ -1,0 +1,8 @@
+yum install git rpm-build rpmdevtools tcl tcl-devel ncurses ncurses-devel automake libtool
+yum localinstall --disablerepo=* --nogpgcheck ./openlava-2.2-1.x86_64.rpm
+/etc/init.d/openlava restart
+
+
+sudo iptables -I INPUT -s 192.168.119.0/28 -p udp --match multiport --dports 1024:65535 -j ACCEPT
+sudo iptables -I INPUT -s 192.168.119.0/28 -p tcp --match multiport --dports 1024:65535 -j ACCEPT
+sudo iptables-save|sudo tee /etc/sysconfig/iptables

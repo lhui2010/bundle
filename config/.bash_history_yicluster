@@ -37974,3 +37974,4613 @@ vi 时间树sed_484_clock_ori.nwk.renamed.pruned.rooted.tre
 tma
 #1645255693
 sudo su yanhui
+#1645260308
+gtps
+#1645260388
+gtp
+#1645313088
+bjl
+#1645313089
+tma
+#1645313067
+tp
+#1645313118
+ssh yi04
+#1645313189
+lsload
+#1645259870
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -k 2
+#1645313146
+cafe5 -h
+#1645313157
+lsload
+#1645313166
+htop
+#1645313170
+top
+#1645313199
+tma
+#1645313768
+lsload
+#1645313784
+for i in `seq 56709 57299`; do bmod -n 8 $i; done
+#1645313793
+bjl
+#1645406761
+bjobs |wc -l
+#1645424443
+ls
+#1645424445
+cd yanrui/
+#1645424446
+ls
+#1645424497
+cd ..
+#1645424498
+ls
+#1645424502
+cd ..
+#1645424503
+ls
+#1645424911
+bjl
+#1645431232
+bjobs |wc -l
+#1645431243
+bjl
+#1645431248
+ls
+#1645507189
+cd yanrui/
+#1645507190
+ls
+#1645507195
+cd mission2/
+#1645507197
+ls
+#1645507202
+cd text/
+#1645507203
+ls
+#1645507209
+les run.sh 
+#1645507578
+cat run.sh 
+#1645507653
+ls
+#1645507656
+cd ..
+#1645507657
+ls
+#1645507660
+cd ..
+#1645507661
+ls
+#1645508370
+cd psmc/
+#1645508371
+ls
+#1645508374
+cd ..
+#1645508374
+ls
+#1645508376
+cd ..
+#1645508377
+ls
+#1645508383
+cd yanrui/
+#1645508383
+ls
+#1645508388
+cd mission2/
+#1645508388
+ls
+#1645508390
+cd text/
+#1645508391
+ls
+#1645508693
+cp sample.sorted.bam.rmdup 222.sorted.bam.rmdup
+#1645508764
+ls
+#1645508801
+rm 222.sorted.bam.rmdup 
+#1645508806
+ls
+#1645509275
+mv sample.sorted.bam.rmdup.bai sample111.sorted.bam.rmdup.bai
+#1645509277
+ls
+#1645509327
+busb -n 40 'samtools -@ 40 index sample.sorted.bam.rmdup'
+#1645509334
+busub -n 40 'samtools -@ 40 index sample.sorted.bam.rmdup'
+#1645509343
+bsub -n 40 'samtools -@ 40 index sample.sorted.bam.rmdup'
+#1645509347
+ls
+#1645509585
+bjobs 
+#1645509626
+ls
+#1645509754
+samtools index sample.sorted.bam.rmdup
+#1645509825
+ls
+#1645670400
+firefox 
+#1645670433
+firefox
+#1645670937
+ll
+#1645683108
+top
+#1645683111
+bjl
+#1645683206
+bjl
+#1645683216
+ls
+#1645683222
+cd projects/genomes/
+#1645683223
+ls
+#1645683227
+j mcscanx2/ks
+#1645683233
+lth
+#1645683239
+les Zollernia_splendens_Pap.Vigna_radiata.err 
+#1645683248
+les work.Zollernia_splendens_Pap.Vigna_radiata/*kaks
+#1645683297
+cd work.Zollernia_splendens_Pap.Vigna_radiata/
+#1645683298
+lth
+#1645683303
+ks_hist.R Zollernia_splendens_Pap.Vigna_radiata.ortho.kaks
+#1645683318
+sz Zollernia_splendens_Pap.Vigna_radiata.ortho.kaks.pdf 
+#1645683321
+# Sent -> /Users/liuhui/Downloads/
+#1645683356
+cd ..
+#1645683358
+ls -d */
+#1645683372
+mkdir kaks_with_rnaseq
+#1645683378
+cd ..
+#1645683378
+ls
+#1645683381
+vi 05.get_rest_peaks.sh
+#1645683386
+lt
+#1645683388
+lth
+#1645683392
+vi mcscanX2.sh
+#1645683440
+cp mcscanX2.sh mcscanX2/kaks_with_rnaseq/
+#1645683445
+cd mcscanX2/kaks_with_rnaseq/
+#1645683445
+ls
+#1645683448
+vi mcscanX2.sh 
+#1645683463
+cp ../../genome_failed.txt ./
+#1645683464
+vi mcscanX2.sh 
+#1645683471
+cp ../../genome_sp_list ./
+#1645683472
+vi mcscanX2.sh 
+#1645683478
+cp ../../rnaseq_sp_list 
+#1645683480
+cp ../../rnaseq_sp_list ./
+#1645683483
+cp ../../rnaseq_genome_sp_list .
+#1645683484
+ll
+#1645683499
+mv mcscanX2.sh commWGD.sh
+#1645683579
+ll
+#1645683581
+vi commWGD.sh 
+#1645684092
+cp commWGD.sh 
+#1645684097
+vi commWGD.sh 
+#1645684114
+bash commWGD.sh 
+#1645684173
+lt ../work.Mimosa_pudica.Trifolium_pratense
+#1645684192
+ls ../work.Mimosa_pudica.Trifolium_pratense/
+#1645684200
+vi commWGD.sh 
+#1645684259
+j mcscanx2
+#1645684269
+ls
+#1645684277
+cd ..
+#1645684278
+lth
+#1645684287
+vi mcscanX2.failed
+#1645684305
+pushd mcscanX2/work.Andira_inermis_Pap.Angylocalyx_braunii_Pap
+#1645684307
+lt
+#1645684314
+ks_hist.R Andira_inermis_Pap.Angylocalyx_braunii_Pap.ortho.kaks
+#1645684346
+sz Andira_inermis_Pap.Angylocalyx_braunii_Pap.ortho.kaks.pdf 
+#1645684349
+# Sent -> /Users/liuhui/Downloads/
+#1645684808
+lth
+#1645684826
+cd ..
+#1645684827
+df -h
+#1645684836
+lth
+#1645684844
+cd ..
+#1645684848
+popd
+#1645684863
+lth
+#1645684869
+vi mcscanX2.failed 
+#1645684211
+bash commWGD.sh 
+#1645686137
+lt
+#1645686150
+cd /nfs/liuhui/projects/phyleg/mcscanX2/kaks_with_rnaseq/
+#1645686151
+lth
+#1645686155
+lt
+#1645686161
+vi commWGD.sh 
+#1645686181
+cd ..
+#1645686181
+ls
+#1645686183
+lth
+#1645686189
+ls *.ortho |wc -l
+#1645686201
+lt *.kaks *.ortho |les
+#1645686212
+rm *.kaks *.ortho
+#1645686296
+lth
+#1645686301
+vi commWGD.sh 
+#1645686237
+top
+#1645686240
+lth
+#1645686248
+j kaks_with_rnaseq
+#1645686248
+lth
+#1645686252
+vi commWGD.sh 
+#1645686260
+bash commWGD.sh 
+#1645686265
+vi commWGD.sh 
+#1645686286
+bash commWGD.sh 
+#1645686298
+bash commWGD.sh > failed.sh 
+#1645686302
+bash commWGD.sh 2> failed.sh 
+#1645686562
+lth
+#1645686570
+ls
+#1645686572
+vi commWGD.sh 
+#1645686592
+python -m iga.evolution.ortho
+#1645686611
+cp ../kaks/*.kaks ../kaks/*.ortho ./ &
+#1645686613
+lth
+#1645686616
+vi commWGD.sh 
+#1645686621
+lt
+#1645686625
+chmod -w *.ortho *.kaks
+#1645686625
+lth
+#1645686633
+fg
+#1645686637
+chmod +w *.ortho *.kaks
+#1645686639
+vi commWGD.sh 
+#1645686644
+rm *.ortho *.kaks
+#1645686659
+bash commWGD.sh 2> failed.sh 
+#1645686661
+ls
+#1645686664
+vi commWGD.sh 
+#1645686671
+bash commWGD.sh 2> failed.sh 
+#1645686712
+ls
+#1645686715
+vi commWGD.sh 
+#1645687214
+lth
+#1645687220
+chmod -w *.ortho *.kaks
+#1645687220
+ls
+#1645687242
+for i in  ../kaks/*.kaks ../kaks/*.ortho ; do ln -s $i; done
+#1645687261
+lth
+#1645687318
+vi commWGD.sh 
+#1645687334
+python -m iga.evolution.ortho commWGD1
+#1645687338
+python -m iga.evolution.ortho commonWGD1
+#1645687341
+vi commWGD.sh 
+#1645687381
+python -m iga.evolution.ortho commonWGD1 -h
+#1645687386
+vi commWGD.sh 
+#1645687416
+bash commWGD.sh 
+#1645687421
+bjl
+#1645687428
+while true; do bkill -u liuhui; done
+#1645687459
+ls
+#1645687460
+lth
+#1645687462
+vi commWGD.sh 
+#1645687487
+bash commWGD.sh 
+#1645687496
+vi commWGD.sh 
+#1645687498
+lth
+#1645687500
+vi commWGD.sh 
+#1645687530
+bash commWGD.sh 
+#1645687790
+lth
+#1645687792
+bjl
+#1645687796
+bjobs |wc -l
+#1645687797
+bjl
+#1645687800
+bjobs |wc -l
+#1645687803
+lth
+#1645687805
+les error.*
+#1645687816
+cd work_Abrus_precatorius.Spatholobus_suberectus.ortho/
+#1645687816
+lt
+#1645687821
+les *right.kaks
+#1645687829
+les ../Spatholobus_suberectus.Spatholobus_suberectus.ortho.kaks 
+#1645687832
+les ../Spatholobus_suberectus.Spatholobus_suberectus.ortho.
+#1645687833
+les ../Spatholobus_suberectus.Spatholobus_suberectus.ortho
+#1645687838
+cd ..
+#1645687846
+ll Spatholobus_suberectus.Spatholobus_suberectus.ortho
+#1645687848
+ll Spatholobus_suberectus.Spatholobus_suberectus.ortho.kaks 
+#1645687852
+ll ../kaks/Spatholobus_suberectus.Spatholobus_suberectus.ortho.kaks
+#1645687855
+ls
+#1645687871
+ll Mimosa_pudica.Mimosa_pudica.ortho*
+#1645687878
+ll ../kaks/Mimosa_pudica.Mimosa_pudica.ortho*
+#1645687889
+lt work_Mimosa_pudica.Lablab_purpureus.ortho/
+#1645687904
+ll *kaks
+#1645687907
+rm *.kaks
+#1645687914
+ls
+#1645687918
+lth
+#1645687921
+ll *peak
+#1645687944
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1645687945
+lt
+#1645687953
+les ../Abrus_precatorius.Abrus_precatorius.ortho 
+#1645687957
+les ../Abrus_precatorius.Abrus_precatorius.ortho.k
+#1645687969
+cd ../
+#1645687970
+ls
+#1645687973
+rm -r work_*
+#1645688009
+ls -l *
+#1645688043
+unlink Lablab_purpureus.Lablab_purpureus.ortho
+#1645688052
+for i in *; do unlink $i; done
+#1645688076
+lth
+#1645688078
+ls
+#1645688092
+man unlink
+#1645688149
+cp ../../mcscanX2.sh ./
+#1645688150
+vi mcscanX2.sh 
+#1645688217
+bash mcscanX2.sh 
+#1645688220
+vi mcscanX2.sh 
+#1645688236
+bash mcscanX2.sh 
+#1645688239
+ll
+#1645688249
+bash mcscanX2.sh 2>failed.txt
+#1645688251
+lth
+#1645688257
+ls *kaks |wc
+#1645688267
+ll
+#1645688270
+vi mcscanX2.sh 
+#1645688299
+bash mcscanX2.sh 
+#1645688530
+ls
+#1645688536
+chmod -w *.ortho *.kaks
+#1645688543
+cp ../kaks/*.kaks ../kaks/*.ortho ./ &
+#1645689208
+ls
+#1645689212
+ll -S *.kaks |les
+#1645689241
+cd ..
+#1645689242
+ls
+#1645689246
+vi mcscanX2.sh 
+#1645689250
+vi ../mcscanX2.sh
+#1645689335
+bsub512 -m yi04 -n 5 "python -m iga.evolution.ortho mcscanx --threads 10 Mimosa_pudica Trifolium_pratense"
+#1645689335
+bsub512 -m yi04 -n 5 "python -m iga.evolution.ortho mcscanx --threads 10 Spatholobus_suberectus Spatholobus_suberectus
+bsub512 -m yi04 -n 5 "python -m iga.evolution.ortho mcscanx --threads 10 Trifolium_pratense Trifolium_pratense"
+
+#1645689345
+bsub512 -m yi04 -n 5 "python -m iga.evolution.ortho mcscanx --threads 10 Spatholobus_suberectus Spatholobus_suberectus"
+#1645689345
+bsub512 -m yi04 -n 5 "python -m iga.evolution.ortho mcscanx --threads 10 Trifolium_pratense Trifolium_pratense"
+#1645689347
+bjl
+#1645689487
+lth
+#1645689491
+les error.60331 
+#1645689498
+lt work.Mimosa_pudica.Trifolium_pratense/
+#1645689511
+vi ../mcscanX2.sh
+#1645689515
+les error.6033
+#1645689518
+lth
+#1645689523
+lt work.Trifolium_pratense.Trifolium_pratense/
+#1645689527
+cd work.Trifolium_pratense.Trifolium_pratense/
+#1645689531
+les Trifolium_pratense.Trifolium_pratense.anchors 
+#1645689544
+les Trifolium_pratense.Trifolium_pratense.gff3 
+#1645689567
+vi  Trifolium_pratense.Trifolium_pratense.gff3 
+#1645689587
+cp ../Trifolium_pratense.gff3 Trifolium_pratense.Trifolium_pratense.gff3
+#1645689589
+cp -f ../Trifolium_pratense.gff3 Trifolium_pratense.Trifolium_pratense.gff3
+#1645689592
+les Trifolium_pratense.Trifolium_pratense.gff3
+#1645689605
+cp -f ../Trifolium_pratense.cds ../Trifolium_pratense.pep ./
+#1645689606
+lt
+#1645689612
+les Trifolium_pratense.Trifolium_pratense.blast
+#1645689618
+grep Tp57577_TGAC_v2_mRNA10004_Trpra *cds
+#1645689622
+cd ..
+#1645689625
+bsub512 -m yi04 -n 5 "python -m iga.evolution.ortho mcscanx --threads 10 Trifolium_pratense Trifolium_pratense"
+#1645689626
+cd -
+#1645689626
+lt
+#1645689630
+rm error.50419 output.50419 
+#1645689631
+lt
+#1645689633
+bjl
+#1645689635
+lt
+#1645689638
+bj
+#1645689639
+bjl
+#1645689640
+lt
+#1645689649
+bjl
+#1645689788
+lt
+#1645689794
+les *.kaks
+#1645689803
+cp Trifolium_pratense.Trifolium_pratense.ortho.kaks ../kaks_with_rnaseq/
+#1645689810
+cp Trifolium_pratense.Trifolium_pratense.ortho ../kaks_with_rnaseq/
+#1645689812
+bjl
+#1645689817
+cd ..
+#1645689819
+lth
+#1645689823
+cd work.Spatholobus_suberectus.Spatholobus_suberectus/
+#1645689823
+lt
+#1645689834
+rm *gff3 *cds *pep
+#1645689860
+cp ../Spatholobus_suberectus.pep ../Spatholobus_suberectus.cds ../Spatholobus_suberectus.gff3 ./
+#1645689866
+cp Spatholobus_suberectus.gff3 Spatholobus_suberectus.Spatholobus_suberectus.gff 
+#1645689870
+mv Spatholobus_suberectus.Spatholobus_suberectus.gff Spatholobus_suberectus.Spatholobus_suberectus.gff3
+#1645689873
+cd ..
+#1645689877
+bsub512 -m yi04 -n 5 "python -m iga.evolution.ortho mcscanx --threads 10 Spatholobus_suberectus Spatholobus_suberectus"
+#1645689878
+lth
+#1645689886
+cd work.Mimosa_pudica.Trifolium_
+#1645689887
+cd work.Mimosa_pudica.Trifolium_pratense/
+#1645689887
+lt
+#1645689893
+les *ortho
+#1645693399
+lth
+#1645693414
+cp Mimosa_pudica.Trifolium_pratense.ortho Mimosa_pudica.Trifolium_pratense.ortho.kaks ../kaks_with_rnaseq/
+#1645693422
+cd ../kaks_with_rnaseq/
+#1645693424
+ll -S *.kaks |les
+#1645693433
+cd ../work.Spatholobus_suberectus.Spatholobus_suberectus/
+#1645693433
+lt
+#1645693446
+les Spatholobus_suberectus.Spatholobus_suberectus.collinearity 
+#1645693449
+les Spatholobus_suberectus.Spatholobus_suberectus.gff
+#1645693458
+les *.blast
+#1645693462
+cd ..
+#1645693470
+rm -r work.Spatholobus_suberectus.Spatholobus_suberectus/ 
+#1645693474
+bsub512 -m yi04 -n 5 "python -m iga.evolution.ortho mcscanx --threads 10 Spatholobus_suberectus Spatholobus_suberectus"
+#1645693476
+bjl
+#1645693478
+top
+#1645693573
+tma
+#1645693597
+bjl
+#1645693652
+bjl
+#1645694277
+lth
+#1645694281
+cd work.Spatholobus_suberectus.
+#1645694284
+cd work.Spatholobus_suberectus.Spatholobus_suberectus/
+#1645694285
+lt
+#1645694288
+les *gff3
+#1645694291
+les *cds
+#1645694293
+les *gff3
+#1645694299
+les *blast
+#1645694306
+cd ..
+#1645694308
+rm -r work.Spatholobus_suberectus.Spatholobus_suberectus/ 
+#1645694312
+rm Spatholobus_suberectus.Spatholobus_suberectus.blast 
+#1645694315
+bsub512 -m yi04 -n 5 "python -m iga.evolution.ortho mcscanx --threads 10 Spatholobus_suberectus Spatholobus_suberectus"
+#1645694318
+bjl
+#1645694718
+top
+#1645695636
+bjl
+#1645686324
+ssh yi04
+#1645313181
+cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -c 80
+#1645757628
+ping yi01
+#1645758693
+lth
+#1645758723
+N50v1.pl soapdenovo.cut250.tigmint.fa.k32.w100.z1000.stitch.abyss-scaffold.fa > soapdenovo.cut250.tigmint.fa.k32.w100.z1000.stitch.abyss-scaffold.fa.n50
+#1645758771
+more *50
+#1641197238
+bjl
+#1645788761
+bhosts 
+#1645788675
+top
+#1645788765
+ssh yi04
+#1645788720
+cafe5
+#1645788751
+bsub512 -J cafeK2 -n 80 -m yi04 "cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -c 80 -k 2"
+#1645788753
+bjl
+#1645788755
+p
+#1645788756
+bjl
+#1645788758
+bj
+#1645788759
+bjl
+#1645788760
+lth
+#1645788763
+cd results/
+#1645788764
+lt
+#1645788766
+cd -
+#1645788767
+lth
+#1645788771
+bjl
+#1645788771
+tma
+#1645789106
+bjl
+#1645789021
+top
+#1645789110
+ssh yi04
+#1645927326
+j
+#1645927327
+ls
+#1645927328
+lt
+#1645927329
+cd pro
+#1645927330
+ls
+#1645927368
+lth
+#1645927371
+cd ../
+#1645927371
+lt
+#1645927374
+cd phyleg_orthofinder/
+#1645927374
+ls
+#1645927376
+ll
+#1645927393
+ln -s fasta/OrthoFinder/Results_Feb16/Orthogroups/Orthogroups_SingleCopyOrthologues.txt 
+#1645927399
+les Orthogroups_SingleCopyOrthologues.txt 
+#1645927405
+ll
+#1645927410
+les Orthogroups.GeneCount.tsv 
+#1645927416
+cd ../
+#1645927417
+ls
+#1645927419
+cd genomes/
+#1645927420
+ls
+#1645927424
+cd Fabales/
+#1645927424
+ls
+#1645927430
+ls *fa |wc -l
+#1645927433
+ls *.cds |wc -l
+#1645927438
+ll *.cds
+#1645927443
+ll Duparquetia_orchidacea.*
+#1645927469
+cd ../../phyleg/mcscanX2
+#1645927472
+ls *.cds |wc -l
+#1645927478
+cd -
+#1645927479
+ls
+#1645927487
+mkdir version0
+#1645927494
+mv *.* version0/
+#1645927495
+ls
+#1645927498
+cd -
+#1645927511
+cp *.fa *.cds *.pep *.gff3 /nfs/liuhui/projects/genomes/Fabales/ &
+#1645927515
+cd /nfs/liuhui/projects/genomes/Fabales/
+#1645927516
+ll
+#1645927641
+lt
+#1645927643
+jobs
+#1645927662
+ls *cds > list2
+#1645927664
+cd version0/
+#1645927668
+ls *cds > ../list1
+#1645927669
+cd ..
+#1645927670
+ls
+#1645927673
+diff list1 list2 |les
+#1645927699
+cp version0/*.fa ./ &
+#1645927700
+cd ..
+#1645927705
+ls
+#1645927716
+les Melilotus_albus.fa
+#1645927730
+cp Melilotus_albus.fa Astragalus_sinicus.fa Fabales/ &
+#1645927738
+cd Fabales/
+#1645927749
+lth
+#1645927802
+jobs
+#1645927804
+lth
+#1645928285
+ls
+#1645928288
+ls *.fa |wc -l
+#1645929504
+lth
+#1645929512
+ls *.fa > list3
+#1645929513
+vi list3
+#1645929521
+wc -l list*
+#1645929527
+les list2 
+#1645929541
+diff list3 list1 |les
+#1645929553
+diff list3 list1 
+#1645929600
+ll Castanospermum_australe*
+#1645929616
+vi list4_nocds_fa
+#1645929631
+python -m iga.annotation
+#1645929637
+python -m iga.annotation.gemoma
+#1645930568
+ll
+#1645930571
+j repeatmask
+#1645930571
+ls
+#1645930574
+cd ..
+#1645930574
+ls
+#1645930595
+python -m iga.annotation.repeat
+#1645930598
+python -m iga.annotation.repeat repeatmasker
+#1645930637
+ls workdir_repeatmask_Glycine_latifolia.fa/
+#1645930645
+for i in Castanospermum_australe Dipteryx_alata Eperua_falcata Glycine_latifolia Vigna_mungo; do python -m iga.annotation.repeat repeatmasker --species Viridiplantae --denovo F  ${i}.fa; done
+#1645930658
+python -m iga.annotation.repeat repeatmasker -h
+#1645930665
+bjl
+#1645930674
+for i in Dipteryx_alata Eperua_falcata Glycine_latifolia Vigna_mungo; do python -m iga.annotation.repeat repeatmasker --species Viridiplantae --denovo F  ${i}.fa --wait "F"; done
+#1645930679
+bjl
+#1645930772
+tma
+#1645930795
+j duparquetia
+#1645930796
+ls
+#1645930797
+lt
+#1645930798
+cd annotation/
+#1645930798
+lt
+#1645930801
+cd gemoma/
+#1645930801
+lt
+#1645930824
+mkdir annotate_rest_5_legumes
+#1645930844
+cp Arabidopsis_thaliana.* Medicago_truncatula.* Zenia_insignis.* annotate_rest_5_legumes/
+#1645930871
+cd annotate_rest_5_legumes/
+#1645930871
+lt
+#1645930954
+ll ..
+#1645931418
+lt
+#1645931421
+cd ..
+#1645931421
+lt
+#1645931434
+les filtered_predictions.gff
+#1645931482
+les Duparquetia_orchidacea.softmasked.fa 
+#1645931699
+conda activate gemoma
+#1645931706
+GeMoMa CLI GAF
+#1645931725
+GeMoMa GAF
+#1645931741
+GeMoMa GAF -h
+#1645931745
+GeMoMa GAF -help
+#1645931750
+GeMoMa GAF --help
+#1645931754
+GeMoMa GAF 
+#1645932035
+les *fa
+#1645932040
+cd ../gen
+#1645932042
+cd ..
+#1645932042
+ls
+#1645932044
+cd ../genomes/
+#1645932045
+ls
+#1645932049
+les Melilotus_albus.cds 
+#1645932069
+les Fabales/Duparquetia_orchidacea.cds 
+#1645932074
+les Fabales/Duparquetia_orchidacea.gff3 
+#1645932150
+les ll
+#1645932151
+ll
+#1645932155
+cd annotate_rest_5_legumes/
+#1645932155
+ll
+#1645932185
+for i in Castanospermum_australe Dipteryx_alata Eperua_falcata Glycine_latifolia Vigna_mungo; do cp ~/projects/genomes/Fabales/${i}.fa ./ ; done
+#1645932240
+ll
+#1645932254
+bjl
+#1645932256
+ll
+#1645932267
+rm Castanospermum_australe.fa Dipteryx_alata.fa Eperua_falcata.fa Glycine_latifolia.fa Vigna_mungo.fa
+#1645932270
+ll
+#1645932149
+tma
+#1645932272
+j repeat
+#1645932272
+lt
+#1645932274
+ls
+#1645932274
+lth
+#1645932283
+lt workdir_repeatmask_Dipteryx_alata.fa/
+#1645932284
+lt workdir_repeatmask_Dipteryx_alata.fa/species_lib.out/
+#1645932290
+python -m iga.annotation.repeat repeatmasker -h
+#1645932293
+python -m iga.annotation.repeat 
+#1645932299
+python -m iga.annotation.repeat post_repeatmasker -h
+#1645932348
+for i in Dipteryx_alata Eperua_falcata Glycine_latifolia Vigna_mungo; do python -m iga.annotation.repeat post_repeatmasker workdir_repeatmask_${i}.fa ${i}.fa; done
+#1645932380
+for i in Castanospermum_australe Eperua_falcata Glycine_latifolia Vigna_mungo; do python -m iga.annotation.repeat post_repeatmasker workdir_repeatmask_${i}.fa ${i}.fa --wait "F"; done
+#1645932398
+python -m iga.annotation.repeat post_repeatmasker -h
+#1645932461
+gtp
+#1645932470
+for i in Castanospermum_australe Eperua_falcata Glycine_latifolia Vigna_mungo; do python -m iga.annotation.repeat post_repeatmasker workdir_repeatmask_${i}.fa ${i}.fa --wait "F"; done
+#1645932478
+bjl
+#1645932483
+lth
+#1645932500
+les workdir_repeatmask_Dipteryx_alata.fa/Full_mask/full_mask.cat 
+#1645932503
+bjl
+#1645932519
+ll *post*
+#1645932522
+vi bsub.post_repeatmasker.471897.sh
+#1645932551
+bjl
+#1645932556
+lt workdir_repeatmask_*/Full*/
+#1645932561
+lth
+#1645932564
+les error.60367 
+#1645932571
+conda activate repeat
+#1645932575
+conda activate EDTA
+#1645932611
+ll *sh
+#1645932613
+ll *post*
+#1645932616
+les *post*
+#1645932626
+vi *post*
+#1645932662
+lth
+#1645932668
+bjl
+#1645932671
+for i in *post*.sh; do bsub512 -J post < ${i}; done
+#1645932673
+bjl
+#1645932792
+lt workdir_repeatmask_*/Full*/
+#1645932835
+conda deactivate
+#1645932843
+python -m iga.annotation.gemoma
+#1645932847
+python -m iga.annotation.gemoma gemoma_pipe
+#1645932849
+python -m iga.annotation.gemoma gemoma_pipe -h
+#1645932976
+gtp
+#1645933004
+python -m iga.annotation.gemoma gemoma_pipe -h
+#1645933015
+bjl
+#1645933017
+top
+#1645940651
+bjl
+#1645940653
+lth
+#1645940658
+ll *masked.fa
+#1645940672
+cp /nfs/liuhui/projects/phyleg/repeat_mask/*masked.fa ./
+#1645940718
+ll
+#1645940723
+python -m iga.annotation.gemoma
+#1645940746
+conda deactivate
+#1645940750
+gtp
+#1645940756
+python -m iga.annotation.gemoma
+#1645940762
+python -m iga.annotation.gemoma gemoma_pipe
+#1645940764
+python -m iga.annotation.gemoma gemoma_pipe -h
+#1645940768
+ls
+#1645940780
+python -m iga.annotation.gemoma gemoma_pipe Dipteryx_alata.fa.masked.fa --homo_genome Arabidopsis_thaliana.fa,Medicago_truncatula.fa,Zenia_insignis.fa
+#1645940669
+tma
+#1645940812
+cd /nfs/liuhui/projects/buzzo/duparquetia/annotation/gemoma/annotate_rest_5_legumes/
+#1645940813
+lt
+#1645940815
+bjl
+#1645940801
+python -m iga.annotation.gemoma gemoma_pipe Dipteryx_alata.fa.masked.fa --homo_genome Arabidopsis_thaliana.fa,Medicago_truncatula.fa,Zenia_insignis.fa --homo_gff Arabidopsis_thaliana.gff,Medicago_truncatula.gff,Zenia_insignis.gff
+#1645940824
+lt
+#1645940829
+lt GeMoMa_temp/
+#1645940830
+lt
+#1645940837
+les 
+#1645940839
+les error.60379
+#1645940847
+bjl
+#1645940854
+lt
+#1645940858
+les bsub.gemoma_a.801464.sh 
+#1645940954
+gtp
+#1645940848
+tma
+#1645940970
+lt
+#1645940974
+cd workdir_Dipteryx_alata.fa.masked.fa.gemoma_/
+#1645940974
+lt
+#1645940976
+cd -
+#1645940976
+lt
+#1645940984
+les error.60381
+#1645940994
+lt
+#1645940963
+python -m iga.annotation.gemoma gemoma_pipe Dipteryx_alata.fa.masked.fa --homo_genome Arabidopsis_thaliana.fa,Medicago_truncatula.fa,Zenia_insignis.fa --homo_gff Arabidopsis_thaliana.gff,Medicago_truncatula.gff,Zenia_insignis.gff
+#1645941014
+les error.60381
+#1645941026
+rm output.603* error.603*
+#1645941026
+lt
+#1645941029
+vi bsub.gemoma_a.963617.sh 
+#1645941108
+rm bsub.gemoma_*
+#1645941109
+lt
+#1645941112
+rm -r workdir_Dipteryx_alata.fa.masked.fa.gemoma_/
+#1645941113
+lt
+#1645941139
+gtp
+#1645941145
+rm -r GeMoMa_temp/
+#1645941145
+lt
+#1645941150
+tma
+#1645941153
+lt
+#1645941155
+bjl
+#1645941159
+lt
+#1645941164
+les error.60385 
+#1645941168
+vi bsub.gemoma_*sh
+#1645941179
+bash bsub.gemoma_Medicago_truncatula.152047.sh
+#1645941340
+gtp
+#1645941354
+tma
+#1645941358
+lt
+#1645941364
+lt workdir_Dipteryx_alata.fa.masked.fa.gemoma_/
+#1645941366
+rmdir workdir_Dipteryx_alata.fa.masked.fa.gemoma_/
+#1645941366
+lt
+#1645941369
+bjl
+#1645941371
+lt
+#1645941375
+les bsub.gemoma_Zenia_insignis.356375.sh 
+#1645941384
+les error.603*
+#1645941431
+vi shell
+#1645941443
+lt
+#1645941445
+ls GeMoMa_temp/
+#1645941447
+rmdir GeMoMa_temp/
+#1645941448
+lt
+#1645941457
+bash bsub.gemoma_Zenia_insignis.356375.sh
+#1645941470
+ll Zenia_insignis.fa
+#1645941478
+vi bsub.gemoma_Zenia_insignis.356375.sh
+#1645941491
+bash bsub.gemoma_Zenia_insignis.356375.sh
+#1645941497
+lt
+#1645941504
+rm -r GeMoMa_temp/
+#1645941589
+conda activate gemoma
+#1645941592
+GeMoMa -h
+#1645941605
+GeMoMa GeMoMaPipeline
+#1645941622
+lt
+#1645941659
+gtp
+#1645941664
+tma
+#1645941670
+lt
+#1645941672
+lth
+#1645941673
+bjl
+#1645941675
+lth
+#1645941677
+bjl
+#1645941679
+lt
+#1645941684
+bjl
+#1645941685
+lth
+#1645941722
+bash bsub.gemoma_Zenia_insignis.Zenia_insignis.668514.sh
+#1645941750
+rm output.603* error.603* bsub.gemoma_*
+#1645941750
+bjl
+#1645941753
+lt
+#1645941757
+rm -r GeMoMa_temp/
+#1645941757
+lt
+#1645941759
+gtp
+#1645941752
+tma
+#1645941769
+lt
+#1645941776
+rm filtered_predictions.gff.map.txt 
+#1645941777
+lt
+#1645941779
+bjl
+#1645941782
+lt
+#1645941787
+bjl
+#1645941791
+lt GeMoMa_temp/
+#1645941794
+lt
+#1645941797
+tma
+#1645941810
+conda deactivate
+#1645941811
+lt
+#1645941812
+tma
+#1645941819
+bjg
+#1645941825
+bkill 60397 60398 60396
+#1645941826
+bjl
+#1645941834
+bj
+#1645941836
+bjg
+#1645941767
+python -m iga.annotation.gemoma gemoma_pipe Dipteryx_alata.fa.masked.fa --homo_genome Arabidopsis_thaliana.fa,Medicago_truncatula.fa,Zenia_insignis.fa --homo_gff Arabidopsis_thaliana.gff,Medicago_truncatula.gff,Zenia_insignis.gff
+#1645941841
+bjl
+#1645941847
+bkill 60399
+#1645941847
+lt
+#1645941852
+vi bsub.gemoma_gaf.838319.sh 
+#1645941939
+lt
+#1645941941
+rm output.6039* error.6039*
+#1645941941
+lt
+#1645941943
+rm bsub.gemoma_*
+#1645941943
+lt
+#1645941946
+rm -r GeMoMa_temp/
+#1645941838
+tma
+#1645941979
+lt
+#1645941980
+bjl
+#1645941983
+lt
+#1645941985
+bjl
+#1645941986
+lt
+#1645941987
+bjl
+#1645941989
+lt
+#1645941992
+bjl
+#1645941997
+lt
+#1645942002
+gtp
+#1645942016
+tma
+#1645941974
+for i in *.masked.fa; do python -m iga.annotation.gemoma gemoma_pipe ${i} --homo_genome Arabidopsis_thaliana.fa,Medicago_truncatula.fa,Zenia_insignis.fa --homo_gff Arabidopsis_thaliana.gff,Medicago_truncatula.gff,Zenia_insignis.gff; done
+#1645942100
+bjl
+#1645942102
+bjg
+#1645942108
+bkill 60401 60402 60400
+#1645942109
+bjl
+#1645942110
+bj
+#1645942111
+ls
+#1645942122
+bjl
+#1645942126
+rm -r GeMoMa_temp/ output* error* bsub*
+#1645942130
+ll
+#1645942136
+chmod -w *.fa *.gff
+#1645942136
+ll
+#1645942140
+ls
+#1645942141
+ll
+#1645942153
+bjl
+#1645942166
+vi shell 
+#1645942138
+tma
+#1645942183
+bjl
+#1645942192
+bjg
+#1645942195
+bjl
+#1645942216
+lt
+#1645942219
+lt GeMoMa_temp/
+#1645942222
+lt GeMoMa_temp/*/
+#1645942226
+lsload
+#1645942230
+vi /etc/host
+#1645942233
+vi /etc/hosts
+#1645942174
+bash shell 
+#1645954053
+ls
+#1645954056
+rm output.54* error.54*
+#1645954057
+ll
+#1645954073
+cd ..
+#1645954078
+cp -r /mnt/workdisk/yanhui/annotation annotation2
+#1645954047
+tma
+#1645954086
+toyim
+#1645954022
+cd projects/yanhui/
+#1645954022
+ls
+#1645954057
+cd /mnt/workdisk/yanhui/annotation/
+#1645954059
+ll
+#1645954066
+ll b/
+#1645954027
+cp -r /mnt/workdisk/yanhui/annotation annotation2
+#1645954101
+ls
+#1645954104
+cd annotation2/
+#1645954104
+ls
+#1645954106
+rm -r *
+#1645954109
+ls
+#1645954110
+git clone https://github.com/yanhui-k/annotation_smk.git
+#1645954113
+ls
+#1645954117
+mv annotation_smk ../
+#1645954118
+cd ..
+#1645954119
+rmdir annotation2
+#1645954122
+cd annotation_smk/
+#1645954123
+lt
+#1645954129
+vi config/config.yaml 
+#1645954150
+ll
+#1645954161
+vi config/config.yaml 
+#1645954276
+ll
+#1645954283
+mkdir data
+#1645954285
+cd data/
+#1645954302
+ln -s ../../annotation/SETOR/
+#1645954304
+ll
+#1645954308
+rm SETOR
+#1645954309
+cd ..
+#1645954312
+rmdir data/
+#1645954317
+ln -s ../annotation/SETOR
+#1645954317
+ll
+#1645954322
+vi config/config.yaml 
+#1645954337
+ls SETOR/
+#1645954345
+ls SETOR/tora.fa
+#1645954361
+ll SETOR/tola.masked.fa 
+#1645954366
+vi config/config.yaml 
+#1645954384
+lt
+#1645954089
+ssh -p 201 yi02
+#1645954479
+ll
+#1645954482
+cd annotation_smk/
+#1645954482
+ls
+#1645954510
+echo 'snakemake --cluster "bsub -o output -e error -q Q104C512G_X4 -m yi02" -c10 -j 10 -p' > run.sh
+#1645954512
+ll
+#1645954517
+vi config/environment.yaml 
+#1645954648
+lt
+#1645954652
+ls
+#1645954534
+mamba install -c bioconda blast-legacy=2.2.26=h9ee0642_3
+#1645954659
+ls Vigna_mungo.Arabidopsis_thaliana/
+#1645954661
+lt Vigna_mungo.Arabidopsis_thaliana/
+#1645954672
+vi config/environment.yaml 
+#1645954753
+ls -d */
+#1645954789
+ls
+#1645954798
+vi bsub.gemoma_gaf.*
+#1645954869
+gtp
+#1645954876
+mkdir logs
+#1645954879
+mv output.604* error.604* logs/
+#1645954880
+ls
+#1645954883
+rm bsub.gemoma_gaf.*
+#1645954883
+ls
+#1645954900
+for i in *.masked.fa; do python -m iga.annotation.gemoma gemoma_pipe ${i} --homo_genome Arabidopsis_thaliana.fa,Medicago_truncatula.fa,Zenia_insignis.fa --homo_gff Arabidopsis_thaliana.gff,Medicago_truncatula.gff,Zenia_insignis.gff; done
+#1645954919
+gtp
+#1645954682
+mamba install -c bioconda genblastg=1.39=1
+#1645954959
+lth
+#1645954965
+vi ru
+#1645954967
+vi runs
+#1645954970
+vi run.sh 
+#1645954981
+nohup bash run.sh  &
+#1645954982
+lt
+#1645955010
+les nohup.out 
+#1645955018
+bjl
+#1645954477
+tma
+#1645955110
+vi run.sh 
+#1645955116
+realpath run.sh
+#1645955233
+cd
+#1645955314
+cd ../
+#1645955314
+ls
+#1645955320
+cd liuhui/
+#1645955320
+ll
+#1645955322
+cd Documents/
+#1645955323
+lt
+#1645955326
+ll
+#1645955329
+more 01.init_config_lh.sh 
+#1645954927
+for i in *.masked.fa; do python -m iga.annotation.gemoma gemoma_pipe ${i} --homo_genome Arabidopsis_thaliana.fa,Medicago_truncatula.fa,Zenia_insignis.fa --homo_gff Arabidopsis_thaliana.gff,Medicago_truncatula.gff,Zenia_insignis.gff; done
+#1645955391
+ll
+#1645955397
+cd ../
+#1645955398
+ll 
+#1645955404
+ll ../apps/
+#1645955409
+ll ../apps/packages/
+#1645955412
+ll ../apps/
+#1645955415
+ll
+#1645955446
+vi run.sh 
+#1645955450
+cd Documents/
+#1645955451
+ll
+#1645955453
+more 01.init_config_lh.sh 
+#1645955480
+vi 01.init_config_lh.sh 
+#1645955517
+more 01.init_config_lh.sh 
+#1645955526
+vi 01.init_config_lh.sh 
+#1645955535
+more 01.init_config_lh.sh 
+#1645955552
+more /etc/fstab 
+#1645955581
+vim /etc/auto.nfsdb
+#1645955655
+vi 01.init_config_lh.sh 
+#1645955769
+ll
+#1645955775
+vi /etc/ssh/sshd_config 
+#1645955780
+sudo vi  /etc/ssh/sshd_config 
+#1645955806
+ll
+#1645955810
+more 03.change_home.sh 
+#1645955836
+vi 07.openlarva.sh 
+#1645955859
+history |grep larva |les
+#1645955924
+ll /nfs/apps/openlava/
+#1645955943
+cd /home/liuhui/
+#1645955943
+ls
+#1645955949
+grep openlava .bash_history 
+#1645955888
+cd /home/liuhui/
+#1645955890
+grep openlava .bash_history 
+#1645955957
+ssh -p 201 yi02
+#1645955918
+history |grep larva
+#1645955923
+cd /home/liuhui/
+#1645955929
+grep larva .bash_history 
+#1645955933
+vi .bash_history 
+#1645955988
+vi 07.openlarva.sh 
+#1645955991
+cd
+#1645955991
+ls
+#1645955996
+cd ../apps/
+#1645955996
+ls
+#1645955998
+cd openlava/
+#1645955998
+ll
+#1645956001
+vi shell 
+#1645956010
+more shell 
+#1645956143
+ll
+#1645956174
+cp -f /nfs/apps/openlava/ /nfs/liuhui/Documents/
+#1645956177
+cp -r /nfs/apps/openlava/ /nfs/liuhui/Documents/
+#1645956182
+ls /nfs/liuhui/Documents/
+#1645956201
+cd /nfs/liuhui/Documents/
+#1645956201
+lt
+#1645956203
+ll
+#1645956206
+more 05.add_sys_path.sh 
+#1645956213
+more 09.install_lib.sh 
+#1645956227
+more 10.install_boost.sh 
+#1645956231
+more 11.install_augustus_dep.sh 
+#1645956236
+more 12.install_cmake.sh 
+#1645956243
+lth
+#1645956245
+ll
+#1645956251
+more 08.useradd.sh 
+#1645956259
+vi 08.useradd.sh 
+#1645956285
+ll
+#1645956286
+cd openlava/
+#1645956286
+ls
+#1645956287
+more shell 
+#1645956308
+ll /opt/openlava-2.2/
+#1645956313
+ll /opt/openlava-2.2/etc/
+#1645956410
+ls
+#1645956412
+more shell 
+#1645956434
+bhosts 
+#1645956442
+ping yi04
+#1645956444
+ping yi03
+#1645956450
+ls
+#1645956451
+ll
+#1645956455
+vi reload_openlava.sh 
+#1645956460
+ll
+#1645956461
+bjobs
+#1645956463
+ls
+#1645956464
+ll
+#1645956471
+vi lsb.hosts 
+#1645956491
+ll
+#1645956495
+bhosts 
+#1645956598
+cd /nfs/liuhui/Documents/openlava/
+#1645956599
+ls
+#1645956599
+ll
+#1645956601
+more reload_openlava.sh 
+#1645956603
+tolava
+#1645956672
+lsload
+#1645956684
+ls
+#1645956685
+cd
+#1645956685
+ls
+#1645956696
+bsub512 -m yi03 "hostname"
+#1645956698
+bjl
+#1645956700
+bj
+#1645956701
+bjt
+#1645956703
+bj
+#1645956704
+bjt
+#1645956715
+ll
+#1645956716
+bjt
+#1645956720
+bjobs -l 60550
+#1645956734
+lsload
+#1645956774
+ls
+#1645956775
+cd Do
+#1645956776
+cd Documents/
+#1645956776
+lt
+#1645956780
+more 07.openlarva.sh 
+#1645956788
+bjl
+#1645956791
+lsload
+#1645956859
+ls
+#1645956863
+grep hosts *
+#1645956866
+vi 07.openlarva.sh 
+#1645956873
+vi /etc/hosts
+#1645956888
+vi 07.openlarva.sh 
+#1645956910
+hostnamectl status
+#1645956942
+top
+#1645956947
+bjobs
+#1645956955
+ll
+#1645956959
+more 03.change_home.sh 
+#1645956983
+vi 03.change_home.sh 
+#1645957023
+ll
+#1645957153
+lsload
+#1645957159
+ll
+#1645957028
+vi 08.useradd.sh 
+#1645957122
+ll
+#1645957126
+vi 08.useradd.sh 
+#1645957138
+sudo su
+#1645957145
+ll
+#1645957151
+ll *user*
+#1645957156
+more 08.useradd.sh 
+#1645957169
+lsload
+#1645957170
+bjl
+#1645957172
+cd
+#1645957172
+ll
+#1645957173
+lth
+#1645957176
+more output.60550 
+#1645957183
+rm output.60550 error.60550 
+#1646026264
+bjl
+#1646026270
+j legume
+#1646026271
+lth
+#1646026273
+ll
+#1646026275
+lt
+#1646026277
+ll *gff
+#1646026285
+lt
+#1646026287
+lth
+#1646026314
+cd projects/genomes/
+#1646026314
+ls
+#1646026317
+cd Fabales/
+#1646026317
+ls
+#1646026319
+ls *.fa
+#1646026324
+realpath *.fa
+#1646026339
+cd ..
+#1646026339
+ls
+#1646026343
+realpath Polygala_tatarinowii.*
+#1646026367
+cd /nfs/
+#1646026367
+ls
+#1646026369
+cd apps/
+#1646026369
+ls
+#1646026373
+cd packages/
+#1646026374
+ls
+#1646026376
+cd cactus-bin-v2.0.1/
+#1646026377
+pwd
+#1646026416
+cd ../..
+#1646026416
+ls
+#1646026417
+cd modules
+#1646026418
+ls
+#1646026419
+cd cactus/
+#1646026420
+ll
+#1646026421
+more progressiveCactus 
+#1646026969
+lt *gff
+#1646026975
+les Zenia_insignis.gff 
+#1646026991
+head filtered_predictions.gff
+#1646027005
+lth
+#1646027066
+head filtered_predictions.format.gff
+#1646027082
+les filtered_predictions.gff
+#1646028882
+lt
+#1646028883
+lth
+#1646028885
+lt |les
+#1646028903
+less protocol_GAF.txt
+#1646028909
+lth
+#1646028910
+lt
+#1646028927
+rm filtered_predictions*
+#1646028928
+lth
+#1646028931
+rm \{0\}.gemoma.gff 
+#1646028932
+lth
+#1646028936
+rm output.604* error.604*
+#1646028937
+lth
+#1646028940
+rm protocol_GAF*
+#1646028940
+lth
+#1646028945
+rm -r GeMoMa_temp/
+#1646028950
+rm bsub.gemoma_*
+#1646028951
+lth
+#1646028952
+ls
+#1646028960
+gtp
+#1646028969
+for i in *.masked.fa; do python -m iga.annotation.gemoma gemoma_pipe ${i} --homo_genome Arabidopsis_thaliana.fa,Medicago_truncatula.fa,Zenia_insignis.fa --homo_gff Arabidopsis_thaliana.gff,Medicago_truncatula.gff,Zenia_insignis.gff; done
+#1646028978
+bjl
+#1646028983
+bkill 60551
+#1646028984
+lth
+#1646028988
+rm bsub.gemoma_gaf.969462.sh 
+#1646028988
+lth
+#1646028993
+lth
+#1646028995
+rm output.60551 error.60551 
+#1646029002
+more shell 
+#1646028990
+tma
+#1646029026
+top
+#1646029029
+bhosts 
+#1646029066
+lt
+#1646029010
+for i in *.masked.fa; do python -m iga.annotation.gemoma gemoma_pipe ${i} --homo_genome Arabidopsis_thaliana.fa,Medicago_truncatula.fa,Zenia_insignis.fa --homo_gff Arabidopsis_thaliana.gff,Medicago_truncatula.gff,Zenia_insignis.gff; done
+#1646029920
+lth
+#1646029925
+lt |les
+#1646030055
+ls
+#1646030061
+rm filtered_predictions_* protocol_GAF*
+#1646030061
+ls
+#1646030063
+ls GeMoMa_temp/
+#1646030065
+rmdir GeMoMa_temp/
+#1646030066
+ls
+#1646030070
+rm output.6055* error.6055*
+#1646030072
+rm bsub.gemoma_gaf.*
+#1646030072
+ls
+#1646030052
+tma
+#1646030088
+ma
+#1646030089
+tma
+#1646030083
+for i in *.masked.fa; do python -m iga.annotation.gemoma gemoma_pipe ${i} --homo_genome Arabidopsis_thaliana.fa,Medicago_truncatula.fa,Zenia_insignis.fa --homo_gff Arabidopsis_thaliana.gff,Medicago_truncatula.gff,Zenia_insignis.gff; done
+#1646030095
+top
+#1646031043
+lt
+#1646031050
+lt
+#1646031051
+lth
+#1646031053
+lt
+#1646031112
+ gtp
+#1646031122
+rm filtered_predictions_*
+#1646031123
+ls
+#1646031126
+rm protocol_GAF*
+#1646031127
+ls
+#1646031129
+rm output.605* error.605*
+#1646031130
+ls
+#1646031133
+rm bsub.gemoma_gaf.*
+#1646031133
+ls
+#1646031044
+tma
+#1646031164
+lth
+#1646031167
+lt GeMoMa_temp/
+#1646031169
+bjl
+#1646031225
+top
+#1646031228
+tp
+#1646031176
+ssh yi03
+#1646031184
+bjl
+#1646031186
+tma
+#1646031133
+tp
+#1646031207
+ssh -p 201 yi02
+#1646031216
+lt
+#1646031217
+lth
+#1646031224
+les Castanospermum_australe.format.gff 
+#1646031248
+lth
+#1646031249
+bjl
+#1646031317
+lth
+#1646031324
+les Glycine_latifolia.format.gff 
+#1646031137
+for i in *.masked.fa; do python -m iga.annotation.gemoma gemoma_pipe ${i} --homo_genome Arabidopsis_thaliana.fa,Medicago_truncatula.fa,Zenia_insignis.fa --homo_gff Arabidopsis_thaliana.gff,Medicago_truncatula.gff,Zenia_insignis.gff; done
+#1646031437
+jobs
+#1646031438
+lt
+#1646031441
+tail error 
+#1646031446
+tail output 
+#1646031449
+lth
+#1646031458
+chmod 755 nohup.out 
+#1646031459
+lt
+#1646031460
+les nohup.out 
+#1646031472
+realpath nohup.out 
+#1646031569
+hisat2
+#1646031573
+hisat2-build
+#1646034324
+set +o history;
+#1646034324
+tma
+#1646034361
+ls run.sh 
+#1646034365
+more run.sh 
+#1646034418
+ls
+#1646031434
+tma
+#1646034706
+top
+#1646034718
+bjl
+#1646034725
+lth
+#1646034728
+ll *format.gff
+#1646034733
+les Dipteryx_alata.format.gff 
+#1646034741
+awk '$3=="gene"' Dipteryx_alata.format.gff  |wc -l
+#1646034753
+cd
+#1646034754
+ls
+#1646034916
+ll
+#1646035052
+lth
+#1646035055
+cd Documents/
+#1646035056
+ls
+#1646035098
+less error
+#1646035042
+cd
+#1646035043
+ll
+#1646035047
+cd /home/liuhui/projects/
+#1646035048
+lt
+#1646035050
+cd buzzo/
+#1646035050
+lt
+#1646035067
+ll
+#1646035068
+cd ..
+#1646035068
+ls
+#1646035069
+cd bi
+#1646035070
+cd ..
+#1646035070
+ls
+#1646035071
+cd bin/
+#1646035071
+ls
+#1646035073
+cd cactus-bin-v2.0.1/
+#1646035074
+lt
+#1646035078
+more test.sh 
+#1646035135
+less run.sh
+#1646035084
+vi BIN-INSTALL.md 
+#1646035129
+ll
+#1646035270
+which virtualenv 
+#1646035281
+bsub < run.sh 
+#1646035286
+bjobs
+#1646035139
+sudo su zhangrong
+#1646035285
+sch
+#1646035295
+which virtualen
+#1646035302
+virtualenv
+#1646035303
+cd
+#1646035303
+ls
+#1646035312
+source .bashrc .bash_profile 
+#1646035318
+virtualenv
+#1646035320
+ll
+#1646035329
+lt
+#1646035330
+cd bin/
+#1646035330
+ls
+#1646035331
+cd cactus-bin-v2.0.1/
+#1646035332
+lt
+#1646035336
+more test.sh 
+#1646035340
+vi BIN-INSTALL.md 
+#1646035349
+cd
+#1646035352
+which virtualenv
+#1646035367
+less error 
+#1646035354
+conda activate
+#1646035359
+which conda
+#1646035364
+virtualenv
+#1646035365
+ls
+#1646035366
+cd bin/
+#1646035367
+ls
+#1646035456
+cd result/SETOR/evidence/
+#1646035117
+ssh -p 201 yi02
+#1646035459
+ll
+#1646035492
+cd ../../../
+#1646035464
+sudo su zhangrong
+#1646035496
+ll
+#1646035425
+cd /home/liuhui/bin/
+#1646035425
+ls
+#1646035428
+cd cactus-bin-v2.0.1/
+#1646035429
+ll
+#1646035447
+vi ~/.bash_history
+#1646035540
+bjobs
+#1646035463
+vi BIN-INSTALL.md 
+#1646035500
+more test.sh 
+#1646035570
+top
+#1646035634
+ls
+#1646035598
+less output 
+#1646035700
+less error 
+#1646035737
+sudo edquota
+#1646035741
+sudo edquota guwei
+#1646035864
+vi /etc/fstab 
+#1646035877
+bjobs -u all |less
+#1646035895
+ll
+#1646035942
+quota guwei
+#1646035975
+man xfs_quota 
+#1646036035
+sudo vi /etc/fstab 
+#1646036041
+ls /nfs/
+#1646036042
+sudo vi /etc/fstab 
+#1646036051
+vi /etc/fstab 
+#1646036056
+sudo vi /etc/fstab 
+#1646036084
+vi /etc/fstab 
+#1646036341
+systemctl status rpc-rquotad
+#1646036291
+systemctl status rpc-rquotad
+#1646036297
+systemctl enable rpc-rquotad
+#1646036308
+sudo systemctl enable rpc-rquotad
+#1646036315
+systemctl start rpc-rquotad
+#1646036323
+sudo systemctl start rpc-rquotad
+#1646036425
+less run.sh 
+#1646036348
+sudo vi /etc/sysconfig/rpc-rquotad
+#1646036381
+sudo systemctl restart rpc-rquotad
+#1646036481
+nohup snakemake --cluster "bsub -o output1 -e error1 -q Q104C512G_X4 -m yi02" -j 10 -p &
+#1646036426
+df -h
+#1646036432
+vi /etc/exports
+#1646036523
+tma
+#1646036526
+top
+#1646035495
+ssh -p 201 yi02
+#1646036625
+tma
+#1646036632
+vi /etc/fstab 
+#1646036784
+j cafe
+#1646036784
+lth
+#1646036789
+cd 
+#1646036790
+cd projects/
+#1646036790
+lt
+#1646036792
+cd phyleg
+#1646036793
+lt
+#1646036835
+ls -d */
+#1646036839
+cd ..
+#1646036839
+ls
+#1646036841
+cd phyleg_orthofinder/
+#1646036841
+ls
+#1646036842
+lt
+#1646036844
+cd results/
+#1646036844
+lt
+#1646036846
+cd ..
+#1646036846
+lt
+#1646036850
+cd fasta/
+#1646036850
+lt
+#1646036851
+ls
+#1646036852
+cd ..
+#1646036853
+ls
+#1646036854
+lt
+#1646036859
+les cafe.genefam.txt 
+#1646037088
+cp result/SETOR/sample/4.fa result/SETOR/R3/4.fa
+#1646037148
+cp result/SETOR/evidence/sample/48.fa result/SETOR/evidence/pep/48.fa
+#1646037327
+nohup snakemake --cluster "bsub -o output1 -e error1 -q Q104C512G_X4 -m yi02" -j 10 -p &
+#1646037364
+bjobs -u all |les
+#1646037383
+ls
+#1646037384
+ll
+#1646037393
+edquota 
+#1646037396
+edquota  -u guwei
+#1646037497
+bjl
+#1646037512
+ls
+#1646037513
+ll
+#1646037903
+bjl
+#1646037817
+bjl
+#1646037821
+lt
+#1646035826
+ssh yi04
+#1646045057
+snakemake
+#1646045063
+snakemake -v
+#1646045591
+nohup snakemake --cluster "bsub -o output -e error -q Q104C512G_X4 -m yi02" -j 10 -p &
+#1646053649
+stringtie -p 64 -o result/SETOR/evidence/merged.gtf result/SETOR/evidence/merged.bam
+#1646053666
+stringtie -h
+#1646053670
+stringtie -v
+#1646045480
+tma
+#1646045476
+export LANG="en_US";export LANGUAGE="en_US";export LC_ALL="en_US";top
+#1646095899
+bjl
+#1646095904
+bjobs -u all |les
+#1646095913
+bkill 60344
+#1645258312
+ssh yi04
+#1646096062
+tma
+#1646095994
+top
+#1646095998
+sudo reboot
+#1646115228
+top
+#1646115236
+lsload
+#1646115294
+sudo firewall-cmd --addport=201/tcp --permanent
+#1646115307
+man firewall-cmd
+#1646115348
+sudo firewall-cmd --add-port=201/tcp --permanent
+#1646115359
+sudo firewall-cmd --list-ports
+#1646115376
+sudo firewall-cmd restart
+#1646115389
+sudo systemctl start firewall-cmd 
+#1646115394
+sudo systemctl start firewalld
+#1646115407
+sudo systemctl status firewalld
+#1646115412
+sudo firewall-cmd --list-ports
+#1646115442
+sudo firewall-cmd --list-port
+#1646115490
+sudo systemctl restart firewalld
+#1646115494
+sudo systemctl status firewalld
+#1646115509
+sudo firewall-cmd --list-port
+#1646115510
+sudo firewall-cmd --list-ports
+#1646115371
+ssh yi01
+#1646115375
+ssh  -p 201 yi01
+#1646115519
+ssh yi04
+#1646115530
+ll
+#1646115532
+lsload
+#1646115558
+tolava 
+#1646115562
+which tolava
+#1646115567
+ssh -p 201 openlava@localhost
+#1646115589
+sudo /etc/init.d/openlava  restart
+#1646115592
+lsload
+#1646115601
+bhosts 
+#1646115611
+lsload
+#1646115613
+bhosts 
+#1646115470
+lsload
+#1646115480
+sudo /etc/init.d/openlava restart
+#1646115483
+lsload
+#1646115486
+bhosts 
+#1646115491
+ping yi01
+#1646115619
+ssh yi04
+#1646115648
+lsload
+#1646115741
+ls
+#1646115745
+cd Do
+#1646115746
+cd Documents/
+#1646115747
+ls
+#1646115751
+ll
+#1646115764
+ll .bashrc
+#1646115768
+tma
+#1646115770
+lth
+#1646115772
+cd Documents/
+#1646115772
+lt
+#1646115776
+vi 07.openlarva.sh 
+#1646115801
+vi /etc/sysconfig/iptables
+#1646115814
+vi 07.openlarva.sh 
+#1646115817
+vi /etc/sysconfig/iptables
+#1646115699
+sudo service network restart
+#1646115708
+lsload
+#1646115710
+route
+#1646115726
+vi /etc/sysconfig/network-scripts/ifcfg-em1
+#1646115733
+route -n
+#1646115736
+ll
+#1646115826
+ssh yi04
+#1646115896
+edquota 
+#1646115900
+sudo edquota  guwei
+#1646115905
+sudo edquota  guwei /nfs
+#1646115920
+lsload
+#1646115927
+bhosts 
+#1646115784
+lsload
+#1646115785
+bhosts 
+#1646115795
+ll
+#1646115798
+cd Documents/
+#1646115798
+ls
+#1646115800
+vi 07.openlarva.sh 
+#1646115808
+hostnamectl status
+#1646115810
+sudo su
+#1646116408
+lsload
+#1646115933
+ssh yi04
+#1646116561
+lsload
+#1646116571
+bhosts 
+#1646116581
+lsload
+#1646116585
+bhosts 
+#1646116443
+sudo reboot
+#1646116590
+ssh yi04
+#1646116745
+top
+#1646116749
+lsload
+#1646116753
+bhosts 
+#1646116909
+lsload
+#1646116917
+vi /etc/hosts
+#1646116757
+ssh -p 201 yi01
+#1646116778
+ssh yi04
+#1646116781
+lt
+#1646116782
+top
+#1646116785
+bjl
+#1646116894
+bhosts 
+#1646116896
+sudo su
+#1646117193
+bhosts 
+#1646117200
+lsload
+#1646116929
+ssh yi03
+#1646117085
+lsload
+#1646116945
+ssh -p 201 yi02
+#1646116958
+ssh yi01
+#1646116962
+ssh -p yi01
+#1646117118
+ls
+#1646117123
+sudo firewall-cmd --list-ports
+#1646117136
+sudo systemctl stop firewalld
+#1646117150
+sudo systemctl restart iptables
+#1646117151
+sudo systemctl restart iptablesd
+#1646117156
+lsload
+#1646117158
+ssh yi03
+#1646117021
+lsload
+#1646117170
+ssh yi04
+#1646117186
+sudo su
+#1646117452
+sudo history |grep firewalld
+#1646117454
+sudo history |grep firewall
+#1646117460
+history |grep firewall
+#1646117471
+man firewall-cmd
+#1646117511
+sudo firewalld --get-active-zones
+#1646117514
+man firewall-cmd
+#1646117531
+sudo firewalld-cmd --get-active-zones
+#1646117545
+sudo firewall-cmd --get-active-zones
+#1646117555
+sudo service firewalld start
+#1646117557
+sudo firewall-cmd --get-active-zones
+#1646117727
+sudo  ifconfig
+#1646117773
+sudo firewall-cmd --zone=lsf --change-source=192.168.119.0 --add-interface=em2
+#1646117786
+sudo firewall-cmd --zone=lsf --add-source= 192.168.119.0 --add-interface=em2
+#1646117800
+sudo firewall-cmd --zone=lsf --add-source=192.168.119.0 --add-interface=em2
+#1646117865
+netstat -n |less
+#1646117870
+sudo su
+#1646118008
+ls
+#1646118034
+sudo firewall-cmd --new-zone=lsf
+#1646118042
+sudo firewall-cmd --new-zone=lsf --permanent
+#1646118049
+sudo firewall-cmd --zone=lsf --add-source=192.168.119.0 --add-interface=em2
+#1646118069
+sudo firewall-cmd --zone=lsf --add-interface=em2
+#1646118082
+sudo firewall-cmd --get-active-zones
+#1646118090
+sudo firewall-cmd --get-all-zones
+#1646118103
+sudo firewall-cmd --get-zones
+#1646118147
+sudo firewall-cmd --list-all-zones
+#1646118186
+sudo systemctl restart firewalld
+#1646118190
+sudo firewall-cmd --list-all-zones
+#1646118201
+sudo firewall-cmd --zone=lsf --add-interface=em2
+#1646118221
+sudo firewall-cmd --zone=lsf --add-source=192.168.119.0 
+#1646118268
+sudo su
+#1646118295
+sudo firewall-cmd --zone=lsf --add-port=6322-6325/tcp
+#1646118299
+sudo firewall-cmd --zone=lsf --add-port=6322-6325/udp
+#1646118311
+sudo systemctl restart firewalld
+#1646118317
+sudo firewall-cmd --get-zones 
+#1646118326
+sudo firewall-cmd --get-active-zones
+#1646118345
+man firewall-cmd
+#1646118471
+sudo firewall-cmd --zone=lsf --list-ports
+#1646118473
+sudo firewall-cmd --zone=lsf --list-port
+#1646118483
+sudo firewall-cmd --zone=public --list-ports
+#1646118485
+sudo firewall-cmd --zone=lsf --list-port
+#1646118491
+sudo systemctl restart firewalld
+#1646118495
+sudo firewall-cmd --zone=lsf --list-port
+#1646118496
+sudo firewall-cmd --zone=lsf --list-ports
+#1646118501
+sudo firewall-cmd --zone=lsf
+#1646118527
+man firels /etc/firewalld/zones
+#1646118533
+ls /etc/firewalld/zones
+#1646118535
+sudo su
+#1646118557
+sudo firewall-cmd --zone=lsf --add-source=192.168.119.0  --pernant
+#1646118561
+sudo firewall-cmd --zone=lsf --add-source=192.168.119.0  --pernent
+#1646118578
+sudo firewall-cmd --zone=lsf --add-source=192.168.119.0  --permanent
+#1646118594
+sudo firewall-cmd --zone=lsf --add-port=6322-6325/udp --permanent
+#1646118602
+sudo firewall-cmd --zone=lsf --add-port=6322-6325/tcp --permanent
+#1646118610
+sudo systemctl restart firewalld
+#1646118622
+sudo firewall-cmd --get-active-zones
+#1646118626
+lsload
+#1646118486
+ssh yi04
+#1646118751
+lsload
+#1646118487
+ssh yi03
+#1646118628
+ssh yi04
+#1646118646
+ls
+#1646118735
+sudo su
+#1646118743
+sudo netstat -atunlp
+#1646118756
+firewall-cmd --zone=lsf --query-port=6323/tcp
+#1646118765
+sudo firewall-cmd --zone=lsf --query-port=6323/tcp
+#1646118828
+vi /etc/sysconfig/firewalld 
+#1646118840
+sudo su
+#1646118749
+lsload
+#1646118898
+ssh yi04
+#1646118917
+sudo firewall-cmd --get-active-zones
+#1646118986
+sudo su
+#1646119050
+sudo firewall-cmd --zone=lsf --query-port=6323/tcp
+#1646119056
+sudo firewall-cmd --zone=lsf --query-port=1000/tcp
+#1646118911
+lsload
+#1646119060
+ssh yi04
+#1646119178
+lsload
+#1646119064
+ssh yi03
+#1646119065
+lsload
+#1646119074
+ssh -p 201 yi02
+#1646119078
+bhosts 
+#1646118945
+sudo /etc/init.d/openlava restart
+#1646118948
+bhosts 
+#1646118953
+lsload
+#1646118955
+bhosts 
+#1646119082
+ssh yi04
+#1646119112
+lsload
+#1646119113
+bhosts 
+#1646118969
+lsload
+#1646118970
+bhosts 
+#1646118983
+sudo systemctl  status firewalld
+#1646119117
+ssh yi04
+#1646119294
+echo "sudo firewall-cmd --new-zone=lsf --permanent" >> firewall.sh
+#1646119327
+echo "sudo firewall-cmd --zone=lsf --add-port=1024-65535/tcp --permanent " >> firewall.sh 
+#1646119335
+echo "sudo firewall-cmd --zone=lsf --add-port=1024-65535/udp --permanent " >> firewall.sh 
+#1646119360
+echo "sudo firewall-cmd --zone=lsf --add-source=192.168.119.0  --permanent " >> firewall.sh 
+#1646119362
+vi firewall.sh 
+#1646119389
+more firewall.sh 
+#1646119253
+sudo su
+#1646119267
+bash firewall.sh 
+#1646119277
+sudo firewall-cmd --reload
+#1646119281
+lsload
+#1646119282
+bhosts 
+#1646119291
+systemctl  status firewalld
+#1646119569
+sudo systemctl enable firewalld
+#1646119587
+sudo systemctl start firewalld
+#1646119592
+sudo systemctl status firewalld
+#1646119597
+ls
+#1646119599
+bash firewall.sh 
+#1646119606
+sudo firewall-cmd  --reload
+#1646119621
+sudo firewall-cmd --list-ports
+#1646119625
+sudo firewall-cmd --list-port
+#1646119629
+lsload
+#1646119631
+bhosts 
+#1646119519
+sudo systemctl status firewalld
+#1646119540
+sudo firewall-cmd --zone=lsf --list-ports
+#1646119550
+sudo firewall-cmd --zone=public --list-ports
+#1646119552
+ls
+#1646119559
+bash firewall.sh 
+#1646119565
+sudo firewall-cmd  --reload
+#1646119568
+lsload
+#1646119570
+bhosts 
+#1646119636
+ssh -p 201 yi02
+#1646119299
+ssh yi03
+#1646119401
+ssh yi04
+#1646119587
+bhosts 
+#1646119589
+lsload
+#1646119590
+ll
+#1646119591
+bhosts 
+#1646119593
+lsload
+#1646119605
+sudo systemctl status firewalld
+#1646119611
+sudo su
+#1646119651
+ls
+#1646119681
+for i in `seq -w 01 04`; do bsub512 -m yi$i "hostname >> test.log"; done
+#1646119682
+bjobs
+#1646119702
+less test.log 
+#1646119710
+ls
+#1646119846
+ssh -p 201  210.72.89.32
+#1646119763
+top
+#1646119723
+ssh yi03
+#1646116967
+ssh -p 201 yi01
+#1646120541
+top
+#1646120542
+bhosts 
+#1646120543
+lsload
+#1646120546
+bhosts 
+#1646120561
+lsload |sort -k1,1
+#1646120420
+lsload
+#1646120569
+ssh yi04
+#1646120572
+ls
+#1646120606
+top
+#1646120607
+ll
+#1646120617
+cd projects/
+#1646120617
+ls
+#1646120620
+ll
+#1646120625
+cd
+#1646120627
+cd ../apps/
+#1646120627
+lt
+#1646120629
+cd openlava/
+#1646120629
+ll
+#1646120632
+vi lsf.conf 
+#1646120648
+ll ~/Documents/
+#1646120651
+cd
+#1646120651
+ls
+#1646120657
+cp firewall.sh ~/Documents/openlava/
+#1646120708
+ls
+#1646120715
+cd Documents/
+#1646120715
+ll
+#1646120729
+vi 08.useradd.sh 
+#1646120759
+cp 08.useradd.sh 08.synchronize.sh
+#1646120761
+vi 08.synchronize.sh 
+#1646120768
+vi 08.useradd.sh 
+#1646120942
+man passwd
+#1646120951
+vi 08.useradd.sh 
+#1646121144
+man setquota
+#1646121187
+df -i
+#1646121257
+man setquota
+#1646121274
+vi 08.useradd.sh 
+#1646121392
+man useradd
+#1646121405
+vi 08.useradd.sh 
+#1646121436
+history |grep add |les
+#1646121445
+sudo su
+#1646121476
+lt
+#1646121477
+lth
+#1646121478
+vi 08.
+#1646121481
+vi 08.useradd.sh 
+#1646121526
+bash 08.useradd.sh 
+#1646121528
+bash 08.useradd.sh 1
+#1646121529
+bash 08.useradd.sh 
+#1646121535
+vi 08.useradd.sh 
+#1646121760
+bash 08.useradd.sh 
+#1646121762
+vi 08.useradd.sh 
+#1646121766
+bash 08.useradd.sh 
+#1646121769
+vi 08.useradd.sh 
+#1646121775
+bash 08.useradd.sh 
+#1646121777
+vi 08.useradd.sh 
+#1646121782
+bash 08.useradd.sh 
+#1646121788
+vi 08.useradd.sh 
+#1646122003
+repquota /nfs
+#1646122076
+sudo systemctl enable rpc-rquotad
+#1646122086
+sudo systemctl start rpc-rquotad
+#1646122089
+repquota /nfs
+#1646122116
+vi /etc/services
+#1646121988
+sudo su
+#1646122043
+sudo firewall-cmd  --reload
+#1646122133
+ssh yi04
+#1646122207
+sudo vi /etc/firewalld/zones/lsf.xml
+#1646122214
+sudo firewall-cmd  --reload
+#1646122217
+repquota /nfs
+#1646122243
+rpc.rquotad 
+#1646122258
+rpc.rquotad 192.168.119.12
+#1646122277
+edquota -u guwei
+#1646122280
+sudo edquota -u guwei
+#1646122334
+repquota 
+#1646122339
+repquota  -u guwei
+#1646122342
+mount
+#1646122416
+man xfs_quota
+#1646122463
+xfs_quota -x -c 'limit bsoft=50m bhard=100m guwei' /nfs
+#1646122482
+ls /nfs/
+#1646122494
+sudo xfs_quota -x -c 'limit bsoft=50m bhard=100m guwei' /nfs
+#1646122554
+systemctl start rpc-rquotad
+#1646122560
+sudo systemctl status rpc-rquotad
+#1646122689
+ll
+#1646122694
+vi 08.useradd.sh 
+#1646122708
+repquota /nfs
+#1646122714
+vi 08.useradd.sh 
+#1646122779
+ssh -p201 yi02
+#1646122785
+vi 08.useradd.sh 
+#1646122846
+openssl rand -base64 16
+#1646122848
+vi 08.useradd.sh 
+#1646122728
+edquota 
+#1646122732
+sudo edquota 
+#1646122741
+sudo edquota -u guwei
+#1646122754
+sudo xfs_quota -x -c 'limit bsoft=50m bhard=100m guwei' /nfs
+#1646122757
+repquota 
+#1646122785
+repquota  -u guwei
+#1646122791
+edquota 
+#1646122793
+edquota -u guwei
+#1646122795
+sudo edquota -u guwei
+#1646122876
+ssh yi04
+#1646122965
+ls
+#1646122969
+vi 08.useradd.sh 
+#1646123430
+bash 08.useradd.sh xiahouzuoying
+#1646123433
+vi 08.useradd.sh 
+#1646123451
+bash 08.useradd.sh xiahouzuoying
+#1646123455
+vi 08.useradd.sh 
+#1646123460
+bash 08.useradd.sh xiahouzuoying
+#1646123468
+vi 08.useradd.sh 
+#1646123482
+echo $USER
+#1646123484
+vi 08.useradd.sh 
+#1646123560
+bash 08.useradd.sh xiahouzuoying
+#1646123567
+vi 08.useradd.sh 
+#1646123610
+bash 08.useradd.sh xiahouzuoying
+#1646123612
+vi 08.useradd.sh 
+#1646123647
+bash 08.useradd.sh xiahouzuoying
+#1646123653
+vi 08.useradd.sh 
+#1646123676
+ll /nfs/
+#1646123688
+sudo rm -r /nfs/xiahouzuoying/
+#1646123691
+vi /etc/passwd
+#1646123699
+sudo userdel xiahouzuoying
+#1646123700
+vi /etc/passwd
+#1646123705
+vi /etc/group
+#1646123717
+bash 08.useradd.sh xiahouzuoying
+#1646123750
+vi /etc/group
+#1646123759
+vi 08.useradd.sh 
+#1646123833
+top
+#1646123921
+sudo su
+#1646123806
+ssh yi03
+#1646123913
+sudo ssh -p 201 yi02
+#1646123930
+vi 08.useradd.sh 
+#1646123943
+vi /etc/sudoers
+#1646123947
+sudo vi /etc/sudoers
+#1646123967
+sudoedit /etc/sudoers
+#1646123998
+which useradd groupadd
+#1646124000
+which useradd groupadd scp
+#1646124004
+vi /etc/sudoers
+#1646124008
+sudoedit /etc/sudoers
+#1646124063
+vi 08.useradd.sh 
+#1646124076
+sudoedit /etc/sudoers
+#1646124089
+vi 08.useradd.sh 
+#1646124096
+grep sudo  08.useradd.sh 
+#1646124110
+vi 08.useradd.sh 
+#1646124136
+ls
+#1646124146
+cp 08.useradd.sh 08.change_quota.sh
+#1646124148
+vi 08.change_quota.sh 
+#1646124229
+bash 08.change_quota.sh 
+#1646124234
+vi 08.change_quota.sh 
+#1646124265
+bash 08.change_quota.sh 
+#1646124275
+bash 08.change_quota.sh xiahouzuoying 10T 11T
+#1646124162
+sudo repquota -u xiahouzuoying
+#1646124186
+quota
+#1646124194
+sudo quota -u xiahouzuoying
+#1646124199
+xfs_quota -h
+#1646124202
+man xfs_quota 
+#1646124252
+xfs_quota report
+#1646124259
+xfs_quota report /nfs
+#1646124273
+sudo xfs_quota -x -c 'report -h' /fs
+#1646124276
+sudo xfs_quota -x -c 'report -h' /nfs
+#1646124280
+ssh yi04
+#1646124468
+ls
+#1646124471
+ll
+#1646124473
+vi 08.change_quota.sh 
+#1646123844
+sudo su
+#1646124570
+vi 08.useradd.sh 
+#1646124596
+openssl rand -base64 16
+#1646124604
+sudo passwd xiahouzuoying
+#1646124613
+vi 08.useradd.sh 
+#1646124815
+ll
+#1646124844
+ls /usr/local/bin/
+#1646124864
+cp 08.change_quota.sh /usr/local/bin/nfs_change_quota
+#1646124866
+sudo cp 08.change_quota.sh /usr/local/bin/nfs_change_quota
+#1646124879
+sudo cp 08.useradd.sh /usr/local/bin/nfs_useradd
+#1646124888
+cd /usr/local/bin/
+#1646124889
+ll
+#1646124892
+vi *
+#1646124902
+vi nfs_useradd 
+#1646124906
+sudo vi nfs_useradd 
+#1646124945
+ll
+#1646124953
+sudo su xiahouzuoying
+#1646124977
+cd /etc/profile.d/
+#1646124977
+ls
+#1646124979
+ll
+#1646124980
+vi path.sh 
+#1646125034
+sudoedit  /etc/motd
+#1646125089
+sudoedit /etc/sudoers
+#1646125102
+which sudoedit
+#1646125113
+sudoedit /etc/sudoers
+#1646125133
+sudo su xiahouzuoying
+#1646125231
+lt
+#1646125236
+cd ../apps/
+#1646125236
+ls
+#1646125238
+cd op
+#1646125240
+cd openlava/
+#1646125240
+ll
+#1646125243
+vi lsf.conf 
+#1646125246
+ll
+#1646125256
+cd ..
+#1646125256
+ls
+#1646125258
+vi pa
+#1646125261
+vi path.sh 
+#1646125266
+ll path.sh 
+#1646125267
+tolava 
+#1646125269
+vc
+#1646125283
+ssh -p 201 openlava@localhost
+#1646125309
+sudo su xiahouzuoying
+#1646125418
+ll /usr/local/bin/nfs_useradd 
+#1646125425
+vi /usr/local/bin/nfs_useradd 
+#1646125428
+sudo vi /usr/local/bin/nfs_useradd 
+#1646125454
+sudo vi /usr/local/bin/nfs_change_quota 
+#1646125477
+sudo su xiahouzuoying
+#1646125506
+sudo vi /usr/local/bin/nfs_change_quota 
+#1646125518
+sudo vi /usr/local/bin/nfs_useradd 
+#1646125590
+nfs_useradd 
+#1646125594
+sudo vi /usr/local/bin/nfs_useradd 
+#1646125608
+nfs_useradd 
+#1646125610
+sudo vi /usr/local/bin/nfs_useradd 
+#1646125620
+nfs_useradd 
+#1646125639
+nfs_useradd chensiyun
+#1646125680
+vi /usr/local/bin/nfs_useradd 
+#1646125688
+sudo userdel chensiyun
+#1646125713
+sudo vi /usr/local/bin/nfs_useradd 
+#1646125795
+cd /root/
+#1646125796
+ls
+#1646125889
+sudo su
+#1646125949
+less /var/log/messgess
+#1646125953
+less /var/log/message
+#1646125955
+less /var/log/messages
+#1646125959
+sudo less /var/log/messages
+#1646125968
+sudo less /var/log/secure
+#1646125774
+ssh yi03
+#1646125867
+sudo ssh yi04
+#1646125869
+sudo ssh yi03
+#1646125901
+sudo su
+#1646125944
+ls
+#1646125991
+sudo less /var/log/message
+#1646125993
+sudo less /var/log/messages
+#1646126002
+sudo less /var/log/secure
+#1646126013
+sudoedit /etc/sudoers
+#1646126026
+which less
+#1646126027
+sudoedit /etc/sudoers
+#1646126038
+sudo vi /etc/sudoers
+#1646126044
+sudo su
+#1646126054
+vi /etc/sudoerss
+#1646126061
+vi /etc/sudoers
+#1646126048
+su root
+#1646126095
+sudo sudoedit /etc/sudoers
+#1646125797
+sudo su
+#1646126288
+sudo less /var/log/secure
+#1646126327
+sudo su xiahouzuoying
+#1646126481
+sudo sudoedit /etc/sudoers
+#1646126529
+sudo su xiahouzuoying
+#1646126562
+vi /etc/sudoers
+#1646126568
+sudo sudoedit /etc/sudoers
+#1646126594
+sudo su xiahouzuoying
+#1646126657
+sudo vi /etc/sudoers
+#1646126679
+sudo sudoedit /etc/sudoers
+#1646126711
+sudo su xiahouzuoying
+#1646126745
+vi /etc/sudoers
+#1646126748
+sudo sudoedit /etc/sudoers
+#1646126764
+sudo su xiahouzuoying
+#1646126859
+sudo sudoedit /etc/sudoers
+#1646126955
+ll /usr/sbin/useradd
+#1646126962
+ll /sbin/useradd 
+#1646126980
+su xiahouzuoying
+#1646127008
+sudo sudoedit /etc/sudoers
+#1646127037
+su xiahouzuoying
+#1646127312
+sudo sudoedit /etc/sudoers
+#1646127341
+sudo su xiahouzuoying
+#1646127362
+sudo vi /etc/sudoers
+#1646127371
+sudo sudoedit /etc/sudoers
+#1646127444
+sudo userdel chensiyun
+#1646127412
+sudo su xiahouzuoying
+#1646127603
+cd Documents/
+#1646127603
+ls
+#1646127609
+cp /usr/local/bin/nfs_* ./
+#1646127610
+ll
+#1646127617
+bjl
+#1646127620
+bhosts 
+#1646127622
+lsload
+#1646133742
+set +o history;
+#1646133863
+ll
+#1646133870
+sudo shutdown -s now
+#1646133877
+sudo shutdown  now
+#1646133749
+ssh yi03
+#1646133638
+sudo shutdown now
+#1646133774
+ssh yi04
+#1646135552
+cd projects/yanhui/
+#1646135574
+cd annotation_smk/
+#1646135588
+conda activate maker
+#1646135722
+stringtie
+#1646135818
+conda install -c bioconda stringtie
+#1646141828
+stringtie
+#1646143696
+mamba
+#1646143719
+nohup mamba install -c bioconda stringtie &
+#1646184421
+set +o history;
+#1646184448
+cd projects/yanhui/annotation_smk/
+#1646184552
+stringtie
+#1646184561
+conda activate maker
+#1646184592
+stringtie
+#1646184686
+which augustus
+#1646184768
+busco
+#1646184797
+which busco
+#1646185352
+nohup mamba install -c bioconda busco &
+#1646185702
+busco
+#1646185866
+nohup snakemake --cluster "bsub -o output -e error -q Q104C512G_X4 -m yi02" -c10 -j 10 -p --use-conda &
+#1646185892
+fg
+#1646185941
+conda envs list
+#1646185950
+conda env list
+#1646186057
+nohup snakemake --cluster "bsub -o output3 -e error3 -q Q104C512G_X4 -m yi02" -c10 -j 10 -p &
+#1646188126
+bjobs
+#1646188395
+set +o history;
+#1646188433
+cd projects/yanhui/
+#1646188442
+cd annotation_smk/
+#1646188465
+less core.211042
+#1646188509
+gffread
+#1646188725
+bjobs
+#1646189254
+maker
+#1646189270
+maker -h
+#1646190517
+fastp -h
+#1646195521
+bjl
+#1646195523
+ls
+#1646195524
+lth
+#1646195526
+cd Do
+#1646195529
+cd Documents/
+#1646195530
+ls
+#1646195534
+sudo su
+#1646197111
+fail2ban-client status
+#1646197114
+fail2ban-client status sshd
+#1646198455
+bjobs
+#1646198456
+bhosts 
+#1646198458
+lsload
+#1646198460
+bhosts 
+#1646198588
+sudo firewall-cmd --zone=public --list-ports
+#1646198598
+sudo firewall-cmd --zone=lsf --list-ports
+#1646198602
+lsload
+#1646198616
+sudo /etc/init.d/openlava restart
+#1646198618
+lsload
+#1646198463
+ssh yi03
+#1646198512
+bhosts 
+#1646198629
+ls
+#1646198631
+bhosts 
+#1646198666
+sudo systemctl stop firewalld
+#1646198671
+bhosts 
+#1646198685
+ls
+#1646198688
+cd Documents/
+#1646198688
+ls
+#1646198691
+cd openlava/
+#1646198691
+ls
+#1646198694
+more firewall.sh 
+#1646198717
+sudo firewall-cmd --get-active-zones
+#1646198728
+sudo systemctl start firewalld
+#1646198730
+sudo firewall-cmd --get-active-zones
+#1646198754
+sudo firewall-cmd --zone=lsf --list-ports
+#1646198763
+bhosts 
+#1646198765
+ls
+#1646198772
+vi lsf.conf 
+#1646198790
+sudo firewall-cmd --zone=lsf --query-port=6323/tcp
+#1646198794
+sudo firewall-cmd --zone=lsf --query-port=6322/tcp
+#1646198796
+sudo firewall-cmd --zone=lsf --query-port=6324/tcp
+#1646198800
+bjobs
+#1646198802
+bhosts 
+#1646198515
+ssh yi03
+#1646198691
+ls
+#1646198701
+rm output.6071* error.6071*
+#1646198703
+for i in `seq -w 01 04`; do bsub -m yi$i "hostname >> test.log"; done
+#1646198706
+bjl
+#1646198708
+bjobs
+#1646198714
+more test.log 
+#1646198719
+lsload
+#1646198720
+bhosts 
+#1646198967
+j docu
+#1646198971
+cd
+#1646198971
+ls
+#1646198979
+cd Documents/
+#1646198980
+ls
+#1646198983
+cd openlava/
+#1646198983
+l
+#1646198984
+lt
+#1646198990
+more firewall.sh 
+#1646198998
+sudo su
+#1646198846
+ssh yi03
+#1646199090
+more /var/spool/mail/liuhui
+#1646199093
+tail /var/spool/mail/liuhui
+#1646199096
+les /var/spool/mail/liuhui
+#1646199111
+bhosts 
+#1646199112
+lsload
+#1646199115
+bhosts 
+#1646199244
+ll
+#1646201924
+nohup snakemake --cluster "bsub -o output3 -e error3 -q Q104C512G_X4 -m yi02" -c10 -j 10 -p --latency-wait 60 &
+#1646201947
+conda activate maker
+#1646203037
+set +o history;
+#1646205158
+bjl
+#1646205174
+who
+#1646205177
+bjobs -u all
+#1646205648
+sudo reboot
+#1646209803
+free -g
+#1646209807
+top
+#1646209822
+sudo shutdown now
+#1646211425
+bhosts
+#1646211445
+lsload
+#1646211597
+bhosts 
+#1646211628
+sudo systemctl restart firewalld
+#1646211633
+lsload
+#1646211644
+/etc/init.d/openlava status
+#1646211650
+/etc/init.d/openlava restart
+#1646211653
+lsload
+#1646211666
+sudo systemctl stop firewalld
+#1646211669
+lsload
+#1646211688
+ssh yi01
+#1646211558
+bhosts 
+#1646211567
+sudo /etc/init.d/openlava restart
+#1646211571
+top
+#1646211577
+bhosts 
+#1646211585
+lsload
+#1646211692
+ssh -p 201 yi01
+#1646211735
+lsload
+#1646211743
+bhosts 
+#1646211751
+sudo systemctl stop firewalld
+#1646211755
+bhosts 
+#1646211760
+lsload
+#1646211749
+sudo systemctl stop firewalld
+#1646211756
+lsload
+#1646211772
+sudo /etc/init.d/openlava restart
+#1646211775
+lsload
+#1646211777
+bhosts 
+#1646211788
+ifconfig
+#1646211809
+sudo systemctl status firewalld
+#1646211834
+sudo firewall-cmd --zone=lsf --query-port=6324/tcp
+#1646211840
+bhosts 
+#1646211844
+lsload
+#1646211846
+bhosts 
+#1646211857
+sudo systemctl  start firewalld
+#1646211765
+ssh yi03
+#1646211882
+bhosts 
+#1646211884
+lsload
+#1646211888
+sudo systemctl stop firewalld
+#1646211890
+lsload
+#1646211891
+bhosts 
+#1646211901
+top
+#1646211904
+ssh yi01
+#1646211774
+bhosts 
+#1646211785
+sudo firewall-cmd  --reload
+#1646211789
+bhosts 
+#1646211908
+ssh -p 201 yi01
+#1646211932
+sudo /etc/init.d/openlava restart
+#1646211933
+bhosts 
+#1646211946
+sudo systemctl stop firewalld
+#1646211948
+bhosts 
+#1646211950
+lsload
+#1646211953
+bhosts 
+#1646211960
+sudo systemctl start firewalld
+#1646212299
+ifconfig
+#1646212304
+bhosts 
+#1646212306
+ssh yi01
+#1646212489
+ping yi01
+#1646212493
+sudo su
+#1646212576
+ls
+#1646212601
+sudo route
+#1646212605
+sudo route -
+#1646212606
+sudo route -n
+#1646212615
+sudo su
+#1646212761
+bhosts 
+#1646212763
+lsload
+#1646212797
+ll
+#1646212311
+ssh -p 201 yi01
+#1646212851
+sudo dmidecode -t memory
+#1646213032
+top
+#1646213034
+free -g
+#1646212918
+ssh yi03
+#1646212778
+top
+#1646212780
+free -g
+#1646212925
+ssh yi04
+#1646268491
+bjl
+#1646268492
+bhosts 
+#1646268493
+lsload
+#1646268495
+ssh yi03
+#1646268351
+bhosts 
+#1646268352
+lsload
+#1646268500
+ssh yi04
+#1646268505
+ssh yi02
+#1646268650
+lsload
+#1646268651
+bhosts 
+#1646268512
+ssh -p 201 yi02
+#1646268519
+ls
+#1646268523
+ll ..
+#1646268529
+last |les
+#1646270857
+set +o history;
+#1646271007
+cd projects/yanhui/annotation_smk/
+#1646271015
+conda activate maker
+#1646271149
+sh annotation_smk.sh SETOR SETOR/tora.fa SETOR/arath_med_sprot.pep 
+#1646271443
+sh annotation_smk.sh -h
+#1646271449
+sh annotation_smk.sh --help
+#1646271525
+maker -h
+#1646272079
+getopt -h
+#1646272284
+getopt -T
+#1646274617
+sh annotation_smk.sh --help
+#1646274627
+sh annotation_smk.sh SETOR SETOR/tora.fa SETOR/arath_med_sprot.pep 
+#1646274661
+sh annotation_smk.sh -b SETOR -g SETOR/tora.fa -pro SETOR/arath_med_sprot.pep 
+#1646274718
+sh annotation_smk.sh 
+#1646274891
+sh annotation_smk.sh -b SETOR -g SETOR/tora.fa -pro SETOR/arath_med_sprot.pep 
+#1646275441
+sh annotation_smk.sh SETOR SETOR/tora.fa SETOR/arath_med_sprot.pep 
+#1646275467
+sh annotation_smk.sh -v
+#1646275470
+sh annotation_smk.sh -h
+#1646275480
+sh annotation_smk.sh -a
+#1646275493
+sh annotation_smk.sh SETOR SETOR/tora.fa SETOR/arath_med_sprot.pepa 
+#1646275683
+sh annotation_smk.sh SETOR SETOR/tora.fa SETOR/arath_med_sprot.pep -c2
+#1646275797
+less core.100011 
+#1646275936
+sh annotation_smk.sh SETOR SETOR/tora.fa SETOR/arath_med_sprot.pep -c2
+#1646275946
+sh annotation_smk.sh SETOR SETOR/tora.fa SETOR/arath_med_sprot.pep -c 2
+#1646275991
+sh annotation_smk.sh SETOR SETOR/tora.fa SETOR/arath_med_sprot.pep 
+#1646276049
+bjobs
+#1646276545
+bg
+#1646276553
+fg
+#1646276583
+bjobs
+#1646276601
+killall -TERM snakemake
+#1646276614
+bkill 60823
+#1646276700
+busco
+#1646276871
+sh annotation_smk.sh -c 10 a a/tora.fa a/arath_med_sprot.pep 
+#1646277304
+sh annotation_smk.sh -c10 a a/tora.fa a/arath_med_sprot.pep 
+#1646288358
+sudo service firewalld status
+#1646288388
+sudo vi /etc/sysconfig/iptables
+#1646288389
+cd projects/yanhui/annotation_smk/
+#1646288393
+sudo su 
+#1646288487
+sudo vi /etc/fail2ban/jail.local
+#1646288604
+sudo systemctl reload firewalld
+#1646288608
+sudo systemctl reload fail2ban
+#1646288628
+chmod +x annotation_smk.sh 
+#1646288651
+annotation_smk
+#1646288669
+annotation_smk.sh
+#1646288758
+conda activate maker
+#1646288804
+./annotation_smk.sh 
+#1646288821
+./annotation_smk.sh -a
+#1646288825
+./annotation_smk.sh -h
+#1646288828
+./annotation_smk.sh -v
+#1646288858
+./annotation_smk.sh -b a -g a/tora.fa -p a/arath_med_sprot.pep -c 10
+#1646289159
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep 
+#1646289355
+./annotation_smk.sh -v
+#1646289490
+./annotation_smk.sh -j4
+#1646289497
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep 
+#1646289506
+./annotation_smk.sh -c 10 -b a
+#1646289513
+./annotation_smk.sh -b a
+#1646289636
+./annotation_smk.sh -c 10 -b a
+#1646289644
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep 
+#1646289793
+bjobs -h
+#1646290043
+maker -h
+#1646290311
+./annotation_smk.sh -h
+#1646292338
+fail2ban-client status
+#1646292341
+sudo fail2ban-client status
+#1646292351
+sudo su
+#1646292845
+sudo fail2ban-client status
+#1646292862
+sudo iptables -L -n
+#1646293347
+bjl
+#1646293434
+less /var/log/messages
+#1646293442
+sudo vi /etc/fail2ban/jail.local
+#1646293521
+sudo less /var/log/secure
+#1646293587
+sudo firewall --list-ports
+#1646293591
+sudo firewall-cmd --list-ports
+#1646293602
+lsload
+#1646293603
+bhosts 
+#1646293608
+which lsload
+#1646293614
+vi /opt/openlava-2.2/bin/lsload
+#1646293626
+cd /opt/openlava-2.2/bin/
+#1646293626
+ll
+#1646293630
+tolava
+#1646293736
+lsload
+#1646293746
+top
+#1646293748
+bhosts 
+#1646293750
+lsload
+#1646295826
+bhosts 
+#1646288338
+export LANG="en_US";export LANGUAGE="en_US";export LC_ALL="en_US";top
+#1646312867
+set +o history;
+#1646313331
+cd projects/yanhui/annotation_smk/
+#1646313339
+rm core.*
+#1646313416
+RepeatModeler
+#1646313423
+conda activate maker
+#1646313437
+RepeatModeler -h
+#1646313980
+nohup snakemake --cluster "bsub -o output -e error -q Q104C512G_X4 -m yi02" -j 10 -p --latency-wait 60 & 
+#1646314085
+bjobs
+#1646314094
+bg
+#1646314103
+bjobs
+#1646314116
+nohup snakemake --cluster "bsub -o output -e error -q Q104C512G_X4 -m yi02" -j 10 -p --latency-wait 60 & 
+#1646314266
+RepeatModeler -pa 3 -engine ncbi -pa 100 -database a -dir result/a/evidence/
+#1646314378
+RepeatScout
+#1646314698
+RepeatModeler -pa 3 -engine ncbi -pa 100 -database a -dir result/a/evidence/
+#1646314887
+which RepeatModeler
+#1646314911
+which TRF
+#1646314963
+which RECON
+#1646315101
+RepeatModeler 
+#1646315211
+nohup snakemake --cluster "bsub -o output -e error -q Q104C512G_X4 -m yi02" -j 10 -p --latency-wait 60 & 
+#1646315491
+RepeatModeler -pa 3 -engine ncbi -pa 100 -database a -dir result/a/evidence/ a/tora.fa
+#1646315930
+RepeatModeler -pa 3 -engine ncbi -pa 100 -database a a/tora.fa
+#1646316155
+rm RM*
+#1646316162
+rm -r RM*
+#1646316226
+nohup snakemake --cluster "bsub -o output -e error -q Q104C512G_X4 -m yi02" -j 10 -p --latency-wait 60 & 
+#1646316242
+bjobs
+#1646356445
+set +o history;
+#1646356633
+cd projects/yanhui/annotation_smk/
+#1646356651
+rm core*
+#1646357410
+conda activate maker
+#1646359727
+./annotation_smk.sh -h
+#1646360760
+./annotation_smk -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep
+#1646360779
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep
+#1646363719
+ll a/.
+#1646365099
+bhosts 
+#1646365102
+bjobs -u all |less
+#1646365105
+lsload
+#1646365108
+sudo less /var/log/secure
+#1646365133
+grep 139.59.210.36 /var/log/secure |wc -l
+#1646365136
+sudo grep 139.59.210.36 /var/log/secure |wc -l
+#1646365142
+sudo firewall-cmd status
+#1646365148
+sudo iptables -L -n
+#1646365157
+sudo su
+#1646366108
+cp /etc/fail2ban/jail.local Documents/
+#1646378334
+tols
+#1646378335
+ls
+#1646378339
+cd yanrui
+#1646378341
+ls
+#1646378350
+conda 
+#1646378358
+conda activate bio
+#1646378399
+conda create -n jcvi
+#1646378472
+conda create -n jcvi python=3.7
+#1646378577
+conda activate jcvi
+#1646378585
+pip install jcvi
+#1646378662
+conda -env
+#1646378699
+ls
+#1646378734
+conda info --envs
+#1646378750
+conda activate yr
+#1646378887
+tolava
+#1646378757
+pip install jcvi
+#1646379128
+pip install pybedtools
+#1646379183
+conda install --channel conda-forge --channel bioconda pybedtools
+#1646379435
+ls
+#1646379442
+mkdir jcvi
+#1646379445
+cd jcvi
+#1646379461
+python -m jcvi.apps.fetch phytozome
+#1646379483
+cd projects/yanhui/annotation_smk/
+#1646379477
+pip install jcvi
+#1646379538
+pip install numpy=1.20
+#1646379565
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep
+#1646379544
+pip install numpy==1.20
+#1646379568
+pip install jcvi
+#1646379575
+python -m jcvi.apps.fetch phytozome
+#1646379614
+wget ftp://ftp.ensemblgenomes.org/pub/plants/release-44/fasta/arabidopsis_thaliana/cdna/Arabidopsis_thaliana.TAIR10.cdna.all.fa.gz
+#1646379626
+wget ftp://ftp.ensemblgenomes.org/pub/plants/release-44/fasta/arabidopsis_thaliana/pep/Arabidopsis_thaliana.TAIR10.pep.all.fa.gz
+#1646379636
+wget ftp://ftp.ensemblgenomes.org/pub/plants/release-44/gff3/arabidopsis_thaliana/Arabidopsis_thaliana.TAIR10.44.gff3.gz
+#1646379652
+ls
+#1646379664
+wget ftp://ftp.ensemblgenomes.org/pub/plants/release-44/fasta/oryza_sativa/cdna/Oryza_sativa.IRGSP-1.0.cdna.all.fa.gz
+#1646379673
+wget ftp://ftp.ensemblgenomes.org/pub/plants/release-44/fasta/oryza_sativa/pep/Oryza_sativa.IRGSP-1.0.pep.all.fa.gz
+#1646379680
+wget ftp://ftp.ensemblgenomes.org/pub/plants/release-44/gff3/oryza_sativa/Oryza_sativa.IRGSP-1.0.44.gff3.gz
+#1646379694
+ls
+#1646379707
+conda install seqkit
+#1646379766
+python -m jcvi.formats.gff bed --type=mRNA --key=transcript_id Arabidopsis_thaliana.TAIR10.44.gff3.gz > ath.bed
+#1646379794
+python -m jcvi.formats.gff bed --type=mRNA --key=transcript_id Oryza_sativa.IRGSP-1.0.44.gff3.gz > osa.bed
+#1646379812
+ls
+#1646379827
+python -m jcvi.formats.bed uniq ath.bed
+#1646379831
+python -m jcvi.formats.bed uniq osa.bed
+#1646379841
+seqkit grep -f <(cut -f 4 ath.uniq.bed ) Arabidopsis_thaliana.TAIR10.cdna.all.fa.gz | seqkit seq -i > ath.cds
+#1646379843
+seqkit grep -f <(cut -f 4 ath.uniq.bed ) Arabidopsis_thaliana.TAIR10.pep.all.fa.gz | seqkit seq -i > ath.pep 
+#1646379853
+seqkit grep -f <(cut -f 4 osa.uniq.bed )  Oryza_sativa.IRGSP-1.0.cdna.all.fa.gz | seqkit seq -i  > osa.cds
+#1646379855
+seqkit grep -f <(cut -f 4 osa.uniq.bed ) Oryza_sativa.IRGSP-1.0.pep.all.fa.gz | seqkit seq -i  > osa.pep
+#1646379867
+mkdir -p cds && cd cds
+#1646379874
+ln -s ../ath.cds ath.cds
+#1646379874
+ln -s ../ath.uniq.bed ath.bed
+#1646379874
+ln -s ../osa.cds osa.cds
+#1646379875
+ln -s ../osa.uniq.bed osa.bed
+#1646379877
+ls
+#1646379879
+cd ..
+#1646379879
+ls
+#1646379915
+git clone https://gitlab.com/mcfrith/last.git
+#1646379943
+ls
+#1646379945
+cd last/
+#1646379947
+make
+#1646379955
+ls
+#1646379981
+make
+#1646379994
+ls
+#1646380000
+less README.rst 
+#1646380031
+conda activate base
+#1646380035
+make
+#1646380148
+ls
+#1646380154
+conda activate yr
+#1646380172
+export PATH=$PATH:/nfs/liuhui/yanrui/jcvi/last/bin
+#1646380173
+ls
+#1646380176
+cd ..
+#1646380176
+ls
+#1646380179
+cd cds/
+#1646380180
+ls
+#1646380194
+python -m jcvi.compara.catalog ortholog --no_strip_names ath osa
+#1646380709
+cd ..
+#1646380710
+ls
+#1646380713
+python -m jcvi.apps.fetch phytozome Vvinifera,Ppersica
+#1646381949
+cat /etc/issue
+#1646374896
+export LANG="en_US";export LANGUAGE="en_US";export LC_ALL="en_US";top
+#1646383243
+ll
+#1646383245
+tolava 
+#1646383408
+ls
+#1646383418
+sudo less /var/log/secure
+#1646383458
+sudo fail2ban-client status
+#1646383460
+sudo fail2ban-client status sshd
+#1646383512
+bhosts 
+#1646383523
+expr 48 + 144 + 256
+#1646383541
+ll
+#1646383545
+cat /etc/issue
+#1646444917
+which cmake
+#1646444923
+module load cmake
+#1646444926
+which cmake
+#1646449669
+set +o history;
+#1646449812
+conda activate maker
+#1646449847
+fathom_to_genbank.pl
+#1646450021
+cd projects/yanhui/annotation_smk/
+#1646450168
+hmm-assembler.pl
+#1646450234
+conda deactivate
+#1646450257
+./annotation_smk.sh -h
+#1646450281
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep
+#1646450307
+conda activate maker
+#1646450328
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep
+#1646465312
+bin/fathom_to_genbank.pl --annotation_file result/a/R1/uni.ann --dna_file result/a/R1/uni.dna  --genbank_file result/a/R1/augustus.gb --number 500
+#1646465365
+perl bin/fathom_to_genbank.pl --annotation_file result/a/R1/uni.ann --dna_file result/a/R1/uni.dna  --genbank_file result/a/R1/augustus.gb --number 500
+#1646465484
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep
+#1646465755
+get_subset_of_fastas.pl
+#1646465887
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep
+#1646466298
+$ chmod +x annotation_smk.sh
+#1646466445
+chmod
+#1646466455
+chomd
+#1646467755
+./annotation_smk.sh -h
+#1646617990
+set +o history;
+#1646618750
+cd projects/yanhui/annotation_smk/
+#1646618902
+conda activate maker
+#1646618943
+vim bsub.sh
+#1646619188
+bsub<bsub.sh 
+#1646619995
+vim bsub.sh 
+#1646620046
+mamba install -c bioconda trnascan-se
+#1646620135
+vim bsub.sh 
+#1646620166
+bsub<bsub.sh 
+#1646620305
+maker -CTL 2>/dev/null
+#1646620335
+cp maker_exe.ctl result/a/R2/
+#1646620344
+bsub<bsub.sh 
+#1646625334
+sudo less /var/log/secure
+#1646625398
+sudo fail2ban-client status sshd
+#1646625419
+top
+#1646629082
+sudo vi /etc/fail2ban/jail.local
+#1646629089
+sudo less /var/log/secure
+#1646629092
+sudo fail2ban-client status sshd
+#1646629114
+sudo less /var/log/secure
+#1646629134
+sudo grep oyetola /var/log/secure
+#1646629149
+sudo grep 210.72 /var/log/secure
+#1646629175
+sudo vi /etc/sysconfig/iptables
+#1646629184
+sudo vi /etc/fail2ban/jail.local
+#1646629195
+sudo systemctl reload fail2ban
+#1646629201
+sudo fail2ban-client status sshd
+#1646636920
+cd projects/yanhui/annotation_smk/
+#1646636968
+cp -rf 4.maker.output/ result/a/R2/
+#1646637201
+rm -rf 4.maker.output/
+#1646637726
+./annotation_smk.sh -h
+#1646637771
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep
+#1646637782
+conda activate maker
+#1646637815
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep
+#1646633680
+export LANG="en_US";export LANGUAGE="en_US";export LC_ALL="en_US";top
+#1646702824
+set +o history;
+#1646725126
+cd projects/yanhui/annotation_smk/
+#1646725137
+conda activate maker
+#1646725197
+snakemake --dag | dot -Tpdf > annotation_smk.pdf
+#1646725838
+sz
+#1646725843
+sz /nfs/liuhui/projects/yanhui/annotation_smk/annotation_smk.pdf
+#1646725847
+# Sent -> /Users/liuhui/Downloads/
+#1646725965
+less /nfs/liuhui/projects/yanhui/annotation_smk/nohup.out
+#1646726136
+cd /nfs/liuhui/projects/yanhui/
+#1646726137
+sl
+#1646726137
+ls
+#1646726140
+ll -a
+#1646726143
+cd annotation_smk/
+#1646726144
+ls
+#1646726146
+cd result/
+#1646726147
+ls
+#1646726148
+cd a/
+#1646726149
+ls
+#1646726150
+cd evidence/
+#1646726151
+ll
+#1646726152
+ls
+#1646726161
+cd pep/
+#1646726162
+ls
+#1646726167
+ll *gff |less
+#1646726173
+lth
+#1646726181
+cd ..
+#1646726182
+ll *gff
+#1646726189
+les genblast.gff 
+#1646726205
+ls
+#1646726208
+cd pep/
+#1646726208
+ls
+#1646726211
+les genome.fa.masked.fa
+#1646726215
+cd ..
+#1646726220
+les genblast.gff 
+#1646726225
+cd -
+#1646726225
+ls
+#1646726245
+cat *pro  > ../total_genblast.pep
+#1646726249
+cd ..
+#1646726251
+vi total_genblast.pep 
+#1646726287
+python -m iga.assembly.assess --mode prot total_genblast.pep 
+#1646726293
+python -m iga.assembly.assess busco --mode prot total_genblast.pep 
+#1646726299
+bjl
+#1646726307
+lth
+#1646726365
+ll *gff
+#1646726369
+les rnaseq.fasta.rawgff.gff 
+#1646726381
+ll
+#1646726385
+ll *gff
+#1646726392
+les total_est.gff 
+#1646728304
+Trinity
+#1646720204
+export LANG="en_US";export LANGUAGE="en_US";export LC_ALL="en_US";top
+#1646741552
+conda activate maker
+#1646741567
+snakemake -v
+#1646741754
+cd projects/yanhui/annotation_smk/
+#1646741763
+./annotation_smk.sh -h
+#1646741796
+./annotation_smk.sh -c 10 -b a -g a/tora.fa -p a/arath_med_sprot.pep
+#1646968294
+module load cmake
+#1646968296
+CMAKE_CXX_COMPILER 
+#1646968336
+which gcc
+#1646968340
+module purge
+#1646968359
+sudo su tianqin
+#1646968844
+ls
+#1646968853
+sudo less /var/log/secure
+#1646968861
+sudo fail2ban-client status sshd
+#1646968878
+gtp
+#1646968884
+ls
+#1646968906
+cp -r Documents/ /nfs/liuhui/bin/bundle/HPC/
+#1646968910
+ll /nfs/liuhui/bin/bundle/HPC/Documents/
+#1646968911
+ls
+#1646968918
+mv Documents .Documents
+#1646968927
+ln -s /nfs/liuhui/bin/bundle/HPC/Documents
+#1646968929
+cd Documents/
+#1646968930
+ls
+#1646968931
+cd -
+#1646968935
+gtp

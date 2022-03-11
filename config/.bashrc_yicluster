@@ -243,7 +243,7 @@ export ALIGNMENT_TOOL_PATH=~/lh/anaconda3/envs/braker2/bin
 
 [[ -s /nfs/liuhui/.autojump/etc/profile.d/autojump.sh ]] && source /nfs/liuhui/.autojump/etc/profile.d/autojump.sh
 
-alias tolava='ssh openlava@localhost'
+alias tolava='ssh -p 201 openlava@localhost'
 
 ## latex
 # export MANPATH=/nfs/apps/packages/texlive/2021/texmf-dist/doc/man:$MANPATH
