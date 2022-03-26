@@ -155,9 +155,9 @@ def run(qry=None, ref=None, PREFIX=None, rank=3):
     :return:
     """
     cmd = 'export GBLAST_PATH=$(dirname `which genblast`)\n'
-    cmd2 = "`which genblast` -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r {} -c 0.5 -s 0 -i 15 \
+    cmd2 = "genblast -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r {} -c 0.5 -s 0 -i 15 \
 -x 20 -n 20 -v 2 -h 2 -j 0 -norepair -gff -cdna -pro -o {}.genblast"
-    cmd1 = "`which genblast` -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r {} -c 0.5 -s 0 -i 15 \
+    cmd1 = "genblast -p genblastg -q {} -t {} -e 1e-4 -g T -f F -a 0.5 -d 100000 -r {} -c 0.5 -s 0 -i 15 \
 -x 20 -n 20 -v 2 -h 1 -j 0 -norepair -gff -cdna -pro -o {}.genblast"
     cmd += cmd2.format(qry, ref, rank, PREFIX)
     job = sh(cmd)
