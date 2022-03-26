@@ -275,3 +275,4 @@ export PATH=/nfs/liuhui/bin/lazyb/abyss/bin:$PATH
 export PATH=/nfs/liuhui/bin/blast-2.2.26/bin:$PATH
 export PATH=/nfs/liuhui/bin/genblast_v139:$PATH
 export PATH=/nfs/liuhui/bin/maker/maker/bin:$PATH
+
