@@ -42584,3 +42584,1481 @@ ls
 cd -
 #1646968935
 gtp
+#1646968941
+gtps
+#1646971709
+/nfs/tianqin/Tools/bamm/build/usr/local/bin/bamm
+#1646971713
+ll /nfs/tianqin/Tools/bamm/build/usr/local/bin/bamm
+#1646971714
+cd ..
+#1646971715
+ll
+#1646971792
+stat liuhui/
+#1646971803
+chmod 755 */
+#1646971806
+sudo chmod 755 */
+#1646971808
+ll
+#1646971828
+/nfs/tianqin/Tools/bamm/build/usr/local/bin/bamm
+#1646971907
+/nfs/tianqin/Tools/bamm/build/usr/local/bin/bamm -h
+#1646971910
+/nfs/tianqin/Tools/bamm/build/usr/local/bin/bamm --help
+#1646971914
+ll /nfs/tianqin/Tools/bamm/
+#1646971918
+less /nfs/tianqin/Tools/bamm/README.md 
+#1646971924
+less /nfs/tianqin/Tools/bamm/AUTHORS 
+#1646971931
+less /nfs/tianqin/Tools/bamm/LICENSE 
+#1646971936
+less /nfs/tianqin/Tools/bamm/README.md 
+#1646971876
+tolava 
+#1646971961
+module load bamm
+#1646971963
+bamm
+#1646975068
+vi vi /etc/default/useradd
+#1646975075
+vi /etc/default/useradd
+#1647237800
+cd bin/
+#1647237801
+ls
+#1647237806
+git clon
+#1647237808
+git clone https://github.com/blackrim/treePL.git
+#1647237818
+cd treePL/
+#1647237818
+ls
+#1647237821
+vi README 
+#1647237823
+cd src/
+#1647237823
+ls
+#1647237834
+mkdir ../bin
+#1647237838
+./configure --prefix=/nfs/liuhui/bin/treePL/bin
+#1647237844
+module load gcc
+#1647237845
+./configure --prefix=/nfs/liuhui/bin/treePL/bin
+#1647238288
+vc
+#1647237940
+tolava 
+#1647241987
+module load treepl; treePL
+#1647241991
+module purge
+#1647242096
+sl
+#1647242097
+ls
+#1647242101
+tols
+#1647242103
+tolava 
+#1647311106
+ls
+#1647311112
+cd yanrui/
+#1647311113
+ls
+#1647311120
+cd ..
+#1647311120
+ls
+#1647311122
+cd data
+#1647311124
+ls
+#1647311161
+cd yanrui/
+#1647311162
+ls
+#1647311163
+cd ..
+#1647311164
+ls
+#1647669912
+bjobs -u all |less
+#1647669925
+bhosts 
+#1647669940
+lsload
+#1647669953
+bsub512 -m yi02 'hostname'
+#1647669954
+lth
+#1647669956
+sudo less /var/log/secure
+#1647669985
+bhosts 
+#1647669988
+lth
+#1647669989
+more output.62271 
+#1647669992
+rm output.62271 error.62271 
+#1647669992
+lt
+#1647669997
+tolava 
+#1647672886
+conda activate cactus
+#1647672888
+cactus
+#1647672921
+which cactus
+#1647673099
+conda deactivate
+#1647673101
+module load cactus
+#1647673103
+which cactus
+#1647673106
+cactus -h
+#1647673214
+ll
+#1647849751
+ls
+#1647849756
+cd projects/
+#1647849756
+ls
+#1647849757
+ll
+#1647849762
+cd
+#1647849765
+mkdir zhangrong
+#1647849766
+cd zhangrong/
+#1647849791
+cp ../../apps/packages/cactus-bin-v2.0.5/examples/evolver* .
+#1647849792
+ll
+#1647849808
+module load cactus
+#1647849672
+sch
+#1647849672
+cd
+#1647849673
+ls
+#1647849679
+cd Documents/
+#1647849681
+cd 
+#1647849683
+ll
+#1647849974
+sch
+#1647849894
+top
+#1647849973
+module load gcc
+#1647849975
+which g++
+#1647849820
+cactus jobStore evolverMammals.txt evolverMammals.hal --root mr
+#1647850135
+toyie
+#1647850212
+bsub512 -m yi04 "cactus jobStore evolverMammals.txt evolverMammals.hal --root mr"
+#1647850213
+lth
+#1647850221
+mv evolverMammals.hal evolverMammals.hal.1
+#1647850222
+ll
+#1647850223
+bj
+#1647850225
+lth
+#1647850228
+les jobStore/
+#1647850237
+les evolverMammals.txt 
+#1647850279
+ll
+#1647850280
+lt
+#1647850281
+lt jobStore/
+#1647850284
+lt jobStore/stats/
+#1647850316
+bjl
+#1647850159
+top
+#1647850363
+bpeek 62311
+#1647850434
+lth
+#1647850437
+lt
+#1647850440
+les error.62311 
+#1647850546
+lt
+#1647850550
+les output.62311 
+#1647850556
+rm error.62311 output.62311 
+#1647850557
+cd jobStore/
+#1647850557
+lt
+#1647850559
+cd jobs/
+#1647850559
+lth
+#1647850566
+cd ../..
+#1647850567
+ls
+#1647850569
+rm -r jobStore/
+#1647850570
+lt
+#1647850573
+bsub512 -m yi04 "cactus jobStore evolverMammals.txt evolverMammals.hal --root mr"
+#1647850578
+module load cactus
+#1647850586
+bkill 62312
+#1647850587
+ls
+#1647850588
+bj
+#1647850597
+lt
+#1647850600
+rm error.62312 output.62312 
+#1647850601
+which cactus
+#1647850611
+bsub512 -m yi04 "module load cactus; cactus jobStore evolverMammals.txt evolverMammals.hal --root mr"
+#1647850612
+lt
+#1647850616
+bj
+#1647850621
+lt jobStore/
+#1647850623
+bj
+#1647850624
+lt
+#1647850629
+rm -r output.62313 error.62313 jobStore/
+#1647850630
+lt
+#1647850631
+bsub512 -m yi04 "module load cactus; cactus jobStore evolverMammals.txt evolverMammals.hal --root mr"
+#1647850632
+lt
+#1647850633
+bjl
+#1647850637
+module purge
+#1647850639
+which cactus
+#1647850644
+bjl
+#1647850645
+lt
+#1647850786
+lth
+#1647850788
+bjl
+#1647850793
+bpeek 62314
+#1647850161
+tp
+#1647850647
+less /tmp/c1594ed5c61a53b0992b43720300e0a2/48b2/worker_log.txt
+#1647850653
+more /tmp/c1594ed5c61a53b0992b43720300e0a2/cee6/worker_log.txt
+#1647850667
+more /tmp/c1594ed5c61a53b0992b43720300e0a2/dcf8/worker_log.txt
+#1647850680
+cd zhangrong/
+#1647850681
+ls
+#1647850683
+which cactus
+#1647850683
+lt
+#1647850688
+bj
+#1647850695
+mkdir test
+#1647850696
+cd test/
+#1647850698
+cd ..
+#1647850700
+mv test yi04
+#1647850701
+cd yi04/
+#1647850708
+ln -s ../evolverMammals.txt 
+#1647850708
+ll
+#1647850711
+which cactus
+#1647850714
+module load gcc
+#1647850716
+module load cactus
+#1647850717
+ll
+#1647850888
+lt
+#1647850892
+les error.62314
+#1647850907
+cd jobStore/
+#1647850907
+ls
+#1647850908
+ll
+#1647850912
+cd jobs/
+#1647850921
+les kind-CactusConsolidated/instance-wum_a5iu/job 
+#1647850924
+ll kind-CactusConsolidated/instance-wum_a5iu/job 
+#1647850928
+more kind-CactusConsolidated/instance-wum_a5iu/job 
+#1647851013
+cd ../files/for-job/kind-CactusConsolidated/instance-wum_a5iu/cleanup/file-e0040178fa4741a388d849afdf0428d1/
+#1647851013
+ll
+#1647851015
+more stream 
+#1647850893
+module load cactus
+#1647850895
+cactus -h
+#1647850721
+cactus jobStore evolverMammals.txt evolverMammals.hal --root mr
+#1647850930
+more /tmp/b1b439c35fd55f1cb6c0ad4c8f324a1d/212d/87dc/tmpwugxcksy.tmp
+#1647851012
+cactus_consolidated
+#1647851329
+more /tmp/b1b439c35fd55f1cb6c0ad4c8f324a1d/212d/87dc/tmp60m32daz.tmp
+#1647851692
+vi /nfs/apps/modules/cactus/2.0.5 
+#1647851735
+which python
+#1647851737
+python
+#1647851903
+ll
+#1647851788
+module purge
+#1647851788
+ls
+#1647851792
+conda activate cactus
+#1647851793
+ll
+#1647851795
+cd zhangrong/
+#1647851795
+ll
+#1647851799
+cd yi04/
+#1647851799
+ll
+#1647851802
+rm -r jobStore/
+#1647851805
+cactus jobStore evolverMammals.txt evolverMammals.hal --root mr
+#1647852615
+which cactus
+#1647852643
+ls /nfs/apps/packages/cactus-bin-v2.0.5/bin/
+#1647852653
+which cactus
+#1647852662
+which cactus2hal.py
+#1647852674
+vi /nfs/apps/miniconda3/envs/cactus/lib/python3.8/site-packages/cactus/shared/common.py
+#1647852686
+/nfs/apps/miniconda3/envs/cactus/lib/python3.8/site-packages/cactus/shared/common.py
+#1647852690
+python3 /nfs/apps/miniconda3/envs/cactus/lib/python3.8/site-packages/cactus/shared/common.py
+#1647852694
+python3 /nfs/apps/miniconda3/envs/cactus/lib/python3.8/site-packages/cactus/shared/common.py -h
+#1647852871
+which docker
+#1647852779
+vi /nfs/apps/miniconda3/envs/cactus/lib/python3.8/site-packages/cactus/shared/common.py
+#1647852800
+which cactus_consolidated
+#1647852806
+which cactus_consolidated
+#1647852811
+lt
+#1647852812
+ll
+#1647852815
+cactus jobStore evolverMammals.txt evolverMammals.hal --root mr
+#1647853225
+cactus -h
+#1647853329
+cactus --writeLogsFromAllJobs --disableWorkerOutputCapture  --debugWorker  --logDebug  jobStore evolverMammals.txt evolverMammals.hal --root mr
+#1647853342
+cactus --writeLogs --writeLogsFromAllJobs --disableWorkerOutputCapture  --debugWorker  --logDebug  jobStore evolverMammals.txt evolverMammals.hal --root mr
+#1647853349
+ll
+#1647853351
+rm -r jobStore/
+#1647853352
+cactus --writeLogs --writeLogsFromAllJobs --disableWorkerOutputCapture  --debugWorker  --logDebug  jobStore evolverMammals.txt evolverMammals.hal --root mr
+#1647853704
+lt
+#1647853706
+rm -r jobStore/
+#1647853706
+cactus  --logDebug  jobStore evolverMammals.txt evolverMammals.hal --root mr
+#1647854034
+more /tmp/986ac1bd6f4356b1a3017a400ed3e7d4/3d48/7d18/tmp9w8fbm4p.tmp
+#1647850138
+ssh yi04
+#1647854380
+cd zhangrong/
+#1647854380
+ls
+#1647854382
+mkdir yi03
+#1647854383
+ll
+#1647854384
+cd yi0
+#1647854386
+cd yi03/
+#1647854393
+ln -s ../evolverMammals.txt 
+#1647854396
+module load cactus
+#1647854402
+which module
+#1647854423
+sudo yum install module
+#1647854484
+module load cactus
+#1647854494
+history |grep module
+#1647854474
+vi /etc/profile.d/modules.sh
+#1647854481
+sudo su
+#1647854516
+sudo su
+#1647854283
+ssh yi03
+#1647854411
+which module
+#1647854413
+vc
+#1647854439
+cd ../apps/
+#1647854440
+ls
+#1647854442
+cd modules
+#1647854444
+cd modules-
+#1647854447
+cd ../modules-5.0.0/
+#1647854447
+ls
+#1647854451
+lt
+#1647854457
+cd in
+#1647854459
+ls
+#1647854461
+cd install/
+#1647854461
+ls
+#1647854463
+cd bin/
+#1647854463
+ls
+#1647854468
+vc
+#1647854476
+ls
+#1647854477
+cd ..
+#1647854478
+ls
+#1647854478
+cd ..
+#1647854479
+ls
+#1647854480
+cd ..
+#1647854481
+ls
+#1647854483
+vi pa
+#1647854356
+ssh -p 201 yi02
+#1647854595
+module avail
+#1647854596
+. /nfs/apps/modules-5.0.0/install/init/bash
+#1647854598
+module avail
+#1647854602
+ll
+#1647854606
+sudo su
+#1647854498
+ssh yi03
+#1647854628
+module avail
+#1647854646
+ll
+#1647854649
+cd zhangrong/
+#1647854650
+ls
+#1647854652
+module load cactus
+#1647854653
+ll
+#1647854657
+cd yi03/
+#1647854658
+ll
+#1647854665
+nohup cactus  --logDebug  jobStore evolverMammals.txt evolverMammals.hal --root mr &
+#1647854666
+lt
+#1647854670
+top
+#1647854677
+lt
+#1647854485
+vi path.sh 
+#1647855100
+more /tmp/b3ce2b46ea685d64adcb10a79d749187/6b19/worker_log.txt
+#1647855111
+cp -r /tmp/b3ce2b46ea685d64adcb10a79d749187/6b19/d183/ ./
+#1647855125
+vi command.sh
+#1647854680
+tail -f nohup.out 
+#1647855196
+lt
+#1647855201
+cd ..
+#1647855204
+cd -
+#1647855227
+lt
+#1647855228
+cd ..
+#1647855228
+ll
+#1647855001
+ssh yi03
+#1647928225
+bhosts 
+#1647928227
+lsload
+#1647929457
+vc
+#1647929467
+module avail
+#1647929468
+vc
+#1647929485
+which gcc
+#1647929488
+which g++
+#1647929489
+vc
+#1647930061
+sudo su zhangrong
+#1647930536
+ls
+#1647930542
+cd zhangrong/
+#1647930545
+cp -r /nfs/zhangrong/tools/TICR-master/src ./
+#1647930546
+ls
+#1647930547
+cd src/
+#1647930547
+ls
+#1647930548
+make
+#1647930550
+which make
+#1647930553
+module load gcc
+#1647930554
+ls
+#1647930554
+make
+#1647930556
+which make
+#1647930565
+echo $PATH
+#1647930591
+export PATH=/nfs/apps/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/openlava-2.2/bin:/nfs/liuhui/.local/bin:/nfs/liuhui/bin:/opt/rh/devtoolset-7/root/usr/bin
+#1647930594
+which make
+#1647930595
+ll
+#1647930597
+make
+#1647930599
+make clean
+#1647930600
+make
+#1647930615
+vi Makefile 
+#1647930627
+g++ -o mdl mdl.o
+#1647930629
+ll
+#1647930639
+g++ -o mdl -static mdl.o
+#1647930644
+g++ -o mdl -O3 mdl.o
+#1647930645
+ll
+#1647930669
+man g++
+#1647930868
+g++ static-libgcc -static-libstdc++-o mdl -O3 mdl.o
+#1647930873
+g++ static-libgcc -static-libstdc++ -o mdl -O3 mdl.o
+#1647930879
+g++ -static-libgcc -static-libstdc++ -o mdl -O3 mdl.o
+#1647930881
+ll
+#1647932271
+sudo su
+#1647932678
+cd Do
+#1647932680
+cd Documents/
+#1647932680
+ls
+#1647932686
+vi 13.install_glibc.sh
+#1647932874
+tolava
+#1647933044
+ls
+#1647933045
+cd ..
+#1647933046
+ls
+#1647933051
+cd ../apps/
+#1647933052
+ls
+#1647933054
+cd packages/glibc
+#1647933054
+ls
+#1647933058
+ll
+#1647933059
+ll bin/
+#1647933064
+ll 
+#1647933067
+ll etc/
+#1647933069
+ll include/
+#1647933071
+ls
+#1647933073
+ll lib
+#1647933077
+ll lib/libc.a
+#1647933085
+ll
+#1647933087
+ll libexec/
+#1647933090
+ll sbin/
+#1647933093
+ll share/
+#1647933096
+ll var/
+#1647933157
+ls
+#1647933159
+realpath bin/
+#1647933167
+ls share/
+#1647933168
+ls share/locale/
+#1647933171
+ls share/i18n/
+#1647933179
+ls
+#1647933181
+ls share/
+#1647933206
+ll
+#1647933208
+cd lib
+#1647933208
+ls
+#1647933210
+cd -
+#1647933225
+cd
+#1647933226
+ls
+#1647933228
+cd zhangrong/
+#1647933228
+ls
+#1647933231
+cd src/
+#1647933231
+ls
+#1647933232
+make
+#1647933234
+make clean
+#1647933235
+make
+#1647933242
+module load gcc glibc
+#1647933262
+which gcc
+#1647933264
+date
+#1647933341
+cd zhangrong/src/
+#1647933342
+ls
+#1647933343
+module load gcc glibc
+#1647933345
+make
+#1647933403
+vc
+#1647933433
+export LDFLAGS=-L/nfs/apps/packages/glibc/lib
+#1647933434
+make
+#1647933442
+make clean
+#1647933443
+make
+#1647933461
+g++ -o mdl -O3 -static -L/nfs/apps/packages/glibc/lib mdl.o
+#1647933469
+which gcc
+#1647933522
+g++ -o mdl -O3 -static -L/nfs/apps/packages/glibc/lib -I -L/nfs/apps/packages/glibc/include mdl.o
+#1647933530
+make clean
+#1647933556
+g++ -c -O3 -static -L/nfs/apps/packages/glibc/lib -I -L/nfs/apps/packages/glibc/include mdl.c 
+#1647933565
+g++ -o mdl -O3 -static -L/nfs/apps/packages/glibc/lib -I -L/nfs/apps/packages/glibc/include mdl.o
+#1647933613
+g++ -o mdl -O3 -static -L/nfs/apps/packages/glibc/lib -I/nfs/apps/packages/glibc/include mdl.o
+#1647933633
+echo $LD_LIBRARY_PATH 
+#1647933652
+export LD_LIBRARY_PATH=/nfs/apps/packages/glibc/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64
+#1647933658
+g++ -o mdl -O3 -static -L/nfs/apps/packages/glibc/lib -I/nfs/apps/packages/glibc/include mdl.o
+#1647933726
+gcc glibc-version.c  -Wl,--rpath=$HOME/glibc/2.23/lib -Wl,--dynamic-linker=$HOME/glibc/2.23/lib/ld-linux-x86-64.so.2
+#1647933751
+ll
+#1647933836
+ls
+#1647933870
+cd zhangrong/src/
+#1647933870
+ls
+#1647933874
+module load gcc
+#1647933874
+g++ -o mdl -O3 -static -Wl,--rpath=/nfs/apps/packages/glibc/lib -Wl,--dynamic-linker=/nfs/apps/packages/glibc/lib/ld-linux-x86-64.so.2 mdl.o
+#1647933890
+g++ -o mdl -O3 -static -L/nfs/apps/packages/glibc/lib -Wl,--rpath=/nfs/apps/packages/glibc/lib -Wl,--dynamic-linker=/nfs/apps/packages/glibc/lib/ld-linux-x86-64.so.2 mdl.o
+#1647934041
+ld -o mdl -O3 -static  -Wl,--rpath=/nfs/apps/packages/glibc/lib -Wl,--dynamic-linker=/nfs/apps/packages/glibc/lib/ld-linux-x86-64.so.2 -lc /nfs/apps/packages/glibc/lib/crtn.o -lm /nfs/apps/packages/glibc/lib/libm.a  mdl.o
+#1647934047
+g++ -o mdl -O3 -static  -Wl,--rpath=/nfs/apps/packages/glibc/lib -Wl,--dynamic-linker=/nfs/apps/packages/glibc/lib/ld-linux-x86-64.so.2 -lc /nfs/apps/packages/glibc/lib/crtn.o -lm /nfs/apps/packages/glibc/lib/libm.a  mdl.o
+#1647934069
+ld -o mdl -O3 -static --dynamic-linker=/nfs/apps/packages/glibc/lib/ld-linux-x86-64.so.2 -lc /nfs/apps/packages/glibc/lib/crtn.o -lm /nfs/apps/packages/glibc/lib/libm.a  mdl.o
+#1647934086
+ld -o mdl -O3 -static -lc=/nfs/apps/packages/glibc/lib/crtn.o -lm=/nfs/apps/packages/glibc/lib/libm.a  mdl.o
+#1647934090
+man ld
+#1647934180
+ln -s /nfs/apps/packages/glibc/lib/crtn.o 
+#1647934185
+ln -s /nfs/apps/packages/glibc/lib/libm.a
+#1647934189
+ln -s /nfs/apps/packages/glibc/lib/libc.a 
+#1647934190
+ls
+#1647934191
+make
+#1647934289
+ls /usr/lib64/libc.so*
+#1647934291
+ll /usr/lib64/libc.so*
+#1647934306
+ll
+#1647934327
+cp /nfs/apps/packages/glibc/lib/libc.a /nfs/apps/packages/glibc/lib/libm.a /usr/lib64/
+#1647934308
+sudo su
+#1647934328
+ls
+#1647934333
+make
+#1647934359
+ls /usr/lib64/libc.so*
+#1647934362
+file /usr/lib64/libc.so*
+#1647934386
+ls
+#1647934387
+ll
+#1647934390
+rm *.a
+#1647934423
+file /usr/lib64/libc.so.6 
+#1647930971
+tolava 
+#1647934842
+sudo su
+#1647934865
+ls
+#1647934869
+ll
+#1647934873
+rm crtn.o 
+#1647935089
+which gcc
+#1647935093
+module load gcc glibc
+#1647935093
+ll
+#1647935096
+make
+#1647935170
+date
+#1647935173
+cd zhangrong/
+#1647935173
+ls
+#1647935175
+cd src/
+#1647935176
+ls
+#1647935177
+make
+#1647935180
+module load gcc glibc
+#1647935181
+make
+#1647935186
+module purge
+#1647935189
+module load gcc 
+#1647935192
+make 
+#1647935210
+module purge
+#1647935323
+sudo yum install gcc-c++ glibc-static
+#1647935112
+sudo su
+#1647935401
+which g++
+#1647935402
+ls
+#1647935403
+cd projects/
+#1647935404
+ls
+#1647935405
+cd 
+#1647935406
+ls
+#1647935407
+cd zhangrong/src/
+#1647935408
+ls
+#1647935409
+make
+#1647935412
+make clean
+#1647935413
+ll
+#1647935414
+make
+#1647935418
+ll
+#1647935453
+cd
+#1647935455
+cd Documents/
+#1647935456
+ll
+#1647935467
+vi 13.install_glibc.sh 
+#1647935483
+ll /usr/lib64/libc.*
+#1647934391
+tolava
+#1647935554
+c
+#1647935557
+cd zhangrong/
+#1647935558
+cd src/
+#1647935558
+ll
+#1647935560
+make clean
+#1647935562
+ls
+#1647935563
+make
+#1647936574
+less /proc/cpuinfo 
+#1647936625
+vi intel_cpu
+#1647936635
+vi amd_cpu
+#1647936646
+sort intel_cpu > intel_cpu.sort
+#1647936650
+sort amd_cpu > amd_cpu.sort
+#1647936657
+diff -y  intel_cpu.sort amd_cpu.sort  |les
+#1647936671
+diff intel_cpu.sort amd_cpu.sort
+#1647936686
+diff -y intel_cpu.sort amd_cpu.sort  |les
+#1647936692
+diff -y intel_cpu.sort amd_cpu.sort  |grep "<"
+#1647936759
+less /proc/cpuinfo 
+#1647937527
+cd zhangrong/
+#1647937528
+ls
+#1647937529
+less no
+#1647937532
+less output.62314 
+#1647937534
+less error.62314 
+#1647937590
+ll
+#1647937595
+vi error.62314 
+#1647937603
+cp error.62314 joberror.log
+#1647937609
+mv joberror.log cactus.err
+#1647937610
+vi cactus.err 
+#1647937626
+sz cactus.err 
+#1647937629
+# Sent -> /Users/liuhui/Downloads/
+#1647937819
+lscpu
+#1647936844
+less /proc/cpuinfo 
+#1647938229
+ll
+#1647940619
+cd projects/
+#1647940619
+ls
+#1647940622
+cd phyleg_orthofinder/
+#1647940622
+ls
+#1647940624
+cd results/
+#1647940624
+ls
+#1647940626
+cd ..
+#1647940627
+ls
+#1647940628
+cd fasta/OrthoFinder/Results_Feb16/
+#1647940629
+ls
+#1647940659
+realpath  Orthogroups/Orthogroups.txt 
+#1647940685
+realpath Orthogroups/Orthogroups.GeneCount.tsv 
+#1647940703
+realpath Orthogroups/Orthogroups_SingleCopyOrthologues.txt
+#1647940863
+ll
+#1647997721
+yum history
+#1647997724
+sudo yum history
+#1647998007
+sudo su
+#1647997786
+sudo yum history info
+#1647998075
+sudo yum history info
+#1647998090
+history |less
+#1647998292
+yum history list all
+#1647998296
+sudo yum history list all
+#1647998308
+sudo yum history summary
+#1647998349
+sudo yum history stats
+#1647998232
+which git
+#1647998488
+which gi
+#1647998489
+which git
+#1647998244
+which gcc
+#1647998546
+sudo yum history info
+#1647998582
+ls
+#1647998583
+cd zhangrong/
+#1647998584
+ls
+#1647998587
+mkdir yi02
+#1647998589
+cd yi02/
+#1647998596
+cp ../yi03/evolverMammals.txt ./
+#1647998597
+ll
+#1647998603
+module load cactus
+#1647998613
+nohup cactus  --logDebug  jobStore evolverMammals.txt evolverMammals.hal --root mr &
+#1647998614
+lt
+#1647998616
+top
+#1647998837
+lt
+#1647998840
+les nohup.out 
+#1647998868
+lt
+#1647998870
+les nohup.out 
+#1647998909
+sudo yum history info
+#1647998660
+sudo su
+#1647999149
+cd zhangrong/src/yi04
+#1647999149
+ll
+#1647999152
+cd zhangrong/src/
+#1647999152
+ll
+#1647999154
+cd ..
+#1647999154
+ls
+#1647999156
+cd yi04/
+#1647999156
+ll
+#1647999159
+rm -r jobStore/
+#1647999162
+nohup cactus  --logDebug  jobStore evolverMammals.txt evolverMammals.hal --root mr &
+#1647999167
+module load cactus
+#1647999168
+nohup cactus  --logDebug  jobStore evolverMammals.txt evolverMammals.hal --root mr &
+#1647999168
+lt
+#1647999511
+sudo yum history info
+#1647999515
+sudo yum history 
+#1647999524
+sudo yum history info 4
+#1647999529
+sudo yum history info 5
+#1647999559
+sudo yum history info 6
+#1647999591
+sudo yum history info 7
+#1647999595
+sudo yum history info 8
+#1647999597
+sudo yum history info 9
+#1647999601
+sudo yum history info 10
+#1647999605
+sudo yum history info 11
+#1647999632
+sudo yum history info 12
+#1647999658
+sudo yum history info 13
+#1647999690
+sudo yum history info 14
+#1647999693
+sudo yum history info 15
+#1647999727
+sudo yum history info 16
+#1647999735
+sudo yum history info 17
+#1647999748
+sudo yum history info 18
+#1647999766
+sudo yum history info 19
+#1647999893
+sudo yum history info 20
+#1647999904
+sudo yum history info 21
+#1647999924
+sudo yum history info 22
+#1647999794
+les nohup.out 
+#1647998923
+sudo su
+#1648000869
+which gcc
+#1648000870
+which g++
+#1647998968
+sudo su
+#1647999907
+sudo su
+#1648019637
+bjl
+#1648019641
+bjobs -u all |less
+#1648019653
+bhosts 
+#1648019656
+lsload
+#1648019658
+ls
+#1648021308
+tolava 
+#1648022545
+conda activate phylonetworks.jl
+#1648019661
+tolava 
+#1648045808
+conda activate phylonetworks.jl
+#1648045809
+julia
+#1648273995
+ls
+#1648273996
+cd projects/
+#1648273997
+ls
+#1648273997
+ll
+#1648273999
+cd genomes/
+#1648273999
+lt
+#1648274001
+cd ../yanhui/
+#1648274002
+lt
+#1648274003
+cd annotation
+#1648274004
+lt
+#1648274012
+ls
+#1648274013
+ll
+#1648274015
+cd ..
+#1648274015
+ll
+#1648274018
+lt evidence/
+#1648274030
+ls
+#1648274034
+mkdir maker
+#1648274036
+cd maker/
+#1648274049
+cp ../evidence/tola.masked.fa ./ &
+#1648274067
+cp ../annotation/rm.gff ./
+#1648274097
+cp ../annotation/SETOR/arath_med_sprot.pep ./
+#1648274099
+ll
+#1648274104
+les rm.gff 
+#1648274114
+mv tola.masked.fa SETOR.masked.fa
+#1648274114
+ll
+#1648274131
+mv rm.gff SETOR.RepeatMasker.gff
+#1648274133
+ll
+#1648274169
+ll /nfs/yanhui/anntest/annotation_smk/result/ALTRA/R1/maker_bopts.ctl 
+#1648274203
+ll /nfs/yanhui/maker_pipe/data/
+#1648274210
+les /nfs/yanhui/maker_pipe/data/flnc.fasta 
+#1648274308
+ll /nfs/yanhui/maker_pipe/nohup.out 
+#1648274313
+lt /nfs/yanhui/
+#1648274316
+lt /nfs/yanhui/maker_pipe/
+#1648274455
+ll /mnt/workdisk/yanhui/maker_pipe/tora/
+#1648274457
+ll /mnt/workdisk/yanhui/maker_pipe/
+#1648274478
+les /mnt/workdisk/yanhui/maker_pipe/c.fa
+#1648274513
+find  /mnt/workdisk/yanhui/maker_pipe/result/tora/ -iname "*trinity*"
+#1648274527
+ll /mnt/workdisk/yanhui/maker_pipe/result/tora/evidence/rnaseq.fasta
+#1648274530
+less /mnt/workdisk/yanhui/maker_pipe/result/tora/evidence/rnaseq.fasta
+#1648274538
+ll
+#1648274541
+cd yanh
+#1648274542
+ls
+#1648274545
+cd yanhui
+#1648274551
+cd
+#1648274563
+ls -d */
+#1648274582
+cp /mnt/workdisk/yanhui/maker_pipe/result/tora/evidence/rnaseq.fasta projects/yanhui/maker/
+#1648274596
+cd projects/yanhui/maker/
+#1648274596
+ll
+#1648274598
+lt
+#1648274324
+ssh -p 201 yi02
+#1648274492
+conda activate maker
+#1648274513
+python -m iga.annotation.maker
+#1648274558
+python -m iga.annotation.maker prepare_piep 
+#1648274568
+python -m iga.annotation.maker prepare_pipe > 01.prepare.sh
+#1648274569
+vi 01.prepare.sh 
+#1648274603
+ll
+#1648274610
+vi 01.prepare.sh 
+#1648274638
+genblast
+#1648274645
+which genblast
+#1648274655
+cd ~/bin/genblast_v139/
+#1648274656
+ls
+#1648274657
+make clean
+#1648274661
+make all
+#1648274682
+which gcc
+#1648274699
+cd /nfs/liuhui/bin/genblast_v139
+#1648274700
+lt
+#1648274703
+make clean
+#1648274708
+which gcc g++
+#1648274709
+make all
+#1648274762
+g++ -c -g -Wfatal-errors  -std=c++11 gBlast.cpp
+#1648274766
+make all
+#1648274774
+./genblast
+#1648274979
+genblast
+#1648274980
+ls
+#1648274981
+lt
+#1648274982
+cd -
+#1648274983
+lt
+#1648274984
+ls
+#1648274986
+ll
+#1648274986
+vi 01.prepare.sh 
+#1648275038
+lt
+#1648275043
+chmod +x 01.prepare.sh 
+#1648275052
+bsub512 -J maker_prepare < 01.prepare.sh 
+#1648275053
+bjl
+#1648275055
+lsload
+#1648275056
+lt
+#1648275058
+les error.62515 
+#1648275067
+vi 01.prepare.sh 
+#1648275093
+lt
+#1648275094
+rm output.62515 error.62515 
+#1648275095
+bsub512 -J maker_prepare < 01.prepare.sh 
+#1648275096
+lsload
+#1648275098
+bhosts 
+#1648275110
+bjobs -u all |less
+#1648275119
+lt
+#1648275626
+bjobs -u all -m yi02  |less
+#1648275634
+bpeek yangche
+#1648275636
+bjobs -u all -m yi02  |less
+#1648275643
+bpeek 62366
+#1648275646
+sudo bpeek 62366
+#1648275651
+tolava 
+#1648275782
+top
+#1648275660
+ssh -p 201 yi02
+#1648275703
+lsload
+#1648275766
+bjobs -u all -m yi02  |less
+#1648275775
+bjobs -j 62366
+#1648275779
+bjobs -l 62366
+#1648275810
+bjobs -u all -m yi02  |less
+#1648275888
+lt
+#1648275896
+bjl
+#1648275918
+lt
+#1648275919
+cd SETOR.masked.fa.genblast.arath_med_sprot.pep/
+#1648275920
+lt
+#1648275921
+ls
+#1648275923
+cd 1.fa.run/
+#1648275923
+ls
+#1648275925
+lt
+#1648275927
+les error.62517 
+#1648275945
+ls
+#1648275953
+grep formatdb *
+#1648275965
+bj
+#1648275978
+while true; do bkill -u liuhui; done
+#1648275981
+lt
+#1648275984
+ll
+#1648275987
+grep formatdb *
+#1648276002
+vi gBlast.cpp 
+#1648276010
+vi bsub.genblast.719417.sh 
+#1648276024
+genblast
+#1648276027
+`which genblast`
+#1648276082
+gtp
+#1648276103
+lt
