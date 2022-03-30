@@ -622,6 +622,7 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     cfg_bopts = Config('maker_bopts')
     cfg = Config('maker')
     cfg.update('est_gff={};protein_gff={};rm_gff={}'.format(estgff, pepgff, rmgff))
+    cfg.update('model_org=;')
     if round == 1:
         # Only first round will be ran in direct predict mode
         cfg.update('est2genome=1;protein2genome=1')
