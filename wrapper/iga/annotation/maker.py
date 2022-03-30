@@ -648,12 +648,13 @@ def maker_run(genome=None, estgff=None, pepgff=None,
         workdir_sep = i + '.run/'
         mkdir(workdir_sep)
         mv(i, workdir_sep)
+        sh("cd {}; maker -CTL".format(workdir_sep))
         workdir_sep = op.abspath(workdir_sep)
         # fasta = op.join(workdir, fa_name)
         cfg.update('genome={}'.format(fa_name))
         cfg.write_to_file(op.join(workdir_sep, "maker_opts.ctl"))
-        cfg_exe.write_to_file(op.join(workdir_sep, 'maker_exe.ctl'))
-        cfg_bopts.write_to_file(op.join(workdir_sep, 'maker_bopts.ctl'))
+        # cfg_exe.write_to_file(op.join(workdir_sep, 'maker_exe.ctl'))
+        # cfg_bopts.write_to_file(op.join(workdir_sep, 'maker_bopts.ctl'))
         cmd = maker_run_sh.format(workdir_sep)
         # sh(cmd)
         if use_grid == 'T':
