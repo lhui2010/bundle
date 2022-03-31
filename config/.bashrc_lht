@@ -197,18 +197,20 @@ tailf() ( # args: <file> [<number-of-header-lines>]
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-#  __conda_setup="$('/ds3200_1/users_root/yitingshuang/lh/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-#  if [ $? -eq 0 ]; then
-#      eval "$__conda_setup"
-#  else
-#      if [ -f "/ds3200_1/users_root/yitingshuang/lh/anaconda3/etc/profile.d/conda.sh" ]; then
-#          . "/ds3200_1/users_root/yitingshuang/lh/anaconda3/etc/profile.d/conda.sh"
-#      else
-#          export PATH="/ds3200_1/users_root/yitingshuang/lh/anaconda3/bin:$PATH"
-#      fi
-#  fi
-#  unset __conda_setup
+#   __conda_setup="$('/ds3200_1/users_root/yitingshuang/lh/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#   if [ $? -eq 0 ]; then
+#       eval "$__conda_setup"
+#   else
+#       if [ -f "/ds3200_1/users_root/yitingshuang/lh/anaconda3/etc/profile.d/conda.sh" ]; then
+#           . "/ds3200_1/users_root/yitingshuang/lh/anaconda3/etc/profile.d/conda.sh"
+#       else
+#           export PATH="/ds3200_1/users_root/yitingshuang/lh/anaconda3/bin:$PATH"
+#       fi
+#   fi
+#   unset __conda_setup
 # <<< conda initialize <<<
+
+
 # export PATH="/ds3200_1/users_root/yitingshuang/lh/anaconda3/bin:$PATH"  # commented out by conda initialize
 export HB="/ds3200_1/users_root/yitingshuang/lh/bin/bundle/lh_bin"
 export BD="/ds3200_1/users_root/yitingshuang/lh/bin/bundle"
@@ -382,6 +384,7 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/Platanus_allee_v2.2.2_Linux
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/lh_bin:$PATH
 
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/MCScanX-master:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/MaSuRCA-4.0.6/bin:$PATH
+#export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/MaSuRCA-4.0.6/bin:$PATH
 
 shopt -s direxpand
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/bundle/Rscripts:$PATH
