@@ -598,6 +598,9 @@ def maker_run(genome=None, estgff=None, pepgff=None,
     :return:
     """
     snap_hmm_dir = '/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/'
+    if not os.path.exists(snap_hmm_dir):
+        # snap installed with conda
+        snap_hmm_dir = os.environ['CONDA_PREFIX'] + '/share/snap/HMM'
     workdir = ''
     if species == '':
         workdir = genome + '_R' + str(round)
