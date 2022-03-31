@@ -30,7 +30,7 @@ grep -v -e "Satellite" -e ")n" -e "-rich" ${{GFF}} \
 cat ${{PREFIX}}.complex.gff3 | \
     perl -ane '$id; if(!/^\#/){{@F = split(/\t/, $_); chomp $F[-1];$id++; $F[-1] .= "\;ID=$id"; 
     $_ = join("\t", @F)."\n"}}; print $_'  > ${{PREFIX}}.complex.reformat.gff3
-/ds3200_1/users_root/yitingshuang/lh/bin/bundle/MAKER/rename_repeat_masker_gff_for_maker.pl \
+rename_repeat_masker_gff_for_maker.pl \
 ${{PREFIX}}.complex.reformat.gff3 > ${{PREFIX}}.complex.reformat.MAKER.gff3
 """
 
@@ -996,7 +996,7 @@ export BUSCO_CONFIG_FILE=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/bus
 
 # 0 workdir
 # 1 PREFIX of this model
-train_snap_sh = r"""export HMMDIR=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/
+train_snap_sh = r"""export HMMDIR={2}
 mkdir -p {0}/train_snap
 cd {0}/train_snap
 if [ ! -e genome.all.gff ]
@@ -1063,7 +1063,8 @@ OUTPUT={1}
 NEWMODEL={1}
 #TODO
 AUGUSTUS_SPECIES=arabidopsis
-AUGUSTUS_CONFIG_PATH_ORIGINAL=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/config
+#AUGUSTUS_CONFIG_PATH_ORIGINAL=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/config
+AUGUSTUS_CONFIG_PATH_ORIGINAL=$AUGUSTUS_CONFIG_PATH
 if [ -d $OUTPUT ]
 then
     rm -rf $OUTPUT
@@ -1164,18 +1165,22 @@ fi
 ln -s ../train_snap/uni.ann
 ln -s ../train_snap/uni.dna 
 
-/ds3200_1/users_root/yitingshuang/lh/bin/GC_specific_MAKER/fathom_to_genbank.pl --annotation_file uni.ann \
+# /ds3200_1/users_root/yitingshuang/lh/bin/GC_specific_MAKER/fathom_to_genbank.pl --annotation_file uni.ann \
+fathom_to_genbank.pl --annotation_file uni.ann \
  --dna_file uni.dna  --genbank_file augustus.gb \
  --number ${{NUMFOUND}}
 perl -e  'while (my $line = <>){{ if ($line =~ /^LOCUS\s+(\S+)/) {{ print "$1\n"; }} }}'  ${{WORKING_DIR}}/augustus.gb \
  >  ${{WORKING_DIR}}/genbank_gene_list.txt
-/ds3200_1/users_root/yitingshuang/lh/bin/GC_specific_MAKER/get_subset_of_fastas.pl  \
+ 
+# /ds3200_1/users_root/yitingshuang/lh/bin/GC_specific_MAKER/get_subset_of_fastas.pl  \
+get_subset_of_fastas.pl  \
  -l  ${{WORKING_DIR}}/genbank_gene_list.txt   \
  -f ${{WORKING_DIR}}/uni.dna  -o  ${{WORKING_DIR}}/genbank_gene_seqs.fasta
  
-perl ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/randomSplit.pl ${{WORKING_DIR}}/augustus.gb ${{NUMSPLIT}}
+#perl ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/randomSplit.pl ${{WORKING_DIR}}/augustus.gb ${{NUMSPLIT}}
+randomSplit.pl ${{WORKING_DIR}}/augustus.gb ${{NUMSPLIT}}
 
-~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/autoAug.pl --species=$AUGUSTUS_SPECIES_NAME \
+# ~/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/scripts/autoAug.pl --species=$AUGUSTUS_SPECIES_NAME \
 --genome=${{WORKING_DIR}}/genbank_gene_seqs.fasta --trainingset=${{WORKING_DIR}}/augustus.gb --cdna=$CDNA_FASTA  \
 --noutr
 
@@ -1222,13 +1227,17 @@ def maker_train(workdir=None, prefix='', augustus='T', snap='T', use_grid='T', a
     :param workdir:
     :return:
     """
+    snap_hmm_dir = '/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/snap/Zoe/HMM/'
+    if not os.path.exists(snap_hmm_dir):
+        # snap installed with conda
+        snap_hmm_dir = os.environ['CONDA_PREFIX'] + '/share/snap/HMM'
     cmd = ''
     workdir = op.abspath(workdir)
     set_workdir = 'cd {};'.format(workdir)
     if prefix == '':
         prefix = op.basename(workdir)
     if snap == 'T':
-        cmd += set_workdir + "\n" + train_snap_sh.format(workdir, prefix)
+        cmd += set_workdir + "\n" + train_snap_sh.format(workdir, prefix, snap_hmm_dir)
     if augustus == 'T':
         # BUSCO 4.1.2 failed to retrain augustus, even specified augustus config dir to local
         # The error was no exon_probs.pbl file produced.
