@@ -21,8 +21,9 @@ def main():
     chunk_size = args.flanking
     rend = chunk_size * -1
     for record in SeqIO.parse(qry1_file, "fasta"):
-        print("%s\t%s\t%s" % (record.id, record.seq[:chunk_size], 
-            record.seq[rend:]))
+        #print("%s\t%s\t%s" % (record.id, record.seq[:chunk_size], 
+        print("%s\n%s" % (">" + record.id + "::LEFT", record.seq[:chunk_size])) 
+        print("%s\n%s" % (">" + record.id + "::RIGHT", record.seq[rend:]))
 
 if __name__ == "__main__":
     main()
