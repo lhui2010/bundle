@@ -1,4 +1,4 @@
-#!/ds3200_1/users_root/yitingshuang/lh/bin/ActivePerl-5.24/bin/perl
+#!/usr/bin/env perl 
 
 # get_subset_of_fastas.pl
 

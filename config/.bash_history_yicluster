@@ -46554,3 +46554,25 @@ cd lh_bin/
 ln -s ../MAKER/rename_repeat_masker_gff_for_maker.pl 
 #1648707345
 gtp
+#1648707351
+gtps
+#1648707460
+cd ../executables/
+#1648707460
+lt
+#1648707462
+vi get_subset_of_fastas.pl 
+#1648707473
+vi fathom_to_genbank.pl 
+#1648707484
+vi get_subset_of_fastas.pl 
+#1648707493
+./get_subset_of_fastas.pl 
+#1648707495
+vi get_subset_of_fastas.pl 
+#1648707498
+./get_subset_of_fastas.pl 
+#1648707502
+vi fathom_to_genbank.pl 
+#1648707509
+ll
