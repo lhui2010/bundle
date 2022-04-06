@@ -268,7 +268,7 @@ def bsub(cmd, queue='Q104C512G_X4', direct_submit='F', cpus=1, name='', submit='
     """
     bsub_cmd = 'bsub -R "span[hosts=1]" -q {0} -o output.%J -e error.%J -n {1} {2} '.format(queue, cpus, options)
     if node != '':
-        bsub_cmd + '-m {} '.format(node)
+        bsub_cmd + '-m "{}" '.format(node)
     if name != '':
         bsub_cmd += "-J {} ".format(name)
     if direct_submit == 'T':
