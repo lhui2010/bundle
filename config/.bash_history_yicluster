@@ -46576,3 +46576,5019 @@ vi get_subset_of_fastas.pl
 vi fathom_to_genbank.pl 
 #1648707509
 ll
+#1648707517
+gtps
+#1648707668
+gtp
+#1648707674
+lt
+#1648707677
+cd -
+#1648707677
+ls
+#1648707681
+j yanhui
+#1648707682
+cd maker/
+#1648707682
+ls
+#1648707684
+vi maker.sh 
+#1648707706
+lt
+#1648707710
+rm output.65* error.65*
+#1648707711
+ls
+#1648707711
+lt
+#1648707714
+cd *R1
+#1648707714
+ls
+#1648707720
+ll total.all.maker.proteins.fasta
+#1648707726
+grep ">"  total.all.maker.proteins.fasta |wc -l
+#1648707727
+cd -
+#1648707727
+ls
+#1648707729
+vi maker.sh 
+#1648707732
+cd -
+#1648707732
+s
+#1648707757
+ls
+#1648707765
+rm -r train_snap/
+#1648707766
+cd ..
+#1648707770
+vi maker.sh 
+#1648707776
+bsub512 -J maker < maker.sh 
+#1648707777
+bjl
+#1648707778
+lt
+#1648707781
+bjl
+#1648707945
+bjt
+#1648707947
+lt
+#1648707953
+cd SETOR.masked.fa_R1/
+#1648707953
+ls
+#1648707954
+lth
+#1648707956
+cd train_snap/
+#1648707956
+lt
+#1648708017
+ls $CONDA_PREFIX/share/snap/HMM
+#1648708022
+les /nfs/liuhui/.conda/envs/maker/share/snap/HMM/SETOR.masked.fa_R1.hmm 
+#1648708635
+bjl
+#1648708638
+lt
+#1648708641
+cd ../train_augustus_direct/
+#1648708642
+lt
+#1648708644
+bjl
+#1648708651
+bpeek 66516
+#1648708655
+bjobs -l 66516
+#1648708658
+bjl
+#1648708662
+bpeek 66514
+#1648708672
+ls
+#1648708674
+ls ../..
+#1648708679
+bj
+#1648708685
+bkill 66514 66516 66537
+#1648708685
+lt
+#1648708783
+cd ../..
+#1648708785
+cd -
+#1648708796
+cd ../..
+#1648708796
+ls
+#1648708804
+rm -r SETOR.masked.fa_R2 SETOR.masked.fa_R21648708113.6480541 SETOR.masked.fa_R3 SETOR.masked.fa_R31648708681.5187688
+#1648708806
+lt
+#1648708807
+lth
+#1648708810
+rm output.665* error.665*
+#1648708810
+lth
+#1648708812
+vi maker.sh 
+#1648708879
+bsub512 -J maker < maker.sh 
+#1648708888
+rm bsub.maker_train.670844.sh bsub.maker_collect.660458.sh bsub.maker_collect.051372.sh bsub.maker_train.493861.sh
+#1648708889
+vi maker.sh 
+#1648708895
+lt
+#1648708898
+cd *R1
+#1648708898
+ls
+#1648708900
+lth
+#1648708904
+les error.658* output.658*
+#1648708909
+ll error.658* output.658*
+#1648708912
+les error.65875 
+#1648708919
+les output.65875 
+#1648708924
+rm output.658* error.658*
+#1648708925
+lth
+#1648708928
+cd train_augustus_direct/
+#1648708929
+lt
+#1648708930
+bjl
+#1648708933
+lt
+#1648708936
+bj
+#1648708941
+bpeek 66542
+#1648708942
+bpeek 66543
+#1648709047
+cd ..
+#1648709047
+lh
+#1648709048
+lth
+#1648709054
+rm bsub.buscototal.all.maker.proteins.fasta.113347.sh 
+#1648709058
+lt train_snap/
+#1648709063
+bpeek 66543
+#1648709074
+lt train_snap/
+#1648709079
+bpeek 66543
+#1648709170
+lth
+#1648709173
+lt train_snap/
+#1648709180
+cd train_augustus_direct/
+#1648709180
+lt
+#1648709183
+gtp
+#1648709189
+ls
+#1648709190
+cd ..
+#1648709191
+lt
+#1648709193
+cd ..
+#1648709193
+ls
+#1648709195
+lth
+#1648709199
+vi les error.66542 
+#1648709202
+les error.66542
+#1648709208
+les error.66543 
+#1648709214
+rm output.6654* error.6654*
+#1648709218
+vi bsub.maker_train.
+#1648709229
+vi maker.sh 
+#1648709242
+bsub512 -J maker < maker.sh 
+#1648709243
+lt
+#1648709248
+cd SETOR.masked.fa_R1/
+#1648709249
+lth
+#1648709252
+cd train_augustus_direct/
+#1648709252
+lth
+#1648709257
+bj
+#1648709262
+bpeek 66545
+#1648709270
+ll
+#1648709271
+lt
+#1648709274
+cd ..
+#1648709278
+cd train_augustus_direct/
+#1648709279
+lt
+#1648710247
+bjl
+#1648710250
+bpeek 66545
+#1648710259
+lt
+#1648706087
+tma
+#1648711296
+j dupar
+#1648711296
+ls
+#1648711302
+lth
+#1648711306
+lt
+#1648711382
+mkdir ragtag
+#1648711384
+cd ragtag/
+#1648711387
+conda activate ragtag
+#1648711398
+j duparquetia
+#1648711399
+ls
+#1648711400
+lt
+#1648711401
+cd ragtag/
+#1648711495
+bjl
+#1648711497
+bpeek 66545
+#1648711415
+mamba create -n ragtag  -c bioconda ragtag
+#1648713120
+conda activate ragtag
+#1648713121
+ls
+#1648713142
+ln -s ../../../genomes/Fabales/Zenia_insignis.fa 
+#1648713150
+ln -s ../../../genomes/Fabales/Duparquetia_orchidacea.fa ./
+#1648713150
+ll
+#1648713156
+mv Duparquetia_orchidacea.fa Duparquetia_orchidacea.fa.link
+#1648713159
+mv Zenia_insignis.fa Zenia_insignis.fa.link
+#1648713170
+for i in *link; do cp $i ${i%.link} ; done &
+#1648713171
+lt
+#1648713182
+ll
+#1648713202
+ls *fa  > run_ragtag.sh
+#1648713203
+vi run_ragtag.sh 
+#1648714814
+bsub512 < run_ragtag.sh 
+#1648714854
+bjl
+#1648714960
+lt
+#1648714963
+lt autoAug/
+#1648714983
+lt autoAug/cdna/
+#1648715000
+ll /nfs/liuhui/projects/yanhui/maker/rnaseq.fasta
+#1648715006
+cd autoAug/cdna/
+#1648715006
+lt
+#1648715009
+les cdna.psl 
+#1648715021
+grep -n SRR7778014TRINITY_GG_1176_c15_g2_i3 cdna.fa 
+#1648715035
+wc -l cdna.fa
+#1648715052
+les cdna.psl 
+#1648715061
+grep -n SRR7778025TRINITY_GG_5_c2_g1_i1 cdna.fa 
+#1648715071
+les cdna.psl 
+#1648715080
+cd -
+#1648715081
+lt
+#1648715148
+lt
+#1648715152
+lt ragtag_output/
+#1648715156
+cd ragtag_output/
+#1648715157
+lt
+#1648715160
+les ragtag.scaffold.fasta 
+#1648715175
+samtools faidx ragtag.scaffold.fasta 
+#1648715183
+more ragtag.scaffold.fasta.fai 
+#1648715270
+cut -f1,2 ragtag.scaffold.fasta.fai 
+#1648715289
+cut -f1,2 ragtag.scaffold.fasta.fai |head -15
+#1648715313
+ls
+#1648715327
+N50v1.pl ragtag.scaffold.fasta
+#1648715356
+cd ..
+#1648715356
+ls
+#1648715357
+lt
+#1648715363
+cd -
+#1648715363
+ls
+#1648715364
+lt
+#1648715366
+vi *agp
+#1648715393
+ll *agp
+#1648715397
+les *d.agp
+#1648715413
+cd ..
+#1648715413
+ls
+#1648715415
+ll
+#1648715420
+vi Zenia_insignis.fa
+#1648715450
+ll
+#1648715470
+les Duparquetia_orchidacea.fa
+#1648715480
+mv ragtag_output ragtag_output.1
+#1648715482
+bsub512 < run_ragtag.sh 
+#1648715483
+bjl
+#1648716190
+lt
+#1648716194
+cd ragtag_output
+#1648716194
+lt
+#1648716197
+les *stats
+#1648716206
+ll
+#1648716230
+lt
+#1648716238
+les ragtag.scaffold.confidence.txt
+#1648716242
+les ragtag.scaffold.agp 
+#1648716248
+cd ..
+#1648716248
+lt
+#1648716256
+ln -s ragtag_output/ragtag.scaffold.agp 
+#1648716261
+python -m iga.annotation
+#1648716268
+conda deactivate
+#1648716270
+python -m iga.annotation
+#1648716280
+python -m iga.assembly.hic
+#1648716283
+python -m iga.assembly.hic lift_over
+#1648716285
+python -m iga.assembly.hic lift_over -h
+#1648716299
+python -m iga.annotation.maker
+#1648716306
+python -m iga.annotation.maker liftover_by_agp
+#1648716313
+ls
+#1648716316
+ll
+#1648716324
+les ../../../genomes/Fabales/Duparquetia_orchidacea.gff3 
+#1648716329
+cp ../../../genomes/Fabales/Duparquetia_orchidacea.gff3  ./
+#1648716331
+ll
+#1648716363
+python -m iga.annotation.maker liftover_by_agp Duparquetia_orchidacea.gff3 ragtag.scaffold.agp > Duparquetia_orchidacea.scaf.gff3
+#1648716365
+lt
+#1648716372
+les Duparquetia_orchidacea.scaf.gff3 
+#1648716403
+cp ragtag_output/ragtag.scaffold.fasta ./Duparquetia_orchidacea.scaf.fa
+#1648716413
+lt
+#1648716417
+les Duparquetia_orchidacea.scaf.fa 
+#1648716424
+vi Duparquetia_orchidacea.scaf.gff3 
+#1648716498
+vi Duparquetia_orchidacea.scaf.fa
+#1648716536
+lth
+#1648716551
+cd ..
+#1648716558
+mkdir compare_synteny
+#1648716560
+cd compare_synteny/
+#1648716567
+ln -s ../ragtag/Duparquetia_orchidacea.scaf.fa 
+#1648716573
+ln -s ../ragtag/Duparquetia_orchidacea.scaf.gff3 
+#1648716585
+cp ../../../genomes/Fabales/Duparquetia_orchidacea.cds ./ &
+#1648716589
+cp ../../../genomes/Fabales/Duparquetia_orchidacea.pep ./ &
+#1648716589
+lt
+#1648716598
+rename scaf. '' *
+#1648716598
+ll
+#1648716617
+ln -s ../../../genomes/Fabales/Cercis_chinensis.fa 
+#1648716618
+ln -s ../../../genomes/Fabales/Cercis_chinensis.cds 
+#1648716620
+ln -s ../../../genomes/Fabales/Cercis_chinensis.pep 
+#1648716623
+ln -s ../../../genomes/Fabales/Cercis_chinensis.gff3 
+#1648716624
+ll
+#1648716626
+les *gff3
+#1648716663
+bjobs
+#1648716664
+bhosts 
+#1648716668
+lsload
+#1648716680
+bsub512 -J cercis_dp -m yi04 -n 6 "python -m iga.evolution.ortho mcscanx --threads 20 Cercis_chinensis Duparquetia_orchidacea"
+#1648716682
+bjl
+#1648716684
+lt
+#1648716731
+cd work.Cercis_chinensis.Duparquetia_orchidacea/
+#1648716731
+lt
+#1648716735
+bjl
+#1648716739
+cd -
+#1648711389
+tma
+#1648717070
+top
+#1648725755
+lth
+#1648725759
+les error.66585 
+#1648717096
+tma
+#1648775745
+ls
+#1648775763
+lth
+#1648775764
+bjl
+#1648775767
+lt
+#1648775769
+cd ..
+#1648775770
+lt
+#1648775772
+cd ..
+#1648775772
+ls
+#1648775777
+lth
+#1648775782
+les error.66544 
+#1648775791
+les error.66545
+#1648775824
+vi /nfs/liuhui/.conda/envs/maker/config/extrinsic/extrinsic.E.cfg
+#1648775834
+les error.66545
+#1648775850
+cd -
+#1648775851
+lt
+#1648775853
+cd train_snap/
+#1648775853
+ls
+#1648775854
+lt
+#1648775856
+cd ../train_augustus_direct/
+#1648775857
+lt
+#1648775859
+cd autoAug/
+#1648775860
+lt
+#1648775873
+les ../../../error.66545
+#1648775883
+cd /nfs/liuhui/projects/yanhui/maker/SETOR.masked.fa_R1/train_augustus_direct/autoAug/autoAugPred_hints/shells/
+#1648775883
+lt
+#1648775891
+vi aug1.out 
+#1648775901
+vi aug1
+#1648775939
+cvi shellForAug 
+#1648775941
+vi shellForAug 
+#1648775947
+lt
+#1648775949
+bash aug1
+#1648775961
+augustus -h
+#1648775967
+augustus --help
+#1648775979
+lt
+#1648775981
+more aug1.out 
+#1648776657
+ll
+#1648776664
+vi /nfs/liuhui/.conda/envs/maker/config/extrinsic/extrinsic.E.cfg
+#1648776676
+cp /nfs/liuhui/.conda/envs/maker/config/extrinsic/extrinsic.E.cfg /nfs/liuhui/.conda/envs/maker/config/extrinsic/extrinsic.E.cfg.1
+#1648776677
+vi /nfs/liuhui/.conda/envs/maker/config/extrinsic/extrinsic.E.cfg
+#1648776699
+ls
+#1648776702
+./aug1 
+#1648776868
+lt
+#1648776873
+cd ../../..
+#1648776874
+lt
+#1648776875
+cd ..
+#1648776876
+lt
+#1648776879
+cd -
+#1648776879
+ls
+#1648776881
+cd ..
+#1648776886
+mv train_augustus_direct train_augustus_direct.1
+#1648776887
+cd ..
+#1648776891
+vi maker.sh 
+#1648776893
+bsub512 -J maker < maker.sh 
+#1648776991
+bjl
+#1648776998
+lth
+#1648777000
+les error.66585 
+#1648777004
+cd work.Cercis_chinensis.Duparquetia_orchidacea/
+#1648777005
+ls
+#1648777008
+ls *pdf
+#1648777018
+les *.anchors
+#1648777024
+bjl
+#1648777027
+cd ..
+#1648777028
+lth
+#1648777030
+les error.66585 
+#1648777053
+head -142 error.66585  |tail -n 2
+#1648777056
+cd work.Cercis_chinensis.Duparquetia_orchidacea/
+#1648777078
+ls *.anchors
+#1648777078
+ll
+#1648777080
+ll *gff
+#1648777102
+python -m jcvi.formats.gff bed --type=mRNA --key=ID Cercis_chinensis.gff3 -o Cercis_chinensis.bed
+#1648777124
+bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jcvi.graphics.dotplot Cercis_chinensis.Duparquetia_orchidacea.anchors"
+#1648777135
+bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jcvi.compara.synteny depth --histogram Cercis_chinensis.Duparquetia_orchidacea.anchors"
+#1648777137
+lth
+#1648777144
+bj
+#1648777145
+lt
+#1648777148
+les error.67107 
+#1648777196
+les /nfs/liuhui/.conda/envs/maker/config/extrinsic/extrinsic.E.cfg
+#1648777202
+les /nfs/liuhui/.conda/envs/maker/config/extrinsic/extrinsic.E.cfg.1 
+#1648777406
+lt
+#1648777408
+bjl
+#1648777411
+rm output.6654* error.6654*
+#1648777412
+lth
+#1648777416
+lt *sh
+#1648777430
+rm bsub.maker_train.362217.sh bsub.maker_train.001855.sh bsub.maker_train.900613.sh bsub.maker_collect.483517.sh bsub.maker_train.711925.sh
+#1648777432
+lt *sh
+#1648777436
+ls
+#1648777438
+bjl
+#1648777445
+lth
+#1648775747
+tma
+#1648777451
+cd /nfs/liuhui/projects/buzzo/duparquetia/compare_synteny/work.Cercis_chinensis.Duparquetia_orchidacea/
+#1648777452
+ls
+#1648777453
+sz *pdf
+#1648777457
+# Sent -> /Users/liuhui/Downloads/
+#1648777636
+ll
+#1648777653
+mkdir ~/projects/phyleg/02.fig2
+#1648777656
+ls
+#1648777663
+les *.anchors
+#1648777909
+ls *.anchors
+#1648777921
+cp *.anchors *.bed ~/projects/phyleg/02.fig2/
+#1648777922
+ls
+#1648777994
+j mcscanx2
+#1648778005
+cd work.Cercis_chinensis.Senna_tora/
+#1648778009
+ls *.anchors *.bed
+#1648778022
+cp Senna_tora.bed Cercis_chinensis.Senna_tora.anchors ~/projects/phyleg/02.fig2/
+#1648778031
+cd ../work.Cercis_chinensis.Lysidice_rhodostegia/
+#1648778042
+cp Lysidice_rhodostegia.bed Cercis_chinensis.Lysidice_rhodostegia.anchors ~/projects/phyleg/02.fig2/
+#1648778053
+cd ../work.Cercis_chinensis.Zenia_insignis/
+#1648778059
+ls
+#1648778068
+cp Zenia_insignis.bed Cercis_chinensis.Zenia_insignis.anchors ~/projects/phyleg/02.fig2/
+#1648778070
+cd ~/projects/phyleg/02.fig2/
+#1648778070
+ll
+#1648778073
+ll *anchors
+#1648778083
+ll *bed
+#1648778101
+for i in *.anchors; do python -m jcvi.compara.synteny screen --minspan=30 --simple $i > $i.simple; done
+#1648778106
+lt
+#1648778109
+les *simple
+#1648778128
+for i in *.anchors; do python -m jcvi.compara.synteny screen --minspan=30 --simple $i  $i.simple; done
+#1648778138
+lth
+#1648778141
+les *simple
+#1648778179
+les *anchors
+#1648778186
+ll
+#1648778189
+les *bed
+#1648778275
+mkdir backup
+#1648778277
+cp *bed backup/
+#1648778297
+cd backup/
+#1648778306
+for i in *bed; do grep chr01 ${i} >../${i}; done
+#1648778312
+les Duparquetia_orchidacea.bed 
+#1648778320
+grep scaf01 Duparquetia_orchidacea.bed > ../Duparquetia_orchidacea.bed 
+#1648778321
+cd ..
+#1648778321
+ls
+#1648778326
+ll *bed
+#1648778328
+cd -
+#1648778330
+les Senna_tora.bed 
+#1648778341
+grep Chr01 Senna_tora.bed > ../Senna_tora.bed 
+#1648778342
+cd ..
+#1648778342
+ls
+#1648778343
+lt
+#1648778570
+bjl
+#1648778578
+lt
+#1648778581
+lth
+#1648778576
+tma
+#1648778589
+lt
+#1648778596
+les *simple
+#1648778681
+lt
+#1648778735
+vi layout
+#1648778864
+ls *bed >> layout 
+#1648778867
+vi layout 
+#1648778961
+ls *simple >> layout 
+#1648778962
+vi layout 
+#1648779137
+cut -f1 *bed |sort |uniq
+#1648779151
+cut -f1 *bed |sort |uniq > seqids
+#1648779153
+vi seqids 
+#1648779165
+les *layou
+#1648779168
+les layout 
+#1648779174
+vi seqids 
+#1648779182
+python -m jcvi.graphics.karyotype seqids layout
+#1648779201
+ls
+#1648779202
+ll
+#1648779224
+cut -f3 *bed > gene_list
+#1648779226
+vi gene_list 
+#1648779231
+cut -f4 *bed > gene_list
+#1648779232
+les gene_list 
+#1648779238
+les *.anchors
+#1648779275
+cp `which selectItem.pl` ./
+#1648779276
+vi se
+#1648779278
+vi selectItem.pl 
+#1648779336
+perl selectItem.pl 0 0,1 gene_list Cercis_chinensis.Zenia_insignis.anchors > Cercis_chinensis.Zenia_insignis.anchors.filter
+#1648779338
+les *filter
+#1648779344
+vi selectItem.pl 
+#1648779440
+perl selectItem.pl 0 0,1 gene_list Cercis_chinensis.Zenia_insignis.anchors  > Cercis_chinensis.Zenia_insignis.anchors.filter
+#1648779445
+vi selectItem.pl 
+#1648779452
+perl selectItem.pl 0 0,1 gene_list Cercis_chinensis.Zenia_insignis.anchors  > Cercis_chinensis.Zenia_insignis.anchors.filter
+#1648779458
+vi selectItem.pl 
+#1648779466
+perl selectItem.pl 0 0,1 gene_list Cercis_chinensis.Zenia_insignis.anchors  > Cercis_chinensis.Zenia_insignis.anchors.filter
+#1648779469
+les *filter
+#1648779481
+vi selectItem.pl 
+#1648779502
+perl selectItem.pl 0 0,1 gene_list Cercis_chinensis.Zenia_insignis.anchors  > Cercis_chinensis.Zenia_insignis.anchors.filter
+#1648779503
+les *filter
+#1648779535
+les gene_list
+#1648779540
+les Cercis_chinensis.Zenia_insignis.anchors
+#1648779547
+vi se
+#1648779550
+vi selectItem.pl 
+#1648779616
+les gene_list 
+#1648779621
+les *anchors
+#1648779633
+perl -w selectItem.pl 0 0,1 gene_list Cercis_chinensis.Zenia_insignis.anchors  > Cercis_chinensis.Zenia_insignis.anchors.filter
+#1648779636
+ll *filter
+#1648779640
+wc -l *filter
+#1648779659
+vi selectItem.pl 
+#1648779662
+les gene_list 
+#1648779677
+cd -
+#1648779678
+ls
+#1648779679
+ll
+#1648779693
+grep chr2 Zenia_insignis.bed > ../Zenia_insignis.bed 
+#1648779699
+grep chr8 Zenia_insignis.bed > ../Zenia_insignis.bed 
+#1648779700
+les Zenia_insignis.bed 
+#1648779705
+grep chr02 Zenia_insignis.bed > ../Zenia_insignis.bed 
+#1648779711
+grep chr08 Zenia_insignis.bed >> ../Zenia_insignis.bed 
+#1648779713
+les ../Zenia_insignis.bed 
+#1648779724
+grep scaf02 Duparquetia_orchidacea.bed > ../Duparquetia_orchidacea.bed 
+#1648779731
+grep scaf08 Duparquetia_orchidacea.bed >> ../Duparquetia_orchidacea.bed 
+#1648779746
+grep chr06 Lysidice_rhodostegia.bed > ../Lysidice_rhodostegia.bed 
+#1648779754
+grep chr10 Lysidice_rhodostegia.bed >> ../Lysidice_rhodostegia.bed 
+#1648779769
+grep Chr08 Senna_tora.bed > ../Senna_tora.bed 
+#1648779774
+grep Chr13 Senna_tora.bed >> ../Senna_tora.bed 
+#1648779775
+cd ..
+#1648779779
+perl -w selectItem.pl 0 0,1 gene_list Cercis_chinensis.Zenia_insignis.anchors  > Cercis_chinensis.Zenia_insignis.anchors.filter
+#1648779781
+ll *filter
+#1648779788
+cut -f4 *bed > gene_list
+#1648779790
+perl -w selectItem.pl 0 0,1 gene_list Cercis_chinensis.Zenia_insignis.anchors  > Cercis_chinensis.Zenia_insignis.anchors.filter
+#1648779791
+ll *filter
+#1648779795
+logsh
+#1648779814
+for i in *.anchors; do perl -w selectItem.pl 0 0,1 gene_list $i > $i.filter; done
+#1648779816
+logsh
+#1648779834
+for i in *.anchors; do python -m jcvi.compara.synteny screen --minspan=30 --simple $i.filter  $i.simple; done
+#1648779842
+logsh 
+#1648779843
+lth
+#1648779853
+python -m jcvi.graphics.karyotype seqids layout
+#1648779866
+grep CECHI00019162-t1_Cechi *bed
+#1648779874
+grep CECHI00002172-t1_Cechi
+#1648779876
+grep CECHI00002172-t1_Cechi *bed
+#1648779881
+grep DUORC00012452-t1 *bed
+#1648779885
+grep DUORC00002694-t1 *bed
+#1648779895
+lt
+#1648779898
+les *simple
+#1648779900
+lt
+#1648779904
+vi layout 
+#1648779920
+grep DUORC00003371-t1 Cercis_chinensis.Duparquetia_orchidacea.anchors.simple
+#1648779928
+grep DUORC00003371-t1 Duparquetia_orchidacea.bed 
+#1648779937
+vi layout 
+#1648779959
+python -m jcvi.graphics.karyotype seqids layout
+#1648779991
+les Senna_tora.bed
+#1648780015
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648780047
+les Senna_tora.bed
+#1648780050
+vi layout 
+#1648780056
+les *simple
+#1648780058
+vi layout 
+#1648780080
+vi seqids 
+#1648780105
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648780160
+python -m jcvi.graphics.karyotype seqids layout
+#1648780203
+vi layout 
+#1648780208
+cp layout layout.1
+#1648780209
+vi layout 
+#1648780221
+python -m jcvi.graphics.karyotype seqids layout
+#1648780242
+cp layout.1 layout
+#1648780247
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648780273
+python -m jcvi.graphics.karyotype seqids layout
+#1648780306
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648780407
+python -m jcvi.graphics.karyotype seqids layout
+#1648780423
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781127
+python -m jcvi.graphics.karyotype seqids layout
+#1648781173
+vi layout 
+#1648781186
+python -m jcvi.graphics.karyotype -h
+#1648781213
+python -m jcvi.graphics.karyotype --basepair True seqids layout
+#1648781272
+python -m jcvi.graphics.karyotype --basepair  seqids layout
+#1648781283
+vfi layout 
+#1648781286
+vi layout 
+#1648781371
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781390
+python -m jcvi.graphics.karyotype seqids layout
+#1648781474
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781485
+:q
+#1648781487
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781590
+python -m jcvi.graphics.karyotype seqids layout
+#1648781610
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781624
+vi seqids 
+#1648781629
+vi layout
+#1648781707
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781720
+python -m jcvi.graphics.karyotype seqids layout
+#1648781737
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781754
+vi layout
+#1648781786
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781793
+vi layout
+#1648781796
+python -m jcvi.graphics.karyotype seqids layout
+#1648781811
+vi layout
+#1648781817
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781835
+vi layout
+#1648781838
+python -m jcvi.graphics.karyotype seqids layout
+#1648781847
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781874
+python -m jcvi.graphics.karyotype seqids layout
+#1648781930
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781937
+python -m jcvi.graphics.karyotype seqids layout
+#1648781947
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781951
+python -m jcvi.graphics.karyotype seqids layout
+#1648781960
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648781997
+python -m jcvi.graphics.karyotype seqids layout
+#1648782021
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648782129
+python -m jcvi.graphics.karyotype seqids layout
+#1648782146
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648782154
+python -m jcvi.graphics.karyotype seqids layout
+#1648782179
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648782195
+python -m jcvi.graphics.karyotype seqids layout
+#1648782201
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648782209
+python -m jcvi.graphics.karyotype seqids layout
+#1648782222
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648782245
+vi layout
+#1648782249
+vi seqids 
+#1648782326
+python -m jcvi.graphics.karyotype seqids layout
+#1648782370
+sz karyotype.pdf 
+#1648782373
+# Sent -> /Users/liuhui/Downloads/
+#1648782374
+vi seqids 
+#1648782377
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648782418
+vi layout
+#1648782443
+python -m jcvi.graphics.karyotype seqids layout
+#1648782459
+sz karyotype.pdf 
+#1648782461
+# Sent -> /Users/liuhui/Downloads/
+#1648782471
+lth
+#1648782474
+vi layout
+#1648782478
+vi Cercis_chinensis.Duparquetia_orchidacea.anchors.simple 
+#1648782524
+grep CECHI00001564-t1_Cechi *bed
+#1648782536
+les Cercis_chinensis.bed
+#1648782543
+vi Cercis_chinensis.Duparquetia_orchidacea.anchors.simple 
+#1648782592
+python -m jcvi.graphics.karyotype seqids layout
+#1648782607
+sz karyotype.pdf 
+#1648782610
+# Sent -> /Users/liuhui/Downloads/
+#1648782630
+python -m jcvi.graphics.karyotype --basepair  seqids layout
+#1648782641
+sz karyotype.pdf 
+#1648782643
+# Sent -> /Users/liuhui/Downloads/
+#1648782660
+vi Cercis_chinensis.Duparquetia_orchidacea.anchors.simple 
+#1648782677
+les Cercis_chinensis.bed
+#1648782681
+les *simple
+#1648782690
+vi *simple
+#1648782697
+lth
+#1648782702
+les Cercis_chinensis.bed 
+#1648782720
+vi *simple
+#1648782785
+python -m jcvi.graphics.karyotype --basepair  seqids layout
+#1648782796
+sz karyotype.pdf 
+#1648782798
+# Sent -> /Users/liuhui/Downloads/
+#1648782825
+python -m jcvi.graphics.karyotype -h
+#1648782850
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py
+#1648782962
+python -m jcvi.graphics.karyotype seqids layout
+#1648783010
+sz karyotype.pdf 
+#1648783014
+# Sent -> /Users/liuhui/Downloads/
+#1648783219
+cp /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py.1
+#1648783220
+vi /nfs/liuhui/.local/lib/python3.8/site-packages/jcvi/graphics/karyotype.py.1
+#1648783445
+lt
+#1648783530
+cd ..
+#1648783530
+lt
+#1648785758
+j mcscanx2
+#1648785768
+cd work.Cercis_chinensis.Duparquetia_orchidacea/
+#1648785769
+lt
+#1648785772
+les error.5164*
+#1648785814
+cp error.51648 ~/projects/phyleg/02.fig2/Cercis_chinensis.Duparquetia_orchidacea.depth
+#1648785825
+cd ..
+#1648785847
+cd -
+#1648785848
+les error.5164*
+#1648785871
+grep -A 20 'Genome Cercis_chinensis depths:' error.5164*
+#1648785886
+grep -A 40 'Genome Cercis_chinensis depths:' error.5164*
+#1648785896
+cd..
+#1648785898
+cd ..
+#1648785927
+mkdir -p ../02.fig2E
+#1648785963
+for i in work.Cercis_chinensis.*; do grep -A 50 'Genome Cercis_chinensis depths:' ${i}/error.* > ../02.fig2E/${i}.depth; done
+#1648785979
+cat > ../02.fig2E/missing.txt
+#1648785983
+cd ../02.fig2E/
+#1648785983
+lt
+#1648785986
+les *depth
+#1648785996
+rename work. ''
+#1648785998
+rename work. '' *
+#1648785998
+ls
+#1648786004
+grep pattern *depth
+#1648786172
+ls
+#1648786177
+vi list
+#1648786183
+vi tmp_list
+#1648786193
+grep -f tmp_list  legume_genome_list.with_lineage 
+#1648786199
+grep Papi legume_genome_list.with_lineage 
+#1648786205
+grep Papi legume_genome_list.with_lineage  |cut -f1
+#1648786214
+vi tmp_list
+#1648786222
+grep -f tmp_list  legume_genome_list.with_lineage 
+#1648786234
+grep -f tmp_list  legume_genome_list.with_lineage |cut -f1
+#1648786422
+grep -f tmp_list  legume_genome_list.with_lineage |grep Papilionoideae |cut -f1
+#1648791525
+mamba create -n circos -c bioconda circos
+#1648792403
+j fig2f
+#1648792404
+lt
+#1648792406
+cd ../02.fig2f
+#1648792409
+cd ../02.fig2E/
+#1648792410
+lt
+#1648792411
+ls
+#1648792413
+lth
+#1648792420
+cd ..
+#1648792423
+cd 02.fig2
+#1648792423
+l
+#1648792424
+ls
+#1648792425
+cd ..
+#1648792434
+mv 02.fig2 02.fig2D
+#1648792434
+ls
+#1648792440
+mkdir 02.fig2F
+#1648792443
+cd 02.fig2F/
+#1648792469
+ll ../02.fig2D/*.anchors
+#1648792478
+ll
+#1648792488
+cp ../../genomes/Polygala_tatarinowii.fa ./ &
+#1648792514
+cp ../../genomes/Fabales/Cercis_chinensis.fa ./ &
+#1648792515
+lt
+#1648792546
+cp ~/projects/Polygala_tatarinowii/synteny/work.Cercis_chinensis.Polygala_tatarinowii/Cercis_chinensis.Polygala_tatarinowii.anchors ./
+#1648792547
+ll
+#1648792556
+python -m iga.graphics
+#1648792561
+python -m iga.plot
+#1648792564
+python -m iga.plot.circos
+#1648792566
+ll
+#1648792573
+for i in *fa; do samtools faidx $i; done
+#1648792580
+ll
+#1648792604
+for i in *.fai; do python -m iga.plot.circos fai_to_karyotype > ${i}.karyotype; done
+#1648792609
+for i in *.fai; do python -m iga.plot.circos fai_to_karyotype $i > ${i}.karyotype; done
+#1648792628
+ll
+#1648792635
+les *karyotype
+#1648792638
+ll
+#1648792688
+python -m iga.plot.circos  anchors_to_segdups Cercis_chinensis.Polygala_tatarinowii.anchors > Cercis_chinensis.Polygala_tatarinowii.anchors.segdups
+#1648792715
+ls ../02.fig2D/*bed
+#1648792719
+ls ../02.fig2D/Cercis_chinensis.bed ./
+#1648792721
+cp ../02.fig2D/Cercis_chinensis.bed ./
+#1648792727
+cp ~/projects/Polygala_tatarinowii/synteny/work.Cercis_chinensis.Polygala_tatarinowii/Polygala_tatarinowii.bed .
+#1648792728
+ll
+#1648792737
+cat Cercis_chinensis.bed Polygala_tatarinowii.bed > Cercis_chinensis.Polygala_tatarinowii.bed
+#1648792738
+ll
+#1648792965
+lt
+#1648792975
+python -m iga.plot.circos  anchors_to_segdups -h
+#1648792989
+python -m iga.plot.circos  anchors_to_segdups Cercis_chinensis.Polygala_tatarinowii.anchors Cercis_chinensis.Polygala_tatarinowii.bed > Cercis_chinensis.Polygala_tatarinowii.anchors.segdups
+#1648792996
+les Cercis_chinensis.Polygala_tatarinowii.bed
+#1648793004
+grep CECHI00018320-t1_Cechi Cercis_chinensis.Polygala_tatarinowii.bed
+#1648793013
+grep CECHI00018320-t1_Cechi Cercis_chinensis.Polygala_tatarinowii.anchors
+#1648793037
+cp ~/projects/Polygala_tatarinowii/synteny/work.Cercis_chinensis.Polygala_tatarinowii/Cercis_chinensis.bed .
+#1648793038
+ls
+#1648793042
+python -m iga.plot.circos  anchors_to_segdups Cercis_chinensis.Polygala_tatarinowii.anchors Cercis_chinensis.Polygala_tatarinowii.bed > Cercis_chinensis.Polygala_tatarinowii.anchors.segdups
+#1648793046
+ll
+#1648793047
+cat Cercis_chinensis.bed Polygala_tatarinowii.bed > Cercis_chinensis.Polygala_tatarinowii.bed
+#1648793049
+python -m iga.plot.circos  anchors_to_segdups Cercis_chinensis.Polygala_tatarinowii.anchors Cercis_chinensis.Polygala_tatarinowii.bed > Cercis_chinensis.Polygala_tatarinowii.anchors.segdups
+#1648793052
+les *segdups
+#1648793056
+lt
+#1648793061
+les Cercis_chinensis.Polygala_tatarinowii.anchorsseg_dups.txt
+#1648793087
+ll *type
+#1648793097
+cat *type > Cercis_chinensis.Polygala_tatarinowii.karyotype
+#1648793099
+vi Cercis_chinensis.Polygala_tatarinowii.karyotype
+#1648793312
+vi Polygala_tatarinowii.fa.fai.karyotype 
+#1648793319
+vi Cercis_chinensis.Polygala_tatarinowii.karyotype
+#1648793334
+lth
+#1648793341
+python -m iga.plot.circos   -h
+#1648793345
+python -m iga.plot.circos   circos
+#1648793353
+conda activate circos
+#1648793356
+python -m iga.plot.circos   circos
+#1648793360
+python -m iga.plot.circos   circos -h
+#1648793370
+ls *bed
+#1648793374
+les Cercis_chinensis.bed 
+#1648793408
+ls
+#1648793414
+les *karyotype
+#1648793417
+lt
+#1648793421
+les Cercis_chinensis.Polygala_tatarinowii.karyotype
+#1648793451
+vi chr_id
+#1648793469
+selectItem.pl chr_id Cercis_chinensis.bed > fig2F.bed
+#1648793471
+les fig2F.bed 
+#1648793481
+selectItem.pl chr_id Polygala_tatarinowii.bed >> fig2F.bed
+#1648793483
+les fig2F.bed 
+#1648793487
+les chr_id 
+#1648793491
+les Polygala_tatarinowii.bed 
+#1648793497
+les fig2F.bed 
+#1648793505
+selectItem.pl chr_id Polygala_tatarinowii.bed
+#1648793507
+les chr_id 
+#1648793511
+les Polygala_tatarinowii.
+#1648793512
+les Polygala_tatarinowii.bed 
+#1648793522
+head chr_id Polygala_tatarinowii.bed 
+#1648793528
+vi Polygala_tatarinowii.bed 
+#1648793550
+selectItem.pl chr_id Polygala_tatarinowii.bed >> fig2F.bed
+#1648793551
+les fig2F.bed 
+#1648793558
+lth
+#1648793567
+les *gff
+#1648793573
+cp ~/projects/Polygala_tatarinowii/synteny/work.Cercis_chinensis.Polygala_tatarinowii/Cercis_chinensis.gff3 .
+#1648793578
+cp ~/projects/Polygala_tatarinowii/synteny/work.Cercis_chinensis.Polygala_tatarinowii/Polygala_tatarinowii.gff3 .
+#1648793591
+cat ~/projects/Polygala_tatarinowii/synteny/work.Cercis_chinensis.Polygala_tatarinowii/Cercis_chinensis.gff3 ~/projects/Polygala_tatarinowii/synteny/work.Cercis_chinensis.Polygala_tatarinowii/Polygala_tatarinowii.gff3 > Cercis_chinensis.Polygala_tatarinowii.gff3
+#1648793607
+selectItem.pl chr_id Cercis_chinensis.Polygala_tatarinowii.gff3 >> fig2F.gff3
+#1648793611
+les fig2F.gff3 
+#1648793620
+vi Polygala_tatarinowii.gff3 
+#1648793642
+cat Cercis_chinensis.gff3 Polygala_tatarinowii.gff3 > Cercis_chinensis.Polygala_tatarinowii.gff3 
+#1648793645
+selectItem.pl chr_id Cercis_chinensis.Polygala_tatarinowii.gff3 >> fig2F.gff3
+#1648793650
+selectItem.pl chr_id Cercis_chinensis.Polygala_tatarinowii.gff3 > fig2F.gff3
+#1648793655
+les fig2F.gff3 
+#1648793658
+lth
+#1648793665
+python -m iga.plot.circos   circos -h
+#1648793706
+les *fai
+#1648793713
+cat *fai > fig2F.fai
+#1648793721
+mv fig2F.fai Cercis_chinensis.Polygala_tatarinowii.fai
+#1648793729
+selectItem.pl chr_id Cercis_chinensis.Polygala_tatarinowii.fai > fig2F.fai
+#1648793758
+ll
+#1648793769
+grep -v "^#" *.anchors > Cercis_chinensis.Polygala_tatarinowii.ortho
+#1648793772
+les *ortho
+#1648793779
+grep -v "^#" *.anchors |cut -f1,2 > Cercis_chinensis.Polygala_tatarinowii.ortho
+#1648793780
+les *ortho
+#1648793787
+python -m iga.plot.circos   circos fig2F.fai --gene_gff fig2F.gff3 --gene_bed fig2F.bed --ortholog Cercis_chinensis.Polygala_tatarinowii.ortho 
+#1648793803
+les fig2F.bed 
+#1648793949
+ll
+#1648793953
+vi circos.conf 
+#1648793962
+lt
+#1648793964
+vi ideogram.conf 
+#1648793979
+vi ticks.conf 
+#1648793986
+cd etc/
+#1648793986
+lt
+#1648793989
+cd ../data/
+#1648793989
+lt
+#1648793991
+cd ..
+#1648793991
+ll
+#1648793994
+lt
+#1648793996
+circos
+#1648794042
+mamba install perl-math-bezier perl-math-round perl-set-intspan perl-params-validate perl-math-vecstat perl-statistics-basic
+#1648794073
+which perl
+#1648794091
+circos
+#1648794098
+ll
+#1648794099
+lt
+#1648794232
+sch
+#1648794104
+vi circos.conf 
+#1648794365
+vi ideogram.conf 
+#1648794385
+pushd /nfs/backup/
+#1648794386
+ls
+#1648794387
+cd liuhui/
+#1648794388
+ls
+#1648794391
+cd project/
+#1648794392
+ls
+#1648794394
+cd ../bin/
+#1648794395
+ls
+#1648794398
+cd ..
+#1648794403
+find . -iname "*circos*"
+#1648795278
+lt
+#1648795282
+cd etc/
+#1648795284
+cd -
+#1648795285
+vi ideogram.conf 
+#1648795392
+find $BD -name "*.conf"
+#1648795733
+llll
+#1648795734
+ll
+#1648795830
+lt
+#1648795862
+les *kayotype
+#1648795863
+lt
+#1648795867
+les Cercis_chinensis.Polygala_tatarinowii.anchorsseg_dups.txt 
+#1648795893
+les Cercis_chinensis.Polygala_tatarinowii.anchorsseg_dups.txt
+#1648795904
+grep chr01_Cechi Cercis_chinensis.Polygala_tatarinowii.anchorsseg_dups.txt > Cercis_chinensis.Polygala_tatarinowii.anchors.seg_dups
+#1648795907
+les Cercis_chinensis.Polygala_tatarinowii.anchors.seg_dups 
+#1648795917
+grep chr01_Cechi Cercis_chinensis.Polygala_tatarinowii.anchorsseg_dups.txt |grep -v "#" > Cercis_chinensis.Polygala_tatarinowii.anchors.seg_dups
+#1648795918
+les Cercis_chinensis.Polygala_tatarinowii.anchors.seg_dups 
+#1648795925
+les *fai
+#1648795928
+lth
+#1648795933
+les fig2F.fai.karyotype
+#1648795948
+les Cercis_chinensis.Polygala_tatarinowii.anchors.seg_dups
+#1648795982
+selectItem.pl 2 3 fig2F.fai.karyotype Cercis_chinensis.Polygala_tatarinowii.anchors.seg_dups > fig2F.seg_dups
+#1648795983
+lth
+#1648795990
+les fig2F.fai.karyotype Cercis_chinensis.Polygala_tatarinowii.anchors.seg_dups
+#1648796011
+vi fig2F.fai.karyotype 
+#1648796028
+selectItem.pl 2 3 fig2F.fai.karyotype Cercis_chinensis.Polygala_tatarinowii.anchors.seg_dups > fig2F.seg_dups
+#1648796033
+lt
+#1648796036
+les fig2F.seg_dups fig2F.fai.karyotype
+#1648796046
+sz fig2F.seg_dups fig2F.fai.karyotype
+#1648796049
+# Sent -> /Users/liuhui/Downloads/
+#1648796327
+lth
+#1648796332
+head fig2F.fai.karyotype fig2F.seg_dups
+#1648796387
+ll *bed
+#1648796391
+les Cercis_chinensis.Polygala_tatarinowii.bed
+#1648796416
+les *karyotype
+#1648797271
+lt
+#1648797279
+les *.seg_dups
+#1648797319
+grep chr01_Cechi *.seg_dups | grep -P "chr01\t" |les
+#1648797323
+grep chr01_Cechi *.seg_dups | grep -E "chr01\t" |les
+#1648797326
+grep chr01_Cechi *.seg_dups | grep  "chr01\t" |les
+#1648797328
+grep chr01_Cechi *.seg_dups | grep  "chr01\t" 
+#1648797331
+grep chr01_Cechi *.seg_dups | grep  "chr01" 
+#1648797341
+grep chr01_Cechi *.seg_dups | grep -Pe  "chr01\t" 
+#1648797432
+man grep
+#1648797442
+ls
+#1648797446
+wc -l *.anchors *.segdups
+#1648797453
+wc -l *.anchors *dups
+#1648799934
+les Cercis_chinensis.Polygala_tatarinowii.anchors
+#1648799940
+grep "#" Cercis_chinensis.Polygala_tatarinowii.anchors |wc -l
+#1648799945
+les Cercis_chinensis.Polygala_tatarinowii.anchors.seg_dups
+#1648799952
+les Cercis_chinensis.Polygala_tatarinowii.anchors
+#1648800374
+grep CECHI00000420-t1_Cechi *bed
+#1648800381
+grep CECHI00000367-t3_Cechi *bed
+#1648800392
+vi fig2F.fai.karyotype 
+#1648800394
+lth
+#1648800404
+vi fig2F.seg_dups
+#1648800655
+python -m iga.plot.circos  anchors_to_segdups --print_gene_name "T" Cercis_chinensis.Polygala_tatarinowii.anchors Cercis_chinensis.Polygala_tatarinowii.bed > Cercis_chinensis.Polygala_tatarinowii.anchors.segdups
+#1648800665
+les Cercis_chinensis.Polygala_tatarinowii.anchors.segdups
+#1648800675
+les Cercis_chinensis.Polygala_tatarinowii.anchors Cercis_chinensis.Polygala_tatarinowii.bed
+#1648800709
+python -m iga.plot.circos  anchors_to_segdups --print_gene_name T Cercis_chinensis.Polygala_tatarinowii.anchors Cercis_chinensis.Polygala_tatarinowii.bed > Cercis_chinensis.Polygala_tatarinowii.anchors.segdups
+#1648800715
+les Cercis_chinensis.Polygala_tatarinowii.anchors.segdups
+#1648800723
+python -m iga.plot.circos  anchors_to_segdups Cercis_chinensis.Polygala_tatarinowii.anchors Cercis_chinensis.Polygala_tatarinowii.bed > Cercis_chinensis.Polygala_tatarinowii.anchors.segdups
+#1648800727
+les Cercis_chinensis.Polygala_tatarinowii.anchors.segdups
+#1648800738
+lth
+#1648800741
+les Cercis_chinensis.Polygala_tatarinowii.anchorsseg_dups.txt 
+#1648800753
+wc -l Cercis_chinensis.Polygala_tatarinowii.anchorsseg_dups.txt Cercis_chinensis.Polygala_tatarinowii.anchors
+#1648800756
+les Cercis_chinensis.Polygala_tatarinowii.anchorsseg_dups.txt 
+#1648800834
+grep chr01_Cechi Cercis_chinensis.Polygala_tatarinowii.anchorsseg_dups.txt > tmp
+#1648800834
+vi tmp 
+#1648800846
+grep chr01_Cechi Cercis_chinensis.Polygala_tatarinowii.anchorsseg_dups.txt |grep -v "#" > tmp
+#1648800847
+vi tmp 
+#1648801583
+mv tmp fig2F.seg_dups 
+#1648801585
+vi fig2F.seg_dups 
+#1648801603
+vi fig2F.fai.karyotype 
+#1648801729
+mv fig2F.fai.karyotype fig2F.karyotype
+#1648801730
+lth
+#1648801734
+mv fig2F.seg_dups fig2F.segdups
+#1648801735
+lth
+#1648801739
+sz fig2F.segdups fig2F.karyotype 
+#1648801741
+# Sent -> /Users/liuhui/Downloads/
+#1648801801
+les fig2F.karyotype
+#1648801804
+les fig2F.segdups
+#1648801833
+les *.anchors
+#1648801841
+les Cercis_chinensis.Polygala_tatarinowii.anchorsseg_dups.txt
+#1648802848
+top
+#1648802850
+bjobs
+#1648802852
+bhosts 
+#1648802862
+bjobs -u all -m yi03 |les
+#1648802897
+bjobs
+#1648802943
+vw
+#1648803441
+cd
+#1648803443
+cd projects/genomes/
+#1648803443
+ls
+#1648803447
+realpath Polygala_tatarinowii.fa 
+#1648803482
+lt
+#1648803488
+tma
+#1648818121
+les error.67105 
+#1648818129
+vi maker.sh 
+#1648818149
+bsub512 -J maker < maker.sh 
+#1648818151
+bjl
+#1648818164
+bjl
+#1648818168
+bhosts 
+#1648818171
+sudo su
+#1648818331
+tolava 
+#1648818417
+lsload
+#1648871967
+lt
+#1648871970
+cd *R2
+#1648871970
+ls
+#1648871982
+bjl
+#1648871994
+bhosts 
+#1648871999
+bjl
+#1648872006
+bmod -n 30 68028
+#1648872007
+bjl
+#1648872013
+bj
+#1648872015
+bjl
+#1648872018
+bhosts 
+#1648872026
+lsload
+#1648872030
+bhosts 
+#1648872034
+bjl
+#1648872037
+ls
+#1648872044
+grep ">" total.all.maker.proteins.fasta |wc -l
+#1648872055
+grep ">" ../*R1/total.all.maker.proteins.fasta |wc -l
+#1648871957
+tma
+#1648872145
+cd ../../
+#1648872147
+cd -
+#1648872151
+cd
+#1648872155
+cd projects/buzzo/
+#1648872155
+ls
+#1648872158
+mkdir cercis
+#1648872159
+cd cercis/
+#1648872160
+ls
+#1648872162
+vi list
+#1648872174
+for i in `cat list`; do downlht $i; done
+#1648872439
+gtp
+#1648872457
+vi list
+#1648872469
+for i in `cat list`; do downlht $i; done
+#1648872563
+ll
+#1648872598
+python -m iga.annotation
+#1648872602
+python -m iga.annotation.rnaseq
+#1648872606
+python -m iga.annotation.rnaseq reads_align_assembly
+#1648872611
+conda env list
+#1648872619
+ls
+#1648872621
+ll
+#1648872657
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/assembly/Cercis_chinensis/annotation/*ht2
+#1648872688
+ls
+#1648872715
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/assembly/Cercis_chinensis/cechi.contig.fa
+#1648872730
+ls
+#1648872736
+python -m iga.annotation.rnaseq reads_align_assembly cechi.contig.fa "cechi.lncRNA.CC-G2.root.1_1.clean.fq.gz cechi.lncRNA.CC-G2.root.1_2.clean.fq.gz"
+#1648872739
+ls
+#1648872750
+python -m iga.annotation.rnaseq reads_align_assembly cechi.contig.fa "cechi.lncRNA.CC-G4.root.1_1.clean.fq.gz cechi.lncRNA.CC-G4.root.1_2.clean.fq.gz"
+#1648872751
+bjl
+#1648872757
+lth
+#1648872759
+les error.68636 
+#1648872776
+which hisat2
+#1648872780
+hisat2
+#1648872786
+module load gcc
+#1648872788
+hisat2
+#1648872791
+module purge
+#1648872799
+tolava
+#1648872888
+sudo yum provides libstdc++.so.6
+#1648872979
+ls
+#1648872982
+tolava 
+#1648873148
+cd -
+#1648873157
+hisat2
+#1648873158
+ls
+#1648873161
+rm bsub.Trinity_Guided_read1.7*
+#1648873163
+vi sh
+#1648873170
+rm output.6863* error.6863*
+#1648873172
+python -m iga.annotation.rnaseq reads_align_assembly cechi.contig.fa "cechi.lncRNA.CC-G4.root.1_1.clean.fq.gz cechi.lncRNA.CC-G4.root.1_2.clean.fq.gz"
+#1648873180
+python -m iga.annotation.rnaseq reads_align_assembly cechi.contig.fa "cechi.lncRNA.CC-G2.root.1_1.clean.fq.gz cechi.lncRNA.CC-G2.root.1_2.clean.fq.gz"
+#1648873186
+logsh
+#1648873200
+cat >/dev/null 
+#1648873211
+bjl
+#1648873151
+tma
+#1648873217
+bjobs
+#1648873224
+bjl
+#1648873227
+bjobs
+#1648873228
+bhosts 
+#1648873233
+lsload
+#1648873240
+bmod -n 10 68658
+#1648873241
+bjl
+#1648873251
+bj
+#1648873252
+bjl
+#1648881153
+lth
+#1648881159
+les error.68656 
+#1648881168
+vi bsub.Trinity_Guided_read1.1*sh
+#1648881189
+bhosts 
+#1648881193
+ll *sh
+#1648881206
+for i in *sh; do bsub512 -n 30 -J trinity < $i; done
+#1648881212
+bjl
+#1648881220
+bjobs
+#1648881222
+bhosts 
+#1648881228
+lsload
+#1648881230
+bjobs
+#1648881231
+bjl
+#1648881232
+lt
+#1648881234
+lth
+#1648881148
+tma
+#1648889201
+bjl
+#1648889204
+ls
+#1648889206
+cd *R2
+#1648889206
+ls
+#1648889212
+ll
+#1648889216
+ls
+#1648889220
+more total.all.maker.proteins.fasta.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.total.all.maker.proteins.fasta.busco.embryophyta.v4.1.2.txt 
+#1648889241
+which maker
+#1648889242
+ls
+#1648889252
+conda deactivate maker
+#1648889256
+conda deactivate 
+#1648889261
+conda activate augustus
+#1648889265
+conda activate braker
+#1648889266
+ls
+#1648889274
+which augustus
+#1648889279
+j braker
+#1648889282
+cd
+#1648889285
+cd bin/braker/
+#1648889285
+ls
+#1648889288
+vi braker_source.sh 
+#1648889310
+realpath braker_source.sh 
+#1648889327
+ls ../*R3
+#1648889330
+lth
+#1648889334
+les error.68028 
+#1648889315
+tma
+#1648889349
+j yanhui
+#1648889350
+ls
+#1648889353
+cd maker/
+#1648889353
+lt
+#1648889385
+ln -s SETOR.masked.fa SETOR.masked.braker.fa
+#1648889394
+cp maker.sh maker2.sh
+#1648889401
+vi maker2.sh 
+#1648889454
+ls *sh
+#1648889457
+bjl
+#1648889461
+ls
+#1648889499
+lt
+#1648889510
+python -m iga.annotation.maker
+#1648889518
+python -m iga.annotation.maker prepare_pipe > 01.prepare.sh
+#1648889519
+vi 01.prepare.sh 
+#1648889568
+ll *fasta
+#1648889570
+vi 01.prepare.sh 
+#1648889581
+ll
+#1648889588
+vi 01.prepare.sh 
+#1648889683
+mkdir cechi.lncRNA.CC-G8.root.1_1.clean.fq.gz_trinity
+#1648889694
+cd cechi.lncRNA.CC-G8.root.1_1.clean.fq.gz_trinity/
+#1648889696
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/assembly/Cercis_chinensis/annotation/cechi.lncRNA.CC-G8.root.1_1.clean.fq.gz_trinity/Trinity-GG.fasta
+#1648889702
+cd ..
+#1648889703
+ll
+#1648889808
+for i in 5 7 9; do mkdir -p cechi.ssRNAbgi.CC_Y$i_1.clean.fq.gz_trinity; cd cechi.ssRNAbgi.CC_Y$i_1.clean.fq.gz_trinity; downlht /ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/assembly/Cercis_chinensis/annotation/cechi.ssRNAbgi.CC_Y$i_1.clean.fq.gz_trinity/Trinity-GG.fasta ; cd ..; done
+#1648889871
+for i in 5 7 9; do mkdir -p cechi.ssRNAbgi.CC_Y${i}_1.clean.fq.gz_trinity; cd cechi.ssRNAbgi.CC_Y${i}_1.clean.fq.gz_trinity; downlht /ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/assembly/Cercis_chinensis/annotation/cechi.ssRNAbgi.CC_Y${i}_1.clean.fq.gz_trinity/Trinity-GG.fasta ; cd ..; done
+#1648889450
+tma
+#1648889968
+cd /nfs/liuhui/projects/yanhui/maker/SETOR.masked.fa_R2/
+#1648889969
+lth
+#1648889977
+cd ..
+#1648889980
+ll error.6*
+#1648889982
+les error.6*
+#1648890011
+bjl
+#1648890023
+les error.68027 
+#1648890070
+cd /nfs/liuhui/projects/yanhui/maker/SETOR.masked.fa_R2/train_augustus_direct/
+#1648890070
+lt
+#1648890073
+cd autoAug/
+#1648890073
+lt
+#1648890087
+lt hints/
+#1648890091
+les hints/*err
+#1648890098
+lt
+#1648890105
+cd autoAugPred_hints/
+#1648890106
+lt
+#1648890107
+cd shells/
+#1648890108
+lt
+#1648890112
+les aug1.out 
+#1649208559
+bjl
+#1649208562
+tma
+#1649208967
+j polyg
+#1649209017
+ll
+#1649209019
+dc synteny/
+#1649209020
+ls
+#1649209022
+cd synteny/
+#1649209023
+ls
+#1649209023
+lt
+#1649209030
+cd work.Polygala_tatarinowii.Polygala_tatarinowii
+#1649209031
+lt
+#1649209037
+les *ty
+#1649209041
+les *.anchors
+#1649209044
+ls *.anchors
+#1649209054
+grep -v "#" Polygala_tatarinowii.Polygala_tatarinowii.anchors |cut -f1,2 > Polygala_tatarinowii.Polygala_tatarinowii.anchors.ortho
+#1649209058
+les Polygala_tatarinowii.Polygala_tatarinowii.anchors.ortho 
+#1649209089
+python -m iga.plot.circos  anchors_to_segdups Polygala_tatarinowii.Polygala_tatarinowii.anchors.ortho Polygala_tatarinowii.bed > Polygala_tatarinowii.Polygala_tatarinowii.segdups
+#1649209091
+lth
+#1649209095
+rm Polygala_tatarinowii.Polygala_tatarinowii.segdups 
+#1649209097
+ll *.fa
+#1649209118
+cp ~/projects/genomes/Polygala_tatarinowii.fa .
+#1649209130
+lth
+#1649209134
+les *.fa
+#1649209139
+lt
+#1649209150
+samtools faidx Polygala_tatarinowii.fa
+#1649209162
+mv Polygala_tatarinowii.fa.fai Polygala_tatarinowii.karyotype
+#1649209164
+vi Polygala_tatarinowii.karyotype 
+#1649209192
+ll
+#1649209194
+lt
+#1649209209
+sz Polygala_tatarinowii.karyotype Polygala_tatarinowii.Polygala_tatarinowii.anchors.orthoseg_dups.txt Polygala_tatarinowii.bed
+#1649209212
+# Sent -> /Users/liuhui/Downloads/
+#1649209343
+les *dups.txt
+#1649209347
+lth
+#1649209350
+les *karyotype
+#1649209355
+vi *karyotype
+#1649209375
+sz Polygala_tatarinowii.karyotype 
+#1649209377
+# Sent -> /Users/liuhui/Downloads/
+#1649209574
+python -m jcvi.compara.synteny 
+#1649209581
+python -m jcvi.compara.synteny simple
+#1649209590
+ls *bed
+#1649209597
+ls *.anchors
+#1649209602
+python -m jcvi.compara.synteny simple Polygala_tatarinowii.Polygala_tatarinowii.anchors
+#1649209608
+les *simple
+#1649209630
+python -m jcvi.compara.synteny 
+#1649213386
+j polygala
+#1649213386
+lth
+#1649213388
+cd hic
+#1649213389
+lt
+#1649213392
+cd workdir_juicer_Polygala_tatarinowii/
+#1649213393
+lt
+#1649213396
+cd -
+#1649213396
+lt
+#1649213403
+les Polygala_tatarinowii.contig.final.assembly 
+#1649213408
+vi Polygala_tatarinowii.contig.final.assembly 
+#1649213515
+vi Polygala_tatarinowii.contig.0.review.sort.assembly
+#1649213538
+more shell 
+#1649213555
+python -m iga.assembly.hic
+#1649213564
+ls *assembly
+#1649213571
+ls *agp
+#1649213575
+python -m iga.assembly.hic assembly2agp Polygala_tatarinowii.contig.0.review.sort.assembly > Polygala_tatarinowii.contig.0.review.sort.assembly.agp
+#1649213578
+les Polygala_tatarinowii.contig.0.review.sort.assembly.agp
+#1649213598
+python -m iga.assembly.hic build_chr Polygala_tatarinowii.contig.fa Polygala_tatarinowii.contig.0.review.sort.assembly.agp > Polygala_tatarinowii.contig.0.review.so
+#1649213748
+bjlbjl
+#1649213750
+bjl
+#1649213751
+lt
+#1649213759
+les error.68755 
+#1649213799
+les ../assembly_intermediate/Polygala_tatarinowii.hifiasm.purged.fa
+#1649213803
+les *assembly
+#1649213821
+ls
+#1649213829
+rm Polygala_tatarinowii.contig.fa
+#1649213830
+ls
+#1649213838
+ln -s ../assembly_intermediate/Polygala_tatarinowii.hifiasm.purged.fa Polygala_tatarinowii.contig.fa
+#1649213839
+lth
+#1649213874
+python -m iga.assembly.hic build_chr Polygala_tatarinowii.contig.fa Polygala_tatarinowii.contig.0.review.sort.assembly.agp > Polygala_tatarinowii.contig.0.review.sort.assembly.agp.chr.fa 
+#1649213876
+lth
+#1649213882
+les bsub.buildchr.
+#1649213884
+les bsub.buildchr.874593.sh 
+#1649213889
+logsh
+#1649213897
+lth
+#1649213899
+bjl
+#1649213903
+les error.68756 
+#1649213909
+les Polygala_tatarinowii.contig.fa.chr.fa 
+#1649213919
+samtools faidx Polygala_tatarinowii.contig.fa.chr.fa 
+#1649214064
+lth
+#1649214068
+gtp
+#1649214075
+more shell 
+#1649214085
+bhosts 
+#1649214098
+ls
+#1649214103
+mv workdir_juicer_Polygala_tatarinowii workdir_juicer_Polygala_tatarinowii.bak
+#1649214105
+python -m iga.assembly.hic juicer_pipe --threads 80 Polygala_tatarinowii.contig.fa.chr.fa "Pto3Y2_1.fq.gz.clean.fq.gz Pto3Y2_2.fq.gz.clean.fq.gz"
+#1649214107
+logsh
+#1649214113
+lt Polygala_tatarinowii.contig.fa.chr.fa
+#1649214120
+more *fai
+#1649214128
+ls
+#1649214133
+ls ..
+#1649214145
+ls ../release/
+#1649214188
+cd ../release/contig/
+#1649214188
+ls
+#1649214197
+cd -
+#1649214222
+ln -s /nfs/liuhui/projects/Polygala_tatarinowii/release/contig/Polygala_tatarinowii.contig.fa.masked.fa.gff3 
+#1649214223
+ls
+#1649214244
+python -m iga.assembly.hic
+#1649214248
+python -m iga.assembly.hic lift_over
+#1649214249
+python -m iga.assembly.hic lift_over -h
+#1649214262
+python -m iga.annotation
+#1649214265
+python -m iga.annotation.maker
+#1649214290
+python -m iga.annotation.maker liftover_by_agp
+#1649214292
+python -m iga.annotation.maker liftover_by_agp -h
+#1649214294
+ll
+#1649214294
+lth
+#1649214301
+ls *agp
+#1649214315
+python -m iga.annotation.maker liftover_by_agp Polygala_tatarinowii.contig.fa.masked.fa.gff3  Polygala_tatarinowii.contig.0.review.sort.assembly.agp > Polygala_tatarinowii.contig.fa.chr.gff3
+#1649214323
+bsub512 "python -m iga.annotation.maker liftover_by_agp Polygala_tatarinowii.contig.fa.masked.fa.gff3  Polygala_tatarinowii.contig.0.review.sort.assembly.agp > Polygala_tatarinowii.contig.fa.chr.gff3"
+#1649214325
+logsh
+#1649214394
+vi shell 
+#1649214396
+lth
+#1649214401
+les Polygala_tatarinowii.contig.fa.chr.gff3 
+#1649214430
+lth
+#1649214438
+les Polygala_tatarinowii.contig.fa.chr.gff3 
+#1649214458
+cp Polygala_tatarinowii.contig.fa.chr.gff3 ../release/Polygala_tatarinowii.gff
+#1649214463
+rm ../release/Polygala_tatarinowii.gff 
+#1649214465
+cp Polygala_tatarinowii.contig.fa.chr.gff3 ../release/Polygala_tatarinowii.gff
+#1649214478
+cp Polygala_tatarinowii.contig.fa.chr.fa ../release/Polygala_tatarinowii.fa 
+#1649214481
+rm ../release/Polygala_tatarinowii.fa
+#1649214483
+cp Polygala_tatarinowii.contig.fa.chr.fa ../release/Polygala_tatarinowii.fa 
+#1649214491
+bjl
+#1649214495
+bhosts 
+#1649214499
+bjl
+#1649214503
+bj
+#1649214505
+bhosts 
+#1649214506
+lsload
+#1649214624
+top
+#1649214508
+ssh -p 201 yi02
+#1649214517
+bsub512 -m yi02 "hostname"
+#1649214518
+lth
+#1649214521
+cd workdir_juicer_Polygala_tatarinowii
+#1649214521
+lt
+#1649214527
+cd ..
+#1649214529
+rm -r workdir_juicer_Polygala_tatarinowii
+#1649214530
+ls
+#1649214535
+vi shell 
+#1649214540
+ll *sh
+#1649214546
+vi bsub.juicer.Polygala_tatarinowii.106101.sh 
+#1649214562
+bsub512 -J juicer -m yi02 -n 80 < bsub.juicer.Polygala_tatarinowii.106101.sh 
+#1649214564
+bjl
+#1649214567
+lth
+#1649214570
+les output.68759 
+#1649214574
+rm output.68759 error.68759
+#1649214577
+les error.68757 
+#1649214583
+rm  output.68757 error.68757
+#1649214585
+lth
+#1649214586
+bjl
+#1649214591
+bhosts 
+#1649214598
+ls
+#1649214626
+j zhangr
+#1649214626
+ls
+#1649214627
+ll
+#1649214636
+cd ..
+#1649214637
+ls
+#1649214639
+cd projects/genomes/
+#1649214639
+ls
+#1649214641
+ll
+#1649214643
+mkdir zhangrong
+#1649214655
+les Polygala_tatarinowii.fa
+#1649214664
+j poly
+#1649214665
+ls
+#1649214667
+cd release/
+#1649214667
+ll
+#1649214669
+cd suffixed/
+#1649214669
+ll
+#1649214691
+rm Polygala_tatarinowii.fa Polygala_tatarinowii.fa.fai Polygala_tatarinowii.gff Polygala_tatarinowii.gff.longest_gene Polygala_tatarinowii.gff.orig
+#1649214692
+lt
+#1649214704
+cp ../Polygala_tatarinowii.gff ../Polygala_tatarinowii.fa .
+#1649214719
+vi clean_download_genome_name.sh 
+#1649214762
+./clean_download_genome_name.sh Polygala_tatarinowii
+#1649214950
+lth
+#1649214956
+les *pep
+#1649214962
+vi *pep
+#1649214974
+vi *cds
+#1649214979
+les *gff
+#1649214982
+les *fa
+#1649214984
+les *gff
+#1649215007
+cp Polygala_tatarinowii.fa Polygala_tatarinowii.pep Polygala_tatarinowii.cds Polygala_tatarinowii.gff ../../../genomes/zhangrong/
+#1649215019
+cd ..
+#1649215020
+ls
+#1649215060
+cp Polygala_tatarinowii.fa  Polygala_tatarinowii.gff ../../phyleg/01.genome_five/
+#1649215075
+lth
+#1649215082
+j zhangrong
+#1649215083
+ls
+#1649215084
+ll
+#1649215087
+cd ../projects/
+#1649215087
+ls
+#1649215097
+ll
+#1649215101
+cd Polygala_tatarinowii/
+#1649215101
+ls
+#1649215102
+ll
+#1649215103
+cd -
+#1649215107
+cd re
+#1649215108
+cd rel
+#1649215110
+ll
+#1649215112
+cd genomes/
+#1649215112
+ll
+#1649215114
+cd zhangrong/
+#1649215132
+cp ../Fabales/*.fa ../Fabales/*.gff ../Fabales/*.cds ../Fabales/*.pep . &
+#1649215132
+lt
+#1649215137
+ll
+#1649215141
+lth
+#1649215151
+chmod -w Polygala_tatarinowii.*
+#1649215155
+fg
+#1649215166
+lth
+#1649215170
+rm Ammopiptanthus_nanus.fa Aeschynomene_evenia.fa Abrus_precatorius.fa 
+#1649215172
+ll
+#1649215183
+bsub512 "cp ../Fabales/*.fa ../Fabales/*.gff ../Fabales/*.cds ../Fabales/*.pep . "
+#1649215184
+lth
+#1649215187
+bjl
+#1649215195
+vc
+#1649215207
+lt
+#1649215211
+bj
+#1649215214
+bkill 68762
+#1649215216
+sc
+#1649215216
+lt
+#1649215220
+rm A*fa
+#1649215222
+bj
+#1649215223
+lt
+#1649215225
+rm output.68762 error.68762 
+#1649215231
+which bsub512
+#1649215234
+bsub512 "cp ../Fabales/*.fa ../Fabales/*.gff ../Fabales/*.cds ../Fabales/*.pep . "
+#1649215235
+lt
+#1649215236
+bjl
+#1649215239
+bj
+#1649215246
+bkill 68763
+#1649215250
+vc
+#1649215256
+sc
+#1649215258
+rm output.68763 error.68763 
+#1649215258
+lt
+#1649215260
+rm Abrus_precatorius.fa 
+#1649215268
+bsub512 -m yi04 "cp ../Fabales/*.fa ../Fabales/*.gff ../Fabales/*.cds ../Fabales/*.pep . "
+#1649215269
+bjl
+#1649215271
+bj
+#1649215273
+bjl
+#1649215276
+ j
+#1649215280
+cd -
+#1649215280
+lt
+#1649215281
+bj
+#1649215284
+bjl
+#1649215320
+lt
+#1649215325
+lth
+#1649215328
+bjl
+#1649215331
+lth
+#1649215342
+les error.68764
+#1649215356
+bsub512 -m yi04 "cp ../Fabales/*.gff3 ."
+#1649215357
+lt
+#1649215358
+lth
+#1649215361
+rm output.68764 error.68764 
+#1649215361
+lth
+#1649215368
+ll
+#1649215371
+ls *.fa |wc -l
+#1649215375
+lth
+#1649215378
+les output.68765 
+#1649215380
+rm output.68765 error.68765 
+#1649215383
+chmod +w *
+#1649215383
+ls
+#1649215387
+grep "|" *.fa
+#1649215399
+grep "\|" *.fa
+#1649215402
+grep "|" *.fa
+#1649215423
+grep "^>" *.fa |grep "|"
+#1649215488
+les Nissolia_schottii.fa 
+#1649215501
+les Ce*_can*
+#1649215522
+ls Ce*_can*fa
+#1649215528
+grep "|" Cercis_canadensis.fa
+#1649215533
+vi Cercis_canadensis.fa
+#1649215554
+vi Nissolia_schottii.fa 
+#1649215573
+vi Cercis_canadensis.gff3 
+#1649215585
+ls *.fa
+#1649215605
+bsub512 "grep '|' *.fa "
+#1649215606
+bjl
+#1649215622
+bjt
+#1649215626
+bkill 68766
+#1649215631
+bsub512 -m yi04 "grep '|' *.fa "
+#1649215632
+lth
+#1649215634
+rm output.68766 error.68766 
+#1649215634
+lth
+#1649215636
+bjl
+#1649215697
+bjt
+#1649215698
+bjl
+#1649215699
+lth
+#1649215701
+top
+#1649224166
+lth
+#1649224170
+rm output.68767 error.68767 
+#1649224186
+bsub512 -m yi04 "grep '|' *.fa "
+#1649224192
+bpeek 68767
+#1649224200
+bacct -J 68767
+#1649224259
+which bjobs
+#1649224262
+ls /opt/openlava-2.2/bin/
+#1649224309
+lth
+#1649224316
+bjobs -J 68767
+#1649224322
+chmod +w *.fa
+#1649224335
+tree
+#1649224356
+lth
+#1649224360
+more output.68773
+#1649224383
+tolava 
+#1649224419
+sudo yum install tree
+#1649224520
+ls
+#1649224525
+cd Documents/
+#1649224525
+lt
+#1649224529
+ll
+#1649224536
+vi 14.install_tree.sh
+#1649224422
+sudo su
+#1649226183
+ll Nissolia_schottii.fa 
+#1649226201
+chmod 664 *.fa *.gff3 *.pep *.cds
+#1649226205
+ll Nissolia_schottii.fa 
+#1649226291
+les Lotus_japonicus.fa 
+#1649226366
+grep Contig00332 *.fa
+#1649226831
+les Lotus_japonicus.gff3 
+#1649226869
+vi Lotus_japonicus.fa 
+#1649226904
+grep '+' Lotus_japonicus.fa 
+#1649226936
+grep "Contig00332_ERROPOS59482\|Contig00314_ERROPOS49445\|Contig00112_ERROPOS36121\|Contig00317_ERROPOS87289" Lotus_japonicus.fa 
+#1649226969
+samtools faidx Lotus_japonicus.fa
+#1649226991
+les Lotus_japonicus.fa.fai 
+#1649227025
+les Lotus_japonicus.gff3 
+#1649227044
+grep ERRORPOS Lotus_japonicus.fa
+#1649227053
+grep ERROPOS Lotus_japonicus.fa
+#1649227067
+mv Lotus_japonicus.fa Lotus_japonicus.fa.orig
+#1649227084
+cut -f1 Lotus_japonicus.fa.fai  > Lotus_japonicus.id
+#1649227088
+vi Lotus_japonicus.id 
+#1649227109
+cut -f1 Lotus_japonicus.fa.fai  > Lotus_japonicus.id
+#1649227118
+grep -v ERROPOS Lotus_japonicus.id > Lotus_japonicus.id.clean
+#1649227121
+les Lotus_japonicus.id.clean
+#1649227139
+select_fasta.pl Lotus_japonicus.id.clean Lotus_japonicus.fa.orig > Lotus_japonicus.fa
+#1649227162
+lth
+#1649227167
+les Lotus_japonicus.fa
+#1649227191
+rm error.68773 output.68773 
+#1649227192
+lth
+#1649228226
+tolava 
+#1649292410
+ls
+#1649292412
+lt
+#1649292414
+ls
+#1649292419
+ls *fasta
+#1649292421
+ls */
+#1649292433
+ls -d *trinity/
+#1649292444
+ls cechi.ssRNAbgi.CC_Y.clean.fq.gz_trinity/
+#1649292446
+rmdir cechi.ssRNAbgi.CC_Y.clean.fq.gz_trinity/
+#1649292449
+ls cechi.ssRNAbgi.CC_Y.clean.fq.gz_trinity/
+#1649292456
+ls *trinity/*.fasta
+#1649292457
+ls
+#1649292462
+vi 01.prepare.sh 
+#1649292475
+ll genblast.gff 
+#1649292476
+vi 01.prepare.sh 
+#1649292499
+bash 01.prepare.sh 
+#1649293222
+lth
+#1649293226
+les error.68809 
+#1649293233
+vi 01.prepare.sh 
+#1649293244
+ls *ht2
+#1649293247
+vi 01.prepare.sh 
+#1649293273
+lth
+#1649293276
+rm output.68* error.68*
+#1649293277
+lth
+#1649293280
+rm bsub.fastq2gff.522146.sh 
+#1649293281
+lth
+#1649292405
+tma
+#1649293302
+bhosts 
+#1649293320
+lth
+#1649293332
+conda deactivat
+#1649293333
+conda deactivate
+#1649293336
+which augustus
+#1649293342
+conda activate maker
+#1649293487
+conda list --revisions
+#1649293578
+mamba install -c bioconda augustus=3.3.3
+#1649293669
+which augustus
+#1649293672
+augustus --version
+#1649293680
+echo $AUGUSTUS_CONFIG_PATH 
+#1649293687
+ls /nfs/liuhui/.conda/envs/maker/config/
+#1649293689
+ls /nfs/liuhui/.conda/envs/maker/config/species/
+#1649293698
+ls /nfs/liuhui/.conda/envs/maker/config/
+#1649293700
+ls /nfs/liuhui/.conda/envs/maker/config/model/
+#1649293728
+cd $AUGUSTUS_CONFIG_PATH
+#1649293729
+ls
+#1649293730
+cd ..
+#1649293730
+ls
+#1649293736
+mv config config.1
+#1649293739
+downlht /ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/augustus-3.3.3/augustus-3.3.3/config
+#1649293775
+ls
+#1649293779
+cd -
+#1649293780
+ls
+#1649293786
+j yanhui
+#1649293786
+ls
+#1649293788
+cd maker/
+#1649293788
+ls
+#1649293798
+rm bsub.*
+#1649293798
+ls
+#1649293807
+mv maker.sh 02.maker.sh
+#1649293807
+vi 02.maker.sh 
+#1649293871
+ls -d */
+#1649293894
+bsub512 -m yi04 -J maker < 02.maker.sh 
+#1649293896
+logsh
+#1649293900
+lth
+#1649293906
+rm output.6* error.6*
+#1649293907
+bjl
+#1649293915
+bhosts 
+#1649293919
+lsload
+#1649293923
+bhosts 
+#1649293926
+bjl
+#1649293930
+lth
+#1649294347
+bjl
+#1649293308
+tma
+#1649293285
+bash 01.prepare.sh 
+#1649383458
+top
+#1649394680
+bhosts 
+#1649394688
+bjl
+#1649659161
+bhosts 
+#1649659163
+lsload
+#1649659171
+tma
+#1649659181
+ls
+#1649659284
+lth
+#1649659287
+ls *R3
+#1649659295
+cd *R3
+#1649659296
+ls
+#1649659299
+more *2/short*
+#1649659386
+cd ..
+#1649659387
+ll
+#1649659388
+ll *sh
+#1649659393
+vi 02.maker.sh
+#1649659415
+augustus --version
+#1649659419
+cd *R3
+#1649659420
+ls
+#1649659429
+realpath total.all.maker.proteins.fasta.busco.embryophyta.v4.1.2/short_summary.specific.embryophyta_odb10.total.all.maker.proteins.fasta.busco.embryophyta.v4.1.2.txt 
+#1649659525
+lth
+#1649659623
+cd
+#1649659626
+cd -
+#1649659627
+ls
+#1649659628
+ll
+#1649659629
+cd ..
+#1649659630
+ls
+#1649659631
+cd ..
+#1649659636
+ls
+#1649659638
+cd phyleg
+#1649659639
+ls
+#1649659658
+cd mcscanX2/
+#1649659659
+ls
+#1649661553
+ls work.Medicago_truncatula.Abrus_precatorius/*.anchors
+#1649661581
+mkdir -p ~/projects/phyleg/04.fig4
+#1649661587
+cp work.Medicago_truncatula.*/*.anchors ~/projects/phyleg/04.fig4/
+#1649661604
+pushd ~/projects/phyleg/04.fig4/
+#1649661605
+ll
+#1649661607
+ls
+#1649661611
+les *.anrhors
+#1649661615
+les *.anchors
+#1649659278
+tma
+#1649663969
+cd projects/
+#1649663969
+ls
+#1649663970
+lt
+#1649663972
+cd phyleg
+#1649663972
+ls
+#1649663973
+lth
+#1649663975
+cd 04.fig4/
+#1649663975
+ls
+#1649663984
+les *s
+#1649663993
+grep MtrunA17Chr7g0256321 *
+#1649664213
+grep MtrunA17Chr7g0256321 * > MtNOOT1.txt
+#1649664501
+grep MtrunA17Chr7g0245601 * > MtSCR.txt
+#1649664518
+grep MtrunA17Chr5g0401131 * > MtSHR.txt
+#1649664521
+vi MtSCR.txt 
+#1649665305
+ls
+#1649665317
+mkdir PapCae
+#1649665321
+mv *anchors PapCae/
+#1649665330
+cd PapCae/
+#1649665353
+mv *Cercis* *Chamaecrista* *Lysidice* *Mimosa* *Senna* *Zenia* ../
+#1649665355
+ls
+#1649665368
+mv Medicago_truncatula.Duparquetia_orchidacea.anchors ..
+#1649665377
+cd ..
+#1649665378
+ll
+#1649665385
+grep MtrunA17Chr5g0401131 * > MtSHR.txt
+#1649665390
+grep MtrunA17Chr7g0245601 * > MtSCR.txt
+#1649665394
+grep MtrunA17Chr7g0256321 * > MtNOOT1.txt
+#1649665400
+ls
+#1649665402
+ll
+#1649665404
+more *txt
+#1649666309
+ls ../01.genome_five/*cds
+#1649666315
+cp ../01.genome_five/*cds .
+#1649666351
+awk '{print $2}' MtSHR.txt > MtSHR.txt.id
+#1649666354
+les *id
+#1649666370
+cat *cds > total_cds.fa
+#1649666388
+select_fasta.pl MtSHR.txt.id total_cds.fa > MtSHR.txt.fa
+#1649666392
+les MtSHR.txt.fa 
+#1649666422
+grep Medtr5g015490 *
+#1649666543
+muscle -in MtSHR.txt.fa > MtSHR.txt.fa.aln
+#1649666547
+les Mt*aln
+#1649666554
+muscle -clw -in MtSHR.txt.fa > MtSHR.txt.fa.aln
+#1649666555
+les Mt*aln
+#1649666567
+ls
+#1649666568
+lth
+#1649666571
+les MtSHR.txt.id 
+#1649666588
+les Duparquetia_orchidacea.cds 
+#1649666589
+les MtSHR.txt.id 
+#1649666667
+cp ../../genomes/Fabales/Senna_tora.cds .
+#1649666671
+les Senna_tora.cds 
+#1649666673
+les MtSHR.txt.id 
+#1649666685
+les Zenia_insignis.cds 
+#1649666687
+les MtSHR.txt.id 
+#1649666701
+cat *cds > total_cds.fa
+#1649666711
+select_fasta.pl MtSHR.txt.id total_cds.fa > MtSHR.txt.fa
+#1649666715
+grep ">" MtSHR.txt.fa
+#1649666733
+cp ../../genomes/Fabales/Medicago_truncatula.cds .
+#1649666737
+cat *cds > total_cds.fa
+#1649666766
+logsh
+#1649666770
+vi shell 
+#1649666783
+more shell 
+#1649666813
+lth
+#1649666822
+select_fasta.pl MtSHR.txt.id total_cds.fa > MtSHR.txt.fa
+#1649666827
+les MtSHR.txt.fa
+#1649666843
+vi MtSHR.txt.id 
+#1649666848
+les Medicago_truncatula.
+#1649666849
+les Medicago_truncatula.cds 
+#1649666859
+vi MtSHR.txt.id 
+#1649666871
+select_fasta.pl MtSHR.txt.id total_cds.fa > MtSHR.txt.fa
+#1649666875
+muscle -clw -in MtSHR.txt.fa > MtSHR.txt.fa.aln
+#1649666883
+les MtSHR.txt.fa.aln
+#1649666920
+vi MtSHR.txt.id 
+#1649666929
+les MtSHR.txt.fa.aln
+#1649666993
+cds2aa.pl MtSHR.txt.fa > MtSHR.txt.fa.pep
+#1649666999
+muscle -clw -in MtSHR.txt.fa.pep > MtSHR.txt.fa.pep.aln
+#1649667002
+les MtSHR.txt.fa.pep.aln 
+#1649668221
+ls
+#1649668248
+more shell 
+#1649668254
+grep MtrunA17Chr5g0401131 Medicago_truncatula.Mimosa_pudica.anchors
+#1649668275
+les *id
+#1649668328
+cp ../../genomes/Fabales/Mimosa_pudica.cds ../../genomes/Fabales/Chamaecrista_*.cds ../../genomes/Fabales/Senna_septemtrionalis.cds ../../genomes/Fabales/Cercis_canadensis.cds .
+#1649668340
+cat *cds > total_cds.fa
+#1649668362
+select_fasta.pl MtSHR.txt.id total_cds.fa > MtSHR.txt.fa
+#1649668370
+grep ">" MtSHR.txt.fa
+#1649668377
+vi MtSHR.txt.id 
+#1649668385
+cds2aa.pl MtSHR.txt.fa > MtSHR.txt.fa.pep
+#1649668388
+muscle -clw -in MtSHR.txt.fa.pep > MtSHR.txt.fa.pep.aln
+#1649668391
+les MtSHR.txt.fa.pep.aln 
+#1649747296
+ll
+#1649747289
+tma
+#1649747302
+j polygala
+#1649747302
+lt
+#1649747305
+cd release/
+#1649747306
+ll
+#1649747307
+lt
+#1649747316
+cd suffixed/
+#1649747317
+lt
+#1649747328
+cd ..
+#1649747329
+ll
+#1649747348
+bsub "tar -cvzf Polygala.v1.0.tgz Polygala_tatarinowii.cds Polygala_tatarinowii.fa Polygala_tatarinowii.gff Polygala_tatarinowii.pep "
+#1649747349
+lt
+#1649747352
+bjl
+#1649747355
+ls ..
+#1649747357
+cd ../synteny/
+#1649747357
+lt
+#1649747367
+les Polygala_tatarinowii.gff3
+#1649747371
+les Polygala_tatarinowii.gff3.orig 
+#1649747376
+ll ../release/Polygala_tatarinowii.gff 
+#1649747383
+ll ../release/suffixed/
+#1649747392
+rm Polygala_tatarinowii.gff3
+#1649747399
+ln -s  ../release/suffixed/Polygala_tatarinowii.gff Polygala_tatarinowii.gff3
+#1649747400
+ll
+#1649747413
+ls */*.blast
+#1649747415
+ll */*.blast
+#1649747423
+ll */*.blast.raw
+#1649747448
+mv work.Cercis_chinensis.Polygala_tatarinowii/Cercis_chinensis.Polygala_tatarinowii.blast.raw .
+#1649747451
+mv work.Polygala_tatarinowii.Polygala_tatarinowii/Polygala_tatarinowii.Polygala_tatarinowii.blast.raw .
+#1649747451
+ll
+#1649747491
+ll *raw
+#1649747497
+rename .raw '' *.raw
+#1649747500
+ls
+#1649747501
+ll
+#1649747507
+mkdir backup
+#1649747511
+mv work.* backup/
+#1649747511
+ll
+#1649747524
+ln -s ../../phyleg/mcscanX2/Medicago_truncatula.cds 
+#1649747526
+ln -s ../../phyleg/mcscanX2/Medicago_truncatula.gff3 
+#1649747528
+ln -s ../../phyleg/mcscanX2/Medicago_truncatula.pep 
+#1649747528
+ll
+#1649747529
+more shell 
+#1649747537
+bhosts 
+#1649747541
+lsload
+#1649747587
+bsub512 -J potat_medtr -m yi04 -n 20 "python -m iga.evolution.ortho mcscanx --threads 20 Medicago_truncatula Polygala_tatarinowii"
+#1649747592
+bsub512 -J potat_self -m yi04 -n 20 "python -m iga.evolution.ortho mcscanx --threads 20 Polygala_tatarinowii Polygala_tatarinowii"
+#1649747596
+bsub512 -J cercis_potat -m yi04 -n 20 "python -m iga.evolution.ortho mcscanx --threads 20 Cercis_chinensis Polygala_tatarinowii"
+#1649747597
+bjl
+#1649747599
+bhosts 
+#1649747602
+lth
+#1649747604
+cd work.Medicago_truncatula.Polygala_tatarinowii/
+#1649747605
+lt
+#1649747612
+cd -
+#1649747612
+ll
+#1649747615
+top
+#1649748167
+ll
+#1649748168
+bjl
+#1649748170
+lt
+#1649748172
+lt work.Medicago_truncatula.Polygala_tatarinowii/
+#1649748175
+top
+#1649750911
+ll genblast.gff 
+#1649750912
+les genblast.gff 
+#1649750929
+ls
+#1649750946
+which genblast
+#1649750904
+tma
+#1649817862
+ls
+#1649817870
+cd projects/
+#1649817871
+ls
+#1649817872
+ll
+#1649818054
+cd buzzo/
+#1649818054
+ls
+#1649818056
+mkdir phast
+#1649818057
+cd phast/
+#1649818058
+ll
+#1649818059
+wget https://github.com/CshlSiepelLab/phast/archive/refs/tags/v1.6.tar.gz
+#1649818075
+wget http://www.netlib.org/clapack/clapack.tgz
+#1649818123
+tar -xvzf clapack.tgz 
+#1649819270
+s
+#1649819271
+ls
+#1649819274
+mkdir testdata
+#1649819275
+cd testdata/
+#1649819276
+wget http://compgen.cshl.edu/phast/examples/phastCons/ex1/primate-rodent.fa
+#1649819283
+wget http://compgen.cshl.edu/phast/examples/phastCons/ex1/pri_rod.mod
+#1649819285
+ll
+#1649819286
+cd ..
+#1649819286
+ll
+#1649819289
+cd CLAPACK-3.2.1/
+#1649819349
+ls
+#1649819352
+cp make.inc.example make.inc && make f2clib && make blaslib && make lib
+#1649819594
+export CLAPACKPATH=$PWD
+#1649819599
+cd ..
+#1649819600
+ls
+#1649819620
+wget https://github.com/CshlSiepelLab/phast/archive/refs/tags/v1.6.tar.gz
+#1649819629
+tar -xvzf v1.6.tar.gz 
+#1649819633
+cd phast-1.6/
+#1649819667
+echo $CLAPACKPATH 
+#1649819670
+make  CLAPACKPATH=$CLAPACKPATH
+#1649819695
+find . -name "f2c.h
+#1649819697
+find . -name "f2c.h"
+#1649819772
+cd ..
+#1649819773
+ls
+#1649819776
+git clone https://github.com/NIRALUser/CLAPACK.git
+#1649819874
+rz
+#1649819882
+# Received /Users/liuhui/Downloads/CLAPACK-master.zip
+#1649819924
+unzip CLAPACK-master.zip 
+#1649821996
+cd CLAPACK-
+#1649821998
+cd CLAPACK-master/
+#1649822001
+cp make.inc.example make.inc && make f2clib && make blaslib && make lib
+#1649822146
+cd /nfs/liuhui/projects/buzzo/phast/CLAPACK-master/SRC/VARIANTS/
+#1649822147
+make
+#1649822158
+cd -
+#1649822159
+ls
+#1649822164
+vi README.install 
+#1649822189
+make f2clib
+#1649822195
+make blaslib
+#1649822199
+vi README.install 
+#1649822203
+make -j 10
+#1649822212
+ls
+#1649822218
+export CLAPACKPATH=$PWD
+#1649822225
+cd ../phast-1.6/
+#1649822225
+ls
+#1649822229
+make  CLAPACKPATH=$CLAPACKPATH
+#1649822239
+cd -
+#1649822242
+ls
+#1649822246
+cd IN
+#1649822247
+cd INCLUDE/
+#1649822248
+ls
+#1649822274
+cp * /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/util/../../include/
+#1649822277
+cd -I/nfs/liuhui/projects/buzzo/phast/phast-1.6/src/util/../../include
+#1649822280
+cd /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/util/../../include
+#1649822280
+ls
+#1649822282
+cd ..
+#1649822283
+ls
+#1649822285
+make  CLAPACKPATH=$CLAPACKPATH
+#1649822324
+cd cd /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/lib/
+#1649822326
+ cd /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/lib/
+#1649822326
+ls
+#1649822328
+make
+#1649822349
+ll /nfs/liuhui/projects/buzzo/phast/CLAPACK-master/lapack_LINUX.a
+#1649822357
+cd /nfs/liuhui/projects/buzzo/phast/CLAPACK-master/
+#1649822358
+ls *.a
+#1649822365
+find . -name "lapack_LINUX.a"
+#1649822373
+cd ../CLAPACK-3.2.1/
+#1649822374
+export CLAPACKPATH=$PWD
+#1649822377
+j phast
+#1649822377
+ls
+#1649822380
+cd phast-1.6/
+#1649822380
+ls
+#1649822384
+make  CLAPACKPATH=$CLAPACKPATH
+#1649822410
+ll cd ..
+#1649822417
+find . -name "lapack.a"
+#1649822423
+cd -
+#1649822423
+ls
+#1649822425
+cd phast-1.6/
+#1649822426
+ls
+#1649822427
+make clean
+#1649822435
+cd ..
+#1649822436
+ll
+#1649822439
+rm -r phast-1.6/
+#1649822451
+tar -xvzf v1.6.tar.gz
+#1649822489
+cd phast-1.6/
+#1649822489
+ls
+#1649822490
+ll
+#1649822498
+echo $CLAPACKPATH 
+#1649822501
+make  CLAPACKPATH=$CLAPACKPATH
+#1649822520
+cp ../CLAPACK-master/INCLUDE/* /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/util/../../include/
+#1649822522
+ls
+#1649822530
+cd ..
+#1649822531
+rm -r phast-1.6/
+#1649822545
+tar -xvzf v1.6.tar.gz
+#1649822573
+ll
+#1649822575
+cd -
+#1649822581
+cp ../CLAPACK-master/INCLUDE/* /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/util/../../include/
+#1649822585
+ll /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/util/../../include/
+#1649822587
+ls
+#1649822589
+make  CLAPACKPATH=$CLAPACKPATH
+#1649822613
+ll /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/util/../../lib/libphast.a
+#1649822620
+cd /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/util
+#1649822620
+ls
+#1649822650
+cd /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/lib/
+#1649822679
+ll /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/lib/../../lib/liblapack.a
+#1649822699
+find /nfs/liuhui/projects/buzzo/phast/ -name "*lapack.a"
+#1649822736
+echo $CLAPACKPATH
+#1649822752
+cd ../..
+#1649822758
+make  CLAPACKPATH=/nfs/liuhui/projects/buzzo/phast/CLAPACK-3.2.1
+#1649822767
+cd -
+#1649822768
+ll
+#1649822770
+vi Makefile 
+#1649822807
+echo $CLAPACKPATH
+#1649822809
+echo $CLAPACKPATH/*.a
+#1649822816
+cd $CLAPACKPATH/
+#1649822820
+cd -
+#1649822821
+vi Makefile 
+#1649822883
+cd ..
+#1649822884
+ls
+#1649822886
+cd -
+#1649822895
+ls ../../lib/
+#1649822896
+cd ../../lib/
+#1649822911
+ln -s /nfs/liuhui/projects/buzzo/phast/CLAPACK-3.2.1/blas_LINUX.a libblaswr.a
+#1649822922
+ln -s /nfs/liuhui/projects/buzzo/phast/CLAPACK-3.2.1/tmglib_LINUX.a libtmg.a
+#1649822933
+ln -s /nfs/liuhui/projects/buzzo/phast/CLAPACK-3.2.1/lapack_LINUX.a liblapack.a
+#1649822950
+ll
+#1649822951
+cd -
+#1649822952
+ll
+#1649822953
+make
+#1649822991
+cd ../..
+#1649822991
+ls
+#1649822993
+make  CLAPACKPATH=/nfs/liuhui/projects/buzzo/phast/CLAPACK-3.2.1
+#1649823004
+cd /nfs/liuhui/projects/buzzo/phast/phast-1.6/src/lib/
+#1649823004
+lt
+#1649823008
+make -j 10
+#1649823015
+cd -
+#1649823016
+ls
+#1649823018
+vi Makefile 
+#1649823048
+make -j 10
+#1649823063
+lt
+#1649823065
+cd bin/
+#1649823065
+ls
+#1649823068
+./phast
+#1649823072
+addpwd 
+#1649823073
+sc
+#1649823075
+lt
+#1649823078
+cd ../../
+#1649823078
+ls
+#1649823081
+cd testdata/
+#1649823081
+ll
+#1649823114
+phastCons --target-coverage 0.25 --expected-length 12 --estimate-trees mytrees primate-rodent.fa pri_rod.mod --no-post-probs
+#1649823117
+lt
+#1649823120
+les mytrees.cons.mod 
+#1649823132
+more pri_rod.mod 
+#1649823135
+lt
+#1649823184
+wget http://compgen.cshl.edu/phast/examples/phyloFit/ex1/pair.fa
+#1649823191
+phyloFit pair.fa > phyloFit.mod
+#1649823195
+more phyloFit.mod 
+#1649823199
+les pair.fa 
+#1649835309
+ll
+#1649835311
+ls
+#1649835313
+lth
+#1649835323
+ll *gff
+#1649835330
+ls
+#1649835334
+ll flnc.fasta
+#1649835339
+ll flnc.fasta*gff
+#1649835345
+ll *gff
+#1649835353
+les flnc.fasta.rawgff.gff
+#1649835364
+lth
+#1649835366
+vi maker.sh 
+#1649835380
+conda activate maker
+#1649835487
+les error.6881*
+#1649835495
+rm output.6881* error.6881*
+#1649835497
+lt |les
+#1649835501
+vi 01.prepare.sh 
+#1649835515
+bhosts 
+#1649835522
+bsub512 -m yi04 -J lh_maker < maker.sh 
+#1649835526
+lth
+#1649835527
+bjl
+#1649835529
+bj
+#1649835536
+bpeek  69558
+#1649835542
+bjl
+#1649835547
+bpeek 69559
+#1649835557
+lth
+#1649835305
+tma
+#1649987407
+cd *R3
+#1649987407
+lt
+#1649987408
+lth
+#1649987412
+lt |les
+#1649987423
+cd ../*R2
+#1649987423
+lt
+#1649987425
+lth
+#1649987430
+bjl
+#1649987444
+grep ">" total.all.maker.proteins.fasta |wc -l
+#1649987454
+ll *gff
+#1649987459
+les genome.maker.gff 
+#1649987471
+awk '$3=="gene"' genome.maker.gff  |wc -l
+#1649987481
+cd ..
+#1649987482
+ls
+#1649987488
+ll
+#1649987490
+ls
+#1649987492
+ll *R3
+#1649987496
+ll -d *R3
+#1649987499
+lth
+#1649987504
+les error.69558 
+#1649987515
+cd -
+#1649987516
+lth
+#1649987518
+cd ../*R3
+#1649987519
+lth
+#1649987525
+les error.69783 
+#1649987529
+cd 88.fa.run/
+#1649987529
+lt
+#1649987534
+les maker.err 
+#1649987549
+lt
+#1649987551
+cd 88.maker.output/
+#1649987551
+l
+#1649987552
+lt
+#1649987554
+cd -
+#1649987554
+ls
+#1649987555
+lt
+#1649987557
+cd ..
+#1649987557
+ls
+#1649987566
+les total_master_datastore_index.log 
+#1649987580
+more bsub.buscototal.all.maker.proteins.fasta.228805.sh 
+#1649987583
+lt |les
+#1649987600
+les error.69744
+#1649987621
+lt error.69* |les
+#1649987635
+les output.69744
+#1649987642
+cd 28.fa.run/
+#1649987643
+lt
+#1649987655
+bsub512 "maker *ctl"
+#1649987656
+cd -
+#1649987662
+lt error.69* |les
+#1649987670
+les error.69800
+#1649987682
+lth
+#1649987687
+cd 28.fa.run/
+#1649987687
+lt
+#1649987689
+bjl
+#1649987694
+cd ../..
+#1649987694
+ls
+#1649987705
+lth
+#1649987710
+vi bsub.maker_collect.218343.sh 
+#1649987732
+bj
+#1649987761
+bsub512 collect "python -m iga.apps.base waitjob 69836 && bsub.maker_collect.218343.sh "
+#1649987763
+bjl
+#1649987766
+bj
+#1649987774
+bsub512 -J collect "python -m iga.apps.base waitjob 69836 && bsub.maker_collect.218343.sh"
+#1649987776
+lth
+#1649987780
+les error.69838 
+#1649987784
+rm error.69838 output.69838
+#1649987857
+lth
+#1649987868
+j polygala
+#1649987869
+lth
+#1649987870
+cd synteny/
+#1649987871
+lt
+#1649987877
+cd work.Cercis_chinensis.Polygala_tatarinowii/
+#1649987877
+lt
+#1649987886
+more Cercis_chinensis.Polygala_tatarinowii.ortho.kaks
+#1649987902
+les *gff
+#1649987909
+les *blast.raw
+#1649987913
+cd ..
+#1649987914
+lt
+#1649987923
+ll *blast
+#1649987934
+les *pep
+#1649987948
+ll Polygala_tatarinowii.pep
+#1649987953
+rm Polygala_tatarinowii.pep
+#1649987961
+ln -s ../release/suffixed/Polygala_tatarinowii.pep
+#1649987966
+ll ../release/suffixed/Polygala_tatarinowii.pep
+#1649987970
+les ../release/suffixed/Polygala_tatarinowii.pep
+#1649987972
+lth
+#1649987979
+cd work.Polygala_tatarinowii.Polygala_tatarinowii/
+#1649987980
+lt
+#1649987981
+cd -
+#1649987982
+lt
+#1649987985
+ll -d */
+#1649987989
+ll *blast
+#1649987995
+les *blast
+#1649988001
+rm Cercis_chinensis.Polygala_tatarinowii.blast Polygala_tatarinowii.Polygala_tatarinowii.blast
+#1649988004
+cd work.Medicago_truncatula.Polygala_tatarinowii/
+#1649988004
+lt
+#1649988010
+les *blast.raw
+#1649988014
+cd ..
+#1649988015
+ls
+#1649988017
+rm -rf work.*
+#1649988020
+more shell 
+#1649988029
+bhosts 
+#1649988040
+head -1 *pep
+#1649988051
+ll *pep
+#1649988063
+bsub512 -J cercis_dp -m yi04 -n 6 "python -m iga.evolution.ortho mcscanx --threads 20 Cercis_chinensis Polygala_tatarinowii.pep"
+#1649988066
+bsub512 -J cercis_dp -m yi04 -n 6 "python -m iga.evolution.ortho mcscanx --threads 20 Cercis_chinensis Polygala_tatarinowii"
+#1649988073
+bj
+#1649988077
+bkill 69841
+#1649988080
+bjl
+#1649988082
+lth
+#1649988085
+rm output.6* error.6*
+#1649988086
+lth
+#1649988088
+jobs
+#1649988094
+rm -r work.Cercis_chinensis.Polygala_tatarinowii*
+#1649988099
+rm -fr work.Cercis_chinensis.Polygala_tatarinowii*
+#1649988100
+lth
+#1649988111
+more shell 
+#1649988122
+bsub512 -J potat_self -m yi04 -n 20 "python -m iga.evolution.ortho mcscanx --threads 20 Polygala_tatarinowii Polygala_tatarinowii"
+#1649988140
+bsub512 -J cercis_potat -m yi04 -n 20 "python -m iga.evolution.ortho mcscanx --threads 20 Cercis_chinensis Polygala_tatarinowii"
+#1649988164
+bsub512 -J medtr_potat -m yi04 -n 20 "python -m iga.evolution.ortho mcscanx --threads 20 Medicago_truncatula Polygala_tatarinowii"
+#1649988165
+bjl
+#1649988171
+bj
+#1649988172
+bhosts 
+#1649988179
+lth
+#1649988181
+cd work.Polygala_tatarinowii.Polygala_tatarinowii/
+#1649988181
+lt
+#1649988186
+les *pep
+#1649988190
+les *gff3
+#1650001524
+bjl
+#1650001537
+lth
+#1650001539
+cd *R3
+#1650001540
+lth
+#1650001543
+cd 28.fa.run/
+#1650001544
+lth
+#1650001548
+les error.69836 
+#1650001553
+lt
+#1650001555
+cd ..
+#1650001556
+lth
+#1650001561
+cd ..
+#1650001561
+lth
+#1650001567
+les error.69839 
+#1650001585
+bsub512 -J collect < bsub.maker_collect.218343.sh
+#1650001587
+lth
+#1650001592
+rm error.69839 output.69839
+#1650001593
+lth
+#1650001595
+bjl
+#1650001599
+lth
+#1650001605
+les error.69849 
+#1650001610
+lt
+#1650001615
+les *ortho
+#1650001618
+bjl
+#1650001624
+cd ..
+#1650001625
+lth
+#1650001627
+les error.6984*
+#1650001662
+lt work.*/ |head
+#1650001669
+conda activate
+#1650001681
+which ParaAT.pl
+#1650001682
+cd -
+#1650001683
+lt
+#1650001688
+cd ..
+#1650001689
+lt
+#1650001692
+les output.6984*
+#1650001704
+cd work.Cercis_chinensis.Polygala_tatarinowii/
+#1650001704
+lt
+#1650001710
+more error.6984*
+#1650001717
+cd ..
+#1650001717
+lt
+#1650001719
+more error.6984*
+#1650001728
+tail error.6984*
+#1650001737
+les error.6984*
+#1650001758
+cd -
+#1650001758
+lt
+#1650001764
+vi calc
+#1650001781
+ls Cercis_chinensis.Polygala_tatarinowii.ortho Cercis_chinensis.Polygala_tatarinowii.cds Cercis_chinensis.Polygala_tatarinowii.pep >> calc 
+#1650001783
+vi calc 
+#1650001817
+bsub512 < calc 
+#1650001818
+bjl
+#1650001821
+bj
+#1650001823
+bjl
+#1650001825
+lt
+#1650001828
+lth
+#1650001837
+les error.69863 
+#1650001850
+date
+#1650001856
+ssh yi03
+#1650001860
+lt
+#1650001864
+les error.69863 
+#1650001869
+more error.69863 
+#1650001885
+grep CECHI00012549-t1_Cechi Cercis_chinensis.Polygala_tatarinowii.cds
+#1650001888
+grep CECHI00012549-t1_Cechi Cercis_chinensis.Polygala_tatarinowii.pep
+#1650001897
+grep POTAT00024598-t1_Potat Cercis_chinensis.Polygala_tatarinowii.pep
+#1650001899
+grep POTAT00024598-t1_Potat Cercis_chinensis.Polygala_tatarinowii.cds
+#1650001902
+les *ortho
+#1650001907
+lth
+#1650001913
+les error.69863 
+#1650001919
+bjl
+#1650001929
+rm -r error.69863 output.69863 Cercis_chinensis.Polygala_tatarinowii.ortho.ParaAT.out
+#1650001930
+lth
+#1650001943
+bsub512 -m yi04 -J kaks < calc 
+#1650001944
+lth
+#1650001946
+bjl
+#1650001952
+bj
+#1650001953
+lth
+#1650001971
+bjl
+#1650001972
+lth
+#1650001978
+more error.69864 
+#1650001986
+more calc 
+#1650002024
+bash calc 
+#1650002030
+rm -r error.69863 output.69863 Cercis_chinensis.Polygala_tatarinowii.ortho.ParaAT.out
+#1650002034
+bash calc 
+#1650002055
+vi `which ParaAT.pl`
+#1650002067
+lt
+#1650002071
+lt Cercis_chinensis.*out
+#1650002073
+vi `which ParaAT.pl`
+#1650002107
+les *pep
+#1650002123
+grep POTAT00024598-t1_Potat Cercis_chinensis.Polygala_tatarinowii.pep
+#1650002126
+les *pep
+#1650002136
+more calc 
+#1650002144
+ll Cercis_chinensis.Polygala_tatarinowii.cds
+#1650002148
+ll Cercis_chinensis.Polygala_tatarinowii.ortho
+#1650002152
+ll Cercis_chinensis.Polygala_tatarinowii.pep
+#1650002168
+more error.69846 
+#1650002207
+vi `which ParaAT.pl`
+#1650002278
+bash calc 
+#1650002288
+rm -r Cercis_chinensis.Polygala_tatarinowii.ortho.ParaAT.out/
+#1650002289
+bash calc 
+#1650002295
+vi `which ParaAT.pl`
+#1650002312
+bash calc 
+#1650002319
+rm -r Cercis_chinensis.Polygala_tatarinowii.ortho.ParaAT.out/; bash calc
+#1650002351
+grep POTAT00024598-t1_Potat Cercis_chinensis.Polygala_tatarinowii.cds
+#1650002360
+grep POTAT00024598-t1_Potat Cercis_chinensis.Polygala_tatarinowii.pep
+#1650002364
+ll *cds
+#1650002367
+ll
+#1650002370
+les Polygala_tatarinowii.cds 
+#1650002374
+rm Polygala_tatarinowii.cds 
+#1650002375
+cd ..
+#1650002376
+ll
+#1650002405
+les ../release/suffixed/Polygala_tatarinowii.cds 
+#1650002410
+cp ../release/suffixed/Polygala_tatarinowii.cds  .
+#1650002411
+lt
+#1650002434
+cp Polygala_tatarinowii.cds work.*/
+#1650002447
+cp Polygala_tatarinowii.cds work.Cercis_chinensis.Polygala_tatarinowii/
+#1650002454
+cp Polygala_tatarinowii.cds work.Medicago_truncatula.Polygala_tatarinowii/
+#1650002455
+lt
+#1650002458
+cd work.Polygala_tatarinowii.Polygala_tatarinowii/
+#1650002458
+lt
+#1650002481
+cd -
+#1650002484
+head *cds
+#1650002490
+head *pep
+#1650002493
+ll
+#1650002502
+rm Polygala_tatarinowii.cds.orig Polygala_tatarinowii.gff3.orig Polygala_tatarinowii.pep.orig
+#1650002503
+ll
+#1650002510
+mkdir backup
+#1650002512
+mv work.* backup/
+#1650002513
+lt
+#1650002525
+mv work.Cercis_chinensis.Polygala_tatarinowii backup/work.Cercis_chinensis.Polygala_tatarinowii.2
+#1650002532
+mv work.Polygala_tatarinowii.Polygala_tatarinowii backup/work.Polygala_tatarinowii.Polygala_tatarinowii.2
+#1650002532
+lt
+#1650002536
+rm output.6984* error.6984*
+#1650002537
+ls
+#1650002538
+more shell 
+#1650002546
+bhosts 
+#1650002547
+bsub512 -J medtr_potat -m yi04 -n 20 "python -m iga.evolution.ortho mcscanx --threads 20 Medicago_truncatula Polygala_tatarinowii"
+#1650002552
+bsub512 -J cercis_potat -m yi04 -n 20 "python -m iga.evolution.ortho mcscanx --threads 20 Cercis_chinensis Polygala_tatarinowii"
+#1650002560
+bsub512 -J potat_self -m yi04 -n 20 "python -m iga.evolution.ortho mcscanx --threads 20 Polygala_tatarinowii Polygala_tatarinowii"
+#1650002561
+bjl
+#1650002567
+bhosts 
+#1650002569
+lth
+#1650002574
+lth
+#1650002580
+les error.69862 
+#1650002586
+cd cechi.contig.fa.masked.fa_R3/
+#1650002586
+lt
+#1650002587
+lth
+#1650002595
+grep ">" total.all.maker.proteins.fasta |wc -l
+#1650002601
+les genome.maker.gff 
+#1650002609
+awk '$3=="gene"' genome.maker.gff  |wc -l
+#1650002621
+grep ">" Cercis_chinensis.pep |wc -l
+#1650002642
+ls
+#1650002644
+ls *sh
+#1650002649
+vi bsub.buscototal.all.maker.proteins.fasta.228805.sh 
+#1650002653
+lsload
+#1650002664
+bsub512 -m yi02 < bsub.buscototal.all.maker.proteins.fasta.228805.sh 
+#1650002665
+bjl
+#1650002667
+bj
+#1650002674
+lth
+#1650002677
+bhosts 
+#1650002678
+bjl
+#1650002682
+lth
+#1650002784
+bjl
+#1650002790
+ll
+#1650002791
+lth
+#1650002796
+bjl
+#1650002802
+vi bsub.buscototal.all.maker.proteins.fasta.228805.sh 
+#1650002809
+conda deactivate
+#1650002812
+bsub512 -m yi02 < bsub.buscototal.all.maker.proteins.fasta.228805.sh 
+#1650002817
+conda activate maker
+#1650005339
+lth
+#1650005343
+cd total.all.maker.proteins.fasta.busco.embryophyta.v4.1.2/
+#1650005343
+lt
+#1650005345
+more short_summary.specific.embryophyta_odb10.total.all.maker.proteins.fasta.busco.embryophyta.v4.1.2.txt 
+#1650005393
+cd ../..
+#1650005393
+ls
+#1650005397
+cd cechi.*R2
+#1650005397
+ls
+#1650005398
+lth
+#1650005402
+ls
+#1650005412
+conda deactivate
+#1650005417
+bsub512 -m yi02 < bsub.buscototal.all.maker.proteins.fasta.228805.sh 
+#1650005418
+lth
+#1650005428
+les bsub.buscototal.all.maker.proteins.fasta.602531.sh
+#1650005434
+lth
+#1650005435
+cd -
+#1650005440
+cd cechi.contig.fa.masked.fa_R3/
+#1650005440
+lth
+#1650005463
+cd total.all.maker.proteins.fasta.busco.embryophyta.v4.1.2/
+#1650005463
+lth
+#1650005466
+more short_summary.specific.embryophyta_odb10.total.all.maker.proteins.fasta.busco.embryophyta.v4.1.2.txt 
+#1650005468
+cd -
+#1650005468
+lt
+#1650005472
+cd ../*R2
+#1650005473
+lth
+#1650005480
+les error.69*
+#1650005482
+ls
+#1650005485
+bjl
+#1650005487
+lth
+#1650005495
+bsub512 -m yi02 < bsub.buscototal.all.maker.proteins.fasta.602531.sh 
+#1650005496
+bjl
+#1650006274
+lth
+#1650006278
+lth
+#1650006279
+bjl
+#1650006279
+lt
+#1650006282
+lt work.*
+#1650006289
+ls
+#1650006292
+cd work.Polygala_tatarinowii.Polygala_tatarinowii/
+#1650006292
+lt
+#1650006298
+ll *pdf
+#1650006301
+les error.69875 *
+#1650006315
+les *anchors
+#1650006316
+bjl
+#1650006326
+conda deactivate
+#1650006328
+lt
+#1650006330
+cd ..
+#1650006330
+ls
+#1650006332
+cd -
+#1650006333
+lt
+#1650006385
+lth
+#1650006391
+les Polygala_tatarinowii.Polygala_tatarinowii.ortho.kaks 
+#1650006401
+vw
+#1650006470
+lth
+#1650006474
+les error.69875 
+#1650006481
+cd ..
+#1650006482
+ll
+#1650006483
+lt
+#1650006528
+les error.69867 
+#1650006533
+lth
+#1650006536
+cd work.Polygala_tatarinowii.Polygala_tatarinowii/
+#1650006536
+lt
+#1650006582
+bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jcvi.graphics.dotplot *.anchors"
+#1650006586
+cd ../work.Medicago_truncatula.Polygala_tatarinowii/
+#1650006587
+bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jcvi.graphics.dotplot *.anchors"
+#1650006590
+cd ../work.Cercis_chinensis.Polygala_tatarinowii/
+#1650006591
+bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J "python -m jcvi.graphics.dotplot *.anchors"
+#1650006591
+bjl
+#1650006596
+cd -
+#1650006597
+lt
+#1650006599
+lth
+#1650006619
+ll Medicago_truncatula.Polygala_tatarinowii.pdf Medicago_truncatula.Polygala_tatarinowii.depth.pdf
+#1650006623
+cd -
+#1650006624
+lt
+#1650006626
+ll *pdf
+#1650006631
+cd ../work.Polygala_tatarinowii.Polygala_tatarinowii/
+#1650006632
+ll *pdf
+#1650006638
+realpath Polygala_tatarinowii.Polygala_tatarinowii.pdf
+#1650001533
+tma
+#1650006641
+sz /nfs/liuhui/projects/Polygala_tatarinowii/synteny/work.Polygala_tatarinowii.Polygala_tatarinowii/Polygala_tatarinowii.Polygala_tatarinowii.pdf
+#1650006644
+# Sent -> /Users/liuhui/Downloads/
+#1650006644
+top
+#1650006725
+lth
+#1650006726
+lt
+#1650006909
+lth
+#1650006913
+les error.69878 
+#1650006726
+tma
+#1650074350
+bjl
+#1650074352
+bhosts 
+#1650074356
+lth
+#1650074354
+tma
+#1650074393
+cd ..
+#1650074393
+ls
+#1650074404
+ll *fasta
+#1650074428
+ll *gff
+#1650074434
+les rnaseq.fasta.rawgff.gff 
+#1650074458
+les rnaseq.fasta.rawgff
+#1650074463
+les rnaseq.fasta.rawgff.gff 
+#1650074480
+realpath *gff
+#1650074490
+realpath cechi.contig.fa.masked.fa
+#1650074542
+realpath flnc.fasta
+#1650164449
+docker run --name wiz --restart=always -it -d -v  ~/wizdata:/wiz/storage -v  /etc/localtime:/etc/localtime -p 80:80 -p 9269:9269/udp  wiznote/wizserver
+#1650164452
+which docker
+#1650165629
+bjl
+#1650165634
+bhosts 
+#1650172693
+bjl
+#1650172698
+j fig
+#1650172698
+ls
+#1650172700
+cd ..
+#1650172700
+ls
+#1650172703
+ls -d */
+#1650172705
+cd 04.fig4/
+#1650172705
+ls
+#1650172711
+ls *.anchors
+#1650172757
+cp ../../Polygala_tatarinowii/synteny/work.Medicago_truncatula.Polygala_tatarinowii/Medicago_truncatula.Polygala_tatarinowii.anchors .
+#1650172757
+ls
+#1650172962
+mkdir temp
+#1650172963
+ls
+#1650172966
+mv *cds temp/
+#1650172967
+ls
+#1650172975
+mv Mt* temp/
+#1650172975
+ls
+#1650172978
+mv *fa temp/
+#1650172979
+ls
+#1650172982
+mv PapCae temp/
+#1650172983
+ls
+#1650173054
+vi nodulation_genes.txt
+#1650173062
+head Medicago_truncatula.Cercis_canadensis.anchors
+#1650173067
+head *anchors |les
+#1650173079
+sed -i "s/mRNA://" *.anchors
+#1650173084
+sed -i "s/mRNA_//" *.anchors
+#1650173086
+head *anchors |les
+#1650173097
+vi nodulation_genes.txt 
+#1650173122
+ls
+#1650173136
+for i in *.anchors; do selectItem.pl nodulation_genes.txt $i > $i.extract; done
+#1650173139
+les *extract
+#1650173261
+find $BD -name "*merge*"
+#1650173277
+les /nfs/liuhui/bin/bundle/lh_bin/merge_gff_with_name.py 
+#1650173292
+vi /nfs/liuhui/bin/bundle/lh_bin/merge.pl
+#1650173346
+ls
+#1650173357
+les *extract
+#1650173477
+selectItem.pl Medicago_truncatula.Senna_tora.anchors.extract Medicago_truncatula.Senna_septemtrionalis.anchors.extract
+#1650173482
+selectItem.pl -k Medicago_truncatula.Senna_tora.anchors.extract Medicago_truncatula.Senna_septemtrionalis.anchors.extract
+#1650173558
+:q
+#1650173560
+wc -l nodulation_genes.txt 
+#1650173751
+pushd $BD
+#1650173752
+ls
+#1650173767
+lth
+#1650173768
+cd lh_bin/
+#1650173769
+lth
+#1650173775
+vi get_ks_peak.py 
+#1650173807
+ls
+#1650173809
+popd
+#1650173810
+ls
+#1650173816
+vi merge_file.py
+#1650174037
+python merge_file.py Medicago_truncatula.Senna_tora.anchors.extract Medicago_truncatula.Zenia_insignis.anchors.extract
+#1650174049
+vi merge_file.py
+#1650174055
+python merge_file.py Medicago_truncatula.Senna_tora.anchors.extract Medicago_truncatula.Zenia_insignis.anchors.extract
+#1650174066
+vi merge_file.py
+#1650174086
+python merge_file.py Medicago_truncatula.Senna_tora.anchors.extract Medicago_truncatula.Zenia_insignis.anchors.extract
+#1650174149
+more merge_file.py 
+#1650174471
+vi merge_file.py 
+#1650174477
+python merge_file.py Medicago_truncatula.Senna_tora.anchors.extract Medicago_truncatula.Zenia_insignis.anchors.extract
+#1650174488
+vi merge_file.py 
+#1650174503
+vi /nfs/liuhui/bin/bundle/lh_bin/get_ks_peak.py 
+#1650174546
+vi merge_file.py 
+#1650174558
+python merge_file.py Medicago_truncatula.Senna_tora.anchors.extract Medicago_truncatula.Zenia_insignis.anchors.extract
+#1650174638
+vi merge_file.py 
+#1650174661
+python merge_file.py Medicago_truncatula.Senna_tora.anchors.extract Medicago_truncatula.Zenia_insignis.anchors.extract
+#1650174665
+vi merge_file.py 
+#1650174677
+python merge_file.py Medicago_truncatula.Senna_tora.anchors.extract Medicago_truncatula.Zenia_insignis.anchors.extract
+#1650174685
+more merge_file.py 
+#1650177681
+tma
+#1650177685
+ls
+#1650177687
+cd projects/
+#1650177687
+ls
+#1650177689
+lt
+#1650177692
+cd phyleg
+#1650177692
+ls
+#1650177693
+lt
+#1650177697
+cd 04.fig4/
+#1650177698
+ls
+#1650177717
+vi nodulation_genes.txt 
+#1650178178
+ls
+#1650178182
+vi nodulation_genes.txt 
+#1650178219
+les *extract
+#1650178252
+sed  "1iID\tMedicago_truncatula.Zenia_insignis.anchors.extract" Medicago_truncatula.Zenia_insignis.anchors.extract |head
+#1650178308
+for i in *extract; do cut -f1,2 ${i} | sed  "1iID\t${i}" > ${i}.cut; done
+#1650178310
+les *cut
+#1650178313
+logsh
+#1650178326
+vi nodulation_genes.txt 
+#1650178596
+lth
+#1650178599
+les *cut
+#1650178657
+vi *cut
+#1650178752
+ll
+#1650178843
+les *cut
+#1650178876
+lth
+#1650178878
+ll *cut
+#1650178881
+les *cut
+#1650178897
+tar -cvzf cut.tgz
+#1650178904
+tar -cvzf cut.tgz  nodulation_genes.txt *cut
+#1650178907
+sz cut.tgz 
+#1650178911
+# Sent -> /Users/liuhui/Downloads/
+#1650174687
+ipython
+#1650236515
+bhosts 
+#1650236563
+vw
+#1650236564
+vc
+#1650236570
+lth
+#1650236572
+j cafe
+#1650236572
+ls
+#1650236573
+lt
+#1650236576
+ls
+#1650236577
+cd
+#1650236578
+cd projects/phyleg
+#1650236579
+lt
+#1650236580
+lth
+#1650236589
+cd ../phyleg_orthofinder/
+#1650236590
+ls
+#1650236591
+ll
+#1650236594
+vi cafe.genefam.txt 
+#1650236613
+mkdir split
+#1650236616
+cd split/
+#1650236620
+ln -s ../cafe.genefam.txt 
+#1650236622
+man spli
+#1650236623
+man split
+#1650236632
+wc -l cafe.genefam.txt 
+#1650236648
+ln -s ../cafe.timetree.txt
+#1650236648
+cd ..
+#1650236649
+lth
+#1650236651
+ll
+#1650236656
+chmod -w cafe.genefam.txt cafe.timetree.txt
+#1650236658
+lth
+#1650236659
+lt
+#1650236664
+more shell 
+#1650236669
+l *sh
+#1650236671
+ll *sh
+#1650236672
+ll
+#1650236674
+lt
+#1650236683
+cd split/
+#1650236683
+ls
+#1650236702
+man split
+#1650236729
+bsub "split -l 1  cafe.genefam.txt split"
+#1650236731
+ls
+#1650236737
+cd  ..
+#1650236738
+ls
+#1650236739
+lt
+#1650236744
+les output.60344
+#1650236770
+les error.60344
+#1650236781
+more output.60344
+#1650236824
+cd -
+#1650236825
+lt
+#1650236840
+les ../output.60344
+#1650236858
+cafe5 -i splitaa -t cafe.timetree.txt -c 2 -k 2
+#1650236862
+conda activate cafe
+#1650236864
+cafe5 -i splitaa -t cafe.timetree.txt -c 2 -k 2
+#1650236884
+vi splitaa
+#1650236897
+more splitaa
+#1650236954
+bj
+#1650236963
+rm splitaa
+#1650237382
+cd projects/phyleg_orthofinder/ls
+#1650237383
+cd projects/phyleg_orthofinder/
+#1650237384
+ls
+#1650237384
+lt
+#1650236975
+for i in split*; do sed -i "1iDesc\tFamily\tID\tAbrus_precatorius\tAeschynomene_evenia\tAmmopiptanthus_nanus\tAmphicarpaea_edgeworthii\tArachis_duranensis\tArachis_ipaensis\tAstragalus_sinicus\tCajanus_cajan\tCercis_canadensis\tCercis_chinensis\tChamaecrista_fasciculata\tChamaecrista_pumila\tCicer_arietinum\tCicer_reticulatum\tCladrastis_platycarpa\tDalbergia_odorifera\tDuparquetia_orchidacea\tFaidherbia_albida\tGlycine_max\tGlycine_soja\tGlycyrrhiza_uralensis\tLablab_purpureus\tLotus_japonicus\tLupinus_albus\tLupinus_angustifolius\tLysidice_rhodostegia\tMedicago_polymorpha\tMedicago_ruthenica\tMedicago_truncatula\tMelilotus_albus\tMimosa_pudicaNissolia_schottii\tPhaseolus_acutifolius\tPhaseolus_lunatus\tPhaseolus_vulgaris\tPisum_sativum\tPolygala_tatarinowii\tSenna_septemtrionalis\tSenna_tora\tSpatholobus_suberectus\tTrifolium_pratense\tTrifolium_subterraneum\tVigna_angularis\tVigna_radiata\tVigna_subterranea\tVigna_trilobata\tVigna_unguiculata\tZenia_insignis" $i; done
+#1650237402
+bg
+#1650237414
+les output.*
+#1650237442
+tma
+#1650237448
+lt
+#1650237454
+cd split/
+#1650237454
+ls
+#1650237471
+les splitzzbvbu
+#1650237489
+which cafe
+#1650237490
+which cafe5
+#1650237560
+cd ..
+#1650237561
+ll
+#1650237576
+cp cafe.timetree.txt cafe.lambda.txt
+#1650237578
+vi cafe.lambda.txt 
+#1650237694
+cd -
+#1650237701
+cafe5 -i splitzzbvbu -t cafe.timetree.txt -c 2 -y ../cafe.lambda.txt 
+#1650237708
+cafe5 -i splitzzbvbu -t cafe.timetree.txt -c 2 
+#1650237723
+vi splitzzbvbu
+#1650237732
+t splitzzbvbu
+#1650237748
+vi splitzzbvbu
+#1650237763
+cafe5 -i splitzzbvbu -t cafe.timetree.txt -c 2 
+#1650237766
+vi splitzzbvbu
+#1650237775
+t splitzzbvbu
+#1650237787
+vi splitzzbvbu
+#1650237795
+t splitzzbvbu
+#1650237797
+cafe5 -i splitzzbvbu -t cafe.timetree.txt -c 2 
+#1650237923
+vi splitab
+#1650237944
+cafe5 -i splitab -t cafe.timetree.txt -c 2
+#1650237948
+conda activate cafe
+#1650237949
+cafe5 -i splitab -t cafe.timetree.txt -c 2
+#1650237916
+for i in split*; do sed -i "1s/.*/Desc\tFamilyID\tAbrus_precatorius\tAeschynomene_evenia\tAmmopiptanthus_nanus\tAmphicarpaea_edgeworthii\tArachis_duranensis\tArachis_ipaensis\tAstragalus_sinicus\tCajanus_cajan\tCercis_canadensis\tCercis_chinensis\tChamaecrista_fasciculata\tChamaecrista_pumila\tCicer_arietinum\tCicer_reticulatum\tCladrastis_platycarpa\tDalbergia_odorifera\tDuparquetia_orchidacea\tFaidherbia_albida\tGlycine_max\tGlycine_soja\tGlycyrrhiza_uralensis\tLablab_purpureus\tLotus_japonicus\tLupinus_albus\tLupinus_angustifolius\tLysidice_rhodostegia\tMedicago_polymorpha\tMedicago_ruthenica\tMedicago_truncatula\tMelilotus_albus\tMimosa_pudica\tNissolia_schottii\tPhaseolus_acutifolius\tPhaseolus_lunatus\tPhaseolus_vulgaris\tPisum_sativum\tPolygala_tatarinowii\tSenna_septemtrionalis\tSenna_tora\tSpatholobus_suberectus\tTrifolium_pratense\tTrifolium_subterraneum\tVigna_angularis\tVigna_radiata\tVigna_subterranea\tVigna_trilobata\tVigna_unguiculata\tZenia_insignis/" $i; done
+#1650238113
+cd ..
+#1650238114
+ls
+#1650238116
+bhosts 
+#1650238118
+lsload
+#1650238136
+ls
+#1650238137
+ll
+#1650238150
+tma
+#1650238209
+lth
+#1650238219
+lt
+#1650238223
+ls results/
+#1650238248
+bsub512 -J cafe -n 26 "cafe5 -i cafe.genefam.txt -t cafe.timetree.txt -c 26 |tee cafe.log"
+#1650238249
+bjl
+#1650238256
+bj
+#1650238258
+lth
+#1650238262
+bjl
+#1650238266
+lth
+#1650238267
+bjl
+#1650238270
+bhosts 
+#1650238279
+lsload
+#1650238284
+ssh yi04
+#1650238352
+top
+#1650238286
+ssh yi03
+#1650238303
+lt
+#1650238305
+bjl
+#1650238308
+les cafe.l
+#1650238309
+les cafe.log 
+#1650238330
+logsh
+#1650238348
+hyphy
+#1650238352
+conda deactivate
+#1650238360
+mamba create -n hyphy hyphy
+#1650238388
+vw
+#1650238616
+ls $BD/lh_bin
+#1650238620
+ls $BD/lh_bin/*pep*
+#1650238626
+vi /nfs/liuhui/bin/bundle/lh_bin/gene2pep.pl
+#1650238640
+l /nfs/liuhui/bin/bundle/lh_bin/*fam*
+#1650238641
+ll /nfs/liuhui/bin/bundle/lh_bin/*fam*
+#1650238664
+conda activate hyphy
+#1650238664
+ls
+#1650238665
+ll
+#1650238666
+lt
+#1650238670
+more cafe.l
+#1650238671
+more cafe.log 
+#1650238749
+group2fasta.py 
+#1650238753
+which group2fasta.py 
+#1650238756
+gtp
+#1650238765
+vi ~/bin/bundle/lh_bin/group2fasta.py
+#1650238773
+group2fasta.py 
+#1650238777
+ll
+#1650238782
+cd fasta/
+#1650238782
+ls
+#1650238790
+cat *pep > ../total.pep
+#1650238806
+ls
+#1650238808
+mkdir cds
+#1650238851
+ls
+#1650238856
+for i in *pep; do cp ~/projects/phyleg/mcscanX2/${i%.pep}.cds ./cds/; done &
+#1650238859
+cd cds/
+#1650238859
+ls
+#1650238861
+ll
+#1650238881
+jobs
+#1650238886
+bhosts 
+#1650238891
+lsload
+#1650238728
+top
+#1650238732
+htop
+#1650238740
+top
+#1650238904
+ssh yi04
+#1650238949
+les ../Polygala_tatarinowii.pep 
+#1650238958
+cp ~/projects/Polygala_tatarinowii/release/suffixed/Polygala_tatarinowii.cds .
+#1650238959
+ls
+#1650238960
+cd ..
+#1650238967
+ll
+#1650238974
+cd ..
+#1650238975
+ll
+#1650238986
+cat fasta/cds/*cds > total.cds &
+#1650238996
+ll
+#1650239001
+lth
+#1650239008
+jobs
+#1650239026
+group2fasta.py 
+#1650239031
+ll
+#1650239040
+les Orthogroups_SingleCopyOrthologues.txt
+#1650239058
+ln -s fasta/OrthoFinder/Results_Feb16/Orthogroups/Orthogroups.txt 
+#1650239061
+les Orthogroups.txt 
+#1650239076
+rm Orthogroups.txt 
+#1650239081
+cp fasta/OrthoFinder/Results_Feb16/Orthogroups/Orthogroups.txt .
+#1650239185
+vi `which group2fasta.py `

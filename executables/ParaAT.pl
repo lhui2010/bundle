@@ -755,6 +755,7 @@ sub GenerateSequenceFiles(){
 			}
 			else {
 				$flag = 0;
+                print STDERR "Failed loading sequences for ", $genes[$j], "\n";
 			}
 		}
 		if ($flag) {

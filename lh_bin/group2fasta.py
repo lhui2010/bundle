@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys
 import os
 from Bio import SeqIO
@@ -27,7 +29,7 @@ with open (group_file )  as fh_group:
         genes=line.split()
         group_id = genes.pop(0)
         group_id=re.sub(":", "", group_id)
-        os.system("mkdir " + group_id)
+        os.system("mkdir -p " + group_id)
         with open(group_id + "/" + group_id + ".cds", mode="w") as fh_cds:
             for gene in genes:
                 fh_cds.write(record_dict[gene].format("fasta"))

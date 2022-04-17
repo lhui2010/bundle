@@ -88,7 +88,7 @@ alias addpwd='echo "export PATH=$PWD:\$PATH" >>~/.bashrc'
 #alias qs='qsub  -V -b y -N output -cwd -l h_vmem=1G'
 alias qs='qsub  -V -b y -N output -cwd '
 alias ql='qstat -u "*" -f'
-alias bsub512='bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J'
+alias bsub512='bsub  -R "span[hosts=1]" -q Q104C512G_X4  -o output.%J -e error.%J '
 alias bsub1T='bsub   -R "span[hosts=1]" -q Q64C1T_X4  -o output.%J -e error.%J'
 alias bsub2T='bsub   -R "span[hosts=1]" -q Q48C2T_X1  -o output.%J -e error.%J'
 alias bsub3T='bsub   -R "span[hosts=1]" -q Q64C3T_X1  -o output.%J -e error.%J'
@@ -276,3 +276,4 @@ export PATH=/nfs/liuhui/bin/blast-2.2.26/bin:$PATH
 export PATH=/nfs/liuhui/bin/genblast_v139:$PATH
 export PATH=/nfs/liuhui/bin/maker/maker/bin:$PATH
 
+export PATH=/nfs/liuhui/projects/buzzo/phast/phast-1.6/bin:$PATH
