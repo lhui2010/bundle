@@ -259,7 +259,7 @@ date
     return ret
 
 
-def bsub(cmd, queue='Q104C512G_X4', direct_submit='F', cpus=1, name='', submit='T', options='', node='yi02 yi04'):
+def bsub(cmd, queue='Q104C512G_X4', direct_submit='F', cpus=1, name='', submit='T', options='', node=''):
     """
     submit jobs via bsub
     When using variable export in a cmd ,use direct_submit = 'F'
