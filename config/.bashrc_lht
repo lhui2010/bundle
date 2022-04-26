@@ -32,27 +32,27 @@ export HISTFILESIZE=500000000
 export LANG=en_US.UTF-8
 
 
-export PATH=/ds3200_1/users_root/yitingshuang/applications/bowtie2-2.3.4-linux-x86_64:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/SPAdes-3.12.0-linux/bin:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/OGA/scripts:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/PGA:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/corset-1.07-linux64:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/Salmon-0.8.2_linux_x86_64/bin:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/bin:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/transrate-1.0.4/bin:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/TransDecoder-TransDecoder-v5.3.0:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/TransDecoder-TransDecoder-v5.3.0/util:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/Digest-MD5-2.52/usr/lib64/perl5/vendor_perl/Digest:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/plot-ks-master:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/KaKs_Calculator2.0/bin/Linux:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/TreeShrink/:$PATH
-# export PATH=/ds3200_1/users_root/yitingshuang/applications/OrthoFinder/fastme-2.1.5/binaries/:$PATH
-# export PATH=/ds3200_1/users_root/yitingshuang/applications/OrthoFinder/mmseqs2/bin:$PATH
-# export PATH=/ds3200_1/users_root/yitingshuang/applications/OrthoFinder/Diamond/:$PATH
-# export PATH=/ds3200_1/users_root/yitingshuang/applications/OrthoFinder/OrthoFinder-2.3.3_source/orthofinder/:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/MAPS/barkerlab-maps/:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/ASTRAL-master/:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/applications/BEASTv1.10.4/bin/:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/bowtie2-2.3.4-linux-x86_64:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/SPAdes-3.12.0-linux/bin:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/OGA/scripts:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/PGA:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/corset-1.07-linux64:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/Salmon-0.8.2_linux_x86_64/bin:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/bin:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/transrate-1.0.4/bin:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/TransDecoder-TransDecoder-v5.3.0:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/TransDecoder-TransDecoder-v5.3.0/util:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/Digest-MD5-2.52/usr/lib64/perl5/vendor_perl/Digest:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/plot-ks-master:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/KaKs_Calculator2.0/bin/Linux:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/TreeShrink/:$PATH
+#     # export PATH=/ds3200_1/users_root/yitingshuang/applications/OrthoFinder/fastme-2.1.5/binaries/:$PATH
+#     # export PATH=/ds3200_1/users_root/yitingshuang/applications/OrthoFinder/mmseqs2/bin:$PATH
+#     # export PATH=/ds3200_1/users_root/yitingshuang/applications/OrthoFinder/Diamond/:$PATH
+#     # export PATH=/ds3200_1/users_root/yitingshuang/applications/OrthoFinder/OrthoFinder-2.3.3_source/orthofinder/:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/MAPS/barkerlab-maps/:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/ASTRAL-master/:$PATH
+#     export PATH=/ds3200_1/users_root/yitingshuang/applications/BEASTv1.10.4/bin/:$PATH
 
 
 
@@ -153,25 +153,31 @@ body() {
 }
 
 availq() {
-    echo "HOST_NAME          STATUS       JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV"
-    bhosts |grep "node0[12345]"
-    bhosts |grep "node1[0123]"
-    echo ""
-    echo "                 TotalCpu     UsedCpu    RestCPU"
-    cpu_total=256
-#    cpu_used=`bjobs -u all |grep "node0[2345]" |wc -l | sed 's/ .*//'`
-    cpu_used=`bjobs -u all |grep node0[2345] |awk '{print $1"\t"$6}' |perl -ne 'my @e=split; print $e[-1], "\n";' | sed "s/^node.*/1/; s/\*.*//; " |sum.pl 0`
-    cpu_left=`expr $cpu_total  - $cpu_used`
-    echo "Q64C1T_X4:       $cpu_total          $cpu_used        $cpu_left"
-    cpu_total=416
-    #cpu_used=`bjobs -u all |grep "node1[0123]" |wc -l | sed 's/ .*//'`
-    cpu_used=`bjobs -u all |grep node1[0123] |awk '{print $1"\t"$6}' |perl -ne 'my @e=split; print $e[-1], "\n";' | sed "s/^node.*/1/; s/\*.*//; " |sum.pl 0`
-    cpu_left=`expr $cpu_total  - $cpu_used`
-    echo "Q104C512G_X4:    $cpu_total          $cpu_used        $cpu_left"
-    echo ""
-    lsload |head -1
-    lsload |sort -k1,1V |grep "node0[12345]"
-    lsload |sort -k1,1V |grep "node1[0123]"
+    echo -n "Q64C1T_X4       ";   expr 256 - `bqueues  Q64C1T_X4 |awk '{print $10}' |tail -n 1`      
+    echo -n "Q104C512G_X1_2  ";   expr 104 - `bqueues  Q104C512G_X1_2 |awk '{print $10}' |tail -n 1` 
+    echo -n "Q104C512G_X4    ";   expr 416 - `bqueues  Q104C512G_X4 |awk '{print $10}' |tail -n 1`   
+    echo -n "Q88C6T_X1       ";   expr 88 -  `bqueues  Q88C6T_X1 |awk '{print $10}' |tail -n 1`      
+    echo -n "Q64C3T_X1       ";   expr 64 -  `bqueues  Q64C3T_X1 |awk '{print $10}' |tail -n 1`      
+    echo -n "Q48C2T_X1       ";   expr 48 -  `bqueues  Q48C2T_X1 |awk '{print $10}' |tail -n 1`      
+
+    #    echo "HOST_NAME          STATUS       JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV"
+    #    bhosts |grep "node0[12345]"
+    #    bhosts |grep "node1[0123]"
+    #    echo ""
+    #    echo "                 TotalCpu     UsedCpu    RestCPU"
+    #    cpu_total=256
+    #    cpu_used=`bjobs -u all |grep node0[2345] |awk '{print $1"\t"$6}' |perl -ne 'my @e=split; print $e[-1], "\n";' | sed "s/^node.*/1/; s/\*.*//; " |sum.pl 0`
+    #    cpu_left=`expr $cpu_total  - $cpu_used`
+    #    echo "Q64C1T_X4:       $cpu_total          $cpu_used        $cpu_left"
+    #    cpu_total=416
+    #    #cpu_used=`bjobs -u all |grep "node1[0123]" |wc -l | sed 's/ .*//'`
+    #    cpu_used=`bjobs -u all |grep node1[0123] |awk '{print $1"\t"$6}' |perl -ne 'my @e=split; print $e[-1], "\n";' | sed "s/^node.*/1/; s/\*.*//; " |sum.pl 0`
+    #    cpu_left=`expr $cpu_total  - $cpu_used`
+    #    echo "Q104C512G_X4:    $cpu_total          $cpu_used        $cpu_left"
+    #    echo ""
+    #    lsload |head -1
+    #    lsload |sort -k1,1V |grep "node0[12345]"
+    #    lsload |sort -k1,1V |grep "node1[0123]"
 }
 
 
@@ -235,44 +241,44 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/bundle/lh_bin:$PATH
 #Autojump
 [[ -s /ds3200_1/users_root/yitingshuang/.autojump/etc/profile.d/autojump.sh ]] && source /ds3200_1/users_root/yitingshuang/.autojump/etc/profile.d/autojump.sh
 
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/rar:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/SF2:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/.aspera/connect/bin:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/bundle:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/XPCLR/bin:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/selscan:$PATH
+#    export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/rar:$PATH
+#    export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/SF2:$PATH
+#    export PATH=/ds3200_1/users_root/yitingshuang/.aspera/connect/bin:$PATH
+#    export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/bundle:$PATH
+#    export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/XPCLR/bin:$PATH
+#    export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/selscan:$PATH
 
 #VCFtools
-export PERL5LIB=/ds3200_1/users_root/yitingshuang/lh/bin/vcftools/lib:$PERL5LIB
-export MANPATH=/ds3200_1/users_root/yitingshuang/lh/bin/vcftools/share/man:$MANPATH
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/vcftools/bin:$PATH
+#    export PERL5LIB=/ds3200_1/users_root/yitingshuang/lh/bin/vcftools/lib:$PERL5LIB
+#    export MANPATH=/ds3200_1/users_root/yitingshuang/lh/bin/vcftools/share/man:$MANPATH
+#    export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/vcftools/bin:$PATH
 
 #boost package
 #export LD_LIBRARY_PATH='/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:/ds3200_1/users_root/yitingshuang/lh/lib/lib64:/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib:/ds3200_1/lsf9/9.1/linux2.6-glibc2.3-x86_64/lib:/ds3200_1/proc/beagle/lib:/usr/local/lib:/usr/lib64:/ds3200_1/openmpi-3.1.0/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64:/ds3200_1/proc/NCBI-NGS/lib64:/ds3200_1/proc/ncbi-vdb/lib64:::/ds3200_1/proc/beagle/lib:/ds3200_1/proc/HTS_lib/lib:/usr/local/mpc-1.1.0/lib:/usr/local/gmp-6.1.2/lib:/usr/local/mpfr-4.0.1/lib:/ds3200_1/users_root/yitingshuang/.config/gscp/'
-export LD_LIBRARY_PATH='/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:/ds3200_1/proc/beagle/lib:/usr/local/lib:/usr/lib64:/ds3200_1/openmpi-3.1.0/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64:/ds3200_1/proc/NCBI-NGS/lib64:/ds3200_1/proc/ncbi-vdb/lib64:::/ds3200_1/proc/beagle/lib:/ds3200_1/proc/HTS_lib/lib':$LD_LIBRARY_PATH
-export LDFLAGS=-L/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib
-export CFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include
-export CXXFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include
-export CPPFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include
-export CPATH=/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include:$CPATH
-export LD_LIBRARY_PATH="/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib":$LD_LIBRARY_PATH
-export BOOST_ROOT=/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0
-export BOOST_LIBRARYDIR=/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib
-#export CFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/anaconda3/include/python3.6m/
-#export CXXFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/anaconda3/include/python3.6m/
-#export CPPFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/anaconda3/include/python3.6m/
-export LD_LIBRARY_PATH=/ds3200_1/users_root/yitingshuang/lh/lib/lib64:$LD_LIBRARY_PATH
-
-#bamtools
-export LDFLAGS="-L/ds3200_1/users_root/yitingshuang/lh/lib/lib64/ "$LD_FLAGS
-export CFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include/bamtools "$CFLAGS
-export CXXFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include/bamtools "$CXXFLAGS
-export CPPFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include/bamtools "$CPPFLAGS
-
-#common lib
-export CFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include "$CFLAGS
-export CXXFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include "$CXXFLAGS
-export CPPFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include "$CPPFLAGS
+#    export LD_LIBRARY_PATH='/home/Intel/parallel_studio_xe_2018_update3_cluster_edition/pset/32e/:/ds3200_1/proc/beagle/lib:/usr/local/lib:/usr/lib64:/ds3200_1/openmpi-3.1.0/lib:/opt/ohpc/pub/compiler/gcc/7.2.0/lib64:/ds3200_1/proc/NCBI-NGS/lib64:/ds3200_1/proc/ncbi-vdb/lib64:::/ds3200_1/proc/beagle/lib:/ds3200_1/proc/HTS_lib/lib':$LD_LIBRARY_PATH
+#    export LDFLAGS=-L/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib
+#    export CFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include
+#    export CXXFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include
+#    export CPPFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include
+#    export CPATH=/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/include:$CPATH
+#    export LD_LIBRARY_PATH="/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib":$LD_LIBRARY_PATH
+#    export BOOST_ROOT=/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0
+#    export BOOST_LIBRARYDIR=/ds3200_1/users_root/yitingshuang/lh/lib/boost_1_66_0/lib
+#    #export CFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/anaconda3/include/python3.6m/
+#    #export CXXFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/anaconda3/include/python3.6m/
+#    #export CPPFLAGS=-I/ds3200_1/users_root/yitingshuang/lh/anaconda3/include/python3.6m/
+#    export LD_LIBRARY_PATH=/ds3200_1/users_root/yitingshuang/lh/lib/lib64:$LD_LIBRARY_PATH
+#    
+#    #bamtools
+#    export LDFLAGS="-L/ds3200_1/users_root/yitingshuang/lh/lib/lib64/ "$LD_FLAGS
+#    export CFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include/bamtools "$CFLAGS
+#    export CXXFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include/bamtools "$CXXFLAGS
+#    export CPPFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include/bamtools "$CPPFLAGS
+#    
+#    #common lib
+#    export CFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include "$CFLAGS
+#    export CXXFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include "$CXXFLAGS
+#    export CPPFLAGS="-I/ds3200_1/users_root/yitingshuang/lh/lib/include "$CPPFLAGS
 
 export SE_HOME=/ds3200_1/users_root/yitingshuang/lh/bin/snpEff
 export PATH=/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/wtdbg2/wtdbg2:$PATH
@@ -317,10 +323,10 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/maker3/exe/RepeatMasker/uti
 # if [ -f '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/path.bash.inc' ]; then . '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/completion.bash.inc' ]; then . '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/completion.bash.inc'; fi
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/last/bin:$PATH
-# export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/x86_64-linux:$PATH
-export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/p7zip/bin:$PATH
+#       if [ -f '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/completion.bash.inc' ]; then . '/ds3200_1/users_root/yitingshuang/lh/bin/google-cloud-sdk-239.0.0/completion.bash.inc'; fi
+#       export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/last/bin:$PATH
+#       # export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/x86_64-linux:$PATH
+#       export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/p7zip/bin:$PATH
 
 ##Latex
 export MANPATH=/ds3200_1/users_root/yitingshuang/lh/bin/texlive/2021/texmf-dist/doc/man:$MANPATH
