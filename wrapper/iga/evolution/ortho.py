@@ -160,7 +160,10 @@ kaks_sh = """
 ORTHO={0}
 CDS={1}
 PEP={2}
-echo {3} > proc
+if [ ! -e proc ]
+then
+    echo {3} > proc
+fi
 ParaAT.pl -h $ORTHO -n $CDS -a $PEP -p proc -o $ORTHO.ParaAT.out -f axt -k -M {4}
 echo -e "Sequence\tMethod\tKa\tKs\tKa/Ks\tP-Value(Fisher)\tLength\tS-Sites\tN-Sites\tFold-Sites(0:2:4)\tSubstitutions\tS-Substitutions\tN-Substitutions\tFold-S-Substitutions(0:2:4)\tFold-N-Substitutions(0:2:4)\tDivergence-Time\tSubstitution-Rate-Ratio(rTC:rAG:rTA:rCG:rTG:rCA/rCA)\tGC(1:2:3)\tML-Score\tAICc\tAkaike-Weight\tModel"> $ORTHO.kaks 
 find $ORTHO.ParaAT.out/ -name '*.kaks' |xargs tail -q -n 1 >>$ORTHO.kaks
