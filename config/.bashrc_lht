@@ -74,7 +74,7 @@ export LANG=en_US.UTF-8
 
 #####################################
 ####LH add start
-alias act='eval "$(/ds3200_1/users_root/yitingshuang/lh/miniconda3/bin/conda shell.bash hook)"'
+alias act='eval "$(/ds3200_1/users_root/yitingshuang/lh/miniconda3/bin/conda shell.bash hook)"; source ~/lh/env.sh'
 alias ping='ping -c 5'
 alias logsh='date >>shell ; cat >>shell'
 alias logjob='date >> ~/lh/running_jobs.txt; pwd >> ~/lh/running_jobs.txt; cat >> ~/lh/running_jobs.txt'
