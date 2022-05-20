@@ -277,3 +277,16 @@ export PATH=/nfs/liuhui/bin/genblast_v139:$PATH
 export PATH=/nfs/liuhui/bin/maker/maker/bin:$PATH
 
 export PATH=/nfs/liuhui/projects/buzzo/phast/phast-1.6/bin:$PATH
+export PATH=/nfs/liuhui/projects/buzzo/badirate/badirate-1.35:$PATH
+
+export DIR_4_TCOFFEE="/nfs/liuhui/.t_coffee"
+
+export PLUGINS_4_TCOFFEE="/nfs/liuhui/.t_coffee/plugins/linux"
+
+export PERL5LIB="$PERL5LIB:$DIR_4_TCOFFEE/perl/lib/perl5"
+
+export PATH="$DIR_4_TCOFFEE/bin/linux:$PATH"
+export PATH=/mnt/mobile/linuxnd:$PATH
+
+# added by DupGen_finder
+PATH=/nfs/liuhui/projects/buzzo/dupgene_finder/DupGen_finder:$PATH

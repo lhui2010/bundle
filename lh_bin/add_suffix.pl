@@ -8,6 +8,12 @@
 # Usage: perl add_suffix.pl Arabidopsis.gff Arabidopsis.fa Arabidopsis.cds Arabidopsis.pep
 # Input file are formated with species name and format extension.
 # New file will be written to Arabidopsis.gff.new Arabidopsis.fa.new, etc
+
+if (@ARGV < 1)
+{
+    die "add_suffix.pl Vitis_vinifera.*"
+}
+
 @files=@ARGV;
 
 

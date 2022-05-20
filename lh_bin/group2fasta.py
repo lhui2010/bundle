@@ -30,6 +30,7 @@ with open (group_file )  as fh_group:
         group_id = genes.pop(0)
         group_id=re.sub(":", "", group_id)
         os.system("mkdir -p " + group_id)
-        with open(group_id + "/" + group_id + ".cds", mode="w") as fh_cds:
+        with open(group_id + "/" + group_id + "." + suffix, mode="w") as fh_cds:
             for gene in genes:
+                gene = gene.replace(',', '')
                 fh_cds.write(record_dict[gene].format("fasta"))

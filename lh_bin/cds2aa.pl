@@ -173,7 +173,7 @@ sub cds2aa {
 		last if(length($codon) < 3);
 		$prot .= (exists $translate_p->{$codon}) ? $translate_p->{$codon} : 'X';
 	}
-	$prot =~ s/U$//;
+    $prot =~ s/U$//;
 	return $prot;
 
 }
