@@ -289,4 +289,4 @@ export PATH="$DIR_4_TCOFFEE/bin/linux:$PATH"
 export PATH=/mnt/mobile/linuxnd:$PATH
 
 # added by DupGen_finder
-PATH=/nfs/liuhui/projects/buzzo/dupgene_finder/DupGen_finder:$PATH
+# PATH=/nfs/liuhui/projects/buzzo/dupgene_finder/DupGen_finder:$PATH

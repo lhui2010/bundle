@@ -71,6 +71,7 @@ undef $buffer;
 #buffer is tested to be ok
 ###debut
 
+my %last_loci;
 
 while(<Fgff>)
 {
@@ -105,9 +106,25 @@ while(<Fgff>)
 	if($e[6] eq "-")
     {
         &rc(\$seq_tmp) ;
+        if( !exists $gene_seq{$gene_name})
+        {
+            $gene_seq{$gene_name}.=$seq_tmp;
+        }
+        elsif($last_loci{$gene_name} > $start)
+        {
+            $gene_seq{$gene_name}.=$seq_tmp;
+        }
+        else
+        {
+            $gene_seq{$gene_name}=$seq_tmp.$gene_seq{$gene_name};
+        }
     }
-    $gene_seq{$gene_name}.=$seq_tmp;
+    else
+    {
+            $gene_seq{$gene_name}.=$seq_tmp;
+    }
     print STDERR $gene_name, "\n";
+    $last_loci{$gene_name} = $start;
 }
 
 for my $key(sort keys %gene_seq)

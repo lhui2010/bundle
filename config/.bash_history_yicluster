@@ -59712,3 +59712,721 @@ gtp
 vi `which add_suffix.pl `
 #1653010055
 add_suffix.pl 
+#1653010060
+gtps
+#1653010067
+lth
+#1653010076
+ls *new
+#1653010084
+for i in *.new; do mv $i ${i%.new}; done
+#1653010085
+lth
+#1653010089
+les Vitis_vinifera.pep 
+#1653010094
+les Vitis_vinifera.*
+#1653010110
+les Vitis_vinifera.pep
+#1653010117
+ll
+#1653010145
+ln -s ../../mcscanX2/Cercis_chinensis.cds 
+#1653010147
+ln -s ../../mcscanX2/Cercis_chinensis.pep
+#1653010150
+ln -s ../../mcscanX2/Cercis_chinensis.gff3 
+#1653010157
+ln -s ../../mcscanX2/Medicago_truncatula.cds 
+#1653010159
+ln -s ../../mcscanX2/Medicago_truncatula.pep 
+#1653010161
+ln -s ../../mcscanX2/Medicago_truncatula.gff3 
+#1653010162
+ll
+#1653010174
+ls *cds > run.sh
+#1653010175
+vi run.sh 
+#1653010215
+python -m iga.evolution.ortho  -h
+#1653010221
+python -m iga.evolution.ortho  mcscanx -h
+#1653010242
+bhosts 
+#1653010244
+lsload
+#1653010069
+htop
+#1653010073
+top
+#1653010264
+ssh yi04
+#1653010280
+lsload
+#1653010309
+bhosts 
+#1653010310
+ls
+#1653010314
+vi run.sh 
+#1653010320
+python -m iga.evolution.ortho  mcscanx -h
+#1653010330
+vi run.sh 
+#1653010407
+which bsub512
+#1653010414
+vi run.sh 
+#1653010470
+bash run.sh 
+#1653010472
+bjl
+#1653010477
+bj
+#1653010479
+lsload
+#1653010577
+top
+#1653010588
+sudo su
+#1653010722
+lt
+#1653010729
+lth
+#1653010489
+ssh -p 201 yi02
+#1653010644
+lt
+#1653010646
+bjl
+#1653010650
+lt work.Medicago_truncatula.Vitis_vinifera/
+#1653010659
+mv Vitis_vinifera.gff Vitis_vinifera.gff3
+#1653010660
+ll
+#1653010662
+ll *gff3
+#1653010665
+bjl
+#1653010677
+lumv Arabidopsis_thaliana.gff Arabidopsis_thaliana.gff3
+#1653010680
+mv Arabidopsis_thaliana.gff Arabidopsis_thaliana.gff3
+#1653010687
+rm -r *Arabidopsis_thaliana
+#1653010695
+rm -rf *Arabidopsis_thaliana/
+#1653010704
+rm -rf *Vitis_vinifera/
+#1653010705
+lth
+#1653010709
+vi Arabidopsis_thaliana.gff3 
+#1653010723
+vi Oryza_sativa.gff3 
+#1653010734
+vi Vitis_vinifera.gff3 
+#1653010738
+lt
+#1653010750
+vi run.sh 
+#1653010759
+bj
+#1653010764
+bkill 72305 72302
+#1653010766
+bjl
+#1653010767
+lth
+#1653010770
+rm -r work.*/
+#1653010773
+rm -fr work.*/
+#1653010774
+lt
+#1653010777
+rm *.o *.e
+#1653010778
+lt
+#1653010782
+head *gff3
+#1653010793
+head -1 *cds
+#1653010801
+vi Arabidopsis_thaliana.gff3 
+#1653010810
+vi Arabidopsis_thaliana.cds 
+#1653010818
+vi Arabidopsis_thaliana.pep 
+#1653010824
+head -1 *cds
+#1653010828
+vi Vitis_vinifera.gff3 
+#1653010838
+vi Medicago_truncatula.cds 
+#1653010848
+vi run.sh 
+#1653010852
+bash run.sh 
+#1653010853
+bjl
+#1653010857
+bj
+#1653010861
+bjl
+#1653010892
+bj
+#1653010896
+lth
+#1653010905
+lsload
+#1653010949
+lth
+#1653011565
+bjl
+#1653011572
+bpeek 72307
+#1653011732
+lth
+#1653011736
+lt work.Medicago_truncatula.Vitis_vinifera/
+#1653013042
+bjl
+#1653013050
+lt
+#1653013055
+lt work.Medicago_truncatula.Arabidopsis_thaliana/
+#1653013077
+which mcscanX
+#1653013090
+which mcscanx_prunetandem_and_select_Ks.sh 
+#1653013097
+ll ~/bin/bundle/lh_bin
+#1653013099
+ll
+#1653013101
+lt
+#1653013106
+les Medicago_truncatula.Arabidopsis_thaliana.e
+#1653013129
+cd -
+#1653013131
+lt
+#1653013135
+cd work.Medicago_truncatula.Arabidopsis_thaliana/
+#1653013135
+lt
+#1653013137
+MCScanX Medicago_truncatula.Arabidopsis_thaliana -s 5 -m 25 -a
+#1653013141
+MCSCanX
+#1653013145
+MCScanX
+#1653013154
+les  Medicago_truncatula.Arabidopsis_thaliana.gff3
+#1653013158
+les  Medicago_truncatula.Arabidopsis_thaliana.gff
+#1653013161
+lt
+#1653013165
+les  Medicago_truncatula.Arabidopsis_thaliana.pep
+#1653013169
+les  Medicago_truncatula.Arabidopsis_thaliana.cds
+#1653013182
+les Medicago_truncatula.Arabidopsis_thaliana.blast
+#1653013192
+MCScanX Medicago_truncatula.Arabidopsis_thaliana -s 5 -m 25 -a
+#1653013201
+MCScanX Medicago_truncatula.Arabidopsis_thaliana 
+#1653013231
+ll Medicago_truncatula.Arabidopsis_thaliana*
+#1653013232
+ll Medicago_truncatula.Arabidopsis_thaliana*.*
+#1653013234
+ll Medicago_truncatula.Arabidopsis_thaliana.*
+#1653013267
+for i in blast gff cds pep; do ln -s Medicago_truncatula.Arabidopsis_thaliana.$i Mt_At.$i; done
+#1653013293
+rename Mt_At Mt.At *
+#1653013294
+MCScanX Mt.At -s 5 -m 25 -a
+#1653013319
+cd ~/projects/phyleg/mcscanX2/work.Medicago_truncatula.Cercis_chinensis/
+#1653013320
+ls
+#1653013321
+mkdir temp
+#1653013322
+cd temp/
+#1653013328
+ln -s ../Medicago_truncatula.Cercis_chinensis.blast
+#1653013330
+ln -s ../Medicago_truncatula.Cercis_chinensis.gff
+#1653013332
+ln -s ../Medicago_truncatula.Cercis_chinensis.cds
+#1653013333
+ln -s ../Medicago_truncatula.Cercis_chinensis.pep
+#1653013334
+ll
+#1653013342
+MCScanX Medicago_truncatula.Cercis_chinensis -s 5 -m 25 -a
+#1653013349
+which MCScanX
+#1653013360
+vc
+#1653013368
+bj
+#1653013371
+ll
+#1653013376
+cd ..
+#1653013380
+sc
+#1653013383
+MCScanX
+#1653013385
+which MCScanX
+#1653013386
+lt
+#1653013557
+bjl
+#1653013572
+ls
+#1653013575
+cd
+#1653013580
+j 03.tri
+#1653013583
+j 04.trian
+#1653013584
+lt
+#1653013586
+vi run.sh 
+#1653013589
+bash run.sh 
+#1653019800
+bjl
+#1653019804
+lt */*kaks
+#1653019816
+cd work.Medicago_truncatula.Vitis_vinifera/
+#1653019816
+lt
+#1653019823
+les *collinearity
+#1653019826
+les *.blast
+#1653019834
+les *gff
+#1653019850
+which MCScanX
+#1653019861
+cd ..
+#1653019861
+lth
+#1653019866
+les *fera.e
+#1653019891
+cd -
+#1653019898
+cd ../work.Cercis_chinensis.Vitis_vinifera/
+#1653019899
+MCScanX Cercis_chinensis.Vitis_vinifera -s 5 -m 25 -a
+#1653019906
+les *.blast
+#1653019916
+grep VIT_200s0120g00270.1_Vivin *gff
+#1653019919
+les *gff
+#1653019931
+lt
+#1653019932
+les *gff3
+#1653019956
+cd ..
+#1653019956
+lt
+#1653019960
+vi Vitis_vinifera.gff3 
+#1653019965
+vi Vitis_vinifera.cds 
+#1653019979
+grep VIT_212s0142g00590.1 *gff3
+#1653019989
+vi *gff3
+#1653019998
+vi Vitis_vinifera.gff3 
+#1653020030
+grep VIT_200s2887g00010.1_ Vitis_vinifera.*
+#1653020036
+ls
+#1653020046
+rm -r work.*.Vitis_vinifera/
+#1653020049
+rm -fr work.*.Vitis_vinifera/
+#1653020051
+ls
+#1653020055
+vi vi run.sh 
+#1653020058
+vi run.sh 
+#1653020067
+bash run.sh 
+#1653020068
+bjl
+#1653020139
+ls
+#1653020142
+cd temp/
+#1653020143
+ls
+#1653020143
+rz
+#1653020151
+# Cancelled transfer
+#1653020195
+lt
+#1653020208
+gzip -d *gz &
+#1653020209
+lt
+#1653020213
+les Averrhoa_carambola.genome.fasta
+#1653020362
+lth
+#1653020365
+les Averrhoa_carambola.gff
+#1653020389
+awk '$3=="mRNA"' Averrhoa_carambola.gff |wc -l
+#1653020393
+awk '$3=="gene"' Averrhoa_carambola.gff |wc -l
+#1653020399
+les Averrhoa_carambola.gff
+#1653020422
+grep "#OriSeqID=Chr" Averrhoa_carambola.gff
+#1653020452
+vi Averrhoa_carambola.g
+#1653020454
+vi Averrhoa_carambola.gff 
+#1653020475
+vi Averrhoa_carambola.f
+#1653020477
+vi Averrhoa_carambola.genome.fasta 
+#1653020501
+lt
+#1653020506
+mv Averrhoa_carambola.genome.fasta Averrhoa_carambola.fa
+#1653020506
+lth
+#1653020515
+les Averrhoa_carambola.CDS.fasta
+#1653020520
+les *gff
+#1653020555
+mv Averrhoa_carambola.gff Averrhoa_carambola.gff.1
+#1653020559
+awk '$3!="gene"' Averrhoa_carambola.gff.1 > Averrhoa_carambola.gff
+#1653020561
+les Averrhoa_carambola.gff.1
+#1653020563
+les Averrhoa_carambola.gff
+#1653020574
+gff_genome_to_genes.pl Averrhoa_carambola.gff Averrhoa_carambola.fa > Averrhoa_carambola.cds
+#1653020583
+lth
+#1653020585
+les Averrhoa_carambola.cds
+#1653020592
+cds2aa.pl Averrhoa_carambola.cds > Averrhoa_carambola.pep
+#1653020597
+lt
+#1653020612
+mv Averrhoa_carambola.fa Averrhoa_carambola.gff Averrhoa_carambola.cds Averrhoa_carambola.pep ../
+#1653020613
+lt
+#1653020618
+les Populus_trichocarpa.Pop_tri_v3.53.chr.gff3
+#1653020625
+les Populus_trichocarpa.Pop_tri_v3.53.gff3
+#1653020648
+longest_transcript_from_gff.py Populus_trichocarpa.Pop_tri_v3.53.chr.gff3
+#1653020714
+lth
+#1653020717
+les Populus_trichocarpa.Pop_tri_v3.53.chr.gff3.longest
+#1653020721
+vi Populus_trichocarpa.Pop_tri_v3.53.chr.gff3.longest
+#1653020739
+lt
+#1653020747
+vi Populus_trichocarpa.Pop_tri_v3.53.chr.gff3.longest
+#1653020765
+lth
+#1653020771
+mv Populus_trichocarpa.Pop_tri_v3.53.chr.gff3.longest Populus_trichocarpa.gff3
+#1653020772
+lth
+#1653020780
+mv Populus_trichocarpa.Pop_tri_v3.dna_sm.toplevel.fa Populus_trichocarpa.fa
+#1653020780
+lth
+#1653020794
+gff_genome_to_genes.pl Populus_trichocarpa.gff3 Populus_trichocarpa.fa > Populus_trichocarpa.cds
+#1653020803
+lth
+#1653020811
+vi 
+#1653020813
+vi Populus_trichocarpa.fa
+#1653020875
+lt
+#1653020877
+les *pep
+#1653020880
+gff_genome_to_genes.pl Populus_trichocarpa.gff3 Populus_trichocarpa.fa > Populus_trichocarpa.cds
+#1653020890
+lth
+#1653020897
+cds2aa.pl Populus_trichocarpa.cds > Populus_trichocarpa.pep
+#1653020905
+mv Populus_trichocarpa.cds Populus_trichocarpa.fa Populus_trichocarpa.gff3 Populus_trichocarpa.pep ..
+#1653020906
+cd ..
+#1653020906
+lth
+#1653020908
+les *pep
+#1653020957
+for i in  *pep; do echo -n $i; grep U $i |wc -l; done
+#1653020964
+les Oryza_sativa.pep 
+#1653020975
+ls
+#1653020979
+les Oryza_sativa.cds 
+#1653020991
+cd temp/
+#1653020993
+ls
+#1653020995
+ll
+#1653021002
+les Oryza_sativa.IRGSP-1.0.32.gff3
+#1653021048
+gffread -x Oryza_sativa.cds -g Oryza_sativa.IRGSP-1.0.dna_sm.toplevel.fa Oryza_sativa.IRGSP-1.0.32.gff3
+#1653021062
+lth
+#1653021067
+cd ..
+#1653021069
+ls
+#1653021072
+rm Oryza_sativa.cds 
+#1653021077
+head -1 Oryza_sativa.pep 
+#1653021080
+rm Oryza_sativa.pep 
+#1653021088
+ln -s temp/Oryza_sativa.cds Oryza_sativa.cds.1
+#1653021090
+vi Oryza_sativa.cds.1
+#1653021112
+cd -
+#1653021113
+lth
+#1653021118
+cd ..
+#1653021127
+ln -s temp/Oryza_sativa.fa
+#1653021130
+vi Oryza_sativa.fa 
+#1653021134
+ll
+#1653021137
+rm Oryza_sativa.fa 
+#1653021143
+ln -s temp/Oryza_sativa.IRGSP-1.0.dna_sm.toplevel.fa
+#1653021146
+vi Oryza_sativa.IRGSP-1.0.dna_sm.toplevel.fa 
+#1653021150
+lth
+#1653021153
+vi Oryza_sativa.gff3 
+#1653021171
+mv Oryza_sativa.IRGSP-1.0.dna_sm.toplevel.fa Oryza_sativa.fa
+#1653021175
+add_suffix.pl Oryza_sativa.fa
+#1653021183
+les Oryza_sativa.fa.new 
+#1653021200
+gffread -x Oryza_sativa.cds -g Oryza_sativa.fa.new Oryza_sativa.gff3 
+#1653021208
+lth
+#1653021215
+cds2aa.pl Oryza_sativa.cds > Oryza_sativa.pep
+#1653021220
+lth
+#1653021231
+mv Oryza_sativa.fa.new.fai Oryza_sativa.fa.new temp/
+#1653021232
+lth
+#1653021235
+rm Oryza_sativa.cds.1 
+#1653021236
+lth
+#1653021238
+les *pep
+#1653021243
+les Oryza_sativa.pep
+#1653021247
+lth
+#1653021251
+ll Oryza_sativa.*
+#1653021254
+cd temp/
+#1653021254
+ls
+#1653021263
+lth
+#1653021266
+cd ..
+#1653021266
+lth
+#1653021271
+for i in  *pep; do echo -n $i; grep U $i |wc -l; done
+#1653021274
+cd -
+#1653021275
+lt
+#1653021293
+vi Populus_trichocarpa.Pop_tri_v3.*f
+#1653021296
+ll Populus_trichocarpa.Pop_tri_v3.*fa
+#1653021298
+cd ..
+#1653021300
+ll Populus_trichocarpa.*
+#1653021303
+les Populus_trichocarpa.fa 
+#1653021311
+vw
+#1653021330
+p=Populus_trichocarpa; gffread -x ${p}.cds -g ${p}.fa ${p}.gff
+#1653021340
+p=Populus_trichocarpa; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3
+#1653021350
+lth
+#1653021352
+les *cds
+#1653021356
+les Populus_trichocarpa.cds
+#1653021360
+rm *fai
+#1653021361
+ll 
+#1653021369
+cds2aa.pl Populus_trichocarpa.cds > Populus_trichocarpa.pep
+#1653021375
+for i in  *pep; do echo -n $i; grep U $i |wc -l; done
+#1653021381
+head -1 *pep
+#1653021401
+for i in Populus_trichocarpa Averrhoa_carambola; do add_suffix.pl $i.*; done
+#1653021432
+lth
+#1653021438
+head -1 *.new
+#1653021458
+for i in *.new; do mv $i ${i%.new}; done
+#1653021459
+lth
+#1653021470
+head -3 Populus_trichocarpa.*
+#1653021478
+head -3 Averrhoa_carambola.*
+#1653021482
+lth
+#1653021489
+ls *sh
+#1653021490
+vi run.sh 
+#1653021518
+lt */*kaks
+#1653021531
+rm -r work.*Oryza_sativa/
+#1653021533
+rm -fr work.*Oryza_sativa/
+#1653021535
+lth
+#1653021545
+vi run.sh 
+#1653021569
+bash run.sh 
+#1653021570
+bjl
+#1653021582
+lt
+#1653021587
+lt *vinifera
+#1653021596
+lt *vinifera/*fera.gff3
+#1653021599
+le *vinifera/*fera.gff3
+#1653021605
+les *vinifera/*fera.gff3
+#1653021631
+les *vinifera/*fera.cds
+#1653021641
+bj
+#1653021650
+bkill 72331 72335
+#1653021651
+bj
+#1653021662
+lt
+#1653021665
+lth
+#1653021668
+lt -d */
+#1653021670
+bhosts 
+#1653021674
+bjl
+#1653021720
+lth
+#1653021722
+les run.sh 
+#1653021724
+bjl
+#1653021795
+vi `which gff_genome_to_genes.pl 
+#1653021796
+vi `which gff_genome_to_genes.pl `
+#1653022109
+lt
+#1653022119
+gff_genome_to_genes.pl Oryza_sativa.gff3 Oryza_sativa.fa > tmp.cds
+#1653022128
+vi `which gff_genome_to_genes.pl `
+#1653022133
+les Oryza_sativa.fa 
+#1653022135
+cd -
+#1653022140
+ll Oryza_sativa.*
+#1653022147
+gff_genome_to_genes.pl Oryza_sativa.IRGSP-1.0.32.gff3 Oryza_sativa.IRGSP-1.0.dna_sm.toplevel.fa > tmp.cds
+#1653022154
+les tmp.cds
+#1653022164
+cds2aa.pl tmp.cds > tmp.pep
+#1653022169
+grep U tmp.pep
+#1653022172
+les tmp.pep 
+#1653022176
+cd ..
+#1653022177
+gtp
