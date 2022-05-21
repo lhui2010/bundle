@@ -60430,3 +60430,515 @@ les tmp.pep
 cd ..
 #1653022177
 gtp
+#1653022182
+gtps
+#1653022187
+ll *pep
+#1653022195
+les Oryza_sativa.gff3 
+#1653022207
+select_fasta.pl OS01T0100300-00_Orsat Oryza_sativa.pep 
+#1653022210
+select_fasta.pl OS01T0100300-00_Orsat ../Oryza_sativa.pep 
+#1653022219
+cd temp/
+#1653022226
+select_fasta.pl OS01T0100300-00_Orsat tmp.pep 
+#1653022229
+les tmp.pep 
+#1653022234
+select_fasta.pl OS01T0100300-00 tmp.pep 
+#1653022240
+bjl
+#1653022245
+cd ..
+#1653022246
+lth
+#1653022351
+bjl
+#1653022354
+grep U tmp.pep
+#1653022382
+lth
+#1653024819
+bjl
+#1653024825
+bpeek 72328
+#1653024930
+bjl
+#1653024932
+bj
+#1653024935
+btop 72334
+#1653024937
+bj
+#1653024949
+bpeek 72328
+#1653024954
+lth
+#1653028980
+bjl
+#1653028991
+lt -d */*kaks
+#1653029005
+bjl
+#1653029010
+lt -d */
+#1653029018
+lt work.Medicago_truncatula.Populus_trichocarpa/ |head
+#1653029026
+lt work.Medicago_truncatula.Averrhoa_carambola/ |head
+#1653029032
+ll Averrhoa_carambola.*
+#1653029038
+mv Averrhoa_carambola.gff Averrhoa_carambola.gff3
+#1653029044
+rm -r work.Medicago_truncatula.Averrhoa_carambola/
+#1653029047
+rm -fr work.Medicago_truncatula.Averrhoa_carambola/
+#1653029052
+vi run.sh 
+#1653029060
+vi tmp.sh
+#1653029086
+bash tmp.sh
+#1653029087
+bjl
+#1653029095
+lt
+#1653029100
+lt -d */
+#1653029145
+lt work.Cercis_chinensis.Arabidopsis_thaliana/ |head
+#1653029174
+ll
+#1653029178
+mkdir all_blast
+#1653029179
+cd all_blast/
+#1653029187
+for i in ../work.*/*.blast; do ln -s $i; done
+#1653029188
+ll
+#1653029190
+rm Mt.At.blast 
+#1653029191
+lt
+#1653029203
+for i in *.blast; do python -m iga.apps.blast extract_reciprocal_best_hits $i; done
+#1653029404
+lth
+#1653029408
+ll *top1
+#1653029410
+les *top
+#1653029413
+les *top1
+#1653029428
+ll Medicago_truncatula.*top1
+#1653029430
+head -1 Medicago_truncatula.*top1
+#1653029458
+for i in Medicago_truncatula.*top1; do awk '{print $2"\t"$1}' $i > $i.ortho; done
+#1653029462
+les *.ortho
+#1653029556
+vi newly_evolved_polygala.txt
+#1653029567
+vi newly_evolved_fabaceae.txt
+#1653029628
+vi newly_evolved_DDCP
+#1653029736
+mv newly_evolved_DDCP.txt
+#1653029745
+mv newly_evolved_DDCP newly_evolved_DDCP.txt
+#1653029746
+lt
+#1653029747
+lth
+#1653029810
+les *ortho
+#1653029858
+for i in *.ortho; do perl ../02.nodulation_genes/dup2col.pl $i >> all_join.txt; done
+#1653029864
+for i in *.ortho; do perl ../../02.nodulation_genes/dup2col.pl $i >> all_join.txt; done
+#1653029865
+vi all_join.txt 
+#1653029885
+lth
+#1653029904
+python ../../02.nodulation_genes/stat2matrix.py all_join.txt 
+#1653029907
+les all_join.txt.xls 
+#1653029932
+lth
+#1653029941
+perl ../../02.nodulation_genes/count_matrix.pl all_join.txt > all_join.txt.count
+#1653029957
+perl ../../03.blast_rbh/count_matrix.pl all_join.txt > all_join.txt.count
+#1653029959
+les all_join.txt.
+#1653029961
+les all_join.txt.count 
+#1653029969
+vi all_join.txt
+#1653029974
+vi all_join.txt.xls 
+#1653029986
+perl ../../03.blast_rbh/count_matrix.pl all_join.txt.xls > all_join.txt.xls.count
+#1653029989
+les all_join.txt.xls.count
+#1653029997
+lth
+#1653029999
+lt
+#1653030002
+lth
+#1653030016
+selectItem.pl all_join.txt -k newly_evolved_DDCP.txt |les
+#1653030024
+selectItem.pl -k all_join.txt newly_evolved_DDCP.txt |les
+#1653030027
+selectItem.pl -k all_join.txt newly_evolved_DDCP.txt 
+#1653030031
+head all_join.txt newly_evolved_
+#1653030034
+head all_join.txt newly_evolved_DDCP.txt 
+#1653030039
+vi all_join.txt
+#1653030049
+selectItem.pl -k all_join.txt newly_evolved_DDCP.txt 
+#1653030065
+selectItem.pl -k all_join.txt.xls.count newly_evolved_DDCP.txt 
+#1653030069
+les all_join.txt.xls.count
+#1653030071
+vi all_join.txt.xls.count
+#1653030082
+selectItem.pl -k all_join.txt.xls.count newly_evolved_DDCP.txt 
+#1653030097
+wc -l newly_evolved_DDCP.txt 
+#1653030126
+les all_join.txt.xls.count
+#1653030341
+grep Chr5g0448621 newly_evolved_fabaceae.txt 
+#1653030348
+grep Chr5g0448621 *ortho
+#1653030370
+for i in ../work.*/*.anchors; do ln -s $i; done
+#1653030371
+lth
+#1653030375
+ls *anchors |wc -l
+#1653030384
+grep Chr5g0448621 *.anchors
+#1653030445
+grep Chr5g0448621 *.blast |head -1
+#1653030467
+for i in *.blast |do grep Chr5g0448621 $i |head -1; done
+#1653030473
+for i in *.blast; do grep Chr5g0448621 $i |head -1; done
+#1653030495
+for i in *top; do grep Chr5g0448621 $i |head -1; done
+#1653030498
+ls *top
+#1653030779
+les Medicago_truncatula.Oryza_sativa.blast.sorted.qry.top
+#1653030787
+les Medicago_truncatula.Oryza_sativa.blast.sorted.ref.top
+#1653030790
+les Medicago_truncatula.Oryza_sativa.blast.sorted.qry.top
+#1653030823
+grep mRNA_MtrunA17Chr5g0448621_Metru *blast |les
+#1653030832
+grep mRNA_MtrunA17Chr5g0448621_Metru Medicago_truncatula.Oryza_sativa.blast |les
+#1653030861
+grep mRNA_MtrunA17Chr5g0448621_Metru Medicago_truncatula.Oryza_sativa.blast.sorted.ref |les
+#1653031026
+vi ZY_oryza_NIN.txt
+#1653031126
+grep mRNA_MtrunA17Chr5g0448621_Metru Medicago_truncatula.Oryza_sativa.blast.sorted.ref |les
+#1653031167
+ll
+#1653031180
+select_fasta.pl OS03T0131100-01_Orsat  ../Oryza_sativa.pep 
+#1653031204
+j nin
+#1653031205
+lth
+#1653031213
+vi nin_phylo.fa
+#1653031220
+mkdir tmp
+#1653031228
+mkdir nin_phylo_with_oryza
+#1653031229
+cd nin_phylo_with_oryza/
+#1653031251
+grep mRNA_MtrunA17Chr5g0448621_Metru Medicago_truncatula.*.blast.sorted.ref |les
+#1653031266
+for i in  Medicago_truncatula.*.blast.sorted.ref; do grep mRNA_MtrunA17Chr5g0448621_Metru $i |head -1 ; done
+#1653031332
+select_fasta.pl OS03T0131100-01_Orsat  ../Oryza_sativa.cds; select_fasta.pl AT4G35270.1_Artha ../Arabidopsis_thaliana.cds ; select_fasta.pl VIT_203s0038g03710.1_Vivin ../Vitis_vinifera.cds 
+#1653031343
+ll
+#1653031347
+cp ../nin_phylo.fa .
+#1653031349
+vi nin_phylo.fa 
+#1653031355
+grep ">" nin_phylo.fa 
+#1653031366
+cd ..
+#1653031367
+ls
+#1653031372
+grep POTAT *
+#1653031377
+lth
+#1653031381
+les Potat_NIN_chr.cds
+#1653031385
+vi Potat_NIN_chr.cds
+#1653031388
+cd -
+#1653031389
+lt
+#1653031391
+vi nin_phylo.fa 
+#1653031401
+ls ../*sh
+#1653031404
+vi ../findNIN.sh 
+#1653031408
+cp ../findNIN.sh  .
+#1653031409
+vi findNIN.sh 
+#1653031414
+ll
+#1653031415
+vi findNIN.sh 
+#1653031422
+bash findNIN.sh 
+#1653033047
+conda activate hyphy
+#1653033049
+bash findNIN.sh 
+#1653033058
+lth
+#1653033076
+les ../../NIN_mutation/nin_phylo.fa
+#1653033149
+lth
+#1653033152
+sz nin_phylo.fa.nwk 
+#1653033155
+# Sent -> /Users/liuhui/Downloads/
+#1653033093
+les ../../NIN_mutation/nin_phylo.pep
+#1653033260
+lth
+#1653033269
+grep -i os03t0131100 *qry.top
+#1653033295
+grep -i os03t0131100 *ref.top
+#1653033337
+grep -i VIT_203s0038g03710.1_vivin *.ref.top
+#1653033350
+grep -i VIT_203s0038g03710.1_vivin *.qry.top
+#1653033459
+grep -i at4g35270 *.qry.top
+#1653033464
+grep -i at4g35270 *.ref.top
+#1653033490
+grep -i mRNA_MtrunA17Chr3g0143921_Metru *.ref.top
+#1653033508
+grep -i mRNA_MtrunA17Chr3g0143921_Metru *.qry.top
+#1653034535
+selectItem.pl VIT_203s0038g03710.1_Vivin ../Vitis_vinifera.pep 
+#1653034540
+les ../Vitis_vinifera.pep
+#1653034554
+select_fasta.pl VIT_203s0038g03710.1_Vivin ../Vitis_vinifera.pep 
+#1653093435
+j 04.
+#1653093438
+lt
+#1653093439
+lth
+#1653093441
+ls
+#1653093442
+bjl
+#1653093446
+ll *.e
+#1653093451
+lt */*.kaks
+#1653093456
+lt */*.kaks |wc -l
+#1653093471
+ls
+#1653093481
+lth
+#1653093486
+ls ..
+#1653093492
+lth
+#1653093495
+cd all_blast/
+#1653093495
+ls
+#1653093496
+lth
+#1653093504
+lt
+#1653093514
+les newly_evolved_polygala.txt 
+#1653093528
+lth
+#1653093531
+ll *txt
+#1653093537
+les all_join.txt
+#1653093479
+tma
+#1653093570
+selectItem.pl -k all_join.txt.xls.count newly_evolved_DDCP.txt 
+#1653093581
+selectItem.pl -k all_join.txt.xls.count newly_evolved_DDCP.txt 
+#1653093619
+wc -l all_join.txt.
+#1653093621
+wc -l all_join.txt.xls.count 
+#1653093705
+selectItem.pl -k all_join.txt.xls.count newly_evolved_polygala.txt 
+#1653093709
+selectItem.pl -k all_join.txt.xls.count newly_evolved_polygala.txt  |wc -l
+#1653093714
+wc -l newly_evolved_polygala.txt 
+#1653098681
+selectItem.pl -k all_join.txt.xls.count newly_evolved_polygala.txt  > gene_conserved_in_Fabales_outgroup.txt
+#1653098684
+vi gene_conserved_in_Fabales_outgroup.txt 
+#1653099142
+les newly_evolved_
+#1653099148
+les all_join.txt.xls.count 
+#1653099153
+vi gene_conserved_in_Fabales_outgroup.txt 
+#1653100310
+sort -k2,2nr -k3,3nr -k4,4nr gene_conserved_in_Fabales_outgroup.txt  |les
+#1653100356
+sort -k4,4nr -k3,3nr -k2,2nr gene_conserved_in_Fabales_outgroup.txt  |les
+#1653100398
+ls
+#1653100422
+for i in ../work*/*.blast; do ln -s $i; done
+#1653100425
+lth
+#1653100444
+for i in Medicago_truncatula.Populus_trichocarpa.blast Medicago_truncatula.Averrhoa_carambola.blast Cercis_chinensis.Populus_trichocarpa.blast Cercis_chinensis.Averrhoa_carambola.blast; do python -m iga.apps.blast extract_reciprocal_best_hits $i; done
+#1653100590
+lth
+#1653100592
+les all_join.txt.xls.count 
+#1653100595
+sort -k4,4nr -k3,3nr -k2,2nr gene_conserved_in_Fabales_outgroup.txt  |les
+#1653100621
+lt *top1
+#1653100631
+for i in MtrunA17Chr1g0147631 MtrunA17Chr1g0196911 MtrunA17Chr2g0310011 MtrunA17Chr2g0322801 MtrunA17Chr3g0104011 MtrunA17Chr3g0121871 MtrunA17Chr4g0026641 MtrunA17Chr5g0413071 MtrunA17Chr7g0261231; do grep $i Medicago_truncatula.Averrhoa_carambola.blast.top1 ; grep $i Medicago_truncatula.Populus_trichocarpa.blast.top1; done
+#1653093577
+tma
+#1653101898
+history |less
+#1653102126
+vi top1_to_excel.sh
+#1653102139
+lth *top1
+#1653102144
+mv top1_to_excel.sh all_blast/
+#1653102145
+cd all_blast/
+#1653102146
+lth
+#1653102147
+chd
+#1653102150
+lt *top1
+#1653102155
+head -1 Medicago_truncatula.Averrhoa_carambola.blast.top1 Medicago_truncatula.Populus_trichocarpa.blast.top1
+#1653102158
+vi top1_to_excel.sh
+#1653102164
+les *ortho
+#1653102165
+vi top1_to_excel.sh
+#1653102172
+ls ../../02.nodulation_genes/dup2col.pl
+#1653102175
+mkdir triangle
+#1653102180
+mv all_join.txt* triangle/
+#1653102183
+vi top1_to_excel.sh
+#1653102220
+bash top1_to_excel.sh
+#1653102225
+lth
+#1653102230
+les all_join.txt.xls.count 
+#1653102243
+selectItem.pl -k all_join.txt.xls.count newly_evolved_DDCP.txt 
+#1653102246
+les newly_evolved_
+#1653102248
+les newly_evolved_DDCP.txt 
+#1653102255
+vi top1_to_excel.sh
+#1653102269
+les *count
+#1653102271
+vi top1_to_excel.sh
+#1653102280
+bash top1_to_excel.sh
+#1653102295
+lth
+#1653102303
+les *ortho
+#1653102312
+vi top1_to_excel.sh
+#1653102319
+les all_join.txt
+#1653102330
+vi top1_to_excel.sh
+#1653102337
+python ../../02.nodulation_genes/stat2matrix.py all_join.txt
+#1653102347
+vi top1_to_excel.sh
+#1653102358
+bash top1_to_excel.sh
+#1653102362
+lth
+#1653102364
+les *xls
+#1653102370
+les *xls.count
+#1653102374
+vi top1_to_excel.sh
+#1653102397
+mkdir rbh_scripts
+#1653102406
+vi top1_to_excel.sh 
+#1653102415
+mkdir rbh_scripts
+#1653102420
+cp ../../02.nodulation_genes/dup2col.pl rbh_scripts/
+#1653102425
+cp ../../02.nodulation_genes/stat2matrix.py rbh_scripts/
+#1653102433
+cp ../../03.blast_rbh/count_matrix.pl rbh_scripts/
+#1653102453
+mv rbh_scripts /nfs/liuhui/bin/bundle/bash_template/
+#1653102455
+gtp
