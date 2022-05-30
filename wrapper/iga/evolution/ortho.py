@@ -665,7 +665,7 @@ def is_pav(gene=None, group=None):
                 if res_list[1] == gene:
                     (res_list[0], res_list[1]) = (res_list[1], res_list[0])
                 ortho_list.append(res_list[1])
-                result.append("{}\t{}\t{}\n".format(res_list[0], group, res_list[1]))
+                result.append("{}\t{}\t{}".format(res_list[0], group, res_list[1]))
     with open(rbh_file) as fh:
         for line in fh:
             if gene in line:
@@ -676,7 +676,7 @@ def is_pav(gene=None, group=None):
                 if res_list[1] not in ortho_list:
                     res_list[1] += "(rbh)"
                     ortho_list.append(res_list[1])
-                    result.append("{}\t{}\t{}\n".format(res_list[0], group, res_list[1]))
+                    result.append("{}\t{}\t{}".format(res_list[0], group, res_list[1]))
     print("\n".join(result))
 
 if __name__ == "__main__":
