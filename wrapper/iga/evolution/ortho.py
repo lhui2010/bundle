@@ -638,7 +638,8 @@ def is_pav(gene=None, group=None):
         exit(1)
         # bsub(mcscanx(qry, ref, model='NG)
     os.chdir(workdir)
-    if not op.exists('{}.blast.top1'.format(group)):
+    rbh_file = '{}.blast.top1'.format(group)
+    if not op.exists(rbh_file):
         extract_reciprocal_best_hits("{}.blast".format(group))
     # lift block
     block_ks_file = "{0}.anchors.addks".format(group)
@@ -649,11 +650,33 @@ def is_pav(gene=None, group=None):
     maxKs=2
     filter_ks_file = block_ks_file + ".filterKs"
     if not op.exists(filter_ks_file):
-        cmd = "python -m iga.evolution.ortho select_block_by_ks {0} --max_ks {1} >{0}.filterKs".format(block_ks_file, maxKs)
+        cmd = "python -m iga.evolution.ortho select_block_by_ks {0} --max_ks {1} >{0}.filterKs".format(block_ks_file,
+                                                                                                       maxKs)
         sh(cmd)
     # search gene
-    res = sh("grep {} {}.anchors".format(gene, group))
-    print(res)
+    result = ""
+    ortho_list = []
+    with open(filter_ks_file) as fh:
+        for line in fh:
+            if gene in line:
+                mylist = line.split()
+                res_list = mylist[:2]
+                if res_list[1] == gene:
+                    (res_list[0], res_list[1]) = (res_list[1], res_list[0])
+                ortho_list.append(res_list[1])
+                result += "{}\t{}\t{}\n".format(res_list[0], group, res_list[1])
+    with open(rbh_file) as fh:
+        for line in fh:
+            if gene in line:
+                mylist = line.split()
+                res_list = mylist[:2]
+                if res_list[1] == gene:
+                    (res_list[0], res_list[1]) = (res_list[1], res_list[0])
+                if res_list[1] not in ortho_list:
+                    res_list[1] += "(rbh)"
+                    ortho_list.append(res_list[1])
+                    result += "{}\t{}\t{}\n".format(res_list[0], group, res_list[1])
+    print(result)
 
 if __name__ == "__main__":
     emain()
