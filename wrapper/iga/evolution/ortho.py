@@ -649,6 +649,8 @@ def is_pav(gene=None, group=None):
         sh(cmd)
     # fiter block
     maxKs=2
+    if 'Arabidopsis' in group:
+        maxKs = 3
     filter_ks_file = block_ks_file + ".filterKs"
     if not op.exists(filter_ks_file):
         cmd = "python -m iga.evolution.ortho select_block_by_ks {0} --max_ks {1} >{0}.filterKs".format(block_ks_file,
