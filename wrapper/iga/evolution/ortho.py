@@ -631,7 +631,8 @@ def is_pav(gene=None, group=None):
     """
     workdir = 'work.'+group
     if op.exists(workdir):
-        logging.info("found {}".format(group))
+        pass
+        #logging.info("found {}".format(group))
     else:
         (qry, ref) = group.split('.')
         logging.error("Not found {}, exiting".format(group))
