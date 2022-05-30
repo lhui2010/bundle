@@ -618,5 +618,42 @@ def rbhks(prefix1=None, prefix2=None, threads=4, runKs='T',
     return 0
 
 
+def is_pav(gene=None, group=None):
+    """
+    gene is like Mtrun5g048661
+    group is like Medicago_truncatula.Vitis_vinifera
+    Args:
+        gene:
+        group:
+
+    Returns: The output would be like
+        Mtrun5g048661\tMedicago_truncatula.Vitis_vinifera\tVIT_203s0038g03710.1_Vivin
+    """
+    workdir = 'work.'+group
+    if op.exists(workdir):
+        logging.info("found {}".format(group))
+    else:
+        (qry, ref) = group.split('.')
+        logging.error("Not found {}, exiting".format(group))
+        exit(1)
+        # bsub(mcscanx(qry, ref, model='NG)
+    os.chdir(workdir)
+    if not op.exists('{}.blast.top1'.format(group)):
+        extract_reciprocal_best_hits("{}.blast".format(group))
+    # lift block
+    block_ks_file = "{0}.anchors.addks".format(group)
+    if not op.exists(block_ks_file):
+        cmd = "python -m iga.evolution.ortho kaks_to_block {0}.ortho.kaks {0}.anchors > {0}.anchors.addks".format(group)
+        sh(cmd)
+    # fiter block
+    maxKs=2
+    filter_ks_file = block_ks_file + ".filterKs"
+    if not op.exists(filter_ks_file):
+        cmd = "python -m iga.evolution.ortho select_block_by_ks {0} --max_ks {1} >{0}.filterKs".format(block_ks_file, maxKs)
+        sh(cmd)
+    # search gene
+    res = sh("grep {} {}.anchors".format(gene, group))
+    print(res)
+
 if __name__ == "__main__":
     emain()
