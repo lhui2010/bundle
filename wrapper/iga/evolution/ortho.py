@@ -332,7 +332,7 @@ cat {0}.left.ortho {0}.right.ortho |sed "s/\t/\n/" > {0}.cross.id
 
 selectItem.pl 0 0,1 {0}.cross.id ../{0}  >> {0}.cross.ortho
 
-sed "s/\t/-" {0}.cross.ortho > {0}.cross
+sed "s/\t/-/" {0}.cross.ortho > {0}.cross
 
 selectItem.pl -h    {0}.left  ../{1}.kaks >{0}.left.kaks
 selectItem.pl -h    {0}.right ../{2}.kaks >{0}.right.kaks
