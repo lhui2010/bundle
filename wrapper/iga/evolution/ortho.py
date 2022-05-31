@@ -326,12 +326,13 @@ selectItem.pl 1 0,1 ../{0}       ../{2} > {0}.right.ortho
 selectItem.pl 0 0,1 ../{0}       ../{2} >> {0}.right.ortho
 
 
-cat {0}.left.ortho {0}.right.ortho |sed "s/\t/\n/" > {0}.cross.id
+cat {0}.left.ortho {0}.right.ortho |sed "s/\t/\n/"|sort |uniq > {0}.cross.id
 
 selectItem.pl 0 0,1 {0}.cross.id ../{0}  > {0}.cross.ortho
 sed "s/\t/-/" {0}.cross.ortho > {0}.cross
-selectItem.pl 0 0,1 {0}.cross.id {0}.left.ortho |sed "s/\t/-/" > {0}.left
-selectItem.pl 0 0,1 {0}.cross.id {0}.right.ortho |sed "s/\t/-/" > {0}.right
+sed "s/\t/\n/" {0}.cross.ortho |sort |uniq > {0}.cross.id2
+selectItem.pl 0 0,1 {0}.cross.id2 {0}.left.ortho |sed "s/\t/-/" > {0}.left
+selectItem.pl 0 0,1 {0}.cross.id2 {0}.right.ortho |sed "s/\t/-/" > {0}.right
 
 selectItem.pl -h    {0}.left  ../{1}.kaks >{0}.left.kaks
 selectItem.pl -h    {0}.right ../{2}.kaks >{0}.right.kaks
