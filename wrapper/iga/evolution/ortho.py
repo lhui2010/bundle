@@ -322,7 +322,7 @@ selectItem.pl 0 0,1 ../{0}       ../{1} |sed "s/\t/-/" > {0}.left
 selectItem.pl 1 0,1 ../{0}       ../{1} |sed "s/\t/-/" >> {0}.left
 
 selectItem.pl 1 0,1 ../{0}       ../{2} |sed "s/\t/-/" > {0}.right
-selectItem.pl 0 0,1 ../{0}       ../{2} |sed "s/\t/-/" > {0}.right
+selectItem.pl 0 0,1 ../{0}       ../{2} |sed "s/\t/-/" >> {0}.right
 
 
 selectItem.pl -h    {0}.left  ../{1}.kaks >{0}.left.kaks
