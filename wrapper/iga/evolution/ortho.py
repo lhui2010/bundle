@@ -341,8 +341,8 @@ selectItem.pl -h    {0}.cross ../{0}.kaks >{0}.cross.kaks
 get_ks_peak.py      {0}.left.kaks > {0}.left.peak
 get_ks_peak.py      {0}.right.kaks > {0}.right.peak
 get_ks_peak.py      {0}.cross.kaks > {0}.cross.peak
-perl -e 'my @res; for my $f (@ARGV){ my @e=split; push @res, $e[0];} my $res = join("\t", @res); print $res, "\n";' \
-> ../{0}.left_right_cross.peak
+perl -e 'my @res; while(<>){my @e=split; push @res, $e[0];} my $res = join("\t", @res); print $res, "\n";' \
+{0}.left.peak {0}.right.peak {0}.cross.peak > ../{0}.left_right_cross.peak
 """
 
 
