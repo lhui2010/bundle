@@ -117,7 +117,8 @@ def post_repeatmasker(dir=None, genome=None, wait="T"):
     :param dir:
     :return:
     """
-    cmd = post_repeatmasker_sh.format(dir)
+    cmd = conda_act.format('EDTA')
+    cmd += post_repeatmasker_sh.format(dir)
     if genome != '':
         cmd += get_mask_fasta_sh.format(dir, genome)
     jobid = bsub(cmd, name='post_repeatmasker')
