@@ -77,7 +77,6 @@ then
     gunzip *lib.out/*.cat.gz
 fi
 
-gunzip *lib.out/*.cat.gz
 cat *lib.out/*.cat >Full_mask/full_mask.cat
 ## to mask.out
 cd Full_mask
