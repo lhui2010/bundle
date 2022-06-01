@@ -354,7 +354,7 @@ source activate {}
 
 workdir_sh = r"""
 mkdir -p {0}
-cd {0}
+pushd {0}
 """
 
 

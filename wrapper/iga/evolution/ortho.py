@@ -315,8 +315,9 @@ def select_block_by_ks(anchor_ks=None, min_ks=0, max_ks=0.7):
 # 0: xx.yy.ortho
 # 1: xx.xx.ortho
 # 2: yy.yy.ortho
+# 3: threads
 commonWGD_sh = r"""
-export OMP_NUM_THREADS="8";
+export OMP_NUM_THREADS="{3}";
 selectItem.pl 0 0,1 ../{0}       ../{1} > {0}.left.ortho
 # avoid left-right problem
 selectItem.pl 1 0,1 ../{0}       ../{1} >> {0}.left.ortho
@@ -341,12 +342,14 @@ selectItem.pl -h    {0}.cross ../{0}.kaks >{0}.cross.kaks
 get_ks_peak.py      {0}.left.kaks > {0}.left.peak
 get_ks_peak.py      {0}.right.kaks > {0}.right.peak
 get_ks_peak.py      {0}.cross.kaks > {0}.cross.peak
+echo -en "{0}\t" > ../{0}.left_right_cross.peak
 perl -e 'my @res; while(<>){{my @e=split; push @res, $e[0];}} my $res = join("\t", @res); print $res, "\n";' \
-{0}.left.peak {0}.right.peak {0}.cross.peak > ../{0}.left_right_cross.peak
+{0}.left.peak {0}.right.peak {0}.cross.peak >> ../{0}.left_right_cross.peak
+popd
 """
 
 
-def commonWGD1(wgd_ortho=None):
+def commonWGD1(wgd_ortho=None, threads=8, submit='T'):
     """
     Input Eg: Medicago_truncatula.Senna_tora.ortho
     Test if there was common WGD between xx and yy given xx.yy.ortho and xx.yy.ortho.ks as well as xx.xx.ortho[.ks] and
@@ -364,8 +367,8 @@ def commonWGD1(wgd_ortho=None):
     if wgd_right == wgd_left:
         logging.info("Ignoring paralogous")
         return 0
-    cmd += commonWGD_sh.format(wgd_ortho, wgd_left, wgd_right)
-    bsub(cmd, cpus=8, name='GMM_peak')
+    cmd += commonWGD_sh.format(wgd_ortho, wgd_left, wgd_right, threads)
+    bsub(cmd, cpus=threads, name='GMM_peak', submit=submit)
 
 
 
