@@ -3,6 +3,7 @@ scripts used in nitfix project
 """
 import logging
 import coloredlogs
+from iga.apps.base import emain
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
@@ -39,3 +40,25 @@ a = pheatmap(RCG, show_rownames=T, col = mycol,
        fontsize_col = 20, angle_col ="45",border_color = 'white')
 
 """
+
+
+
+def unselect(ID=None, table=None):
+    id_dict = dict()
+    with open(ID) as fh:
+        for line in fh:
+            id_dict[line.rstrip()] = 1
+    with open(table) as fh:
+        line = fh.readline()
+        print(line.rstrip())
+        for line in fh:
+            if line.startswith('Sequence'):
+                continue
+            mylist = line.split()
+            first_field = mylist[0].replace(">q_", "")
+            (qry, ref) = first_field.split("_t_")
+            if qry in id_dict or ref in id_dict:
+                continue
+            print(line.rstrip())
+
+emain()
