@@ -72,9 +72,14 @@ species=Viridiplantae
 cd {0}
 mkdir -p Full_mask
 ## unzip
-if [ -e *lib.out/*.cat.gz ]
+if [ -e species_lib.out/*.cat.gz ]
 then
-    gunzip *lib.out/*.cat.gz
+    gunzip species_lib.out/*.cat.gz
+fi
+
+if [ -e custom_lib.out/*.cat.gz ]
+then
+    gunzip custom_lib.out/*.cat.gz
 fi
 
 cat *lib.out/*.cat >Full_mask/full_mask.cat
