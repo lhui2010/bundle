@@ -67644,3 +67644,809 @@ rm workdir
 mv /nfs/liuhui/bin/bundle/config/workdir  /nfs/liuhui/bin/bundle/config/workdir.txt
 #1654568615
 ln -s /nfs/liuhui/bin/bundle/config/workdir.txt
+#1654568617
+gtps
+#1654568623
+cd -
+#1654568623
+lt
+#1654568625
+cd
+#1654568631
+bjl
+#1654568636
+more workdir.txt 
+#1654568658
+cd/nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/super_transcript/cds_peps/work.Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654568661
+cd /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/super_transcript/cds_peps/work.Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654568662
+lt
+#1654568667
+cd ..
+#1654568668
+ls
+#1654568671
+cd -
+#1654568671
+ls
+#1654568672
+lt
+#1654568688
+cp /nfs/liuhui/bin/bundle/executables/plot-ks.pl .
+#1654568691
+vi plot-ks.pl 
+#1654568806
+ll ../../plot_ks_Angylocalyx_braunii_Pap/
+#1654568813
+vi plot-ks.pl 
+#1654568823
+mv plot-ks.pl plot-ks.cross.pl 
+#1654568825
+vi plot-ks.cross.pl 
+#1654569262
+lt
+#1654569281
+perl plot-ks.cross.pl 
+#1654569285
+vi plot-ks.cross.pl 
+#1654569302
+perl plot-ks.cross.pl 
+#1654569304
+perl plot-ks.cross.pl  -h
+#1654569315
+perl plot-ks.cross.pl Abrus_precatorius Angylocalyx_braunii_Pap -o Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654569320
+vi plot-ks.cross.pl 
+#1654569335
+perl plot-ks.cross.pl Abrus_precatorius Angylocalyx_braunii_Pap -o Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654569344
+vi plot-ks.cross.pl 
+#1654569412
+perl plot-ks.cross.pl Abrus_precatorius Angylocalyx_braunii_Pap -o Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654569414
+vi plot-ks.cross.pl 
+#1654569446
+top
+#1654569449
+ps ux
+#1654569456
+ps ux |les
+#1654569436
+perl plot-ks.cross.pl Abrus_precatorius Angylocalyx_braunii_Pap -o Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654569457
+ps ux |less
+#1654570148
+vi plot-ks.cross.pl 
+#1654570165
+cd -
+#1654570167
+lt
+#1654570172
+lt Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654570181
+vi plot-ks.cross.pl 
+#1654570283
+les Abrus_precatorius.Angylocalyx_braunii_Pap.transdecoder.cds
+#1654570289
+cd Abrus_precatorius.Angylocalyx_braunii_Pap/
+#1654570290
+les Abrus_precatorius.Angylocalyx_braunii_Pap.transdecoder.cds 
+#1654570296
+les Abrus_precatorius.Angylocalyx_braunii_Pap.transdecoder.pep 
+#1654570302
+lt
+#1654570305
+cd -
+#1654570317
+vi plot-ks.cross.pl 
+#1654570387
+ls
+#1654570406
+vi plot-ks.cross.pl 
+#1654570429
+perl plot-ks.cross.pl Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654570443
+vi plot-ks.cross.pl 
+#1654570595
+perl plot-ks.cross.pl Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654570598
+vi plot-ks.cross.pl 
+#1654570634
+perl plot-ks.cross.pl Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654570638
+vi plot-ks.cross.pl 
+#1654570750
+perl plot-ks.cross.pl Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654570757
+vi plot-ks.cross.pl 
+#1654570809
+perl plot-ks.cross.pl Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654570824
+ls 
+#1654570842
+vi plot-ks.cross.pl 
+#1654570881
+perl plot-ks.cross.pl Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654570887
+vi plot-ks.cross.pl 
+#1654570974
+perl plot-ks.cross.pl Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654570976
+vi plot-ks.cross.pl 
+#1654571020
+ls
+#1654571028
+mv Abrus_precatorius.Angylocalyx_braunii_Pap Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571035
+cd Abrus_precatorius-Angylocalyx_braunii_Pap/
+#1654571035
+ls
+#1654571036
+lt
+#1654571047
+rename Abrus_precatorius.Angylocalyx_braunii_Pap Abrus_precatorius-Angylocalyx_braunii_Pap *
+#1654571048
+lt
+#1654571048
+cd -
+#1654571049
+perl plot-ks.cross.pl Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654571062
+vi plot-ks.cross.pl 
+#1654571075
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571085
+vi plot-ks.cross.pl 
+#1654571202
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571206
+vi plot-ks.cross.pl 
+#1654571229
+cd -
+#1654571230
+lth
+#1654571232
+les self-blat.pslx 
+#1654571240
+cd -
+#1654571241
+vi plot-ks.cross.pl 
+#1654571307
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571310
+vi plot-ks.cross.pl 
+#1654571318
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571329
+vi plot-ks.cross.pl 
+#1654571365
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571368
+vi plot-ks.cross.pl 
+#1654571380
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571383
+vi plot-ks.cross.pl 
+#1654571413
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571418
+vi plot-ks.cross.pl 
+#1654571445
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571461
+top
+#1654571478
+lth
+#1654571479
+vi plot-ks.cross.pl 
+#1654571598
+ls Abrus_precatorius-Angylocalyx_braunii_Pap/Abrus_precatorius-Angylocalyx_braunii_Pap.transdecoder.cds
+#1654571601
+ll Abrus_precatorius-Angylocalyx_braunii_Pap/Abrus_precatorius-Angylocalyx_braunii_Pap.transdecoder.cds
+#1654571604
+vi plot-ks.cross.pl 
+#1654571704
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571718
+vi plot-ks.cross.pl 
+#1654571724
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571744
+jobs
+#1654571746
+ps ux
+#1654571748
+vi plot-ks.cross.pl 
+#1654571776
+les ../../plot*/*pslx
+#1654571780
+lth
+#1654571781
+vi plot-ks.cross.pl 
+#1654571806
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571839
+vi plot-ks.cross.pl 
+#1654571986
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654571994
+vi plot-ks.cross.pl 
+#1654572024
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654572031
+cd -
+#1654572032
+lt
+#1654572036
+ls blat-out/
+#1654572040
+rm -r blat-out/
+#1654572041
+lt
+#1654572042
+cd -
+#1654572045
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654572133
+cd -
+#1654572134
+lth
+#1654572137
+wc -l *kaks
+#1654572140
+les *kaks
+#1654572143
+sz *pdf
+#1654572145
+# Sent -> /Users/liuhui/Downloads/
+#1654572177
+lt
+#1654572182
+cd -
+#1654572183
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654572187
+cd -
+#1654572188
+lt
+#1654572189
+rm paralogs-t300*
+#1654572191
+cd -
+#1654572193
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654572268
+cd -
+#1654572269
+lt
+#1654572271
+les paralogs-t300*csv
+#1654572274
+les paralogs-t300*kaks
+#1654572304
+les paralogs-t300*atx
+#1654572333
+cd -
+#1654572334
+vi plot-ks.cross.pl 
+#1654572379
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat=$e[3] - ($e[1]+$e[2])/2; print $stat, "\n";' *peak
+#1654572384
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654572387
+cd -
+#1654572388
+rm paralogs-t300*
+#1654572389
+cd -
+#1654572390
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654572437
+vi plot-ks.cross.pl 
+#1654572479
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat=$e[3] - ($e[1]+$e[2])/2; print $stat, "\n";' *peak
+#1654572482
+vi perl_conda.sh 
+#1654572484
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654572525
+lt
+#1654572526
+vw
+#1654572535
+vi bjl
+#1654572540
+lth
+#1654572544
+les self-blat.pslx 
+#1654572547
+cd Abrus_precatorius-Angylocalyx_braunii_Pap/
+#1654572548
+tl
+#1654572548
+lt
+#1654572550
+les self-blat.pslx 
+#1654572572
+lt ..
+#1654572581
+lt ../work_Abrus_precatorius.Angylocalyx_braunii_Pap.ortho/
+#1654572597
+lt
+#1654572604
+vi plot-ks.cross.pl 
+#1654572607
+ls
+#1654572608
+cd -
+#1654572609
+vi plot-ks.cross.pl 
+#1654572728
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat=$e[3] - ($e[1]+$e[2])/2; print $stat, "\n";' *peak
+#1654572735
+vi plot-ks.cross.pl 
+#1654572819
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat=$e[3] - ($e[1]+$e[2])/2; print $stat, "\n";' *peak
+#1654572843
+vi perl_conda.sh 
+#1654572845
+vi plot-ks.cross.pl 
+#1654572872
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat=$e[3] - ($e[1]+$e[2])/2; print $stat, "\n";' *peak
+#1654572874
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654572893
+grep TRINITY_DN25576_c0_g1.p1_Anbra *pslx |grep rna-XM_027487505.1_Abpre
+#1654572896
+les *pslx
+#1654572902
+cd -
+#1654572903
+grep TRINITY_DN25576_c0_g1.p1_Anbra *pslx |grep rna-XM_027487505.1_Abpre
+#1654573041
+vi perl_conda.sh 
+#1654573043
+vi plot-ks.cross.pl 
+#1654573124
+les *pslx
+#1654573126
+cd -
+#1654573128
+les *pslx
+#1654573218
+awk '$1>100' *pslx |wc -l
+#1654573222
+lt
+#1654573245
+awk '$1>100' *pslx  |cut -f10,14 > self-blat.pslx.filter
+#1654573247
+vi self-blat.pslx.filter 
+#1654573256
+awk '$1>100' *pslx  |cut -f10,14  |sort |uniq > self-blat.pslx.filter
+#1654573257
+lth
+#1654573260
+wc -l *er
+#1654573265
+les *er
+#1654573275
+python -m iga.evolution.ortho 
+#1654573280
+python -m iga.evolution.ortho kaks
+#1654573282
+python -m iga.evolution.ortho kaks -h
+#1654573294
+lsload
+#1654573313
+lt
+#1654573335
+top
+#1654573341
+lth
+#1654573347
+more proc 
+#1654573352
+ls self-blat.pslx.filter.ParaAT.out/* |wc -l
+#1654573360
+htop
+#1654573432
+ls
+#1654573438
+vi ../plot-ks.cross.pl 
+#1654573465
+top
+#1654573468
+lth
+#1654573472
+htop
+#1654573768
+vi ../plot-ks.cross.pl 
+#1654573804
+cd ..
+#1654573809
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654573866
+select_fasta.pl TRINITY_DN32591_c0_g1.p1_Anbra Abrus_precatorius-Angylocalyx_braunii_Pap/Abrus_precatorius-Angylocalyx_braunii_Pap.transdecoder.cds 
+#1654573915
+grep TRINITY_DN32591_c0_g1.p1_Anbra *pslx |grep rna-XM_027502005.1_Abpre
+#1654573936
+grep TRINITY_DN32591_c0_g1.p1_Anbra Abrus_precatorius-Angylocalyx_braunii_Pap/*pslx |grep rna-XM_027502005.1_Abpre
+#1654573986
+select_fasta.pl TRINITY_DN32591_c0_g1.p1_Anbra Abrus_precatorius-Angylocalyx_braunii_Pap/Abrus_precatorius-Angylocalyx_braunii_Pap.transdecoder.pep
+#1654574049
+vi ../plot-ks.cross.pl 
+#1654574052
+vi plot-ks.cross.pl 
+#1654574124
+ls
+#1654574126
+cd -
+#1654574127
+lth
+#1654574131
+mv self-blat.pslx self-blat.pslx.1
+#1654574132
+cd -
+#1654574144
+grep TRINITY_DN32591_c0_g1.p1_Anbra Abrus_precatorius-Angylocalyx_braunii_Pap/*pslx.1 |grep rna-XM_027502005.1_Abpre > Abrus_precatorius-Angylocalyx_braunii_Pap/self-blat.pslx
+#1654574147
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654574164
+cd -
+#1654574165
+lth
+#1654574168
+les self-blat.pslx
+#1654574172
+ls blat-out/
+#1654574174
+rm -r blat-out/
+#1654574175
+cd -
+#1654574176
+perl plot-ks.cross.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654574190
+vi plot-ks.cross.pl 
+#1654574210
+cd -
+#1654574214
+more *plsx
+#1654574215
+lth
+#1654574217
+more self-blat.pslx
+#1654574225
+cd -
+#1654574226
+ls
+#1654574234
+lth
+#1654574236
+bjl
+#1654574238
+ps ux
+#1654574248
+strace -p liuhui
+#1654574255
+strace -p 30271
+#1654574262
+ls
+#1654574271
+cd Abrus_precatorius-Angylocalyx_braunii_Pap/
+#1654574272
+lt
+#1654574278
+ls self-blat.pslx.filter.ParaAT.out/*kaks |wc -l
+#1654576438
+lth
+#1654576447
+ll
+#1654576459
+rm -r self-blat.pslx blat-out
+#1654576463
+ln -s self-blat.pslx.1 self-blat.pslx
+#1654576467
+cd ..
+#1654576472
+cd -
+#1654576474
+mkdir link
+#1654576475
+lt
+#1654576481
+rm self-blat.pslx
+#1654576484
+mv self-blat.pslx.1 self-blat.pslx
+#1654576487
+chmod -w self-blat.pslx.1
+#1654576488
+chmod -w self-blat.pslx
+#1654576488
+lt
+#1654576500
+mkdir limv Angylocalyx_braunii_Pap.cds Abrus_precatorius.cds Angylocalyx_braunii_Pap.pep Abrus_precatorius.pep link/
+#1654576517
+ln -s Abrus_precatorius-Angylocalyx_braunii_Pap.transdecoder.cds Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654576518
+ll
+#1654576526
+mv Angylocalyx_braunii_Pap.cds Abrus_precatorius.cds Angylocalyx_braunii_Pap.pep Abrus_precatorius.pep link/
+#1654576527
+lth
+#1654576531
+rmdir limv/
+#1654576532
+lt
+#1654576538
+cd ..
+#1654576555
+perl /nfs/liuhui/bin/bundle/executables/plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654576569
+cp /nfs/liuhui/bin/bundle/executables/plot-ks.pl .
+#1654576570
+vi plot-ks.
+#1654576573
+vi plot-ks.pl
+#1654576581
+perl /nfs/liuhui/bin/bundle/executables/plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654576600
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654576634
+vi plot-ks.pl
+#1654576707
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654576712
+cd -
+#1654576715
+rm -r blat-out/
+#1654576715
+cd -
+#1654576717
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654573327
+python -m iga.evolution.ortho kaks --wait F --threads 10 --use_grid "F" self-blat.pslx.filter Abrus_precatorius-Angylocalyx_braunii_Pap.transdecoder.cds Abrus_precatorius-Angylocalyx_braunii_Pap.transdecoder.pep
+#1654576813
+vi plot-ks.pl
+#1654576880
+rm -r blat-out/
+#1654576882
+cd -
+#1654576883
+rm -r blat-out/
+#1654576883
+cd -
+#1654576884
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654576951
+vi plot-ks.pl
+#1654577002
+rm -r Abrus_precatorius-Angylocalyx_braunii_Pap/blat-out/
+#1654577021
+lth
+#1654577003
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577027
+ks_hist.R self-blat.pslx.filter.kaks 
+#1654577034
+sz self-blat.pslx.filter.kaks.pdf
+#1654577036
+# Sent -> /Users/liuhui/Downloads/
+#1654577060
+get_ks_peak.py self-blat.pslx.filter.kaks
+#1654577093
+vi plot-ks.pl
+#1654577154
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577157
+rm -r Abrus_precatorius-Angylocalyx_braunii_Pap/blat-out/
+#1654577158
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577203
+vi plot-ks.pl
+#1654577218
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577221
+rm -r Abrus_precatorius-Angylocalyx_braunii_Pap/blat-out/
+#1654577222
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577266
+select_fasta.pl rna-XM_027508277.1_Abpre Abrus_precatorius-Angylocalyx_braunii_Pap/Abrus_precatorius-Angylocalyx_braunii_Pap.transdecoder.cds 
+#1654577284
+vi plot-ks.pl
+#1654577293
+rm -r Abrus_precatorius-Angylocalyx_braunii_Pap/blat-out/
+#1654577294
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577328
+vi plot-ks.pl
+#1654577420
+rm -r Abrus_precatorius-Angylocalyx_braunii_Pap/blat-out/
+#1654577421
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577480
+grep TRINITY_DN18801_c0_g1.p2_Anbra   Abrus_precatorius-Angylocalyx_braunii_Pap/*pslx |grep  rna-XM_027473520.1_Abpre
+#1654577484
+vi plot-ks.pl
+#1654577550
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577553
+rm -r Abrus_precatorius-Angylocalyx_braunii_Pap/blat-out/
+#1654577554
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577602
+vi plot-ks.pl
+#1654577718
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577720
+rm -r Abrus_precatorius-Angylocalyx_braunii_Pap/blat-out/
+#1654577721
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577766
+vi plot-ks.pl
+#1654577858
+vi tmp
+#1654577865
+cds2aa.pl tmp 
+#1654577919
+ rm -rf Medicago_truncatula.Senna_tora.ortho.ParaAT.out
+#1654577920
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654577927
+lth
+#1654577933
+rm -r Abrus_precatorius-Angylocalyx_braunii_Pap/blat-out/
+#1654577934
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654578016
+vi plot-ks.pl
+#1654578211
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654578213
+rm -r Abrus_precatorius-Angylocalyx_braunii_Pap/blat-out/
+#1654578214
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654578249
+vi tmp
+#1654578301
+perl tmp 
+#1654578303
+vi tmp
+#1654578317
+rm -r Abrus_precatorius-Angylocalyx_braunii_Pap/blat-out/
+#1654578321
+perl plot-ks.pl Abrus_precatorius-Angylocalyx_braunii_Pap
+#1654578357
+vi tmp
+#1654578384
+vi plot-ks.
+#1654578386
+vi plot-ks.pl 
+#1654578404
+vi tmp
+#1654578446
+vi tmp 
+#1654578454
+vi plot-ks.pl 
+#1654578461
+vi tmp 
+#1654578474
+vi plot-ks.pl 
+#1654578619
+vi tmp 
+#1654578650
+perl tmp 
+#1654578652
+vi tmp 
+#1654578659
+perl tmp 
+#1654578672
+ls
+#1654578676
+vi tmp 
+#1654578686
+perl tmp 
+#1654578692
+ls
+#1654578693
+lt
+#1654578699
+diff plot-ks.pl plot-ks.cross.pl 
+#1654578720
+vi plot-ks.cross.pl 
+#1654578741
+mv plot-ks.cross.pl plot-ks.cross.pl.abk
+#1654578747
+vi plot-ks.pl 
+#1654578780
+vi plot-ks.cross.pl 
+#1654578791
+vi plot-ks.cross.pl.abk 
+#1654578809
+vi plot-ks.cross.pl 
+#1654578812
+vi plot-ks.pl 
+#1654578978
+ls
+#1654578979
+cd ..
+#1654578980
+ls
+#1654578981
+cd -
+#1654578981
+ls
+#1654578986
+mv Abrus_precatorius-Angylocalyx_braunii_Pap Abrus_precatorius-Angylocalyx_braunii_Pap.bak
+#1654578991
+mv plot-ks.pl plot-ks.cross.pl
+#1654578997
+perl plot-ks.cross.pl Abrus_precatorius Angylocalyx_braunii_Pap -o Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654579000
+vi plot-ks.pl 
+#1654579007
+vi plot-ks.cross.pl
+#1654579024
+vi plot-ks.cross.pl.abk 
+#1654579032
+vi plot-ks.cross.pl
+#1654579040
+perl plot-ks.cross.pl Abrus_precatorius Angylocalyx_braunii_Pap -o Abrus_precatorius.Angylocalyx_braunii_Pap
+#1654579563
+lth
+#1654579577
+lt
+#1654579600
+vi plot-ks.cross.pl
+#1654579631
+lt
+#1654579634
+vi plot-ks.cross.pl
+#1654579659
+cd -
+#1654579662
+cd Abrus_precatorius.Angylocalyx_braunii_Pap/
+#1654579662
+lt
+#1654579665
+sz *pdf
+#1654579667
+# Sent -> /Users/liuhui/Downloads/
+#1654579669
+wc -l *kaks
+#1654579700
+ks_hist.R paralogs-t300-mYN.kaks
+#1654579721
+pm iga.project.nitfix 
+#1654579726
+pm iga.project.nitfix format_ks_plot
+#1654579732
+lth
+#1654579766
+ln -s paralogs-t300-mYN.kaks Abrus_precatorius.Angylocalyx_braunii_Pap.ortho.kaks.raw
+#1654579775
+pm iga.project.nitfix format_ks_plot Abrus_precatorius.Angylocalyx_braunii_Pap.ortho.kaks.raw 
+#1654579778
+lth
+#1654579782
+ks_hist.R Abrus_precatorius.Angylocalyx_braunii_Pap.ortho.kaks
+#1654579790
+sz Abrus_precatorius.Angylocalyx_braunii_Pap.ortho.kaks.pdf
+#1654579792
+# Sent -> /Users/liuhui/Downloads/
+#1654579833
+lth
+#1654579852
+cd -
+#1654579853
+vi plot-ks.cross.pl
+#1654579912
+cp plot-ks.cross.pl /nfs/liuhui/bin/bundle/executables/
+#1654579913
+ll
+#1654579934
+vi /nfs/liuhui/bin/bundle/executables/plot-ks.cross.pl 
+#1654580002
+lth
+#1654580005
+gtp
