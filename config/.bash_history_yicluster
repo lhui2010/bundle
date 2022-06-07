@@ -67562,3 +67562,85 @@ bjl
 cp plot-ks.pl /nfs/liuhui/bin/bundle/executables/
 #1654567982
 gtp
+#1654567988
+gtps
+#1654567997
+lth
+#1654567999
+vi 01.run_trinity.sh 
+#1654568036
+lt
+#1654568037
+lth
+#1654568038
+vi 01.run_trinity.sh 
+#1654568050
+lth
+#1654568052
+lt
+#1654568064
+bjl
+#1654568066
+lth
+#1654568068
+vi 01.run_trinity.sh 
+#1654568074
+les Pterodon_emarginatus_Pap.log 
+#1654568080
+vi 01.run_trinity.sh 
+#1654568285
+ll *TY.fasta
+#1654568288
+ll *.fasta
+#1654568294
+vi 01.run_trinity.sh 
+#1654568338
+bash 01.run_trinity.sh 
+#1654568346
+bjl
+#1654568347
+lt
+#1654568348
+lth
+#1654568352
+lt Dipteryx_odorata_Pap_trinity/
+#1654568364
+lth
+#1654568366
+bjl
+#1654568368
+lth
+#1654568471
+echo /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq  > ~/workdir
+#1654568481
+vi ~/workdir 
+#1654568493
+popd
+#1654568499
+vi ~/workdir 
+#1654568531
+tma
+#1654568540
+j repeat
+#1654568541
+lth
+#1654568553
+j new
+#1654568554
+lth
+#1654568557
+les error.75183 
+#1654568563
+bjl
+#1654568568
+vi ~/workdir 
+#1654568593
+cd 
+#1654568601
+cp workdir /nfs/liuhui/bin/bundle/config/
+#1654568603
+rm workdir 
+#1654568612
+mv /nfs/liuhui/bin/bundle/config/workdir  /nfs/liuhui/bin/bundle/config/workdir.txt
+#1654568615
+ln -s /nfs/liuhui/bin/bundle/config/workdir.txt
