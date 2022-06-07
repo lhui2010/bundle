@@ -60942,3 +60942,6623 @@ cp ../../03.blast_rbh/count_matrix.pl rbh_scripts/
 mv rbh_scripts /nfs/liuhui/bin/bundle/bash_template/
 #1653102455
 gtp
+#1653102461
+gtps
+#1653102466
+lth
+#1653102476
+vi top1_to_excel.sh 
+#1653102485
+ll *txt
+#1653102517
+for i in newly_evolved_*; do selectItem.pl -k -h all_join.txt.xls.count  $i; done
+#1653102524
+for i in newly_evolved_*; do selectItem.pl -k  all_join.txt.xls.count  $i; done
+#1653102536
+t all_join.txt.xls.count
+#1653102548
+vi all_join.txt.xls
+#1653102578
+mv top1_to_excel.sh top1_to_excel.sh.1
+#1653102586
+cp top1_to_excel.sh.1 /nfs/liuhui/bin/bundle/bash_template/rbh_scripts/top1_to_excel.sh
+#1653102589
+ln -s /nfs/liuhui/bin/bundle/bash_template/rbh_scripts/top1_to_excel.sh
+#1653102591
+vi top1_to_excel.sh
+#1653102617
+les all_join.txt
+#1653102623
+les all_join.txt.xls
+#1653102625
+vi top1_to_excel.sh
+#1653102640
+bash top1_to_excel.sh
+#1653102653
+for i in newly_evolved_*; do selectItem.pl -k  all_join.txt.xls.count  $i |less; done
+#1653102701
+for i in newly_evolved_*; do unselectItem.pl  all_join.txt.xls.count  $i |less; done
+#1653102715
+for i in newly_evolved_*; do echo $i; unselectItem.pl  all_join.txt.xls.count  $i ; done
+#1653103047
+ls ../../03.blast_rbh/*ordered
+#1653103048
+ls ../../03.blast_rbh/*ordered*
+#1653103061
+find ../../ -name "*combine"
+#1653103067
+find ../../ -name "*order*"
+#1653103073
+lth
+#1653123475
+toyc
+#1653123490
+lth
+#1653123517
+for i in newly_evolved_*; do selectItem.pl -k all_join.txt.xls.count $i |wc -l; done
+#1653123527
+les all_join.txt.xls.count
+#1653123539
+for i in newly_evolved_*; do echo $i; unselectItem.pl -k all_join.txt.xls.count $i |wc -l; done
+#1653123550
+for i in newly_evolved_*; do echo $i; unselectItem.pl all_join.txt.xls.count $i |wc -l; done
+#1653123583
+selectItem.pl all_join.txt.xls.count ../../nodulation_genes.txt |wc -l
+#1653123588
+les *count
+#1653123591
+les ../../nodulation_genes.txt 
+#1653123598
+cp ../../nodulation_genes.txt  ./
+#1653123599
+vi nodulation_genes.txt 
+#1653123610
+selectItem.pl all_join.txt.xls.count nodulation_genes.txt |wc -l
+#1653123620
+cat nodulation_genes.txt |sort |uniq |wc -l
+#1653123626
+selectItem.pl all_join.txt.xls.count nodulation_genes.txt |sort |uniq |wc -l
+#1653123648
+selectItem.pl all_join.txt.xls.count nodulation_genes.txt |sort |uniq >common_genes.txt
+#1653123649
+logsh
+#1653123667
+ls newly_evolved_*
+#1653123676
+for i in newly_evolved_*; do echo $i; unselectItem.pl all_join.txt.xls.count $i > ${i%.txt}.filter.txt; done
+#1653123682
+wc -l *filter.txt
+#1653123689
+expr 229 - 169
+#1653123477
+tma
+#1653373405
+lth
+#1653373413
+grep MtrunA17Chr3g0082991 common_genes.txt 
+#1653373420
+grep MtrunA17Chr3g0082991 all_join.txt.xls.count 
+#1653373430
+vi shell 
+#1653373434
+vi top1_to_excel.sh
+#1653373461
+cd /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/
+#1653373462
+lt
+#1653373463
+lth
+#1653373466
+ls
+#1653373469
+cd ../30
+#1653373470
+cd ../03.blast_rbh/
+#1653373471
+lth
+#1653373477
+vi *sh
+#1653373479
+vi sh
+#1653373481
+lt
+#1653373497
+les all_join.txt.xls 
+#1653373504
+lth
+#1653373518
+history |less
+#1653373518
+history |less
+#1653373529
+lt
+#1653373531
+lth
+#1653373533
+lt |head -20
+#1653373536
+les *format
+#1653373549
+les *rbh
+#1653373570
+grep MtrunA17Chr3g0082991 *rbh
+#1653373574
+les *rb
+#1653373576
+les *rbh
+#1653373612
+grep MtrunA17Chr3g0082991 *rbh
+#1653373633
+grep MtrunA17Chr3g0082991 ../02.nodulation_genes/*join
+#1653373637
+les ../02.nodulation_genes/*join
+#1653373643
+les ../02.nodulation_genes/filterKs
+#1653373646
+les ../02.nodulation_genes/*filterKs
+#1653373655
+grep MtrunA17Chr3g0082991 ../02.nodulation_genes/filterKs
+#1653373659
+grep MtrunA17Chr3g0082991 ../02.nodulation_genes/*filterKs
+#1653373673
+grpe MtrunA17Chr3g0082991 *.blast
+#1653373677
+grep MtrunA17Chr3g0082991 *.blast
+#1653373765
+grep Chafa5618S10665_Chfas *blast
+#1653441547
+lth
+#1653441555
+wc -l newly_evolved_fabaceae.filter.txt 
+#1653441557
+les newly_evolved_fabaceae.filter.txt 
+#1653441570
+lt
+#1653441572
+lth
+#1653441620
+ls ../../03.blast_rbh/*txt
+#1653441629
+les ../../03.blast_rbh/Nod_Ortho.txt.count.sheet1.txt
+#1653441753
+lt ../../03.blast_rbh/ |head
+#1653441761
+les ../../03.blast_rbh/Nod_Ortho.txt.count.sheet.combine.txt
+#1653441769
+chmod -w ../../03.blast_rbh/Nod_Ortho.txt.count.sheet.combine.txt
+#1653441772
+ln -s ../../03.blast_rbh/Nod_Ortho.txt.count.sheet.combine.txt
+#1653441773
+lth
+#1653441791
+selectItem.pl newly_evolved_fabaceae.filter.txt Nod_Ortho.txt.count.sheet.combine.txt > newly_evolved_fabaceae.filter.txt.xls
+#1653441794
+les newly_evolved_fabaceae.filter.txt.xls 
+#1653441813
+realpath newly_evolved_fabaceae.filter.txt.xls 
+#1653441545
+tma
+#1653441819
+sz /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/all_blast/newly_evolved_fabaceae.filter.txt.xls
+#1653441823
+# Sent -> /Users/liuhui/Downloads/
+#1653457074
+bjl
+#1653457076
+bhosts 
+#1653457239
+j leggenome
+#1653457240
+lth
+#1653457242
+ls
+#1653457243
+ll *fai
+#1653457246
+ls *.fa
+#1653457259
+les Castanospermum_australe.fa 
+#1653457270
+grep ">" Castanospermum_australe.fa
+#1653466582
+lth
+#1653467621
+bjl
+#1653618433
+lth
+#1653618440
+les all_join.txt.xls
+#1653618451
+les ../../03.blast_rbh/all_join.txt
+#1653618456
+les ../../03.blast_rbh/all_join.txt.xls 
+#1653618475
+lt ../../03.blast_rbh/ |head
+#1653618481
+lt ../../03.blast_rbh/ |head -20
+#1653618506
+grep Chr4g0009851 ../../03.blast_rbh/*addks
+#1653618510
+grep Chr4g0009851 ../../03.blast_rbh/*Ks
+#1653618520
+grep Chr4g0009851 ../../02.nodulation_genes/*join
+#1653618524
+grep Chr4g0009851 ../../02.nodulation_genes/*Ks
+#1653618536
+grep Chr4g0009851 ../../02.nodulation_genes/*Ks.cut
+#1653618539
+les ../../02.nodulation_genes/
+#1653618546
+les ../../02.nodulation_genes/*.cut
+#1653618550
+les ../../02.nodulation_genes/*Ks
+#1653618554
+grep Chr4g0009851 ../../02.nodulation_genes/*Ks
+#1653618585
+grep Chr3g0082861 ../../02.nodulation_genes/*Ks
+#1653618617
+grep Chr3g0082861 ../../02.nodulation_genes/*addks
+#1653618688
+grep Chr4g0009851 ../../../mcscanX2/work.Medicago_truncatula.Medicago_truncatula/Medicago_truncatula.Medicago_truncatula.anchors 
+#1653618695
+grep Chr3g0082861 ../../../mcscanX2/work.Medicago_truncatula.Medicago_truncatula/Medicago_truncatula.Medicago_truncatula.anchors 
+#1653618759
+grep Chr3g0082861 ../../../mcscanX2/work.Medicago_truncatula.Medicago_truncatula/Medicago_truncatula.Medicago_truncatula.*ks
+#1653618803
+grep Chr8g0352871 ../../02.nodulation_genes/*addks
+#1653618817
+grep Chr8g0352871 ../../02.nodulation_genes/*Ks
+#1653618828
+grep Chr3g0082861 ../../02.nodulation_genes/*Ks
+#1653639148
+MCScanX
+#1653618431
+tma
+#1653729041
+lth
+#1653729046
+les newly_evolved_DDCP.filter.txt
+#1653729055
+grep -v "#" newly_evolved_DDCP.filter.txt
+#1653729058
+grep -v "#" newly_evolved_DDCP.filter.txt|wc -l
+#1653777075
+selectItem.pl newly_evolved_DDCP.filter.txt Nod_Ortho.txt.count.sheet.combine.txt > newly_evolved_DDCP.filter.txt.xls
+#1653777076
+logsh
+#1653777082
+les newly_evolved_DDCP.filter.txt.xls
+#1653777088
+realpath newly_evolved_DDCP.filter.txt.xls
+#1653777038
+tma
+#1653777093
+sz /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/all_blast/newly_evolved_DDCP.filter.txt.xls
+#1653777097
+# Sent -> /Users/liuhui/Downloads/
+#1653777294
+lth
+#1653777301
+grep MtrunA17Chr5g0448621 *
+#1653777307
+grep MtrunA17Chr5g0448621 *
+#1653777311
+lt |les
+#1653777321
+grep MtrunA17Chr5g0448621 all_join.txt.xls.count
+#1653777326
+les all_join.txt.xls.count 
+#1653777331
+lt
+#1653777337
+les Cercis_chinensis.Vitis_vinifera.blast.top1
+#1653777348
+les Medicago_truncatula.Vitis_vinifera.blast.top1
+#1653777367
+grep MtrunA17Chr5g0448621 Medicago_truncatula.Vitis_vinifera.blast.sorted.qry |head
+#1653777370
+grep MtrunA17Chr5g0448621 Medicago_truncatula.Vitis_vinifera.blast.sorted.ref |head
+#1653777455
+grep VIT_203s0038g03710.1_Vivin Medicago_truncatula.Vitis_vinifera.blast.sorted.qry |head
+#1653777589
+grep MtrunA17Chr5g0448621 Medicago_truncatula.Populus_trichocarpa.blast.sorted.ref |head
+#1653777598
+grep PNT42275_Potri Medicago_truncatula.Populus_trichocarpa.blast.sorted.qry |head
+#1653777648
+grep PNT42275_Potri Medicago_truncatula.Averrhoa_carambola.blast.sorted.ref |head
+#1653777688
+grep MtrunA17Chr5g0448621 Medicago_truncatula.Averrhoa_carambola.blast.sorted.ref |head
+#1653777696
+grep Yangtao2008901_Avcar Medicago_truncatula.Averrhoa_carambola.blast.sorted.qry |head
+#1653777730
+ll
+#1653777739
+cd ..
+#1653777739
+ls
+#1653777743
+vi *sh
+#1653777776
+ls *sh
+#1653777778
+bash run.sh 
+#1653777781
+vi run.sh 
+#1653777784
+bjl
+#1653777788
+cd -
+#1653777790
+lth
+#1653781703
+mkdir against_nf_clade
+#1653781705
+cd against_nf_clade/
+#1653781706
+ll
+#1653781757
+cd ..
+#1653781758
+lth
+#1653781763
+les gene_conserved_in_Fabales_outgroup.txt 
+#1653781767
+ls *txt
+#1653777305
+tma
+#1653781772
+ls *txt
+#1653782725
+grep Yangtao2008901_Avcar Medicago_truncatula.Averrhoa_carambola.blast.sorted.qry |head
+#1653782735
+bjl
+#1653782737
+ls
+#1653782739
+ls -d */
+#1653782745
+ls against_nf_clade/
+#1653782746
+ls ..
+#1653782758
+pushd ../work.Averrhoa_carambola.Averrhoa_carambola/
+#1653782758
+ls
+#1653782759
+ll
+#1653782760
+lt
+#1653782766
+grep Yangtao2008901_Avcar *anchors
+#1653782772
+popd
+#1653782791
+grep Yangtao2010353_Avcar Medicago_truncatula.Averrhoa_carambola.blast.sorted.ref
+#1653782798
+grep Yangtao2010353_Avcar Medicago_truncatula.Averrhoa_carambola.blast.sorted.qry
+#1653782813
+grep mRNA_MtrunA17Chr3g0143921_Metru Medicago_truncatula.Averrhoa_carambola.blast.top1
+#1653782884
+pushd ~/projects/genomes/
+#1653782884
+ls
+#1653782889
+downlht /ds3200_1/users_root/yitingshuang/lh/genomes/unclassified_from_ncbi/zhangyu_nf_clade
+#1653783367
+popd
+#1653783371
+ls
+#1653783373
+cd against_nf_clade/
+#1653783387
+ll ../Medicago_truncatula.Oryza_sativa.blast
+#1653783391
+ls
+#1653783392
+cd ..
+#1653783392
+ls
+#1653783393
+cd ..
+#1653783394
+ls
+#1653783399
+mv all_blast/against_nf_clade .
+#1653783401
+ls *sh
+#1653783406
+cp run.sh against_nf_clade/
+#1653783407
+cd against_nf_clade/
+#1653783412
+ln -s ../Cercis_chinensis.gff3 
+#1653783415
+ln -s ../Cercis_chinensis.cds 
+#1653783416
+ln -s ../Cercis_chinensis.pep 
+#1653783421
+ln -s ../Medicago_truncatula.gff3 
+#1653783423
+ln -s ../Medicago_truncatula.cds 
+#1653783425
+ln -s ../Medicago_truncatula.pep 
+#1653783426
+ll
+#1653783445
+ls ~/projects/genomes/zhangyu_nf_clade/*pep
+#1653783450
+ls
+#1653783452
+vi run.sh 
+#1653783531
+ls ~/projects/genomes/zhangyu_nf_clade/*pep
+#1653783536
+bash run.sh 
+#1653783540
+ls
+#1653783542
+bjl
+#1653783546
+bhosts 
+#1653783548
+bjl
+#1653783553
+lth
+#1653783625
+ls work.Cercis_chinensis./
+#1653783627
+ls work.Cercis_chinensis./nfs/
+#1653783639
+bjl
+#1653783654
+bkill -u liuhui
+#1653783667
+bjobs -l 72609
+#1653783670
+bjl
+#1653783687
+while true; do bkill -u liuhui; done
+#1653783691
+lt
+#1653783692
+ls
+#1653783701
+rm -r work.*
+#1653782716
+tma
+#1653783710
+bjl
+#1653783706
+rm -fr work.*
+#1653783713
+lt
+#1653783714
+vi run.sh 
+#1653783741
+lth
+#1653783746
+ls
+#1653783747
+bash run.sh 
+#1653783750
+bjl
+#1653783755
+lth
+#1653783757
+bjl
+#1653783758
+lth
+#1653783761
+les *.e
+#1653783770
+ls Alnus_glutinosa.gff3
+#1653783772
+les *.e
+#1653783774
+ll Alnus_glutinosa.gff3
+#1653783780
+les *.e
+#1653783787
+ls *gff3
+#1653783789
+ls Medicago_truncatula.gff3 
+#1653783791
+ls Alnus_glutinosa.gff3 
+#1653783793
+lth
+#1653783802
+lt work.Medicago_truncatula.Alnus_glutinosa/
+#1653783808
+ls Alnus_glutinosa.gff3
+#1653783815
+cp Alnus_glutinosa.gff3 work.Medicago_truncatula.Alnus_glutinosa/
+#1653783818
+ll work.Medicago_truncatula.Alnus_glutinosa/
+#1653783822
+ll Alnus_glutinosa.gff3
+#1653783833
+while true; do bkill -u liuhui; done
+#1653783836
+rm -fr work.*
+#1653783840
+vi run.sh 
+#1653783880
+bash run.sh 
+#1653783881
+lth
+#1653783883
+vi run.sh 
+#1653783936
+ls *gff > zy_list.txt
+#1653783936
+vi zy_list.txt 
+#1653783944
+vi run.sh 
+#1653784028
+for e in `cat zy_list.txt`; do rm $e.gff3; done
+#1653784029
+ls
+#1653784031
+vi run.sh 
+#1653784044
+for e in `cat zy_list.txt`; do mv $e.gff $e.gff3; done
+#1653784046
+vi run.sh 
+#1653784053
+bash run.sh 
+#1653784055
+bjl
+#1653784063
+bjobs -l 72766
+#1653784070
+vi run.sh 
+#1653784075
+lth
+#1653784080
+rm Medicago_truncatula..e 
+#1653784081
+bjl
+#1653784083
+while true; do bkill -u liuhui; done
+#1653784086
+lth
+#1653784087
+ls
+#1653784093
+rm *.e *.o
+#1653784093
+ls
+#1653784096
+bash run.sh 
+#1653784098
+bjl
+#1653784103
+bjobs -l 72796
+#1653783711
+tma
+#1653861955
+bjl
+#1653861958
+lth
+#1653861960
+les *.e
+#1653862555
+tail *.e |les
+#1653861956
+tma
+#1653863223
+cd ..
+#1653863223
+ls
+#1653863231
+mkdir against_fabids_clade
+#1653863235
+cd against_fabids_clade/
+#1653863236
+lt
+#1653863242
+downlht /ds3200_1/users_root/yitingshuang/lh/genomes/unclassified_from_ncbi/fabids
+#1653863465
+ll
+#1653863467
+cd fabids/
+#1653863468
+ll
+#1653863469
+gzip -d */
+#1653863472
+gzip -d *gz
+#1653863582
+ll *gz
+#1653863591
+les Cephalotus_follicularis.fa.gz
+#1653863598
+gzip -d Cephalotus_follicularis.fa.gz
+#1653863613
+vi Cephalotus_follicularis.fa.gz
+#1653863632
+for i in *gz; do gzip -d $i; done
+#1653863758
+ll Cephalotus_follicularis.fa.gz Linum_usitatissimum.fa.gz Mesua_ferrea.fa.gz Passiflora_organensis.fa.gz Passiflora_organensis.fa.gz Ricinus_communis.fa.gz Salix_suchowensis.fa.gz Sapria_himalayana.fa.gz Tripterygium_wilfordii.fa.gz
+#1653863762
+ll *fa
+#1653863823
+for i in Cephalotus_follicularis Linum_usitatissimum Mesua_ferrea Passiflora_organensis Passiflora_organensis Ricinus_communis Salix_suchowensis Sapria_himalayana Tripterygium_wilfordii; do grep $i *bly; done
+#1653863968
+ll
+#1653863972
+vi fabids.sh 
+#1653863986
+cp /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_polished/braker.sh
+#1653863989
+cp /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_polished/braker.sh .
+#1653863990
+vi braker.sh 
+#1653864016
+ln -s  /nfs/liuhui/projects/buzzo/duparquetia/annotation/braker_polished/odb10_plants.fasta 
+#1653864017
+vi braker.sh 
+#1653864065
+ll
+#1653864069
+ll *gff
+#1653864076
+les *gff
+#1653864096
+vi braker.sh 
+#1653864101
+python -m iga.annotation.repeat
+#1653864105
+python -m iga.annotation.repeat repeatmasker
+#1653864123
+ll
+#1653864125
+ls *gff
+#1653864154
+ls *fa
+#1653864158
+vi braker.sh 
+#1653864254
+python -m iga.annotation.repeat repeatmasker -h
+#1653864310
+vi 01.repeat
+#1653864312
+vi 01.repeat.sh
+#1653864329
+ll
+#1653864331
+ll *fa
+#1653864334
+bash run.sh 
+#1653864339
+bash 01.repeat.sh 
+#1653864364
+bjl
+#1653864368
+bhosts 
+#1653864373
+lsload
+#1653864379
+bjl
+#1653864401
+lsload
+#1653864229
+htop 
+#1653864429
+ssh yi04
+#1653864439
+lsload
+#1653864451
+bhosts 
+#1653864454
+bjl
+#1653864462
+lth
+#1653864797
+ll -d */
+#1653864799
+bjl
+#1653864803
+lt workdir_repeatmask_Bruguiera_parviflora.fa/
+#1653864807
+lt workdir_repeatmask_Bruguiera_parviflora.fa/species_lib.out/
+#1653864831
+man gzip
+#1653864880
+ll
+#1653865126
+downlht /ds3200_1/users_root/yitingshuang/lh/genomes/unclassified_from_ncbi/fabids/*pep.gz
+#1653865135
+downlht /ds3200_1/users_root/yitingshuang/lh/genomes/unclassified_from_ncbi/fabids/*cds.gz
+#1653865140
+les *gff
+#1653865159
+les Cephalotus_follicularis.cds.gz 
+#1653865180
+les *gff
+#1653864443
+tma
+#1653869288
+j mcscanX2
+#1653869305
+cd work.Zenia_insignis.Zenia_insignis/
+#1653869306
+ls
+#1653869307
+lt
+#1653869427
+grep ZEINS00023322 *ortho.kaks
+#1653869456
+j triang
+#1653869457
+ls
+#1653869460
+cd work.Vitis_vinifera.Vitis_vinifera/
+#1653869482
+ls
+#1653869489
+grep VIT_203s0038g03710 Vitis_vinifera.*kaks
+#1653869701
+cd ..
+#1653869712
+cd work.Medicago_truncatula.Vitis_vinifera/
+#1653869730
+grep VIT_218s0122g01290 *.ortho.kaks
+#1653869788
+grep VIT_203s0038g03710 *.ortho.kaks
+#1653869870
+bjl
+#1653869877
+cd ..
+#1653869878
+ls
+#1653869882
+ll Medicago_truncatula.gff3 
+#1653869889
+ln -s ../../mcscanX2/Zenia_insignis.gff3 
+#1653869891
+ln -s ../../mcscanX2/Zenia_insignis.cds 
+#1653869893
+ln -s ../../mcscanX2/Zenia_insignis.pep
+#1653869899
+vi run.sh 
+#1653869951
+bash run.sh 
+#1653869952
+bjl
+#1653869974
+cd work.Cercis_chinensis.Vitis_vinifera/
+#1653869976
+grep VIT_203s0038g03710 *.ortho.kaks
+#1653869982
+grep VIT_218s0122g01290 *.ortho.kaks
+#1653870175
+lt ../../NIN_mutation/*nwk
+#1653870185
+les ../../NIN_mutation/nin_phylo.fa.nwk 
+#1653870196
+les ../../NIN_mutation/NIN.pep.nwk 
+#1653870203
+ls
+#1653870205
+cd ..
+#1653870205
+ls
+#1653870210
+ls *nwk
+#1653870216
+find . -name "*nwk
+#1653870218
+find . -name "*nwk"
+#1653870240
+ll ~
+#1653870242
+ll ~/*nwk
+#1653870243
+ls
+#1653870246
+cd ..
+#1653870246
+ls
+#1653870251
+find . -name "*nwk"
+#1653870259
+ll ./NIN_mutation/nin_phylo_with_oryza/nin_phylo.fa.nwk 
+#1653870264
+sz ./NIN_mutation/nin_phylo_with_oryza/nin_phylo.fa.nwk 
+#1653870268
+# Sent -> /Users/liuhui/Downloads/
+#1653870401
+cd ./NIN_mutation/nin_phylo_with_oryza/
+#1653870401
+lt
+#1653870408
+les nin_phylo.fa.aln 
+#1653870415
+iqtree2 -h
+#1653870580
+ll
+#1653870587
+iqtree2 -B 1000 -modelomatic -s nin_phylo.fa.aln 
+#1653870593
+iqtree2 -B 1000 --modelomatic -s nin_phylo.fa.aln 
+#1653870617
+nohup iqtree2 -B 1000 --modelomatic -s nin_phylo.fa.aln > nin_phylo.fa.aln.iq.out 2> nin_phylo.fa.aln.iq.log &
+#1653870618
+lth
+#1653870623
+les *log
+#1653870631
+les nin_phylo.fa.aln.iq.out 
+#1653870656
+lt
+#1653870661
+les nin_phylo.fa.aln.treefile 
+#1653870678
+vi run.sh 
+#1653870690
+mkdir tree_without_rice
+#1653870706
+mv nin_phylo.fa.aln.model.gz nin_phylo.fa.aln.iq.log nin_phylo.fa.aln.bionj nin_phylo.fa.aln.mldist nin_phylo.fa.aln.splits.nex nin_phylo.fa.aln.contree nin_phylo.fa.aln.treefile nin_phylo.fa.aln.iqtree nin_phylo.fa.aln.ckp.gz nin_phylo.fa.aln.log nin_phylo.fa.aln.iq.out tree_without_rice/
+#1653870706
+lkt
+#1653870707
+lt
+#1653870717
+iqtree2 -B 1000 --modelomatic -s nin_phylo.pep
+#1653870722
+lt
+#1653870726
+iqtree2 -B 1000 --modelomatic -s nin_phylo.pep.aln 
+#1653871167
+lth
+#1653871170
+les *treefile
+#1653871178
+sz *treefile
+#1653871181
+# Sent -> /Users/liuhui/Downloads/
+#1653871243
+les *treefile
+#1653871906
+cd ..
+#1653871906
+ls
+#1653871907
+cd ..
+#1653871908
+ls
+#1653871935
+grep VIT_203s0038g03710 work.Medicago_truncatula.Vitis_vinifera/*kaks
+#1653872069
+grep VIT_203s0038g03710 all_blast/*top1
+#1653872076
+cd -
+#1653872115
+grep VIT_203s0038g03710 work.Medicago_truncatula.Vitis_vinifera/*kaks
+#1653872120
+ls
+#1653872121
+cd ..
+#1653872122
+grep VIT_203s0038g03710 work.Medicago_truncatula.Vitis_vinifera/*kaks
+#1653872150
+grep VIT_218s0122g01290.1 work.Medicago_truncatula.Vitis_vinifera/*kaks
+#1653872206
+ls
+#1653872224
+select_fasta.pl VIT_218s0122g01290.1_Vivin Vitis_vinifera.pep 
+#1653872256
+grep MtrunA17Chr5g0448621 work.Medicago_truncatula.Averrhoa_carambola/*kaks
+#1653872286
+grep MtrunA17Chr3g0082991 work.Medicago_truncatula.Averrhoa_carambola/*kaks
+#1653872299
+grep MtrunA17Chr3g0143921 work.Medicago_truncatula.Averrhoa_carambola/*kaks
+#1653872337
+select_fasta.pl Yangtao2010353_Avcar Averrhoa_carambola.pep 
+#1653872350
+select_fasta.pl Yangtao2008901_Avcar Averrhoa_carambola.pep 
+#1653872378
+grep MtrunA17Chr3g0143921 work.Medicago_truncatula.Populus_trichocarpa/*kaks
+#1653872399
+grep MtrunA17Chr5g0448621 work.Medicago_truncatula.Populus_trichocarpa/*kaks
+#1653872449
+for i in PNT38676_Potri PNT21759_Potri PNT47165_Potri; do select_fasta.pl $i Populus_trichocarpa.pep ; done
+#1653872470
+grep MtrunA17Chr5g0448621 work.Medicago_truncatula.Arabidopsis_thaliana/*kaks
+#1653872478
+grep MtrunA17Chr3g0143921 work.Medicago_truncatula.Arabidopsis_thaliana/*kaks
+#1653872551
+for i in AT4G35270.1_Artha AT4G38340.1_Artha AT1G76350.1_Artha AT1G20640.2_Artha AT2G17150.1_Artha; do select_fasta.pl $i Arabidopsis_thaliana.pep ; done
+#1653872586
+lth
+#1653871903
+tma
+#1653872598
+lt
+#1653872609
+cd .
+#1653872611
+cd ..
+#1653872645
+mkdir nin_phylo_with_oryza_poplus_yangtao_arabidopsis_vitis
+#1653872661
+cp nin_phylo_with_oryza/nin_phylo.pep nin_phylo_with_oryza_poplus_yangtao_arabidopsis_vitis/
+#1653872663
+cd nin_phylo_with_oryza_poplus_yangtao_arabidopsis_vitis/
+#1653872663
+ll
+#1653872665
+vi nin_phylo.pep 
+#1653872685
+t_coffee -mode fmcoffee -in nin_phylo.pep 
+#1653872699
+which t_coffee
+#1653872718
+t_coffee -mode fmcoffee -in nin_phylo.pep 
+#1653872724
+more ../nin_phylo_with_oryza/*sh
+#1653872732
+t_coffee -mode fmcoffee -in nin_phylo.pep > nin_phylo.pep.aln
+#1653872735
+ll
+#1653872742
+conda env list
+#1653872759
+lt
+#1653872760
+vc
+#1653872764
+lt
+#1653872766
+vi nin_phylo.pep
+#1653872780
+muscle < nin_phylo.pep > nin_phylo.pep.fas
+#1653872788
+lt
+#1653872789
+les *fas
+#1653872795
+iqtree2 -B 1000 --modelomatic -s nin_phylo.pep.fas
+#1653873672
+lth
+#1653873679
+ln -s nin_phylo.pep.fas.treefile nin_phylo.pep.advanced.treefile
+#1653873700
+sz nin_phylo.pep.advanced.treefile 
+#1653873702
+# Sent -> /Users/liuhui/Downloads/
+#1653874153
+lt
+#1653874155
+vi nin_phylo.pep
+#1653874169
+vi 38340.pep
+#1653874189
+t_coffee -mode fmcoffee -in nin_phylo.pep
+#1653874209
+t_coffee -h
+#1653874226
+t_coffee -mode fmcoffee -in nin_phylo.pep
+#1653874239
+mkdir remove_long_branch
+#1653874243
+lth
+#1653874254
+muscle < nin_phylo.pep > remove_long_branch/nin_phylo.pep.fas
+#1653874258
+cd remove_long_branch/
+#1653874258
+lt
+#1653874260
+les nin_phylo.pep.fas 
+#1653874266
+iqtree2 -B 1000 --modelomatic -s nin_phylo.pep.fas
+#1653874733
+lt
+#1653874744
+ls
+#1653874748
+ls ..
+#1653874757
+ln -s nin_phylo.pep.fas.treefile nin_phylo.pep.fas.advanced.cut_38340.treefile
+#1653874761
+sz nin_phylo.pep.fas.advanced.cut_38340.treefile
+#1653874763
+# Sent -> /Users/liuhui/Downloads/
+#1653879559
+ls
+#1653879565
+ls
+#1653879598
+grep VIT_203s0038g03710.1_Vivin work.Medicago_truncatula.Vitis_vinifera/*blast |head
+#1653879563
+tma
+#1653879711
+vi *fas
+#1653879715
+vi nin_phylo.pep.fas
+#1653879716
+lt
+#1653879721
+vi nin_phylo.pep.fas
+#1653879724
+lt
+#1653879730
+vi ../nin_phylo.pep
+#1653880861
+lth
+#1653880862
+ls
+#1653880863
+cd ..
+#1653880864
+lt
+#1653880870
+cd ../
+#1653880870
+ls
+#1653880872
+cd -
+#1653880884
+grep VIT_203s0038g03710.1_Vivin work.Medicago_truncatula.Vitis_vinifera/*top1 |head
+#1653880901
+grep VIT_203s0038g03710.1_Vivin all_blast/Medicago_truncatula.Vitis_vinifera.blast.top1
+#1653880906
+grep VIT_203s0038g03710.1_Vivin all_blast/Medicago_truncatula.Vitis_vinifera.blast.sorted.qry
+#1653880908
+grep VIT_203s0038g03710.1_Vivin all_blast/Medicago_truncatula.Vitis_vinifera.blast.sorted.ref
+#1653880970
+grep mRNA_MtrunA17Chr5g0448621_Metru all_blast/Medicago_truncatula.Vitis_vinifera.blast.sorted.ref
+#1653880973
+grep mRNA_MtrunA17Chr5g0448621_Metru all_blast/Medicago_truncatula.Vitis_vinifera.blast.sorted.ref|head
+#1653880980
+grep VIT_203s0038g03710.1_Vivin all_blast/Medicago_truncatula.Vitis_vinifera.blast.sorted.qry
+#1653881080
+cd work.Medicago_truncatula.Vitis_vinifera/
+#1653881080
+ls
+#1653881082
+lth
+#1653881093
+history |grep block |les
+#1653881116
+for i in Medicago_truncatula.Vitis_vinifera ; do python -m iga.evolution.ortho kaks_to_block ${i}.ortho.kaks $i > ${i}.anchors.addks ; done
+#1653881130
+for i in Medicago_truncatula.Vitis_vinifera ; do python -m iga.evolution.ortho kaks_to_block ${i}.ortho.kaks $i.anchors > ${i}.anchors.addks ; done
+#1653881137
+lth
+#1653881140
+les *addks
+#1653881254
+grep MtrunA17Chr4g0037611 *blast.top1
+#1653881271
+grep MtrunA17Chr4g0037611 ../all_blast/Medicago_truncatula.Vitis_vinifera.blast.top1
+#1653881274
+grep MtrunA17Chr4g0037611 ../all_blast/Medicago_truncatula.Vitis_vinifera.blast.sorted.qry
+#1653881283
+grep MtrunA17Chr4g0037611 ../all_blast/Medicago_truncatula.Vitis_vinifera.blast.sorted.ref |head
+#1653881298
+grep VIT_201s0010g01650.1_Vivin ../all_blast/Medicago_truncatula.Vitis_vinifera.blast.sorted.ref |head
+#1653881306
+grep MtrunA17Chr4g0037611 ../all_blast/Medicago_truncatula.Vitis_vinifera.blast.sorted.qry
+#1653881364
+les *addks
+#1653891372
+lth
+#1653891380
+ls *top1
+#1653880872
+tma
+#1653891651
+more ../../02.nodulation_genes/shell 
+#1653891655
+more ../../02.nodulation_genes/*sh
+#1653891760
+more ../../01.filter_anchor/*sh
+#1653891987
+grep mRNA_MtrunA17Chr5g0448621_Metru *.anchors
+#1653891990
+ls *.anchors
+#1653892499
+lth
+#1653892511
+gtp
+#1653892519
+cd ..
+#1653892523
+which pm
+#1653892536
+pm iga.ortho.is_pav
+#1653892547
+pm iga.evolution.ortho is_pav
+#1653892562
+pm iga.evolution.ortho is_pav mRNA_MtrunA17Chr5g0448621_Metru Medicago_truncatula.Vitis_vinifera
+#1653893589
+gtp
+#1653893606
+pm iga.evolution.ortho is_pav mRNA_MtrunA17Chr5g0448621_Metru Medicago_truncatula.Vitis_vinifera
+#1653893733
+gtp
+#1653893746
+pm iga.evolution.ortho is_pav mRNA_MtrunA17Chr5g0448621_Metru Medicago_truncatula.Vitis_vinifera
+#1653893777
+gtp
+#1653893786
+ls Medicago_truncatula.*
+#1653893830
+for i in Medicago_truncatula.*.e; do pm iga.evolution.ortho is_pav mRNA_MtrunA17Chr5g0448621_Metru ${i%.e} >> test_result; done
+#1653894851
+lth
+#1653894854
+les te
+#1653894855
+les test_result 
+#1653894867
+ls *.e
+#1653894870
+ls Medicago_truncatula.*.e
+#1653894878
+les test_result 
+#1653894888
+cd work.Medicago_truncatula.A
+#1653894889
+cd work.Medicago_truncatula.Arabidopsis_thaliana/
+#1653894890
+lth
+#1653894893
+les *filterKs
+#1653894903
+grep mRNA_MtrunA17Chr5g0448621_Metru *.anchors
+#1653894913
+les *addks
+#1653894973
+cd -
+#1653894973
+lth
+#1653894978
+cd -
+#1653894979
+lth
+#1653894986
+ks_hist.R *ortho.kaks
+#1653895010
+lth
+#1653895014
+realpath Medicago_truncatula.Arabidopsis_thaliana.ortho.kaks.pdf
+#1653895019
+sz /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/work.Medicago_truncatula.Arabidopsis_thaliana/Medicago_truncatula.Arabidopsis_thaliana.ortho.kaks.pdf
+#1653895022
+# Sent -> /Users/liuhui/Downloads/
+#1653895240
+lth
+#1653895260
+cd ..
+#1653895263
+c work.Medicago_truncatula.Vitis_vinifera/
+#1653895264
+lt
+#1653895265
+lth
+#1653895270
+cd work.Medicago_truncatula.Vitis_vinifera/
+#1653895271
+lt
+#1653895272
+lth
+#1653895280
+ks_hist.R *ortho.kaks
+#1653895285
+lth
+#1653895288
+realpath Medicago_truncatula.Vitis_vinifera.ortho.kaks.pdf
+#1653895022
+tma
+#1653895292
+sz /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/work.Medicago_truncatula.Vitis_vinifera/Medicago_truncatula.Vitis_vinifera.ortho.kaks.pdf
+#1653895294
+t
+#1653895346
+gtp
+#1653895363
+cd ..
+#1653895367
+pm iga.evolution.ortho is_pav mRNA_MtrunA17Chr5g0448621_Metru Medicago_truncatula.Arabidopsis_thaliana >> test_result 
+#1653895371
+les test_result 
+#1653895411
+rm work.Medicago_truncatula.Arabidopsis_thaliana/Medicago_truncatula.Arabidopsis_thaliana.anchors.addks.filterKs 
+#1653895413
+pm iga.evolution.ortho is_pav mRNA_MtrunA17Chr5g0448621_Metru Medicago_truncatula.Arabidopsis_thaliana >> test_result 
+#1653895418
+more test_result 
+#1653895526
+ls Medicago_truncatula.*.e
+#1653895559
+ln -s ../02.nodulation_genes/nodulation_genes.txt 
+#1653895560
+les nodulation_genes.txt 
+#1653895296
+tma
+#1653895611
+cd /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/
+#1653895612
+lth
+#1653895614
+les nod
+#1653895616
+les nod_in_outgroup 
+#1653895643
+les Vitis_vinifera.gff3 
+#1653895676
+awk '$3=="mRNA"' Vitis_vinifera.gff3 |wc -l
+#1653895684
+grep "longest=1" Vitis_vinifera.gff3 |wc -l
+#1653895694
+les nod_in_outgroup 
+#1653895703
+les Vitis_vinifera.gff3 
+#1653895718
+les nod_in_outgroup 
+#1653895724
+les Vitis_vinifera.gff3 
+#1653895736
+grep VIT_214s0068g00920. Vitis_vinifera.gff3 
+#1653895742
+les nod_in_outgroup 
+#1653895767
+grep ">" Vitis_vinifera.pep |wc -l
+#1653895771
+ll Vitis_vinifera.pep 
+#1653895798
+grep ">" Vitis_vinifera.cds |wc -l
+#1653895800
+ll
+#1653895803
+ll Vitis_vinifera.*
+#1653895824
+grep ">" Oryza_sativa.cds |wc -l
+#1653895831
+grep ">" Populus_trichocarpa.cds |wc -l
+#1653895836
+grep ">" Averrhoa_carambola.cds |wc -l
+#1653895842
+grep ">" Arabidopsis_thaliana.cds |wc -l
+#1653895853
+les nod_in_outgroup 
+#1653895859
+lth
+#1653895864
+tma
+#1653895875
+tail nod_in_outgroup 
+#1653895880
+tail nodulation_genes.txt 
+#1653895886
+vi nodulation_genes.txt 
+#1653895591
+for j in `cat nodulation_genes.txt`; do for i in Medicago_truncatula.*.e; do pm iga.evolution.ortho is_pav ${j} ${i%.e} >> nod_in_outgroup; done; done
+#1653898528
+jobs
+#1653898529
+tma
+#1653898531
+lth
+#1653898549
+for i in MtrunA17Chr4g0040951  MtrunA17Chr1g0177091  MtrunA17Chr2g0301621  MtrunA17Chr1g0155781  MtrunA17Chr1g0181121  MtrunA17Chr4g0028861  MtrunA17Chr7g0263471  MtrunA17Chr3g0119041  MtrunA17Chr4g0037611  MtrunA17Chr3g0137261  MtrunA17Chr3g0137271  MtrunA17Chr6g0459491  MtrunA17Chr5g0428261  MtrunA17Chr1g0161531  MtrunA17Chr2g0310821  MtrunA17Chr5g0445131  MtrunA17Chr3g0082861  MtrunA17Chr8g0352611; do grep $i nod_in_outgroup ; done
+#1653898614
+for i in MtrunA17Chr4g0040951  MtrunA17Chr1g0177091  MtrunA17Chr2g0301621  MtrunA17Chr1g0155781  MtrunA17Chr1g0181121  MtrunA17Chr4g0028861  MtrunA17Chr7g0263471  MtrunA17Chr3g0119041  MtrunA17Chr4g0037611  MtrunA17Chr3g0137261  MtrunA17Chr3g0137271  MtrunA17Chr6g0459491  MtrunA17Chr5g0428261  MtrunA17Chr1g0161531  MtrunA17Chr2g0310821  MtrunA17Chr5g0445131  MtrunA17Chr3g0082861  MtrunA17Chr8g0352611; do grep $i nod_in_outgroup >> fabaceae_new.txt; done
+#1653898623
+python ../02.nodulation_genes/stat2matrix.py fabaceae_new.txt 
+#1653898646
+cut -f1 fabaceae_new.txt |les
+#1653898651
+cut -f1 fabaceae_new.txt |sort |uniq |les
+#1653898656
+cut -f1 fabaceae_new.txt |sort |uniq 
+#1653898696
+cut -f1 fabaceae_new.txt |sort |uniq |sed "s/mRNA_//; s/_Metru//;"
+#1653898856
+lth
+#1653898858
+ll *txt
+#1653898872
+grep MtrunA17Chr3g0137271 nod_in_outgroup 
+#1653898901
+grep MtrunA17Chr3g0137261 nod_in_outgroup 
+#1653898946
+les work.Medicago_truncatula.Vitis_vinifera/Medicago_truncatula.Vitis_vinifera.anchors.addks
+#1653898994
+for i in MtrunA17Chr8g0379011  MtrunA17Chr5g0448621  MtrunA17Chr7g0222521  MtrunA17Chr7g0252921  MtrunA17Chr3g0094861  MtrunA17Chr4g0046321  MtrunA17Chr5g0393841  MtrunA17Chr4g0044681  MtrunA17Chr4g0050851  MtrunA17Chr5g0414651  MtrunA17Chr5g0435991  MtrunA17Chr5g0439631  MtrunA17Chr6g0484671  MtrunA17Chr6g0481011; do grep $i nod_in_outgroup >> ddcp_new_check.txt; done
+#1653899008
+mv fabaceae_new.txt fabaceae_new_check.txt
+#1653899011
+vi fabaceae_new_check.txt 
+#1653899024
+cut -f1 ddcp_new_check.txt |sort |uniq |sed "s/mRNA_//; s/_Metru//;"
+#1653899080
+for i in MtrunA17Chr5g0400621  MtrunA17Chr1g0199681  MtrunA17Chr2g0328971  MtrunA17Chr3g0124971  MtrunA17Chr6g0461271  MtrunA17Chr1g0151801  MtrunA17Chr6g0469911  MtrunA17Chr4g0042561  MtrunA17Chr7g0224551  MtrunA17Chr2g0332661; do grep $i nod_in_outgroup >> fabales_new_check.txt; done
+#1653899083
+more fabales_new_check.txt 
+#1653899092
+cut -f1 fabales_new_check.txt |sort |uniq |sed "s/mRNA_//; s/_Metru//;"
+#1653899171
+cp ../02.nodulation_genes/dup2col.pl .
+#1653899172
+vi dup2col.pl 
+#1653899241
+lth
+#1653899245
+perl dup2col.pl fabales_new_check.txt |les
+#1653899282
+ll *txt
+#1653899293
+for i in *check.txt; do perl dup2col.pl $i > $i.merge; done
+#1653899301
+for i in *merge; do python ../02.nodulation_genes/stat2matrix.py $i; done
+#1653899312
+ll *xls
+#1653899325
+for i in *xls; do pytho ../03.blast_rbh/count_matrix.pl $i; done
+#1653899330
+for i in *xls; do perl ../03.blast_rbh/count_matrix.pl $i; done
+#1653899918
+more *xls
+#1653900039
+grep Yangtao2014868 work.Medicago_truncatula.Averrhoa_carambola/*kaks
+#1653900061
+cd work.Medicago_truncatula.Averrhoa_carambola/
+#1653900062
+lt
+#1653900075
+ks_hist.R *.ortho.kaks
+#1653900079
+lth
+#1653900083
+sz Medicago_truncatula.Averrhoa_carambola.ortho.kaks.pdf 
+#1653900085
+# Sent -> /Users/liuhui/Downloads/
+#1653900105
+cd ../work.Medicago_truncatula.Populus_trichocarpa/
+#1653900111
+grep PNT48458 *.ortho.kaks
+#1653900150
+cd ../work.Medicago_truncatula.Vitis_vinifera/
+#1653900154
+grep 218s0001g02120 *.ortho.kaks
+#1653900306
+grep AT5G52790.1_Artha ../work.Medicago_truncatula.Arabidopsis_thaliana/*ortho.kaks
+#1653900333
+grep PNS96941_Potri ../work.Medicago_truncatula.Populus_trichocarpa/*ortho.kaks
+#1653900353
+grep PNS96941_Potri ../work.Populus_trichocarpa.Populus_trichocarpa/*ortho.kaks
+#1653900361
+grep PNS96941_Potri ../work.Populus_trichocarpa.Populus_trichocarpa/*anchors
+#1653900366
+les ../work.Populus_trichocarpa.Populus_trichocarpa/*anchors
+#1653900769
+cd ../work.Medicago_truncatula.Averrhoa_carambola/
+#1653900771
+ls
+#1653900774
+lth
+#1653900780
+grep MtrunA17Chr3g0082861 *filterKs
+#1653900786
+les *filterKs
+#1653901966
+j 04.
+#1653901967
+lt
+#1653901970
+les Arabidopsis_thaliana.gff3 
+#1653960168
+j nit
+#1653960168
+ls
+#1653960171
+cd
+#1653960175
+cd projects/
+#1653960177
+cd phyleg
+#1653960177
+ls
+#1653960192
+mkdir new_genome_0531
+#1653960200
+realpath new_genome_0531
+#1653960223
+cd new_genome_0531/
+#1653960224
+llt
+#1653960226
+bhosts 
+#1653960227
+bjl
+#1653960233
+lt
+#1653960238
+ls ..
+#1653960272
+cp ../04.fig4/04.triangle_localization/against_fabids_clade/fabids/01.repeat.sh  .
+#1653960276
+cp ../04.fig4/04.triangle_localization/against_fabids_clade/fabids/braker.sh .
+#1653960276
+ll
+#1653960278
+vi 01.repeat.sh 
+#1653960282
+ll
+#1653960296
+unzip Pueraria_montana.zip 
+#1653960304
+bg
+#1653960106
+cd /nfs/liuhui/projects/phyleg/new_genome_0531/
+#1653960109
+gzip -d Sindora_glabra.fna.gz 
+#1653960117
+gzip -d Sophora_japonica.gz
+#1653960189
+lt
+#1653960202
+ls ncbi_dataset/
+#1653960205
+les Sophora_japonica 
+#1653960214
+mv Sophora_japonica Sophora_japonica.fa
+#1653960214
+ll
+#1653960228
+mv ncbi_dataset/data/GCA_019096045.1/GCA_019096045.1_GAAS_Ptho_1.0_genomic.fna  Pueraria_montana.fa
+#1653960229
+les Pueraria_montana.
+#1653960230
+les Pueraria_montana.fa 
+#1653960259
+grep ">" Pueraria_montana.fa 
+#1653960281
+vi Pueraria_montana.fa 
+#1653960382
+ll
+#1653960391
+mv Sindora_glabra.fna Sindora_glabra.fa
+#1653960393
+vi Sindora_glabra.fa 
+#1653960439
+grep ">" Sindora_glabra.fa 
+#1653960445
+lth
+#1653960452
+vi Sophora_japonica.fa 
+#1653960461
+grep ">" Sophora_japonica.fa 
+#1653960466
+vi Sophora_japonica.fa 
+#1653960484
+grep Hic_asm_ Sophora_japonica.fa 
+#1653960537
+vi
+#1653960597
+vi Sophora_japonica.fa 
+#1653960650
+lt
+#1653960652
+vi braker.sh 
+#1653960656
+vi 01.repeat.sh 
+#1653960659
+ll *.fa
+#1653960661
+mkdir temp
+#1653960668
+mv *zip *gz temp/
+#1653960668
+ll
+#1653960673
+mv ncbi_dataset temp/
+#1653960676
+mv README.md temp/
+#1653960676
+ll
+#1653960685
+mv genome.annotation_geta.gff3 temp/
+#1653960688
+ll
+#1653960692
+mv Bauhinia_variegata.gff temp/
+#1653960693
+ll
+#1653960696
+head -1 *.fa
+#1653960705
+bash 01.repeat.sh 
+#1653960709
+bjl
+#1653960716
+lt
+#1653960720
+vi braker.sh 
+#1653960723
+cd temp/
+#1653960724
+ll
+#1653960748
+gzip -d Bauhinia_variegata.gz
+#1653960754
+diff *gff3 |les
+#1653960761
+diff Bauhinia_variegata.gff genome.annotation_geta.gff3 |les
+#1653960768
+lt
+#1653960774
+mv Bauhinia_variegata Bauhinia_variegata.fa
+#1653960775
+ll
+#1653960777
+les Bauhinia_variegata.
+#1653960780
+les Bauhinia_variegata.fa 
+#1653960788
+vi Bauhinia_variegata.fa 
+#1653960908
+head *gff *gff3
+#1653960913
+tail *gff *gff3
+#1653960919
+vi *gff
+#1653960939
+cut -f1 *gff |sort |uniq |les
+#1653960954
+lt
+#1653960957
+les *.fa
+#1653960964
+grep ">" *.fa |wc -l
+#1653960969
+cut -f1 *gff |sort |uniq |wc -l
+#1653961051
+lt
+#1653961056
+les Bauhinia_variegata.fa 
+#1653961058
+mv Bauhinia_variegata.fa ..
+#1653961058
+ls
+#1653961059
+cd ..
+#1653961060
+ll
+#1653961062
+vi 01.repeat.sh 
+#1653961074
+bash 01.repeat.sh 
+#1653961077
+bjl
+#1653961094
+lt
+#1653961097
+bhosts 
+#1653961103
+more 01.repeat.sh 
+#1653961107
+lth
+#1653961171
+lt
+#1653961173
+bjl
+#1653961179
+bjobs -l 73029
+#1653962254
+bjl
+#1653962259
+bhosts 
+#1653962262
+lsload
+#1653962270
+top
+#1653962268
+ssh yi04
+#1653962286
+lt
+#1653962288
+bjl
+#1653962298
+cd ..
+#1653962299
+lt
+#1653962300
+lth
+#1653962301
+cd pro
+#1653962426
+ls
+#1653962429
+cd 02.fig2D/
+#1653962429
+ls
+#1653962433
+cd ..
+#1653962439
+cd 03.fig3/
+#1653962440
+ls
+#1653962441
+ll
+#1653962508
+s
+#1653962509
+ls
+#1653962509
+lt
+#1653962514
+mkdir D
+#1653962516
+cd D/
+#1653962527
+ls
+#1653962542
+ls ~/projects/phyleg/mcscanX2/*_Pap*
+#1653962602
+for i in  ~/projects/phyleg/mcscanX2/*/*_*.*_*_*.ortho.kaks; do cp $i . ; done
+#1653962793
+for i in  ~/projects/phyleg/mcscanX2/*/*_*_*.*_*.ortho.kaks; do cp $i . ; done
+#1653962942
+ls
+#1653962988
+ls *Det*Det*kaks
+#1653963004
+ls *Pap*Det*
+#1653963038
+ls *_*_*.Medicago_truncatula.ortholkaks
+#1653963043
+ls *_*_*.Medicago_truncatula.ortho.kaks
+#1653963045
+ll *_*_*.Medicago_truncatula.ortho.kaks
+#1653963058
+for i in  *_*_*.Medicago_truncatula.ortho.kaks; do ks_hist.R $i; done &
+#1653963061
+logsh
+#1653963083
+pushd ../../mcscanX2/
+#1653963085
+ls *sh
+#1653963087
+more patch.sh 
+#1653963201
+for i in Andira_inermis_Pap Goniorrhachis_marginata_Det Angylocalyx_braunii_Pap Umtiza_listeriana_Cae Dialium_schlechtneri_Dia Zollernia_splendens_Pap; do query=${i}; bsub -n 4 -J ${i}.${query} -o ${i}.${query}.log -e ${i}.${query}.log "python -m iga.evolution.ortho mcscanx --model YN --top_num 10 ${i} ${query}"; done
+#1653963207
+cat >>patch.sh 
+#1653963218
+bjl
+#1653963222
+bhosts 
+#1653963224
+lsload
+#1653963229
+lth
+#1653963235
+les cd work.Zollernia_splendens_Pap.Zollernia_splendens_Pap/
+#1653963237
+cd work.Zollernia_splendens_Pap.Zollernia_splendens_Pap/
+#1653963238
+lt
+#1653963277
+popd
+#1653963279
+lth
+#1653963282
+sz *pdf
+#1653963285
+# Sent -> /Users/liuhui/Downloads/
+#1653963366
+lth
+#1653963371
+bjl
+#1653963380
+lth
+#1653963385
+rm *pdf
+#1653963385
+ls
+#1653963552
+cp ../../../phyleg/wgd_rnaseq/results_plotks/*kaks .
+#1653963554
+lt
+#1653963558
+lth
+#1653963572
+mv Zollernia_splendens_Pap.Zollernia_splendens_Pap.kaks Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks
+#1653963578
+mv Umtiza_listeriana_Cae.Umtiza_listeriana_Cae.kaks Umtiza_listeriana_Cae.Umtiza_listeriana_Cae.ortho.kaks
+#1653963584
+mv Goniorrhachis_marginata_Det.Goniorrhachis_marginata_Det.kaks Goniorrhachis_marginata_Det.Goniorrhachis_marginata_Det.ortho.kaks
+#1653963589
+mv Dialium_schlechtneri_Dia.Dialium_schlechtneri_Dia.kaks Dialium_schlechtneri_Dia.Dialium_schlechtneri_Dia.ortho.kaks
+#1653963594
+mv Andira_inermis_Pap.Andira_inermis_Pap.kaks Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1653963595
+lth
+#1653963601
+rm paralogs-t300-mYN.kaks 
+#1653963611
+lth
+#1653963645
+ls ~/projects/phyleg
+#1653963653
+ls ~/projects/phyleg/wgd_rnaseq/
+#1653963655
+ls ~/projects/phyleg/wgd_rnaseq/02.ksplot/
+#1653963663
+ls ~/projects/phyleg/wgd_rnaseq/02.ksplot/draft_work1/
+#1653963668
+ll
+#1653963669
+lth
+#1653963688
+bhosts 
+#1653963690
+lsload
+#1653960306
+ssh yi04
+#1653963926
+ 03.fig3/D
+#1653963928
+j 03.fig3/D
+#1653963928
+lt
+#1653963929
+lth
+#1653964033
+top
+#1653964037
+bhosts 
+#1653964038
+lsload
+#1653964072
+j 03/D
+#1653964078
+cd /nfs/liuhui/projects/phyleg/03.fig3/D
+#1653964079
+lth
+#1653964092
+les *ortho.kaks
+#1653964099
+lt
+#1653964101
+lth
+#1653964160
+j work.Andira_inermis_Pap.Medicago_truncatula/
+#1653964161
+lt
+#1653964167
+more *peak
+#1653964215
+python -c 'print((0.23793412368403324 + 0.9268972201031007) / 2 )'
+#1653964225
+lth
+#1653964226
+cd ..
+#1653964227
+lth
+#1653964230
+cd -
+#1653964230
+lth
+#1653964233
+ll
+#1653964244
+cd ..
+#1653964244
+ls
+#1653964246
+cd draft_work1/
+#1653964248
+ls
+#1653964251
+cd work.An
+#1653964252
+cd work.Andira_inermis_Pap.Andira_inermis_Pap/
+#1653964252
+lt
+#1653964254
+lth
+#1653964259
+cd -
+#1653964260
+lth
+#1653963944
+get_ks_peak.py Andira_inermis_Pap.Medicago_truncatula.ortho.kaks > Andira_inermis_Pap.Medicago_truncatula.ortho.kaks.peak
+#1653964316
+lth
+#1653964320
+les Andira_inermis_Pap.Medicago_truncatula.ortho.kaks.KsGMM
+#1653964343
+top
+#1653964348
+bhosts 
+#1653964349
+ll
+#1653964354
+lt
+#1653964355
+lth
+#1653964379
+ll *ortho.kaks |wc -l
+#1653964380
+lth
+#1653964389
+lt |head -20
+#1653964447
+lt *.ortho.kaks > ks_list
+#1653964448
+vi ks_list 
+#1653964455
+ls -t *.ortho.kaks > ks_list
+#1653964456
+vi ks_list 
+#1653964476
+vi run.sh
+#1653964543
+bsub512 -m yi03 -n 10 -J GMM_on_transcriptome < run.sh 
+#1653964544
+lth
+#1653964545
+bjl
+#1653964553
+bjobs -l 
+#1653964555
+bjobs -l 73050
+#1653964556
+bjobs -l 73051
+#1653964558
+lth
+#1653964111
+history |less
+#1653964049
+ssh yi03
+#1653964571
+bjl
+#1653964581
+lth
+#1653964582
+lt
+#1653964699
+htop
+#1653964715
+bhosts 
+#1653964717
+htop
+#1653964734
+bjobs -m yi03
+#1653964740
+bjobs -m yi03 -u all
+#1653964751
+htop 
+#1653964762
+ps aux |grep fuxiaogang |less
+#1653964769
+htop
+#1653964786
+top
+#1653964805
+lth
+#1653964808
+htop
+#1653966528
+lth
+#1653966543
+lt *peak
+#1653966553
+more Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks.peak
+#1653966600
+more Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks.peak 
+#1653966638
+cd ../../mcscanX2/kaks_with_rnaseq/
+#1653966638
+ls
+#1653966641
+lth
+#1653966654
+cd -
+#1653966660
+ls *peak
+#1653966673
+cd -
+#1653966687
+for i in /nfs/liuhui/projects/phyleg/mcscanX2/kaks_with_rnaseq/*ortho; do ln -s $i; done
+#1653966698
+lth
+#1653966701
+rm *.ortho
+#1653966704
+ls
+#1653966720
+for i in  ~/projects/phyleg/mcscanX2/*/*_*_*.*_*.ortho; do cp $i . ; done
+#1653969254
+for i in  ~/projects/phyleg/mcscanX2/*/*_*.*_*_*.ortho; do cp $i . ; done
+#1653970300
+ls
+#1653970302
+jobs
+#1653970303
+bj
+#1653970311
+bkill 73061
+#1653970312
+bjl
+#1653970315
+ls
+#1653970329
+ls *sh
+#1653970331
+vi run.sh 
+#1653970334
+vi ks_list 
+#1653970354
+vi run.sh 
+#1653970458
+j 13/D
+#1653970460
+j /D
+#1653970464
+j 3/D
+#1653970464
+lth
+#1653970468
+ls *ortho
+#1653970517
+les ../../../phyleg/wgd_rnaseq/results_plotks/*.kaks
+#1653970442
+bash run.sh 
+#1653970569
+bjl
+#1653970575
+lth
+#1653970584
+rm bsub.GMM_peak.*
+#1653970590
+rm error.730* output.730*
+#1653970590
+lth
+#1653970603
+rm -r work_A*ortho
+#1653970604
+lth
+#1653970616
+vi Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1653970679
+vi *_*_*.*_*_*.ortho.kaks
+#1653970720
+vi Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1653970738
+vi *_*_*.*_*_*.ortho.kaks
+#1653970835
+ls ../../../phyleg/wgd_rnaseq/results_plotks/*kaks 
+#1653970846
+vi Dialium_schlechtneri_Dia.Dialium_schlechtneri_Dia.ortho.kaks
+#1653970906
+vi Goniorrhachis_marginata_Det.Goniorrhachis_marginata_Det.ortho.kaks
+#1653970970
+vi Umtiza_listeriana_Cae.Umtiza_listeriana_Cae.ortho.kaks
+#1653971028
+vi Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks
+#1653971124
+for i in Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks Dialium_schlechtneri_Dia.Dialium_schlechtneri_Dia.ortho.kaks Goniorrhachis_marginata_Det.Goniorrhachis_marginata_Det.ortho.kaks Umtiza_listeriana_Cae.Umtiza_listeriana_Cae.ortho.kaks Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks; do tail -n +2 ${i} |cut -f1 |sed "s/-/\t/;" > ${i%.kaks}; done
+#1653971132
+lth
+#1653971135
+les Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho
+#1653971165
+lth
+#1653971170
+bjl
+#1653971176
+bjobs |grep GMM_peak > tmp
+#1653971177
+vi tmp 
+#1653971190
+for i in `cat tmp`; do bkill $i; done
+#1653971197
+lth
+#1653971200
+rm error.73* output.73*
+#1653971205
+rm -r work_A*ortho/
+#1653971207
+lth
+#1653971212
+rm tmp 
+#1653971218
+vi run.sh 
+#1653971224
+ls *ortho |wc -l
+#1653971228
+ls *kaks |wc -l
+#1653971230
+bash run.sh 
+#1653972678
+bjl
+#1653972683
+bhosts 
+#1653972688
+lsload
+#1653972694
+lsload |sort -k1,1
+#1653972700
+bjl
+#1653977156
+lsload |sort -k1,1
+#1653977157
+lth
+#1653977163
+les error.73693 
+#1653977201
+ls *sh
+#1653977204
+bjl
+#1653977208
+bjobs |grep GMM_peak > tmp
+#1653977211
+for i in `cat tmp`; do bkill $i; done
+#1653977215
+lt
+#1653977216
+vi tmp 
+#1653977220
+for i in `cat tmp`; do bkill $i; done
+#1653977223
+lth
+#1653977234
+rm output.73* error.73*
+#1653977236
+lth
+#1653977242
+rm -r work_*ortho/
+#1653977245
+lth
+#1653977263
+vi run.sh 
+#1653977313
+ls  ~/projects/phyleg/mcscanX2/*.cds |les
+#1653977327
+ls  ~/projects/phyleg/mcscanX2/*.cds  > tmp
+#1653977328
+vi tmp 
+#1653977457
+for i in `cat tmp`; do cp ~/projects/phyleg/mcscanX2/*/${i}.${i}.ortho; do cp $i .; done
+#1653977469
+for i in `cat tmp`; do cp ~/projects/phyleg/mcscanX2/*/${i}.${i}.ortho .; done
+#1653977497
+for i in `cat tmp`; do cp ~/projects/phyleg/mcscanX2/work.${i}.${i}/${i}.${i}.ortho .; done
+#1653977504
+lth
+#1653977517
+vi run.sh 
+#1653977521
+bjl
+#1653977557
+bjl
+#1653977595
+bpeek 73871
+#1653977529
+bash run.sh 
+#1653977646
+for i in `cat tmp`; do cp ~/projects/phyleg/mcscanX2/work.${i}.${i}/${i}.${i}.ortho.kaks .; done
+#1653977664
+bjobs |grep GMM_peak > tmp1
+#1653977667
+vi tmp1
+#1653977694
+for i in `cat tmp1`; do bkill $i; done
+#1653977697
+bjl
+#1653977701
+lth
+#1653977704
+rm output.738* error.738*
+#1653977706
+rm -r work_*ortho/
+#1653977707
+lth
+#1653977744
+vi run.sh 
+#1653977757
+ls *ortho |head
+#1653977774
+pm iga.evolution.ortho commonWGD1 Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653977777
+bjl
+#1653977786
+bpeek 74034
+#1653977827
+lth
+#1653977829
+rm output.74034 error.74034 
+#1653977837
+bjl
+#1653977841
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653977842
+lt
+#1653977848
+les Abrus_precatorius.Andira_inermis_Pap.ortho.left.kaks
+#1653977854
+les Abrus_precatorius.Andira_inermis_Pap.ortho.right.kaks
+#1653977856
+cd ..
+#1653977857
+lth
+#1653977862
+bash bsub.GMM_peak.775045.sh 
+#1653977878
+les Andira_inermis_Pap.Andira_inermis_Pap.ortho
+#1653977889
+les ../Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653977893
+les Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653977902
+les ../Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653977903
+les Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653977979
+vi `which selectItem.pl `
+#1653978048
+gtp
+#1653978056
+bash bsub.GMM_peak.775045.sh 
+#1653978070
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653978073
+lt
+#1653978078
+selectItem.pl 0 0,1 ../Abrus_precatorius.Andira_inermis_Pap.ortho ../Abrus_precatorius.Abrus_precatorius.ortho
+#1653978082
+selectItem.pl 1 0,1 ../Abrus_precatorius.Andira_inermis_Pap.ortho ../Abrus_precatorius.Abrus_precatorius.ortho
+#1653978093
+lt
+#1653978142
+selectItem.pl 1 0,1 ../Abrus_precatorius.Andira_inermis_Pap.ortho ../Andira_inermis_Pap.Andira_inermis_Pap.ortho |les
+#1653978148
+selectItem.pl 0 0,1 ../Abrus_precatorius.Andira_inermis_Pap.ortho ../Andira_inermis_Pap.Andira_inermis_Pap.ortho |les
+#1653978152
+selectItem.pl 0 0,1 ../Abrus_precatorius.Andira_inermis_Pap.ortho ../Andira_inermis_Pap.Andira_inermis_Pap.ortho 
+#1653978158
+head  ../Abrus_precatorius.Andira_inermis_Pap.ortho ../Andira_inermis_Pap.Andira_inermis_Pap.ortho
+#1653978177
+vi ../Andira_inermis_Pap.Andira_inermis_Pap.ortho
+#1653978194
+cd ..
+#1653978196
+gtp
+#1653978222
+for i in Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks Dialium_schlechtneri_Dia.Dialium_schlechtneri_Dia.ortho.kaks Goniorrhachis_marginata_Det.Goniorrhachis_marginata_Det.ortho.kaks Umtiza_listeriana_Cae.Umtiza_listeriana_Cae.ortho.kaks Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks; do vi ${i%.kaks}; done
+#1653978714
+lth
+#1653978723
+bash bsub.GMM_peak.775045.sh 
+#1653978801
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653978801
+lt
+#1653978810
+gtp
+#1653978816
+cd ..
+#1653978818
+rm bsub.GMM_peak.*
+#1653978820
+lth
+#1653978823
+lt |les
+#1653978831
+pm iga.evolution.ortho commonWGD1 Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653978835
+cd -
+#1653978836
+lt
+#1653978839
+cd -
+#1653978841
+bjl
+#1653978842
+cd -
+#1653978843
+lt
+#1653978901
+les Abrus_precatorius.Andira_inermis_Pap.ortho.right.kaks
+#1653978905
+more ../bsub.GMM_peak.832177.sh 
+#1653978919
+head Abrus_precatorius.Andira_inermis_Pap.ortho.right
+#1653978925
+head ../Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1653978928
+cd ..
+#1653978960
+for i in Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks Dialium_schlechtneri_Dia.Dialium_schlechtneri_Dia.ortho.kaks Goniorrhachis_marginata_Det.Goniorrhachis_marginata_Det.ortho.kaks Umtiza_listeriana_Cae.Umtiza_listeriana_Cae.ortho.kaks Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks; do sed -i "s/\.p/_p/g"; done 
+#1653978969
+for i in Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks Dialium_schlechtneri_Dia.Dialium_schlechtneri_Dia.ortho.kaks Goniorrhachis_marginata_Det.Goniorrhachis_marginata_Det.ortho.kaks Umtiza_listeriana_Cae.Umtiza_listeriana_Cae.ortho.kaks Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks; do sed -i "s/\.p/_p/g" $i; done 
+#1653978991
+les Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks Dialium_schlechtneri_Dia.Dialium_schlechtneri_Dia.ortho.kaks Goniorrhachis_marginata_Det.Goniorrhachis_marginata_Det.ortho.kaks Umtiza_listeriana_Cae.Umtiza_listeriana_Cae.ortho.kaks Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks
+#1653978998
+cd -
+#1653979008
+rm -rf bsub.GMM_peak.832177.sh work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653979009
+lth
+#1653979011
+rm output.74035 error.74035 
+#1653979015
+pm iga.evolution.ortho commonWGD1 Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653979261
+lt
+#1653979268
+lth
+#1653979287
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653979287
+lt
+#1653979291
+cd -
+#1653979291
+lt
+#1653979292
+lth
+#1653979300
+cd -
+#1653979300
+lt
+#1653979304
+cd -
+#1653979305
+lth
+#1653979320
+cd -
+#1653979410
+lt
+#1653979415
+lt ../ |head
+#1653979433
+ll ../Abrus_precatorius.Andira_inermis_Pap.ortho.kaks
+#1653979435
+lt
+#1653979451
+lt ../ |head
+#1653979518
+bjl
+#1653979523
+bpeek 74036
+#1653979528
+cd -
+#1653979532
+lt
+#1653979533
+lth
+#1653979548
+ll *left *rigth
+#1653979551
+ll
+#1653979553
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653979553
+ll
+#1653979559
+les Abrus_precatorius.Andira_inermis_Pap.ortho.left
+#1653979568
+sed "s/-/\n/" Abrus_precatorius.Andira_inermis_Pap.ortho.left |les
+#1653979590
+sed "s/-X/\nX/" Abrus_precatorius.Andira_inermis_Pap.ortho.left |les
+#1653979604
+sed "s/\-X/\nX/" Abrus_precatorius.Andira_inermis_Pap.ortho.left |les
+#1653979623
+sed "s/\-X/\rX/" Abrus_precatorius.Andira_inermis_Pap.ortho.left |les
+#1653979642
+sed "s/-rna/\nrna/" Abrus_precatorius.Andira_inermis_Pap.ortho.left |les
+#1653979655
+sed "s/-rna/\nrna/" Abrus_precatorius.Andira_inermis_Pap.ortho.left |uniq |wc -l > tmp
+#1653979669
+sed "s/-rna/\nrna/" Abrus_precatorius.Andira_inermis_Pap.ortho.left |sort |uniq  > tmp
+#1653979675
+les *right
+#1653979687
+sed "s/-/\n/" *right >> tmp
+#1653979690
+sed "s/-rna/\nrna/" Abrus_precatorius.Andira_inermis_Pap.ortho.left |sort |uniq  > tmp
+#1653979695
+sed "s/-/\n/" *right |sort |uniq >> tmp
+#1653979699
+vi tmp
+#1653979736
+vi `selectItem.pl `
+#1653979741
+vi `which selectItem.pl `
+#1653979801
+selectItem.pl 0 0,1 tmp ../Abrus_precatorius.Andira_inermis_Pap.ortho > tmp.out
+#1653979805
+ll tmp.out 
+#1653979808
+les tmp.out 
+#1653980162
+lt
+#1653980163
+ll
+#1653980168
+les tmp
+#1653980173
+les *left
+#1653980186
+les tmp.out 
+#1653980203
+gtp
+#1653980209
+cd ..
+#1653980210
+rm bsub.GMM_peak.015896.sh 
+#1653980215
+lth
+#1653980217
+rm output.74036 error.74036 
+#1653980221
+pm iga.evolution.ortho commonWGD1 Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653980271
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653980272
+lt
+#1653980280
+les *left
+#1653980284
+les *left.ortho
+#1653980293
+les *cross.id
+#1653980304
+les *cross.ortho
+#1653980314
+sed "s/\t/\n/" *cross.ortho |sort |uniq |wc -l
+#1653980320
+wc -l *cross.id
+#1653980345
+sed "s/\t/\n/" *cross.ortho |sort |uniq |les
+#1653980365
+lt
+#1653980458
+lth
+#1653980497
+les *cross.id
+#1653980616
+bjl
+#1653980619
+gtp
+#1653981108
+cd ..
+#1653981114
+rm bsub.GMM_peak.222796.sh 
+#1653981115
+lth
+#1653981117
+rm output.74037 error.74037 
+#1653981117
+pm iga.evolution.ortho commonWGD1 Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653981187
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653981187
+lt
+#1653981196
+gtp
+#1653981201
+lt
+#1653981203
+bjl
+#1653981205
+lt
+#1653981214
+cd -
+#1653981214
+lth
+#1653981217
+cd -
+#1653981218
+lt
+#1653981220
+cd ..
+#1653981221
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653981221
+lt
+#1653981223
+cd ..
+#1653981224
+lth
+#1653981240
+bjl
+#1653981245
+bpeek 74038
+#1653981247
+cd -
+#1653981248
+lt
+#1653981255
+les *left
+#1653981258
+les *right
+#1653981267
+les *cross
+#1653981271
+les *cross.id
+#1653981280
+les *cross.ortho
+#1653981297
+sed "s/\t/\n" *cross.ortho |les
+#1653981306
+sed "s/\t/\n/" *cross.ortho |sort |uniq |wc -l
+#1653981341
+sort Abrus_precatorius.Andira_inermis_Pap.ortho.cross.id |uniq |wc -l
+#1653981389
+gtp
+#1653981394
+bjl
+#1653981397
+bkill 74038
+#1653981398
+lth
+#1653981405
+cd ..
+#1653981409
+rm -r work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653981415
+rm bsub.GMM_peak.118433.sh error.74038 output.74038 
+#1653981419
+pm iga.evolution.ortho commonWGD1 Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653981422
+gtp
+#1653981429
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653981429
+lt
+#1653981505
+ks_hist.R Abrus_precatorius.Andira_inermis_Pap.ortho.left.kaks 
+#1653981511
+ks_hist.R Abrus_precatorius.Andira_inermis_Pap.ortho.right.kaks
+#1653981529
+ks_hist.R Abrus_precatorius.Andira_inermis_Pap.ortho.cross.kaks
+#1653981574
+lth
+#1653981578
+sz *pdf
+#1653981581
+# Sent -> /Users/liuhui/Downloads/
+#1653981661
+lth
+#1653981671
+wc -l *GMM
+#1653981773
+lt
+#1653981774
+cd ..
+#1653981774
+lth
+#1653981780
+more *peak
+#1653982416
+ls ../../mcscanX2/kaks/*sh
+#1653982426
+les ../../mcscanX2/kaks/calc.sh 
+#1653982544
+ls /nfs/liuhui/bin/bundle/bash_template/
+#1653982549
+lt /nfs/liuhui/bin/bundle/bash_template/
+#1653982554
+les /nfs/liuhui/bin/bundle/bash_template/join_kaks.sh 
+#1653982565
+ls ../../*sh
+#1653982568
+lt ../../*sh
+#1653982574
+vi ../../mcscanX2.sh
+#1653982591
+vi ../../05.get_rest_peaks.sh
+#1653982602
+lth
+#1653982605
+les error.74039 
+#1653982609
+les output.74039 
+#1653982688
+lth
+#1653982712
+ls ../../*py
+#1653982717
+ls ../../*pl
+#1653982724
+vi ../../*pl
+#1653982884
+lt
+#1653982885
+lth
+#1653982889
+vi ../../*pl
+#1653982957
+ll ../../*pl
+#1653983645
+gtp
+#1653983651
+ls
+#1653983653
+lth
+#1653983668
+rm bsub.GMM_peak.420672.sh error.74039 output.74039 
+#1653983669
+lth
+#1653983682
+gtp
+#1653983689
+pm iga.evolution.ortho commonWGD1 Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653983784
+lth
+#1653984015
+lt work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653984107
+lth
+#1653984234
+gtp
+#1653984239
+lth
+#1653984248
+rm -rf work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653984249
+pm iga.evolution.ortho commonWGD1 Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653984281
+gtp
+#1653984287
+pm iga.evolution.ortho commonWGD1 Abrus_precatorius.Andira_inermis_Pap.ortho
+#1653984289
+lth
+#1653984304
+rm Abrus_precatorius.Andira_inermis_Pap.ortho.left.peak Abrus_precatorius.Andira_inermis_Pap.ortho.kaks.KsGMM Abrus_precatorius.Andira_inermis_Pap.ortho.right.peak 
+#1653984305
+lt
+#1653984306
+lth
+#1653984309
+lt |les
+#1653984413
+lth
+#1653984417
+lt work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1653984634
+lth
+#1653984639
+more Abrus_precatorius.Andira_inermis_Pap.ortho.left_right_cross.peak
+#1653984645
+les error.74040 
+#1653984647
+les output.74040 
+#1653984650
+rm output.74040 error.74040 
+#1653984651
+lt
+#1653984658
+vi run.sh 
+#1653984747
+j polygala
+#1653984748
+lt
+#1653984751
+cd ../..
+#1653984752
+ll
+#1653984754
+cd assembly_intermediate/
+#1653984755
+ll
+#1653984758
+cd hifiasm/
+#1653984758
+lt
+#1653984764
+cd -
+#1653984764
+lt
+#1653970540
+tma
+#1653984665
+bash run.sh 
+#1653985554
+bjl
+#1653985556
+lth
+#1653985559
+ll *.peak
+#1653985573
+rm *.left.peak
+#1653985585
+rm *.ortho.kaks.peak
+#1653985591
+lt *peakh
+#1653985595
+lt *peak
+#1653985911
+more Abrus_precatorius.Dialium_schlechtneri_Dia.ortho.left_right_cross.peak
+#1653985927
+more Abrus_precatorius.Goniorrhachis_marginata_Det.ortho.left_right_cross.peak
+#1653985937
+more Abrus_precatorius.Umtiza_listeriana_Cae.ortho.left_right_cross.peak
+#1653987069
+lt *peak
+#1653987446
+more Aeschynomene_evenia.*cross.peak
+#1653987501
+for i in Aeschynomene_evenia.*cross.peak; do perl -e 'while(<>){chomp; my @e=split; print ($e[0]+$e[1])/2 - $e[2], "\n";}' $i; done
+#1653987529
+for i in Aeschynomene_evenia.*cross.peak; do echo -n "${i}    "; perl -e 'while(<>){chomp; my @e=split; print ($e[0]+$e[1])/2 - $e[2], "\n";}' $i; done
+#1653987555
+for i in Aeschynomene_evenia.*cross.peak; do echo -n "${i}    "; perl -e 'while(<>){chomp; my @e=split; print (($e[0]+$e[1])/2 - $e[2]), "\n";}' $i; done
+#1653987580
+for i in Aeschynomene_evenia.*cross.peak; do echo -n "${i}    "; perl -e 'while(<>){chomp; my @e=split; print (($e[0]+$e[1])/2 - $e[2]), "\n";}' $i; echo ""; done
+#1653987631
+for i in Abrus_precatorius.*cross.peak; do echo -n "${i}    "; perl -e 'while(<>){chomp; my @e=split; print (($e[0]+$e[1])/2 - $e[2]), "\n";}' $i; echo ""; done
+#1653987659
+cd work_Aeschynomene_evenia.Zollernia_splendens_Pap.ortho/
+#1653987659
+lt
+#1653987672
+for i in *kaks; do ks_peak $i; done
+#1653987686
+for i in *kaks; do ks_plot.R $i; done
+#1653987742
+sz *pdf
+#1653987744
+# Sent -> /Users/liuhui/Downloads/
+#1653987778
+ks_hist.R Aeschynomene_evenia.Zollernia_splendens_Pap.ortho.left.kaks
+#1653987792
+sz Aeschynomene_evenia.Zollernia_splendens_Pap.ortho.left.kaks.pdf 
+#1653987795
+# Sent -> /Users/liuhui/Downloads/
+#1653987818
+ll
+#1653987824
+j repeatmask
+#1653987827
+c d..
+#1653987828
+ls
+#1653987829
+cd ..
+#1653987829
+ls
+#1653987836
+cd workdir_repeatmask_Aeschynomene_evenia.fa/
+#1653987837
+lt
+#1653987855
+python -m iga.annotation.repeat post_repeatmasker -h
+#1653987859
+python -m iga.annotation.repeat post_repeatmasker  -h
+#1653987863
+cd ..
+#1653987864
+ls
+#1653987867
+mkdir log
+#1653987871
+mv output.* error.* log/
+#1653987873
+ls
+#1653987881
+python -m iga.annotation.repeat post_repeatmasker  workdir_repeatmask_Aeschynomene_evenia.fa Aeschynomene_evenia.fa
+#1653987964
+ls
+#1653987965
+cd -
+#1653987966
+lt
+#1653987968
+cd -
+#1653987983
+ls -d workdir_repeatmask_*/*.out
+#1653988001
+ls *sh
+#1653988004
+vi all.sh 
+#1653988011
+vi sub2.sh 
+#1653988016
+vi shell 
+#1653988079
+python -m iga.annotation.repeat repeatmasker -h
+#1653988120
+for i in *.fa; do python -m iga.annotation.repeat repeatmasker --threads 20 --wait F --denovo F --species Viridiplantae $i; done
+#1653988185
+bjl
+#1653988203
+lth
+#1653988212
+bjl
+#1653988283
+cd ..
+#1653988291
+cd -
+#1653988309
+bjl
+#1653988334
+bjobs -l 74638
+#1653988340
+bjobs -l 74639
+#1653988355
+bjobs -l 74706
+#1653988357
+bjobs -l 74707
+#1653988389
+ls *.fa
+#1653988406
+bjg
+#1653988415
+bjg |grep workdir > tmp
+#1653988416
+vi tmp
+#1653988453
+head tmp
+#1653988457
+bjobs -l 74732
+#1653988461
+for i in `cat tmp`; do bkill $i; done
+#1653988462
+bjl
+#1653988479
+bjobs -l 74721
+#1653988484
+bjobs -l 74722
+#1653988501
+bjg |grep families.fa > tmp
+#1653988501
+vi tmp
+#1653988506
+bjg
+#1653988517
+bjobs -l 74680
+#1653988537
+which bjg
+#1653988543
+bjobs -l |les
+#1653988588
+bjl
+#1653988624
+for i in `seq 74636 74775`; do bjobs $i; done
+#1653988634
+for i in `seq 74636 74775`; do bkills $i; done
+#1653988636
+for i in `seq 74636 74775`; do bkill $i; done
+#1653988644
+bjl
+#1653988660
+lth
+#1653988664
+rm bsub.*
+#1653988667
+ls
+#1653988672
+ls *list
+#1653988684
+ls *.fa.1 > sp_list
+#1653988686
+vi sp_list 
+#1653988700
+vi shell 
+#1653988725
+for i in `cat sp_list`; do python -m iga.annotation.repeat repeatmasker --threads 20 --wait F --denovo F --species Viridiplantae $i; done
+#1653988746
+bjl
+#1653988763
+for i in `seq 74776 74809`; do bkill $i; done
+#1653988775
+ls *.fa |les
+#1653988786
+ls *.fa |grep -v fam |les
+#1653988791
+ll *masked
+#1653988794
+ll *masked.fa
+#1653988810
+ls workdir_repeatmask_Castanospermum_australe.fa/
+#1653988830
+for i in `cat sp_list`; do python -m iga.annotation.repeat repeatmasker --threads 20 --wait F --denovo F --species Viridiplantae $i.fa; done
+#1653988852
+lth
+#1653988855
+ls
+#1653988857
+bjl
+#1653988866
+bjt
+#1653988875
+for i in `seq 74810 74858`; do bmod -n 1 $i; done
+#1653988877
+bjl
+#1653989004
+bjobs -l 74811
+#1653989011
+cd workdir_repeatmask_Aeschynomene_evenia.fa
+#1653989012
+lt
+#1653989015
+lt Full_mask/
+#1653989018
+ll
+#1653989020
+cd ..
+#1653989021
+lth
+#1653989025
+les error.74820 
+#1653989033
+les output.74820 
+#1653989055
+rm -r workdir_repeatmask_*fa.fa
+#1653989057
+bjl
+#1653989062
+vi sp_list 
+#1653989070
+for i in `cat sp_list`; do python -m iga.annotation.repeat repeatmasker --threads 20 --wait F --denovo F --species Viridiplantae $i; done
+#1653989098
+bjl
+#1653989105
+for i in `seq 74859 74907`; do bmod -n 1 ; done
+#1653989108
+for i in `seq 74859 74907`; do bmod -n 1 $i ; done
+#1653989109
+lth
+#1653989112
+rm output.74* error.74*
+#1653989115
+rm -r workdir_repeatmask_*fa.fa
+#1653989117
+bjl
+#1653989131
+rm -r workdir_repeatmask_*fa.fa
+#1653989132
+bjl
+#1653989134
+lth
+#1653989136
+rm output.7484* error.7484*
+#1653989137
+lth
+#1653989140
+rm -r workdir_repeatmask_*fa.fa
+#1653989141
+bjl
+#1653989143
+lth
+#1653989146
+bjl
+#1653989152
+rm -r workdir_repeatmask_*fa.fa
+#1653989154
+lth
+#1653989157
+rm output.7484* error.748*
+#1653989160
+rm -r workdir_repeatmask_*fa.fa
+#1653989162
+lth
+#1653989164
+rm output.7485* 
+#1653989165
+lth
+#1653989167
+bjl
+#1653989183
+rm output.7485* error.7485*
+#1653989184
+lth
+#1653989187
+rm -r workdir_repeatmask_*fa.fa
+#1653989188
+lth
+#1653989205
+les output.74858
+#1653989209
+rm output.74858 error.74858 
+#1653989210
+bjl
+#1653989216
+ls
+#1653989304
+bjl
+#1653989341
+for i in `cat sp_list`; do python -m iga.annotation.repeat post_repeatmasker workdir_repeatmask_${i} ${i}; done
+#1653989357
+bkill 74908
+#1653989359
+for i in `cat sp_list`; do python -m iga.annotation.repeat post_repeatmasker --wait F workdir_repeatmask_${i} ${i}; done
+#1653989396
+logsh
+#1653989402
+bjl
+#1653989408
+top
+#1653963899
+ssh yi03
+#1654043324
+tma
+#1654043329
+bjl
+#1654043352
+bjobs -l 73031
+#1654043356
+bjl
+#1654043362
+bjobs -l 74886
+#1654043371
+bjl
+#1654043375
+lsload
+#1654043380
+bjl
+#1654043423
+cd .
+#1654043425
+cd ..
+#1654043425
+ls
+#1654043438
+j repeatmask
+#1654043439
+lth
+#1654043443
+cd ../workdir_repeatmask_Aeschynomene_evenia.fa/
+#1654043444
+lt
+#1654043446
+cd Full_mask/
+#1654043446
+lt
+#1654043452
+cd ..
+#1654043454
+ll species_lib.out/
+#1654043459
+cd ..
+#1654043459
+ls
+#1654043463
+bjl
+#1654043471
+bjobs -l 74917
+#1654043396
+tma
+#1654043496
+lth
+#1654043500
+ls *sh
+#1654043512
+grep Aes bsub.post_repeatmasker.3*sh
+#1654043516
+vi bsub.post_repeatmasker.360401.sh
+#1654043521
+bash bsub.post_repeatmasker.360401.sh
+#1654043526
+vi bsub.post_repeatmasker.3
+#1654043532
+vi bsub.post_repeatmasker.360401.sh
+#1654043554
+bash bsub.post_repeatmasker.360401.sh
+#1654043616
+vi bsub.post_repeatmasker.3
+#1654043620
+vi bsub.post_repeatmasker.360401.sh
+#1654043630
+conda activate EDTA
+#1654043676
+which ProcessRepeats
+#1654043684
+vi bsub.post_repeatmasker.360401.sh
+#1654044570
+top
+#1654043688
+bash bsub.post_repeatmasker.360401.sh
+#1654046458
+ln -s workdir_repeatmask_Aeschynomene_evenia.fa/Full_mask/full_mask.complex.reformat.gff3 Aeschynomene_evenia.fa.repeat.gff
+#1654046462
+realpath Aeschynomene_evenia.fa.repeat.gff 
+#1654046497
+ln -s ~/projects/phyleg/mcscanX2/work.Aeschynomene_evenia.Aeschynomene_evenia/Aeschynomene_evenia.bed 
+#1654046517
+logsh
+#1654046540
+bedtools coverage -a Aeschynomene_evenia.bed -b Aeschynomene_evenia.fa.repeat.gff > Aeschynomene_evenia.bed.xrepeat.coverage
+#1654046545
+les Aeschynomene_evenia.bed.xrepeat.coverage
+#1654046560
+les Aeschynomene_evenia.fa.repeat.gff
+#1654046561
+les Aeschynomene_evenia.bed.xrepeat.coverage
+#1654046573
+les Aeschynomene_evenia.fa.repeat.gff
+#1654046582
+les Aeschynomene_evenia.bed.xrepeat.coverage
+#1654046594
+les Aeschynomene_evenia.fa.repeat.gff
+#1654046613
+les Aeschynomene_evenia.bed.xrepeat.coverage
+#1654046622
+bedtools coverage -s -a Aeschynomene_evenia.bed -b Aeschynomene_evenia.fa.repeat.gff > Aeschynomene_evenia.bed.xrepeat.coverage
+#1654046625
+les Aeschynomene_evenia.bed.xrepeat.coverage
+#1654046645
+bedtools coverage -h
+#1654046649
+les Aeschynomene_evenia.bed.xrepeat.coverage
+#1654046658
+tt Aeschynomene_evenia.bed.xrepeat.coverage
+#1654046677
+awk '$10 > 0.5' Aeschynomene_evenia.bed.xrepeat.coverage |les
+#1654046684
+awk '$10 > 0.5' Aeschynomene_evenia.bed.xrepeat.coverage |cut -f4 |wc -l
+#1654046688
+awk '$10 > 0.5' Aeschynomene_evenia.bed.xrepeat.coverage |cut -f4 |sort |uniq |wc -l
+#1654046698
+awk '$10 > 0.5' Aeschynomene_evenia.bed.xrepeat.coverage |cut -f4 > Aeschynomene_evenia.black.id
+#1654046708
+logsh
+#1654046720
+realpath Aeschynomene_evenia.black.id
+#1654046727
+ls
+#1654044573
+tma
+#1654046752
+j mcscanx2
+#1654046757
+cd work.Aeschynomene_evenia.Aeschynomene_evenia/
+#1654046757
+ls
+#1654046760
+mkdir rm_repeat
+#1654046761
+cd rm_repeat/
+#1654046769
+ln -s ../*kaks
+#1654046770
+ll
+#1654046773
+ln -s /nfs/liuhui/projects/phyleg/repeat_mask/Aeschynomene_evenia.black.id
+#1654046773
+ll
+#1654046775
+les *id
+#1654046779
+les Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks
+#1654046784
+man grep
+#1654046797
+grep -vf Aeschynomene_evenia.black.id Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks > tmp
+#1654046829
+vi tmp 
+#1654046839
+wc -l Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks  tmp 
+#1654046847
+ks_hist.R tmp 
+#1654046851
+vi Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks
+#1654046853
+vi tmp 
+#1654046860
+ks_hist.R tmp 
+#1654049058
+lth
+#1654049060
+sz tmp.pdf 
+#1654049063
+# Sent -> /Users/liuhui/Downloads/
+#1654049094
+lt
+#1654049099
+ks_hist.R Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks
+#1654049105
+sz Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks.pdf 
+#1654049107
+# Sent -> /Users/liuhui/Downloads/
+#1654049226
+bjl
+#1654049245
+bjobs -l 73032
+#1654049249
+lth
+#1654049256
+les error.74945 
+#1654049266
+ls *post*
+#1654049289
+ls -d */species.out/
+#1654049296
+ls workdir_repeatmask_Aeschynomene_evenia.fa/
+#1654049305
+ls -d */species_lib.out/
+#1654049309
+ls -d */species_lib.out/ |wc -l
+#1654049314
+ls -d */custom_lib.out/ |wc -l
+#1654049331
+ls -d */custom_lib.out/ > tmp
+#1654049336
+ls -d */species_lib.out/ > tmp2
+#1654049337
+vi tmp
+#1654049343
+vi tmp2 
+#1654049349
+diff tmp tmp2
+#1654049458
+vi bsub.post_repeatmasker.360401.sh
+#1654049515
+gtp
+#1654049547
+rm bsub.post_repeatmasker.3*
+#1654049550
+more shell 
+#1654049558
+vi sp_list 
+#1654049218
+tma
+#1654049570
+for i in `cat sp_list`; do python -m iga.annotation.repeat post_repeatmasker --wait F workdir_repeatmask_${i} ${i}; done
+#1654049585
+bjl
+#1654049594
+ls
+#1654049596
+ll
+#1654049608
+les tmp
+#1654049615
+mv Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks.raw
+#1654049620
+mv tmp Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks
+#1654049620
+ll
+#1654049627
+realpath Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks
+#1654049638
+cd ../..
+#1654049638
+ls
+#1654049630
+tma
+#1654049645
+history |less
+#1654049716
+cd ../..
+#1654049716
+ls
+#1654049720
+cd ..
+#1654049720
+ls
+#1654049726
+ls -t
+#1654049734
+cd 03.fig3/D/
+#1654049734
+ls
+#1654049755
+mv  Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks.1
+#1654049763
+cp  /nfs/liuhui/projects/phyleg/mcscanX2/work.Aeschynomene_evenia.Aeschynomene_evenia/rm_repeat/Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks .
+#1654049768
+mv Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks.1 Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks.rwa
+#1654049774
+les Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks
+#1654049791
+j workdir.Aes
+#1654049797
+j rm_repeat
+#1654049798
+lt
+#1654049812
+ln -s ../Aeschynomene_evenia.Aeschynomene_evenia.ortho Aeschynomene_evenia.Aeschynomene_evenia.ortho.raw
+#1654049815
+les *ortho.raw
+#1654049828
+grep -vf Aeschynomene_evenia.black.id Aeschynomene_evenia.Aeschynomene_evenia.ortho.raw > Aeschynomene_evenia.Aeschynomene_evenia.ortho
+#1654049872
+lth
+#1654049876
+wc -l Aeschynomene_evenia.Aeschynomene_evenia.ortho
+#1654049878
+realpath Aeschynomene_evenia.Aeschynomene_evenia.ortho
+#1654049884
+cd -
+#1654049885
+ls
+#1654049893
+mv Aeschynomene_evenia.Aeschynomene_evenia.ortho Aeschynomene_evenia.Aeschynomene_evenia.ortho.raw
+#1654049897
+cp /nfs/liuhui/projects/phyleg/mcscanX2/work.Aeschynomene_evenia.Aeschynomene_evenia/rm_repeat/Aeschynomene_evenia.Aeschynomene_evenia.ortho .
+#1654049900
+les Aeschynomene_evenia.Aeschynomene_evenia.ortho
+#1654049906
+bjl
+#1654049911
+lth
+#1654049911
+bjl
+#1654049924
+gtp
+#1654049932
+lth
+#1654049936
+les error.75004
+#1654049971
+rm output.7* error.7*
+#1654049973
+rm bsub.post_repeatmasker.5
+#1654049974
+rm bsub.post_repeatmasker.5*
+#1654049979
+gtp
+#1654049985
+for i in `cat sp_list`; do python -m iga.annotation.repeat post_repeatmasker --wait F workdir_repeatmask_${i} ${i}; done
+#1654050075
+bjl
+#1654050093
+more shell 
+#1654050246
+diff tmp tmp2
+#1654050488
+j 3/D
+#1654050491
+lth
+#1654050496
+les error.74082 
+#1654050498
+more shell 
+#1654050500
+ls *sh
+#1654050505
+more run.sh 
+#1654050517
+ll *peak |les
+#1654050563
+for i in Aeschynomene_evenia.*.ortho; do python -m iga.evolution.ortho commonWGD1 $i; done
+#1654050696
+lt *peak |les
+#1654050735
+ll Andira_inermis_Pap.Cicer_arietinum.ortho.kaks 
+#1654050747
+les error.74082 
+#1654050750
+lt *peak |les
+#1654050786
+lt work_Andira_inermis_Pap.Cicer_arietinum.ortho/
+#1654050813
+lt *peak |les
+#1654050829
+bjl
+#1654051504
+bpeek 74086
+#1654051516
+cd work_Andira_inermis_Pap.Glycine_soja.ortho/
+#1654051516
+lt
+#1654051523
+cd -
+#1654051526
+lt -d work_A*/ |les
+#1654051532
+cd work_Andira_inermis_Pap.Arachis_ipaensis.ortho/
+#1654051533
+lt
+#1654051535
+cd -
+#1654051535
+bjl
+#1654051539
+bj
+#1654051553
+bjl
+#1654051561
+bjobs -l 75014
+#1654052113
+bjl
+#1654052120
+bjobs |grep GMMpeak |wc -l
+#1654052123
+bjl
+#1654052129
+bjobs |grep GMM |wc -l
+#1654052140
+bjobs |grep GMM > tmp
+#1654052141
+vi tmp
+#1654052161
+awk '{print $1}' tmp > tmp.id
+#1654052162
+vi tmp.id
+#1654052170
+for i in `cat tmp.id`; do bkill $i; done
+#1654052174
+ls
+#1654052177
+ls *GMM*sh
+#1654052180
+ls *GMM*sh |wc -l
+#1654052184
+lt *GMM*sh |head
+#1654052194
+rm bsub.GMM_peak.564877.sh bsub.GMM_peak.565384.sh bsub.GMM_peak.565609.sh bsub.GMM_peak.566069.sh bsub.GMM_peak.566401.sh bsub.GMM_peak.566706.sh 
+#1654052201
+lt *GMM*sh |wc -l
+#1654052204
+ls *ortho |wc -l
+#1654052211
+ls *ortho.kaks |wc -l
+#1654052218
+ls *ortho.kaks |les
+#1654052237
+bjl
+#1654052250
+bjobs -l 75024
+#1654052254
+bjl
+#1654052265
+bjobs -l 75015
+#1654052276
+lth
+#1654052282
+les tmp.id 
+#1654052294
+ls *.ortho |grep -v work > tmp
+#1654052296
+vi tmp
+#1654052311
+ls *.ortho |grep -v work |grep -v "ortho." > tmp
+#1654052312
+vi tmp
+#1654052342
+ *kaks |wc -l
+#1654052345
+ls *kaks |wc -l
+#1654052347
+vi tmp
+#1654052399
+ls
+#1654052403
+vi bsub.GMM_peak.*sh
+#1654052528
+echo -e '\t'
+#1654052531
+echo -e 'a\tb'
+#1654052535
+echo -e 'a\tb' > tmp
+#1654052536
+vi tmp
+#1654052547
+echo -ne 'a\tb' > tmp
+#1654052549
+vi tmp
+#1654052893
+bjl
+#1654052908
+gtp
+#1654053347
+lth
+#1654053351
+les error.74088 
+#1654053355
+bjl
+#1654053547
+ls *ortho.kaks
+#1654053557
+ls *list*
+#1654053568
+more shell 
+#1654053570
+lth
+#1654053573
+lt |les
+#1654053940
+bhosts 
+#1654053948
+lsload
+#1654053967
+bjobs -m yi02 |less
+#1654053976
+bjobs -u all -m yi02 |less
+#1654053991
+bjobs -l 73031
+#1654054119
+lsload
+#1654054128
+bjl
+#1654054139
+ls
+#1654054143
+lth
+#1654049921
+tma
+#1654054160
+cd /nfs/liuhui/projects/phyleg/repeat_mask
+#1654054161
+lth
+#1654054162
+rz
+#1654054166
+# Received /Users/liuhui/Downloads/cechi.contig.fa-families.fa
+#1654054167
+rz
+#1654054170
+# Received /Users/liuhui/Downloads/Zn_falcon.1.fa-families.fa
+#1654054172
+rz 
+#1654054175
+# Received /Users/liuhui/Downloads/lyrho.genome.fa-families.fa
+#1654054176
+ls
+#1654054189
+lth
+#1654054203
+mv lyrho.genome.fa-families.fa Lysidice_rhodostegia.fa-families.fa
+#1654054209
+lt |les
+#1654054221
+mv Zn_falcon.1.fa-families.fa Zenia_insignis.fa-families.fa
+#1654054227
+mv cechi.contig.fa-families.fa Cercis_chinensis.fa-families.fa
+#1654054228
+lth
+#1654054238
+ls workdir_repeatmask_Zenia_insignis.fa/
+#1654054254
+more shell 
+#1654054386
+for i in Lysidice_rhodostegia.fa Zenia_insignis.fa Cercis_chinensis.fa ; do python -m iga.annotation.repeat repeatmasker --threads 20 --wait F --denovo T --species "" $i; done
+#1654054389
+logsh
+#1654054399
+j duparquetia
+#1654054400
+ls
+#1654054401
+lt
+#1654054403
+cd annotation/
+#1654054403
+lt
+#1654054411
+cd workdir_repeatmask_Duparquetia_orchidacea.fa/
+#1654054411
+ls
+#1654054413
+cd Full_mask/
+#1654054414
+ll
+#1654054417
+realpath full_mask.complex.reformat.gff3
+#1654054424
+j repea
+#1654054425
+ls
+#1654054449
+ln -s /nfs/liuhui/projects/buzzo/duparquetia/annotation/workdir_repeatmask_Duparquetia_orchidacea.fa/Full_mask/full_mask.complex.reformat.gff3 Duparquetia_ochidaceae.fa.repeat.gff
+#1654054451
+les Duparquetia_ochidaceae.fa.repeat.gff 
+#1654054753
+ls *ortho.kaks
+#1654054762
+ls *.fa
+#1654054767
+tma
+#1654062226
+top
+#1654062228
+bjl
+#1654065829
+j mcscanx2
+#1654065843
+select_fasta.pl MtrunA17Chr3g0137271 Medicago_truncatula.pep 
+#1654065858
+select_fasta.pl mRNA_MtrunA17Chr3g0137271_Metru Medicago_truncatula.pep 
+#1654065944
+j dup
+#1654065948
+cd ../..
+#1654065948
+ls
+#1654065949
+cd dup
+#1654065951
+cd dupgene_finder/
+#1654065952
+ls
+#1654065956
+cd output/
+#1654065957
+ls
+#1654065958
+grep >mRNA_MtrunA17Chr3g0137271_Metru  [mRNA]  locus=MtrunA17Chr3_Metru_52643601_52645844_- [translate_table_ standard]
+#1654065958
+MYKVAKASQYLVITGIGIKDIKLAKKAWILPGQSYSVFDLSPVNYTFEVQ
+#1654065958
+AMSAEKLPFVLPAVFTIGPRVDDKESLLKYAKLISPHDKLSNHVKELVQG
+#1654065958
+IIEGETRVLAASMTMEEVFRGTKEFKQEVFGKVQLELNQFGLLIYNANVK
+#1654065958
+QLVDVPGHEYFSYLGQKTQMEAANQARVDVSEAKMKGEIGSKLREGQTLQ
+#1654065958
+NAAKIDAETKIIAMQRAGEGDKEGIKVRTEVKVFENQREAEVAEANSELA
+#1654065958
+KKKAAWTKAAQVAEVEAAKAVALRDAELQGEVERMNALTTTEKLKAEFLS
+#1654065958
+KASVQYETKVQEANWELYKKQKEAEAILYEKKAEAEAQKALADATFYART
+#1654065958
+QAAEAELYAKKKEAEGIVTLGNAQGVYLSALLNALGNNYTAVRDFLMING
+#1654065958
+GMFQEIAKINAEAVRGLEPKISIWTNGGDNSGGEGAMKEVAGVYKMLPPL
+#1654065960
+ls
+#1654065969
+lt
+#1654065982
+grep MtrunA17Chr3g0137271 Mtr*genes
+#1654066008
+grep MtrunA17Chr3g0137271 Mtr*pairs
+#1654066022
+grep MtrunA17Chr3g0137271 *gff.sorted
+#1654066035
+grep MtrunA17Chr3g0137271 *.collinearity
+#1654066111
+ls *xls
+#1654066121
+ls *txt
+#1654066134
+ls ../03.blast_rbh/*xls
+#1654066144
+les ../03.blast_rbh/all_join.txt.xls 
+#1654066101
+tma
+#1654066182
+grep CECHI00003328-t1_Cechi *rity
+#1654066235
+grep MtrunA17Chr4g0037611 ../03.blast_rbh/all_join.txt.xls 
+#1654066263
+grep MtrunA17Chr4g0037611 ../03.blast_rbh/Medicago_truncatula.Cercis_chinensis.blast.top1 
+#1654066218
+tma
+#1654066325
+grep mRNA_MtrunA17Chr4g0037611_Metru *rity
+#1654066330
+grep CECHI00020501-t1_Cechi *rity
+#1654066366
+grep MtrunA17Chr8g0352611 *rity
+#1654066385
+grep MtrunA17Chr8g0352611 ../03.blast_rbh/Medicago_truncatula.Cercis_chinensis.blast.top1
+#1654066416
+grep MtrunA17Chr8g0352611 ../03.blast_rbh/Medicago_truncatula.Lysidice_rhodostegia.blast.top1 
+#1654066430
+grep LYRHO00002747-t1_Lyrho ../02.nodulation_genes/Medicago_truncatula.Lysidice_rhodostegia.anchors.addks.filterKs
+#1654066547
+grep LYRHO00002747-t1_Lyrho ~/projects/phyleg/mcscanX2/work.Medicago_truncatula.Lysidice_rhodostegia/*.ortho.kaks
+#1654066554
+grep MtrunA17Chr8g0352611 ~/projects/phyleg/mcscanX2/work.Medicago_truncatula.Lysidice_rhodostegia/*.ortho.kaks
+#1654066563
+grep MtrunA17Chr8g0352611 ~/projects/phyleg/mcscanX2/work.Medicago_truncatula.Lysidice_rhodostegia/*.anchors
+#1654066379
+tma
+#1654066617
+select_fasta.pl mRNA_MtrunA17Chr4g0037611_Metru ~/projects/phyleg/mcscanX2/Medicago_truncatula.pep 
+#1654067041
+grep mRNA_MtrunA17Chr4g0037611_Metru *pairs
+#1654067051
+grep mRNA_MtrunA17Chr4g0037611_Metru *ty
+#1654067163
+tma
+#1654131589
+bjl
+#1654131600
+bjl
+#1654131605
+ls
+#1654131616
+ls workdir_repeatmask_Vigna_mungo.fa/
+#1654131618
+ls workdir_repeatmask_Vigna_mungo.fa/custom_lib.out/
+#1654131630
+ls workdir_repeatmask_Vigna_mungo.fa/Full_mask/
+#1654131637
+ll workdir_repeatmask_Vigna_mungo.fa/Full_mask/full_mask.complex.reformat.gff3 
+#1654131643
+ll workdir_repeatmask_*/Full_mask/full_mask.complex.reformat.gff3 
+#1654131651
+vi sp_list 
+#1654131687
+for i in `cat sp_list`; do ln -s workdir_repeatmask_${i}/Full_mask/full_mask.complex.reformat.gff3 ${i}.repeat.gff; done
+#1654131689
+logsh
+#1654131703
+for i in `cat sp_list`; do ln -s workdir_repeatmask_${i}/Full_mask/full_mask.complex.reformat.gff3 ${i}.repeat.gff; done
+#1654131774
+for i in `cat sp_list`; do ln -s ../mcscanX2/work.${i%.fa}.${i%.fa}/${i%.fa}.bed; done
+#1654131776
+lth
+#1654131780
+les Zenia_insignis.bed 
+#1654131791
+logsh
+#1654131825
+for i in `cat sp_list`; do bedtools coverage -s -a ${i%.fa}.bed -b ${i}.repeat.gff > ${i%.fa}.bed.xrepeat.coverage; done
+#1654131908
+more shell 
+#1654131911
+lth
+#1654131916
+les Vigna_subterranea.bed.xrepeat.coverage
+#1654131927
+head Vigna_mungo.fa
+#1654131933
+head Vigna_mungo.bed
+#1654131941
+ll Vigna_mungo.bed
+#1654131945
+ll ../mcscanX2/work.Vigna_mungo.Vigna_mungo/Vigna_mungo.bed
+#1654131949
+ll ../mcscanX2/work.Vigna_mungo.Vigna_mungo/
+#1654131950
+ls
+#1654131962
+lt |les
+#1654131972
+les Mimosa_pudica.bed
+#1654131986
+head Mimosa_pudica.fa.repeat.gff 
+#1654131993
+head Mimosa_pudica.bed
+#1654132011
+lth
+#1654132015
+ll -S *coverage |les
+#1654132079
+for i in Castanospermum_australe; do bedtools coverage -s -a ${i%.fa}.bed -b ${i}.repeat.gff > ${i%.fa}.bed.xrepeat.coverage; done
+#1654132087
+for i in Castanospermum_australe.fa; do bedtools coverage -s -a ${i%.fa}.bed -b ${i}.repeat.gff > ${i%.fa}.bed.xrepeat.coverage; done
+#1654132097
+ll *bed |les
+#1654132105
+rm Castanospermum_australe.bed
+#1654132185
+les ../mcscanX2/work.Cercis_canadensis.Cercis_canadensis/Cercis_canadensis.bed 
+#1654132196
+for i in Cercis_canadensis.fa; do bedtools coverage -s -a ${i%.fa}.bed -b ${i}.repeat.gff > ${i%.fa}.bed.xrepeat.coverage; done
+#1654132204
+cat -t Cercis_canadensis.bed |les
+#1654132216
+vi Cercis_canadensis.bed 
+#1654132221
+ll *bed
+#1654132249
+for i in *bed; do mv ${i} ${i}.raw; sed "s/ //g" $i.raw > ${i}; done
+#1654132284
+for i in Castanospermum_australe.fa Cercis_canadensis.fa Chamaecrista_fasciculata.fa Cladrastis_platycarpa.fa Dipteryx_alata.fa Eperua_falcata.fa Faidherbia_albida.fa Glycine_latifolia.fa Lablab_purpureus.fa Lysidice_rhodostegia.fa Mimosa_pudica.fa Nissolia_schottii.fa Senna_septemtrionalis.fa Vigna_mungo.fa Zenia_insignis.fa; do bedtools coverage -s -a ${i%.fa}.bed -b ${i}.repeat.gff > ${i%.fa}.bed.xrepeat.coverage; done
+#1654132308
+more Glycine_latifolia.bed
+#1654132318
+les Senna_septemtrionalis.fa.repeat.gff
+#1654132324
+les Zenia_insignis.fa.repeat.gff
+#1654132328
+rm Zenia_insignis.fa.repeat.gff Senna_septemtrionalis.fa.repeat.gff
+#1654132337
+lth
+#1654132341
+lt *coverage |les
+#1654132390
+for i in `cat sp_list`; do awk '$10 > 0.5' ${i%.fa}.bed.xrepeat.coverage  |cut -f4 > ${i%.fa}.black.id; done
+#1654132419
+ll Aeschynomene_evenia.*
+#1654132432
+ln -s /nfs/liuhui/projects/phyleg/repeat_mask/sp_list 
+#1654132446
+ls /nfs/liuhui/projects/phyleg/repeat_mask/*.black.id
+#1654132451
+for i in /nfs/liuhui/projects/phyleg/repeat_mask/*.black.id; do ln -s $i; done
+#1654132451
+lth
+#1654132461
+more shell 
+#1654132498
+mv sp_list sp_list.raw
+#1654132502
+cp sp_list.raw sp_list
+#1654132503
+vi sp_list
+#1654131592
+tma
+#1654132757
+j fig3/D
+#1654132761
+wc -l *.black.id
+#1654132790
+tma
+#1654132872
+lth
+#1654132882
+wc -l Arachis_duranensis.Arachis_duranensis.ortho Arachis_duranensis.Arachis_duranensis.ortho.kaks
+#1654132889
+wc -l Arachis_duranensis.Arachis_duranensis.ortho.raw Arachis_duranensis.Arachis_duranensis.ortho.kaks.raw
+#1654132908
+les Arachis_duranensis.Arachis_duranensis.ortho
+#1654132973
+diff Arachis_duranensis.Arachis_duranensis.ortho.kaks Arachis_duranensis.Arachis_duranensis.ortho.kaks.raw |les
+#1654132989
+grep rna-XM_021136860.1_Ardur Arachis_duranensis.black.id 
+#1654133002
+grep rna-XM_021136860.1_Ardur Arachis_duranensis.Arachis_duranensis.ortho
+#1654133004
+grep rna-XM_021136860.1_Ardur Arachis_duranensis.Arachis_duranensis.ortho.raw
+#1654133026
+lth
+#1654133030
+wc -l Arachis_duranensis.Arachis_duranensis.ortho.raw Arachis_duranensis.Arachis_duranensis.ortho.kaks.raw
+#1654133031
+wc -l Arachis_duranensis.Arachis_duranensis.ortho Arachis_duranensis.Arachis_duranensis.ortho.kaks
+#1654132670
+for i in `cat sp_list`; do mv ${i}.${i}.ortho ${i}.${i}.ortho.raw ; mv ${i}.${i}.ortho.kaks ${i}.${i}.ortho.kaks.raw; grep -vf ${i}.black.id ${i}.${i}.ortho.raw > ${i}.${i}.ortho; grep -vf ${i}.black.id ${i}.${i}.ortho.kaks.raw > ${i}.${i}.ortho.kaks; chmod -w ${i}.${i}.*.raw; done
+#1654134659
+logsh 
+#1654134663
+lht
+#1654134664
+lth
+#1654134669
+vi run.sh 
+#1654134681
+python -m iga.evolution.ortho commonWGD1 -h
+#1654134689
+rm bsub.GMM_peak.*
+#1654134693
+rm error.740* output.740*
+#1654134705
+vi run.sh 
+#1654134722
+gtp
+#1654134651
+tma
+#1654134741
+bjl
+#1654134744
+bhosts 
+#1654134748
+lsload
+#1654134797
+vw
+#1654134814
+vi submit.sh
+#1654134831
+lsload
+#1654134845
+tma
+#1654134852
+ssh yi04
+#1654134874
+top
+#1654134854
+ssh yi03
+#1654134874
+lth
+#1654134874
+bjl
+#1654134877
+tma
+#1654134728
+bash run.sh 
+#1654134899
+ls bsub.GMM_peak.* |les
+#1654134939
+more bsub.GMM_peak.928482.sh
+#1654134954
+ls *sh |wc -l
+#1654134957
+vi *sh
+#1654134982
+ls *sh > total_sh.list
+#1654134983
+vi total_sh.list 
+#1654134987
+man split
+#1654134996
+vw
+#1654135000
+man split
+#1654135049
+vi total_sh.list 
+#1654135072
+split -l 50 total_sh.list bsub_part. --additional-suffix=".sh"
+#1654135081
+vi bsub_part.a*sh
+#1654135126
+lt *ortho.kaks |les
+#1654135152
+ll Andira_inermis_Pap.Umtiza_listeriana_Cae.ortho.kaks Andira_inermis_Pap.Umtiza_listeriana_Cae.ortho.kaks.raw
+#1654135157
+ll Andira_inermis_Pap.Umtiza_listeriana_Cae.ortho.kaks Andira_inermis_Pap.Umtiza_listeriana_Cae.ortho.kaks*
+#1654135164
+lt *ortho.kaks |les
+#1654135185
+ls bsub_part.a*sh |wc -l
+#1654135223
+vw
+#1654135230
+for i in  bsub_part.a*sh; do bsub512 -n 4 -J ${i%.sh} < ${i}; done
+#1654135232
+bjl
+#1654135256
+lth
+#1654135263
+lt work_Angylocalyx_braunii_Pap.Lablab_purpureus.ortho/
+#1654135282
+les  Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho
+#1654135292
+ls *_Pap*ortho
+#1654135320
+bjl
+#1654135321
+lt work_Angylocalyx_braunii_Pap.Lablab_purpureus.ortho/
+#1654135338
+bjg |grep part
+#1654135351
+for i in `seq 75069 75081`; do bkill $i; done
+#1654135351
+lth
+#1654135354
+rm output.750* error.750*
+#1654135416
+ll /nfs/liuhui/projects/phyleg/mcscanX2/kaks_with_rnaseq/Angylocalyx_braunii_Pap.Andira_inermis_Pap.ortho
+#1654135420
+les /nfs/liuhui/projects/phyleg/mcscanX2/kaks_with_rnaseq/Angylocalyx_braunii_Pap.Andira_inermis_Pap.ortho
+#1654135423
+cp /nfs/liuhui/projects/phyleg/mcscanX2/kaks_with_rnaseq/Angylocalyx_braunii_Pap.Andira_inermis_Pap.ortho .
+#1654135494
+find /nfs/liuhui/projects/phyleg/wgd_rnaseq/ -name Angylocalyx_braunii_Pap.*kaks; done
+#1654135497
+find /nfs/liuhui/projects/phyleg/wgd_rnaseq/ -name Angylocalyx_braunii_Pap.*kaks
+#1654134944
+tma
+#1654135593
+pushd /nfs/liuhui/projects/phyleg/wgd_rnaseq/
+#1654135594
+lt
+#1654135598
+cd 02.ksplot/
+#1654135598
+ls
+#1654135603
+cd draft_work1/
+#1654135603
+ls
+#1654135503
+find /nfs/liuhui/projects/phyleg/wgd_rnaseq/ -name "Angylocalyx_braunii_Pap.*kaks"
+#1654135607
+cd work.Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap/
+#1654135607
+lt
+#1654135615
+les Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks 
+#1654135631
+ll ../../../results_plotks/
+#1654135636
+ls
+#1654135637
+cd ..
+#1654135637
+ls
+#1654135639
+cd ..
+#1654135640
+ll
+#1654135647
+ls result_Yangya/
+#1654135651
+rmdir result_Yangya/
+#1654135652
+cd ..
+#1654135652
+ls
+#1654135656
+ls results_yangya/
+#1654135661
+ls results_yangya/work.Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap/
+#1654135664
+ll
+#1654135669
+cd results_plotks/
+#1654135669
+lt
+#1654135681
+les paralogs-t300-mYN.kaks
+#1654135692
+lth
+#1654135740
+cd ..
+#1654135741
+ls
+#1654135742
+ll
+#1654135744
+cd 01.assemble/
+#1654135745
+ls
+#1654135747
+cd ..
+#1654135748
+ll
+#1654135750
+cd results_yangya/
+#1654135751
+ll
+#1654135756
+cd work.Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap/
+#1654135757
+ll
+#1654135765
+wc -l *ortho
+#1654135768
+cd ../
+#1654135768
+ls
+#1654135769
+cd ..
+#1654135770
+lt
+#1654135771
+cd results_plotks/
+#1654135772
+lt
+#1654135798
+ls *sh
+#1654135799
+more sh
+#1654135801
+ls ..
+#1654135804
+ls ../02.ksplot/
+#1654135807
+ls ../02.ksplot/*sh
+#1654135810
+more ../02.ksplot/shell 
+#1654135843
+ll
+#1654135844
+lt
+#1654135852
+sz Angylocalyx_braunii_Pap_trinity.Trinity-t300-mYN-b0.05-range\[0-3\].pdf 
+#1654135855
+# Sent -> /Users/liuhui/Downloads/
+#1654135871
+lt
+#1654135876
+tma
+#1654135886
+cd ..
+#1654135887
+ll
+#1654135891
+cd 01.assemble/
+#1654135891
+ls
+#1654135892
+ll
+#1654135893
+cd RNAseq/
+#1654135894
+ll
+#1654135895
+ls
+#1654135897
+ls -d */
+#1654135900
+cd ..
+#1654135902
+cd -
+#1654135904
+cd result/
+#1654135904
+ls
+#1654135914
+ll ../plot-ks-164482*/
+#1654135981
+cp ../plot-ks-1644824259/paralogs-t300-mYN.kaks ../../../results_plotks/Angylocalyx_braunii_Pap_trinity.Angylocalyx_braunii_Pap_trinity.kaks
+#1654135986
+vi ../../../results_plotks/Angylocalyx_braunii_Pap_trinity.Angylocalyx_braunii_Pap_trinity.kaks
+#1654136002
+cd ../../../results_
+#1654136003
+cd ../../../results_plotks/
+#1654136004
+t
+#1654136005
+lt
+#1654136021
+mv Angylocalyx_braunii_Pap_trinity.Angylocalyx_braunii_Pap_trinity.kaks Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks
+#1654136024
+vi Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks
+#1654136093
+cut -f1 Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks > Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho
+#1654136098
+vi Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho
+#1654136108
+realpath Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.*
+#1654136113
+tma
+#1654136135
+popd
+#1654136136
+lt
+#1654136142
+cp /nfs/liuhui/projects/phyleg/wgd_rnaseq/results_plotks/Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks /nfs/liuhui/projects/phyleg/wgd_rnaseq/results_plotks/Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho .
+#1654136146
+lth
+#1654136152
+mv Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks
+#1654136154
+ll Andira_inermis_Pap.*
+#1654136158
+ll Andira_inermis_Pap.Andira_inermis_Pap.ortho*
+#1654136159
+lth
+#1654136168
+head Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks Andira_inermis_Pap.Andira_inermis_Pap.ortho Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1654136187
+grep TRINITY_DN0_c0_g1_i9_p3_Anbra Angylocalyx_braunii_Pap.Andira_inermis_Pap.ortho
+#1654136198
+les Angylocalyx_braunii_Pap.Andira_inermis_Pap.ortho
+#1654136205
+lth
+#1654136207
+vi Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho
+#1654136220
+les Angylocalyx_braunii_Pap.Medicago_truncatula.ortho
+#1654136228
+grep TRINITY_DN9_c0_g1_i22_p1_Anbra Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho
+#1654136249
+ks_hist.R Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks
+#1654136263
+vi Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks
+#1654136287
+ks_hist.R Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1654136302
+vi Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks
+#1654136330
+cut -f4 Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks |sort |les
+#1654136353
+vi Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks
+#1654136392
+pushd /nfs/liuhui/projects/phyleg/wgd_rnaseq/
+#1654136393
+lt
+#1654136394
+cd results_plotks/
+#1654136395
+lt
+#1654136405
+mv Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks.1
+#1654136408
+grep -v "^Seq" Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks.1 > Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks
+#1654136415
+vi Andira_inermis_Pap.Andira_inermis_Pap.kaks
+#1654136423
+vi Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.
+#1654136425
+vi Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks
+#1654136453
+awk '{print $1}' Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks |sed "s/-/\t/" > ${i%.kaks}.ortho
+#1654136455
+lth
+#1654136458
+vi Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho 
+#1654136467
+lth
+#1654136470
+popd
+#1654136475
+cp /nfs/liuhui/projects/phyleg/wgd_rnaseq/results_plotks/Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks /nfs/liuhui/projects/phyleg/wgd_rnaseq/results_plotks/Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho .
+#1654136485
+mv Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.kaks Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks
+#1654136486
+lth
+#1654136489
+vi Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks
+#1654136500
+ks_hist.R Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks
+#1654136515
+lth
+#1654136525
+sz Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks.pdf Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks.pdf 
+#1654136527
+# Sent -> /Users/liuhui/Downloads/
+#1654136549
+lth
+#1654136555
+vi submit.sh 
+#1654136563
+ls *sh
+#1654136565
+vi run.sh 
+#1654136569
+vi shell 
+#1654136579
+for i in  bsub_part.a*sh; do bsub512 -n 4 -J ${i%.sh} < ${i}; done
+#1654136581
+logsh
+#1654136585
+lth
+#1654136590
+chmod -w Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks
+#1654136593
+lth
+#1654136594
+bjl
+#1654136574
+tma
+#1654136602
+bjl
+#1654136623
+lth
+#1654136629
+cd work_Angylocalyx_braunii_Pap.Lablab_purpureus.ortho/
+#1654136630
+lt
+#1654136648
+les Angylocalyx_braunii_Pap.Lablab_purpureus.ortho.right.kaks 
+#1654145016
+lth
+#1654145022
+lt *cross.peak |les
+#1654145029
+lt *cross.peak |wc -l
+#1654145036
+lt error.75083 
+#1654145038
+les error.75083 
+#1654145042
+bjl
+#1654145009
+tma
+#1654149716
+top
+#1654149718
+bjl
+#1654149765
+ls
+#1654149787
+cd -
+#1654149813
+cd projects/
+#1654149813
+ls
+#1654149814
+ll
+#1654149818
+cd phyleg
+#1654149819
+ls
+#1654149822
+cd ../phyleg_rnaseq/
+#1654149823
+ls
+#1654149824
+cd -
+#1654149825
+ls
+#1654149832
+j 3/D
+#1654149832
+lt
+#1654149839
+mkdir copy
+#1654149843
+les sp_list
+#1654149871
+for i in `cat sp_list`; do cp ${i}.${i}.ortho  ${i}.${i}.ortho.kaks copy/ ; done
+#1654149884
+cp Aeschynomene_evenia.Aeschynomene_evenia.ortho Aeschynomene_evenia.Aeschynomene_evenia.ortho.kaks copy/
+#1654149886
+ll Aeschynomene_evenia.Aeschynomene_evenia.ortho*
+#1654149888
+cd copy/
+#1654149888
+ll
+#1654149893
+ls *ks |wc -l
+#1654149937
+ll
+#1654149938
+lth
+#1654149940
+ll -S
+#1654149974
+les ~/projects/genomes/Fabales/Castanospermum_australe.fa 
+#1654149981
+lth
+#1654149986
+lt -s *
+#1654149989
+ll -S
+#1654150021
+uplht /nfs/liuhui/projects/phyleg/03.fig3/D/copy
+#1654150073
+ls
+#1654150107
+cd ../../../mcscanX2/kaks/
+#1654150107
+ls
+#1654150110
+cd -
+#1654150128
+ls
+#1654150132
+rm *
+#1654150133
+ls
+#1654150146
+for i in  /nfs/liuhui/projects/phyleg/mcscanX2/kaks/*.ortho /nfs/liuhui/projects/phyleg/mcscanX2/kaks/*.ortho.kaks; do ln -s $i; done
+#1654150550
+jbl
+#1654150551
+bjl
+#1654150577
+btop 75063
+#1654150581
+btop 75064
+#1654150582
+bjl
+#1654150751
+vi shell 
+#1654150826
+ll
+#1654150227
+uplht /nfs/liuhui/projects/phyleg/03.fig3/D/copy
+#1654151115
+dls
+#1654151122
+cd ..
+#1654151123
+ls
+#1654151135
+popd
+#1654151144
+pushd ~/projects/phyleg/repeat_mask/
+#1654151149
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/assembly/Zenia_insignis/annotation/zeins.chr.repeat.gff
+#1654151291
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/assembly/Lysidice_rhodostegia/lyrho.chr.repeat.gff
+#1654151299
+ls
+#1654151308
+ls *gff
+#1654151319
+mv lyrho.chr.repeat.gff  Lysidice_rhodostegia.fa.repeat.gff
+#1654151328
+mv zeins.chr.repeat.gff Zenia_insignis.fa.repeat.gff
+#1654151330
+more shell 
+#1654151353
+ll Zenia_insignis.bed
+#1654151355
+ll Lysidice_rhodostegia.bed
+#1654151413
+ls *sh
+#1654151439
+logsh
+#1654151449
+for i in Zenia_insignis.fa Lysidice_rhodostegia.fa; do bedtools coverage -s -a ${i%.fa}.bed -b ${i}.repeat.gff > ${i%.fa}.bed.xrepeat.coverage; done
+#1654151462
+les Zenia_insignis.fa.repeat.gff 
+#1654151465
+les Zenia_insignis.bed
+#1654151469
+vi Zenia_insignis.fa.repeat.gff 
+#1654151482
+vi Lysidice_rhodostegia.
+#1654151488
+vi Lysidice_rhodostegia.fa.repeat.gff 
+#1654151512
+for i in Zenia_insignis.fa Lysidice_rhodostegia.fa; do bedtools coverage -s -a ${i%.fa}.bed -b ${i}.repeat.gff > ${i%.fa}.bed.xrepeat.coverage; done
+#1654151518
+lth
+#1654151522
+more shell 
+#1654151533
+for i in Zenia_insignis.fa Lysidice_rhodostegia.fa; do awk '$10 > 0.5' ${i%.fa}.bed.xrepeat.coverage  |cut -f4 > ${i%.fa}.black.id; done
+#1654151534
+lth
+#1654151539
+wc -l Zenia_insignis.black.id Lysidice_rhodostegia.black.id
+#1654151553
+j rna
+#1654151556
+popd
+#1654151558
+lth
+#1654151561
+vi shell 
+#1654151569
+more shell 
+#1654151585
+ln -s /nfs/liuhui/projects/phyleg/repeat_mask/Zenia_insignis.black.id 
+#1654151594
+ll Zenia_insignis.black.id Lysidice_rhodostegia.black.id 
+#1654151618
+ll Lysidice_rhodostegia.Lysidice_rhodostegia.ortho*raw
+#1654151624
+ll Lysidice_rhodostegia.Lysidice_rhodostegia.ortho*
+#1654151640
+for i in Zenia_insignis Lysidice_rhodostegia; do grep -vf ${i}.black.id ${i}.${i}.ortho.r
+#1654151654
+for i in Zenia_insignis Lysidice_rhodostegia; do grep -vf ${i}.black.id ${i}.${i}.ortho.raw > ${i}.${i}.ortho; grep -vf ${i}.black.id ${i}.${i}.ortho.kaks.raw > ${i}.${i}.ortho.kaks; done
+#1654151656
+lth
+#1654151718
+grep Lysidice_rhodostegia bsub.*.sh |less
+#1654151730
+les bsub.*sh
+#1654151752
+grep Lysidice_rhodostegia\|Zenia bsub.*.sh |less
+#1654151759
+grep "Lysidice_rhodostegia\|Zenia" bsub.*.sh |less
+#1654151782
+grep "Lysidice_rhodostegia\|Zenia" bsub.*.sh |sed "s/:.*//" |sort |uniq > zn_lr.sh
+#1654151785
+vi zn_lr.sh 
+#1654151810
+les bsub.GMM_peak.928482.sh
+#1654151814
+tma
+#1654151852
+for i in  zn_lr.sh; do bsub512 -n 4 -J bsub.part.zn_lr < ${i}; done 
+#1654151854
+bjl
+#1654151862
+popd
+#1654151863
+ls
+#1654151867
+cd copy/
+#1654151867
+ls
+#1654151869
+cd ..
+#1654151930
+ls
+#1654151938
+ll Zenia_insignis.Zenia_insignis.ortho*
+#1654151943
+ll Lysidice_rhodostegia.Lysidice_rhodostegia.ortho*
+#1654151960
+for i in Zenia_insignis.Zenia_insignis.ortho Zenia_insignis.Zenia_insignis.ortho.kaks Lysidice_rhodostegia.Lysidice_rhodostegia.ortho Lysidice_rhodostegia.Lysidice_rhodostegia.ortho.kaks; do uplht $i; done
+#1654151991
+wc -l Lysidice_rhodostegia.Lysidice_rhodostegia.ortho
+#1654152185
+ls
+#1654152187
+lth
+#1654152200
+tma
+#1654152230
+more shell 
+#1654152247
+more run.sh 
+#1654152314
+logsh
+#1654151424
+tma
+#1654152235
+tma
+#1654208206
+bjl
+#1654208239
+lth
+#1654208242
+les *peak
+#1654208272
+cat  *peak  > WGD_withRNA_peak.txt
+#1654208278
+vi WGD_withRNA_peak.txt 
+#1654208449
+perl -ne 'chomp; my @e=split; print $_, "\t"; my $stat=($e[0]+$e[1])/2-$e[2]; print $stat, "\n";' WGD_withRNA_peak.txt  |les
+#1654208543
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat=$e[2] - ($e[0]+$e[1])/2; print $stat, "\n";' WGD_withRNA_peak.txt  > WGD_withRNA_peak.txt.calc
+#1654208545
+logsh
+#1654208551
+les *calc
+#1654208617
+cd work_Aeschynomene_evenia.Andira_inermis_Pap.ortho/
+#1654208617
+lt
+#1654208622
+more *peak
+#1654208650
+cd -
+#1654208665
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat= ($e[0]+$e[1])/2 - $e[2]; print $stat, "\n";' WGD_withRNA_peak.txt  > WGD_withRNA_peak.txt.calc
+#1654208669
+les WGD_withRNA_peak.txt.calc 
+#1654208713
+lt ../../mcscanX2/kaks |head
+#1654208721
+ls ..
+#1654208725
+ls ../..
+#1654208739
+ls ../../kaks
+#1654208745
+lt ../../kaks |head
+#1654208747
+ls
+#1654208754
+lt ../../ks |head
+#1654208758
+lt ../../
+#1654208777
+les 04.find_peak_sklearn.sh.out.stat.xls
+#1654208783
+les .../../04.find_peak_sklearn.sh.out.stat.xls
+#1654208786
+les ../../04.find_peak_sklearn.sh.out.stat.xls
+#1654208797
+les ../../04.find_peak_sklearn.sh.out.stat
+#1654208814
+cp ../../04.find_peak_sklearn.sh.out.stat  genome_v1229.txt
+#1654208819
+lth
+#1654208822
+vi genome_v1229.txt 
+#1654208826
+vi WGD_withRNA_peak.txt.calc 
+#1654208829
+vi genome_v1229.txt 
+#1654208833
+vi WGD_withRNA_peak.txt.calc 
+#1654208857
+cat genome_v1229.txt WGD_withRNA_peak.txt.calc total_WGD.0603.txt
+#1654208860
+cat genome_v1229.txt WGD_withRNA_peak.txt.calc >total_WGD.0603.txt
+#1654208867
+stat2matrix.py total_WGD.0603.txt 
+#1654208874
+which stat2matrix.py
+#1654208877
+vi ~/bin/bundle/lh_bin/stat2matrix.py
+#1654208889
+stat2matrix.py total_WGD.0603.txt 
+#1654208896
+les total_WGD.0603.txt.xls 
+#1654208904
+vi total_WGD.0603.txt.xls 
+#1654208933
+vi ../../stat2matrix.py 
+#1654209658
+more ../../shell 
+#1654209679
+history |les
+#1654209679
+history |les
+#1654209683
+fg
+#1654209695
+history |les
+#1654209729
+lth
+#1654209735
+les total_WGD.0603.txt.xls 
+#1654209926
+lth
+#1654209940
+stat2matrix.py WGD_withRNA_peak.txt.calc 
+#1654209946
+more *calc.matrix
+#1654209949
+more *calc.xls
+#1654209975
+t *calc.xls
+#1654209979
+lt *calc.xls
+#1654209982
+sz WGD_withRNA_peak.txt.calc
+#1654209985
+# Cancelled transfer
+#1654208218
+tma
+#1654210010
+cd /nfs/liuhui/projects/phyleg/03.fig3/D/
+#1654210010
+lth
+#1654210018
+**0100000063f694
+#1654210028
+Š**0100000063f694
+#1654210033
+vi right_order.txt
+#1654210060
+# Sent -> /Users/liuhui/Downloads/
+#1654209988
+sz WGD_withRNA_peak.txt.calc.xls 
+#1654210078
+ls ~/projects/phyleg/wgd_rnaseq/results_plotks/*kaks
+#1654210105
+vi right_order.txt 
+#1654210162
+selectItem.pl -k WGD_withRNA_peak.txt.calc.xls right_order.txt |les
+#1654210176
+selectItem.pl -k WGD_withRNA_peak.txt.calc.xls right_order.txt > row_ordered
+#1654210181
+sz row_ordered 
+#1654210184
+# Sent -> /Users/liuhui/Downloads/
+#1654210292
+vi row_ordered.trans
+#1654210370
+les WGD_withRNA_peak.txt.calc.xls
+#1654210384
+vi right_order.txt 
+#1654210389
+selectItem.pl -k WGD_withRNA_peak.txt.calc.xls right_order.txt > row_ordered
+#1654210390
+vi row_ordered 
+#1654210478
+vi row_ordered.trans
+#1654210504
+selctItem.pl -k row_ordered.trans right_order.txt > both_ordered
+#1654210508
+selectItem.pl -k row_ordered.trans right_order.txt > both_ordered
+#1654210510
+sz both_ordered 
+#1654210513
+# Sent -> /Users/liuhui/Downloads/
+#1654210541
+les both_ordered 
+#1654210567
+vi both_ordered 
+#1654210573
+vi row_ordered.trans 
+#1654210630
+selectItem.pl -k row_ordered.trans right_order.txt > both_ordered
+#1654210639
+sz both_ordered 
+#1654210642
+# Sent -> /Users/liuhui/Downloads/
+#1654477760
+lth
+#1654477762
+les both_ordered 
+#1654477785
+cd work_Andira_inermis_Pap.Abrus_precatorius.ortho/
+#1654477786
+lt
+#1654477793
+les *peak
+#1654477817
+for i in *.kaks; do ks_hist.R $i; done
+#1654477832
+cd ../work.Abrus_precatorius.Andira_inermis_Pap
+#1654477839
+cd ../work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1654477840
+lt
+#1654477843
+for i in *.kaks; do ks_hist.R $i; done
+#1654477863
+cp *pdf ~/
+#1654477864
+cd -
+#1654477866
+cp *pdf ~/
+#1654477754
+tma
+#1654477869
+lth
+#1654477871
+sz *pdf
+#1654477874
+# Sent -> /Users/liuhui/Downloads/
+#1654477931
+more *peak
+#1654477938
+more ../work_Abrus_precatorius.Andira_inermis_Pap.ortho/*peak
+#1654477981
+expr ( (0.6117869297292035 + 0.23027279870125325) / 2 - 0.4005750076197222 )
+#1654477996
+python -c 'print((0.6117869297292035 + 0.23027279870125325) / 2 - 0.4005750076197222 )'
+#1654478031
+more ../Andira_inermis_Pap.Abrus_precatorius.ortho.left_right_cross.peak 
+#1654478052
+cd ..
+#1654478053
+lth
+#1654478061
+lt |les
+#1654478067
+les WGD_withRNA_peak.txt.calc
+#1654478081
+vi shell 
+#1654478099
+les WGD_withRNA_peak.txt
+#1654478135
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat=$e[2] - ($e[0]+$e[1])/2; print $stat, "\n";' Abrus_precatorius.Andira_inermis_Pap.ortho.left_right_cross.peak 
+#1654478146
+python -c 'print((0.6117869297292035 + 0.23027279870125325) / 2 - 0.4005750076197222 )'
+#1654478156
+more Abrus_precatorius.Andira_inermis_Pap.ortho.left_right_cross.peak
+#1654478175
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat=$e[3] - ($e[1]+$e[2])/2; print $stat, "\n";' Abrus_precatorius.Andira_inermis_Pap.ortho.left_right_cross.peak 
+#1654478179
+vis h
+#1654478180
+vi shell 
+#1654478859
+bjl
+#1654479726
+lth
+#1654477929
+tma
+#1654479749
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat=$e[3] - ($e[1]+$e[2])/2; print $stat, "\n";' Abrus_precatorius.Andira_inermis_Pap.ortho.left_right_cross.peak 
+#1654479757
+vi shell 
+#1654479767
+tail -n 1 shell 
+#1654479771
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat=$e[3] - ($e[1]+$e[2])/2; print $stat, "\n";' WGD_withRNA_peak.txt  > WGD_withRNA_peak.txt.calc
+#1654479774
+vi WGD_withRNA_peak.txt.calc
+#1654479827
+lth
+#1654479856
+les WGD_withRNA_peak.txt.calc
+#1654479987
+cd work_Angylocalyx_braunii_Pap.Andira_inermis_Pap.ortho/
+#1654479987
+lt
+#1654479993
+for i in *kaks; do ks_hist.R $i; done
+#1654480018
+lth
+#1654480037
+ps xu
+#1654480043
+kill 17393
+#1654480020
+sz *pdf
+#1654480048
+ps ux
+#1654480056
+cd /nfs/liuhui/projects/phyleg/03.fig3/D/work_Angylocalyx_braunii_Pap.Andira_inermis_Pap.ortho/
+#1654480057
+sz *pdf
+#1654480060
+# Sent -> /Users/liuhui/Downloads/
+#1654480064
+**0100000063f694
+#1654480074
+Š**0100000063f694
+#1654480116
+# Sent -> /Users/liuhui/Downloads/
+#1654480120
+lth
+#1654480129
+cp `which ks_hist.R` .
+#1654480130
+vi ks_hist.R 
+#1654480146
+for i in *kaks; do Rscript ks_hist.R $i; done
+#1654480172
+lth
+#1654480173
+sz *pdf
+#1654480176
+# Sent -> /Users/liuhui/Downloads/
+#1654480224
+get_ks_peak.py -h
+#1654480250
+les *ortho.left
+#1654480256
+lt
+#1654480266
+cp `which get_ks_peak.py` .
+#1654480268
+vi get_ks_peak.py 
+#1654480298
+python get_ks_peak.py Angylocalyx_braunii_Pap.Andira_inermis_Pap.ortho.left.kaks > tmp.left &
+#1654480302
+fg
+#1654480311
+python get_ks_peak.py Angylocalyx_braunii_Pap.Andira_inermis_Pap.ortho.left.kaks 4 > tmp.left &
+#1654480313
+vi get_ks_peak.py 
+#1654480321
+lth
+#1654480325
+top
+#1654480328
+lth
+#1654480372
+bjl
+#1654480373
+lth
+#1654480433
+more tmp.left 
+#1654480725
+tma
+#1654480732
+j rnaseq-wgd
+#1654480741
+ll
+#1654480742
+lt
+#1654480748
+cd Andira_inermis_Pap_trinity/
+#1654480748
+ls
+#1654480749
+lt
+#1654480756
+ll *fasta
+#1654480758
+cd ..
+#1654480758
+ll
+#1654480760
+ll *fasta
+#1654480766
+conda activate Trinity
+#1654480770
+conda activate trinity
+#1654480785
+mkdir tmp
+#1654480791
+mv tmp super_transcript
+#1654480792
+cd super_transcript/
+#1654480798
+ln -s ../Andira_inermis_Pap_trinity.Trinity.fasta
+#1654480798
+ll
+#1654480803
+$TRINITY_HOME/Analysis/SuperTranscripts/Trinity_gene_splice_modeler.py
+#1654480816
+$TRINITY_HOME/Analysis/SuperTranscripts/Trinity_gene_splice_modeler.py --trinity_fasta Andira_inermis_Pap_trinity.Trinity.fasta 
+#1654481496
+lth
+#1654481500
+les trinity_genes.fasta 
+#1654481528
+more ../../../02.ksplot/shell 
+#1654481595
+pushd /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/plot-ks-1644824259/
+#1654481596
+lt
+#1654481608
+les Angylocalyx_braunii_Pap_trinity.Trinity.fasta.transdecoder.cds.cdhit.pep 
+#1654481965
+j annotation
+#1654481965
+ls
+#1654481968
+les arath_med_sprot.pep
+#1654482026
+grep ">sp" arath_med_sprot.pep |wc -l
+#1654482194
+grep ">" Angylocalyx_braunii_Pap_trinity.Trinity.fasta.transdecoder.cds.cdhit.pep |wc -l
+#1654482202
+lt
+#1654482206
+cd -
+#1654482207
+lt
+#1654482212
+grep ">" trinity_genes.fasta  |wc -l
+#1654482216
+cd -
+#1654482217
+lt
+#1654482244
+vi output.545*
+#1654482258
+vi error.545*
+#1654482269
+lt
+#1654482276
+les self-blat.pslx 
+#1654482296
+les Angylocalyx_braunii_Pap_trinity.Trinity.fasta.transdecoder.cds.cdhit.pep 
+#1654482364
+ls *sh
+#1654482365
+more sh
+#1654482367
+more ../shell 
+#1654482384
+vi ../plot-ks
+#1654482386
+vi ../plot-ks.pl 
+#1654482391
+perl ../plot-ks.pl 
+#1654482430
+perl ../plot-ks.pl -h
+#1654482632
+lth
+#1654482636
+vi plot-ks.pl 
+#1654482717
+lt
+#1654482724
+les *cdhit
+#1654482731
+ls *cdhit
+#1654482748
+grep ">" Angylocalyx_braunii_Pap_trinity.Trinity.fasta.transdecoder.cds.cdhit > hit.id
+#1654482749
+vi hit.id 
+#1654482763
+les paralogs-t300*csv
+#1654482768
+les paralogs-t300*atx
+#1654482771
+lth
+#1654482774
+les *kaks
+#1654482880
+head -2 *kaks
+#1654482910
+ls *kaks
+#1654482924
+cut -f1 *kaks |sed "s/>q_//; s/_t_/\n/" |sort |uniq > paralogs-t300-mYN.ortho
+#1654482936
+vi paralogs-t300-mYN.ortho 
+#1654482967
+lth
+#1654482979
+unselectItem.pl hit.id paralogs-t300-mYN.ortho > nohit.id
+#1654482980
+vi nohit.id 
+#1654483150
+cd /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/plot-ks-1644824259/
+#1654483151
+lth
+#1654483155
+les nohit.kaks 
+#1654483238
+lth
+#1654483243
+ll *kaks
+#1654483269
+vi unselect.py
+#1654483465
+python unselect.py
+#1654483467
+vi unselect.py
+#1654483471
+python unselect.py
+#1654483474
+python unselect.py -h
+#1654483476
+vi unselect.py
+#1654483482
+python unselect.py -h
+#1654483488
+python unselect.py unselect
+#1654483490
+lth
+#1654483504
+python unselect.py unselect nohit.id  paralogs-t300-mYN.kaks > nohit.py.kaks &
+#1654483510
+vi unselect.py
+#1654483524
+python unselect.py unselect nohit.id  paralogs-t300-mYN.kaks > nohit.py.kaks &
+#1654483531
+vi unselect.py
+#1654483550
+python unselect.py unselect nohit.id  paralogs-t300-mYN.kaks > nohit.py.kaks &
+#1654483615
+vi unselect.py
+#1654483661
+python unselect.py unselect nohit.id  paralogs-t300-mYN.kaks > nohit.py.kaks &
+#1654483662
+lth
+#1654483667
+vi unselect.py 
+#1654483737
+lth
+#1654483743
+ks_hist.R nohit.py.kaks 
+#1654483805
+sz nohit.py.kaks.pdf 
+#1654483807
+# Sent -> /Users/liuhui/Downloads/
+#1654483857
+cd -
+#1654483860
+lt
+#1654483874
+cd ..
+#1654483875
+lt
+#1654483888
+ls
+#1654483895
+popd
+#1654483897
+ls ..
+#1654483900
+ls -d */
+#1654483906
+cd super_transcript/
+#1654483907
+ls
+#1654483918
+bsub512 "perl ../plot-ks.pl trinity_genes.fasta "
+#1654483918
+lt
+#1654483922
+bjl
+#1654483924
+lt
+#1654483926
+cd plot-ks-1654483997/
+#1654483926
+lt
+#1654483931
+les trinity_genes.fasta
+#1654483940
+grep ">"  trinity_genes.fasta |wc -l
+#1654483970
+logsh
+#1654483974
+lt
+#1654483992
+bjl
+#1654484074
+top
+#1654483997
+ssh -p 201 yi02
+#1654484008
+lt
+#1654484017
+lt ../../plot-ks-1644824129/
+#1654484050
+les ../../plot-ks-1644824129/error.54503 
+#1654484059
+lt
+#1654482990
+grep -vf nohit.id paralogs-t300-mYN.kaks > nohit.kaks
+#1654484675
+lth
+#1654484678
+bjl
+#1654484381
+les nohit.kaks 
+#1654484824
+lth
+#1654484829
+lt ../ |head
+#1654484832
+les ../WGD_withRNA_peak.txt.calc
+#1654484946
+lt
+#1654484951
+lth
+#1654484959
+les trinity_genes.fasta.transdecoder.bed 
+#1654484969
+lt
+#1654485318
+lth
+#1654485326
+grep ">" trinity_genes.fasta.transdecoder.cds |wc -l
+#1654486037
+lth
+#1654486040
+lt blat-out/
+#1654486042
+lth
+#1654486046
+bjl
+#1654486050
+cd ..
+#1654486050
+ls
+#1654486051
+lt
+#1654486053
+les error.75115 
+#1654486110
+cd -
+#1654486110
+lt
+#1654486116
+cd -
+#1654486117
+lth
+#1654486120
+les output.75115 
+#1654486128
+les error.75115 
+#1654486133
+vi plot-ks-1654483997/
+#1654486142
+vi ../plot-ks.pl 
+#1654486156
+cd -
+#1654486156
+lt
+#1654486160
+cd -
+#1654486161
+vi ../plot-ks.pl 
+#1654486170
+cd -
+#1654486171
+lt
+#1654486174
+les *plsx
+#1654486180
+les *pslx
+#1654486184
+cd -
+#1654486190
+cp ../plot-ks.pl .
+#1654486193
+vi plot-ks.pl 
+#1654486213
+perl plot-ks.pl plot-ks-1654483997
+#1654486236
+les error.75115 
+#1654484822
+tma
+#1654486372
+which R
+#1654486373
+R
+#1654486391
+mamba install -c bioconda bioconductor-seqlogo
+#1654486431
+conda deactivate
+#1654486441
+mamba install -c bioconda -n trinity  bioconductor-seqlogo
+#1654486271
+tolava
+#1654486459
+conda activate trinity
+#1654486462
+tma
+#1654486477
+mamba install -c bioconda bioconductor-seqlogo
+#1654486537
+top
+#1654486546
+mamba install -c bioconda bioconductor-seqlogo
+#1654486555
+tolava
+#1654486619
+lt
+#1654486626
+mv plot-ks-1654483997 plot-ks-1654483997.1
+#1654486629
+grep "ERROR" error.75115 
+#1654486632
+grep -i "ERROR" error.75115 
+#1654486634
+lt
+#1654486593
+mamba install -c bioconda -n trinity  bioconductor-seqlogo
+#1654486677
+les ../plot-ks-1644820962/error.5450*
+#1654486687
+ll
+#1654486693
+bjl
+#1654486722
+cd ../super_transcript/
+#1654486722
+lt
+#1654486723
+les error.75115 
+#1654486736
+ls plot-ks-1654483997.1/
+#1654486739
+ls plot-ks-1654483997.1/*dat
+#1654486747
+lt
+#1654486754
+lt plot-ks-1654486697/*dir/
+#1654486801
+lt plot-ks-1654483997.1/*dir/
+#1654486806
+cd plot-ks-1654486697/*dir/
+#1654486807
+lt
+#1654486809
+chmod -w base_freqs.dat 
+#1654486811
+lt
+#1654486820
+cd -
+#1654486822
+vi plot-ks-165448
+#1654486825
+vi plot-ks.pl 
+#1654486834
+cd -
+#1654486835
+lt
+#1654486841
+cd -
+#1654486848
+lt
+#1654486851
+les error.75115 
+#1654486866
+vi plot-ks.pl 
+#1654486890
+lt
+#1654486901
+lth
+#1654486903
+bjl
+#1654486913
+lt
+#1654486916
+cd plot-ks-1654486697/
+#1654486917
+lt
+#1654486920
+lt trinity_genes.fasta.transdecoder_dir
+#1654486924
+cp -r trinity_genes.fasta.transdecoder_dir trinity_genes.fasta.transdecoder_dir.bak
+#1654486928
+lt *fs
+#1654486930
+lt
+#1654486697
+perl plot-ks.pl trinity_genes.fasta 
+#1654488744
+cd -
+#1654488746
+lt
+#1654488749
+cd plot-ks-1654486697/
+#1654488749
+lt
+#1654488785
+ln -s 'trinity_genes-t300-mYN-b0.05-range[0-3].pdf' newtnt.pdf
+#1654488786
+lt
+#1654488787
+sz newtnt.pdf 
+#1654488790
+# Sent -> /Users/liuhui/Downloads/
+#1654488812
+ll
+#1654488815
+ll ../s
+#1654488816
+ll ../
+#1654488839
+lt
+#1654488840
+cd ..
+#1654488841
+lt
+#1654488852
+cd ..
+#1654488856
+ls
+#1654488858
+ll *fasta
+#1654488920
+history |les
+#1654488948
+$TRINITY_HOME/Analysis/SuperTranscripts/Trinity_gene_splice_modeler.py -h
+#1654488963
+ll *fasta
+#1654488991
+cd super_transcript/
+#1654488992
+lt
+#1654489004
+mv trinity_genes.fasta Andira_inermis_Pap_trinity.genes.fasta
+#1654489011
+mv trinity_genes.gtf Andira_inermis_Pap_trinity.genes.gtf
+#1654489012
+cd -
+#1654489028
+ll
+#1654489036
+for i in ../*ty.fasta; do ln -s $i; done
+#1654489037
+ll
+#1654489044
+mv Andira_inermis_Pap_trinity.Trinity.fasta Andira_inermis_Pap_trinity.Trinity.fasta.ok
+#1654489044
+lt
+#1654489049
+perl plot-ks.pl 
+#1654489051
+perl plot-ks.pl  -h
+#1654489068
+$TRINITY_HOME/Analysis/SuperTranscripts/Trinity_gene_splice_modeler.py -h
+#1654489087
+ll *Trinity.fasta
+#1654489148
+for i in *Trinity.fasta; do bsub512" $TRINITY_HOME/Analysis/SuperTranscripts/Trinity_gene_splice_modeler.py --trinity_fasta ${i} --out_prefix ${i%.Trinity.fasta}" ; done
+#1654489160
+for i in *Trinity.fasta; do bsub512 "$TRINITY_HOME/Analysis/SuperTranscripts/Trinity_gene_splice_modeler.py --trinity_fasta ${i} --out_prefix ${i%.Trinity.fasta}" ; done
+#1654489161
+logsh
+#1654489166
+lth
+#1654489211
+lt
+#1654489225
+cd ..
+#1654489228
+ll *Trinity.fasta
+#1654489229
+cd -
+#1654489230
+ll
+#1654489231
+lt
+#1654489253
+ll *trinity.fasta
+#1654489261
+perl plot-ks.pl  -h
+#1654489279
+more ../shell 
+#1654489284
+more ../*sh
+#1654489294
+lt
+#1654489307
+perl plot-ks.pl -h
+#1654489348
+lth
+#1654489404
+bjl
+#1654489451
+ll *_trinity.fasta
+#1654489458
+bjl
+#1654489460
+for i in *_trinity.fasta; do bsub512 "perl plot-ks.pl ${i} -o plot_ks_${i%_trinity.fasta}"; done
+#1654489462
+logsh
+#1654489465
+lt
+#1654489466
+lth
+#1654489470
+bjl
+#1654495194
+lth
+#1654495196
+les error.751*
+#1654495213
+vi plot-ks.pl 
+#1654495220
+les error.751*
+#1654495230
+lt error.751*
+#1654495240
+les error.75125 
+#1654495254
+bacct
+#1654495256
+bjobs -l libgcc_s.so.1
+#1654495262
+bjobs -l 75125
+#1654495273
+which bjobs
+#1654495277
+ls /opt/openlava-2.2/bin/
+#1654495298
+lsacct -j 75125
+#1654495301
+lsacct  75125
+#1654495317
+lsacct -l 75125
+#1654495325
+man lsacct
+#1654495341
+lsacct -l 75125
+#1654495351
+more output.75125
+#1654495360
+lt
+#1654495363
+more output.75125
+#1654495387
+j super_transcript
+#1654495392
+conda activate trinity
+#1654495402
+cd ..
+#1654495402
+lt
+#1654495403
+lth
+#1654495413
+les error.75122 
+#1654495419
+lt error.751*
+#1654495424
+les error.75115
+#1654495430
+rm error.75115 output.75115 
+#1654495433
+lt error.751*
+#1654495437
+les error.75119
+#1654495441
+les error.75125 
+#1654495451
+lth
+#1654495455
+lt plot_ks_Zollernia_splendens_Pap/
+#1654495476
+ls
+#1654495480
+cd plot_ks_Angylocalyx_braunii_Pap/
+#1654495481
+lt
+#1654495494
+sz Angylocalyx_braunii_Pap_trinity-t300-mYN-b0.05-range\[0-3\].pdf 
+#1654495497
+# Sent -> /Users/liuhui/Downloads/
+#1654495527
+head -1 paralogs-t300-mYN.kaks > paralogs-t300-mYN.kaks.format
+#1654495537
+grep -v "^Sequence" paralogs-t300-mYN.kaks >> paralogs-t300-mYN.kaks.format 
+#1654495541
+ks_hist.R paralogs-t300-mYN.kaks.format 
+#1654495544
+sz paralogs-t300-mYN.kaks.format.pdf
+#1654495547
+# Sent -> /Users/liuhui/Downloads/
+#1654495749
+lth
+#1654495402
+perl plot-ks.pl Zollernia_splendens_Pap_trinity.fasta -o plot_ks_Zollernia_splendens_Pap
+#1654496368
+lth
+#1654496371
+cd plot_ks_Zollernia_splendens_Pap/
+#1654496372
+lth
+#1654496376
+sz Zollernia_splendens_Pap_trinity-t300-mYN-b0.05-range[0-3].pdf
+#1654496379
+# Sent -> /Users/liuhui/Downloads/
+#1654497170
+lth
+#1654497557
+tma
+#1654495368
+ssh yi03
+#1654497804
+cd ..
+#1654497805
+ls
+#1654497812
+cd -
+#1654497549
+tma
+#1654497815
+ls
+#1654497857
+ln -s plot-ks-1654486697/paralogs-t300-mYN.kaks Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks.raw
+#1654497914
+for i in plot_ks_Angylocalyx_braunii_Pap plot_ks_Dialium_schlechtneri_Dia plot_ks_Goniorrhachis_marginata_Det plot_ks_Umtiza_listeriana_Cae plot_ks_Zollernia_splendens_Pap; do ln -s ${i}/paralogs-t300-mYN.kaks ${plot_ks_#i}.${plot_ks_#i}.ortho.kaks; done
+#1654497921
+for i in plot_ks_Angylocalyx_braunii_Pap plot_ks_Dialium_schlechtneri_Dia plot_ks_Goniorrhachis_marginata_Det plot_ks_Umtiza_listeriana_Cae plot_ks_Zollernia_splendens_Pap; do ln -s ${i}/paralogs-t300-mYN.kaks ${plot_ks_#$i}.${plot_ks_#$i}.ortho.kaks; done
+#1654497984
+for i in plot_ks_Angylocalyx_braunii_Pap plot_ks_Dialium_schlechtneri_Dia plot_ks_Goniorrhachis_marginata_Det plot_ks_Umtiza_listeriana_Cae plot_ks_Zollernia_splendens_Pap; do ln -s ${i}/paralogs-t300-mYN.kaks ${i#plot_ks_}.${i#plot_ks_}.ortho.kaks; done
+#1654497985
+lth
+#1654497992
+ll *kaks
+#1654497999
+ll *kaks |wc
+#1654498015
+for i in *kaks; do mv $i $i.raw; done
+#1654498024
+conda deactivate
+#1654498036
+ll *raw
+#1654498043
+les *raw
+#1654498061
+vi plot_ks_format.py
+#1654498674
+les ../work_Medicago_truncatula.Andira_inermis_Pap.ortho/*kaks
+#1654498681
+les ../work_Medicago_truncatula.Andira_inermis_Pap.ortho.kaks
+#1654498696
+les ../work_Medicago_truncatula.Andira_inermis_Pap.ortho/Medicago_truncatula.Andira_inermis_Pap.ortho.cross.kaks 
+#1654498718
+les ../Medicago_truncatula.Medicago_truncatula.ortho
+#1654498721
+les ../Medicago_truncatula.Medicago_truncatula.ortho.kaks
+#1654498727
+vi ../Medicago_truncatula.Medicago_truncatula.ortho
+#1654498735
+ll ../Medicago_truncatula.Medicago_truncatula.ortho
+#1654499261
+python plot_ks_format.py
+#1654499266
+python plot_ks_format.py format_ks_plot -h
+#1654499270
+lth
+#1654499273
+python plot_ks_format.py format_ks_plot Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks.raw
+#1654499282
+vi plot-ks.pl 
+#1654499288
+vi plot_ks_format.py 
+#1654499300
+python plot_ks_format.py format_ks_plot Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks.raw
+#1654499304
+vi plot_ks_format.py 
+#1654499328
+python plot_ks_format.py format_ks_plot Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks.raw
+#1654499330
+lth
+#1654499333
+les Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks
+#1654499343
+vi plot_ks_format.py 
+#1654499356
+python plot_ks_format.py format_ks_plot Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks.raw
+#1654499359
+les Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks
+#1654499373
+wc -l Zollernia_splendens_Pap.Zollernia_splendens_Pap.ortho.kaks
+#1654499374
+lth
+#1654499392
+vi plot_ks_format.py 
+#1654500626
+lth
+#1654500638
+for i in *.raw; do pytho plot_ks_format.py $i; done
+#1654500644
+for i in *.raw; do python plot_ks_format.py $i; done
+#1654500653
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i; done
+#1654500663
+lth
+#1654500666
+lt |head -20
+#1654500672
+les Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho
+#1654500682
+les Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho.kaks
+#1654500713
+vi plot_ks_format.py 
+#1654500740
+les *ortho
+#1654500743
+vi plot_ks_format.py 
+#1654500752
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i; done
+#1654500764
+vi plot_ks_format.py 
+#1654500775
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i; done
+#1654500783
+les *ortho
+#1654500787
+vi plot_ks_format.py 
+#1654500813
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i; done
+#1654500818
+vi plot_ks_format.py 
+#1654500824
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i; done
+#1654500827
+vi plot_ks_format.py 
+#1654500846
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i; done
+#1654500852
+vi plot_ks_format.py 
+#1654500863
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i; done
+#1654500865
+vi plot_ks_format.py 
+#1654500875
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i;exit; done
+#1654500886
+cd /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/super_transcript/
+#1654500891
+vi plot_ks_format.py 
+#1654500933
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i;break; done
+#1654500936
+vi plot_ks_format.py 
+#1654500943
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i;break; done
+#1654500945
+lth
+#1654500948
+les Andira_inermis_Pap.Andira_inermis_Pap.ortho
+#1654500957
+les Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1654500978
+lth
+#1654500982
+les Andira_inermis_Pap.Andira_inermis_Pap.ortho.kaks
+#1654500986
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i;break; done
+#1654500991
+for i in *.raw; do python plot_ks_format.py format_ks_plot $i;done
+#1654500998
+vi plot_ks_format.py 
+#1654501013
+lth
+#1654501017
+ls
+#1654501028
+mkdir ortho_files
+#1654501032
+mv *.ortho *.kaks ortho_files/
+#1654501033
+ls o
+#1654501035
+ls ortho_files/
+#1654501038
+mkdir cds_peps
+#1654501043
+ls plot_ks_Umtiza_listeriana_Cae/
+#1654501057
+ls plot_ks_Umtiza_listeriana_Cae/*cds plot_ks_Umtiza_listeriana_Cae/*pep
+#1654501060
+ll plot_ks_Umtiza_listeriana_Cae/*cds plot_ks_Umtiza_listeriana_Cae/*pep
+#1654498659
+tma
+#1654501156
+s=abc.123
+#1654501161
+echo ${s#abc.}
+#1654501283
+for i in plot_ks_Angylocalyx_braunii_Pap plot_ks_Dialium_schlechtneri_Dia plot_ks_Goniorrhachis_marginata_Det plot_ks_Umtiza_listeriana_Cae plot_ks_Zollernia_splendens_Pap; do ln -s ${i}/${i#plot_ks_}_trinity.fasta.transdecoder.cds ${i#plot_ks_}.cds; done
+#1654501284
+lth
+#1654501287
+les Zollernia_splendens_Pap.cds
+#1654501339
+for i in plot_ks_Angylocalyx_braunii_Pap plot_ks_Dialium_schlechtneri_Dia plot_ks_Goniorrhachis_marginata_Det plot_ks_Umtiza_listeriana_Cae plot_ks_Zollernia_splendens_Pap; do ln -s ${i}/${i#plot_ks_}_trinity.fasta.transdecoder.pep ${i#plot_ks_}.pep; done
+#1654501340
+logsh
+#1654501344
+lht
+#1654501345
+lth
+#1654501352
+logsh
+#1654501356
+lth
+#1654501361
+cp *pep *cds cds_peps/
+#1654501385
+ln -s plot-ks-1654486697/trinity_genes.fasta.transdecoder.cds Andira_inermis_Pap.cds
+#1654501389
+ln -s plot-ks-1654486697/trinity_genes.fasta.transdecoder.pep Andira_inermis_Pap.pep
+#1654501398
+cp Andira_inermis_Pap.cds Andira_inermis_Pap.pep cds_peps/
+#1654501401
+cd cds_peps/
+#1654501402
+ll
+#1654501405
+head -1 *cds *pep
+#1654501426
+head -1 Andira_inermis_Pap.*
+#1654501454
+for i in *; do sed -i "s/\s.*//" $i; done
+#1654501509
+lt
+#1654501512
+les *pep
+#1654501529
+add_suffix.pl *
+#1654501557
+ll
+#1654501558
+les *new
+#1654501574
+grep TRINITY_DN0_c0_g1.p2_Gomar ../ortho_files/*
+#1654501579
+lth
+#1654501588
+for i in *new; do mv $i ${i%.new}; done
+#1654501590
+ll
+#1654501594
+les *cds
+#1654501630
+ls -d ~/projects/phyleg/*/
+#1654501639
+ls -d ~/projects/phyleg/wgd_rnaseq/
+#1654501641
+ls  ~/projects/phyleg/wgd_rnaseq/
+#1654501645
+ls  ~/projects/phyleg/wgd_rnaseq/02.ksplot/
+#1654501665
+ls -t ~/projects/phyleg/mcscanX2/ |head
+#1654501674
+ls -t ~/projects/phyleg/mcscanX2/*sh
+#1654501679
+more ~/projects/phyleg/mcscanX2/patch.sh 
+#1654501696
+more ~/projects/phyleg/mcscanX2/kaks_with_rnaseq/*sh
+#1654501740
+ll ~/projects/phyleg/mcscanX2/kaks_with_rnaseq/Abrus_precatorius.Andira_inermis_Pap.ortho*
+#1654501767
+ll ~/projects/phyleg/mcscanX2/shell 
+#1654501769
+more ~/projects/phyleg/mcscanX2/shell 
+#1654501778
+more ~/projects/phyleg/mcscanX2/*sh
+#1654501786
+lt ~/projects/phyleg/*sh
+#1654501792
+lt ~/projects/phyleg/mcscanX2.sh
+#1654501794
+les ~/projects/phyleg/mcscanX2.sh
+#1654501803
+cp ~/projects/phyleg/mcscanX2.sh .
+#1654501820
+les ~/projects/phyleg/mcscanX2/Abrus_precatorius.cds 
+#1654501825
+ln -s ~/projects/phyleg/mcscanX2/Abrus_precatorius.cds 
+#1654501826
+ln -s ~/projects/phyleg/mcscanX2/Abrus_precatorius.pep 
+#1654501827
+ll
+#1654501837
+ln -s ~/projects/phyleg/mcscanX2/Aeschynomene_evenia.cds 
+#1654501838
+ln -s ~/projects/phyleg/mcscanX2/Aeschynomene_evenia.pep 
+#1654501839
+ll
+#1654501850
+mv mcscanX2.sh  rna_wgd.sh
+#1654501851
+vi rna_wgd.sh 
+#1654501882
+ls *cds
+#1654501895
+for i *cds; do echo ${i%.cds}; done
+#1654501901
+for i in *cds; do echo ${i%.cds}; done
+#1654501908
+vi rna_wgd.sh 
+#1654501935
+bhosts 
+#1654501938
+vi rna_wgd.sh 
+#1654501946
+bash rna_wgd.sh 
+#1654501947
+lt
+#1654501953
+vi rna_wgd.sh 
+#1654501959
+lth
+#1654501960
+bjl
+#1654501968
+lth
+#1654501969
+lsload
+#1654501972
+lt
+#1654501973
+bjl
+#1654501978
+lt
+#1654501979
+vi rna_wgd.sh 
+#1654501984
+lt
+#1654501985
+bjl
+#1654501990
+bjobs -l 75128
+#1654501997
+lt
+#1654502000
+lsload
+#1654502005
+bjl
+#1654502008
+bjobs -l 75128
+#1654502012
+lt
+#1654502013
+bjl
+#1654502023
+vi rna_wgd.sh 
+#1654502039
+vw
+#1654502053
+bjobs
+#1654502066
+for i in `seq 75127 75150`; do bmod -m "yi02 yi03 yi04" $i; done
+#1654502068
+bjl
+#1654502070
+lth
+#1654502071
+bjl
+#1654502075
+bjobs -l 75128
+#1654502076
+lt
+#1654502085
+bjl
+#1654502089
+lsload
+#1654502092
+bjl
+#1654502095
+bhosts 
+#1654502099
+ls
+#1654502102
+vi rna_wgd.sh 
+#1654502108
+bjobs
+#1654502119
+top
+#1654502216
+lth
+#1654502218
+bjl
+#1654503997
+lth
+#1654503998
+bjl
+#1654504006
+bpeek 75127
+#1654504012
+lth
+#1654504016
+cd work.Abrus_precatorius.Andira_inermis_Pap/
+#1654504016
+lt
+#1654504022
+cd -
+#1654504717
+lth
+#1654504719
+bjl
+#1654504721
+cd -
+#1654504722
+lt
+#1654504731
+wc -l *.ortho
+#1654506036
+bjl
+#1654506038
+lth
+#1654507154
+bjl
+#1654507160
+cd ..
+#1654507160
+lth
+#1654507162
+cd -
+#1654507162
+lth
+#1654507627
+bjl
+#1654507635
+les *.ortho
+#1654507646
+lth
+#1654507673
+ls ../../
+#1654507679
+ls ../../plot-ks-1654486697/
+#1654507701
+cd ../..
+#1654507701
+ls
+#1654507703
+ls *pl
+#1654507705
+vi plot-ks
+#1654507707
+vi plot-ks.pl 
+#1654507823
+cd -
+#1654507824
+lt
+#1654507838
+vi run_blat.pl
+#1654507893
+vi plot-ks.pl 
+#1654507899
+cp ../../plot-ks.pl .
+#1654507901
+vi plot-ks.pl 
+#1654507911
+cp ../../plot-ks.pl .
+#1654507913
+vi run_blat.pl
+#1654507932
+vi plot-ks.pl 
+#1654507948
+vi run_blat.pl
+#1654508007
+vi run_blat.pl 
+#1654508051
+perl run_blat.pl Abrus_precatorius.pep Andira_inermis_Pap.pep 
+#1654508053
+vi run_blat.pl 
+#1654508075
+cat plot-ks.pl >> run_blat.pl 
+#1654508076
+vi run_blat.pl 
+#1654508124
+perl run_blat.pl Abrus_precatorius.pep Andira_inermis_Pap.pep 
+#1654508136
+vi run_blat.pl 
+#1654508169
+perl run_blat.pl Abrus_precatorius.pep Andira_inermis_Pap.pep 
+#1654508180
+vi run_blat.pl 
+#1654508200
+perl run_blat.pl Abrus_precatorius.pep Andira_inermis_Pap.pep 
+#1654508388
+vi run_blat.pl 
+#1654508411
+vi plot-ks.pl 
+#1654508415
+vi run_blat.pl 
+#1654508435
+perl run_blat.pl Abrus_precatorius.pep Andira_inermis_Pap.pep 
+#1654508440
+vi run_blat.pl 
+#1654508446
+vi plot-ks.pl 
+#1654508450
+vi run_blat.pl 
+#1654508454
+perl run_blat.pl Abrus_precatorius.pep Andira_inermis_Pap.pep 
+#1654508463
+vi plot-ks.pl 
+#1654508528
+vi run_blat.pl 
+#1654508534
+perl run_blat.pl Abrus_precatorius.pep Andira_inermis_Pap.pep 
+#1654508535
+vi run_blat.pl 
+#1654508550
+perl run_blat.pl Abrus_precatorius.pep Andira_inermis_Pap.pep 
+#1654508551
+vi run_blat.pl 
+#1654508559
+vi plot-ks.pl 
+#1654508569
+vi run_blat.pl 
+#1654508575
+perl run_blat.pl Abrus_precatorius.pep Andira_inermis_Pap.pep 
+#1654508581
+vi run_blat.pl 
+#1654508625
+perl run_blat.pl Abrus_precatorius.pep Andira_inermis_Pap.pep 
+#1654508627
+vi run_blat.pl 
+#1654562155
+j
+#1654498745
+les ../Medicago_truncatula.Medicago_truncatula.ortho.kaks
+#1654562156
+tma
+#1654562161
+j 3/d
+#1654562162
+lth
+#1654562168
+j rna
+#1654562171
+lth
+#1654562173
+cd super_transcript/
+#1654562173
+lth
+#1654562176
+cd cds_peps/
+#1654562177
+lth
+#1654562179
+bjl
+#1654562185
+lt
+#1654562189
+cd work.Abrus_precatorius.Andira_inermis_Pap/
+#1654562190
+lt
+#1654562202
+cd ../work.Abrus_precatorius.Angylocalyx_braunii_Pap/
+#1654562203
+lt
+#1654562223
+cp ../../ortho_files/Angylocalyx_braunii_Pap.Angylocalyx_braunii_Pap.ortho* .
+#1654562237
+ls ..
+#1654562233
+tma
+#1654562274
+cp ~/projects/phyleg/03.fig3/D/Abrus_precatorius.Abrus_precatorius.ortho .
+#1654562275
+cp ~/projects/phyleg/03.fig3/D/Abrus_precatorius.Abrus_precatorius.ortho.kaks
+#1654562277
+cp ~/projects/phyleg/03.fig3/D/Abrus_precatorius.Abrus_precatorius.ortho.kaks .
+#1654562277
+ll
+#1654562279
+lt
+#1654562299
+pm iga.evolution.ortho commonWGD1 Abrus_precatorius.Andira_inermis_Pap.ortho
+#1654562304
+bjl
+#1654562311
+bjg
+#1654562322
+for i in `seq 75136 75150`; do bkill $i; done
+#1654562324
+bjl
+#1654562325
+lth
+#1654562327
+bjl
+#1654562334
+lth
+#1654562337
+lt
+#1654562341
+les error.75177 
+#1654562357
+les Abrus_precatorius.Abrus_precatorius.ortho.kaks 
+#1654562360
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1654562360
+lt
+#1654562364
+cd -
+#1654562365
+lth
+#1654562367
+ll
+#1654562369
+head *ortho
+#1654562394
+lth
+#1654562397
+les error.75177 
+#1654562399
+more bsub.GMM_peak.300452.sh 
+#1654562402
+cd work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1654562403
+ll
+#1654562432
+selectItem.pl 0 0,1 ../Abrus_precatorius.Andira_inermis_Pap.ortho       ../Abrus_precatorius.Abrus_precatorius.ortho
+#1654562454
+cd ..
+#1654562455
+ls
+#1654562457
+lt
+#1654562460
+rm -r work_Abrus_precatorius.Andira_inermis_Pap.ortho/
+#1654562503
+pm iga.evolution.ortho commonWGD1 Abrus_precatorius.Angylocalyx_braunii_Pap.ortho
+#1654562505
+lt
+#1654562513
+rm output.75177 error.75177 bsub.GMM_peak.300452.sh
+#1654562514
+lth
+#1654562516
+bjl
+#1654562518
+lt
+#1654562523
+bjl
+#1654562527
+bash bsub.GMM_peak.504461.sh 
+#1654562605
+lth
+#1654562607
+more *peak
+#1654562660
+more ~/projects/phyleg/03.fig3/D/Abrus_precatorius.Angylocalyx_braunii_Pap.ortho.left_right_cross.peak 
+#1654562680
+for i in *kaks; do ks_hist.R $i; done
+#1654562721
+les ~/projects/phyleg/03.fig3/D/*calc
+#1654562733
+les ~/projects/phyleg/03.fig3/D/*pl
+#1654562737
+les ~/projects/phyleg/03.fig3/D/shell 
+#1654562755
+perl -ne 'chomp; my @e=split; print $e[0], "\t"; my $stat=$e[3] - ($e[1]+$e[2])/2; print $stat, "\n";' *peak
+#1654562764
+sz *pdf
+#1654562767
+# Sent -> /Users/liuhui/Downloads/
+#1654563462
+lt
+#1654563470
+cd work_Abrus_precatorius.Angylocalyx_braunii_Pap.ortho/
+#1654563470
+lt
+#1654563490
+les ~/projects/phyleg/03.fig3/D/*calc
+#1654564300
+j phyleg
+#1654564301
+lth
+#1654564302
+cd new_genome_0531/
+#1654564303
+ls
+#1654564501
+rz
+#1654564531
+# Received /Users/liuhui/Downloads/Dipteryx_alata.zip
+#1654564546
+cd projects/phyleg
+#1654564547
+ls
+#1654564556
+cd kaks/
+#1654564556
+ls
+#1654564559
+cd ..
+#1654564559
+ls
+#1654564566
+cd mcscanX2/
+#1654564567
+ls Large number of repetitive elements in the draft genome assembly of
+#1654564598
+ls Dipteryx_alata*
+#1654564609
+ls ../../genomes/Fabales/Dipteryx_alata.fa 
+#1654564610
+ll ../../genomes/Fabales/Dipteryx_alata.fa 
+#1654564612
+les ../../genomes/Fabales/Dipteryx_alata.fa 
+#1654564621
+lt
+#1654564622
+lth
+#1654564629
+j repeatmask
+#1654564629
+lth
+#1654564632
+cd ..
+#1654564632
+ll
+#1654564634
+lth
+#1654564638
+cd workdir_repeatmask_Dipteryx_alata.fa/
+#1654564639
+lt
+#1654564642
+lt Full_mask/
+#1654564679
+cd ..
+#1654564680
+ls
+#1654564686
+ls *.fa  >tmp
+#1654564689
+ls *.bed > tmp
+#1654564690
+ls *.fa  >tmp
+#1654564693
+ls *.bed > tmp2
+#1654564695
+vi tmp2
+#1654564701
+vi tmp
+#1654564711
+ls *.masked.fa > tmp
+#1654564712
+vi tmp
+#1654564719
+diff tmp tmp2
+#1654564723
+head tmp tmp2
+#1654564726
+vi tmp
+#1654564734
+head tmp tmp2
+#1654564735
+diff tmp tmp2
+#1654564753
+ls Dipteryx_alata.bed
+#1654564755
+ls Dipteryx_alata.*
+#1654564760
+ls Dipteryx_alata.bed
+#1654564761
+les Dipteryx_alata.bed
+#1654564764
+ll s Dipteryx_alata.bed
+#1654564767
+ll s Dipteryx_alata.bed.raw
+#1654564770
+ll *bed.raw
+#1654564868
+ll Eperua_falcata.fa.masked.fa Vigna_mungo.fa.masked.fa Glycine_latifolia.fa.masked.fa 
+#1654564896
+ll workdir_repeatmask_*/
+#1654564901
+more shell 
+#1654564917
+ls
+#1654564919
+ls *.fa
+#1654564940
+for i in Bauhinia_variegata.fa              Pueraria_montana.fa              Sindora_glabra.fa              Sophora_japonica.fa ; do python -m iga.annotation.repeat post_repeatmasker --wait F workdir_repeatmask_${i} ${i}; done
+#1654564942
+lth
+#1654564944
+bjl
+#1654564949
+lth
+#1654564953
+bjl
+#1654564984
+realpath Eperua_falcata.fa.masked.fa Vigna_mungo.fa.masked.fa Glycine_latifolia.fa.masked.fa Dipteryx_alata.fa.masked.fa 
+#1654565001
+for i in /nfs/liuhui/projects/phyleg/repeat_mask/Eperua_falcata.fa.masked.fa /nfs/liuhui/projects/phyleg/repeat_mask/Vigna_mungo.fa.masked.fa /nfs/liuhui/projects/phyleg/repeat_mask/Glycine_latifolia.fa.masked.fa /nfs/liuhui/projects/phyleg/repeat_mask/Dipteryx_alata.fa.masked.fa; do ln -s $i; done
+#1654565002
+lth
+#1654565005
+les error.7*
+#1654565009
+lth
+#1654565014
+les output.75181 
+#1654565024
+ls
+#1654565025
+lt
+#1654565028
+ls workdir_repeatmask_*/
+#1654565033
+ls workdir_repeatmask_*/Full*/
+#1654565036
+ll workdir_repeatmask_*/Full*/
+#1654565043
+ll workdir_repeatmask_*/species*out/
+#1654565047
+ll workdir_repeatmask_*/cus*out/
+#1654565055
+lt
+#1654565056
+lth
+#1654565061
+les error.7*
+#1654565079
+les error.75181
+#1654565102
+cd workdir_repeatmask_S
+#1654565104
+cd workdir_repeatmask_Sindora_glabra.fa/
+#1654565105
+vi tmp.sh
+#1654565127
+bash tmp.sh 
+#1654565130
+vi tmp.sh
+#1654565148
+bash tmp.sh 
+#1654565151
+vi tmp.sh
+#1654565244
+ls
+#1654565247
+ls species_lib.out/
+#1654565295
+gtp
+#1654565302
+cd ..
+#1654565304
+lt |head -20
+#1654565315
+rm output.75180 error.75180 output.75182 error.75182 output.75181 error.75181 error.75179 output.75179 
+#1654565317
+lt |head -20
+#1654565325
+rm bsub.post_repeatmasker.941715.sh bsub.post_repeatmasker.941401.sh bsub.post_repeatmasker.941143.sh bsub.post_repeatmasker.940851.sh
+#1654565334
+lt |head -20
+#1654565341
+for i in Bauhinia_variegata.fa              Pueraria_montana.fa              Sindora_glabra.fa              Sophora_japonica.fa ; do python -m iga.annotation.repeat post_repeatmasker --wait F workdir_repeatmask_${i} ${i}; done
+#1654565344
+logsh
+#1654565348
+lth
+#1654565349
+bjl
+#1654565417
+lth
+#1654565418
+bjl
+#1654565420
+lth
+#1654565425
+ls *sh
+#1654565427
+vi braker.sh 
+#1654565440
+ll *.masked.fa
+#1654565447
+vi braker.sh 
+#1654565466
+lth
+#1654565467
+bjl
+#1654565568
+lsload
+#1654565569
+bhosts 
+#1654565572
+lth
+#1654565591
+ls *.fa
+#1654565640
+vi sp_list
+#1654565647
+ls *masked.fa 
+#1654565650
+ls *masked.fa  >> sp_list 
+#1654565651
+vi sp_list 
+#1654565662
+lth
+#1654565664
+vi braker.sh 
+#1654565676
+ll *fasta
+#1654565683
+j duparquetia
+#1654565683
+ls
+#1654565685
+ls annotation/
+#1654565687
+ls annotation/*fasta
+#1654565690
+realpath 
+#1654565692
+realpath annotation/odb10_plants.fasta
+#1654565695
+cd -
+#1654565699
+chmod -w /nfs/liuhui/projects/buzzo/duparquetia/annotation/odb10_plants.fasta
+#1654565700
+ln -s /nfs/liuhui/projects/buzzo/duparquetia/annotation/odb10_plants.fasta 
+#1654565701
+ll
+#1654565703
+vi braker.sh 
+#1654565708
+lth
+#1654565716
+vi braker.sh 
+#1654565770
+more sp_list 
+#1654565774
+vi braker.sh 
+#1654565781
+bash braker.sh 
+#1654565879
+vi braker.sh 
+#1654565885
+ll Dipteryx_alata.fa.masked.fa
+#1654565886
+vi braker.sh 
+#1654565891
+ll Dipteryx_alata.fa.masked.fa
+#1654565892
+bash braker.sh 
+#1654565894
+vi braker.sh 
+#1654565934
+lsload
+#1654565936
+bhosts 
+#1654565949
+bsub512 -m yi03 -n 10 -J braker < braker.sh 
+#1654565950
+logsh
+#1654565954
+lth
+#1654565956
+bjl
+#1654565961
+tma
+#1654565965
+j duparquetia
+#1654565967
+lt annotation/
+#1654565973
+lt annotation/braker_run/
+#1654565980
+lt annotation/braker_run/braker
+#1654565983
+cd -
+#1654565984
+lt
+#1654565986
+bj
+#1654565989
+bkill 75187
+#1654565990
+lth
+#1654565996
+les error.75187 
+#1654566007
+ll /nfs/liuhui/bin/braker/dependency/Augustus/config/../bin/augustus 
+#1654566024
+/nfs/liuhui/bin/braker/dependency/Augustus/config/../bin/augustus
+#1654566029
+module load boost
+#1654566031
+/nfs/liuhui/bin/braker/dependency/Augustus/config/../bin/augustus
+#1654566037
+cd Documents/
+#1654566037
+lth
+#1654566041
+grep gsl *sh
+#1654566257
+j wgd_rna
+#1654566258
+ls
+#1654566260
+cd 01.assemble/
+#1654566260
+ll
+#1654566047
+sudo yum install gsl-devel.x86_64 sqlite-devel.x86_64 suitesparse-devel.x86_64 lpsolve-devel.x86_64
+#1654566264
+more rnaseq_id.txt 
+#1654566266
+cd RNAseq/
+#1654566266
+ll
+#1654566273
+lt
+#1654566310
+more mv.sh 
+#1654566469
+lth
+#1654566475
+cd ..
+#1654566477
+lth
+#1654566913
+ssh -p yi02
+#1654566982
+j Documents
+#1654566985
+sudo yum install gsl-devel.x86_64 sqlite-devel.x86_64 suitesparse-devel.x86_64 lpsolve-devel.x86_64
+#1654566918
+ssh -p 201 yi02
+#1654566730
+sudo yum install gsl-devel.x86_64 sqlite-devel.x86_64 suitesparse-devel.x86_64 lpsolve-devel.x86_64
+#1654566948
+ssh yi04
+#1654566972
+lth
+#1654566010
+ssh yi03
+#1654566963
+lth
+#1654567003
+ls
+#1654567006
+which braker.pl
+#1654567007
+lt
+#1654567009
+ls
+#1654567013
+more braker.sh 
+#1654567085
+source activate braker
+#1654567099
+/nfs/liuhui/bin/braker/BRAKER/scripts/braker.pl -h
+#1654567102
+/nfs/liuhui/bin/braker/BRAKER/scripts/braker.pl 
+#1654567193
+conda deactivate
+#1654567195
+vi braker.sh 
+#1654567213
+more sp_list 
+#1654567215
+vi braker.sh 
+#1654567224
+bjl
+#1654567227
+bhosts 
+#1654567230
+bsub512 -m yi03 -n 10 -J braker < braker.sh 
+#1654567230
+lth
+#1654567237
+rm error.75187 output.75187
+#1654567237
+lth
+#1654567241
+lt braker_Dipteryx_alata.fa.masked.fa/
+#1654567245
+bjl
+#1654567248
+lsload
+#1654567323
+bjl
+#1654567326
+vw
+#1654567331
+more braker.sh 
+#1654567336
+vw
+#1654567389
+ll /nfs/zhangrong/RNAseq/2nd
+#1654567394
+j rna
+#1654567394
+ls
+#1654567412
+for i in /nfs/zhangrong/RNAseq/2nd/*; do ln -s $i; done
+#1654567441
+ls FC210_HCKFVCCXY_L2  Y616_HCKFVCCXY_L1 >> mv.sh 
+#1654567447
+echo FC210_HCKFVCCXY_L2  Y616_HCKFVCCXY_L1 >> mv.sh 
+#1654567447
+vi mv.sh 
+#1654567491
+ls FC210_HCKFVCCXY_L2*gz
+#1654567492
+vi mv.sh 
+#1654567495
+ls Y616_HCKFVCCXY_L1*gz
+#1654567497
+vi mv.sh 
+#1654567502
+bash mv.sh 
+#1654567503
+lth
+#1654567507
+more *sh
+#1654567528
+ls *sh
+#1654567534
+lt
+#1654567536
+vi mv.sh 
+#1654567547
+lth
+#1654567561
+rename Pterodon_emarginatus Pterodon_emarginatus_Pap
+#1654567563
+rename Pterodon_emarginatus Pterodon_emarginatus_Pap *
+#1654567573
+rename Dipteryx_odorata Dipteryx_odorata_Pap *
+#1654567573
+lth
+#1654567577
+vi mv.sh 
+#1654567597
+lth
+#1654567598
+ll *sh
+#1654567600
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1654567623
+lsload
+#1654567625
+bhosts 
+#1654567630
+lsload
+#1654567637
+bjl
+#1654567640
+lsload
+#1654567648
+vi bsub.Trinity_Guided_read1.031464.sh 
+#1654567698
+bash bsub.Trinity_Guided_read1.031464.sh 
+#1654567707
+mv bsub.Trinity_Guided_read1.031464.sh 01.run_trinity.sh
+#1654567708
+lt
+#1654567710
+lth
+#1654567713
+vi 01.run_trinity.sh 
+#1654567716
+bjl
+#1654567757
+more shell 
+#1654567759
+cd super_transcript/
+#1654567760
+ls
+#1654567761
+ls *sh
+#1654567762
+more shell 
+#1654567800
+ll plot-ks
+#1654567801
+ll plot-ks.pl 
+#1654567802
+cd ..
+#1654567805
+ll plot-ks.pl 
+#1654567813
+diff plot-ks.pl super_transcript/plot-ks.pl 
+#1654567818
+rm plot-ks.pl 
+#1654567822
+ln -s super_transcript/plot-ks.pl 
+#1654567823
+ls
+#1654567825
+lth
+#1654567827
+vi 01.run_trinity.sh 
+#1654567865
+ll *Trinity.fasta
+#1654567874
+ls *trinity/
+#1654567886
+vi 01.run_trinity.sh 
+#1654567916
+which trinity
+#1654567918
+vi 01.run_trinity.sh 
+#1654567922
+Trinity
+#1654567925
+lth
+#1654567926
+vi 01.run_trinity.sh 
+#1654567973
+bjl
+#1654567980
+cp plot-ks.pl /nfs/liuhui/bin/bundle/executables/
+#1654567982
+gtp

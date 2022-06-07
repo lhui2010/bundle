@@ -610,3 +610,35 @@ $TRINITY_HOME/util/align_and_estimate_abundance.pl --seqType fq \
      --trinity_mode --prep_reference \
      --output_dir GSNO_SRR1582648.RSEM
 ```
+
+#### braker
+
+```
+source activate braker
+
+export GENEMARK_PATH=/nfs/liuhui/bin/braker/dependency/gmes_linux_64
+export PROTHINT_PATH=/nfs/liuhui/bin/braker/dependency/ProtHint/bin
+export CDBTOOLS_PATH=/nfs/liuhui/bin/braker/dependency/cdbfasta
+export PATH=/nfs/liuhui/bin/braker/dependency/GUSHR:$PATH
+export MAKEHUB_PATH=/nfs/liuhui/bin/braker/dependency/MakeHub-1.0.5
+export PATH=/nfs/liuhui/bin/braker/dependency:$PATH
+export PATH=/nfs/liuhui/bin/braker/dependency/Augustus/bin:/nfs/liuhui/bin/braker/dependency/Augustus/scripts:$PATH
+export AUGUSTUS_CONFIG_PATH=/nfs/liuhui/bin/braker/dependency/Augustus/config
+export PATH=/nfs/liuhui/bin/braker/BRAKER/scripts:$PATH
+
+module load boost
+
+PEP=odb10_plants.fasta
+THREADS=48
+
+#for GENOME in Dipteryx_alata.fa.masked.fa
+for GENOME in `cat sp_list`
+do
+    while [ ! -e ${GENOME} ]
+    do
+        echo "${GENOME} is not yet generated"
+        sleep 1m
+    done
+    braker.pl -gff3 --cores=${THREADS} --genome=${GENOME} --prot_seq=$PEP --softmasking --workingdir braker_${GENOME}
+done
+```

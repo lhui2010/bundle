@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import csv
 from collections import defaultdict
 from pandas import DataFrame
