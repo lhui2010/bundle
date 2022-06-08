@@ -2,7 +2,7 @@
 import csv
 from collections import defaultdict
 from pandas import DataFrame
-#import pandas as pd
+import pandas as pd
 import sys
 
 
@@ -58,8 +58,12 @@ for qry, ref, result in rdr:
 
 df = DataFrame(datacols)
 #https://stackoverflow.com/questions/13838405/custom-sorting-in-pandas-dataframe/13839029#13839029
-#df['qry'] = pd.Categorical(df['qry'], ["March", "April", "Dec"])
+df['qry'] = pd.Categorical(df['qry'], ["Abrus_precatorius", "Aeschynomene_evenia", "Ammopiptanthus_nanus", "Amphicarpaea_edgeworthii", "Arachis_duranensis", "Arachis_ipaensis", "Astragalus_sinicus", "Cajanus_cajan", "Cicer_arietinum", "Cicer_reticulatum", "Cladrastis_platycarpa", "Dalbergia_odorifera", "Glycine_max", "Glycine_soja", "Glycyrrhiza_uralensis", "Lablab_purpureus", "Lotus_japonicus", "Lupinus_albus", "Lupinus_angustifolius", "Medicago_polymorpha", "Medicago_ruthenica", "Medicago_truncatula", "Melilotus_albus", "Nissolia_schottii", "Phaseolus_acutifolius", "Phaseolus_lunatus", "Phaseolus_vulgaris", "Pisum_sativum", "Trifolium_subterraneum", "Vigna_angularis", "Vigna_radiata", "Vigna_subterranea", "Vigna_trilobata", "Vigna_unguiculata", "Chamaecrista_fasciculata", "Chamaecrista_pumila", "Faidherbia_albida", "Mimosa_pudica", "Senna_septemtrionalis", "Senna_tora", "Zenia_insignis", "Duparquetia_orchidacea", "Lysidice_rhodostegia", "Cercis_canadensis", "Cercis_chinensis"])
+
+df['ref'] = pd.Categorical(df['ref'], ["Abrus_precatorius", "Aeschynomene_evenia", "Ammopiptanthus_nanus", "Amphicarpaea_edgeworthii", "Arachis_duranensis", "Arachis_ipaensis", "Astragalus_sinicus", "Cajanus_cajan", "Cicer_arietinum", "Cicer_reticulatum", "Cladrastis_platycarpa", "Dalbergia_odorifera", "Glycine_max", "Glycine_soja", "Glycyrrhiza_uralensis", "Lablab_purpureus", "Lotus_japonicus", "Lupinus_albus", "Lupinus_angustifolius", "Medicago_polymorpha", "Medicago_ruthenica", "Medicago_truncatula", "Melilotus_albus", "Nissolia_schottii", "Phaseolus_acutifolius", "Phaseolus_lunatus", "Phaseolus_vulgaris", "Pisum_sativum", "Trifolium_subterraneum", "Vigna_angularis", "Vigna_radiata", "Vigna_subterranea", "Vigna_trilobata", "Vigna_unguiculata", "Chamaecrista_fasciculata", "Chamaecrista_pumila", "Faidherbia_albida", "Mimosa_pudica", "Senna_septemtrionalis", "Senna_tora", "Zenia_insignis", "Duparquetia_orchidacea", "Lysidice_rhodostegia", "Cercis_canadensis", "Cercis_chinensis"])
 
 df2 = df.pivot(index='qry', columns='ref', values='result')
+df2 = df2.sort_values(axis = 0, by='qry')
+df2 = df2.sort_values(axis = 1, by='ref')
 df2.to_csv(sys.argv[1] + '.xls', sep='\t')
 

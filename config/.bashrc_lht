@@ -132,8 +132,6 @@ alias bsub3T='bsub   -R "span[hosts=1]" -q Q64C3T_X1  -o output.%J -e error.%J'
 alias bsub6T='bsub   -R "span[hosts=1]" -q Q88C6T_X1  -o output.%J -e error.%J'
 alias bsubI='bsub -q Q104C512G_X4  -Ip bash'
 alias bsubI1T='bsub -q Q64C1T_X4 -Ip bash'
-alias gtp='pushd $BD; git pull; popd'
-alias gtps='cd $BD; git add . && git commit -m "CMD update" && git push; cd -'
 
 alias newbsub='echo  "#!/bin/bash
 #BSUB -J hybrid_job_name      # job name
@@ -221,6 +219,12 @@ tailf() ( # args: <file> [<number-of-header-lines>]
 export HB="/ds3200_1/users_root/yitingshuang/lh/bin/bundle/lh_bin"
 export BD="/ds3200_1/users_root/yitingshuang/lh/bin/bundle"
 alias vw="vim ${BD}/tools_wrapper.md"
+alias gtp='pushd $BD; git pull; popd'
+alias gtps='cd $BD; git add . && git commit -m "CMD update" && git push; cd -'
+alias vk="vim $BD/config/workdir_lht.txt"
+alias mk="more $BD/config/workdir_lht.txt"
+alias ka="cat $BD/config/workdir_lht.txt >> $BD/config/workdir_lht.txt.log"
+
 
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/sratoolkit.2.9.0-centos_linux64/bin:$PATH
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/bundle/lh_bin:$PATH

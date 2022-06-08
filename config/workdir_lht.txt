@@ -1,0 +1,4 @@
+1. Get WGD peaks of all genome vs genome comparison. [PhyLeg] Location: /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX3
+2. All kaks computed with NG86 model. For use in filter collinearity blocks. [PhyLeg] Location: /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX2/NG86. //Some KaKs failed, errors remain to be checked
+
+Wed Jun  8 11:37:50 CST 2022
