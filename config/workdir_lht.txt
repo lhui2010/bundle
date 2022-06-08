@@ -1,4 +1,18 @@
 1. Get WGD peaks of all genome vs genome comparison. [PhyLeg] Location: /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX3
+有问题的
+Cladrastis_platycarpa （不知道为什么，和有些属共有，有些属不共有）
+
+Glycine_max（四个峰）重算中
+Glycine_soja（四个峰）重算中
+Lupinus_angustifolius（质量差）替换中
+
+Astragalus_sinicus （ortho特别少，只有4k多个）
+
+
 2. All kaks computed with NG86 model. For use in filter collinearity blocks. [PhyLeg] Location: /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX2/NG86. //Some KaKs failed, errors remain to be checked
 
-Wed Jun  8 11:37:50 CST 2022
+3. Add Peter's white Lupin genome and run mcscanX against rest genome
+Previous failed due to the "mRNA:" prefix
+/ds3200_1/users_root/yitingshuang/lh/Lalbus_peter/against_rest_genome/
+
+Wed Jun  8 15:51:23 CST 2022
