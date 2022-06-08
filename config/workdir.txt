@@ -1,3 +1,6 @@
 1. Assemblying ZR's RNA-Seq:  /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq
-2. Refining plot-ks pipeline: /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/super_transcript/cds_peps/work.Abrus_precatorius.Angylocalyx_braunii_Pap 
+2. Refining plot-ks pipeline: /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/super_transcript/cds_peps/work.Abrus_precatorius.Angylocalyx_braunii_Pap . Finished! Now running RNA vs genome RNA vs. RNA in /nfs/liuhui/yi03
 3. PostRepeatMask and run braker annotation:    /nfs/liuhui/projects/phyleg/new_genome_0531
+4. RepeatMask on Astragalus and Meliloti: /nfs/liuhui/projects/phyleg/repeat_mask
+
+Tue Jun  7 15:10:34 CST 2022

@@ -172,6 +172,9 @@ tailf() ( # args: <file> [<number-of-header-lines>]
 export BD="${HOME}/bin/bundle"
 export HB="${BD}/lh_bin"
 alias vw="vim ${BD}/tools_wrapper.md"
+alias vk="vim $BD/config/workdir.txt"
+alias mk="more $BD/config/workdir.txt"
+alias ka="cat $BD/config/workdir.txt >> $BD/config/workdir.txt.log"
 export PATH=$HB:$PATH
 export PATH=$BD/Rscripts:$PATH
 export PATH=$BD:$PATH

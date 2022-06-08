@@ -68450,3 +68450,839 @@ vi /nfs/liuhui/bin/bundle/executables/plot-ks.cross.pl
 lth
 #1654580005
 gtp
+#1654580009
+gtps
+#1654582037
+cd ..
+#1654582038
+ls
+#1654582044
+mkdir rm
+#1654582048
+mv work.* rm/
+#1654582049
+ls
+#1654582055
+mv *log *err rm/
+#1654582056
+ls
+#1654582059
+ll
+#1654582080
+ls ~/projects/phyleg/03.fig3/D/*cds
+#1654582098
+for i in /nfs/liuhui/projects/phyleg/mcscanX2/*cds /nfs/liuhui/projects/phyleg/mcscanX2/*pep; do ln -s $i; done
+#1654582101
+lth
+#1654582103
+lt
+#1654582106
+ls *cds |wc -l
+#1654582109
+ls *pep |wc -l
+#1654582139
+ls *cds > genome_list
+#1654582140
+vi genome_list 
+#1654582172
+wc -l genome_list 
+#1654582185
+ls Zollernia_splendens_Pap.pep Umtiza_listeriana_Cae.pep Goniorrhachis_marginata_Det.pep Dialium_schlechtneri_Dia.pep Angylocalyx_braunii_Pap.pep Andira_inermis_Pap.pep > rna_list
+#1654582186
+vi rna_
+#1654582189
+vi rna_list 
+#1654582201
+ls
+#1654582222
+mkdir ~/projects/phyleg/wgd_rnaseq/03.ortho_with_genome
+#1654582224
+ls
+#1654582231
+mv *.* ~/projects/phyleg/wgd_rnaseq/03.ortho_with_genome/
+#1654582232
+ls
+#1654582255
+mv genome_list rna_list ~/projects/phyleg/wgd_rnaseq/03.ortho_with_genome/
+#1654582255
+ll
+#1654582260
+cd rm/
+#1654582260
+lt
+#1654582262
+cd -
+#1654582279
+nohup sleep 3d&& rm -rf rm/ &
+#1654582279
+lt
+#1654582281
+cd ..
+#1654582282
+lt
+#1654582283
+cd ..
+#1654582288
+cd super_transcript/
+#1654582289
+lth
+#1654582290
+bjl
+#1654582295
+lth
+#1654582297
+ls
+#1654582313
+cd ..
+#1654582314
+lth
+#1654582318
+bjl
+#1654582323
+bpeek 75198
+#1654582328
+cd ..
+#1654582328
+lt
+#1654582329
+cd ..
+#1654582330
+lt
+#1654582332
+cd 03.ortho_with_genome/
+#1654582332
+ll
+#1654582351
+mkdir clean_genome_cds_peps
+#1654582357
+ls genome_list 
+#1654582367
+for i in `cat genome_list`; do mv ${i}.* clean_genome_cds_peps/; done
+#1654582369
+cd clean_genome_cds_peps/
+#1654582370
+ll
+#1654582415
+for i in /nfs/liuhui/projects/phyleg/03.fig3/D/*.black.id ; do ln -s $i; done
+#1654582416
+ls
+#1654582437
+les *black.id
+#1654582468
+for i in *cds *pep; do mv $i $i.raw; done
+#1654582469
+ll
+#1654582487
+vi clean.sh
+#1654582503
+bash clean.sh 
+#1654582600
+ls *cds |wc -l
+#1654582603
+ls *pep |wc -l
+#1654582606
+ls *id |wc -l
+#1654582613
+ll -S *cds |les
+#1654582628
+ll -S *cds |tail -n 6
+#1654582636
+rm Castanospermum_australe.cds Dipteryx_alata.cds Eperua_falcata.cds Glycine_latifolia.cds Vigna_mungo.cds
+#1654582640
+ll -S *pep |tail -n 6
+#1654582645
+rm Castanospermum_australe.pep Dipteryx_alata.pep Eperua_falcata.pep Glycine_latifolia.pep Vigna_mungo.pep
+#1654582647
+ls
+#1654582660
+cp *pep *cds ..
+#1654582738
+cd ..
+#1654582739
+ls
+#1654582740
+lth
+#1654582741
+ls
+#1654582743
+vi rna_
+#1654582746
+vi rna_wgd.sh 
+#1654582756
+ls *list >> rna_
+#1654582758
+ls *list >> rna_wgd.sh 
+#1654582761
+vi rna_wgd.sh 
+#1654582788
+ll /nfs/liuhui/bin/bundle/executables/
+#1654582794
+chmod +x /nfs/liuhui/bin/bundle/executables/*pl
+#1654582799
+vi rna_wgd.sh 
+#1654582804
+plot-ks.cross.pl -h
+#1654582816
+vi rna_wgd.sh 
+#1654582834
+lsload
+#1654582845
+vi rna_wgd.sh 
+#1654582918
+lsload
+#1654582920
+vi rna_wgd.sh 
+#1654582972
+ls
+#1654582974
+chd
+#1654582975
+ls
+#1654582977
+rm rna_
+#1654582980
+bash rna_wgd.sh 
+#1654582981
+bjl
+#1654582986
+bj
+#1654582988
+lsload
+#1654582990
+bjl
+#1654582993
+bhosts 
+#1654583000
+bmod -n 3 75204
+#1654583004
+lsload
+#1654583008
+bhosts 
+#1654583011
+lth
+#1654583014
+lt work.Andira_inermis_Pap.Abrus_precatorius/
+#1654583017
+bjl
+#1654583042
+lt work.Andira_inermis_Pap.Abrus_precatorius/
+#1654583160
+bjl
+#1654583162
+lt work.Andira_inermis_Pap.Abrus_precatorius/
+#1654583232
+df -h
+#1654583240
+cd /home/liuhui/
+#1654583241
+ls
+#1654583243
+cd -
+#1654583244
+ls
+#1654583246
+du work.Andira_inermis_Pap.Abrus_precatorius/ -hs
+#1654583250
+df -h
+#1654583275
+sudo fdisk -l
+#1654583296
+sudo mkdir /mnt/abc
+#1654583298
+sudo mount /dev/sdb /mnt/abc/
+#1654583301
+ll /mnt/abc/
+#1654583376
+sudo mkfs.xfs /dev/sdb 
+#1654583382
+sudo umount /mnt/abc 
+#1654583384
+sudo mkfs.xfs /dev/sdb 
+#1654583395
+df -h
+#1654579045
+top
+#1654583404
+bjl
+#1654583407
+lth
+#1654583414
+cd ../
+#1654583417
+cd ../..
+#1654583419
+cd ../../
+#1654583420
+lth
+#1654583422
+cd ..
+#1654583423
+cd ../03.ortho_with_genome/
+#1654583424
+lt
+#1654583425
+lth
+#1654583426
+cd work.Andira_inermis_Pap.Abrus_precatorius/
+#1654583427
+lth
+#1654583459
+lt blat-out/
+#1654583461
+bjl
+#1654583465
+bpeek 75204
+#1654583522
+lslaod
+#1654583524
+bhosts 
+#1654583525
+lsload
+#1654583408
+sudo mkfs.xfs -f /dev/sdb 
+#1654583901
+bjl
+#1654583908
+bpeek 75204
+#1654583921
+lthls
+#1654583923
+ls
+#1654583933
+mkdir /mnt/local
+#1654583935
+sudo mkdir /mnt/local
+#1654583939
+sudo mount /dev/sdb /mnt/local/
+#1654583940
+ls
+#1654583953
+sudo mv /mnt/local /mnt/yi03
+#1654583966
+sudo umount /mnt/local 
+#1654583968
+sudo mv /mnt/local /mnt/yi03
+#1654583970
+ll /mnt/
+#1654583974
+sudo rmdir /mnt/abc/
+#1654583984
+sudo mount /dev/sdb /mnt/yi03/
+#1654583994
+sudo mkdir /mnt/yi03/liuhui
+#1654584000
+sudo chown liuhui:liuhui /mnt/yi03/liuhui
+#1654584005
+ln -s /mnt/yi03/liuhui/
+#1654584005
+ll
+#1654584009
+mv liuhui yi03
+#1654584009
+ls
+#1654584012
+cd yi03/
+#1654584013
+ll
+#1654584014
+cd -
+#1654584014
+df -h
+#1654584027
+ls /nfs/liuhui/projects/phyleg/wgd_rnaseq/03.ortho_with_genome/
+#1654584034
+cd yi03/
+#1654584034
+ls
+#1654584039
+ln -s /nfs/liuhui/projects/phyleg/wgd_rnaseq/03.ortho_with_genome/
+#1654584039
+ll
+#1654584050
+cp 03.ortho_with_genome/*.* .
+#1654584099
+ls
+#1654584106
+cp 03.ortho_with_genome/*list .
+#1654584106
+ls
+#1654584107
+lth
+#1654584110
+vi *sh
+#1654584129
+ls *sh
+#1654584132
+bash rna_wgd.sh 
+#1654584137
+vi rna_
+#1654584139
+vi rna_wgd.sh 
+#1654584145
+bash rna_wgd.sh 
+#1654584145
+lth
+#1654584147
+vi run.sh 
+#1654584166
+vi rna_wgd.sh 
+#1654584229
+rm run.sh 
+#1654584231
+bash rna_wgd.sh 
+#1654584232
+vi run.sh 
+#1654584236
+vw
+#1654584243
+ls
+#1654584277
+ll
+#1654584279
+ll *id
+#1654584296
+les ~/projects/phyleg/leggenome/Astragalus_sinicus.cds 
+#1654584314
+cp ~/projects/phyleg/leggenome/Astragalus_sinicus.cds  .
+#1654584317
+cp ~/projects/phyleg/leggenome/Astragalus_sinicus.pep  .
+#1654584337
+ls
+#1654584338
+ls *cds
+#1654584355
+ls 03.ortho_with_genome/clean_genome_cds_peps/*cds
+#1654584420
+cd ..
+#1654584420
+ls
+#1654584422
+cd clean_genome_cds_peps/
+#1654584422
+ls
+#1654583256
+ssh yi03
+#1654584462
+more sh
+#1654584480
+ls
+#1654584484
+cd work.Andira_inermis_Pap.Abrus_precatorius/
+#1654584484
+ls
+#1654584486
+cd -
+#1654584486
+ls
+#1654584487
+cd clean_genome_cds_peps/
+#1654584491
+ls *.raw |wc -l
+#1654584494
+ls *.raw 
+#1654584499
+ls *.cds.raw 
+#1654584501
+ls *.cds.raw  |wc
+#1654584504
+ls *.cds |wc
+#1654584508
+ls *.cds.raw   >tmp
+#1654584511
+ls *.cds > tmp
+#1654584513
+ls *.cds > tmp1
+#1654584515
+ls *.cds.raw   >tmp
+#1654584517
+vi tmp
+#1654584523
+diff tmp tmp1
+#1654584562
+ln -s ~/projects/phyleg/mcscanX2/Duparquetia_orchidacea.*id
+#1654584565
+ln -s ~/projects/phyleg/mcscanX2/Duparquetia_orchidacea.cds
+#1654584568
+lth
+#1654584571
+les Duparquetia_orchidacea.cds
+#1654584573
+ll /nfs/liuhui/projects/phyleg/mcscanX2/Duparquetia_orchidacea.cds
+#1654584579
+rm Duparquetia_orchidacea.*id
+#1654584581
+lth
+#1654584587
+rm mv Duparquetia_orchidacea.cds Duparquetia_orchidacea.cds.raw
+#1654584596
+diff tmp tmp1
+#1654584623
+for i in Astragalus_sinicus Duparquetia_orchidacea Melilotus_albus; do ln -s /nfs/liuhui/projects/phyleg/mcscanX2/${i}.cds ${i}.cds.raw; done
+#1654584631
+for i in Astragalus_sinicus Duparquetia_orchidacea Melilotus_albus; do ln -s /nfs/liuhui/projects/phyleg/mcscanX2/${i}.pep ${i}.pep.raw; done
+#1654584644
+j repeatmask
+#1654584645
+ls
+#1654584647
+cd ..
+#1654584647
+ls
+#1654584658
+ll Zenia_insignis.fa.1
+#1654584666
+les ../leggenome/Astragalus_sinicus.fa 
+#1654584670
+ln -s ../leggenome/Astragalus_sinicus.fa 
+#1654584684
+ln -s ../leggenome/Melilotus_albus.fa 
+#1654584685
+ls
+#1654584687
+lth
+#1654584689
+more shell 
+#1654584725
+s Melilotus_albus.fa Astragalus_sinicus.fa > mask_three.sh
+#1654584728
+ls Melilotus_albus.fa Astragalus_sinicus.fa > mask_three.sh
+#1654584729
+vi mask_three.sh 
+#1654584782
+bash mask_three.sh 
+#1654584787
+j duparquetia
+#1654584787
+ls
+#1654584790
+cd annotation/
+#1654584790
+lt
+#1654584799
+ll *id
+#1654584801
+cd workdir_repeatmask_Duparquetia_orchidacea.fa/
+#1654584801
+lt
+#1654584803
+cd Full_mask/
+#1654584803
+lt
+#1654584811
+realpath full_mask.complex.reformat.gff3
+#1654584815
+j repeat
+#1654584816
+ls
+#1654584824
+more shell 
+#1654584860
+ln -s ../mcscanX2/work.Duparquetia_orchidacea.Duparquetia_orchidacea/Duparquetia_orchidacea.bed 
+#1654584876
+mv Duparquetia_ochidaceae.fa.repeat.gff Duparquetia_orchidaceae.fa.repeat.gff
+#1654584907
+for i in Duparquetia_orchidacea; do bedtools coverage -s -a $i.bed -b $i.fa.repeat.gff > $i.bed.xrepeat.coverage; done
+#1654584919
+ll Duparquetia_orchidacea.fa.repeat.gff
+#1654584923
+ll Duparquetia_orchidacea*
+#1654584930
+mv Duparquetia_orchidaceae.fa.repeat.gff Duparquetia_orchidacea.fa.repeat.gff
+#1654584933
+for i in Duparquetia_orchidacea; do bedtools coverage -s -a $i.bed -b $i.fa.repeat.gff > $i.bed.xrepeat.coverage; done
+#1654584955
+awk '$10 > 0.5' Duparquetia_orchidacea.bed.xrepeat.coverage |cut -f4 > Duparquetia_orchidacea.black.id
+#1654584956
+logsh
+#1654584961
+lth
+#1654584962
+les *id
+#1654584975
+lth
+#1654584982
+realpath Duparquetia_orchidacea.black.id
+#1654584990
+ln -s /nfs/liuhui/projects/phyleg/repeat_mask/Duparquetia_orchidacea.black.id 
+#1654585034
+lth
+#1654585046
+more sh
+#1654585047
+more clean.sh 
+#1654585060
+for i in Duparquetia_orchidacea.black.id do unselect_fasta.pl ${i} ${i%.black.id}.cds.raw > ${i%.black.id}.cds;unselect_fasta.pl ${i} ${i%.black.id}.pep.raw > ${i%.black.id}.pep; done
+#1654585070
+for i in Duparquetia_orchidacea.black.id; do unselect_fasta.pl ${i} ${i%.black.id}.cds.raw > ${i%.black.id}.cds;unselect_fasta.pl ${i} ${i%.black.id}.pep.raw > ${i%.black.id}.pep; done
+#1654585075
+lth
+#1654585081
+cd ..
+#1654585083
+ls
+#1654585084
+cd -
+#1654585089
+cp Duparquetia_orchidacea.cds Duparquetia_orchidacea.pep ..
+#1654585094
+cd ..
+#1654585095
+ls
+#1654585114
+cp clean_genome_cds_peps/Astragalus_sinicus.pep.raw .
+#1654585118
+cp clean_genome_cds_peps/Astragalus_sinicus.cds.raw .
+#1654585125
+cp clean_genome_cds_peps/Melilotus_albus.* .
+#1654585130
+lth
+#1654585135
+ls *raw
+#1654585142
+for i in *raw; do ln -s $i ${i%.raw}; done
+#1654585143
+lth
+#1654585145
+ll
+#1654585162
+ls
+#1654585163
+cd y
+#1654585165
+cd yi03/
+#1654585165
+lt
+#1654585187
+cp ~/projects/phyleg/leggenome/Astragalus_sinicus.pep ~/projects/phyleg/leggenome/Astragalus_sinicus.cds . &
+#1654585222
+jobs
+#1654585226
+cp 03.ortho_with_genome/Astragalus_sinicus.pep 03.ortho_with_genome/Astragalus_sinicus.cds . 
+#1654585235
+cp 03.ortho_with_genome/Duparquetia_orchidacea.* .
+#1654585240
+cp 03.ortho_with_genome/Melilotus_albus.* .
+#1654585244
+ls *raw
+#1654585245
+rm *raw
+#1654585245
+ls
+#1654585246
+lth
+#1654585249
+vi run.sh 
+#1654585255
+rm run.sh 
+#1654585262
+bash rna_wgd.sh 
+#1654585264
+vi run.sh 
+#1654585265
+bjl
+#1654585271
+lth
+#1654585273
+ls
+#1654585275
+lt work.Andira_inermis_Pap.Abrus_precatorius/
+#1654585283
+wc -l  work.Andira_inermis_Pap.Abrus_precatorius/*ortho
+#1654585308
+ll
+#1654585309
+vi run.sh 
+#1654585317
+lsload
+#1654585326
+vw
+#1654585355
+vi shell
+#1654585363
+vi run.sh 
+#1654585379
+vi rna_wgd.sh 
+#1654585387
+vi *sh
+#1654585390
+ll
+#1654585393
+vi rna_
+#1654585405
+ls
+#1654585437
+cd -
+#1654585442
+vi ../01.assemble/RNAs
+#1654585443
+ls
+#1654585444
+lth
+#1654585460
+ls
+#1654585462
+lth
+#1654585487
+cd
+#1654585503
+lth
+#1654585504
+vi rna_
+#1654585510
+more ~/projects/phyleg
+#1654585517
+more ~/projects/phyleg/mcscanX2.sh
+#1654585523
+ls
+#1654585526
+vi rna_wgd.sh 
+#1654585573
+bash rna_wgd.sh 
+#1654585575
+lth
+#1654585578
+vi rna_wgd.sh 
+#1654585581
+vi run.sh 
+#1654585610
+lth
+#1654585612
+vi shell 
+#1654585621
+ls *cds |wc -l
+#1654585636
+ls ~/projects/phyleg/mcscanX2/*cds |wc -l
+#1654585640
+ls ~/projects/phyleg/mcscanX2/*cds |les
+#1654585646
+lth
+#1654585656
+nohup bash shell &
+#1654585658
+jobs
+#1654585661
+lsload
+#1654585684
+vi ~/workdir.txt 
+#1654585710
+top
+#1654585718
+lsload
+#1654585721
+top
+#1654585728
+lth
+#1654585736
+lt work.Abrus_precatorius.Andira_inermis_Pap/
+#1654585748
+vi run.sh 
+#1654585758
+ll
+#1654585758
+lt
+#1654585760
+lth
+#1654585761
+bjl
+#1654585793
+j repeatmask
+#1654585794
+lth
+#1654585795
+cd ..
+#1654585796
+lth
+#1654585799
+pwd
+#1654585802
+vi ~/workdir.txt 
+#1654585869
+lth
+#1654585870
+bjl
+#1654585880
+lsload
+#1654585765
+htop
+#1654587702
+lt 
+#1654587705
+lt -d work.*/
+#1654587710
+lt -d work.*/*kaks
+#1654587719
+lt -d work.*/*ortho.kaks |wc -l
+#1654587731
+lt  work.*/*ortho.kaks |wc -l
+#1654587733
+lt  work.*/*ortho.kaks 
+#1654587740
+ls -d work.*/ |wc -l
+#1654587749
+lt
+#1654587775
+bjl
+#1654590719
+jobs
+#1654590720
+lth
+#1654590726
+ls -d */ |wc
+#1654590728
+htop
+#1654656491
+jobs
+#1654656493
+lth
+#1654656496
+ls -d work.*/ |wc
+#1654658020
+bjl
+#1654658030
+lsload
+#1654658105
+more workdir_repeatmask_
+#1654658107
+cd
+#1654658107
+ls
+#1654658109
+more workdir.txt 
+#1654658263
+wk
+#1654658266
+vc
+#1654658379
+sc
+#1654658380
+wk
+#1654658385
+sk
+#1654658387
+sc
+#1654658388
+vc
+#1654658400
+wka
+#1654658407
+vc
+#1654658414
+more $BD/config/workdir.txt.log
+#1654658419
+vk
+#1654658420
+vc
+#1654658432
+mk
+#1654658433
+vc
+#1654658442
+ka
+#1654658443
+vc
+#1654658463
+mk
+#1654658464
+sc
+#1654658464
+mk
