@@ -456,6 +456,12 @@ sub parse_self_blat_output_child {
 		my $query_nuc_align = $align{$query_name};
 		my $match_nuc_align = $align{$match_name};
 
+        #debug
+        #if ($query_nuc_align == "")
+        #{
+        #    die $query_name;
+        #}
+
 		my $trans_query_align;
         # print("$query_name\t$match_name\t$query_align\t$match_align\nQRY::CDS::$query_nuc_align\nMAT::CDS::$match_nuc_align\n");
 		foreach my $align (@query_align) {

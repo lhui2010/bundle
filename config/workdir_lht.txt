@@ -8,11 +8,14 @@ Lupinus_angustifolius（质量差）替换中
 
 Astragalus_sinicus （ortho特别少，只有4k多个）
 
+改用plot-ks流程处理这些质量不好的基因组：/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/blat_on_genome
+
 
 2. All kaks computed with NG86 model. For use in filter collinearity blocks. [PhyLeg] Location: /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX2/NG86. //Some KaKs failed, errors remain to be checked
 
 3. Add Peter's white Lupin genome and run mcscanX against rest genome
 Previous failed due to the "mRNA:" prefix
 /ds3200_1/users_root/yitingshuang/lh/Lalbus_peter/against_rest_genome/
+
 
 Wed Jun  8 15:51:23 CST 2022
