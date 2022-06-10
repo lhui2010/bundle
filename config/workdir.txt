@@ -4,3 +4,11 @@
 4. RepeatMask on Astragalus and Meliloti: /nfs/liuhui/projects/phyleg/repeat_mask
 
 Tue Jun  7 15:10:34 CST 2022
+
+尝试适合垃圾基因组的Ortholog/Paralog鉴定方法
+
+/nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/Orthologues/Orthologues_Pisum_sativum
+
+/nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/Orthogroups
+
+Fri Jun 10 16:06:56 CST 2022

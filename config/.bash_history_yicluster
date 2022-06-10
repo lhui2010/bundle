@@ -69286,3 +69286,617 @@ mk
 sc
 #1654658464
 mk
+#1654658505
+gtps
+#1654656498
+htop 
+#1654658549
+vc
+#1654659596
+bjl
+#1654669116
+lth
+#1654669122
+cd ..
+#1654669124
+more shell 
+#1654672568
+vi `which get_ks_peak.py`
+#1654669110
+tma
+#1654672808
+j astra
+#1654672809
+lth
+#1654672811
+ll
+#1654672816
+j mcscanx2
+#1654672827
+j 3/D
+#1654672838
+wc -l Astragalus_sinicus.Astragalus_sinicus.ortho
+#1654672840
+lth
+#1654672843
+cd -
+#1654672849
+cd work.Astragalus_sinicus.Astragalus_sinicus/
+#1654672849
+lt
+#1654672856
+grep ">" *cds |wc -l
+#1654672868
+les error.455*
+#1654672875
+lt
+#1654685371
+j
+#1654685378
+cd -
+#1654685379
+lth
+#1654685385
+cd ../
+#1654685392
+cd work.Chamaecrista_fasciculata.Astragalus_sinicus/
+#1654685393
+lt
+#1654685395
+wc -l *ortho
+#1654685421
+wc -l ~/projects/phyleg/03.fig3/D/Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho
+#1654685430
+wc -l ~/projects/phyleg/03.fig3/D/Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.raw
+#1654685437
+ll ~/projects/phyleg/03.fig3/D/Chamaecrista_fasciculata.Chamaecrista_fasciculata.ortho.raw 
+#1654685660
+sz  ../kaks/Senna_tora.Senna_tora.ortho.kaks.pdf 
+#1654685662
+# Sent -> /Users/liuhui/Downloads/
+#1654685776
+sz  ../kaks/Senna_tora.Senna_tora.ortho.kaks.pdf 
+#1654685779
+# Sent -> /Users/liuhui/Downloads/
+#1654692571
+j mcscanx2
+#1654692582
+cd kaks
+#1654692600
+cd work_Pisum_sativum.Senna_tora.ortho/
+#1654692600
+lt
+#1654692608
+wc -l *kaks
+#1654692613
+cd ..
+#1654692618
+wc -l Pisum_sativum.Pisum_sativum.ortho.kaks 
+#1654692645
+ks_hist.R Pisum_sativum.Pisum_sativum.ortho.kaks
+#1654692717
+sz Pisum_sativum.Pisum_sativum.ortho.kaks.pdf
+#1654692720
+# Sent -> /Users/liuhui/Downloads/
+#1654692897
+ks_hist.R Trifolium_subterraneum.Trifolium_subterraneum.ortho.kaks 
+#1654692914
+sz Trifolium_subterraneum.Trifolium_subterraneum.ortho.kaks.pdf
+#1654692917
+# Sent -> /Users/liuhui/Downloads/
+#1654693136
+bhosts 
+#1654693139
+lsload
+#1654693141
+bjl
+#1654693694
+j zhangr
+#1654693695
+lth
+#1654693699
+lt |head -20
+#1654693705
+lt |les
+#1654693738
+ls /nfs/liuhui/projects/genomes/Fabales_nodup/
+#1654693746
+uplht /nfs/liuhui/projects/genomes/Fabales_nodup/
+#1654693811
+lth
+#1654658939
+tp
+#1654694026
+ls -d work.*/ |wc
+#1654694029
+bjl
+#1654585148
+ssh yi03
+#1654694034
+top
+#1654841898
+bjl
+#1654841907
+bpeek 75194
+#1654841914
+bpeek 75194|less
+#1654841927
+more ~/.gm_key
+#1654841928
+bpeek 75194|less
+#1654841947
+perl /nfs/liuhui/bin/braker/dependency/gmes_linux_64/gmes_petap.pl
+#1654841959
+conda activate braker
+#1654841961
+perl /nfs/liuhui/bin/braker/dependency/gmes_linux_64/gmes_petap.pl
+#1654842346
+bpeek 75194|less
+#1654842363
+more /nfs/liuhui/projects/phyleg/new_genome_0531/braker_Eperua_falcata.fa.masked.fa/errors/GeneMark-ES.stderr
+#1654842365
+bpeek 75194|less
+#1654844383
+tma
+#1654844392
+vk
+#1654844402
+gtp
+#1654844409
+cd /nfs/liuhui/projects/phyleg/new_genome_0531/
+#1654844410
+lt
+#1654844411
+lth
+#1654844418
+lt braker_Glycine_latifolia.fa.masked.fa/
+#1654844429
+less braker_Glycine_latifolia.fa.masked.fa/braker.gff3 
+#1654844443
+awk '$3=="mRNA"' braker_Glycine_latifolia.fa.masked.fa/braker.gff3  |wc -l
+#1654844447
+awk '$3=="gene"' braker_Glycine_latifolia.fa.masked.fa/braker.gff3  |wc -l
+#1654844455
+bjl
+#1654845651
+lth
+#1654845755
+j rna
+#1654845757
+lth
+#1654845761
+cd ../..
+#1654845762
+ls
+#1654845763
+lt
+#1654845765
+cd 03.ortho_with_genome/
+#1654845766
+lth
+#1654845783
+cd yi03/
+#1654845783
+lt
+#1654845784
+lth
+#1654845811
+cd work.Angylocalyx_braunii_Pap.Aeschynomene_evenia/
+#1654845811
+lt
+#1654845818
+ks_hist.R Angylocalyx_braunii_Pap.Aeschynomene_evenia.ortho.kaks
+#1654845842
+sz Angylocalyx_braunii_Pap.Aeschynomene_evenia.ortho.kaks.pdf 
+#1654845844
+# Sent -> /Users/liuhui/Downloads/
+#1654845858
+wc -l *kaks
+#1654845908
+pushd ~/projects/phyleg/mcscanX2
+#1654845925
+cd work.Angylocalyx_braunii_Pap.Aeschynomene_evenia/
+#1654845926
+lt
+#1654845939
+ks_hist.R Angylocalyx_braunii_Pap.Aeschynomene_evenia.ortho.kaks 
+#1654845979
+mv Angylocalyx_braunii_Pap.Aeschynomene_evenia.ortho.kaks.pdf Angylocalyx_braunii_Pap.Aeschynomene_evenia.ortho.kaks.blast.pdf
+#1654845994
+lth
+#1654845998
+sz Angylocalyx_braunii_Pap.Aeschynomene_evenia.ortho.kaks.blast.pdf
+#1654846001
+# Sent -> /Users/liuhui/Downloads/
+#1654846011
+cd
+#1654846014
+j rna
+#1654846014
+lth
+#1654846019
+ls super_transcript/
+#1654846020
+cd super_transcript/
+#1654846021
+lth
+#1654846023
+cd ortho_files/
+#1654846024
+lth
+#1654846029
+wc -l *.ortho.kaks
+#1654846128
+j mcscanx2
+#1654846137
+cd work.Mimosa_pudica.Aeschynomene_evenia/
+#1654846138
+lth
+#1654846141
+wc -l *kaks
+#1654847082
+lt
+#1654847900
+j orthofinder
+#1654847901
+lth
+#1654847903
+cd fasta/
+#1654847903
+ls
+#1654847914
+cd OrthoFinder
+#1654847915
+lt
+#1654847916
+cd Results_Apr18/
+#1654847916
+ls
+#1654847928
+cd Gene_Duplication_Events/
+#1654847929
+ls
+#1654847932
+cd ../Orthologues/
+#1654847932
+ls
+#1654847939
+cd Orthologues_Glycine_max/
+#1654847939
+ls
+#1654847951
+wc -l Glycine_max__v__Glycine_soja.tsv 
+#1654847959
+wc -l Glycine_max__v__Lupinus_albus.tsv 
+#1654847975
+les Glycine_max__v__Zenia_insignis.tsv 
+#1654848036
+perl -ne 'my @e=split; print if (int(@e<=3))' Glycine_max__v__Zenia_insignis.tsv  |les
+#1654848060
+cd ../
+#1654848061
+ls
+#1654848073
+cd Orthologues_Senna_tora/
+#1654848084
+perl -ne 'my @e=split; print if (int(@e<=3))' Senna_tora__v__Medicago_truncatula.tsv |les
+#1654848094
+cd ..
+#1654848115
+cd Orthologues_Pisum_sativum/
+#1654848127
+perl -ne 'my @e=split; print if (int(@e<=3))' Pisum_sativum__v__Medicago_truncatula.tsv |wc -l
+#1654848131
+perl -ne 'my @e=split; print if (int(@e<=3))' Pisum_sativum__v__Medicago_truncatula.tsv |les
+#1654848156
+les Pisum_sativum__v__Medicago_truncatula.tsv 
+#1654848241
+perl -ne 'my @e=split/\t/, $_; my @e1 = split/, /$e[1]; my @e[2] = split/, /$e[2];  print if (int(@e1)<=2 && int(@e2)<=2)' Pisum_sativum__v__Medicago_truncatula.tsv |les
+#1654848261
+perl -ne 'my @e=split/\t/, $_; my @e1 = split/, /$e[1]; my @e[2] = split/, /$e[2];  print $_ if (int(@e1)<=2 && int(@e2)<=2);' Pisum_sativum__v__Medicago_truncatula.tsv |les
+#1654848272
+perl -ne 'my @e=split/\t/, $_; my @e1 = split/, /,$e[1]; my @e[2] = split/, /,$e[2];  print $_ if (int(@e1)<=2 && int(@e2)<=2);' Pisum_sativum__v__Medicago_truncatula.tsv |les
+#1654848283
+perl -ne 'my @e=split/\t/, $_; my @e1 = split/, /,$e[1]; my @e2 = split/, /,$e[2];  print $_ if (int(@e1)<=2 && int(@e2)<=2);' Pisum_sativum__v__Medicago_truncatula.tsv |les
+#1654848411
+vk
+#1654848418
+lth
+#1654848424
+perl -ne 'my @e=split/\t/, $_; my @e1 = split/, /,$e[1]; my @e2 = split/, /,$e[2];  print $_ if (int(@e1)<=2 && int(@e2)<=2);' Pisum_sativum__v__Medicago_truncatula.tsv |les
+#1654848432
+perl -ne 'my @e=split/\t/, $_; my @e1 = split/, /,$e[1]; my @e2 = split/, /,$e[2];  print $_ if (int(@e1)<=2 && int(@e2)<=2);' Pisum_sativum__v__Medicago_truncatula.tsv |grep ,|wc -l
+#1654848441
+perl -ne 'my @e=split/\t/, $_; my @e1 = split/, /,$e[1]; my @e2 = split/, /,$e[2];  print $_ if (int(@e1)<=2 && int(@e2)<=2);' Pisum_sativum__v__Medicago_truncatula.tsv > filter
+#1654848442
+lth
+#1654848443
+vi filter 
+#1654848454
+vi ortholog2ortho.pl
+#1654848484
+logsh
+#1654848490
+vi ortholog2ortho.pl
+#1654848657
+perl ortholog2ortho.pl filter > filter.ortho
+#1654848660
+vi filter.ortho 
+#1654848664
+vi ortholog2ortho.pl
+#1654848673
+perl ortholog2ortho.pl filter > filter.ortho
+#1654848675
+les filter.ortho 
+#1654848680
+vi filter.ortho 
+#1654848700
+ls
+#1654848720
+cp ../../../../cds/Pisum_sativum.cds .
+#1654848728
+cp ../../../../cds/Medicago_truncatula.cds .
+#1654848732
+cp ../../../../Pisum_sativum.pep 
+#1654848733
+cp ../../../../Pisum_sativum.pep .
+#1654848738
+cp ../../../../Medicago_truncatula.pep .
+#1654848739
+lth
+#1654848742
+vi filter
+#1654848744
+vi filter.ortho 
+#1654848776
+python -m iga.evolution.ortho kaks -h
+#1654848780
+lth
+#1654848785
+cat Medicago_truncatula.cds Pisum_sativum.cds > filter.cds
+#1654848791
+cat Pisum_sativum.pep Medicago_truncatula.pep > filter.pep
+#1654848793
+lth
+#1654848796
+les filter.ortho 
+#1654848797
+lth
+#1654848799
+les filter.cds 
+#1654848802
+les filter.pep 
+#1654848803
+lth
+#1654848823
+nohup python -m iga.evolution.ortho kaks --wait F --threads 10 --use_grid "F" filter.ortho  filter.cds filter.pep   &
+#1654848824
+lth
+#1654848828
+top
+#1654848834
+lsload
+#1654848904
+lth
+#1654848912
+les nohup.out 
+#1654848931
+head filter.ortho
+#1654848939
+grep Psat5g078040.1_Pisat filter.cds filter.pep 
+#1654848945
+grep mRNA_MtrunA17Chr7g0272011_Metru filter.cds filter.pep 
+#1654848960
+cds2aa.pl filter.cds > filter.pep 
+#1654848978
+nohup python -m iga.evolution.ortho kaks --wait F --threads 10 --use_grid "F" filter.ortho  filter.cds filter.pep   &
+#1654848980
+lth
+#1654849034
+top
+#1654849184
+lth
+#1654849185
+top
+#1654850496
+lth
+#1654850516
+ls  filter.ortho.ParaAT.out/  |wc -l
+#1654850953
+lth
+#1654850962
+ks_hist.R filter.ortho.kaks 
+#1654850974
+ls *pl
+#1654850975
+vi ortholog2ortho.pl 
+#1654850980
+logsh
+#1654850990
+sz filter.ortho.kaks.pdf 
+#1654850992
+# Sent -> /Users/liuhui/Downloads/
+#1654851893
+lth
+#1654851896
+lt
+#1654851897
+cd ..
+#1654851898
+ls
+#1654851899
+cd ..
+#1654851900
+ls
+#1654851905
+lth
+#1654851908
+cd Comparative_Genomics_Statistics/
+#1654851908
+lt
+#1654851910
+cd -
+#1654851911
+ls
+#1654851911
+lt
+#1654851923
+cd Orthogroup
+#1654851925
+cd Orthogroups/
+#1654851925
+ls
+#1654851926
+lt
+#1654851931
+les Orthogroups.tsv 
+#1654852029
+cut -f2 Orthogroups.tsv |less
+#1654852047
+cut -f2 Orthogroups.tsv > abrus
+#1654852060
+cp ../Orthologues/Orthologues_Pisum_sativum/filter .
+#1654852060
+ls
+#1654852062
+vi filter 
+#1654852073
+cp ../Orthologues/Orthologues_Pisum_sativum/ortholog2ortho.pl .
+#1654852074
+vi ortholog2ortho.pl 
+#1654852077
+lth
+#1654852085
+perl ortholog2ortho.pl Orthogroups.tsv > tmp
+#1654852088
+les tmp 
+#1654852102
+perl ortholog2ortho.pl abrus > filter
+#1654852104
+vi filter 
+#1654852110
+vi ortholog2ortho.pl 
+#1654852188
+lt
+#1654852290
+vi ortholog2ortho.pl 
+#1654852331
+perl ortholog2ortho.pl abrus > filter
+#1654852332
+vi filter 
+#1654852335
+vi ortholog2ortho.pl 
+#1654852341
+vi filter 
+#1654852347
+vi ortholog2ortho.pl 
+#1654852358
+vi filter 
+#1654852360
+perl ortholog2ortho.pl abrus > filter
+#1654852361
+vi filter 
+#1654852366
+nvi abrus 
+#1654852368
+vi abrus 
+#1654852375
+vi filter 
+#1654852377
+vi ortholog2ortho.pl 
+#1654852460
+perl ortholog2ortho.pl abrus > filter
+#1654852461
+vi filter 
+#1654852477
+perl -e 'for my $i(0..12){print $i}'
+#1654852479
+vi filter 
+#1654852482
+vi ortholog2ortho.pl 
+#1654852507
+perl ortholog2ortho.pl 
+#1654852510
+perl ortholog2ortho.pl filter 
+#1654852515
+perl ortholog2ortho.pl abrus > filter
+#1654852516
+vi filter 
+#1654852520
+vi ortholog2ortho.pl 
+#1654852534
+perl ortholog2ortho.pl abrus > filter
+#1654852536
+vi filter 
+#1654852538
+vi ortholog2ortho.pl 
+#1654852545
+perl ortholog2ortho.pl abrus > filter
+#1654852546
+vi filter 
+#1654852551
+vi ortholog2ortho.pl 
+#1654852605
+vi filter 
+#1654852618
+vi abrus 
+#1654852623
+vi filter 
+#1654852625
+vi abrus 
+#1654852630
+vi filter 
+#1654852633
+vi abrus 
+#1654852636
+vi ortholog2ortho.pl 
+#1654852654
+perl ortholog2ortho.pl abrus > filter
+#1654852655
+vi filter 
+#1654852658
+vi ortholog2ortho.pl 
+#1654852664
+vi filter 
+#1654852665
+perl ortholog2ortho.pl abrus > filter
+#1654852667
+vi filter 
+#1654852674
+vi ortholog2ortho.pl 
+#1654852698
+perl ortholog2ortho.pl abrus > filter
+#1654852700
+vi filter 
+#1654852706
+lth
+#1654852712
+vi filter 
+#1654852718
+cp ../../../Abrus_precatorius.pep .
+#1654852723
+cp ../../../cds/Abrus_precatorius.cds .
+#1654852728
+cds2aa.pl Abrus_precatorius.cds > Abrus_precatorius.pep 
+#1654852746
+nohup python -m iga.evolution.ortho kaks --wait F --threads 10 --use_grid "F" filter Abrus_precatorius.cds Abrus_precatorius.pep &
+#1654852747
+lth
+#1654852749
+tail nohup.out 
+#1654852751
+top
+#1654852758
+lth
+#1654852768
+logsh
+#1654845771
+ssh yi03
+#1654852828
+j orthogroup
+#1654852830
+lth
+#1654852833
+vk
+#1654852860
+gtp
