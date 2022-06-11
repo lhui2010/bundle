@@ -398,3 +398,4 @@ export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/MCScanX-master:$PATH
 
 shopt -s direxpand
 export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/bundle/Rscripts:$PATH
+export PATH=/ds3200_1/users_root/yitingshuang/lh/bin/bundle/executables:$PATH

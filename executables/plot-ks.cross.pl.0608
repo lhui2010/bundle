@@ -154,32 +154,12 @@ if (!$input_is_dir) {
     # run_cmd("ln -s $transcriptome_abs_path $ENV{PWD}/$project_name/$transcriptome");
 	($input_root = $transcriptome) =~ s/(.*)\.\S+$/$1/;
     #$transcriptome =~ s/.*\///;
-    if( !-e "$ENV{PWD}/$project_name/$qry.pep")
-    {
-        run_cmd("ln -s $qry_abs_path.pep $ENV{PWD}/$project_name/$qry.pep");
-    }
-    if( !-e "$ENV{PWD}/$project_name/$ref.pep")
-    {
-        run_cmd("ln -s $ref_abs_path.pep $ENV{PWD}/$project_name/$ref.pep");
-    }
-    if( !-e "$ENV{PWD}/$project_name/$qry.cds")
-    {
-        run_cmd("ln -s $qry_abs_path.cds $ENV{PWD}/$project_name/$qry.cds");
-    }
-    if( !-e "$ENV{PWD}/$project_name/$ref.cds")
-    {
-        run_cmd("ln -s $ref_abs_path.cds $ENV{PWD}/$project_name/$ref.cds");
-    }
-    if($ref ne $qry)
-    {
-        run_cmd("cat $qry_abs_path.pep $ref_abs_path.pep > $ENV{PWD}/$project_name/$transcriptome.transdecoder.pep");
-        run_cmd("cat $qry_abs_path.cds $ref_abs_path.cds > $ENV{PWD}/$project_name/$transcriptome.transdecoder.cds");
-    }
-    else
-    {
-        run_cmd("cat $ref_abs_path.pep > $ENV{PWD}/$project_name/$transcriptome.transdecoder.pep");
-        run_cmd("cat $ref_abs_path.cds > $ENV{PWD}/$project_name/$transcriptome.transdecoder.cds");
-    }
+	run_cmd("ln -s $qry_abs_path.pep $ENV{PWD}/$project_name/$qry.pep");
+	run_cmd("ln -s $ref_abs_path.pep $ENV{PWD}/$project_name/$ref.pep");
+	run_cmd("ln -s $qry_abs_path.cds $ENV{PWD}/$project_name/$qry.cds");
+	run_cmd("ln -s $ref_abs_path.cds $ENV{PWD}/$project_name/$ref.cds");
+	run_cmd("cat $qry_abs_path.pep $ref_abs_path.pep > $ENV{PWD}/$project_name/$transcriptome.transdecoder.pep");
+	run_cmd("cat $qry_abs_path.cds $ref_abs_path.cds > $ENV{PWD}/$project_name/$transcriptome.transdecoder.cds");
 }
 else {
 
@@ -477,14 +457,10 @@ sub parse_self_blat_output_child {
 		my $match_nuc_align = $align{$match_name};
 
         #debug
-        if ($query_nuc_align eq "")
-        {
-            die $query_name;
-        }
-        if ($match_nuc_align eq "")
-        {
-            die $match_name;
-        }
+        #if ($query_nuc_align == "")
+        #{
+        #    die $query_name;
+        #}
 
 		my $trans_query_align;
         # print("$query_name\t$match_name\t$query_align\t$match_align\nQRY::CDS::$query_nuc_align\nMAT::CDS::$match_nuc_align\n");
