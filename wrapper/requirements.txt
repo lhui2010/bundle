@@ -6,3 +6,4 @@ rich
 Bio
 pysam
 bcbio-gff
+sklearn

@@ -399,13 +399,14 @@ class Loci:
     Loci object which could also be looked as bed object
     """
 
-    def __init__(self, chr='.', start='-1', end='-1', name='.', score='.', strand='.'):
+    def __init__(self, chr='.', start='-1', end='-1', name='.', score='.', strand='.', etc = '.'):
         self.chr = chr
         self.start = int(start)
         self.end = int(end)
         self.name = name
         self.score = score
         self.strand = strand
+        self.etc = etc
 
     def get_size(self, bed_format=True):
         result = int(self.end) - int(self.start)
@@ -533,6 +534,32 @@ class Bed:
             if i.chr == seq_id:
                 i.start = max(0, i.start - offset)
                 i.end = max(0, i.end - offset)
+
+
+    def add_rank(self):
+        """
+        NOTE: Input bed need to be sorted by chromosome and then loci
+        Could be used to sort out tandem duplicates.
+        Add order of genes:
+        eg:
+        chr1: gene A
+        chr1: gene B
+        chr2: gene C
+        Output:
+        chr1: gene A 1
+        chr1: gene B 2
+        chr2: gene C 102
+        Returns:
+        """
+        rank = 0
+        for i in range(1, len(self.bed_list)+1):
+            self.bed_list[i - 1].rank = rank
+            if i == len(self.bed_list):
+                break
+            if self.bed_list[i-1].chr == self.bed_list[i].chr:
+                rank += 1
+            else:
+                rank += 10000
 
 
 def select_bed_by_name(gene_list_file=None, gene_bed=None):
