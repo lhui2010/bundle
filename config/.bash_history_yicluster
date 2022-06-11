@@ -69900,3 +69900,187 @@ lth
 vk
 #1654852860
 gtp
+#1654852864
+gtps
+#1654909820
+vk
+#1654909826
+lt /nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/Orthogroups/
+#1654909828
+cd /nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/Orthogroups/
+#1654909829
+lth
+#1654909831
+vi filter
+#1654909837
+ks_hist.R filter.kaks 
+#1654909841
+sz filter.kaks.pdf
+#1654909845
+# Sent -> /Users/liuhui/Downloads/
+#1654909929
+vi shell 
+#1654910079
+ll
+#1654910083
+grep ">" Abrus_precatorius.cds |wc -l
+#1654910087
+les Abrus_precatorius.cds 
+#1654910109
+j braker
+#1654910112
+cd -
+#1654910113
+vk
+#1654910132
+j mcscanx2
+#1654910137
+cd work.Abrus_precatorius.Abrus_precatorius/
+#1654910138
+lt
+#1654910140
+wc -l *ortho
+#1654910144
+wc -l *orthokaks
+#1654910147
+wc -l *kaks
+#1654910151
+ks_plot.R Abrus_precatorius.Abrus_precatorius.ortho.kaks
+#1654910154
+sz Abrus_precatorius.Abrus_precatorius.ortho.kaks.pdf
+#1654910157
+# Sent -> /Users/liuhui/Downloads/
+#1654910183
+ks_hist.R Abrus_precatorius.Abrus_precatorius.ortho.kaks
+#1654910189
+sz Abrus_precatorius.Abrus_precatorius.ortho.kaks.pdf 
+#1654910192
+# Sent -> /Users/liuhui/Downloads/
+#1654910245
+cd -
+#1654910246
+lth
+#1654910259
+vk
+#1654910263
+/nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/Orthogroups/
+#1654910264
+lt
+#1654910266
+cd /nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/Orthogroups/
+#1654910267
+lth
+#1654910274
+vi ortholog2ortho.pl 
+#1654910280
+ls
+#1654910283
+ll
+#1654910288
+cd ../Orthologues/
+#1654910293
+vk
+#1654910328
+vi $HB/GAP.pl
+#1654910366
+les filte
+#1654910367
+les filter
+#1654910373
+cd -
+#1654910375
+les filter
+#1654910397
+cut -f2 Orthogroups.tsv > Abrus.tsv
+#1654910399
+les Abrus.tsv 
+#1654910406
+perl -ne ' my $r=()= $seq =~ /,/g; print $_ if $r >= 99; ' Abrus.tsv |wc -l
+#1654910419
+perl -ne ' my $r=()= $seq =~ /,/g; print $r, "\n"; ' Abrus.tsv |les
+#1654910429
+perl -ne ' my $r=()= $_ =~ /,/g; print $_ if $r >= 99; ' Abrus.tsv |wc -l
+#1654910433
+perl -ne ' my $r=()= $_ =~ /,/g; print $_ if $r >= 50; ' Abrus.tsv |wc -l
+#1654910443
+perl -ne ' my $r=()= $_ =~ /,/g; print $_ if $r >= 10; ' Abrus.tsv |wc -l
+#1654910451
+lth
+#1654910478
+perl -ne ' my $r=()= $_ =~ /,/g; print $_ if $r <= 10; ' Abrus.tsv |wc -l
+#1654910484
+perl -ne ' my $r=()= $_ =~ /,/g; print $_ if $r <= 10; ' Abrus.tsv > Abrus.filter.tsv
+#1654910485
+lth
+#1654910499
+perl ortholog2ortho.pl Abrus.filter.tsv > Abrus.filter.ortho.tsv
+#1654910502
+les Abrus.filter.ortho.tsv 
+#1654910523
+sed "s/\t/-/" Abrus.filter.ortho.tsv >Abrus.filter.ortho.tsv.id
+#1654910525
+les Abrus.filter.ortho.tsv.id
+#1654910537
+selectItem.pl Abrus.filter.ortho.tsv.id filter.kaks > Abrus.filter.ortho.tsv.id.kaks
+#1654910539
+les Abrus.filter.ortho.tsv.id.kaks 
+#1654910546
+selectItem.pl -hAbrus.filter.ortho.tsv.id filter.kaks > Abrus.filter.ortho.tsv.id.kaks
+#1654910552
+selectItem.pl -h Abrus.filter.ortho.tsv.id filter.kaks > Abrus.filter.ortho.tsv.id.kaks
+#1654910556
+ks_hist.R Abrus.filter.ortho.tsv.id.kaks 
+#1654910559
+sz Abrus.filter.ortho.tsv.id.kaks.pdf
+#1654910561
+# Sent -> /Users/liuhui/Downloads/
+#1654910632
+perl -ne ' my $r=()= $_ =~ /,/g; print $_ if $r <= 8; ' Abrus.tsv |wc -l
+#1654910635
+wc -l Abrus.filter.tsv 
+#1654910752
+cp ~/projects/phyleg/mcscanX2/work.Abrus_precatorius.Abrus_precatorius/Abrus_precatorius.bed .
+#1654910754
+lth
+#1654910758
+les Abrus_precatorius.bed 
+#1654910803
+vi /nfs/liuhui/bin/bundle/curate_orthogene/scripts/add_flank_on_bed.py 
+#1654910854
+ll /nfs/liuhui/bin/bundle/curate_orthogene/scripts/*pl
+#1654910868
+vi /nfs/liuhui/bin/bundle/curate_orthogene/scripts/addItem.pl 
+#1654910903
+ll /nfs/liuhui/bin/bundle/curate_orthogene/scripts/*py
+#1654910945
+vi /nfs/liuhui/bin/bundle/curate_orthogene/scripts/add_score.py 
+#1654910987
+ll
+#1654911033
+vi remove_duplicate_ortho.py
+#1654911186
+les *bed
+#1654911822
+vi remove_duplicate_ortho.py
+#1654912031
+python remove_duplicate_ortho.py
+#1654912033
+ remove_duplicate_ortho.py
+#1654912035
+vi remove_duplicate_ortho.py
+#1654912041
+ remove_duplicate_ortho.py
+#1654912042
+python remove_duplicate_ortho.py
+#1654912044
+python remove_duplicate_ortho.py -h
+#1654912049
+python remove_duplicate_ortho.py remove_tandem_ortho
+#1654912052
+lth
+#1654912059
+les Abrus.filter.ortho.tsv
+#1654912068
+python remove_duplicate_ortho.py remove_tandem_ortho Abrus.filter.ortho.tsv Abrus_precatorius.bed > tmp
+#1654912099
+gtp

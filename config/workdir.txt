@@ -10,5 +10,6 @@ Tue Jun  7 15:10:34 CST 2022
 /nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/Orthologues/Orthologues_Pisum_sativum
 
 /nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/Orthogroups
+#直接从orthogroups里扒出paralog。效果不太好
 
 Fri Jun 10 16:06:56 CST 2022
