@@ -400,7 +400,7 @@ class Loci:
     Loci object which could also be looked as bed object
     """
 
-    def __init__(self, chr='.', start='-1', end='-1', name='.', score='.', strand='.', etc='.'):
+    def __init__(self, chr='.', start='-1', end='-1', name='.', score='.', strand='.', rank='.'):
         self.chr = chr
         self.start = int(start)
         self.end = int(end)
@@ -432,6 +432,7 @@ class Bed:
         self.load(bed)
 
     def load(self, bed):
+        rank = 0
         with open(bed) as fh:
             for line in fh:
                 if line.startswith('#'):
@@ -451,7 +452,13 @@ class Bed:
                     score = mylist.pop(0)
                 if len(mylist) >= 1:
                     strand = mylist.pop(0)
-                loci = Loci(chr, start, end, name, score, strand)
+## Add rank
+                if self.bed_list != []:
+                    if self.bed_list[-1].chr == chr:
+                        rank += 1
+                    else:
+                        rank += 10000
+                loci = Loci(chr, start, end, name, score, strand, rank)
                 self.bed_list.append(loci)
                 self.bed_dict[name] = self.bed_list[-1]
 
@@ -536,30 +543,30 @@ class Bed:
                 i.start = max(0, i.start - offset)
                 i.end = max(0, i.end - offset)
 
-    def add_rank(self):
-        """
-        NOTE: Input bed need to be sorted by chromosome and then loci
-        Could be used to sort out tandem duplicates.
-        Add order of genes:
-        eg:
-        chr1: gene A
-        chr1: gene B
-        chr2: gene C
-        Output:
-        chr1: gene A 1
-        chr1: gene B 2
-        chr2: gene C 102
-        Returns:
-        """
-        rank = 0
-        for i in range(1, len(self.bed_list) + 1):
-            self.bed_list[i - 1].rank = rank
-            if i == len(self.bed_list):
-                break
-            if self.bed_list[i - 1].chr == self.bed_list[i].chr:
-                rank += 1
-            else:
-                rank += 10000
+    # def add_rank(self):
+    #     """
+    #     NOTE: Input bed need to be sorted by chromosome and then loci
+    #     Could be used to sort out tandem duplicates.
+    #     Add order of genes:
+    #     eg:
+    #     chr1: gene A
+    #     chr1: gene B
+    #     chr2: gene C
+    #     Output:
+    #     chr1: gene A 1
+    #     chr1: gene B 2
+    #     chr2: gene C 102
+    #     Returns:
+    #     """
+    #     rank = 0
+    #     for i in range(1, len(self.bed_list) + 1):
+    #         self.bed_list[i - 1].rank = rank
+    #         if i == len(self.bed_list):
+    #             break
+    #         if self.bed_list[i - 1].chr == self.bed_list[i].chr:
+    #             rank += 1
+    #         else:
+    #             rank += 10000
 
 
 def select_bed_by_name(gene_list_file=None, gene_bed=None):
