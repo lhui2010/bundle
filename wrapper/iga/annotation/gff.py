@@ -407,7 +407,7 @@ class Loci:
         self.name = name
         self.score = score
         self.strand = strand
-        self.etc = etc
+        self.rank = rank
 
     def get_size(self, bed_format=True):
         result = int(self.end) - int(self.start)
@@ -422,6 +422,9 @@ class Loci:
 class Bed:
     """
     A BED class that support read bed files, store them into a dict
+    could be accessed via list or dict
+    the rank option means the order of genes, adjacent on same chr share increment rank of 1. genes on different chr
+    will have rank increment of 10000.
     """
 
     def __init__(self, bed):
