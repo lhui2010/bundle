@@ -63,7 +63,8 @@ class Feat:
                 try:
                     (attr_key, attr_value) = a.split('=')
                 except IndexError:
-                    logger.error("Type Error on line {}, list {} and attribute: {}".format(self.attributes, attr_list, a))
+                    logger.error(
+                        "Type Error on line {}, list {} and attribute: {}".format(self.attributes, attr_list, a))
                     continue
                 self.attr_dict[attr_key] = attr_value
             if 'Parent' in self.attr_dict:
@@ -123,8 +124,8 @@ class Feat:
         else:
             for i in self.childs:
                 result += i.get_all_child_feats_obj(type)
-#        if any(isinstance(i, list) for i in result):
-#            result = list(chain.from_iterable(result))
+        #        if any(isinstance(i, list) for i in result):
+        #            result = list(chain.from_iterable(result))
         return result
 
     def update_tag(self, tag, value):
@@ -276,7 +277,7 @@ class GFF:
             mRNA_list = self.GFF_dict[k].get_all_child_feats_obj('mRNA') + \
                         self.GFF_dict[k].get_all_child_feats_obj('transcript')
             longest = 0
-            #such as tRNA genes
+            # such as tRNA genes
             non_gene_flag = False
             if mRNA_list == []:
                 # This is not a protein coding gene
@@ -361,7 +362,7 @@ def fix_gt_gff(gff=None):
     count = defaultdict(int)
     with open(gff) as fh:
         for line in fh:
-            if(line.startswith('#')):
+            if (line.startswith('#')):
                 print(line, end='')
                 continue
             feat = Feat(line)
@@ -393,13 +394,13 @@ def gff2bed(GFF=None):
     return GFF + ".bed"
 
 
-#Bed relavent utils
+# Bed relavent utils
 class Loci:
     """
     Loci object which could also be looked as bed object
     """
 
-    def __init__(self, chr='.', start='-1', end='-1', name='.', score='.', strand='.', etc = '.'):
+    def __init__(self, chr='.', start='-1', end='-1', name='.', score='.', strand='.', etc='.'):
         self.chr = chr
         self.start = int(start)
         self.end = int(end)
@@ -535,7 +536,6 @@ class Bed:
                 i.start = max(0, i.start - offset)
                 i.end = max(0, i.end - offset)
 
-
     def add_rank(self):
         """
         NOTE: Input bed need to be sorted by chromosome and then loci
@@ -552,11 +552,11 @@ class Bed:
         Returns:
         """
         rank = 0
-        for i in range(1, len(self.bed_list)+1):
+        for i in range(1, len(self.bed_list) + 1):
             self.bed_list[i - 1].rank = rank
             if i == len(self.bed_list):
                 break
-            if self.bed_list[i-1].chr == self.bed_list[i].chr:
+            if self.bed_list[i - 1].chr == self.bed_list[i].chr:
                 rank += 1
             else:
                 rank += 10000
@@ -611,4 +611,3 @@ def sum_bed(bed_file=None):
 
 if __name__ == "__main__":
     emain()
-
