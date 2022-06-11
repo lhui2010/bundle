@@ -453,7 +453,7 @@ class Bed:
                     strand = mylist.pop(0)
                 loci = Loci(chr, start, end, name, score, strand)
                 self.bed_list.append(loci)
-                self.bed_dict[name] = loci
+                self.bed_dict[name] = self.bed_list[-1]
 
     def select_name(self, name, format='loci'):
         """
