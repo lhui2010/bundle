@@ -70084,3 +70084,2600 @@ les Abrus.filter.ortho.tsv
 python remove_duplicate_ortho.py remove_tandem_ortho Abrus.filter.ortho.tsv Abrus_precatorius.bed > tmp
 #1654912099
 gtp
+#1654912104
+gtps
+#1654912112
+lth
+#1654912114
+python remove_duplicate_ortho.py remove_tandem_ortho Abrus.filter.ortho.tsv Abrus_precatorius.bed > tmp
+#1654912121
+vi remove_duplicate_ortho.py
+#1654912285
+python remove_duplicate_ortho.py remove_tandem_ortho Abrus.filter.ortho.tsv Abrus_precatorius.bed > tmp
+#1654912287
+gtp
+#1654912293
+python remove_duplicate_ortho.py remove_tandem_ortho Abrus.filter.ortho.tsv Abrus_precatorius.bed > tmp
+#1654912549
+module avail
+#1654912560
+module load cmake
+#1654912561
+cmake
+#1654913058
+gtp
+#1654913064
+python remove_duplicate_ortho.py remove_tandem_ortho Abrus.filter.ortho.tsv Abrus_precatorius.bed > tmp
+#1654913153
+vi remove_duplicate_ortho.py 
+#1654913163
+gtp
+#1654913168
+python remove_duplicate_ortho.py remove_tandem_ortho Abrus.filter.ortho.tsv Abrus_precatorius.bed > tmp
+#1654913173
+vi remove_duplicate_ortho.py 
+#1654913177
+python remove_duplicate_ortho.py remove_tandem_ortho Abrus.filter.ortho.tsv Abrus_precatorius.bed > tmp
+#1654913179
+les tmp 
+#1654913182
+wc -l tmp 
+#1654913183
+lth
+#1654913188
+wc -l Abrus.filter.ortho.tsv
+#1654913191
+vi tmp 
+#1654913211
+selectItem.pl -h tmp filter.kaks > Abrus.filter.ortho.tsv.id.notandem.kaks
+#1654913213
+ks_hist.R 
+#1654913217
+ks_hist.R Abrus.filter.ortho.tsv.id.notandem.kaks
+#1654913226
+sz Abrus.filter.ortho.tsv.id.notandem.kaks.pdf 
+#1654913228
+# Sent -> /Users/liuhui/Downloads/
+#1654913275
+lth
+#1654913324
+get_ks_peak.py Abrus.filter.ortho.tsv.id.notandem.kaks
+#1654913355
+get_ks_peak.py Abrus.filter.ortho.tsv.id.notandem.kaks 4
+#1654913403
+lth
+#1654913404
+ls
+#1654913412
+mkdir temp
+#1654913412
+lt
+#1654913431
+mv Abrus.filter.ortho.tsv.id.notandem.kaks.KsGMM Abrus.filter.ortho.tsv.id.notandem.kaks.pdf NA.pdf Abrus.filter.ortho.tsv.id.notandem.kaks tmp remove_duplicate_ortho.py Abrus_precatorius.bed Abrus.filter.ortho.tsv.id.kaks.pdf Abrus.filter.ortho.tsv.id.kaks Abrus.filter.ortho.tsv.id Abrus.filter.ortho.tsv Abrus.filter.tsv Abrus.tsv filter.kaks.pdf nohup.out filter.kaks temp/
+#1654913442
+lth
+#1654913485
+lt
+#1654913490
+cd ../Orthologues/
+#1654913490
+lth
+#1654913492
+cd Orthologues_Cercis_c
+#1654913494
+cd Orthologues_Cercis_chinensis/
+#1654913494
+lt
+#1654913505
+les Cercis_chinensis__v__Abrus_precatorius.tsv 
+#1654913571
+perl -ne 'my @e=split/\t/, $_; my @e1 = split/, /,$e[1]; my @e2 = split/, /,$e[2];  print $_ if (int(@e1)<=1 && int(@e2)<=10);' Cercis_chinensis__v__Abrus_precatorius.tsv > ../../Orthogroups/temp/Cercis_chinensis__v__Abrus_precatorius.filter.tsv
+#1654913575
+les ../../Orthogroups/temp/Cercis_chinensis__v__Abrus_precatorius.filter.tsv
+#1654913596
+grep "," ../../Orthogroups/temp/Cercis_chinensis__v__Abrus_precatorius.filter.tsv |wc -l
+#1654913621
+cat >> ../../Orthogroups/shell 
+#1654913628
+cd ../../Orthogroups/
+#1654913628
+lt
+#1654913630
+cd temp/
+#1654913631
+lt
+#1654913638
+cut -f3 Cercis_chinensis__v__Abrus_precatorius.filter.tsv |les
+#1654913643
+cut -f3 Cercis_chinensis__v__Abrus_precatorius.filter.tsv > Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id
+#1654913645
+vi Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id 
+#1654913656
+cut -f3 Cercis_chinensis__v__Abrus_precatorius.filter.tsv |grep "," > Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id
+#1654913659
+les Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id 
+#1654913682
+lth
+#1654913687
+perl ../ortholog2ortho.pl Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id > Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho
+#1654913690
+les Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho 
+#1654913700
+perl ../ortholog2ortho.pl Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id |sed "s/\t/-/" > Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho
+#1654913710
+lt
+#1654913722
+selectItem.pl Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho filter.kaks > Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho.kaks
+#1654913724
+ks_hist.R Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho
+#1654913727
+ks_hist.R Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho.kaks 
+#1654913732
+wc -l Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho.kaks
+#1654913735
+selectItem.pl -h Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho filter.kaks > Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho.kaks
+#1654913740
+lth
+#1654913743
+sz Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho.kaks.pdf
+#1654913745
+# Sent -> /Users/liuhui/Downloads/
+#1654913762
+ks_hist.R Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho.kaks 
+#1654913764
+sz Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id.ortho.kaks.pdf
+#1654913766
+# Sent -> /Users/liuhui/Downloads/
+#1654914251
+qcd -
+#1654914253
+cd -
+#1654914264
+cd ../../Orthologues/Orthologues_Cercis_chinensis/
+#1654914277
+perl -ne 'my @e=split/\t/, $_; my @e1 = split/, /,$e[1]; my @e2 = split/, /,$e[2];  print $_ if (int(@e1)<=10 && int(@e2)<=10);' Cercis_chinensis__v__Abrus_precatorius.tsv > ../../Orthogroups/temp/Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv
+#1654914279
+cd -
+#1654914279
+lth
+#1654914300
+wc -l Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv 
+#1654914302
+les Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv 
+#1654914323
+cut -f3 Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv |grep ',' > Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.Aid
+#1654914325
+les Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.Aid
+#1654914333
+wc -l Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.Aid Cercis_chinensis__v__Abrus_precatorius.filter.tsv.id
+#1654914951
+lth
+#1654914957
+les Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv
+#1654914964
+vi ../ortholog2ortho.pl 
+#1654915105
+les Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv
+#1654915123
+cut -f1,2 Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv > Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid
+#1654915127
+les Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid 
+#1654915133
+cut -f2,3 Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv > Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid
+#1654915141
+perl ../ortholog2ortho.pl Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid > Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho
+#1654915143
+les Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho 
+#1654915153
+vi ../ortholog2ortho.pl 
+#1654915172
+perl ../ortholog2ortho.pl Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid > Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho
+#1654915174
+les Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho 
+#1654915183
+lth
+#1654915185
+ll *cds
+#1654915194
+cp ~/projects/phyleg/mcscanX2/work.Abrus_precatorius.Abrus_precatorius/Abrus_precatorius.cds .
+#1654915204
+cp ~/projects/phyleg/mcscanX2/work.Abrus_precatorius.Cercis_chinensis/*aks .
+#1654915210
+cp ~/projects/phyleg/mcscanX2/work.Abrus_precatorius.Cercis_chinensis/Abrus_precatorius.Cercis_chinensis.cds .
+#1654915214
+cp ~/projects/phyleg/mcscanX2/work.Abrus_precatorius.Cercis_chinensis/Abrus_precatorius.Cercis_chinensis.pep .
+#1654915215
+lth
+#1654915231
+pm iga.evolution.ortho.kaks
+#1654915237
+pm iga.evolution.ortho kaks -h
+#1654915245
+bhosts 
+#1654915253
+lth
+#1654915260
+pm iga.evolution.ortho kaks Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho Abrus_precatorius.Cercis_chinensis.cds Abrus_precatorius.Cercis_chinensis.pep
+#1654915264
+logsh
+#1654915266
+bjl
+#1654915269
+lth
+#1654915271
+les error.75316 
+#1654915289
+vi Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho
+#1654915301
+vi ../ortholog2ortho.pl 
+#1654915312
+pm iga.evolution.ortho kaks Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho Abrus_precatorius.Cercis_chinensis.cds Abrus_precatorius.Cercis_chinensis.pep
+#1654915314
+lt
+#1654915320
+rm bsub.kaks.260812.sh output.75316 error.75316
+#1654915322
+lth
+#1654915324
+bjl
+#1654915332
+lth
+#1654915334
+bjl
+#1654915339
+bpeek 75317
+#1654915340
+lth
+#1654915346
+cd Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho.ParaAT.out/
+#1654915347
+lth
+#1654915351
+cd -
+#1654915353
+lth
+#1654915394
+wc -l Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho
+#1654915396
+lth
+#1654915430
+ls
+#1654915434
+les ..
+#1654915442
+head ../Orthogroups.tsv > tmp 
+#1654915444
+tt tmp 
+#1654915454
+head ../Orthogroups.GeneCount.tsv > tmp 
+#1654915455
+tt tmp 
+#1654915483
+cut -f2,11 ../Orthogroups.tsv > ortho_from_groups.tsv
+#1654915486
+vi ortho_from_groups.tsv 
+#1654915517
+cut -f2,11 ../Orthogroups.tsv |grep Cechi Abpre > ortho_from_groups.tsv
+#1654915523
+cut -f2,11 ../Orthogroups.tsv |grep Cechi |grep Abpre > ortho_from_groups.tsv
+#1654915527
+vi ortho_from_groups.tsv 
+#1654915545
+perl ../ortholog2ortho.pl ortho_from_groups.tsv > ortho_from_groups.tsv.ortho
+#1654915546
+les ortho_from_groups.tsv.ortho 
+#1654915573
+pm iga.evolution.ortho kaks ortho_from_groups.tsv.ortho Abrus_precatorius.Cercis_chinensis.cds Abrus_precatorius.Cercis_chinensis.pep
+#1654915578
+logsh
+#1654915586
+lth
+#1654915591
+bjl
+#1654915594
+bhosts 
+#1654915597
+lth
+#1654915790
+top
+#1654915793
+lth
+#1654924790
+wc -l Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho.kaks ortho_from_groups.tsv.ortho.kaks
+#1654924797
+for i in Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho.kaks ortho_from_groups.tsv.ortho.kaks; do ks_hist.R $i; done
+#1654924802
+lth
+#1654924805
+sz ortho_from_groups.tsv.ortho.kaks.pdf Cercis_chinensis__v__Abrus_precatorius.filter.10_10.tsv.CAid.ortho.kaks.pdf
+#1654924808
+# Sent -> /Users/liuhui/Downloads/
+#1654924982
+lth
+#1654924988
+les error.75318 
+#1654925014
+ls
+#1654925016
+cd ../..
+#1654925016
+ls
+#1654925018
+cd ..
+#1654925019
+ls
+#1654925020
+cd ..
+#1654925020
+ls
+#1654925024
+ls *pep |wc -l
+#1654925028
+lt *pep |wc -l
+#1654925041
+vk
+#1654925064
+bjl
+#1654925066
+cd /nfs/liuhui/projects/phyleg/new_genome_0531/
+#1654925066
+lt
+#1654925068
+lth
+#1654925075
+ls -d braker*/
+#1654925087
+cd braker_Dipteryx_alata.fa.masked.fa/
+#1654925087
+lt
+#1654925093
+cd ../braker_Bauhinia_variegata.fa.masked.fa/
+#1654925093
+lt
+#1654925111
+les braker.g
+#1654925112
+les braker.gff3 
+#1654925141
+lt
+#1654925155
+gff_genome_to_genes.pl braker.gff3 ../Bauhinia_variegata.fa > braker.cds
+#1654925165
+lth
+#1654925167
+les braker.cds 
+#1654925175
+cds2aa.pl braker.cds  > braker.pep
+#1654925193
+pm iga.assembly.assess busco --mode prot braker.pep
+#1654925196
+lth
+#1654925197
+bjl
+#1654925201
+bhosts 
+#1654925205
+bjt
+#1654925212
+bmod -n 40 75320
+#1654925213
+lth
+#1654925214
+bjl
+#1654925218
+lt
+#1654925259
+lth
+#1654925263
+bjl
+#1654925479
+lth
+#1654925483
+les error.75320 
+#1654925486
+les output.75320 
+#1654925493
+cd ..
+#1654925494
+ls
+#1654925497
+bjl
+#1654925501
+lth
+#1654925504
+lt |les
+#1654925510
+lt error.7* output.7* |head
+#1654925514
+les error.75184 
+#1654925531
+cd braker_Glycine_latifolia.fa.masked.fa/
+#1654925531
+lt
+#1654925534
+les braker.log 
+#1654925552
+cd ..
+#1654925553
+ls
+#1654925558
+cd braker_Sindora_glabra.fa.masked.fa/
+#1654925559
+lt
+#1654925568
+cd ..
+#1654925569
+lt
+#1654925574
+lth
+#1654925589
+cd braker_Pueraria_montana.fa.masked.fa/
+#1654925589
+lt
+#1654925599
+ln -s ../Pueraria_montana.fa
+#1654925609
+gff_genome_to_genes.pl braker.gff3 Pueraria_montana.fa  > braker.cds &
+#1654925610
+cd ..
+#1654925612
+lt
+#1654925616
+ls
+#1654936219
+j orthofinder
+#1654936220
+lth'
+
+#1654936222
+lth
+#1654936223
+cd fasta/
+#1654936224
+ls
+#1654936226
+cd OrthoFinder
+#1654936226
+ls
+#1654936227
+cd Results_Apr18/
+#1654936228
+ls
+#1654936232
+cd Gene_Trees/
+#1654936248
+less OG0001000_tree.txt 
+#1654936250
+sz OG0001000_tree.txt 
+#1654936254
+# Sent -> /Users/liuhui/Downloads/
+#1655039393
+vi tmp2
+#1655039413
+sort tmp2 |uniq > tmp2.sortuniq
+#1655039415
+vi tmp2.sortuniq 
+#1655039423
+wc -l tmp2.sortuniq 
+#1655039435
+cut -f1 tmp2.sortuniq |uniq |wc -l
+#1655039448
+awk '{print $1}' tmp2.sortuniq |uniq |wc -l
+#1655039472
+lth
+#1655039476
+wc -l tmp2.sortuniq 
+#1655039478
+vi tmp2.sortuniq 
+#1655039514
+wc -l tmp2.sortuniq 
+#1655039591
+awk '{print $1}' tmp2.sortuniq |uniq |wc -l
+#1655082143
+ll
+#1655082144
+cd yi03/
+#1655082145
+ll
+#1655082148
+ls
+#1655082156
+bjl
+#1655082162
+ls
+#1655082168
+cd ..
+#1655082135
+ssh yi03
+#1655082166
+ls
+#1655082167
+j braker
+#1655082170
+j newly
+#1655082180
+lth
+#1655082303
+ls *gff
+#1655082173
+tma
+#1655082395
+cd /nfs/liuhui/projects/phyleg/repeat_mask/
+#1655082857
+cd ..
+#1655082858
+lth
+#1655082861
+cd new_genome_0531/
+#1655082862
+lth
+#1655082845
+tma
+#1655082397
+sz *gff
+#1655082921
+j repeat_mask
+#1655082922
+lth
+#1655082925
+ls *gff
+#1655082930
+ll Faidherbia_albida.*gff
+#1655082934
+ll workdir_repeatmask_Faidherbia_albida.fa/
+#1655082938
+ll workdir_repeatmask_Faidherbia_albida.fa/Full_mask/
+#1655082954
+python -m iga.annotation.repeat post_repeatmasker  -h
+#1655082966
+python -m iga.annotation.repeat post_repeatmasker  workdir_repeatmask_Faidherbia_albida.fa Faidherbia_albida.fa
+#1655082969
+logsh
+#1655082974
+lth
+#1655082975
+bjl
+#1655082997
+lt
+#1655083000
+lth
+#1655083010
+ls *.fa
+#1655083011
+lth
+#1655083019
+ls -d *.fa |grep -v work
+#1655083049
+ls
+#1655083057
+les Glycine_latifolia.b
+#1655083058
+les Glycine_latifolia.bed
+#1655083061
+lth
+#1655083062
+bjl
+#1655083064
+lth
+#1655083083
+ls braker*/braker.gff
+#1655083085
+ls braker*/braker.gff3
+#1655083088
+ll braker*/braker.gff3
+#1655083091
+head -2 braker*/braker.gff3
+#1655083126
+mkdir post_braker.sh
+#1655083131
+mv post_braker.sh post_braker
+#1655083134
+ls *.fa
+#1655083142
+ls *.fa |grep -v braker |grep -v work
+#1655083144
+ls -d *.fa |grep -v braker |grep -v work
+#1655083151
+ls -d *.masked.fa |grep -v braker |grep -v work
+#1655083166
+cd post_braker/
+#1655083172
+for i in Bauhinia_variegata.fa.masked.fa Dipteryx_alata.fa.masked.fa Eperua_falcata.fa.masked.fa Glycine_latifolia.fa.masked.fa Pueraria_montana.fa.masked.fa Sindora_glabra.fa.masked.fa Sophora_japonica.fa.masked.fa Vigna_mungo.fa.masked.fa; do ln -s ../$i; done
+#1655083172
+ll
+#1655083179
+cd ..
+#1655083184
+ls -d braker*/
+#1655083195
+ls post_braker/* |wc -l
+#1655083283
+for i in Bauhinia_variegata.fa.masked.fa Dipteryx_alata.fa.masked.fa Eperua_falcata.fa.masked.fa Glycine_latifolia.fa.masked.fa Pueraria_montana.fa.masked.fa Sindora_glabra.fa.masked.fa Sophora_japonica.fa.masked.fa Vigna_mungo.fa.masked.fa; do sed "s/file_1_file_1/${i%.fa.masked.fa}/" braker_${i}/braker.gff3 > post_braker/${i}.gff3; done
+#1655083299
+cd braker_Dipteryx_alata.fa.masked.fa/
+#1655083300
+ls
+#1655083301
+lt
+#1655083304
+les *out
+#1655083309
+cd -
+#1655083309
+lt
+#1655083312
+vi braker
+#1655083313
+vi braker.sh 
+#1655083318
+more sp_list 
+#1655083324
+vi braker.sh 
+#1655083331
+conda deactivate
+#1655083335
+cp sp_list sp_list.1
+#1655083336
+vi sp_list
+#1655083344
+vi braker.sh 
+#1655083371
+which bsub512
+#1655083375
+vi braker.sh 
+#1655083384
+bash braker.sh 
+#1655083386
+bjl
+#1655083390
+cd -
+#1655083391
+lth
+#1655083437
+tail braker.log 
+#1655083451
+cd -
+#1655083452
+lth
+#1655083463
+les error.75378
+#1655083469
+ls -d braker*/
+#1655083476
+more sp_list
+#1655083478
+rm -r braker_Dipteryx_alata.fa.masked.fa/ braker_Eperua_falcata.fa.masked.fa/
+#1655083483
+bash braker.sh 
+#1655083494
+rm error.75378 output.75378 error.75377 output.75377
+#1655083495
+lth
+#1655083498
+les error.75379 
+#1655083510
+ll /nfs/liuhui/bin/braker/dependency/Augustus/config/species/
+#1655083512
+lth
+#1655083515
+ll /nfs/liuhui/bin/braker/dependency/Augustus/config/species/
+#1655083517
+lth
+#1655083522
+more error.75379
+#1655083526
+more output.75379
+#1655083528
+lth
+#1655083534
+rm -r output.75379 error.75379 braker_Dipteryx_alata.fa.masked.fa
+#1655083535
+lth
+#1655083537
+vi sp_list
+#1655083541
+bash braker.sh 
+#1655083542
+lth
+#1655083545
+bjl
+#1655083552
+lth
+#1655083557
+lt braker_Dipteryx_alata.fa.masked.fa/
+#1655083581
+j wgd_rna
+#1655083581
+lth
+#1655083583
+cd 01.assemble/
+#1655083583
+ls
+#1655083584
+ll
+#1655083588
+cd RNAseq/
+#1655083589
+ll
+#1655083590
+lth
+#1655083596
+cd ..
+#1655083596
+lt
+#1655083600
+mkdir rm
+#1655083604
+mv *cds *pep rm/
+#1655083604
+lt
+#1655083607
+cd RNAseq/
+#1655083608
+ll
+#1655083612
+lth
+#1655083616
+lt |les
+#1655083623
+les 01.run_trinity.sh
+#1655083634
+lth
+#1655083649
+ll *_trinity.fasta
+#1655083657
+cd plot_ks_Pterodon_emarginatus_Pap/
+#1655083657
+lt
+#1655083665
+les /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/plot_ks_Pterodon_emarginatus_Pap/
+#1655083668
+les Pterodon_emarginatus_Pap_trinity.fasta.transdecoder.cds
+#1655083680
+les Pterodon_emarginatus_Pap_trinity.fasta.transdecoder.pep 
+#1655083802
+lth
+#1655083811
+les Pterodon_emarginatus_Pap_trinity.fasta.transdecoder.cds 
+#1655083823
+grep ">" Pterodon_emarginatus_Pap_trinity.fasta.transdecoder.cds  |wc -l
+#1655083842
+lt
+#1655083857
+ln -s paralogs-t300-mYN.kaks Pterodon_emarginatus_Pap.Pterodon_emarginatus_Pap.ortho.kaks.raw
+#1655083863
+python -m iga.project.nitfix
+#1655083870
+python -m iga.project.nitfix format_ks_plot Pterodon_emarginatus_Pap.Pterodon_emarginatus_Pap.ortho.kaks.raw
+#1655083874
+lth
+#1655083879
+ks_hist.R Pterodon_emarginatus_Pap.Pterodon_emarginatus_Pap.ortho.kaks
+#1655083983
+cd ../plot_ks_Dipteryx_odorata_Pap/
+#1655083983
+lt
+#1655084000
+ln -s paralogs-t300-mYN.kaks Dipteryx_odorata_Pap.Dipteryx_odorata_Pap.ortho.kaks.raw
+#1655084005
+python -m iga.project.nitfix format_ks_plot Dipteryx_odorata_Pap.Dipteryx_odorata_Pap.ortho.kaks.raw
+#1655084008
+lth
+#1655084040
+ks_hist.R Dipteryx_odorata_Pap.Dipteryx_odorata_Pap.ortho.kaks
+#1655084115
+cd ..
+#1655084115
+ll
+#1655084137
+ls output.54
+#1655084139
+ls ..
+#1655084141
+ll
+#1655084144
+ls -d */
+#1655084149
+cd super_transcript/
+#1655084154
+ll ../result/
+#1655084159
+cd ..
+#1655084160
+mkdir rm
+#1655084163
+mv result rm/
+#1655084164
+cd -
+#1655084164
+lt
+#1655084165
+ls
+#1655084168
+l l*cds
+#1655084172
+ll *cds
+#1655084180
+les *cds
+#1655084182
+ls
+#1655084191
+cd ../../
+#1655084192
+ls
+#1655084193
+ll
+#1655084195
+cd ..
+#1655084196
+ls
+#1655084198
+cd 03.ortho_with_genome/
+#1655084198
+ls
+#1655084205
+les *_Pap*cds
+#1655084264
+lth
+#1655084685
+j super
+#1655084685
+lth
+#1655084687
+lt
+#1655084688
+lth
+#1655084693
+les Andira_inermis_Pap.pep
+#1655084695
+lt
+#1655084702
+ls plot*/
+#1655084707
+ls plot*/*kaks
+#1655084713
+ls
+#1655084716
+ls -d */
+#1655084719
+ls ortho_files/
+#1655084724
+realpath ortho_files/
+#1655083066
+tma
+#1655086027
+bjl
+#1655086037
+j repeat
+#1655086038
+lth
+#1655086043
+j newly
+#1655086044
+lth
+#1655086051
+lt |les
+#1655086057
+j newly
+#1655086029
+tma
+#1655086061
+j new
+#1655086063
+j new
+#1655086063
+lth
+#1655086069
+ls braker_Dipteryx_alata.fa.masked.fa/
+#1655086071
+lt braker_Dipteryx_alata.fa.masked.fa/
+#1655086077
+les error.75381 
+#1655086087
+more error.75381 
+#1655086092
+more /nfs/liuhui/projects/phyleg/new_genome_0531/braker_Dipteryx_alata.fa.masked.fa/errors/GeneMark-ES.stderr
+#1655086108
+/nfs/liuhui/bin/braker/dependency/gmes_linux_64/gmes_petap.pl
+#1655086123
+vi sp_list
+#1655086125
+ls
+#1655086127
+vi braker.sh 
+#1655086145
+bsub512 -m yi03 -n 2 -J braker < braker.sh 
+#1655086147
+lt
+#1655086148
+lth
+#1655086153
+rm error.75380 output.75380 output.75381 error.75381
+#1655086154
+bjl
+#1655086156
+lth
+#1655086158
+more error.75382 
+#1655086163
+rm -r braker_Dipteryx_alata.fa.masked.fa braker_Eperua_falcata.fa.masked.fa
+#1655086165
+lth
+#1655086169
+rm error.75382 output.75382
+#1655086172
+vi braker.sh 
+#1655086193
+bsub512 -m yi03 -n 2 -J braker < braker.sh 
+#1655086194
+bjl
+#1655086196
+lth
+#1655086202
+vi braker
+#1655086204
+vi braker.sh 
+#1655086209
+vi sp_list.1 
+#1655086213
+vi sp_list
+#1655086222
+vi braker.sh 
+#1655086230
+bjl
+#1655086233
+lth
+#1655086244
+lt braker_Dipteryx_alata.fa.masked.fa/
+#1655086255
+lth
+#1655086260
+vi sp_list
+#1655086265
+vi braker.sh 
+#1655086276
+lth
+#1655086284
+ls
+#1655086062
+tma
+#1655086305
+j repeat
+#1655086305
+ll
+#1655086312
+les Faidherbia_albida.bed
+#1655086320
+ll Faidherbia_albida.fa.repeat.gff 
+#1655086323
+vi shell 
+#1655086372
+for i in Faidherbia_albida.fa; do bedtools coverage -s -a $i.bed -b $i.fa.repeat.gff > $i.bed.xrepeat.coverage; done
+#1655086379
+for i in Faidherbia_albida; do bedtools coverage -s -a $i.bed -b $i.fa.repeat.gff > $i.bed.xrepeat.coverage; done
+#1655086382
+vi shell 
+#1655086399
+awk '$10 > 0.5' Faidherbia_albida.bed.xrepeat.coverage > Faidherbia_albida.black.id
+#1655086401
+lt *id
+#1655086442
+lth
+#1655086446
+sz Faidherbia_albida.black.id 
+#1655086459
+# Sent -> /Volumes/liuhui/Analysis/comWGD/gene_overlap_with_repeat/
+#1655086479
+sz Faidherbia_albida.fa.repeat.gff 
+#1655086496
+# Sent -> /Volumes/liuhui/Analysis/comWGD/gene_overlap_with_repeat/
+#1655086526
+ls
+#1655086529
+mkdir backup
+#1655086541
+cd backup/
+#1655086541
+ls
+#1655086547
+for i in ../*masked.fa; do ln -s $i; done
+#1655086557
+for i in ../*-families.fa; do ln -s $i; done
+#1655086557
+ls
+#1655086614
+lth
+#1655086618
+bjl
+#1655086620
+bj
+#1655086624
+ll braker_Dipteryx_alata.fa.masked.fa/
+#1655086625
+lt
+#1655086630
+cd braker_Dipteryx_alata.fa.masked.fa/
+#1655086630
+lth
+#1655086640
+tail GeneMark-ES.stdout 
+#1655086669
+les *out
+#1655086685
+lth
+#1655086687
+cd ..
+#1655086687
+lth
+#1655086695
+vi braker.sh 
+#1655086701
+bsub512 -m yi03 -n 2 -J braker < braker.sh 
+#1655086707
+les output.75383
+#1655086714
+cd braker_Dipteryx_alata.fa.masked.fa/
+#1655086715
+lt
+#1655086718
+cd errors/
+#1655086718
+lt
+#1655086720
+cd -
+#1655086724
+more GeneMark-ES.stdout 
+#1655086735
+/nfs/liuhui/bin/braker/dependency/gmes_linux_64/make_nt_freq_mat.pl --cfg /nfs/liuhui/projects/phyleg/new_genome_0531/braker_Dipteryx_alata.fa.masked.fa/GeneMark-ES/run.cfg --section stop_TAG    --format TERM_TAG
+#1655086740
+cd ..
+#1655086740
+ls
+#1655086742
+vi braker.sh 
+#1655086749
+cd -
+#1655086750
+source activate braker
+#1655086753
+export GENEMARK_PATH=/nfs/liuhui/bin/braker/dependency/gmes_linux_64
+#1655086753
+export PROTHINT_PATH=/nfs/liuhui/bin/braker/dependency/ProtHint/bin
+#1655086754
+export CDBTOOLS_PATH=/nfs/liuhui/bin/braker/dependency/cdbfasta
+#1655086754
+export PATH=/nfs/liuhui/bin/braker/dependency/GUSHR:$PATH
+#1655086754
+export MAKEHUB_PATH=/nfs/liuhui/bin/braker/dependency/MakeHub-1.0.5
+#1655086754
+export PATH=/nfs/liuhui/bin/braker/dependency:$PATH
+#1655086754
+export PATH=/nfs/liuhui/bin/braker/dependency/Augustus/bin:/nfs/liuhui/bin/braker/dependency/Augustus/scripts:$PATH
+#1655086754
+export AUGUSTUS_CONFIG_PATH=/nfs/liuhui/bin/braker/dependency/Augustus/config
+#1655086754
+export PATH=/nfs/liuhui/bin/braker/BRAKER/scripts:$PATH
+#1655086754
+module load boost
+#1655086756
+lth
+#1655086763
+/nfs/liuhui/bin/braker/dependency/gmes_linux_64/make_nt_freq_mat.pl --cfg /nfs/liuhui/projects/phyleg/new_genome_0531/braker_Dipteryx_alata.fa.masked.fa/GeneMark-ES/run.cfg --section stop_TAG    --format TERM_TAG
+#1655086776
+ls
+#1655086776
+lt
+#1655086784
+more ../braker.sh 
+#1655086794
+ls
+#1655086801
+cd ..
+#1655086819
+PEP=odb10_plants.fasta
+#1655086822
+GENOME=Dipteryx_alata.fa.masked.fa
+#1655086837
+rm -r braker_Dipteryx_alata.fa.masked.fa/GeneMark-E*
+#1655086843
+THREADS=1
+#1655086621
+tma
+#1655086893
+top
+#1655086901
+tma
+#1655086906
+ls
+#1655086847
+braker.pl -gff3 --cores=${THREADS} --genome=${GENOME} --prot_seq=$PEP --softmasking --workingdir braker_${GENOME}
+#1655086765
+j new
+#1655086766
+ls
+#1655086770
+more braker.sh 
+#1655086775
+source activate braker
+#1655086775
+export GENEMARK_PATH=/nfs/liuhui/bin/braker/dependency/gmes_linux_64
+#1655086775
+export PROTHINT_PATH=/nfs/liuhui/bin/braker/dependency/ProtHint/bin
+#1655086775
+export CDBTOOLS_PATH=/nfs/liuhui/bin/braker/dependency/cdbfasta
+#1655086775
+export PATH=/nfs/liuhui/bin/braker/dependency/GUSHR:$PATH
+#1655086775
+export MAKEHUB_PATH=/nfs/liuhui/bin/braker/dependency/MakeHub-1.0.5
+#1655086775
+export PATH=/nfs/liuhui/bin/braker/dependency:$PATH
+#1655086775
+export PATH=/nfs/liuhui/bin/braker/dependency/Augustus/bin:/nfs/liuhui/bin/braker/dependency/Augustus/scripts:$PATH
+#1655086775
+export AUGUSTUS_CONFIG_PATH=/nfs/liuhui/bin/braker/dependency/Augustus/config
+#1655086775
+export PATH=/nfs/liuhui/bin/braker/BRAKER/scripts:$PATH
+#1655086775
+module load boost
+#1655086775
+PEP=odb10_plants.fasta
+#1655086776
+THREADS=1
+#1655086779
+GENOME=Dipteryx_alata.fa.masked.fa
+#1655086783
+ls braker_Dipteryx_alata.fa.masked.fa/
+#1655086786
+rm -r braker_Dipteryx_alata.fa.masked.fa/GeneMark-E*
+#1655087046
+cd ..
+#1655087047
+lth
+#1655087055
+ls -d */
+#1655087058
+cd post_braker/
+#1655087058
+ls
+#1655087059
+ll
+#1655086938
+tma
+#1655087107
+lth
+#1655086794
+braker.pl -gff3 --cores=${THREADS} --genome=${GENOME} --prot_seq=$PEP --softmasking --workingdir braker_${GENOME}
+#1655086912
+/nfs/liuhui/bin/braker/dependency/gmes_linux_64/gmes_petap.pl
+#1655086921
+which perl
+#1655087108
+tma
+#1655087203
+longest_transcript_from_gff.py -h
+#1655086922
+perl /nfs/liuhui/bin/braker/dependency/gmes_linux_64/gmes_petap.pl --verbose --cores=1 --ES --gc_donor 0.001 --sequence=/nfs/liuhui/projects/phyleg/new_genome_0531/braker_Dipteryx_alata.fa.masked.fa/genome.fa  --soft_mask auto 1>/nfs/liuhui/projects/phyleg/new_genome_0531/braker_Dipteryx_alata.fa.masked.fa/GeneMark-ES.stdout 2>/nfs/liuhui/projects/phyleg/new_genome_0531/braker_Dipteryx_alata.fa.masked.fa/errors/GeneMark-ES.stderr
+#1655087210
+vi `which longest_transcript_from_gff.py `
+#1655087225
+j new
+#1655087226
+cd post_braker/
+#1655087226
+lt
+#1655087232
+les Bauhinia_variegata.fa.masked.fa.gff3.longest
+#1655087237
+les *gff3
+#1655087261
+cd ..
+#1655087077
+more /nfs/liuhui/projects/phyleg/new_genome_0531/braker_Dipteryx_alata.fa.masked.fa/GeneMark-ES.stdout
+#1655087084
+ 
+#1655087104
+/nfs/liuhui/bin/braker/dependency/gmes_linux_64/make_nt_freq_mat.pl --cfg /nfs/liuhui/projects/phyleg/new_genome_0531/run.cfg --section stop_TAG    --format TERM_TAG
+#1655087106
+lth
+#1655087111
+cd braker_Dipteryx_alata.fa.masked.fa/
+#1655087112
+ls
+#1655087113
+lt
+#1655087117
+N50v1.pl genome.fa 
+#1655087282
+tma
+#1655087351
+lth
+#1655087165
+cd ..
+#1655087166
+ls post_braker/
+#1655087170
+for i in Bauhinia_variegata.fa.masked.fa Dipteryx_alata.fa.masked.fa Eperua_falcata.fa.masked.fa Glycine_latifolia.fa.masked.fa Pueraria_montana.fa.masked.fa Sindora_glabra.fa.masked.fa Sophora_japonica.fa.masked.fa Vigna_mungo.fa.masked.fa; do sed "s/file_1_file_1/${i%.fa.masked.fa}/g" braker_${i}/braker.gff3 > post_braker/${i}.gff3; done
+#1655087080
+for i in *gff3; do longest_transcript_from_gff.py ${i}; done
+#1655087183
+cd post_braker/
+#1655087184
+lt
+#1655087185
+lth
+#1655087187
+els *gff3
+#1655087191
+les *gff3
+#1655087209
+for i in *gff3; do longest_transcript_from_gff.py ${i}; done
+#1655087213
+conda deactivate
+#1655087355
+tma
+#1655087452
+j post_braker
+#1655087452
+lt
+#1655087456
+tma
+#1655087459
+lth
+#1655086967
+top
+#1655087555
+sudo kill 10706
+#1655087674
+tma
+#1655087680
+lth
+#1655087686
+les Pueraria_montana.fa.masked.fa.gff3.longest
+#1655087697
+awk '$3=="mRNA"' Pueraria_montana.fa.masked.fa.gff3 |wc -l
+#1655087704
+awk '$3=="gene"' Pueraria_montana.fa.masked.fa.gff3 |wc -l
+#1655087716
+awk '$3=="gene"' Pueraria_montana.fa.masked.fa.gff3.longest |wc -l
+#1655087729
+awk '$3=="mRNA"' Pueraria_montana.fa.masked.fa.gff3.longest |wc -l
+#1655087214
+for i in *gff3; do longest_transcript_from_gff.py ${i}; done
+#1655088084
+lth
+#1655088088
+ll
+#1655088092
+tma
+#1655088094
+lt
+#1655088106
+mkdir publish
+#1655088113
+top
+#1655088110
+cp *longest publish/
+#1655088121
+cd publish/
+#1655088121
+lt
+#1655088126
+rm Eperua_falcata.fa.masked.fa.gff3.longest Dipteryx_alata.fa.masked.fa.gff3.longest
+#1655088127
+ll
+#1655088133
+rename '.longest' '' *
+#1655088142
+rename '.fa.masked.fa' '' *
+#1655088142
+ll
+#1655088155
+add_suffix.pl *gff3
+#1655088191
+ll
+#1655088200
+for i in *new ; do mv ${i} ${i%.new}; done
+#1655088200
+ll
+#1655088202
+ls *gff3 > sed.sh
+#1655088203
+vi sed.sh 
+#1655088320
+bash sed.sh 
+#1655088334
+les *gff3
+#1655088352
+vi *gff3
+#1655088366
+head -1 *gff3
+#1655088386
+sed -i "s/_Vimun_Vimun/_Vimun/g" Vigna_mungo.gff3 
+#1655088404
+sed -i "s/_Gllat_Gllat/_Gllat/g" Glycine_latifolia.gff3
+#1655088408
+head -1 *gff3
+#1655088409
+lth
+#1655088411
+les *gff3
+#1655088421
+for i in ../*masked.fa; do ln -s $i; done
+#1655088421
+lth
+#1655088429
+les *.masked.fa
+#1655088435
+head -1 *masked.fa
+#1655088451
+les ../Pueraria_montana.fa
+#1655088458
+les ../../Pueraria_montana.fa
+#1655088469
+grep ">" ../../Pueraria_montana.fa
+#1655088479
+les *.masked.fa
+#1655088509
+grep "Chr" Pueraria_montana.fa.masked.fa 
+#1655088514
+head -1 *masked.fa
+#1655088529
+add_suffix.pl Bauhinia_variegata.fa.masked.fa Pueraria_montana.fa.masked.fa Sindora_glabra.fa.masked.fa Sophora_japonica.fa.masked.fa 
+#1655088596
+ll
+#1655088601
+for i in *.new; do mv $i ${i%.new}; done
+#1655088601
+lt
+#1655088622
+ll ../*masked.fa
+#1655088626
+les Vigna_mungo.fa.masked.fa 
+#1655088629
+head -1 *.fa
+#1655088634
+ll
+#1655088641
+rename masked. '' *.fa
+#1655088642
+ll
+#1655088656
+rename '.fa.fa' '.fa' *.fa
+#1655088657
+ll
+#1655088660
+ll *.fa
+#1655088662
+ll *gff3
+#1655088688
+for p in *gff3; do gffread -x ${p}.cds -g ${p}.fa ${p}.gff3; done
+#1655088718
+bhosts 
+#1655088704
+for i in *gff3; do p=${i%.gff3}; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3; done
+#1655088765
+lth
+#1655088805
+head -1 *cds
+#1655088817
+for i in *cds; do cds2aa.pl $i > ${i%.cds}.pep; done
+#1655088879
+lth
+#1655089033
+ls
+#1655089035
+j orthofinder
+#1655089036
+ls
+#1655089044
+mkdir fasta0613
+#1655089046
+cd fasta0613/
+#1655089046
+ll
+#1655089847
+cd ../
+#1655089848
+lth
+#1655089855
+mv GCA_019955255.1.zip 
+#1655089906
+mv GCA_019955255.1.zip Castanospermum_australe.zip
+#1655089908
+unzip Castanospermum_australe.zip
+#1655089921
+les ncbi_dataset/data/GCA_019955255.1/GCA_019955255.1_CAUS_2016PP_genomic.fna
+#1655089987
+head -1  ncbi_dataset/data/GCA_019955255.1/GCA_019955255.1_CAUS_2016PP_genomic.fna
+#1655089993
+grep ">"  ncbi_dataset/data/GCA_019955255.1/GCA_019955255.1_CAUS_2016PP_genomic.fna
+#1655090006
+ls
+#1655090007
+lth
+#1655090026
+ls
+#1655090036
+grep ">" ncbi_dataset/data/GCA_019955255.1/GCA_019955255.1_CAUS_2016PP_genomic.fna |wc -l
+#1655090305
+ls *sh
+#1655090325
+python -m iga.annotation.maker maker_pipe > casau.sh
+#1655090328
+vi casau.sh 
+#1655090336
+python -m iga.annotation.maker maker_prep > casau.sh
+#1655090337
+vi casau.sh 
+#1655090367
+python -m iga.annotation.maker prep_repeat
+#1655090370
+python -m iga.annotation.maker prep_repeat_gff
+#1655090383
+python -m iga.annotation.maker prepare_pipe > casau.sh 
+#1655090384
+lth
+#1655090384
+vi casau.sh 
+#1655090441
+ls *repeat.gff
+#1655090442
+ls
+#1655090448
+vi casau.sh 
+#1655090484
+vi braker
+#1655090485
+vi braker.sh 
+#1655090493
+vi casau.sh 
+#1655090563
+ls odb10_plants.fasta 
+#1655090568
+realpath odb10_plants.fasta
+#1655090571
+vi casau.sh 
+#1655090593
+python -m iga.annotation.repeat repeatmasker -h
+#1655090601
+vi casau.sh 
+#1655090610
+which bsub512
+#1655090614
+vi casau.sh 
+#1655090643
+cp casau.sh /nfs/liuhui/bin/bundle/wrapper/anno_new_genome.sh
+#1655090646
+vi casau.sh 
+#1655091564
+bsub512 -J casau < casau.sh 
+#1655091566
+cp casau.sh /nfs/liuhui/bin/bundle/wrapper/anno_new_genome.sh
+#1655091568
+bjl
+#1655091570
+bj
+#1655091572
+lth
+#1655091574
+bjl
+#1655091575
+lt
+#1655091576
+lth
+#1655091579
+bjl
+#1655091594
+lth
+#1655091598
+ls
+#1655091610
+lth
+#1655091409
+lth
+#1655089272
+tma
+#1655091631
+ll
+#1655091634
+ls *_*_*
+#1655091640
+ls *cds |wc -l
+#1655091642
+ls *pep |wc -l
+#1655091644
+ls
+#1655091652
+cd fasta_gff3/
+#1655091653
+ls
+#1655091654
+cd -
+#1655091705
+lt
+#1655091706
+lth
+#1655091708
+cd fasta_gff3/
+#1655091708
+ls
+#1655091709
+lt
+#1655091711
+cd ..
+#1655091712
+lt
+#1655091713
+ls
+#1655091715
+ls -d */
+#1655091716
+ls cds/
+#1655091819
+cd fasta_gff3/
+#1655091820
+ll
+#1655091824
+vls
+#1655091825
+ls
+#1655091832
+vi Duparquetia_orchidacea.gff3 
+#1655091855
+ll Duparquetia_orchidacea.*
+#1655091979
+les ../cds/Duparquetia_orchidacea.cds 
+#1655091987
+les ../Duparquetia_orchidacea.pep 
+#1655091989
+ls
+#1655091997
+mv ../Duparquetia_orchidacea.pep ../cds/Duparquetia_orchidacea.cds .
+#1655091997
+ls
+#1655092006
+add_suffix.pl Duparquetia_orchidacea.*
+#1655092027
+ls *new
+#1655092028
+for i in *new ; do mv ${i} ${i%.new}; done
+#1655092029
+lth
+#1655092039
+head -1 Duparquetia_orchidacea.*
+#1655092130
+lth
+#1655092186
+ls
+#1655092222
+ll
+#1655092228
+cp Duparquetia_orchidacea.cds ../cds/
+#1655092232
+cp Duparquetia_orchidacea.pep ../
+#1655092237
+lth
+#1655092238
+cd ..
+#1655092240
+bjl
+#1655092243
+top
+#1655100131
+bjl
+#1655100147
+lth
+#1655100151
+bjl
+#1655100188
+lsload
+#1655100192
+bjl
+#1655100196
+bhosts 
+#1655100216
+bjobs -m yi03 |less
+#1655100222
+bjobs -m yi03 -u all |less
+#1655100314
+ls
+#1655100318
+ls *pep |wc -l
+#1655100323
+ls cds/*cds |wc -l
+#1655100327
+ls fasta_gff3/*gff3 |wc -l
+#1655100339
+ls *_*_*.pep |wc -l
+#1655100348
+ls fasta_gff3/*fa |wc -l
+#1655100384
+ls
+#1655100401
+cd zhangrong/
+#1655100402
+ls
+#1655100403
+ll
+#1655100406
+cd ..
+#1655100408
+cd projects/
+#1655100409
+ls
+#1655100410
+cd phyleg
+#1655100410
+ls
+#1655100412
+cd ..
+#1655100423
+ll
+#1655100424
+ls
+#1655100439
+uplht /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655100460
+ls
+#1655100494
+pushd ~/projects/phyleg/04.fig4/04.triangle_localization/
+#1655100496
+ll
+#1655100497
+ls
+#1655100501
+ll *.cds*
+#1655100506
+ll *gff3
+#1655100517
+ll *.fa
+#1655100530
+lt
+#1655100705
+cd /ds3200_1/users_root/yitingshuang/lh/genomes/Vitis_vinifera.
+#1655100707
+cd /ds3200_1/users_root/yitingshuang/lh/genomes/
+#1655100709
+ll
+#1655100698
+history |grep Vitis |less
+#1655100795
+ls temp/
+#1655100805
+cd temp/
+#1655100805
+ll
+#1655100806
+lt
+#1655100819
+ln -s ../Vitis_vinifera.gff3 
+#1655100820
+cd ..
+#1655100826
+head -1 Arabidopsis_thaliana.cds
+#1655100830
+head -1 *cds
+#1655100837
+cd -
+#1655100837
+lt
+#1655100859
+p=Vitis_vinifera; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3
+#1655100869
+vi Vitis_vinifera.fa
+#1655100874
+add_suffix.pl Vitis_vinifera.fa
+#1655100884
+mv Vitis_vinifera.fa.new Vitis_vinifera.fa
+#1655100885
+ll
+#1655100891
+les Vitis_vinifera.gff
+#1655100892
+les Vitis_vinifera.gff3
+#1655100899
+p=Vitis_vinifera; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3
+#1655100906
+rm Vitis_vinifera.fa.fai 
+#1655100906
+p=Vitis_vinifera; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3
+#1655100914
+lth
+#1655100920
+cds2aa.pl Vitis_vinifera.cds > Vitis_vinifera.pep
+#1655100925
+lth
+#1655100931
+mkdir ../outgroups
+#1655100951
+cp Vitis_vinifera.pep Vitis_vinifera.cds Vitis_vinifera.gff3 Vitis_vinifera.fa ../outgroups &
+#1655100952
+ll
+#1655100960
+head -1 Arabidopsis_thaliana.fa 
+#1655100967
+cp Arabidopsis_thaliana.fa ../outgroups/
+#1655100973
+cd ..
+#1655100980
+cp Populus_trichocarpa.* outgroups/
+#1655100997
+cp Oryza_sativa.* outgroups/
+#1655101010
+cp Averrhoa_carambola.* outgroups/
+#1655101024
+ls outgroups/
+#1655101030
+cp Arabidopsis_thaliana.* outgroups/
+#1655101035
+cd outgroups/
+#1655101035
+ll
+#1655101683
+ll *cds |wc -l
+#1655101686
+ls *pep |wc -l
+#1655101689
+ls *fa |wc -l
+#1655101692
+ls *gff3 |wc -l
+#1655101696
+rm *.[eo]
+#1655101696
+ll
+#1655101698
+lt
+#1655101702
+ll
+#1655101716
+uplht /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/outgroups
+#1655101747
+head -1 *pep
+#1655101807
+for i in *pep; do echo ${i%.pep}; grep ">" $i |wc -l ; grep ">" ${i%.pep}.cds |wc -l; awk '$3=="mRNA"' ${i%.pep}.gff |wc -l ; done
+#1655101812
+for i in *pep; do echo ${i%.pep}; grep ">" $i |wc -l ; grep ">" ${i%.pep}.cds |wc -l; awk '$3=="mRNA"' ${i%.pep}.gff3 |wc -l ; done
+#1655101821
+ls
+#1655101843
+for i in *pep; do echo ${i%.pep}; grep ">" $i |wc -l ; grep ">" ${i%.pep}.cds |wc -l; awk '$3=="mRNA"' ${i%.pep}.gff3 |wc -l ; awk '$3=="gene"' ${i%.pep}.gff3 |wc -l; done
+#1655101850
+les *gff3
+#1655101867
+p=Arabidopsis_thaliana; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3
+#1655101875
+for i in *pep; do echo ${i%.pep}; grep ">" $i |wc -l ; grep ">" ${i%.pep}.cds |wc -l; awk '$3=="mRNA"' ${i%.pep}.gff3 |wc -l ; awk '$3=="gene"' ${i%.pep}.gff3 |wc -l; done
+#1655102073
+les lth
+#1655102074
+lth
+#1655102077
+rm *fai
+#1655102078
+ll
+#1655102170
+j rz
+#1655102171
+rz
+#1655102176
+# Received /Users/liuhui/Downloads/Aristolochia_fimbriata_genome_HighC.gff.zip
+#1655102190
+downlht /ds3200_1/users_root/yitingshuang/lh/genomes/Magnoliid/document/Aristolochia_genome/Aristolochia_fimbriata.*
+#1655102211
+ll `which selectGFF.p[ly]`
+#1655102214
+ll `which selectGFF.pl`
+#1655102216
+ll `which selectGFF.py`
+#1655102220
+vi /nfs/liuhui/bin/bundle/lh_bin/selectGFF.pl 
+#1655102223
+lth
+#1655102224
+ll
+#1655102230
+unzip Aristolochia_fimbriata_genome_HighC.gff.zip 
+#1655102234
+ll
+#1655102238
+rm Aristolochia_fimbriata_genome_HighC.gff.zip
+#1655102240
+les Aristolochia_fimbriata_genome_HighC.gff
+#1655102251
+awk '$3=="mRNA"' Aristolochia_fimbriata_genome_HighC.gff |wc -l
+#1655102254
+awk '$3=="gene"' Aristolochia_fimbriata_genome_HighC.gff |wc -l
+#1655102255
+lth
+#1655102263
+rm Aristolochia_fimbriata.cds Aristolochia_fimbriata.pep 
+#1655102264
+ll
+#1655102265
+rm *fai
+#1655102267
+rm -r __MACOSX/
+#1655102268
+ll
+#1655102279
+mv Aristolochia_fimbriata.gff Aristolochia_fimbriata.gff.full
+#1655102286
+rm Aristolochia_fimbriata.gff.full 
+#1655102291
+mv Aristolochia_fimbriata_genome_HighC.gff Aristolochia_fimbriata.gff3
+#1655102299
+head -1 Aristolochia_fimbriata.*
+#1655102306
+add_suffix.pl Aristolochia_fimbriata.gff3 
+#1655102312
+lth
+#1655102320
+mv Aristolochia_fimbriata.gff3.new Aristolochia_fimbriata.gff3
+#1655102321
+lt
+#1655102336
+head Arabidopsis_thaliana.*
+#1655102344
+lth
+#1655102358
+p=Aristolochia_fimbriata; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3
+#1655102373
+less Aristolochia_fimbriata.fa
+#1655102412
+downlht /ds3200_1/users_root/yitingshuang/lh/genomes/Aristolochia_fimbriata.fa
+#1655102420
+lth
+#1655102423
+les *.fa
+#1655102436
+les Aristolochia_fimbriata.fa
+#1655102438
+p=Aristolochia_fimbriata; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3
+#1655102441
+rm *fai
+#1655102442
+p=Aristolochia_fimbriata; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3
+#1655102453
+les *gff3
+#1655102482
+ll
+#1655102488
+les Aristolochia_fimbriata.fa
+#1655102575
+downlht /ds3200_1/users_root/yitingshuang/lh/genomes/Magnoliid/document/Aristolochia_genome/Aristolochia_fimbriata.fa
+#1655102587
+add_suffix.pl Aristolochia_fimbriata.fa
+#1655102595
+mv Aristolochia_fimbriata.fa.new Aristolochia_fimbriata.fa
+#1655102595
+lth
+#1655102601
+rm Aristolochia_fimbriata.fa.fai
+#1655102601
+lth
+#1655102604
+les Aristolochia_fimbriata.fa 
+#1655102609
+les Aristolochia_fimbriata.cds 
+#1655102990
+rz
+#1655103000
+# Received /Users/liuhui/Desktop/Papaver_rhoeas.cds.tar.gz
+#1655103001
+rz
+#1655103006
+# Received /Users/liuhui/Desktop/Papaver_rhoeas.gene.gff3.tar.gz
+#1655103007
+ll
+#1655103012
+for *gz; do tar -xvzf $i; done
+#1655103016
+for i in *gz; do tar -xvzf $i; done
+#1655103024
+head Papaver_rhoeas.*
+#1655103026
+lth
+#1655103027
+rm *gz
+#1655103030
+head Papaver_rhoeas.*
+#1655103044
+awk '$3=="gene"' Papaver_rhoeas.gene.gff3 |wc -l
+#1655103048
+awk '$3=="mRNA"' Papaver_rhoeas.gene.gff3 |wc -l
+#1655103067
+mv Papaver_rhoeas.gene.gff3 Papaver_rhoeas.gff3
+#1655103074
+mv Papaver_rhoeas.cds.fa Papaver_rhoeas.cds
+#1655103074
+lth
+#1655103090
+add_suffix.pl Papaver_rhoeas.*
+#1655103103
+for i in *new ; do mv ${i} ${i%.new}; done
+#1655103103
+lth
+#1655103109
+cds2aa.pl Papaver_rhoeas.cds > Papaver_rhoeas.pep
+#1655103116
+head Papaver_rhoeas.*
+#1655103125
+les Papaver_rhoeas.gff3 
+#1655103128
+ll
+#1655103434
+uplht /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655103448
+ll
+#1655103459
+cp *pep /nfs/liuhui/projects/phyleg_orthofinder/fasta0613/
+#1655103464
+cp *cds /nfs/liuhui/projects/phyleg_orthofinder/fasta0613/cds/
+#1655103476
+cp *gff3 *fa /nfs/liuhui/projects/phyleg_orthofinder/fasta0613/fasta_gff3/
+#1655103891
+j orthofinder
+#1655103893
+ls
+#1655103689
+cd /nfs/liuhui/projects/phyleg_orthofinder/
+#1655103690
+ls
+#1655103692
+ll
+#1655103694
+cd fasta
+#1655103694
+lt
+#1655103699
+cd OrthoFinder
+#1655103700
+ls
+#1655103701
+cd Results_Apr18/
+#1655103702
+lt
+#1655103706
+cd Orthogroup
+#1655103708
+cd Orthogroups/
+#1655103710
+lt
+#1655103729
+less Orthogroups.GeneCount.tsv
+#1655103732
+tt Orthogroups.GeneCount.tsv
+#1655103768
+vk
+#1655103781
+lk
+#1655103787
+which vka
+#1655103789
+vka
+#1655103793
+vc
+#1655103803
+sc
+#1655103527
+uplht /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655103803
+vka
+#1655103805
+vk
+#1655103835
+vka
+#1655103838
+lth
+#1655103842
+tt Orthogroups.GeneCount.tsv
+#1655103856
+vk
+#1655103869
+tt Orthogroups.GeneCount.tsv
+#1655103901
+vk
+#1655103906
+lth
+#1655103930
+for i in `seq 50`; do echo -n ",$i"; done
+#1655103937
+vk
+#1655103958
+ll
+#1655103965
+cut -f1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,22,23,24,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50 Orthogroups.GeneCount.tsv > Orthogroups.GeneCount.filter1.tsv
+#1655103982
+history |grep zhangrong |less
+#1655103992
+ls ~/zhangrong/
+#1655104005
+history |less
+#1655104118
+perl -ne 'my $flag=1; my @e=split; shift @e; pop @e; for my $e(@e){if($e != 1){print $_; exit;$flag=0;}} print $_ if $flag;' Orthogroups.GeneCount.tsv 
+#1655104175
+perl -ne 'my $flag=1; my @e=split; shift @e; pop @e; for my $e(@e){if($e != 1){$flag=0;}} print $_ if $flag;' Orthogroups.GeneCount.tsv 
+#1655104191
+perl -ne 'my $flag=1; my @e=split; shift @e; pop @e; for my $e(@e){if($e != 1){$flag=0;}} print $_ if $flag;' Orthogroups.GeneCount.filter1.tsv 
+#1655104293
+ll
+#1655104294
+lt
+#1655104297
+cd ..
+#1655104298
+ls
+#1655104298
+lt
+#1655104304
+cd Phylogenetic_Hierarchical_Orthogroups/
+#1655104305
+lt
+#1655104306
+ls
+#1655104314
+les N0.tsv
+#1655104320
+cd -
+#1655104320
+ls
+#1655104322
+cd -
+#1655104324
+lt
+#1655104329
+ls Comparative_Genomics_Statistics/
+#1655104340
+les Comparative_Genomics_Statistics/OrthologuesStats_one-to-one.tsv 
+#1655104354
+t Comparative_Genomics_Statistics/OrthologuesStats_one-to-one.tsv 
+#1655104481
+perl -ne 'my $flag=1; my @e=split; shift @e; pop @e; for my $e(@e){if($e != 1){$flag=0;}} print $_ if $flag;' Orthogroups.GeneCount.filter1.tsv 
+#1655104483
+lt
+#1655104484
+cd -
+#1655104487
+cd ../Orthogroup
+#1655104488
+cd ../Orthogroups/
+#1655104489
+perl -ne 'my $flag=1; my @e=split; shift @e; pop @e; for my $e(@e){if($e != 1){$flag=0;}} print $_ if $flag;' Orthogroups.GeneCount.filter1.tsv 
+#1655104596
+perl -ne 'my $flag=1; my @e=split; shift @e; pop @e; for my $e(@e){if($e ==2 ){$flag=++;}if($e>2){$flag=0;}} print $_ if $flag >0 && $flag <10;' Orthogroups.GeneCount.filter1.tsv 
+#1655104602
+perl -ne 'my $flag=1; my @e=split; shift @e; pop @e; for my $e(@e){if($e ==2 ){$flag++;}if($e>2){$flag=0;}} print $_ if $flag >0 && $flag <10;' Orthogroups.GeneCount.filter1.tsv 
+#1655104614
+perl -ne 'my $flag=1; my @e=split; shift @e; pop @e; for my $e(@e){if($e ==2 ){$flag++;}if($e>2){$flag=0;break;}} print $_ if $flag >0 && $flag <10;' Orthogroups.GeneCount.filter1.tsv 
+#1655104632
+perl -ne 'my $flag=1; my @e=split; shift @e; pop @e; for my $e(@e){if($e ==2 or $e==0){$flag++;}if($e>2){$flag=0;break;}} print $_ if $flag >0 && $flag <10;' Orthogroups.GeneCount.filter1.tsv 
+#1655104742
+perl -ne 'my $flag=1; my @e=split; shift @e; pop @e; for my $e(@e){if($e ==2 or $e==0){$flag++;}if($e>2){$flag=0;break;}} if($flag >0 && $flag <10){print $_};' Orthogroups.GeneCount.filter1.tsv  |less
+#1655104795
+vi filter_group.pl
+#1655104907
+tt Orthogroups.GeneCount.tsv
+#1655104911
+vi filter_group.pl
+#1655105029
+perl filter_group.pl Orthogroups.GeneCount.tsv |less
+#1655105034
+perl filter_group.pl Orthogroups.GeneCount.tsv |wc -l
+#1655105038
+perl filter_group.pl Orthogroups.GeneCount.tsv |less
+#1655105043
+vi filter_group.pl
+#1655105060
+perl filter_group.pl Orthogroups.GeneCount.tsv > Orthogroups.GeneCount.filter2.tsv
+#1655105065
+les Orthogroups.GeneCount.filter2.tsv
+#1655105072
+vi filter_group.pl
+#1655105130
+perl filter_group.pl Orthogroups.GeneCount.tsv > Orthogroups.GeneCount.filter2.tsv
+#1655105132
+les Orthogroups.GeneCount.filter2.tsv
+#1655105157
+tt Orthogroups.GeneCount.filter2.tsv
+#1655105160
+t Orthogroups.GeneCount.filter2.tsv
+#1655105212
+wc -l Orthogroups.GeneCount.filter2.tsv
+#1655105213
+t Orthogroups.GeneCount.filter2.tsv
+#1655105349
+grep Glycyrrhiza Orthogroups.GeneCount.filter2.tsv
+#1655105574
+tt Glycyrrhiza Orthogroups.GeneCount.filter2.tsv
+#1655105579
+tt Orthogroups.GeneCount.filter2.tsv
+#1655105588
+t Orthogroups.GeneCount.filter2.tsv
+#1655105702
+python -m iga.annotation
+#1655105710
+python -m iga.annotation.maker
+#1655105715
+python -m iga.annotation
+#1655105717
+python -m iga.annotation.gomoma
+#1655105726
+python -m iga.annotation.gemoma
+#1655105727
+python -m iga.annotation.gemoma -h
+#1655105736
+python -m iga.annotation.gemoma gemoma_pipe
+#1655105737
+python -m iga.annotation.gemoma gemoma_pipe -h
+#1655106103
+lth
+#1655106038
+lth
+#1655106040
+les *2.tsv
+#1655106043
+t *2.tsv
+#1655106095
+lt
+#1655106099
+vi plot_pheatmap.sh
+#1655106109
+bash plot_pheatmap.sh Orthogroups.GeneCount.filter2.tsv
+#1655106115
+which R
+#1655106118
+conda activate r
+#1655106122
+conda infor --envs
+#1655106127
+conda info --envs
+#1655106204
+lt
+#1655106208
+vi plot_pheatmap.r 
+#1655106223
+which R
+#1655106226
+ggplot2
+#1655106226
+reshape2
+#1655106247
+mamba create -n r r-ggplot2 r-reshape2 r-pheatmap
+#1655107628
+history |grep gemoma_pipe
+#1655107646
+history |less
+#1655107646
+history |less
+#1655107657
+cd /nfs/liuhui/projects/buzzo/duparquetia/annotation/gemoma/annotate_rest_5_legumes/
+#1655107658
+lt
+#1655107659
+ls
+#1655107665
+ls Dipteryx_alata.gff
+#1655107668
+ls Dipteryx_alata.format.gff 
+#1655107670
+ll Dipteryx_alata.format.gff 
+#1655107673
+less Dipteryx_alata.format.gff 
+#1655107685
+ll Eperua_falcata.format.gff 
+#1655107687
+es Eperua_falcata.format.gff 
+#1655107688
+les Eperua_falcata.format.gff 
+#1655107698
+ll Eperua_falcata.format.gff 
+#1655107701
+lth
+#1655107717
+ll
+#1655107734
+head Eperua_falcata.format.gff Dipteryx_alata.format.gff 
+#1655107747
+sz Eperua_falcata.format.gff Dipteryx_alata.format.gff 
+#1655107753
+# Sent -> /Users/liuhui/Desktop/
+#1655107981
+cd /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655107982
+lth
+#1655107983
+cd fasta_gff3/
+#1655107984
+ls
+#1655107987
+rz
+#1655107994
+# Received /Users/liuhui/Desktop/Dipteryx_alata.format.gff
+#1655107995
+rz
+#1655108000
+# Received /Users/liuhui/Desktop/Eperua_falcata.format.gff
+#1655108002
+lth
+#1655108046
+mv Eperua_falcata.format.gff Eperua_falcata.gff3
+#1655108052
+mv Dipteryx_alata.format.gff Dipteryx_alata.gff3
+#1655108060
+head Eperua_falcata.fa Dipteryx_alata.fa 
+#1655108086
+vi Dipteryx_alata.gff3 Eperua_falcata.gff3 
+#1655108103
+add_suffix.pl Dipteryx_alata.gff3 Eperua_falcata.gff3
+#1655108109
+ls *nwe
+#1655108110
+ls *new
+#1655108112
+for i in *new ; do mv ${i} ${i%.new}; done
+#1655108114
+lth
+#1655108129
+for p in Eperua_falcata Dipteryx_alata; do gffread -x ${p}.cds -g ${p}.fa ${p}.gff3; done
+#1655108490
+vi tmp
+#1655108523
+cut -f1 tmp |uniq
+#1655108525
+cut -f1 tmp |uniq |wc -l 
+#1655108529
+wc -l tmp 
+#1655108538
+cut -f1 tmp |sort |uniq
+#1655108541
+cut -f1 tmp |sort |uniq |wc -l
+#1655108563
+more tmp
+#1655109300
+lth
+#1655109301
+ls
+#1655109521
+lth
+#1655109525
+ls *cds |wc -l
+#1655109530
+ls ../*cds |wc -l
+#1655109533
+ls ../*pep |wc -l
+#1655109535
+ls ../*pep |les
+#1655109550
+ll -t ../*pep  |less
+#1655109574
+ll -t ../*pep  |wc -l
+#1655109648
+ll -t ../*pep  |les
+#1655109500
+tma
+#1655109730
+cd ../../fasta/OrthoFinder/Results_Apr18/Orthogroups/
+#1655109730
+lth
+#1655109735
+les Orthogroups.GeneCount.filter2.tsv
+#1655109745
+conda activate r
+#1655109752
+bash plot_pheatmap.sh Orthogroups.GeneCount.filter2.tsv
+#1655109762
+ln -s Orthogroups.GeneCount.filter2.tsv input.txt
+#1655109764
+bash plot_pheatmap.sh
+#1655109767
+lth
+#1655109770
+sz input.pdf 
+#1655109773
+# Sent -> /Users/liuhui/Desktop/
+#1655112401
+bjl
+#1655112409
+bpeek 75401
+#1655112428
+bjl
+#1655112625
+bpeek 75401
+#1655112627
+lth
+#1655112628
+bjl
+#1655112679
+lth
+#1655112747
+j outgropu
+#1655112751
+j outgroup
+#1655112752
+lt
+#1655112755
+ls *pep |wc -l
+#1655112794
+ll *pep
+#1655112802
+ll
+#1655112809
+grep ">" Aristolochia_fimbriata.cds |wc -l
+#1655112815
+cds2aa.pl Aristolochia_fimbriata.cds > Aristolochia_fimbriata.pep
+#1655112819
+lth
+#1655112823
+les Aristolochia_fimbriata.pep 
+#1655112829
+lth
+#1655112833
+ll *pep |wc -l
+#1655103899
+ssh yi04
+#1655109836
+les Orthogroups.GeneCount.filter2.tsv
+#1655120356
+lth
+#1655120357
+ll
+#1655120362
+mkdir temp
+#1655120364
+cd temp/
+#1655120409
+j fasta0613
+#1655120409
+lt
+#1655120410
+lth
+#1655120365
+rz
+#1655120422
+# Received /Users/liuhui/Desktop/Cannabis_sativa.zip
+#1655120451
+rz
+#1655120460
+# Received /Users/liuhui/Desktop/Carpinus_viminea.genome.gff.gz
+#1655120498
+l
+#1655120498
+ll
+#1655120505
+cd -
+#1655120511
+cd fasta_gff3/
+#1655120512
+lth
+#1655120557
+ll Dipteryx_alata.*
+#1655120559
+head Dipteryx_alata.*
+#1655120568
+grep ">" Dipteryx_alata.cds |wc -l
+#1655120569
+lth
+#1655120577
+cds2aa.pl Dipteryx_alata.cds > Dipteryx_alata.pep
+#1655120585
+cds2aa.pl Eperua_falcata.cds > Eperua_falcata.pep
+#1655120587
+lth
+#1655120599
+rm *fai
+#1655120602
+more tmp 
+#1655120603
+rm tmp 
+#1655120603
+lth
+#1655120612
+uplht Dipteryx_alata.* Eperua_falcata.*
+#1655120651
+for i in Dipteryx_alata.* Eperua_falcata.*; do uplht $i; done
+#1655120754
+ls
+#1655120756
+ls bjl
+#1655120757
+bjl
+#1655120760
+bpeek 75401
+#1655120763
+lth
+#1655120769
+ll Eperua_falcata.*
+#1655120774
+mv Eperua_falcata.cds ../cds/
+#1655120780
+mv Eperua_falcata.pep ../
+#1655120783
+cd ..
+#1655120972
+ll
+#1655120973
+cd ..
+#1655120973
+ll
+#1655120984
+grep ">" Aristolochia_fimbriata.cds |wc -l
+#1655121306
+cd temp/
+#1655121306
+ll
+#1655121313
+for i in *gz; do gzip -d $i; done
+#1655121362
+ll
+#1655121369
+head Begonia_masoniana_*
+#1655121382
+awk '$3=="mRNA"' Begonia_masoniana_Gene.gff |wc -l
+#1655121386
+awk '$3=="gene"' Begonia_masoniana_Gene.gff |wc -l
+#1655121387
+lth
+#1655121393
+mv Begonia_masoniana_Gene.gff Begonia_masoniana.gff
+#1655121398
+mv Begonia_masoniana_scaffold.fa Begonia_masoniana.fa
+#1655121399
+ll
+#1655121405
+head Carpinus_viminea.genome.*
+#1655121408
+head -1 Carpinus_viminea.genome.*
+#1655121414
+head Carpinus_viminea.genome.gff
+#1655121422
+awk '$3=="gene"' Carpinus_viminea.genome.gff |wc -l
+#1655121426
+awk '$3=="mRNA"' Carpinus_viminea.genome.gff |wc -l
+#1655121436
+longest_transcript_from_gff.py Carpinus_viminea.genome.gff &
+#1655121436
+lth
+#1655121441
+unzip Cannabis_sativa.zip 
+#1655121584
+cat ncbi_dataset/data/GCF_900626175.2/*fna > Cannabis_sativa.fa
+#1655121602
+cp ncbi_dataset/data/GCF_900626175.2/genomic.gff Cannabis_sativa.gff3
+#1655121622
+ll
+#1655121636
+les Cannabis_sativa.gff3
+#1655121646
+longest_transcript_from_gff.py Cannabis_sativa.gff3 &
+#1655121647
+lt
+#1655121665
+Carpinus_viminea.genome.gff.longest Carpinus_viminea.gff3
+#1655121667
+mv Carpinus_viminea.genome.gff.longest Carpinus_viminea.gff3
+#1655121668
+lt
+#1655121671
+les Carpinus_viminea.gff3 
+#1655121682
+mv Carpinus_viminea.genome.fasta Carpinus_viminea.fa
+#1655121683
+lt
+#1655121691
+rm -r ncbi_dataset/ Cannabis_sativa.zip 
+#1655121693
+lt
+#1655121792
+j outgroup
+#1655121793
+lth
+#1655121824
+les temp/Cannabis_sativa.gff3
+#1655121709
+vi Cannabis_sativa.fa
+#1655121840
+lth
+#1655121849
+mv Cannabis_sativa.gff3.longest Cannabis_sativa.gff3 
+#1655121851
+rm Cannabis_sativa.gff3.longest_gene
+#1655121852
+ll
+#1655121859
+rm les Carpinus_viminea.genome.gff
+#1655121864
+ll
+#1655121866
+rm Carpinus_viminea.genome.gff.longest_gene
+#1655121867
+ll
+#1655121872
+les Begonia_masoniana.gff 
+#1655121880
+mv Begonia_masoniana.gff Begonia_masoniana.gff3
+#1655121881
+ll
+#1655121913
+add_suffix.pl *.gff3 *.fa
+#1655121967
+for i in *new ; do mv ${i} ${i%.new}; done
+#1655121969
+ll
+#1655121979
+for i in *.gff3; do p=${i%.gff3}; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3; done
+#1655122006
+lt
+#1655122008
+rm *fai
+#1655122018
+for i in *cds; do cds2aa.pl $i > ${i%.cds}.pep; done
+#1655122031
+ll
+#1655122037
+lt
+#1655122039
+ll
+#1655122042
+head -1 *
+#1655122062
+lth
+#1655122065
+ll
+#1655122080
+mv * ../
+#1655122081
+cd ..
+#1655122083
+rmdir temp/
+#1655122085
+more README.md 
+#1655122087
+rm README.md 
+#1655122088
+lt
+#1655122153
+ll
+#1655122282
+ls *cds |wc -l
+#1655122295
+ls
+#1655122671
+expr 56 + 10 + 8
+#1655123249
+mmseqs -h
+#1655123255
+vw
+#1655123260
+lth
+#1655123263
+cd ../..
+#1655123263
+ls
+#1655123268
+cd 04.triangle_localization/
+#1655123268
+ls
+#1655123285
+cd all_blast/
+#1655123286
+ls
+#1655123297
+ll Medicago_truncatula.Vitis_vinifera.blast
+#1655123301
+cd ../work.Medicago_truncatula.Vitis_vinifera/
+#1655123301
+ll
+#1655123304
+vk
+#1655123323
+j orthogroup
+#1655123323
+lt
+#1655123328
+vi filter_group.pl 
+#1655123337
+mv filter_group.pl filter_OrthoFinder_group.pl
+#1655123341
+mv filter_OrthoFinder_group.pl $HB/
+#1655123342
+gtp

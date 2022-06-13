@@ -1,15 +1,9 @@
-1. Assemblying ZR's RNA-Seq:  /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq
-2. Refining plot-ks pipeline: /nfs/liuhui/projects/phyleg/wgd_rnaseq/01.assemble/RNAseq/super_transcript/cds_peps/work.Abrus_precatorius.Angylocalyx_braunii_Pap . Finished! Now running RNA vs genome RNA vs. RNA in /nfs/liuhui/yi03
-3. PostRepeatMask and run braker annotation:    /nfs/liuhui/projects/phyleg/new_genome_0531
-4. RepeatMask on Astragalus and Meliloti: /nfs/liuhui/projects/phyleg/repeat_mask
+check Last orthofinder run
+1. remove recent polyploid species: Glycine, Lupinus
+    1-50
+    remove 20,21,25,26
+    cut -f1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,22,23,24,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50
 
-Tue Jun  7 15:10:34 CST 2022
+/nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/work.Medicago_truncatula.Vitis_vinifera
 
-尝试适合垃圾基因组的Ortholog/Paralog鉴定方法
-
-/nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/Orthologues/Orthologues_Pisum_sativum
-
-/nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/Orthogroups
-#直接从orthogroups里扒出paralog。效果不太好
-
-Fri Jun 10 16:06:56 CST 2022
+Mon Jun 13 15:03:53 CST 2022
