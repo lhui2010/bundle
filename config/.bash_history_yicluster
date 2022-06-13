@@ -72681,3 +72681,1309 @@ mv filter_group.pl filter_OrthoFinder_group.pl
 mv filter_OrthoFinder_group.pl $HB/
 #1655123342
 gtp
+#1655123348
+gtps
+#1655123354
+lth
+#1655123428
+ll
+#1655123436
+mmseqs createdb Medicago_truncatula.pep mtrunDB
+#1655123486
+mmseqs createindex mtrunDB tmp
+#1655123527
+mmseqs createdb Vitis_vinifera.pep VvinDB
+#1655123566
+mmseqs search VvinDB mtrunDB resultDB tmp
+#1655123731
+mmseqs convertalis VvinDB mtrunDB resultDB resultDB.m8
+#1655123746
+les resultDB.m8 
+#1655123784
+grep VIT_217s0000g05970.1_Vivin      resultDB.m8 |grep mRNA_MtrunA17Chr3g0077371_Metru
+#1655124108
+vi /nfs/liuhui/bin/bundle/executables/#/usr/bin/perl badirate-1.35/BadiRate.pl -treefile cafe.timetree.txt -sizefile badirate_orthogroups/OG0000044.tsv -anc -out badirate_orthogroups/OG0000044.tsv.bd
+#1655124108
+## a little program to extract orthologs from a homologs file
+#1655124108
+## using the reciprocal best hits definition
+#1655124108
+## an example line is printed when no arguments are given
+#1655124108
+use strict;
+#1655124108
+use Getopt::Long;
+#1655124109
+use Pod::Text;
+#1655124109
+# to make temporary files/directories
+#1655124109
+use File::Temp qw( tempfile tempdir );
+#1655124109
+use sigtrap qw(handler signalHandler normal-signals);
+#1655124109
+my $columns = qx(tput cols);
+#1655124109
+chomp($columns);
+#1655124109
+my $width = $columns >= 100 ? 80 : $columns - 3;
+#1655124109
+my $parser = Pod::Text->new (sentence => 0, width => $width, margin => 1);
+#1655124109
+my $ownName = $0;
+#1655124109
+$ownName =~ s{.*/}{};
+#1655124109
+my $system = qx(uname -s);
+#1655124109
+chomp($system);
+#1655124109
+my %url = (
+#1655124109
+    "blastp"  => 'ftp://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/',
+#1655124109
+    "diamond" => 'https://github.com/bbuchfink/diamond/releases',
+#1655124109
+    "mmseqs"  => 'https://github.com/soedinglab/MMseqs2/releases',
+#1655124109
+    "lastal"  => 'http://last.cbrc.jp/',
+#1655124109
+);
+#1655124109
+my @pwProgs = sort keys %url;
+#1655124109
+my $matchProg = join("|",@pwProgs);
+#1655124109
+my ($refavailable,$refmissing,$missMsg) = checkSoftware();
+#1655124109
+###### defaults, etc
+#1655124109
+my $cov1       = 30;
+#1655124109
+my $cov2       = 99;
+#1655124109
+my $defCov     = 60;
+#1655124109
+my $defAln     = "F";
+#1655124109
+my $defPW      = 'diamond';
+#1655124109
+my $minmmseqs  = 1;
+#1655124109
+my $maxmmseqs  = 7;
+#1655124109
+my $diamondS   = 'V';
+#1655124109
+my $diamondSl  = 'very-sensitive';
+#1655124109
+my $mmseqsS    = '5.7';
+#1655124109
+my $diamonV    = "2.0.2";
+#1655124109
+my $defCPU     = 4;
+#1655124109
+###### assignable:
+#1655124109
+my @queries    = ();
+#1655124109
+my @against    = ();
+#1655124109
+my $faaDir     = '';
+#1655124109
+my $rbhDir     = "RBH";
+#1655124109
+my $minCov     = $defCov;
+#1655124109
+my $maxOverlap = 0.1; # maximum overlap in fused proteins/genes
+#1655124109
+my $maxEvalue  = 1e-6;
+#1655124109
+my $alnSeqs    = $defAln;
+#1655124109
+my $pwProg     = $defPW;
+#1655124109
+my $pwDir      = "compRuns";
+#1655124109
+my $sensitive  = '';
+#1655124110
+my $runRBH     = "T";
+#1655124110
+my $keepold    = 'T';
+#1655124110
+my $topMatch   = 0;
+#1655124110
+my $minTop     = 1; # 30 was enough for lastal in one example
+#1655124110
+my $matchRatio = 7;
+#1655124110
+my $lengthsort = 'F';
+#1655124110
+my $logtime    = 'F';
+#1655124110
+### check if there's more than one processor or assume there's $defCPU.
+#1655124110
+my $cpu_count
+#1655124110
+    = qx(getconf _NPROCESSORS_ONLN 2>/dev/null)
+#1655124110
+    =~ m{\s*(\d+)\s*}                 ? $1
+#1655124110
+    : qx(sysctl -a 2>/dev/null | grep 'cpu.thread_count')
+#1655124110
+    =~ m{\.cpu\.thread_count:\s+(\d+)} ? $1
+#1655124110
+    : qx(sysctl -a 2>/dev/null | grep 'max-threads')
+#1655124110
+    =~ m{\.max-threads\s+=\s+(\d+)}    ? $1
+#1655124110
+    : $defCPU;
+#1655124110
+my $cpus = $cpu_count >= $defCPU ? $defCPU : 2;
+#1655124110
+my $podUsage
+#1655124110
+    = qq(=pod\n\n)
+#1655124110
+    . qq(=head1 NAME\n\n)
+#1655124110
+    . qq($ownName - compare proteomes and extract reciprocal best hits\n\n)
+#1655124110
+    . qq(=head1 SYNOPSIS\n\n)
+#1655124110
+    . qq($ownName -q [filename1.faa] -t [filename2.faa] [options]\n\n)
+#1655124110
+    . qq(=head1 EXAMPLES\n\n)
+#1655124110
+    . qq($ownName -q Genomes/GCF_000005845.faa.gz -t Genomes/GCF_000009045.faa.gz\n\n)
+#1655124110
+    . qq($ownName -d Genomes -o AllvsAllRBH\n\n)
+#1655124110
+    . qq(=head1 OPTIONS\n\n)
+#1655124110
+    . qq(=over\n\n)
+#1655124110
+    . qq(=item B<-q>\n\n)
+#1655124110
+    . qq(query fasta file(s) or directory with fasta files, required.\n)
+#1655124110
+    . qq(files can be compressed with gzip or bzip2.\n\n)
+#1655124110
+    . qq(=item B<-t>\n\n)
+#1655124110
+    . qq(target fasta file(s) or directory with fasta files, required.\n)
+#1655124110
+    . qq(files can be compressed with gzip or bzip2.\n\n)
+#1655124110
+    . qq(=item B<-d>\n\n)
+#1655124110
+    . qq(directory with fasta files for all-vs-all comparisons, no default.\n)
+#1655124110
+    . qq(If set -q and -t will be ignored.\n\n)
+#1655124110
+    . qq(=item B<-o>\n\n)
+#1655124110
+    . qq(directory for reciprocal best hits, default: RBH.\n\n)
+#1655124110
+    . qq(=item B<-p>\n\n)
+#1655124110
+    . qq(program for pairwise comparisons [$matchProg], default: $defPW\n\n)
+#1655124110
+    . qq(=item B<-s>\n\n)
+#1655124110
+    . qq(sensitivity (only works for diamond and mmseqs):\n\n)
+#1655124110
+    . qq(=over\n\n)
+#1655124110
+    . qq(=item B<F:>\n\nlow sensitivity: diamond: fast, mmseqs: -s 1\n\n)
+#1655124110
+    . qq(=item B<S:>\n\ndiamond: sensitive, mmseqs: -s 2\n\n)
+#1655124110
+    . qq(=item B<M:>\n\ndiamond: more-sensitive, mmseqs: -s 4\n\n)
+#1655124110
+    . qq(=item B<V:>\n\ndiamond: very-sensitive, mmseqs: -s 5.7\n\n)
+#1655124110
+    . qq(=item B<U:>\n\nhighest sensitivity: diamond: ultra-sensitive, mmseqs: -s $maxmmseqs\n\n)
+#1655124110
+    . qq(=back\n\n)
+#1655124110
+    . qq(for mmseqs the option will also accept numbers between $minmmseqs and $maxmmseqs,\n)
+#1655124110
+    . qq(defaults: diamond: $diamondS; mmseqs: $mmseqsS\n\n)
+#1655124110
+    . qq(=item B<-m>\n\n)
+#1655124110
+    . qq(directory for $matchProg results, default compRuns.\n\n)
+#1655124110
+    . qq(=item B<-c>\n\n)
+#1655124110
+    . qq(minimum coverage of shortest sequence [$cov1 - $cov2], default $defCov.\n\n)
+#1655124110
+    . qq(=item B<-f>\n\n)
+#1655124110
+    . qq(maximum overlap between fused sequences [0 - 0.5],
+#1655124110
+    . qq((10%)
+#1655124110
+    . qq(=item B<-e>\n\n)
+#1655124110
+    . qq(ma
+#1655124110
+    . qq(=item B<-l>\n\n)
+#1655124110
+    . qq(sor
+#1655124110
+    . qq(=item B<-a>\n\n)
+#1655124111
+    . qq(include aligned se
+#1655124111
+    . qq(=item B<-r>\n\n)
+#1655124111
+  
+#1655124111
+    . qq($matchP
+#1655124111
+    . qq(=item B<-k>\n\n)
+#1655124111
+    . qq(keep prior re
+#1655124111
+    . qq(=over\n\n)
+#1655124111
+    . qq(=item B<F:>\n\nrepeat both alignments and gat
+#1655124111
+    . qq(=item B<
+#1655124111
+    . qq(=back\n\n)
+#1655124111
+ 
+#1655124111
+    . qq(minimum recommend
+#1655124111
+    . qq(sequen
+#1655124111
+    . qq(=i
+#1655124111
+    . qq(=back\n\n)
+#1655124111
+    . qq(=head1 REQUIREMENTS\n\n)
+#1655124111
+    . qq(This prog
+#1655124111
+    . qq(comparison results for the query/target genomes, or\n)
+#1655124111
+ 
+#1655124111
+    . qq(=cut\n\n)
+#1655124111
+    ;
+#1655124111
+if( length($missMsg) > 0 ) {
+#1655124111
+    $podUsa
+#1655124111
+        .= qq(=head1 WARNING\n\n)
+#1655124111
+      
+#1655124111
+  
+#1655124111
+}
+#1655124111
+GetOptions(
+#1655124111
+    "q=s{,}" =
+#1655124111
+    "t=s{,}" => \@against,
+#1655124111
+    "d=s
+    "p=s"    => \$pwProg,
+    "m=s"    => \$pwDir,
+    "s=
+#1655124111
+    "c=f"    => \$mi
+#1655124111
+    "f=f"    => \$ma
+#1655124111
+    "e=f"    => \$ma
+#1655124111
+    "a=s"    => \$al
+#1655124111
+    "r=s"    => \$run
+#1655124111
+    "k=s"    => \$keepold,
+#1655124111
+    "x=i"    => \$c
+#1655124111
+    "l=s"    => \$l
+#1655124111
+    "n=s"    => \$log
+#1655124112
+) or podhelp();
+#1655124112
+if( ;faaDir && (
+#1655124112
+    podhelp();
+#1655124112
+}
+#1655124112
+### c
+#1655124112
+if( $refmissing->{"$pwPro
+    podhelp("$pwPro; }
+#1655124112
+### sorting by 
+#1655124112
+$lengthsort = $lengt
+#1655124112
+print "sorting by fi
+
+### check if workin
+my $allvsall = length($
+if( $allvsall == 0 ) {
+  
+        podhelp("if not -d I need both query and target files")
+    }
+    else {
+     
+        my %qseen = ();
+ 
+        my $qtoFind = @q
+        if( -d $queries[0] &
+            @queries
+        }
+        els
+            @queries 
+        }
+        #
+        my %tseen = ();
+        @against = grep { not $tseen{
+        my $stoFind
+        if( -d $again
+            @against 
+
+        else {
+            @against = findWorkFiles("target",@against);
+        }
+   
+}
+else {
+    if ( -d "$faaDir" ) {
+        if( 
+            @against = @queries;
+        }
+    }
+    else {
+        die "$faaDir doesn't exist or is
+    }
+}
+
+my $pwProg = $pwProg =~ m{^($match
+if( $pwProg eq "lastal" && $alnSeqs eq "T" ) {
+    m
+        = qq($pwProg does not save sequence
+        . qq(t
+        . qq(comparisons, otherwise don't use '
+
+}
+print "wil
+my $dmdmode = '';
+
+    $sensitive = $sensiti
+    $dmdmode
+        = $sensitive eq 'F' ? "fast"
+        : $sensitive eq '
+#1655124112
+        : $sensitive eq 'M' ?
+#1655124112
+        : $sensitive eq 'V' ? "very-sensitive"
+#1655124112
+        : $sensitive eq
+#1655124112
+        : $diamondSl;
+#1655124112
+    pri
+#1655124112
+}
+#1655124112
+my $msmode = '';
+#1655124112
+if( $pwProg eq "mmseqs" ) {
+#1655124112
+    $sensitive
+#1655124112
+        = $sensitive =~ 
+#1655124112
+        : ( $sensitive >= $minmmseqs ) && ( $sen
+#1655124112
+        ? $sensitive
+#1655124112
+       
+#1655124112
+    print "testing 
+    $msmode
+        = $se
+        : $sensitive eq 'S' ? "-s 2"
+        : $sensitive eq 'M' ? "-s 4
+#1655124112
+        : $sensitive eq 'V' ? "-s 5.7"
+#1655124112
+        : $sensiti
+#1655124112
+        : ( $sensitive >=
+#1655124112
+        ? "-s $sensitive"
+#1655124112
+        : "-s $mmseqsS";
+#1655124112
+    print "will run mm
+}
+my $minCov = $minCov >= $cov1 && $minCov <= $cov2 ? $mi
+print "minimum coverage o
+#1655124112
+my $maxOverlap
+#1655124112
+    = $maxOverlap >= 0 && $maxOverlap <= 0.5
+#1655124112
+    ? $maxOverlap 
+#1655124112
+print "maximum overlap for fusions: $maxOverlap
+my $alnSeqs = $alnSeqs =~
+print "include aligned seqs in $pwProg results: $alnSeqs\n";
+my
+    = $cpus > 0 && $cpus 
+    : $cpu_count >= $defCPU ? $defCPU
+    : 1;
+print "uing $cpus cpu threads
+#1655124112
+my $runRBH = $runRBH =~ m
+#1655124112
+if( $runRBH eq 'F' ) {
+#1655124112
+    print "only pairwise comparisons wi
+}
+my $keepold = $ke
+if( $keepold eq 'T' ) {
+    print "will keep all previous results\n";
+}
+e
+    if( $keepold eq 'R' ) {
+        print "will gather RBHs e
+#1655124112
+    }
+#1655124112
+    else {
+#1655124112
+        print "will make sequence comparisons and
+            . " even if prior results exists\n";
+    }
+}
+
+$logtime =
+my $time = '';
+if( $logtime eq 'T' ) {
+    $time = $system eq 'Darwin' ? '/usr/bin/time -p' : 'ti
+}
+
+#### directories
+#### temporary working directory:
+my $tempFolder = tempdir("/tmp/$ownName.XXXXXXXXXXXX");
+
+##
+my @pwHeading = qw(
+                      Query
+            
+                      eVa
+                      bitScore
+                      pident
+     
+                      qEn
+                      qCover
+                      tStart
+                      tEnd
+
+              );
+if( $aln
+    push(@pwHeading,"qSeq","tSeq");
+}
+
+my @rbhHeading = qw(
+              
+                       Ta
+           
+                       bi
+            
+                       qE
+                       qCov
+                       tS
+  
+                
+                       Qu
+               );
+
+###
+##### works for bot
+my @pwTbl = qw(
+                  qseqid
+             
+
+                 
+                  p
+ 
+                  qend
+   
+               
+
+           
+          );
+##### 
+if( $alnSeqs eq "T" ) {
+    if( $
+        push(@pwTb
+    }
+    else {
+        push(@pwTbl,"qseq","sseq");
+    }
+}
+my
+m
+$dmdTbl =~ s{qlen}
+$dmdT
+
+##### table format for mmseq
+my @mmfield
+                     query
+      
+      
+  
+ 
+
+           
+              
+                     tstar
+        
+                     tcov
+             );
+##### ad
+if( $al
+
+}
+my $mmfields = joi
+
+my $blastOptions
+  
+    . qq( -seg yes )
+    . qq( -soft_mask
+    . qq( -comp_based
+    . qq( -num_threads $cp
+
+#    . qq( -parse_d
+
+my $diamondOptions
+    = qq( --evalue $m
+    . qq( --mas
+
+    . qq( --threa
+    . qq( --tm
+ 
+
+    .
+if( $dmdmode =~ m{sensiti
+    $diamondOptions
+}
+
+my $mmseqsOptio
+    = qq( -e $maxEva
+    . qq( --comp-bia
+
+    . qq( --format-
+if( $msmode =~ m{s\s+\d
+    $mmseqsOptions = q
+}
+
+
+#############################################################
+
+#####
+my $saveLo
+my $t
+open( my $LOG,">","$tmp
+#1655124112
+m
+#1655124112
+my $kept     = 0;
+#1655124112
+if( $a;     my $totalfiles = @querie;     my $totalpairs =;     my $c   TARGETA;     while         my $cntTargets ;         my $maxAlns;             = $to;             : sprin;         if( $cntTarge;             $currentr;              pr;             next TARGETAVA;         }
+#1655124112
+        else {
+#1655124112
+   
+#1655124112
+         
+#1655124112
+   
+#1655124112
+ 
+#1655124112
+      
+#1655124112
+                    naked
+#1655124112
+            
+#1655124112
+                if( runPairWise(
+#1655124112
+         
+#1655124112
+     
+#1655124112
+          
+#1655124112
+                    buildNrunRBH("$faaQu
+     
+ 
+
+            if( $kept >= $maxKeep 
+                cleanTMP();
+                $k
+     
+        }
+    }
+    print {$LOG} "\ndone co
+#1655124112
+        ."$tot
+}
+else {
+    my $totalQs = @queries;
+    my $to
+
+ 
+    ##### 
+    ##### each da
+
+    while( my $faaTarget 
+        my $
+        my $maxAlns
+            = $t
+            : sprintf("%.
+#1655124112
+        if( $cntTargets < 1 );             $currentrun += @queries;                       print "  ju
+            next TARG
+       
+ 
+            for 
+                $currentrun
+              
+                    "run;                     nakedName($faaQuery)," vs ",
+#1655124113
+                    
+#1655124113
+       
+#1655124113
+                if(                                           elsif( $runRBH eq 'T
+#1655124113
+                    buildNrunRBH("$
+                }
+            }
+      
+            if( $k
+                cleanTMP(
+                $kept = 0
+            }
+        }
+
+    print {$LOG} "\ndo
+#1655124113
+ 
+#1655124113
+}
+#1655124113
+close($LOG);
+#1655124113
+#### save logfile
+#1655124113
+saveLog();
+#1655124113
+###########
+#1655124113
+######### finish
+#1655124113
+########
+#1655124113
+if( -d "$tempF
+    print "   cleaning up\n";
+    system("rm; }
+#1655124113
+print "      Don
+
+##############################################
+#########################
+############################################################
+
+s
+    my($faaQuery,$faaTarg
+    my $queryGnm  = nakedName($faaQue
+    my $
+    my $pwDB      = $tempFold
+    my $alnFile   = $pwDi
+    print {$LOG} "work
+#1655124113
+    ### check if we have pairwise compa
+#1655124113
+ 
+#1655124113
+    if( -f "$alnF
+        print "we alrea;         print {$LOG} "we already have an alig
+ 
+ 
+    else {
+        print "c;         if( $pwProg eq "blastp" );                          }
+#1655124113
+        elsif( $pwProg eq "diamond" ) {
+#1655124113
+            runDiamond("$faaQuery","$faaTarget",
+#1655124113
+     
+#1655124113
+ 
+#1655124113
+          
+#1655124113
+            re
+#1655124113
+        }
+#1655124113
+        elsif
+#1655124113
+            runLastal("$faaQuery","$faaTarget","$alnFile",
+#1655124113
+ 
+#1655124113
+        else {
+#1655124113
+ 
+#1655124113
+            signalHandler();
+#1655124113
+    
+#1655124113
+    }
+#1655124113
+}
+#1655124113
+sub buildNrunRBH {
+#1655124113
+    my($faaQuery,$faaTarget
+#1655124113
+  
+#1655124113
+    my $pwDB      =
+#1655124113
+    my $alnFile   = $pwDir 
+#1655124113
+    ########
+#1655124113
+    ######### reciprocal 
+#1655124113
+    ##########################
+#1655124113
+    my $qRBHdir  = "$rbhDir/
+    m
+    my $qRBHfile = "$qRBH
+#1655124113
+    my $tRBHfile = "$tRBHdir
+    if( -f "$qRBHfile" && -f
+        print join("\n ","
+#1655124113
+    }
+#1655124113
+    else {
+#1655124113
+        
+#1655124113
+        ## learn top homologs
+#1655124113
+     
+#1655124113
+ 
+#1655124113
+        my %pair_tar
+#1655124113
+        my %pa
+#1655124113
+        my %pair_Evalue =
+#1655124113
+        my 
+#1655124113
+        my %identStats  =
+#1655124113
+        ####
+#1655124113
+        my $calcCover   =
+#1655124113
+        ##### open original
+#1655124113
+        open( my $IN,"-|"
+#1655124113
+  
+#1655124113
+        while(<$;             if( m{^#} ) {
+#1655124113
+                #
+#1655124113
+   
+#1655124114
+                }
+#1655124114
+ 
+#1655124114
+            }
+#1655124114
+ 
+#1655124114
+                $query,$
+#1655124114
+             
+#1655124114
+                $
+#1655124114
+                $qa
+#1655124114
+ 
+#1655124114
+            $query  = 
+#1655124114
+   
+#1655124114
+            ## 
+#1655124114
+           
+#1655124114
+            
+#1655124114
+      
+#1655124114
+            if( ( $qcov;                           my;                                                   $q;                                                           $identSt;                             if( $bitsc;                                                           }
+#1655124114
+        }
+#1655124114
+  
+#1655124114
+        
+#1655124114
+        #### then E value
+#1655124114
+        my @que
+#1655124114
+        
+#1655124114
+       
+#1655124114
+ 
+#1655124114
+                  
+#1655124114
+                
+#1655124114
+  
+#1655124114
+                } ke
+#1655124114
+        for my $pair
+#1655124114
+            push(@que
+#1655124114
+        }
+#1655124114
+        #### now
+#1655124114
+        if( "$query
+
+        }
+        
+            print "  ;             my ;                                                                   |
+#1655124114
+                   
+#1655124114
+ 
+#1655124114
+               
+#1655124114
+                    
+#1655124114
+                ) =
+#1655124114
+                my $opp
+#1655124114
+                      
+#1655124114
+ 
+#1655124114
+                               );
+#1655124114
+                push(@recip
+#1655124114
+     
+#1655124114
+        ##
+#1655124114
+     
+#1655124114
+        ###### making t
+#1655124114
+ 
+#1655124114
+        produceRB
+#1655124114
+      
+#1655124114
+        if( -s "$tmpQuery" );             for my $
+#1655124114
+         
+#1655124114
+           
+#1655124114
+                }
+#1655124114
+   
+#1655124114
+         
+#1655124114
+        }
+#1655124114
+        if( "$queryGnm";             my $tmp;             produ;                                 if( -s "$
+                for m
+
+              
+                    }
+     
+         
+            }
+
+   
+}
+
+sub pr
+   
+ 
+    my
+    my %query_bitsc     =
+    my %quer
+    my %init_target     = ();
+  
+    my %p
+    f
+        my
+             $evalue,$bit_score,
+       
+     
+ 
+
+        my $print_line = join("\t"
+                           
+                  
+     
+         
+     
+        if( length($query_b
+            if
+ 
+      
+                $init_targe
+          
+
+ 
+        el
+            $quer
+
+            $init_target{
+            
+            $query_
+            $que
+        }
+    }
+    #####
+    my %target_best_hits = ()
+    my %target_bitsc     = ();
+    m
+    for m
+        my ( $query,$ta
+             $evalue,
+       
+ 
+         ) = spl
+        my $pair = join("\t;         if( le;             if( $target_;                 $target_best_hits{"$query"} .= "
+            }
+      
+       
+            $target
+           
+            $
+        }
+    }
+    #####
+    my %or
+    my %share_this_hit = ();
+    ##
+    ##### best hi
+    my @queri
+      
+            || $qu
+            || $a <=> $b
+
+        } keys(%query_bes
+    ##### now
+    for m
+
+            for my $ta
+ 
+ 
+            
+                i
+          
+           
+                
+        
+              
+                    $share_th
+              
+ 
+        }
+    }
+
+
+    open( my $ORTHS,"|-","bzip2 -9 >$tmpFile" 
+    print {$ORTHS} "#",jo
+    ###### print reciprocal best hits, and fusions:
+    for 
+
+ 
+            #### print re
+            my $pair = join("\t",$que
+        
+                = exists $rid
+                ? "Identi;                 : "RBH
+            print {$ORTHS} join("\t",$p
+ 
+            ### f
+            ### other q
+            ### hit, but not reciprocal
+     
+ 
+ 
+          
+                
+            my $rbh_coords = join
+     
+          
+         
+                my $fpair = join("\t",$
+                #print $print_line{"$fpair"},"\n;                                                                               my($cover_start,$cover_end) = split(/:
+#1655124114
+ 
+#1655124114
+              
+#1655124114
+ 
+#1655124114
+                    my $min_
+#1655124114
+    
+#1655124115
+     
+#1655124115
+ 
+#1655124115
+                  
+#1655124115
+                    if( $ov;                                                      my $new_c;                 push(@coords,$
+#1655124115
+                if( $q_start;                               $;                         ,"\t
+                    $printed
+                }
+        
+
+     
+          
+        
+                }
+           
+     
+ 
+
+    ### rename resul
+    ### erase 
+    rename($tmpFile,$outF
+    if( -z 
+        print "   found n;         unli;     }
+#1655124115
+}
+#1655124115
+sub nakedName {
+#1655124115
+    my $outName = $inName;
+#1655124115
+    $outName =~ s{\.(Z|gz
+#1655124115
+  
+#1655124115
+    $outName =~ 
+#1655124115
+    if( length($outName) 
+#1655124115
+        return("$
+
+   
+        print "th
+#1655124115
+ 
+#1655124115
+    }
+#1655124115
+}
+#1655124115
+sub 
+#1655124115
+ 
+#1655124115
+    my $outName = nakedN
+#1655124115
+    if( lengt;      }
+#1655124115
+    else {
+#1655124115
+        return();
+#1655124115
+ 
+#1655124115
+}
+#1655124115
+sub signalHandler {
+#1655124115
+ 
+#1655124115
+   
+#1655124115
+        print "
+
+    }
+    e
+        prin
+    }
+
+}
+
+sub how2open {
+    m
+    $root
+    my $fullName
+ 
+     
+        : 
+        : ( -f "$rootName" )     ? 
+     
+ 
+  
+ 
+        : "cat";
+ 
+     
+
+    else {
+        return("$
+#1655124115
+    }
+#1655124115
+}
+#1655124115
+su
+#1655124132
+vi ~/.bash_history
+#1655124146
+vk
+#1655124151
+cd /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/work.Medicago_truncatula.Vitis_vinifera/
+#1655124151
+ls
+#1655124156
+wget https://raw.githubusercontent.com/Computational-conSequences/SequenceTools/master/getRBH.pl
+#1655124162
+mv getRBH.pl /nfs/liuhui/bin/bundle/executables/
+#1655124168
+chmod +x /nfs/liuhui/bin/bundle/executables/getRBH.pl 
+#1655124169
+getRBH.pl 
+#1655124220
+lth
+#1655124229
+rm \$*
+#1655124229
+lth
+#1655124235
+rm \, @against\, \=
+#1655124235
+lth
+#1655124243
+ls
+#1655124259
+nohup getRBH.pl -p mmseqs -q Vitis_vinifera.pep -t Medicago_truncatula.pep  &
+#1655124260
+lth
+#1655124262
+les nohup.out 
+#1655124265
+fg
+#1655124275
+getRBH.pl -h
+#1655124321
+nohup getRBH.pl -p mmseqs -q Vitis_vinifera.pep -t Medicago_truncatula.pep -o Vitis_vinifera.pep.Medicago_truncatula.pep.RBH &
+#1655124325
+vw
+#1655124471
+mmseqs 
+#1655124475
+mmseqs search
+#1655124485
+obs
+#1655124487
+jobs
+#1655124488
+lth
+#1655124491
+les nohup.out 
+#1655124503
+lt
+#1655124504
+lth
+#1655124507
+cd compRuns/
+#1655124507
+lt
+#1655124509
+cd -
+#1655124509
+lt
+#1655124511
+bjl
+#1655124512
+lth
+#1655124572
+tail nohup.out 
+#1655124575
+top
+#1655124583
+getRBH.pl -h
+#1655124602
+jobs
+#1655124603
+fg
+#1655124604
+lth
+#1655124610
+rm -r nohup.out compRuns/
+#1655124616
+nohup getRBH.pl -x 24 -p mmseqs -q Vitis_vinifera.pep -t Medicago_truncatula.pep -o Vitis_vinifera.pep.Medicago_truncatula.pep.RBH &
+#1655124618
+lt
+#1655124620
+lth
+#1655124622
+vw

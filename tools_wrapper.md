@@ -642,3 +642,20 @@ do
     braker.pl -gff3 --cores=${THREADS} --genome=${GENOME} --prot_seq=$PEP --softmasking --workingdir braker_${GENOME}
 done
 ```
+
+#### mmseqs
+
+mmseqs createdb examples/QUERY.fasta queryDB
+mmseqs createdb examples/DB.fasta targetDB
+
+mmseqs createindex targetDB tmp
+
+# this tmp should be located on local drive to increase speed
+mkdir tmp
+
+mmseqs search queryDB targetDB resultDB tmp
+
+mmseqs convertalis queryDB targetDB resultDB resultDB.m8
+
+#### getrbh
+$nohup getRBH.pl -x 24 -p mmseqs -q Vitis_vinifera.pep -t Medicago_truncatula.pep -o Vitis_vinifera.pep.Medicago_truncatula.pep.RBH &
