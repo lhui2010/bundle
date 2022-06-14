@@ -73987,3 +73987,947 @@ lt
 lth
 #1655124622
 vw
+#1655124632
+gtps
+#1655124648
+lth
+#1655124651
+les resultDB.m8 
+#1655124743
+tt resultDB.m8 
+#1655124757
+sort -k2,2 -k12,12nr resultDB.m8 > resultDB.m8.revsort &
+#1655124759
+lht
+#1655124760
+top
+#1655124776
+lth
+#1655124791
+first_only.pl resultDB.m8 > query_best.txt &
+#1655124792
+lth
+#1655124794
+les query_best.txt 
+#1655124799
+lth
+#1655124800
+jobs
+#1655124801
+lth
+#1655124820
+lt
+#1655124822
+lth
+#1655124826
+jobs
+#1655124838
+les query_best.txt 
+#1655124882
+j trian
+#1655124883
+lth
+#1655124888
+cd work.Medicago_truncatula.Vitis_vinifera/
+#1655124888
+ls
+#1655124895
+grep mRNA_MtrunA17Chr5g0448621_Metru *.anchors
+#1655124853
+les resultDB.m8
+#1655125155
+grep mRNA_MtrunA17Chr5g0448621_Metru resultDB.m8.revsort 
+#1655125166
+ll
+#1655125168
+lth
+#1655125173
+grep ">" Vitis_vinifera.cds |wc -l
+#1655125181
+vk
+#1655125276
+les resultDB.m8
+#1655125283
+lt
+#1655125284
+lth
+#1655125288
+cd compRuns/
+#1655125288
+lt
+#1655125290
+cd Vitis_vinifera.pep/
+#1655125290
+lt
+#1655125293
+cd -
+#1655125294
+lt
+#1655125295
+cd .
+#1655125296
+lt
+#1655125297
+cd ..
+#1655125297
+lt
+#1655125299
+lt |head
+#1655125304
+les query_best.txt 
+#1655125311
+les nohup.out 
+#1655125316
+les compRuns/Logs/Vitis_vinifera.pep.log 
+#1655125335
+lt
+#1655125337
+lt |head
+#1655125348
+d Vitis_vinifera.pep.Medicago_truncatula.pep.RBH/
+#1655125348
+lt
+#1655125350
+cd Vitis_vinifera.pep.Medicago_truncatula.pep.RBH/
+#1655125350
+lt
+#1655125354
+ls Vitis_vinifera.pep/
+#1655125359
+les Vitis_vinifera.pep/Medicago_truncatula.pep.rbh.bz2 
+#1655125370
+les Medicago_truncatula.pep/Vitis_vinifera.pep.rbh.bz2 
+#1655125382
+vw
+#1655125383
+vk
+#1655125387
+les Medicago_truncatula.pep/Vitis_vinifera.pep.rbh.bz2 
+#1655125396
+lt
+#1655125402
+for i in */*; do ln -s $i; done
+#1655125403
+ll
+#1655125406
+bzip2 -d *gz2
+#1655125408
+bzip2 -d *bz2
+#1655125415
+for i in *bz2; do bzip2 -d $i; done
+#1655125418
+for i in *bz2; do bzip2  $i; done
+#1655125423
+man bzip2
+#1655125431
+for i in *bz2; do bunzip2  $i; done
+#1655125436
+vi *bz2
+#1655125454
+wc -l *bz2
+#1655125461
+vi *bz2
+#1655125479
+vi `which getRBH.pl `
+#1655125493
+ll
+#1655125498
+bzip2 -qd Medicago_truncatula.pep.rbh.bz2
+#1655125499
+lt
+#1655125502
+lt */
+#1655125509
+vi *bz2
+#1655125517
+jobs
+#1655125518
+lt
+#1655125528
+cat Medicago_truncatula.pep.rbh.bz2 > Medicago_truncatula.pep.rbh
+#1655125530
+vi Medicago_truncatula.pep.rbh.bz2
+#1655125533
+vi Medicago_truncatula.pep.rbh
+#1655125536
+rm Medicago_truncatula.pep.rbh
+#1655125542
+man bzip2
+#1655125557
+bunzip2 *
+#1655125559
+ls
+#1655125562
+cd Medicago_truncatula.pep/
+#1655125563
+ll
+#1655125568
+bunzip2 Vitis_vinifera.pep.rbh.bz2 
+#1655125569
+ll
+#1655125572
+vw
+#1655125579
+vk
+#1655125585
+grep VIT_203s0038g03710.2_Vivin *rbh
+#1655125587
+vk
+#1655125592
+grep VIT_218s0122g01290.1_Vivin *rbh
+#1655125647
+vf ..
+#1655125649
+cd ..
+#1655125649
+ls
+#1655125651
+cd ..
+#1655125652
+ls
+#1655125659
+lth
+#1655125706
+grep -v  "mRNA_MtrunA17Chr3g0143921_Metru\|VIT_218s0122g01290.1_Vivin" resultDB.m8.revsort > resultDB.m8.revsort.filter &
+#1655125718
+grep -v  "mRNA_MtrunA17Chr3g0143921_Metru\|VIT_218s0122g01290.1_Vivin" resultDB.m8 > resultDB.m8.filter &
+#1655125719
+logsh
+#1655125740
+first_only.pl resultDB.m8.filter > resultDB.m8.filter.first &
+#1655125750
+first_only.pl 1 resultDB.m8.revsort.filter > resultDB.m8.revsort.filter.first &
+#1655125751
+lth
+#1655125764
+grep mRNA_MtrunA17Chr5g0448621_Metru resultDB.m8.filter.first
+#1655125789
+grep mRNA_MtrunA17Chr5g0448621_Metru resultDB.m8.revsort.filter.first
+#1655126203
+more /Users/liuhui/Downloads/分析结果/NIN.pep 
+#1655126611
+grep lthmRNA_MtrunA17Chr5g0448621_Metru *.anchors
+#1655126613
+lth
+#1655126621
+ll compRuns/
+#1655126623
+ll compRuns/Vitis_vinifera.pep/
+#1655126628
+les compRuns/Vitis_vinifera.pep/*bz2
+#1655127001
+ll
+#1655126698
+vk
+#1655127009
+j outgroups
+#1655127013
+ls
+#1655127019
+ln -s ../Medicago_truncatula.pep 
+#1655127019
+ll
+#1655127045
+getRBH.pl -h
+#1655127075
+ll
+#1655127084
+ll ../work.Medicago_truncatula.Vitis_vinifera/compRuns/
+#1655127115
+lt ../work.Medicago_truncatula.Vitis_vinifera/ |head
+#1655127124
+lt ../work.Medicago_truncatula.Vitis_vinifera/Vitis_vinifera.pep.Medicago_truncatula.pep.RBH/
+#1655127127
+lt ../work.Medicago_truncatula.Vitis_vinifera/Vitis_vinifera.pep.Medicago_truncatula.pep.RBH/Vitis_vinifera.pep
+#1655127163
+lt ../work.Medicago_truncatula.Vitis_vinifera/compRuns/
+#1655127165
+lt ../work.Medicago_truncatula.Vitis_vinifera/compRuns/Vitis_vinifera.pep/
+#1655127193
+ls
+#1655127309
+cd ..
+#1655127314
+cd -
+#1655127319
+mkdir rbh
+#1655127322
+cd rbh/
+#1655127325
+downlht /ds3200_1/users_root/yitingshuang/lh/fasta0613/*pep
+#1655127368
+ls
+#1655127376
+vi run.sh
+#1655127389
+ls *pep |wc -l
+#1655127392
+vi run.sh 
+#1655127399
+bhosts 
+#1655127401
+lsload
+#1655127403
+bjl
+#1655127408
+vi run.sh 
+#1655127416
+bsub512 -n 24 -J mmseqs2 < run.sh 
+#1655127417
+logsh
+#1655127421
+lth
+#1655127425
+vi run.sh 
+#1655127435
+lth
+#1655127436
+bjl
+#1655127440
+lsload
+#1655127441
+bjl
+#1655127443
+lt
+#1655127444
+lth
+#1655127449
+bjl
+#1655127453
+bpeek 75420
+#1655127473
+lth
+#1655127474
+bjl
+#1655127482
+vk 
+#1655127506
+lth
+#1655127509
+bjl
+#1655127558
+lth
+#1655127559
+cd ..
+#1655127560
+lth
+#1655127563
+j work
+#1655127565
+cd -
+#1655127569
+cd ../work.Medicago_truncatula.Vitis_vinifera/
+#1655127569
+lt
+#1655127571
+lth
+#1655127587
+ls Vitis_vinifera.pep.Medicago_truncatula.pep.RBH/
+#1655127591
+ls Vitis_vinifera.pep.Medicago_truncatula.pep.RBH/Vitis_vinifera.pep
+#1655127603
+cd Vitis_vinifera.pep.Medicago_truncatula.pep.RBH/Medicago_truncatula.pep
+#1655127603
+ll
+#1655127607
+wc -l *rbh
+#1655127610
+cd ../Vitis_vinifera.pep/
+#1655127614
+bunzip2 Medicago_truncatula.pep.rbh.bz2 
+#1655127616
+wc -l Medicago_truncatula.pep.rbh 
+#1655127623
+les Medicago_truncatula.pep.rbh 
+#1655127674
+cd ..
+#1655127679
+grep mRNA_MtrunA17Chr5g0448621_Metru  */*.rbh
+#1655127682
+vk
+#1655127688
+grep */*.rbh
+#1655127692
+grep VIT_203s0038g03710.2_Vivin */*.rbh
+#1655127693
+vk
+#1655127698
+grep VIT_218s0122g01290.1_Vivin */*.rbh
+#1655127754
+les ../*mmseqs2
+#1655127757
+les ../*m9
+#1655127759
+les ../*m8
+#1655127782
+head Medicago_truncatula.pep/Vitis_vinifera.pep.rbh
+#1655127796
+lth
+#1655127799
+awk '$11=="RBH"' VIT_218s0122g01290.1_Vivin Vitis_vinifera.pep/Medicago_truncatula.pep.rbh |cut -f1,2 > ../first_rbh.txt
+#1655127800
+cd ..
+#1655127801
+lth
+#1655127804
+cd -
+#1655127813
+awk '$11=="RBH"'  Vitis_vinifera.pep/Medicago_truncatula.pep.rbh |cut -f1,2 > ../first_rbh.txt
+#1655127814
+cd ..
+#1655127815
+lth
+#1655127817
+vi first_rbh.txt 
+#1655127846
+selectItem.pl 0,1 0,1 first_rbh.txt resultDB.m8 > resultDB.m8.prune_round_one
+#1655127857
+unselectItem.pl 0,1 0,1 first_rbh.txt resultDB.m8 > resultDB.m8.prune_round_one
+#1655127863
+vi `which unselectItem.pl`
+#1655127872
+cp `which unselectItem.pl` .
+#1655127874
+vi unselectItem.pl 
+#1655127943
+perl unselectItem.pl first_rbh.txt resultDB.m8 > resultDB.m8.prune_round_one
+#1655127962
+lth
+#1655127976
+perl unselectItem.pl first_rbh.txt resultDB.m8.revsort > resultDB.m8.revsort.prune_round_one
+#1655127985
+lth
+#1655127995
+les resultDB.m8.prune_round_one
+#1655128006
+first_only.pl resultDB.m8.prune_round_one > resultDB.m8.prune_round_one.first
+#1655128019
+first_only.pl 1 resultDB.m8.revsort.prune_round_one > resultDB.m8.revsort.prune_round_one.first
+#1655128048
+cut -f1,2  resultDB.m8.prune_round_one.first resultDB.m8.revsort.prune_round_one.first |sort |uniq -c > resultDB.m8.prune_round_one.first.cross
+#1655128052
+les resultDB.m8.prune_round_one.first.cross 
+#1655128068
+cut -f1,2  resultDB.m8.prune_round_one.first resultDB.m8.revsort.prune_round_one.first |sort |uniq -c |grep " 2 " > resultDB.m8.prune_round_one.first.cross
+#1655128070
+les resultDB.m8.prune_round_one.first.cross 
+#1655128090
+grep mRNA_MtrunA17Chr5g0448621_Metru  *first
+#1655128121
+les resultDB.m8.prune_round_one.first
+#1655128133
+vi unselectItem.pl 
+#1655128136
+lth
+#1655128140
+vi first_rbh.txt 
+#1655128156
+sort  first_rbh.txt  |uniq > first_rbh.txt.uniq
+#1655128170
+grep -vf first_rbh.txt.uniq resultDB.m8 > resultDB.m8.prune_round_one &
+#1655128191
+grep -vf first_rbh.txt.uniq resultDB.m8.revsort > resultDB.m8.revsort.prune_round_one &
+#1655128192
+lth
+#1655128198
+jobs
+#1655128199
+fg
+#1655128209
+unselectItem.pl 0 0,1 first_rbh.txt resultDB.m8 > resultDB.m8.prune_round_one
+#1655128223
+vi `which unselectItem.pl`
+#1655128231
+vi `which selectItem.pl`
+#1655128290
+unselectItem.pl 0 0 first_rbh.txt resultDB.m8 > resultDB.m8.prune_round_one.intermediate && unselectItem.pl 0 1 first_rbh.txt resultDB.m8.prune_round_one.intermediate > resultDB.m8.prune_round_one
+#1655128301
+bg
+#1655128303
+logsh
+#1655128310
+unselectItem.pl 0 0 first_rbh.txt resultDB.m8 > resultDB.m8.prune_round_one.intermediate && unselectItem.pl 0 1 first_rbh.txt resultDB.m8.prune_round_one.intermediate > resultDB.m8.prune_round_one &
+#1655128311
+vi shell 
+#1655128338
+unselectItem.pl 0 0 first_rbh.txt resultDB.m8.revsort > resultDB.m8.revsort.prune_round_one.intermediate && unselectItem.pl 0 1 first_rbh.txt resultDB.m8.revsort.prune_round_one.intermediate > resultDB.m8.revsort.prune_round_one &
+#1655128339
+logsh
+#1655128342
+lth
+#1655128356
+first_only.pl resultDB.m8.prune_round_one > resultDB.m8.prune_round_one.first
+#1655128360
+lth
+#1655128365
+first_only.pl 1 resultDB.m8.revsort.prune_round_one > resultDB.m8.revsort.prune_round_one.first
+#1655128369
+lth
+#1655128385
+cut -f1,2  resultDB.m8.prune_round_one.first resultDB.m8.revsort.prune_round_one.first |sort |uniq -c |grep " 2 " > resultDB.m8.prune_round_one.first.cross
+#1655128391
+grep mRNA_MtrunA17Chr5g0448621_Metru  *cross
+#1655128396
+wc -l *cross
+#1655127959
+top
+#1655128398
+top
+#1655167607
+bjl
+#1655167630
+bhosts 
+#1655167634
+lsload
+#1655167646
+ls
+#1655167652
+j fasta_
+#1655167655
+cd ..
+#1655167656
+vw
+#1655167664
+ls
+#1655167699
+which tolht
+#1655167726
+vc
+#1655167828
+top
+#1655167952
+rsync -Pa yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:/ds3200_1/users_root/yitingshuang/lh/fasta0613/ /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655168986
+lsload
+#1655167639
+ssh yi03
+#1655169659
+j outgroups
+#1655169660
+lt
+#1655169681
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/genome/nf_genomes/Datisca_glomerata.*
+#1655169777
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/nitrogen_fixation/genome/nf_genomes/Parasponia_andersonii.*
+#1655170217
+lt
+#1655170218
+lth
+#1655170227
+mv Morella_rubra_v2.gz Morella_rubra.gff3.gz
+#1655170234
+mv Morella_rubra_genome_v2.gz Morella_rubra.fa.gz
+#1655170235
+lth
+#1655170239
+gzip -d *gz
+#1655170247
+les Parasponia_andersonii.gff
+#1655170257
+les Datisca_glomerata.gff
+#1655170276
+head -1 Datisca_glomerata.pep
+#1655170279
+head -1 Datisca_glomerata.cds 
+#1655170282
+lth
+#1655170292
+head -1 Parasponia_andersonii.cds 
+#1655170295
+head -1 Parasponia_andersonii.pep 
+#1655170308
+longest_transcript_from_gff.py Morella_rubra.gff3 &
+#1655170308
+lth
+#1655170313
+les Morella_rubra.gff3 
+#1655170328
+les Morella_rubra.fa 
+#1655170331
+les Morella_rubra.gff3 
+#1655170337
+lth
+#1655170339
+les *est
+#1655170358
+vi *est
+#1655170473
+les Morella_rubra.gff3
+#1655170480
+awk '$3=="mRNA"' Morella_rubra.gff3 |wc
+#1655170484
+awk '$3=="gene"' Morella_rubra.gff3 |wc
+#1655170495
+mv Morella_rubra.gff3.longest Morella_rubra.gff3
+#1655170496
+lt
+#1655170497
+lth
+#1655170499
+rm Morella_rubra.gff3.longest_gene
+#1655170516
+p=Morella_rubra; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3
+#1655170529
+cds2pep.pl Morella_rubra.cds > Morella_rubra.pep &
+#1655170538
+j ourgroups
+#1655170540
+lth
+#1655170545
+j ourgroups
+#1655170548
+lth
+#1655170554
+cds2aa.pl Morella_rubra.cds > Morella_rubra.pep
+#1655170560
+lth
+#1655170564
+rm *fai
+#1655170568
+head -1 Morella_rubra.fa 
+#1655170573
+add_suffix.pl Morella_rubra.*
+#1655170584
+lth
+#1655170594
+for i in *new ; do mv ${i} ${i%.new}; done
+#1655170595
+lth
+#1655170599
+head -1 Morella_rubra.*
+#1655170602
+lth
+#1655170604
+ls
+#1655170607
+lt
+#1655170610
+lth
+#1655170651
+ls
+#1655170653
+ll
+#1655170683
+for i in Datisca_glomerata.* Morella_rubra.* Parasponia_andersonii.*; do uplht $i; done
+#1655170746
+mv Datisca_glomerata.gff Datisca_glomerata.gff3
+#1655170751
+mv Parasponia_andersonii.gff Parasponia_andersonii.gff3
+#1655170856
+bjl
+#1655170861
+bpeek 75401
+#1655170889
+j fasta
+#1655170894
+cd ..
+#1655170895
+ls
+#1655170905
+rsync -Pa yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:/ds3200_1/users_root/yitingshuang/lh/fasta0613/ /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655171159
+bjl
+#1655171163
+bhosts 
+#1655171165
+lsload
+#1655171178
+bjl
+#1655171256
+top
+#1655171185
+ssh -p 201 yi02
+#1655171204
+lt
+#1655171205
+lth
+#1655171215
+j outgroup
+#1655171216
+lth
+#1655171217
+ls
+#1655171280
+ls *fa
+#1655171280
+lt
+#1655171282
+ls
+#1655171285
+ls *fa
+#1655171343
+ls
+#1655171354
+rename Morella Myrica *
+#1655171355
+ls
+#1655171385
+cd -
+#1655171390
+rsync -Pa yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:/ds3200_1/users_root/yitingshuang/lh/fasta0613/ /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655171403
+ls
+#1655171406
+cd cds/
+#1655171406
+ls
+#1655171421
+rsync -Pa yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:/ds3200_1/users_root/yitingshuang/lh/fasta0613/ /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655171446
+cd ..
+#1655171452
+rm Morella_rubra.pep cds/Morella_rubra.cds fasta_gff3/Morella_rubra.
+#1655171455
+rm Morella_rubra.pep cds/Morella_rubra.cds fasta_gff3/Morella_rubra.*
+#1655171475
+ll
+#1655171476
+lth
+#1655172336
+lt
+#1655172337
+lth
+#1655172348
+ll *pep
+#1655172349
+lth
+#1655172353
+bhosts 
+#1655172355
+lsload
+#1655172704
+bjobs -m yi03 -u all |less
+#1655172716
+bjobs -m yi02 -u all |less
+#1655173546
+j outgroups
+#1655173546
+lt
+#1655173727
+lth
+#1655173730
+mkdir temp
+#1655173733
+mv GCA_002738505.1_Aquilegia_coerulea_v1_genomic.* temp/
+#1655173734
+cd temp/
+#1655173734
+ll
+#1655173737
+gzip -d */
+#1655173739
+gzip -d *
+#1655173753
+lt
+#1655173756
+head -2 *
+#1655173765
+les GCA_002738505.1_Aquilegia_coerulea_v1_genomic.gff 
+#1655173778
+vi GCA_002738505.1_Aquilegia_coerulea_v1_genomic.gff 
+#1655173814
+awk '$3=="mRNA"' GCA_002738505.1_Aquilegia_coerulea_v1_genomic.gff |wc -l
+#1655173820
+awk '$3=="gene"' GCA_002738505.1_Aquilegia_coerulea_v1_genomic.gff |wc -l
+#1655173828
+longest_transcript_from_gff.py GCA_002738505.1_Aquilegia_coerulea_v1_genomic.gff &
+#1655173829
+lt
+#1655173847
+jobs
+#1655173848
+lt
+#1655173892
+mv GCA_002738505.1_Aquilegia_coerulea_v1_genomic.gff.longest Aquilegia_coerulea.gff3
+#1655173898
+mv GCA_002738505.1_Aquilegia_coerulea_v1_genomic.fna Aquilegia_coerulea.fa
+#1655173898
+lt
+#1655173912
+p=Aquilegia_coerulea; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3
+#1655173930
+cds2aa.pl Aquilegia_coerulea.cds > Aquilegia_coerulea.pep
+#1655173934
+ll
+#1655173937
+rm *fai
+#1655173940
+add_suffix.pl Aquilegia_coerulea.*
+#1655173969
+for i in *new; do mv $i ${i%.new}; done
+#1655173971
+lt
+#1655173975
+head Aquilegia_coerulea.*
+#1655173987
+l
+#1655173988
+ll
+#1655173991
+mv Aquilegia_coerulea.* ..
+#1655173992
+cd ..
+#1655173992
+ls
+#1655173998
+mv Papaver_rhoeas.* temp/
+#1655173999
+ll
+#1655174002
+lth
+#1655174009
+cd rbh/
+#1655174010
+lth
+#1655174014
+les error.75420 
+#1655174018
+lth
+#1655174024
+cd -
+#1655174024
+lt
+#1655174067
+ls *sh
+#1655174096
+history |grep pep |less
+#1655174141
+ls
+#1655174143
+cd rbh/
+#1655174143
+ls
+#1655174147
+more shell 
+#1655174154
+vi run.sh 
+#1655174162
+ls ..
+#1655174163
+ls
+#1655174175
+lt ../*pep
+#1655174193
+ll Populus_trichocarpa.pep 
+#1655174195
+for i in ../Datisca_glomerata.pep ../Parasponia_andersonii.pep ../Myrica_rubra.pep ../Aquilegia_coerulea.pep; do cp $i . ; done
+#1655174201
+vi run.sh 
+#1655174234
+lth
+#1655174242
+bsub512 -n 24 < run.sh 
+#1655174243
+cd -
+#1655174262
+lth
+#1655174264
+ll *pep
+#1655174275
+ll rbh/Medicago_truncatula.*
+#1655174283
+rm Medicago_truncatula.pep 
+#1655174286
+ll *pep
+#1655174292
+ll *pep |wc -l
+#1655174298
+ls
+#1655174380
+bjl
+#1655174524
+lt
+#1655174526
+lth
+#1655174530
+uplht Aquilegia_coerulea.pep 
+#1655174539
+uplht Aquilegia_coerulea.*
+#1655174547
+uplht Aquilegia_coerulea.gff3 
+#1655174550
+uplht Aquilegia_coerulea.fa 
+#1655174808
+bjl
+#1655174814
+bpeek 75401
+#1655175123
+ls
+#1655175127
+j outgroups
+#1655175128
+lth
+#1655175131
+bjl
+#1655175134
+cd rbh/
+#1655175135
+lth
+#1655175139
+mor error.75422 
+#1655175141
+more error.75422 
+#1655175147
+ls Aquilegia_coerulea.Medicago_truncatula.RBH/
+#1655175150
+ls Aquilegia_coerulea.Medicago_truncatula.RBH/Medicago_truncatula.pep/
+#1655175154
+ls Aquilegia_coerulea.Medicago_truncatula.RBH/Aquilegia_coerulea.pep/
+#1655175086
+rsync -Pa yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:/ds3200_1/users_root/yitingshuang/lh/fasta0613/ /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655175164
+getRBH.pl -h
+#1655175221
+cd Aquilegia_coerulea.Medicago_truncatula.RBH/Aquilegia_coerulea.pep/
+#1655175222
+ll
+#1655175261
+bunzip2 -qdc Medicago_truncatula.pep.rbh.bz2  |less
+#1655175310
+vi `which getRBH.pl `
+#1655175376
+ll
+#1655175384
+bunzip2 -qdc Medicago_truncatula.pep.rbh.bz2  |grep RBH |wc -l
+#1655175396
+bunzip2 -qdc ../Medicago_truncatula.pep/Aquilegia_coerulea.pep.rbh.bz2  |grep RBH |wc -l
+#1655175406
+bunzip2 -qdc Medicago_truncatula.pep.rbh.bz2  |grep RBH |head
+#1655175734
+cd ../
+#1655175735
+ls
+#1655175736
+cd ..
+#1655175739
+vi run.sh 
+#1655175761
+bash run.sh 
+#1655175892
+vi run.sh 
+#1655175937
+lth
+#1655175955
+bjl
+#1655175965
+bash run.sh 
+#1655175976
+vi run.sh 
+#1655175982
+cd Aquilegia_coerulea.Medicago_truncatula.RBH/
+#1655175982
+lt
+#1655175984
+les *ortho.txt
+#1655176005
+cd ..
+#1655176008
+vi run.sh 
+#1655176078
+mv run.sh rbh_tworounds.sh
+#1655176089
+bsub512 -n 24 -J rbh_tworound <  rbh_tworounds.sh 
+#1655176094
+cp rbh_tworounds.sh /nfs/liuhui/bin/bundle/bash_template/
+#1655176096
+gtp
