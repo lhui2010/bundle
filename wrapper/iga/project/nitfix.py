@@ -8,6 +8,7 @@ from iga.apps.base import emain
 import pandas as pd
 import itertools
 from collections import defaultdict
+import os.path as op
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
@@ -111,6 +112,7 @@ def format_ks_plot(ks_plot_output=None):
 
 def group2paralogs(orthogroup=None, max_group_size=10):
     """
+    12 min to finish
     Split groupt to parlogs
     Args:
         orthogroup: Orthogroups.tsv produced by OrthoFinder2.5.1
@@ -136,6 +138,50 @@ def group2paralogs(orthogroup=None, max_group_size=10):
     for species_name in paralog_db:
         with open("{}.{}.paralog".format(orthogroup, species_name), 'w') as fh:
             fh.write(paralog_db[species_name])
+
+
+def group2paralogs(orthogroup=None, max_group_size=10, outdir='ortholog_split'):
+    """
+    12 min to finish
+    Split groupt to parlogs
+    Args:
+        orthogroup: Orthogroups.tsv produced by OrthoFinder2.5.1
+    Returns:
+    """
+    ortho_db = defaultdict(str)
+    orthotable = pd.read_table(orthogroup, dtype=str)
+    columns_len = len(orthotable.columns)
+    result_db = defaultdict(str)
+    for col in range(1, columns_len):
+        species_name = orthotable.columns[col]
+        this_species_groups = orthotable[species_name].to_list()
+        for g in this_species_groups:
+            try:
+                ortho_gene_list = g.split(', ')
+
+            except AttributeError:
+                continue
+            if (len(ortho_gene_list) <= 1 or len(ortho_gene_list) > max_group_size):
+                continue
+            else:
+                ortho_db[species_name] = ortho_gene_list
+    #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
+    #cross comparison
+    species_pairs = itertools.combinations(orthotable.columns[1:],2)
+    for spair in species_pairs:
+        qry_list = orthotable[spair[0]]
+        ref_list = orthotable[spair[1]]
+        pair_name = "{}.{}".format(spair[0], spair[1])
+        if(len(qry_list) != len(ref_list)):
+            logging.error('unequal length between {} and {}'.format(spair[0], spair[1]))
+        for row_id in range(0, len(qry_list)):
+            #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
+            iter_result = itertools.product(orthotable[spair[0]][row_id], orthotable[spair[1]][row_id])
+            for ortho_pair in iter_result:
+                result_db[pair_name] += ("\t".join(ortho_pair)+"\n")
+    for pair_name in result_db:
+        with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
+            fh.write(result_db[pair_name])
 
 
 emain()
