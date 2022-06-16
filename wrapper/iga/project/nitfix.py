@@ -194,6 +194,7 @@ def remove_tandem_ortho(ortho=None, bed=None, gap=20):
         Bed: bed file
     Output:
         Ortho with tandem duplicates removed (proximal genes with seperated by less than 20 genes)
+        STDOUT!
     """
     bed_file = Bed(bed)
     #bed_file.add_rank()
