@@ -201,8 +201,11 @@ def remove_tandem_ortho(ortho=None, bed=None, gap=20):
     with open(ortho) as fh:
         for line in fh:
             (orthoA, orthoB) = line.rstrip().split()
-            rankA = bed_file.select_name(orthoA).rank
-            rankB = bed_file.select_name(orthoB).rank
+            try:
+                rankA = bed_file.select_name(orthoA).rank
+                rankB = bed_file.select_name(orthoB).rank
+            except KeyError:
+                continue
             if(abs(rankA - rankB) > gap):
                 print(line.rstrip())
 
