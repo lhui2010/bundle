@@ -4,7 +4,7 @@ scripts used in nitfix project
 import logging
 import re
 import coloredlogs
-from iga.apps.base import emain
+from iga.apps.base import emain, mkdir
 import pandas as pd
 import itertools
 from collections import defaultdict
@@ -179,6 +179,7 @@ def group2paralogs(orthogroup=None, max_group_size=10, outdir='ortholog_split'):
             iter_result = itertools.product(orthotable[spair[0]][row_id], orthotable[spair[1]][row_id])
             for ortho_pair in iter_result:
                 result_db[pair_name] += ("\t".join(ortho_pair)+"\n")
+    mkdir(outdir)
     for pair_name in result_db:
         with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
             fh.write(result_db[pair_name])
