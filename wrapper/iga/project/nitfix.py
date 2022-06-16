@@ -120,6 +120,7 @@ def group2paralogs(orthogroup=None, max_group_size=10):
         orthogroup: Orthogroups.tsv produced by OrthoFinder2.5.1
     Returns:
     """
+    max_group_size = int(max_group_size)
     paralog_db = defaultdict(str)
     orthotable = pd.read_table(orthogroup, dtype=str)
     columns_len = len(orthotable.columns)
@@ -150,6 +151,7 @@ def group2orthologs(orthogroup=None, max_group_size=10, outdir='ortholog_split')
         orthogroup: Orthogroups.tsv produced by OrthoFinder2.5.1
     Returns:
     """
+    max_group_size = int(max_group_size)
     ortho_db = defaultdict(str)
     orthotable = pd.read_table(orthogroup, dtype=str)
     columns_len = len(orthotable.columns)
