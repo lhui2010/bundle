@@ -7,3 +7,5 @@ Bio
 pysam
 bcbio-gff
 sklearn
+pandas
+itertools

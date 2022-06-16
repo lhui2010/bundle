@@ -5,6 +5,9 @@ import logging
 import re
 import coloredlogs
 from iga.apps.base import emain
+import pandas as pd
+import itertools
+from collections import defaultdict
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
@@ -104,5 +107,32 @@ def format_ks_plot(ks_plot_output=None):
         fh.write(ks_buff)
     with open(output_ortho, 'w') as fh:
         fh.write(ortho_buff)
+
+
+def group2paralogs(orthogroup=None, max_group_size=10):
+    """
+    Split groupt to parlogs
+    Args:
+        orthogroup:
+    Returns:
+    """
+    paralog_db = defaultdict(str)
+    orthotable = pd.read_table(orthogroup)
+    columns_len = orthotable.columns
+    for col in range(1, columns_len - 1):
+        species_name = orthotable.columns[col]
+        this_species_groups = orthotable[species_name].to_list()
+        for g in this_species_groups:
+            ortho_gene_list = g.split(', ')
+            if (len(ortho_gene_list) <=1 or len(ortho_gene_list) > max_group_size):
+                continue
+            else:
+                ortho_pair_list = itertools.combinations(ortho_gene_list, 2)
+                for ortho_pair in ortho_pair_list:
+                    paralog_db[species_name] += ("\t".join(ortho_pair)+"\n")
+    for species_name in paralog_db:
+        with open("{}.{}.paralog".format(orthogroup, species_name), 'w') as fh:
+            fh.write(paralog_db[species_name])
+
 
 emain()
