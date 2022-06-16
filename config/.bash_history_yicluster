@@ -74931,3 +74931,3477 @@ bsub512 -n 24 -J rbh_tworound <  rbh_tworounds.sh
 cp rbh_tworounds.sh /nfs/liuhui/bin/bundle/bash_template/
 #1655176096
 gtp
+#1655176102
+gtps
+#1655176210
+bjl
+#1655176232
+lth
+#1655176247
+ll error.7542* output.7542*
+#1655176252
+more error.75420
+#1655176255
+ll error.7542* output.7542*
+#1655176266
+more error.75422 
+#1655176268
+lth
+#1655186162
+mamba create -n karyotype -c bioconda DAGchainer
+#1655186299
+cd ~/projects/buzzo/
+#1655186299
+ls
+#1655186305
+mkdir karyotype
+#1655186306
+cd karyotype/
+#1655186306
+ll
+#1655186335
+bjlbjl
+#1655186335
+bjl
+#1655186343
+bpeek 75401
+#1655186345
+lth
+#1655186346
+bhosts 
+#1655186347
+lsload
+#1655186315
+git clone https://github.com/Longhui-Ren/Ancestral_Genome_Reconstruction.git
+#1655188875
+rsync -Pa yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:/ds3200_1/users_root/yitingshuang/lh/fasta0613/ /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655188883
+lsload
+#1655188891
+expr 144 - 90
+#1655188893
+ls
+#1655188905
+ll
+#1655188907
+cd yi03/
+#1655188908
+ls
+#1655188917
+bjl
+#1655188923
+lth
+#1655188929
+les nohup.out 
+#1655188945
+mkdir rna_vs_genome_WGD
+#1655188948
+mv * rna_vs_genome_WGD/
+#1655188949
+lth
+#1655188949
+ls
+#1655188951
+ls rna_vs_genome_WGD/
+#1655188959
+ll
+#1655188961
+mkdir orthofinder
+#1655188965
+cd orthofinder/
+#1655189138
+mkdir fasta
+#1655189143
+mv fasta fasta0613
+#1655189149
+nohup cp ~/projects/phyleg_orthofinder/fasta0613/*pep fasta0613/ &
+#1655189162
+ll
+#1655189165
+rm nohup.out 
+#1655189166
+lt
+#1655189176
+bsub512 -m yi03 -J lh_OF -n 60 "orthofinder -f fasta0613 -t 60 -M msa"
+#1655189186
+vk
+#1655189204
+lth
+#1655189205
+bjl
+#1655189207
+lt
+#1655189209
+more output.75425 
+#1655189216
+ulimit -Sn
+#1655189231
+vi /etc/security/limits.conf 
+#1655189249
+history |grep ulimit
+#1655189258
+ulimit -s 65535
+#1655189263
+ulimit -Sn
+#1655189281
+ulimit -Hn
+#1655189305
+sudoedit /etc/security/limits.conf
+#1655188898
+ssh yi03
+#1655189333
+j orthof
+#1655189335
+cd
+#1655189336
+cd yi03/orthofinder/
+#1655189341
+ulimit -Sn
+#1655189342
+ls
+#1655189343
+lt
+#1655189345
+rm output.75425 error.75425 
+#1655189352
+bsub512 -m yi03 -J lh_OF -n 60 "orthofinder -f fasta0613 -t 60 -M msa"
+#1655189362
+tail  /etc/security/limits.conf
+#1655189375
+cat >> ~/Documents/17.add_limits.sh
+#1655189388
+vi ~/Documents/17.add_limits.sh
+#1655189403
+bjl
+#1655189410
+ulimit 
+#1655189411
+ulimit -s
+#1655189418
+lt
+#1655189422
+more output.75426 
+#1655189426
+ulimit -n
+#1655189430
+ulimit -Hn
+#1655189432
+ulimit -Sn
+#1655189439
+ll
+#1655189470
+ pgrep orthofinder
+#1655189481
+tmux new -s of
+#1655189492
+ls
+#1655189494
+rm output.75426 error.75426 
+#1655189500
+nohup orthofinder -f fasta0613 -t 60 -M msa &
+#1655189506
+pgrep orthofinder
+#1655189510
+top
+#1655189530
+pgrep blat
+#1655189532
+jobs
+#1655189533
+lt
+#1655189536
+tail nohup.out 
+#1655189541
+pgrep blat
+#1655189547
+top
+#1655189568
+lsload
+#1655189576
+htop
+#1655189589
+pgrep orthofinder
+#1655189595
+pgrep OrthoFinder
+#1655189600
+ps ux |grep orthofinder
+#1655189606
+ls
+#1655189612
+pgrep fasta061
+#1655189613
+pgrep fasta0613
+#1655189627
+pgrep /nfs/apps/miniconda3/bin/orthofinder
+#1655189633
+pgrep "python /nfs/apps/miniconda3/bin/orthofinder"
+#1655189640
+pgrep blat
+#1655189646
+lsload
+#1655189489
+tma
+#1655189665
+bhosts 
+#1655189679
+bsub -J orthofinder -n 70 -m yi03 "sleep 2w"
+#1655189683
+bjl
+#1655189691
+bjobs
+#1655189699
+man sleep
+#1655189710
+bsub512 -J orthofinder -n 70 -m yi03 "sleep 14d"
+#1655189711
+bjl
+#1655189723
+top
+#1655189725
+htop
+#1655189749
+tma
+#1655189798
+bjl
+#1655189593
+bjl
+#1655189800
+tma
+#1655190043
+taili /etc/security/limits.conf
+#1655190044
+tail /etc/security/limits.conf
+#1655190709
+top
+#1655190021
+ssh yi03
+#1655190788
+j repeat
+#1655190789
+lth
+#1655190794
+cd backup/
+#1655190795
+ls
+#1655190798
+j edta
+#1655190802
+ls
+#1655190803
+ll
+#1655190808
+ll workdir_edta_*/
+#1655190818
+ll
+#1655191110
+ll */
+#1655191120
+mkdir download
+#1655191165
+cp workdir_edta_*/*.gff3 workdir_edta_*/*.TElib.fa workdir_edta_*/*.sum download/
+#1655191177
+cd download/
+#1655191177
+ll
+#1655191271
+bjl
+#1655192351
+top
+#1655192344
+ssh yi03
+#1655194908
+bj
+#1655194911
+bjg
+#1655194915
+lsload
+#1655194922
+bhosts 
+#1655196168
+bjl
+#1655086975
+ssh yi04
+#1655196195
+ll
+#1655196197
+cd outgroups/
+#1655196198
+ls
+#1655196201
+cd rbh/
+#1655196201
+ls
+#1655196218
+ls Lablab_purpureus.*RBH/
+#1655196249
+grep MtrunA17Chr5g0448621 *RBH/ortho.txt
+#1655196253
+grep MtrunA17Chr5g0448621 *RBH/*ortho.txt
+#1655196301
+ls Phaseolus_acutifolius.Medicago_truncatula.RBH/
+#1655196307
+bjl
+#1655196311
+lth
+#1655196314
+les error.75423
+#1655196327
+ls
+#1655196330
+ls *sh
+#1655196332
+vi rbh_tworounds.sh 
+#1655196337
+ls *pep > pep_list
+#1655196338
+vi pep_list 
+#1655196353
+vi rbh_tworounds.sh 
+#1655196173
+tma
+#1655196381
+bsub512 -n 24 -J rbh_tworound <  rbh_tworounds.sh
+#1655196385
+grep MtrunA17Chr5g0448621 *RBH/*ortho.txt
+#1655196565
+echo  "CECHI00015740-t4_Cechi  mRNA_MtrunA17Chr5g0448621_Metru" > test.ortho
+#1655196584
+select_fasta.pl CECHI00015740-t4_Cechi Cercis_chinensis.pep >> test.pep
+#1655196597
+select_fasta.pl mRNA_MtrunA17Chr5g0448621_Metru Medicago_truncatula.pep >> test.pep 
+#1655196620
+select_fasta.pl CECHI00015740-t4_Cechi ~/projects/phyleg_orthofinder/fasta0613/cds/Cercis_chinensis.cds >> test.cds
+#1655196639
+select_fasta.pl mRNA_MtrunA17Chr5g0448621_Metru ~/projects/phyleg_orthofinder/fasta0613/cds/Medicago_truncatula.cds >> test.cds
+#1655196647
+python -m iga.evolution.ortho kaks
+#1655196681
+bhosts 
+#1655196683
+lsload
+#1655196655
+python -m iga.evolution.ortho kaks test.ortho test.cds test.pep 
+#1655196704
+bkill 75434
+#1655196705
+lth
+#1655196706
+bash bsub.kaks.656264.sh 
+#1655196710
+lth
+#1655196714
+more test.ortho.kaks 
+#1655196720
+t test.ortho.kaks 
+#1655196764
+ls ../../../
+#1655196790
+cp ../../../NIN_mutation/nin_phylo.pep .
+#1655196793
+vi test.pep 
+#1655196802
+vi nin_phylo.pep 
+#1655196812
+fasttree < nin_phylo.pep > nin_phylo.pep.nwk
+#1655196828
+mafft < nin_phylo.pep > nin_phylo.pep.aln
+#1655196834
+mafft -h
+#1655196840
+mafft  nin_phylo.pep > nin_phylo.pep.aln
+#1655196843
+lth
+#1655196847
+fasttree < nin_phylo.pep.aln > nin_phylo.pep.nwk
+#1655196851
+more *nwk
+#1655196862
+realpath *nwk
+#1655196871
+mv /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/outgroups/rbh/nin_phylo.pep.nwk /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/outgroups/rbh/nin_phylo.rbh.pep.nwk
+#1655196874
+sz /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/outgroups/rbh/nin_phylo.rbh.pep.nwk
+#1655196877
+# Cancelled transfer
+#1655196686
+tma
+#1655196880
+sz /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/outgroups/rbh/nin_phylo.rbh.pep.nwk
+#1655196882
+# Sent -> /Users/liuhui/Downloads/
+#1655196883
+top
+#1655196950
+lt
+#1655196952
+ls
+#1655196955
+grep MtrunA17Chr5g0448621 *RBH/*ortho.txt
+#1655197051
+cp ../../../NIN_mutation/nin_phylo_with_oryza_poplus_yangtao_arabidopsis_vitis/nin_phylo.pep .
+#1655197061
+vi nin_phylo.pep
+#1655197067
+mafft  nin_phylo.pep > nin_phylo.pep.aln
+#1655197069
+fasttree < nin_phylo.pep.aln > nin_phylo.pep.nwk
+#1655197075
+mv /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/outgroups/rbh/nin_phylo.pep.nwk /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/outgroups/rbh/nin_phylo.rbh.pep.nwk
+#1655196947
+tma
+#1655197077
+sz /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/outgroups/rbh/nin_phylo.rbh.pep.nwk
+#1655197079
+# Sent -> /Users/liuhui/Downloads/
+#1655197242
+conda activate orthofinder
+#1655197248
+conda activate orthofinder2
+#1655197315
+mamba create -n shoot -c bioconda gappa
+#1655197384
+mamba install -n shoot -c bioconda epa-ng
+#1655197417
+python
+#1655197490
+cd projects/buzzo/
+#1655197490
+ls
+#1655197497
+mkdir shoot
+#1655197498
+cd shoot/
+#1655197508
+git clone https://github.com/davidemms/SHOOT.git
+#1655197573
+rz
+#1655197577
+# Received /Users/liuhui/Downloads/SHOOT-master.zip
+#1655197579
+unzip SHOOT-master.zip 
+#1655197581
+cd SHOOT-master/
+#1655197582
+ls
+#1655197586
+which python 
+#1655197628
+mamba install -n shoot -c bioconda sklearn biopython ete3
+#1655189760
+htop 
+#1655197735
+tail nohup.out 
+#1655197757
+tma
+#1655197731
+tma
+#1655197725
+ssh yi03
+#1655197785
+j orthofind
+#1655197787
+ls
+#1655197788
+cd fasta
+#1655197789
+ls
+#1655197789
+lt
+#1655197791
+cd OrthoFinder
+#1655197792
+lt
+#1655197793
+cd ..
+#1655197794
+ls
+#1655197797
+cd OrthoFinder.1/
+#1655197798
+ls
+#1655197800
+ls Results_Feb16/
+#1655197804
+less Results_Feb16/Log.txt 
+#1655197816
+lsload
+#1655197820
+less Results_Feb16/Log.txt 
+#1655197830
+les /nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Feb16/WorkingDirectory/clusters_OrthoFinder_I1.5.txt_id_pairs.txt
+#1655197841
+les /nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder.1/Results_Feb16/WorkingDirectory/clusters_OrthoFinder_I1.5.txt_id_pairs.txt
+#1655197863
+ls
+#1655197865
+cd ../OrthoFinder
+#1655197865
+ll
+#1655197866
+cd Results_Apr18/
+#1655197867
+ll
+#1655197870
+les Log.txt 
+#1655197880
+ls */*Graph*
+#1655197883
+les Log.txt 
+#1655197889
+les /nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/WorkingDirectory/clusters_OrthoFinder_I1.5.txt_id_pairs.txt
+#1655197894
+more /nfs/liuhui/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/WorkingDirectory/OrthoFinder_graph.txt
+#1655197899
+lth
+#1655197903
+cd WorkingDirectory/
+#1655197904
+ls
+#1655197919
+lt |les
+#1655197926
+cd ..
+#1655197927
+les Log.txt 
+#1655197942
+cd -
+#1655197943
+lt |les
+#1655197979
+cd ..
+#1655197980
+ls
+#1655197981
+lt
+#1655197982
+les Log.txt 
+#1655197989
+lt
+#1655197995
+cd ..
+#1655197996
+lt
+#1655198002
+cd -
+#1655198004
+cd WorkingDirectory/
+#1655198004
+lt
+#1655198021
+ls
+#1655198022
+cd yi03/
+#1655198022
+ls
+#1655198023
+cd orthofinder/
+#1655198024
+ls
+#1655198025
+lt
+#1655198026
+cd fasta0613/
+#1655198026
+lt
+#1655198027
+lth
+#1655198030
+cd OrthoFinder/
+#1655198030
+ls
+#1655198033
+cd *_2
+#1655198034
+lth
+#1655198039
+tail Log.txt 
+#1655198041
+cd WorkingDirectory/
+#1655198042
+lt
+#1655198044
+lt |les
+#1655198061
+lt
+#1655198063
+cd -
+#1655198064
+cd ..
+#1655198064
+lt
+#1655198066
+ls *_1
+#1655198077
+cd Results_Jun14_1/
+#1655198077
+lt
+#1655198079
+lt WorkingDirectory/
+#1655198101
+jobs
+#1655197763
+htop 
+#1655198104
+jobs
+#1655198107
+tma
+#1655198102
+tma
+#1655198110
+lth
+#1655198111
+cd ..
+#1655198112
+lt
+#1655198114
+cd Results_Jun14
+#1655198114
+lt
+#1655198116
+lt WorkingDirectory/
+#1655198118
+lt WorkingDirectory/ |les
+#1655198124
+cd ..
+#1655198124
+ls
+#1655198130
+rm -rf Results_Jun14
+#1655198131
+lth
+#1655198142
+jobs
+#1655198143
+jobs
+#1655198146
+ps ux
+#1655198152
+ps ux |grep diamond |head
+#1655198143
+tma
+#1655198157
+lt
+#1655198162
+cd *_1
+#1655198163
+lt
+#1655198166
+cd WorkingDirectory/
+#1655198166
+lth
+#1655198172
+lt
+#1655198173
+lt |les
+#1655198185
+cd ../..
+#1655198188
+rm -r Results_Jun14_1/
+#1655198190
+lt
+#1655198193
+cd Results_Jun14_2/
+#1655198194
+lth
+#1655198197
+cd WorkingDirectory/
+#1655198198
+lt |les
+#1655198213
+ls *gz |wc -l
+#1655198217
+cd
+#1655198220
+tail nohup.out 
+#1655198219
+tma
+#1655198014
+ssh yi03
+#1655197669
+mamba install -n shoot -c bioconda scikit-learn biopython ete3
+#1655198468
+conda activate shoot
+#1655198469
+ls
+#1655198472
+which python
+#1655198491
+more README.md 
+#1655198502
+l
+#1655198503
+ll
+#1655198544
+which pip
+#1655198547
+pip install -e .
+#1655198609
+python create_shoot_db.py 
+#1655198610
+ls
+#1655198617
+cd ..
+#1655198624
+ln -s SHOOT-master/shoot/create_shoot_db.py 
+#1655198624
+ll
+#1655198644
+cat >>run.sh
+#1655198654
+lt
+#1655198691
+logsh
+#1655198676
+tma
+#1655198724
+lsload
+#1655198727
+bjl
+#1655198733
+bjobs -l 75433
+#1655198670
+ssh yi03
+#1655198750
+python create_shoot_db.py  -h
+#1655198762
+python create_shoot_db.py  
+#1655198775
+vi create_shoot_db.py 
+#1655198882
+orthofinder -h
+#1655198898
+vi create_shoot_db.py 
+#1655199075
+bjl
+#1655199078
+lth
+#1655199084
+more run.sh 
+#1655199090
+python create_shoot_db.py  
+#1655199093
+vi create_shoot_db.py 
+#1655199177
+vi run.sh 
+#1655199207
+python shoot
+#1655199216
+python -m shoot
+#1655199234
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/__main__.py
+#1655199244
+lt
+#1655199246
+cd SHOOT-master/
+#1655199247
+ll
+#1655199253
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/__main__.py
+#1655199258
+grep og_assigner *
+#1655199260
+grep og_assigner */*
+#1655199264
+ls
+#1655199271
+python shoot/
+#1655199274
+python shoot 
+#1655199290
+ls
+#1655199291
+cd shoot/
+#1655199292
+ll
+#1655199302
+cd ..
+#1655199303
+ls
+#1655199308
+python -m shoot.og_assigner
+#1655199310
+python -m shoot.og_assigner -h
+#1655199319
+python -m shoot
+#1655199329
+ls
+#1655199331
+cd shoot/
+#1655199331
+ls
+#1655199333
+vi __main__.py 
+#1655199350
+python -m shoot
+#1655199354
+python -m shoot -h
+#1655199462
+cd ..
+#1655199463
+ls
+#1655199464
+cd ..
+#1655199465
+ls
+#1655199466
+vi run.sh 
+#1655199500
+lth
+#1655199504
+vi create_shoot_db.py 
+#1655199527
+ls
+#1655199529
+cd SHOOT-master/
+#1655199529
+lt
+#1655199531
+cd shoot/
+#1655199532
+ls
+#1655199533
+ll
+#1655199537
+ls *ID*
+#1655199539
+ls *name*
+#1655199542
+python sample_genes.py 
+#1655199581
+ls
+#1655199582
+cd -
+#1655199582
+ls
+#1655199583
+cd ..
+#1655199583
+ls
+#1655199585
+vi run.sh 
+#1655199591
+ls
+#1655199603
+ln -s SHOOT-master/shoot/bifurcating_trees.py 
+#1655199605
+ll
+#1655199608
+vi run.sh 
+#1655199612
+bjl
+#1655199618
+vi run.sh 
+#1655199638
+python -m shoot 
+#1655199655
+python SHOOT-master/shoot
+#1655199671
+vi SHOOT-master/shoot/__main__.py 
+#1655199680
+python SHOOT-master/shoot
+#1655199683
+vi run.sh 
+#1655199733
+lt
+#1655199808
+bjl
+#1655199871
+lth
+#1655255464
+bjl
+#1655255468
+lsload
+#1655255477
+lth
+#1655255479
+cd yi03/
+#1655255479
+lt
+#1655255480
+cd orthofinder/
+#1655255481
+lt
+#1655255484
+tail nohup.out 
+#1655255488
+tma
+#1655255471
+ssh yi03
+#1655257147
+j fig2
+#1655257149
+lth
+#1655257156
+cd ../02.fig2E/
+#1655257157
+lt
+#1655257163
+more Cercis_chinensis.Spatholobus_suberectus.depth 
+#1655257181
+grep pattern Cercis_chinensis.Spatholobus_suberectus.depth 
+#1655257187
+more shell
+#1655257188
+grep pattern *depth
+#1655257207
+les work.Cercis_chinensis.Vigna_subterranea/error.50797
+#1655257218
+les Cercis_chinensis.Vigna_subterranea.depth
+#1655257274
+les Cercis_chinensis.Lotus_japonicus.depth
+#1655257321
+les *depth
+#1655257464
+less Cercis_chinensis.Vigna_subterranea.depth
+#1655257488
+les Cercis_chinensis.Nissolia_schottii.depth
+#1655257652
+ls
+#1655257659
+j polygala
+#1655257662
+cd ..
+#1655257663
+ls
+#1655257666
+cd work.Cercis_chinensis.Polygala_tatarinowii/
+#1655257667
+ll
+#1655257669
+ll *depth
+#1655257672
+les error.698*
+#1655257684
+cp error.69871 Cercis_chinensis.Polygala_tatarinowii.depth
+#1655257688
+les Cercis_chinensis.Polygala_tatarinowii.depth
+#1655257707
+lth
+#1655257709
+ls
+#1655257800
+bjl
+#1655257839
+j new_genom
+#1655257840
+lth
+#1655257844
+cd braker_Castanospermum_australe.fa.masked.fa/
+#1655257844
+lt
+#1655257854
+les braker.gff3 
+#1655257861
+cd ..
+#1655257862
+lth
+#1655257874
+les error.75438 
+#1655257884
+vi shell 
+#1655257889
+ls *sh
+#1655257893
+more braker.sh 
+#1655257905
+more casau.sh 
+#1655257934
+vi casau.sh 
+#1655257948
+bash casau.sh 
+#1655257954
+bjl
+#1655257959
+bjg
+#1655257964
+bkill 75440 75441
+#1655257967
+bjg
+#1655257970
+l
+#1655257971
+fg
+#1655257973
+bjg
+#1655257975
+lth
+#1655257983
+rm bsub.repeat_masker_Castanospermum_australe.948895.sh bsub.repeat_masker_Castanospermum_australe.948884.sh output.75440 error.75440
+#1655257984
+lth
+#1655257991
+vi casau.sh 
+#1655258014
+ls
+#1655258037
+vi casau.sh 
+#1655258044
+grep GENOME casau.sh 
+#1655258053
+grep REF casau.sh 
+#1655258072
+cd braker_Castanospermum_australe.fa.masked.fa/
+#1655258075
+longest_transcript_from_gff.py braker.gff3
+#1655258148
+sed "s/file_1_file_1/CASAUS/g" braker.gff3.longest > Castanospermum_australe.gff3
+#1655258159
+vi Castanospermum_australe.gff3
+#1655258174
+add_suffix.pl Castanospermum_australe.gff3
+#1655258181
+mv Castanospermum_australe.gff3.new Castanospermum_australe.gff3
+#1655258182
+lth
+#1655258198
+cp ../Castanospermum_australe.fa.masked.fa ./Castanospermum_australe.fa
+#1655258215
+p=Castanospermum_australe; gffread -x ${p}.cds -g ${p}.fa ${p}.gff3
+#1655258226
+lth
+#1655258249
+cds2aa.pl Castanospermum_australe.cds > Castanospermum_australe.pep
+#1655258256
+head Castanospermum_australe.*
+#1655258262
+lth
+#1655258329
+les Castanospermum_australe.pep
+#1655258344
+orthofinder -h
+#1655258447
+ls
+#1655258449
+lth
+#1655258453
+ls *pep
+#1655258462
+rm *fai
+#1655258469
+uplht Castanospermum_australe.* 
+#1655258482
+lth
+#1655258500
+for i in Castanospermum_australe.* ; do uplht $i; done
+#1655258532
+rsync -Pa yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:/ds3200_1/users_root/yitingshuang/lh/fasta0613/ /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655258783
+bjl
+#1655258786
+lth
+#1655258791
+lth
+#1655258796
+grep MtrunA17Chr5g0448621 *RBH/*ortho.txt
+#1655258789
+tma
+#1655274139
+top
+#1655274151
+lth
+#1655274152
+cd yi03/
+#1655274153
+lt
+#1655274155
+cd orthofinder/
+#1655274155
+lth
+#1655274159
+tail nohup.out 
+#1655274163
+less nohup.out 
+#1655274238
+ls
+#1655274239
+cd fasta0613/
+#1655274240
+ls
+#1655274243
+grep gene-A5N79_gp24_Casat *pep
+#1655274253
+vi Cannabis_sativa.pep 
+#1655274401
+j outgroup
+#1655274402
+lth
+#1655274413
+grep gene-A5N79_gp24_Casat Cannabis_sativa.gff3 
+#1655274426
+cd temp/
+#1655274426
+ls
+#1655274429
+ll
+#1655274432
+rz
+#1655274446
+# Cancelled transfer
+#1655274134
+ssh yi03
+#1655329585
+lsload
+#1655329598
+top
+#1655329591
+ssh yi03
+#1655337280
+bjl
+#1655337290
+ls
+#1655337293
+cd projects/
+#1655337293
+ls
+#1655337298
+lt
+#1655337299
+cd phyleg
+#1655337300
+lt
+#1655337301
+lth
+#1655337322
+l
+#1655337323
+cd yi03/
+#1655337324
+lt
+#1655198697
+htop
+#1655337327
+lth
+#1655337330
+tail nohup.out 
+#1655338917
+j shoot
+#1655338919
+ls
+#1655338921
+ll
+#1655338946
+ln -s ~/yi03/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/
+#1655338946
+ll
+#1655338949
+more run.sh 
+#1655338959
+vi run.sh 
+#1655338996
+ll
+#1655339010
+more run.sh 
+#1655339015
+conda activate shoot
+#1655339032
+ls
+#1655339041
+lth
+#1655337325
+tma
+#1655339057
+vk
+#1655339077
+j orthogroups
+#1655339078
+lth
+#1655339081
+ls *pl
+#1655339084
+vi ortholog2ortho.pl 
+#1655339116
+chd
+#1655339117
+vi ortholog2ortho.pl 
+#1655339200
+les Orthogroups.tsv 
+#1655339021
+bash run.sh 
+#1655339205
+vi ortholog2ortho.pl 
+#1655339336
+les Orthogroups.tsv 
+#1655339431
+more `which stat2matrix.py `
+#1655339484
+lth
+#1655339492
+les Orthogroups.GeneCount.filter2.tsv
+#1655339501
+ipython
+#1655340331
+lth
+#1655340334
+ll
+#1655340337
+les Orthogroups.tsv
+#1655340533
+ipython
+#1655340828
+gtp
+#1655340834
+ls
+#1655340835
+lth
+#1655340837
+ls
+#1655340858
+cut -f1,2,3,50 Orthogroups.tsv |head > test.table
+#1655340861
+les test.table 
+#1655340882
+pm iga.project.nitfix group2paralogs test.table 
+#1655340939
+gtp
+#1655340944
+pm iga.project.nitfix group2paralogs test.table 
+#1655340947
+lth
+#1655340950
+les test.table
+#1655340964
+tt Orthogroups.tsv
+#1655340969
+les Orthogroups.tsv
+#1655340995
+lth
+#1655341016
+pm iga.project.nitfix group2paralogs test.table 
+#1655341019
+lt
+#1655341024
+more test.table.Abrus_precatorius.paralog 
+#1655341050
+lth
+#1655341060
+cd
+#1655341060
+ls
+#1655341063
+cd yi03/
+#1655341063
+lt
+#1655341064
+cd orthofinder/
+#1655341065
+lt
+#1655341066
+cd fasta0613/
+#1655341066
+lt
+#1655341067
+ls
+#1655341069
+ls -d */
+#1655341071
+cd OrthoFinder/
+#1655341071
+lt
+#1655341072
+cd Results_Jun14_2/
+#1655341072
+ls
+#1655341077
+cd Orthogroup
+#1655341078
+cd Orthogroups/
+#1655341080
+ll
+#1655341084
+les *tsv
+#1655341092
+pm iga.project.nitfix group2paralogs Orthogroups.t
+#1655341095
+pm iga.project.nitfix group2paralogs Orthogroups.tsv 
+#1655341119
+les Orthogroups.tsv
+#1655341141
+pm iga.project.nitfix group2paralogs Orthogroups.tsv 
+#1655341146
+les Orthogroups.tsv 
+#1655341154
+sed "s/ [translate_table_ standard]//g" Orthogroups.tsv > Orthogroups.format.tsv
+#1655341160
+les Orthogroups.format.tsv
+#1655341181
+sed "s/ \[translate_table_ standard\]//g" Orthogroups.tsv > Orthogroups.format.tsv
+#1655341184
+les Orthogroups.format.tsv
+#1655341198
+grep trans Orthogroups.format.tsv 
+#1655341205
+grep table Orthogroups.format.tsv 
+#1655341210
+pm iga.project.nitfix group2paralogs Orthogroups.tsv 
+#1655341215
+pm iga.project.nitfix group2paralogs Orthogroups.format.tsv 
+#1655341275
+pm iga.project.nitfix group2paralogs -h
+#1655341367
+gtp
+#1655341372
+pm iga.project.nitfix group2paralogs -h
+#1655341375
+pm iga.project.nitfix group2paralogs Orthogroups.format.tsv 
+#1655341422
+gtp
+#1655341429
+pm iga.project.nitfix group2paralogs Orthogroups.format.tsv 
+#1655341633
+gtp
+#1655341673
+top
+#1655341675
+tp
+#1655341639
+pm iga.project.nitfix group2paralogs Orthogroups.format.tsv 
+#1655342736
+lt
+#1655342738
+les Orthogroups.format.tsv.Aeschynomene_evenia.paralog 
+#1655341715
+top -p 8866
+#1655343052
+ipython
+#1655343090
+cd -
+#1655343096
+j orthogroup
+#1655343099
+ipython
+#1655343613
+lth
+#1655343616
+cd -
+#1655343617
+gtp
+#1655343672
+pm iga.project.nitfix group2orthologs Orthogroups.format.tsv 
+#1655343676
+gtp
+#1655343736
+lth
+#1655343800
+gtp
+#1655343811
+top
+#1655343816
+top -p 9833
+#1655344433
+cd yi03/
+#1655344434
+ls
+#1655344436
+cd orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/
+#1655344437
+lt
+#1655344452
+ls WorkingDirectory/
+#1655344472
+les WorkingDirectory/clusters_OrthoFinder_I1.5.txt
+#1655344477
+les WorkingDirectory/clusters_OrthoFinder_I1.5.txt_id_pairs.txt 
+#1655344494
+cd ..
+#1655344494
+ls
+#1655344496
+cd Results_Jun14_2/
+#1655344497
+ls
+#1655344498
+lt
+#1655344502
+cd Orthogroup
+#1655344503
+cd Orthogroups/
+#1655344503
+lt
+#1655344526
+cp Orthogroups.format.tsv ~/Orthogroups0614.format.tsv.bakcup
+#1655344540
+top -p 9833
+#1655345973
+cd yi
+#1655345974
+cd yi03/
+#1655345975
+ls
+#1655345977
+cd orthofinder/
+#1655345977
+ls
+#1655345978
+cd fasta0613/
+#1655345979
+ls
+#1655345981
+cd OrthoFinder/
+#1655345982
+ls
+#1655345983
+cd Results_Jun14_2/
+#1655345984
+lth
+#1655345987
+mkdir kaks
+#1655345996
+mv kaks self_kaks
+#1655345997
+cd self_kaks/
+#1655346017
+for i in  ../Orthogroups/Orthogroups*paralog; do ln -s $i; done
+#1655346017
+ll
+#1655346028
+rename Orthogroups.format.tsv. '' *
+#1655346028
+ls
+#1655346029
+les *
+#1655346047
+for i in /nfs/liuhui/yi03/orthofinder/fasta0613/*pep;do ln -s $i; done
+#1655346056
+for i in /nfs/liuhui/yi03/orthofinder/fasta0613/cds/*cds;do ln -s $i; done
+#1655346057
+ls
+#1655346066
+rm \*cds 
+#1655346080
+cp ~/projects/phyleg_orthofinder/fasta0613/cds/*cds .
+#1655346112
+ls
+#1655346127
+pm iga.evolution.ortho kaks
+#1655346129
+pm iga.evolution.ortho kaks -h
+#1655346146
+lsload
+#1655346216
+for i in *.ortholog; do echo "python -m iga.evolution.ortho kaks --use_grid F ${i} ${i%.orhtolog}.cds ${i%.orhtolog}.pep " >> run.sh; done
+#1655346217
+vi run.sh 
+#1655346224
+vi run.sh ls
+#1655346230
+ls
+#1655346232
+ls *sh
+#1655346252
+rm run.sh 
+#1655346254
+for i in *.ortho; do echo "python -m iga.evolution.ortho kaks --use_grid F ${i} ${i%.ortho}.cds ${i%.ortho}.pep " >> run.sh; done
+#1655346256
+rm run.sh 
+#1655346260
+rename paralog 'ortho' *
+#1655346262
+ls
+#1655346264
+for i in *.ortho; do echo "python -m iga.evolution.ortho kaks --use_grid F ${i} ${i%.ortho}.cds ${i%.ortho}.pep " >> run.sh; done
+#1655346265
+vi run.sh 
+#1655346279
+wc -l *.ortho
+#1655346390
+vi sp_list
+#1655346418
+rm run.sh; for i in `cat sp_list; do echo "python -m iga.evolution.ortho kaks --use_grid F ${i}.ortho ${i}.cds ${i}.pep " >> run.sh; done
+#1655346423
+rm run.sh; for i in `cat sp_list`; do echo "python -m iga.evolution.ortho kaks --use_grid F ${i}.ortho ${i}.cds ${i}.pep " >> run.sh; done
+#1655346424
+vi run.sh 
+#1655346431
+ls *_*_*
+#1655346438
+ls *_*_*.ortho >> sp_list 
+#1655346439
+vi sp_list 
+#1655346446
+rm run.sh; for i in `cat sp_list`; do echo "python -m iga.evolution.ortho kaks --use_grid F ${i}.ortho ${i}.cds ${i}.pep " >> run.sh; done
+#1655346447
+vi run.sh 
+#1655346455
+wc -l Angylocalyx_braunii_Pap.ortho
+#1655346471
+nohup bash run.sh &
+#1655346472
+lth
+#1655346475
+more proc 
+#1655346478
+top
+#1655346525
+lsload
+#1655346528
+htop
+#1655346530
+top
+#1655346554
+lsload
+#1655346559
+ls
+#1655346563
+top
+#1655346576
+ls
+#1655346578
+more proc 
+#1655346579
+lth
+#1655346582
+fg
+#1655346586
+rm -r Cicer_reticulatum.ortho.ParaAT.out
+#1655346593
+chmod -w proc 
+#1655346595
+more proc 
+#1655346596
+ll
+#1655346597
+ls
+#1655346600
+vi run.sh 
+#1655346623
+vk
+#1655346626
+vw
+#1655346662
+more run.sh 
+#1655346666
+wc -l run.sh 
+#1655346682
+nohup cat run.sh | parallel -j8  {} &
+#1655346685
+logsh
+#1655346689
+htop 
+#1655346692
+top
+#1655346699
+lsload
+#1655346705
+lth
+#1655346708
+htop
+#1655346716
+top
+#1655346724
+lth
+#1655346740
+top
+#1655346785
+lth
+#1655346786
+fg
+#1655346788
+lth
+#1655346795
+rm -rf *ParaAT.out &
+#1655346795
+ls
+#1655346813
+cp ~/projects/phyleg_orthofinder/fasta0613/fasta_gff3/*.gff3 .
+#1655346859
+for i in *.gff3; do python -m jcvi.formats.gff bed --type=mRNA --key=ID ${i} -o ${i%.gff3}.bed; done
+#1655346948
+lsload
+#1655346953
+for i in *.gff3; do python -m jcvi.formats.gff bed --type=mRNA --key=ID ${i} -o ${i%.gff3}.bed& done
+#1655346976
+fg
+#1655346978
+jobs
+#1655346979
+fg
+#1655346981
+jobs
+#1655346986
+pgrep python
+#1655346988
+ls
+#1655346989
+jobs
+#1655346990
+lth
+#1655345588
+ssh yi03
+#1655346996
+j self_ks
+#1655346998
+ps ux
+#1655347009
+lth
+#1655347015
+les *bed
+#1655347018
+lth
+#1655347022
+ll *bed |less
+#1655346830
+vw
+#1655347303
+lth
+#1655347305
+cd yi03/
+#1655347306
+lt
+#1655347307
+cd orthofinder/
+#1655347307
+lt
+#1655347309
+cd fasta0613/
+#1655347309
+lth
+#1655347313
+cd OrthoFinder/
+#1655347314
+lt
+#1655347315
+cd Results_Jun14_2/
+#1655347315
+lth
+#1655347318
+cd
+#1655347322
+ln -s /nfs/liuhui/yi03/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/self_kaks/
+#1655347323
+cd self_kaks/
+#1655347323
+lt
+#1655347324
+lth
+#1655347329
+vi Astragalus_sinicus.gff3 
+#1655347381
+python -m jcvi.formats.gff bed --type=mRNA --key=ID Astragalus_sinicus.gff3 -o Astragalus_sinicus.bed
+#1655347391
+vi Astragalus_sinicus.gff3 
+#1655347398
+python -m jcvi.formats.gff bed --type=mRNA --key=ID Astragalus_sinicus.gff3 -o Astragalus_sinicus.bed
+#1655347035
+for i in *.gff3; do python -m jcvi.formats.gff bed --type=mRNA --key=ID ${i} -o ${i%.gff3}.bed; done
+#1655347702
+lth
+#1655347710
+python -m iga.project.nitfix
+#1655347723
+ls $BD/
+#1655347734
+ls /nfs/liuhui/bin/bundle/lh_bin/
+#1655347738
+lt /nfs/liuhui/bin/bundle/lh_bin/ |head
+#1655347757
+lt /nfs/liuhui/bin/bundle/bash_template/
+#1655347761
+vk
+#1655347770
+j orthogroup
+#1655347771
+lth
+#1655347775
+ls *pl *py
+#1655347784
+ll
+#1655347832
+pls *py
+#1655347836
+history |less
+#1655347836
+history |less
+#1655347917
+ls remove_duplicate_ortho.py
+#1655347927
+find . -name remove_duplicate_ortho.py
+#1655347932
+more temp/remove_duplicate_ortho.py 
+#1655347969
+pm iga.project.nitfix remove_tandem_ortho
+#1655347975
+gtp
+#1655347980
+pm iga.project.nitfix remove_tandem_ortho -
+#1655347982
+pm iga.project.nitfix remove_tandem_ortho -h
+#1655347986
+lth
+#1655347991
+cd -
+#1655347994
+cd
+#1655347995
+cd self_kaks/
+#1655347996
+lth
+#1655348127
+grep gene-EFG83_mgp054_Glsoj *bed
+#1655348131
+grep gene-EFG83_mgp054_Glsoj *gff3
+#1655348147
+les Glycine_soja.gff3 
+#1655348046
+for i in *.ortho; do pm iga.project.nitfix remove_tandem_ortho ${i} ${i%.ortho}.bed > ${i}.pruneTD; done
+#1655348191
+ll -S *bed |les
+#1655348218
+wc -l Glycine_soja.bed 
+#1655348267
+gtp
+#1655348290
+lt |les
+#1655348301
+ls *_*_*orhto
+#1655348304
+ls *_*_*ortho
+#1655348320
+lth
+#1655348323
+for i in *_*_*ortho; do cp $i ${i}.pruneTD; done
+#1655348325
+lth
+#1655348327
+lt |les
+#1655348335
+lth
+#1655348336
+bjl
+#1655348341
+lth
+#1655348343
+lt |les
+#1655348374
+vi Lupinus_albus.bed 
+#1655348380
+vi Lupinus_albus.ortho
+#1655348273
+for i in *.ortho; do pm iga.project.nitfix remove_tandem_ortho ${i} ${i%.ortho}.bed > ${i}.pruneTD; done
+#1655348383
+vi Lupinus_albus.bed 
+#1655348393
+grep mRNA: *gff3
+#1655348400
+grep -f mRNA: *gff3 |head
+#1655348402
+grep  mRNA: *gff3 |head
+#1655348422
+for i in *gff3; do grep ID=mRNA: $i|head -1; done
+#1655348431
+vi Lablab_purpureus.gff3 
+#1655348453
+vi Lupinus_albus.
+#1655348454
+vi Lupinus_albus.gff3 
+#1655348483
+for i in Lupinus_albus.ortho; do pm iga.project.nitfix remove_tandem_ortho ${i} ${i%.ortho}.bed > ${i}.pruneTD; done
+#1655348496
+for i in *_*_*ortho; do cp $i ${i}.pruneTD; done
+#1655348497
+forlth i in /nfs/liuhui/yi03/orthofinder/fasta0613/cds/*cds;do ln -s $i; done
+#1655348499
+lth
+#1655348500
+bjl
+#1655348505
+mkdir temp
+#1655348508
+mv *.ortho temp/
+#1655348509
+ls
+#1655348561
+rm run.sh; for i in `cat sp_list`; do echo "python -m iga.evolution.ortho kaks --use_grid F ${i}.ortho.pruneTD ${i}.cds ${i}.pep " >> run.sh; done
+#1655348562
+vi run.sh 
+#1655348565
+logsh
+#1655348599
+top
+#1655348602
+nohup cat run.sh | parallel -j8  {} &
+#1655348603
+logsh
+#1655348610
+parallel--ciatation
+#1655348615
+parallel
+#1655348619
+parallel --citation
+#1655348636
+lth
+#1655348673
+top
+#1655348701
+j fasta
+#1655348707
+j orthogroup
+#1655348708
+lth
+#1655348724
+pm iga.project.nitfix group2orthologs Orthogroups.GeneCount.filter1.tsv 
+#1655348729
+pm iga.project.nitfix group2orthologs Orthogroups.GeneCount.filter2.tsv 
+#1655348744
+ll ortholog_split/
+#1655348748
+cd ortholog_split/
+#1655348750
+head *ortho
+#1655348757
+ls * |wc -l
+#1655348758
+cd ..
+#1655348760
+rm -r ortholog_split/
+#1655348762
+lth
+#1655348763
+bjl
+#1655356739
+lth
+#1655356743
+ps ux
+#1655356748
+top
+#1655356752
+ls
+#1655356762
+ll *_*_*.kaks
+#1655356772
+for i in *_*_*.kaks; do ks_hist.R ${i}; done
+#1655356805
+lth
+#1655356808
+sz *pdf
+#1655356811
+# Sent -> /Users/liuhui/Downloads/
+#1655356849
+ls
+#1655356856
+lth
+#1655357008
+ll *kaks
+#1655357041
+vi sp_list 
+#1655357121
+lt -d *out
+#1655357132
+for i in Cicer_reticulatum Glycyrrhiza_uralensis Trifolium_pratense Trifolium_subterraneum Lupinus_angustifolius Phaseolus_acutifolius Vigna_mungo Faidherbia_albida Phaseolus_vulgaris Lablab_purpureus Cicer_arietinum Glycine_latifolia Pisum_sativum Vigna_subterranea Vigna_radiata Nissolia_schottii Arachis_duranensis Dipteryx_alata Chamaecrista_fasciculata Cajanus_cajan Cercis_canadensis Eperua_falcata Arachis_ipaensis Mimosa_pudica; do ks_hist.R ${i}; done
+#1655357143
+ls
+#1655357154
+for i in Cicer_reticulatum Glycyrrhiza_uralensis Trifolium_pratense Trifolium_subterraneum Lupinus_angustifolius Phaseolus_acutifolius Vigna_mungo Faidherbia_albida Phaseolus_vulgaris Lablab_purpureus Cicer_arietinum Glycine_latifolia Pisum_sativum Vigna_subterranea Vigna_radiata Nissolia_schottii Arachis_duranensis Dipteryx_alata Chamaecrista_fasciculata Cajanus_cajan Cercis_canadensis Eperua_falcata Arachis_ipaensis Mimosa_pudica; do ks_hist.R ${i}.ortho.pruneTD.kaks; done
+#1655357493
+sz *pdf
+#1655357498
+# Sent -> /Users/liuhui/Downloads/orthogroup/
+#1655357616
+ls
+#1655357742
+ls Lupinus_albus.gff3 
+#1655357743
+les Lupinus_albus.gff3 
+#1655357751
+les Lupinus_albus.cds 
+#1655357760
+lth
+#1655357764
+les Lupinus_albus.ortho.pruneTD 
+#1655357772
+les temp/Lupinus_albus.ortho
+#1655357774
+les temp/Lupinus_albus.ortho 
+#1655357780
+ls
+#1655357781
+ls tem
+#1655357785
+ls temp/
+#1655357790
+mv temp/Lupinus_albus.ortho .
+#1655357793
+les Lupinus_albus.ortho
+#1655357811
+for i in *cds; do grep mRNA: $i |head; done
+#1655357824
+for i in *pep; do grep mRNA: $i |head; done
+#1655357844
+sedj -i "s/mRNA:/mRNA_/" Lupinus_albus.cds Lupinus_albus.pep
+#1655357846
+sedj-i "s/mRNA:/mRNA_/" Lupinus_albus.cds Lupinus_albus.pep
+#1655357849
+sed -i "s/mRNA:/mRNA_/" Lupinus_albus.cds Lupinus_albus.pep
+#1655357982
+vi Lupinus_albus.bed 
+#1655357997
+more shell 
+#1655358016
+pm iga.project.nitfix remove_tandem_ortho Lupinus_albus.ortho Lupinus_albus.bed > Lupinus_albus.ortho.pruneTD 
+#1655358024
+ll Lupinus_albus.ortho.pruneTD 
+#1655358032
+head Lupinus_albus.ortho Lupinus_albus.bed
+#1655358063
+python -m jcvi.formats.gff bed --type=mRNA --key=ID Lupinus_albus.gff3 -o Lupinus_albus.bed 
+#1655358081
+les Lupinus_albus.bed 
+#1655358092
+pm iga.project.nitfix remove_tandem_ortho Lupinus_albus.ortho Lupinus_albus.bed > Lupinus_albus.ortho.pruneTD 
+#1655358097
+ll Lupinus_albus.ortho.pruneTD 
+#1655358109
+more shell 
+#1655358116
+grep albus run.sh 
+#1655358124
+vi run.sh 
+#1655358172
+p=Lupinus_albus; python -m iga.evolution.ortho kaks --use_grid F ${i}.ortho.pruneTD ${i}.cds ${i}.pep
+#1655348771
+top
+#1655358220
+cd /nfs/liuhui/yi03/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/Orthogroups/
+#1655358220
+lt
+#1655358226
+lt -d */
+#1655358232
+ls -d */
+#1655358233
+ls
+#1655358235
+lth
+#1655358237
+top
+#1655347093
+top -p 9833
+#1655358276
+strace -p 9833
+#1655358302
+top
+#1655358366
+mkdir temp
+#1655358367
+cd temp/
+#1655358375
+ln -s ../Orthogroups.format.tsv
+#1655358383
+nohup pm iga.project.nitfix group2orthologs Orthogroups.format.tsv &
+#1655358390
+nohup python -m iga.project.nitfix group2orthologs Orthogroups.format.tsv &
+#1655358391
+lt
+#1655358399
+lth
+#1655358499
+top
+#1655358539
+ls
+#1655358594
+vi tmp
+#1655358615
+vi tmp 
+#1655358638
+sort -k1,1 -k3,3nr |les
+#1655358650
+sort -k1,1 -k3,3nr tmp |les
+#1655358669
+sort -k1,1 -k3,3nr tmp |first_only.pl 
+#1655358712
+sort -k1,1 -k3,3nr tmp |first_only.pl > leg_representatives.txt
+#1655358713
+vi leg_representatives.txt 
+#1655358185
+i=Lupinus_albus; python -m iga.evolution.ortho kaks --use_grid F ${i}.ortho.pruneTD ${i}.cds ${i}.pep
+#1655359381
+ls
+#1655359389
+mkdir max_10_paralog
+#1655359394
+mv *paralog max_10_paralog/
+#1655359394
+ls
+#1655359397
+ll
+#1655359400
+mv max_10_paralog max_10_paralog_dir
+#1655359401
+ls
+#1655359411
+pm iga.project.nitfix group2paralogs -h
+#1655359422
+nohup pm iga.project.nitfix group2paralogs Orthogroups.format.tsv  --max_group_size 100 &
+#1655359428
+nohup python -m iga.project.nitfix group2paralogs Orthogroups.format.tsv  --max_group_size 100 &
+#1655359429
+lth
+#1655359834
+jobs
+#1655359838
+lth
+#1655359841
+cd ..
+#1655359842
+ls
+#1655359843
+cd -
+#1655359844
+ll
+#1655359846
+ls
+#1655359859
+ll Mimosa_pudica.*
+#1655359897
+j mcscanx3
+#1655359899
+cd kaks
+#1655359900
+lth
+#1655359915
+ll *pdf
+#1655359788
+vi leg_representatives.txt 
+#1655360101
+tail  nohup.out 
+#1655360141
+gtp
+#1655360146
+nohup python -m iga.project.nitfix group2paralogs Orthogroups.format.tsv  --max_group_size 100 &
+#1655360169
+vi leg_representatives.txt 
+#1655360181
+awk '$3< 50' leg_representatives.txt 
+#1655360192
+vi tmp
+#1655360195
+vi tmp1
+#1655360210
+more tmp1
+#1655360232
+for i in Arachis_duranensis Cajanus_cajan Chamaecrista_fasciculata Cicer_arietinum Dipteryx_alata Eperua_falcata Faidherbia_albida Glycyrrhiza_uralensis Lablab_purpureus Mimosa_pudica Nissolia_schottii Pisum_sativum Trifolium_subterraneum; do ks_hist.R ${i}.${i}.ortho.kaks; done
+#1655360277
+sz *pdf
+#1655360285
+# Sent -> /Users/liuhui/Downloads/orthogroup_ks/
+#1655360552
+lth
+#1655360568
+jobs
+#1655360584
+lth
+#1655360794
+vi leg_representatives.txt 
+#1655360833
+grep 不 leg_representatives.txt 
+#1655360955
+ls ..
+#1655360959
+ls ../Gene_Duplication_Events/
+#1655360964
+les ../Gene_Duplication_Events/Duplications.tsv 
+#1655360983
+ls ..
+#1655361002
+ls ../Phylogenetic_Hierarchical_Orthogroups/N0.tsv 
+#1655361004
+les ../Phylogenetic_Hierarchical_Orthogroups/N0.tsv 
+#1655361014
+ll ../Phylogenetic_Hierarchical_Orthogroups/N0.tsv 
+#1655361016
+ll
+#1655361024
+les ../Phylogenetic_Hierarchical_Orthogroups/N0.tsv 
+#1655361177
+ln -s ../Phylogenetic_Hierarchical_Orthogroups/N0.tsv 
+#1655361177
+lth
+#1655361192
+sed "s/ \[translate_table_ standard\]//g" N0.tsv > N0.format.tsv
+#1655361208
+les N0.format.tsv 
+#1655361226
+awk '$3=="n0"' N0.format.tsv  |wc -l
+#1655361233
+awk '$3=="n0"' N0.format.tsv  > N0.format.n0.tsv
+#1655361237
+vi N0.format.n0.tsv 
+#1655361248
+vi N0.format.tsv 
+#1655361258
+vi N0.format.n0.tsv 
+#1655361268
+lth
+#1655361274
+jobs
+#1655361276
+fg
+#1655361302
+head -2 N0.format.n0.tsv
+#1655361310
+head -1 N0.format.n0.tsv
+#1655361324
+les N0.format.tsv 
+#1655361426
+gtp
+#1655361467
+nohup python -m iga.project.nitfix group2paralogs Orthogroups.format.tsv  --max_group_size 18 &
+#1655361467
+lth
+#1655361470
+bjl
+#1655361477
+lth
+#1655361478
+bjl
+#1655361481
+lth
+#1655361508
+jobs
+#1655361509
+lth
+#1655361512
+tail nohup.out 
+#1655361517
+lth
+#1655361518
+top
+#1655361540
+jobs
+#1655361542
+top
+#1655361551
+jobs
+#1655361555
+fg
+#1655361558
+lth
+#1655361586
+orthofinder -h
+#1655361653
+more ../leg_representatives.txt 
+#1655361675
+vi
+#1655361712
+mv leg_rep_list.txt ~/yi03/orthofinder/
+#1655361715
+cd ~/yi03/orthofinder/
+#1655361715
+ls
+#1655361720
+mkdir fasta0616
+#1655361721
+ll
+#1655361723
+les leg_rep_list.txt 
+#1655361744
+for i in `cat leg_rep_list.txt`; do cp fasta0613/$i.pep fasta0616/; done
+#1655361772
+cp fasta0613/Sophora_japonica.pep fasta0613/Styphnolobium_japonicum.pep
+#1655361785
+rsync -Pa yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:/ds3200_1/users_root/yitingshuang/lh/fasta0613/ /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655361817
+ls
+#1655361817
+ll
+#1655361821
+vi outgroup_list.txt
+#1655361839
+for i in `cat outgroup_list.txt`; do cp fasta0613/$i.pep fasta0616/; done
+#1655361861
+cp fasta0613/Arabidopsis_thaliana.pep fasta0616/
+#1655361861
+ls
+#1655361862
+ll
+#1655361865
+cd fasta0616/
+#1655361873
+grep mRNA: *pep
+#1655362404
+lth
+#1655362408
+jobs
+#1655362413
+top
+#1655362368
+rsync -Pa yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:/ds3200_1/users_root/yitingshuang/lh/fasta0613/ /nfs/liuhui/projects/phyleg_orthofinder/fasta0613
+#1655362442
+cd -
+#1655362444
+cd
+#1655362445
+ls
+#1655362446
+cd projects/
+#1655362446
+ls
+#1655362447
+lt
+#1655362450
+cd
+#1655362451
+cd yi03/
+#1655362451
+ls
+#1655362452
+ll
+#1655362453
+cd orthofinder/
+#1655362454
+ls
+#1655362454
+lt
+#1655362477
+ln -s ~/projects/phyleg_orthofinder/fasta0613 fasta0613_newest
+#1655362478
+ll
+#1655362494
+for i in `cat outgroup_list.txt`; do cp fasta0613_newest/${i}.pep fasta0616/; done
+#1655362517
+rm fasta0616/Datisca_glomerata.pep fasta0616/Parasponia_andersonii.pep 
+#1655362522
+vi leg_rep_list.txt 
+#1655362533
+vi outgroup_list.txt 
+#1655362543
+for i in `cat outgroup_list.txt`; do cp fasta0613_newest/${i}.pep fasta0616/; done
+#1655362546
+cd fasta0616/
+#1655362547
+ll
+#1655362550
+ls * |wc -l
+#1655362555
+cd ..
+#1655362556
+l
+#1655362557
+ll
+#1655362565
+ls fasta0613_newest/*_*_*.pep
+#1655362570
+ls fasta0613_newest/*_*_*.pep > rnaseq_list.txt
+#1655362571
+vi rnaseq_list.txt 
+#1655362660
+lt
+#1655362661
+lth
+#1655362665
+vi rnaseq_list.txt 
+#1655362667
+ll
+#1655362678
+for i in `cat rnaseq_list.txt`; do cp fasta0613_newest/${i}.pep fasta0616/; done
+#1655362680
+cd fasta061
+#1655362682
+cd fasta0616/
+#1655362682
+ll
+#1655362685
+ls *pep |wc -l
+#1655362700
+rm Dipteryx_odorata_Pap.pep 
+#1655362704
+cd ..
+#1655362704
+ls
+#1655362705
+lt
+#1655362709
+vi rnaseq_list.txt 
+#1655362716
+cd -
+#1655362717
+ls
+#1655362718
+ll
+#1655362719
+ls
+#1655362722
+ls *pep |wc -l
+#1655362724
+cd ..
+#1655362725
+tma
+#1655362752
+lth
+#1655362754
+ll
+#1655362755
+cd -
+#1655362756
+lt
+#1655362757
+cd -
+#1655362877
+mv nohup.out fasta0613/orthofinder.log
+#1655362878
+lth
+#1655362888
+nohup orthofinder -f fasta0616 -t 60 -M msa -y &
+#1655362891
+lth
+#1655362893
+bjl
+#1655362903
+ls
+#1655362907
+ll
+#1655362911
+more run.sh 
+#1655362936
+ls
+#1655362965
+select_fasta.pl mRNA_MtrunA17Chr5g0448621_Metru  ~/yi03/orthofinder/fasta0613/Medicago_truncatula.pep > NIN.pep
+#1655362989
+python SHOOT-master/shoot NIN.pep Results_Jun14_2 -o -t epa -n 24 -p
+#1655363000
+python SHOOT-master/shoot
+#1655363004
+python SHOOT-master/shoot-h
+#1655363006
+python SHOOT-master/shoot -h
+#1655363014
+ls
+#1655363018
+mv NIN.pep NIN.fasta
+#1655363025
+python SHOOT-master/shoot NIN.pep Results_Jun14_2 -o -t epa -n 24 -p
+#1655363036
+python SHOOT-master/shoot NIN.fasta Results_Jun14_2 -o -t epa -n 24 -p
+#1655363105
+more NIN.fasta
+#1655363108
+vi NIN.fasta
+#1655363112
+python SHOOT-master/shoot NIN.fasta Results_Jun14_2 -o -t epa -n 24 -p
+#1655363161
+cd SHOOT-master/
+#1655363178
+more ../run.sh 
+#1655363183
+python shoot ../NIN.fasta ../Results_Jun14_2 -n 24 -t epa -p
+#1655363187
+python shoot ../NIN.fasta ../Results_Jun14_2 -n 24 -t epa
+#1655363191
+python shoot ../NIN.fasta ../Results_Jun14_2 
+#1655363196
+cd ..
+#1655363200
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/__main__.py
+#1655363223
+python SHOOT-master/shoot  Results_Jun14_2 NIN.fasta -o -t epa -n 24 -p
+#1655363229
+more NIN.fasta
+#1655363231
+python SHOOT-master/shoot  Results_Jun14_2 NIN.fasta -o -t epa -n 24 -p
+#1655363235
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/__main__.py
+#1655363361
+realpath Results_Jun14_2
+#1655363368
+python SHOOT-master/shoot /nfs/liuhui/projects/buzzo/shoot/NIN.fasta /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 -o -t epa -n 24 -p
+#1655363380
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/__main__.py
+#1655363454
+python SHOOT-master/shoot /nfs/liuhui/projects/buzzo/shoot/NIN.fasta /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 -o -t epa -n 24 -p
+#1655363459
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/__main__.py
+#1655363462
+python SHOOT-master/shoot /nfs/liuhui/projects/buzzo/shoot/NIN.fasta /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 -o -t epa -n 24 -p
+#1655363466
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/__main__.py
+#1655363471
+python SHOOT-master/shoot /nfs/liuhui/projects/buzzo/shoot/NIN.fasta /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 -o -t epa -n 24 -p
+#1655363489
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/__main__.py
+#1655363505
+python SHOOT-master/shoot /nfs/liuhui/projects/buzzo/shoot/NIN.fasta /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 -o -t epa -n 24 -p
+#1655363530
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/og_assigner.py 
+#1655363541
+which diamond
+#1655363542
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/og_assigner.py 
+#1655363599
+python SHOOT-master/shoot /nfs/liuhui/projects/buzzo/shoot/NIN.fasta /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 -o -t epa -n 24 -p
+#1655363605
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/og_assigner.py 
+#1655363611
+python SHOOT-master/shoot /nfs/liuhui/projects/buzzo/shoot/NIN.fasta /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 -o -t epa -n 24 -p
+#1655363617
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/og_assigner.py 
+#1655363664
+python SHOOT-master/shoot /nfs/liuhui/projects/buzzo/shoot/NIN.fasta /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 -o -t epa -n 24 -p
+#1655363671
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/og_assigner.py 
+#1655363696
+python SHOOT-master/shoot /nfs/liuhui/projects/buzzo/shoot/NIN.fasta /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 -o -t epa -n 24 -p
+#1655363702
+diamond blastp -d /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/diamond_profile_sequences.fa.db.dmnd -q /nfs/liuhui/projects/buzzo/shoot/NIN.fasta -o /nfs/liuhui/projects/buzzo/shoot/NIN.fasta.sh.ogs.txt --quiet -e 0.001 --compress 1 -p 24
+#1655363710
+ll /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/diamond_profile_sequences.fa.db.dmnd
+#1655363714
+ll /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/
+#1655363734
+lt /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/
+#1655363760
+lth
+#1655363806
+ls
+#1655363808
+ll
+#1655363819
+cd SHOOT-master/shoot/
+#1655363830
+more ../../run.sh 
+#1655363837
+realpath Results_Jun14_2
+#1655363844
+realpath ../../Results_Jun14_2
+#1655363872
+python create_shoot_db.py /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 2>&1 > create0613.log 
+#1655363878
+lth
+#1655363881
+more create0613.log 
+#1655362765
+tma
+#1655363922
+cd /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/
+#1655363923
+lt
+#1655363932
+tma
+#1655363938
+grep logging
+#1655363941
+grep logging *py
+#1655363943
+vi __main__.py 
+#1655363956
+vi og_assigner.py 
+#1655363886
+python create_shoot_db.py /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 full 2>&1 > create0613.log 
+#1655363967
+lth
+#1655363968
+tma
+#1655363974
+les create0613.log 
+#1655363986
+lt /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/diamond_all_sequences.subtrees.fa
+#1655363989
+les create0613.log 
+#1655364013
+python create_shoot_db.py /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 full 2>create0613.err > create0613.log 
+#1655364083
+les create0613.err 
+#1655364096
+lth
+#1655364102
+les create0613.
+#1655364103
+les create0613.log 
+#1655364116
+more /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/diamond_all_sequences.subtrees.fa
+#1655364117
+lt
+#1655364127
+lt /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/diamond_all_sequences.subtrees.fa*
+#1655364134
+rm /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/diamond_all_sequences.subtrees.fa*
+#1655364004
+tma
+#1655364157
+lt /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/
+#1655364138
+python create_shoot_db.py /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 full 2>create0613.err > create0613.log 
+#1655364203
+les create0613.err 
+#1655364208
+les create0613.log 
+#1655364226
+vi create_shoot_db.py 
+#1655364272
+les create0613.log 
+#1655364274
+vi create_shoot_db.py 
+#1655364394
+python create_shoot_db.py /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 profile 2>create0613.err > create0613.log 
+#1655364401
+les create*err
+#1655364404
+les create*log
+#1655364165
+tma
+#1655364586
+lt /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/
+#1655364589
+tma
+#1655366000
+jobs
+#1655366002
+lth
+#1655366045
+ls
+#1655366049
+mkdir format
+#1655366056
+mv Orthogroups.format.tsv* format/
+#1655366056
+ls
+#1655366078
+nohup python -m iga.project.nitfix group2paralogs N0.format.n0.tsv  --max_group_size 18 &
+#1655366079
+lth
+#1655366090
+more ../Species_Tree/
+#1655366100
+sz ../Species_Tree/SpeciesTree_rooted.txt 
+#1655366106
+# Sent -> /Users/liuhui/Downloads/
+#1655366564
+jobs
+#1655366565
+logsh
+#1655366689
+more ~/yi03/orthofinder/outgroup_list.txt 
+#1655367442
+lth
+#1655367447
+jobs
+#1655367403
+top
+#1655367698
+tma
+#1655367709
+vi /nfs/liuhui/projects/buzzo/shoot/SHOOT-master/shoot/create_shoot_db.py 
+#1655367867
+top
+#1655368460
+orthofinder -h
+#1655368525
+cd ~/yi03/orthofinder/fasta0616/
+#1655368525
+logsh
+#1655368531
+top
+#1655362896
+top
+#1655368656
+fg
+#1655368658
+ls
+#1655368661
+cd fasta0613
+#1655368662
+ls
+#1655368669
+mv OrthoFinder OrthoFinder.partial
+#1655368669
+cd ..
+#1655368702
+orthofinder -h
+#1655364410
+python create_shoot_db.py /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2 profiles 2>create0613.err > create0613.log 
+#1655368859
+ll
+#1655369018
+orthofinder -h
+#1655369244
+rm nohup.out 
+#1655369245
+lt
+#1655369251
+lt fasta0616/
+#1655369259
+nohup orthofinder -f fasta0616 -t 60 -M msa -A mafft -T iqtree -y -S mmseqs & 
+#1655369266
+logsh
+#1655369274
+more nohup.out 
+#1655369287
+which mmseqs 
+#1655369293
+mmseqs createdb
+#1655369303
+which orthofinder
+#1655369306
+vi /nfs/apps/miniconda3/bin/orthofinder
+#1655369320
+which mmseqs
+#1655369328
+echo $PATH
+#1655369392
+mmseqs createdb
+#1655369398
+orthofinder -f fasta0616 -t 60 -M msa -A mafft -T iqtree -y -S mmseqs
+#1655369413
+which orthofinder
+#1655369416
+vi /nfs/apps/miniconda3/bin/orthofinder
+#1655369468
+which orthofinder
+#1655369486
+sudo ln -s /nfs/apps/miniconda3/bin/mmseqs /usr/local/bin/mmseqs
+#1655369493
+nohup orthofinder -f fasta0616 -t 60 -M msa -A mafft -T iqtree -y -S mmseqs & 
+#1655369494
+lth
+#1655369496
+tail nohup.out 
+#1655369501
+jobs
+#1655369503
+tail nohup.out 
+#1655369523
+ll
+#1655369524
+lth
+#1655369525
+les nohup.out 
+#1655369548
+orthofinder& ps ux; ps ux; ps ux
+#1655369565
+vi /nfs/apps/miniconda3/bin/orthofinder
+#1655369594
+vi /nfs/apps/miniconda3/bin/scripts_of/__main__.py 
+#1655369619
+grep mmseqs /nfs/apps/miniconda3/bin/scripts_of/*py
+#1655369622
+vi /nfs/apps/miniconda3/bin/scripts_of/__main__.py 
+#1655369667
+vi /nfs/apps/miniconda3/bin/scripts_of/program_caller.py 
+#1655369734
+tail nohup.out 
+#1655369739
+vi /nfs/apps/miniconda3/bin/scripts_of/program_caller.py 
+#1655369760
+grep createdb /nfs/apps/miniconda3/bin/scripts_of/*py
+#1655369764
+grep createdb /nfs/apps/miniconda3/bin/scripts_of/*/*py
+#1655369767
+grep createdb /nfs/apps/miniconda3/bin/scripts_of/*py
+#1655369779
+grep createdb /nfs/apps/miniconda3/bin/scripts_of/program_caller.py 
+#1655369783
+vi /nfs/apps/miniconda3/bin/scripts_of/program_caller.py 
+#1655369807
+ll
+#1655369817
+rm -r fasta0616/OrthoFinder/ 
+#1655369825
+ls fasta0616/
+#1655369838
+nohup orthofinder -f fasta0616 -t 60 -M msa -A mafft -T iqtree -y &
+#1655369840
+bjl
+#1655369844
+lth
+#1655369848
+cd fasta0616/
+#1655369850
+lth
+#1655369852
+cd OrthoFinder/
+#1655369853
+lt
+#1655369856
+c d../..
+#1655369858
+cd ../.
+#1655369860
+cd ../..
+#1655369860
+lth
+#1655369861
+cd -
+#1655369862
+ls
+#1655369862
+lt
+#1655369863
+lth
+#1655369865
+bjl
+#1655369870
+bjobs
+#1655368653
+tma
+#1655370444
+lth
+#1655370452
+les  *paralog
+#1655370456
+lth
+#1655370481
+vi sp_l
+#1655370484
+vi sp_lis
+#1655370488
+bhosts 
+#1655370489
+lsload
+#1655370502
+lt |les
+#1655370506
+lth
+#1655370509
+lt |les
+#1655370518
+ls -d */
+#1655370520
+ls max_10_paralog_dir/
+#1655370523
+ls temp/
+#1655370527
+ls format/
+#1655370537
+lth
+#1655370538
+ls *cds
+#1655370540
+ls *pep
+#1655370540
+ls
+#1655370545
+ls max_10_paralog_dir/
+#1655370547
+ls temp/
+#1655370549
+ls */
+#1655370569
+ls
+#1655370608
+cp ~/projects/phyleg_orthofinder/fasta0613/*pep .
+#1655370628
+cp ~/projects/phyleg_orthofinder/fasta0613/cds/*cds .
+#1655370675
+rm Datisca_glomerata.cds Parasponia_andersonii.cds 
+#1655370681
+cp ~/projects/phyleg_orthofinder/fasta0613/cds/Datisca_glomerata.cds .
+#1655370687
+cp ~/projects/phyleg_orthofinder/fasta0613/cds/Parasponia_andersonii.cds .
+#1655370692
+rm run.sh; for i in `cat sp_list`; do echo "python -m iga.evolution.ortho kaks --use_grid F ${i}.ortho.pruneTD ${i}.cds ${i}.pep " >> run.sh; done
+#1655370697
+ls
+#1655370708
+ls format/
+#1655370712
+ls */sp_list
+#1655370718
+lth
+#1655370721
+ls *list*
+#1655370757
+ls
+#1655370772
+rm run.sh; for j in *.cds; do i=${j%.cds}; echo "python -m iga.evolution.ortho kaks --use_grid F N0.format.n0.tsv.${i}.paralog ${i}.cds ${i}.pep " >> run.sh; done
+#1655370775
+vi run.sh 
+#1655370796
+vi ~/yi03/orthofinder/leg_rep_list.txt 
+#1655370808
+grep -f  ~/yi03/orthofinder/leg_rep_list.txt run.sh > run.filter.sh
+#1655370809
+vi run.filter.sh 
+#1655370917
+rm run.sh 
+#1655370918
+vi run.filter.sh 
+#1655370926
+vi proc
+#1655370932
+ls 
+#1655370933
+ls ..
+#1655370935
+lt ..
+#1655370958
+vi run.filter.sh 
+#1655370964
+python -m iga.evolution.ortho kaks -h
+#1655370974
+vi run.filter.sh 
+#1655370990
+nohup bash & run.filter.sh 
+#1655370996
+nohup bash run.filter.sh &
+#1655370997
+lth
+#1655370999
+top
+#1655371004
+more proc 
+#1655371025
+lth
+#1655371036
+wc -l N0.*log
+#1655380722
+ls
+#1655380724
+lt
+#1655380725
+lth
+#1655347298
+ssh yi03
+#1655380887
+lth
+#1655380891
+cd ..
+#1655380893
+cd fasta061
+#1655380894
+cd fasta0613
+#1655380895
+ls
+#1655380907
+mv OrthoFinder.partial OrthoFinder
+#1655380908
+cd OrthoFinder/
+#1655380909
+lt
+#1655380910
+cd Results_Jun14_2/
+#1655380910
+lt
+#1655380923
+les create0613.err 
+#1655380929
+ll /mnt/yi03/liuhui/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/WorkingDirectory/Alignments_ids/OG0000002.fa
+#1655380915
+tma
+#1655380935
+lth
+#1655380941
+cd Ortho
+#1655380942
+cd Orthogroup
+#1655380943
+lt
+#1655380945
+cd Orthogroups/
+#1655380946
+lt
+#1655380947
+lth
+#1655380957
+cd ../self_kaks/
+#1655380957
+ls
+#1655381007
+wc -l Mimosa_pudica.black.id 
+#1655381017
+pm iga.project.nitfix
+#1655381029
+pm iga.project.nitfix unselect
+#1655381034
+lth
+#1655381054
+pm iga.project.nitfix unselect Mimosa_pudica.black.id Mimosa_pudica.ortho.pruneTD.kaks > Mimosa_pudica.ortho.pruneTD.norepeat.kaks
+#1655371060
+top
+#1655381096
+lt /nfs/liuhui/yi03/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/self_kaks/
+#1655381097
+jobs
+#1655381102
+lt /nfs/liuhui/yi03/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/self_kaks |head
+#1655381119
+ls kaks
+#1655381121
+ls *kaks
+#1655381133
+lth
+#1655381140
+ks_hist.R N0.format.n0.tsv.Mimosa_pudica.paralog.kaks
+#1655381146
+sz N0.format.n0.tsv.Mimosa_pudica.paralog.kaks.pdf 
+#1655381148
+cd 
+#1655381148
+# Sent -> /Users/liuhui/Downloads/
+#1655381083
+grep -vf Mimosa_pudica.black.id Mimosa_pudica.ortho.pruneTD.kaks > Mimosa_pudica.ortho.pruneTD.norepeat.kaks
+#1655381201
+les Mimosa_pudica.ortho.pruneTD.norepeat.kaks 
+#1655381206
+ll Mimosa_pudica.ortho.pruneTD.norepeat.kaks 
+#1655381209
+ks_hist.R Mimosa_pudica.ortho.pruneTD.norepeat.kaks 
+#1655381215
+sz Mimosa_pudica.ortho.pruneTD.norepeat.kaks.pdf 
+#1655381261
+j self_kaks
+#1655381266
+wc -l Mimosa_pudica.*kaks
+#1655381299
+ls
+#1655381314
+les Cercis_chinensis.ortho.pruneTD 
+#1655381318
+cd .
+#1655381319
+cd ..
+#1655381319
+ls
+#1655381323
+lth
+#1655381339
+cd yi03/
+#1655381339
+ls
+#1655381340
+cd orthofinder/
+#1655381341
+ls
+#1655381342
+lt
+#1655381344
+cd fasta0613
+#1655381344
+ls
+#1655381348
+cd OrthoFinder/
+#1655381349
+ls
+#1655381350
+cd Results_Jun14_2/
+#1655381351
+ls
+#1655381356
+cd Orthologues/
+#1655381356
+ls
+#1655381218
+wc
+#1655381400
+cd Orthologues_Cercis_chinensis/
+#1655381401
+ls
+#1655381408
+les Cercis_chinensis__v__Mimosa_pudica.tsv 
+#1655381463
+sed "s/ \[translate_table_ standard\]//" Cercis_chinensis__v__Mimosa_pudica.tsv > Cercis_chinensis__v__Mimosa_pudica.format.tsv
+#1655381471
+pm iga.project.nitfix
+#1655381489
+pm iga.project.nitfix group2paralogs -h
+#1655381499
+pm iga.project.nitfix group2paralogs  --start_col 1 Cercis_chinensis__v__Mimosa_pudica.format.tsv
+#1655381533
+gtp
+#1655381538
+pm iga.project.nitfix group2paralogs  --start_col 1 Cercis_chinensis__v__Mimosa_pudica.format.tsv
+#1655381659
+lth
+#1655381666
+les Cercis_chinensis__v__Mimosa_pudica.format.tsv.Mimosa_pudica.paralog 
+#1655381674
+les Cercis_chinensis__v__Mimosa_pudica.format.tsv
+#1655381688
+sed -i "s/ \[translate_table_ standard\]//" Cercis_chinensis__v__Mimosa_pudica.format.tsv.Mimosa_pudica.paralog
+#1655381691
+les Cercis_chinensis__v__Mimosa_pudica.format.tsv.Mimosa_pudica.paralog 
+#1655381700
+sed -i "s/ \[translate_table_ standard\]//g" Cercis_chinensis__v__Mimosa_pudica.format.tsv.Mimosa_pudica.paralog
+#1655381701
+lth
+#1655381707
+les Cercis_chinensis__v__Mimosa_pudica.format.tsv.Mimosa_pudica.paralog 
+#1655381718
+cp ~/yi03/orthofinder/fasta0613/Mimosa_pudica.pep .
+#1655381746
+cp ~/yi03/orthofinder/fasta0613_newest/cds/Mimosa_pudica.cds .
+#1655381747
+lth
+#1655381761
+pm iga.evolution.ortho kaks
+#1655381762
+pm iga.evolution.ortho kaks -h
+#1655381772
+lsload
+#1655381775
+top
+#1655381785
+lt
+#1655381786
+lth
+#1655381790
+bjl
+#1655381798
+uplht Cercis_chinensis__v__Mimosa_pudica.format.tsv.Mimosa_pudica.paralog Mimosa_pudica.pep Mimosa_pudica.cds
+#1655381969
+lth
+#1655382028
+ls
+#1655382039
+cd
+#1655382039
+ls
+#1655382042
+cd yi03/
+#1655382043
+ls
+#1655382067
+bjl
+#1655382068
+lsload
+#1655382078
+lth
+#1655382073
+tma
+#1655382413
+lth
+#1655382450
+j mcscanx3
+#1655382451
+ls
+#1655382454
+cd ..
+#1655382454
+ls
+#1655382455
+lt
+#1655382456
+lth
+#1655382460
+cd wgd_rnaseq/
+#1655382461
+ls
+#1655382464
+cd 03.ortho_with_genome/
+#1655382464
+ls
+#1655382505
+lth
+#1655382508
+les *pep
+#1655382511
+lt
+#1655382516
+les Zollernia_splendens_Pap.pep 
+#1655382520
+ls
+#1655382537
+lt
+#1655382566
+ls
+#1655382569
+ls -d */
+#1655382575
+cd ..
+#1655382575
+ls
+#1655382589
+bjl
+#1655382711
+ls
+#1655382712
+cd 03.ortho_with_genome/
+#1655382713
+ls
+#1655382715
+ls *peak
+#1655382717
+more rna_
+#1655382718
+more rna_wgd.sh g
+#1655382727
+cd ..
+#1655382728
+ls
+#1655382734
+j
+#1655382736
+j genome
+#1655382736
+ls
+#1655382740
+j peak
+#1655382740
+ls
+#1655382750
+cd ../../mcscanX2/
+#1655382750
+ls
+#1655382754
+ls *peak
+#1655382756
+cd kaks
+#1655382756
+ls
+#1655382760
+lth
+#1655382773
+lt |les
+#1655382790
+ls
+#1655382792
+j ortho
+#1655382799
+cd
+#1655382801
+cd projects/
+#1655382801
+ls
+#1655382802
+cd phyleg
+#1655382804
+ls
+#1655382811
+ls 03.fig3/
+#1655382811
+ls
+#1655382819
+cd 03.fig3/
+#1655382819
+ls
+#1655382820
+cd D/
+#1655382821
+ls
+#1655382825
+lth
+#1655382830
+les WGD_withRNA_peak.txt.calc
+#1655382840
+vi ls
+#1655382842
+ls
+#1655382844
+cd orthofinder/
+#1655382844
+ls
+#1655382846
+ll *txt
+#1655382848
+cp * ~/
+#1655382849
+lt
+#1655382854
+rm ~/shell 
+#1655382857
+rm ~/nohup.out 
+#1655382863
+ls ~/*txt
+#1655382869
+ls ~/*list.txt
+#1655382878
+ls ~/leg_rep_list.txt .
+#1655382881
+cp ~/leg_rep_list.txt .
+#1655382882
+lth
+#1655382914
+les leg_rep_list.txt 
+#1655382919
+les WGD_withRNA_peak.txt.calc
+#1655382923
+les leg_rep_list.txt 
+#1655382936
+cat ~/rnaseq_list.txt >> leg_rep_list.txt 
+#1655382938
+lth
+#1655382946
+cp WGD_withRNA_peak.txt.calc WGD_withRNA_peak.txt.calc.0616
+#1655382947
+lth
+#1655382951
+vi WGD_withRNA_peak.txt.calc.0616
+#1655382974
+lth
+#1655382986
+selectItem.pl 0 0,1 leg_rep_list.txt WGD_withRNA_peak.txt.calc.0616 > WGD_withRNA_peak.txt.calc.0616.filter
+#1655382991
+wc -l *0616*
+#1655382994
+les WGD_withRNA_peak.txt.calc.0616.filter 
+#1655383005
+pm iga.project.nitfix
+#1655383016
+lth
+#1655383020
+stat2matrixCOMWGD.py WGD_withRNA_peak.txt.calc.0616.filter
+#1655383035
+vi WGD_withRNA_peak.txt.calc.0616.filter
+#1655383041
+stat2matrixCOMWGD.py WGD_withRNA_peak.txt.calc.0616.filter
+#1655383048
+vi WGD_withRNA_peak.txt.calc.0616.filter
+#1655383067
+sort -k1,1 -k2,2 WGD_withRNA_peak.txt.calc.0616.filter |uniq |less
+#1655383070
+sort -k1,1 -k2,2 WGD_withRNA_peak.txt.calc.0616.filter |uniq |les
+#1655383077
+wc -l WGD_withRNA_peak.txt.calc.0616.filter 
+#1655383092
+history |grep stat2matrixCOMWGD.py
+#1655383103
+ls *py
+#1655383122
+flth
+#1655383148
+lth
+#1655383151
+les *er
+#1655383165
+lt
+#1655383168
+lth
+#1655383172
+ls
+#1655383184
+lth
+#1655383190
+les WGD_withRNA_peak.txt.calc.0616.filter 
+#1655383205
+vk
+#1655383214
+which vk
+#1655383222
+vi /nfs/liuhui/bin/bundle/config/workdir.txt.log 
+#1655383237
+lth
+#1655383245
+les WGD_withRNA_peak.txt.calc.0616.filter 
+#1655383261
+les leg_rep_list.txt 
+#1655383267
+lth
+#1655383272
+les leg_rep_list.txt 
+#1655383294
+ls
+#1655383296
+lt |les
+#1655383326
+les total_WGD.0603.txt.xls 
+#1655383330
+les total_WGD.0603.txt
+#1655383346
+vi total_WGD.0603.txt
+#1655383378
+vi total_WGD.0603.txt.xls 
+#1655383401
+lth
+#1655383411
+lt |less
+#1655383428
+wc -l WGD_withRNA_peak.txt
+#1655383431
+lth
+#1655383439
+lt *txt
+#1655383446
+les genome_v1229.txt 
+#1655383482
+lth
+#1655383483
+lt
+#1655383486
+lt |head -50
+#1655383611
+bjl
+#1655383616
+htop
+#1655383622
+top
+#1655383624
+ls
+#1655383639
+ls *_Det*Det*kaks
+#1655383642
+ll *_Det*Det*kaks
+#1655383738
+lt |les
+#1655383744
+les WGD_withRNA_peak.txt.calc.xls 
+#1655383748
+les WGD_withRNA_peak.txt
+#1655343807
+pm iga.project.nitfix group2orthologs Orthogroups.format.tsv 
+#1655384431
+t Orthogroups.format.tsv
+#1655384434
+lth
+#1655384437
+ls
+#1655384439
+les Orthogroups.format.tsv
+#1655384440
+ls
+#1655384442
+ls -d /
+#1655384444
+ls -d */
+#1655384446
+cd format/
+#1655384446
+ls
+#1655384452
+les Orthogroups.format.tsv
+#1655384468
+head -1 Orthogroups.format.tsv > tmp
+#1655384469
+tt tmp 
+#1655384692
+cd /nfs/liuhui/yi03/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/Orthogroups/format/
+#1655384693
+lt
+#1655384694
+lth
+#1655384726
+ll Orthogroups.format.tsv
+#1655384732
+cut -f 1,6,2 Orthogroups.format.tsv |les
+#1655384672
+for i in 6 7 31 39 70 79; do for j in `seq 2 79`; do cut -f1,${i},${j} > Orthogroups.format.tsv.${i}x${j}.txt; done; done
+#1655384747
+lth
+#1655384753
+mkdir paralogs
+#1655384757
+mv *paralog paralogs/
+#1655384757
+ls
+#1655384771
+lth
+#1655384774
+les Orthogroups.format.tsv.6x66.txt 
+#1655384788
+pm iga.project.nitfix
+#1655384796
+pm iga.project.nitfix group2orthologs -h
+#1655384805
+gtp
+#1655384836
+pm iga.project.nitfix group2orthologs -h
+#1655384853
+lth
+#1655384745
+for i in 6 7 31 39 70 79; do for j in `seq 2 79`; do cut -f1,${i},${j} Orthogroups.format.tsv > Orthogroups.format.tsv.${i}x${j}.txt; done; done
+#1655384910
+top
+#1655384922
+ls
+#1655384923
+cd
+#1655384924
+ls
+#1655384925
+cd yi03/
+#1655384925
+lt
+#1655384926
+cd rna_vs_genome_WGD/
+#1655384926
+lt
+#1655384876
+pm iga.project.nitfix group2orthologs --start_col 1 Orthogroups.format.tsv.39x76.txt
+#1655384927
+ls
+#1655384936
+ls -d work.*/ |wc -l
+#1655384937
+lth
+#1655384942
+ls
+#1655384947
+more rna_wgd.sh 
+#1655384956
+jobs
+#1655384961
+bjl
+#1655384963
+lth
+#1655384966
+bjl
+#1655384973
+bpeek 75433
+#1655385014
+bjobs -l  75433
+#1655385022
+j outgroups/rbh
+#1655385022
+lt
+#1655385023
+lth
+#1655385033
+ls -d *RBH/ | wc -l
+#1655385041
+bpeek 75433
+#1655385048
+cd Zollernia_splendens_Pap.Medicago_truncatula.RBH/
+#1655385048
+lt
+#1655385052
+cd -
+#1655385052
+lth
+#1655385054
+ls
+#1655385058
+bjl
+#1655385060
+ls
+#1655385061
+ls *sh
+#1655385063
+more rbh_tworounds.sh 
+#1655385072
+bjl
+#1655385078
+cd OrthoFinder/
+#1655385079
+lth
+#1655385081
+cd Results_Jun16/
+#1655385082
+lth
+#1655385084
+cd WorkingDirectory/
+#1655385085
+lth
+#1655385087
+cd -
+#1655385089
+cd ..
+#1655385089
+ls
+#1655385090
+lt
+#1655385092
+cd ..
+#1655385093
+lth
+#1655385124
+les Orthogroups.format.tsv.39x76.txt 
+#1655385192
+cp ~/projects/phyleg_orthofinder/fasta/OrthoFinder/Results_Apr18/Orthogroups/ortholog2ortho.pl .
+#1655385193
+lth
+#1655385199
+perl ortholog2ortho.pl Orthogroups.format.tsv.79x72.txt > tmp
+#1655385201
+les tmp 
+#1655385207
+ls
+#1655385218
+ls *txt |les
+#1655385243
+for i in *txt; do cut -f2,3 ${i} |uniq > ${i}.cut ; done
+#1655385265
+lth
+#1655385275
+chmod +x ortholog2ortho.pl 
+#1655385277
+vi ortholog2ortho.pl 
+#1655385281
+cp ortholog2ortho.pl $HB/
+#1655385282
+gtp

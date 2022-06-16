@@ -14,3 +14,12 @@ mRNA_MtrunA17Chr5g0448621_Metru    VIT_203s0038g03710.2_Vivin    0
 /nfs/liuhui/projects/phyleg/04.fig4/04.triangle_localization/outgroups/rbh
 
 Mon Jun 13 21:38:24 CST 2022
+
+
+#跑上聚类
+
+/nfs/liuhui/yi03/orthofinder
+$bsub512 -m yi03 -J lh_OF -n 60 "orthofinder -f fasta0613 -t 60 -M msa"
+Job <75425> is submitted to queue <Q104C512G_X4>.
+
+Tue Jun 14 14:46:32 CST 2022
