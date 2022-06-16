@@ -4,6 +4,8 @@ scripts used in nitfix project
 import logging
 import re
 import coloredlogs
+
+from iga.annotation.gff import Bed
 from iga.apps.base import emain, mkdir
 import pandas as pd
 import itertools
@@ -184,5 +186,26 @@ def group2orthologs(orthogroup=None, max_group_size=10, outdir='ortholog_split')
         with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
             fh.write(result_db[pair_name])
 
+
+def remove_tandem_ortho(ortho=None, bed=None, gap=20):
+    """
+    Input:
+        Ortho: AT01g01010\tAt02g02020
+        Bed: bed file
+    Output:
+        Ortho with tandem duplicates removed (proximal genes with seperated by less than 20 genes)
+    """
+    bed_file = Bed(bed)
+    #bed_file.add_rank()
+    with open(ortho) as fh:
+        for line in fh:
+            (orthoA, orthoB) = line.rstrip().split()
+            rankA = bed_file.select_name(orthoA).rank
+            rankB = bed_file.select_name(orthoB).rank
+            if(abs(rankA - rankB) > gap):
+                print(line.rstrip())
+
+
+emain()
 
 emain()
