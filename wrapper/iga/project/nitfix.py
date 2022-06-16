@@ -112,19 +112,20 @@ def format_ks_plot(ks_plot_output=None):
         fh.write(ortho_buff)
 
 
-def group2paralogs(orthogroup=None, max_group_size=10):
+def group2paralogs(orthogroup=None, max_group_size=10, start_col=3):
     """
     12 min to finish
     Split groupt to parlogs
     Args:
         orthogroup: Orthogroups.tsv produced by OrthoFinder2.5.1
+        start_col: 0-based indicating which column species started. 3 for N0.tsv and 1 for deprecated orthogroup.tsv
     Returns:
     """
     max_group_size = int(max_group_size)
     paralog_db = defaultdict(str)
     orthotable = pd.read_table(orthogroup, dtype=str)
     columns_len = len(orthotable.columns)
-    for col in range(1, columns_len):
+    for col in range(start_col, columns_len):
         species_name = orthotable.columns[col]
         this_species_groups = orthotable[species_name].to_list()
         for g in this_species_groups:
