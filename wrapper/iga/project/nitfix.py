@@ -211,5 +211,3 @@ def remove_tandem_ortho(ortho=None, bed=None, gap=20):
 
 
 emain()
-
-emain()
