@@ -113,7 +113,7 @@ def group2paralogs(orthogroup=None, max_group_size=10):
     """
     Split groupt to parlogs
     Args:
-        orthogroup:
+        orthogroup: Orthogroups.tsv produced by OrthoFinder2.5.1
     Returns:
     """
     paralog_db = defaultdict(str)
@@ -123,7 +123,11 @@ def group2paralogs(orthogroup=None, max_group_size=10):
         species_name = orthotable.columns[col]
         this_species_groups = orthotable[species_name].to_list()
         for g in this_species_groups:
-            ortho_gene_list = g.split(', ')
+            try:
+                ortho_gene_list = g.split(', ')
+            except AttributeError:
+                logging.error(g)
+                exit(1)
             if (len(ortho_gene_list) <=1 or len(ortho_gene_list) > max_group_size):
                 continue
             else:
