@@ -117,7 +117,7 @@ def group2paralogs(orthogroup=None, max_group_size=10):
     Returns:
     """
     paralog_db = defaultdict(str)
-    orthotable = pd.read_table(orthogroup)
+    orthotable = pd.read_table(orthogroup, dtype=str)
     columns_len = len(orthotable.columns)
     for col in range(1, columns_len):
         species_name = orthotable.columns[col]
