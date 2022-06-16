@@ -78405,3 +78405,119 @@ vi ortholog2ortho.pl
 cp ortholog2ortho.pl $HB/
 #1655385282
 gtp
+#1655385286
+gtps
+#1655385295
+ortholog2ortho.pl Orthogroups.format.tsv.31x18.txt.cut  |les
+#1655385335
+for i in *cut; do ortholog2ortho.pl $i > ${i}.ortho; done
+#1655385375
+lth
+#1655385380
+les *ortho
+#1655385393
+wc -l  *ortho
+#1655385402
+ls
+#1655385406
+vi ortholog2ortho.pl 
+#1655385414
+lth
+#1655385419
+ls
+#1655385254
+for i in *txt; do cut -f2,3 ${i} |sort |uniq > ${i}.cut ; done
+#1655337313
+ssh yi03
+#1655385737
+jobs
+#1655341668
+ssh yi03
+#1655385074
+tma
+#1655389267
+ls
+#1655389269
+lth
+#1655389272
+cd yi03/
+#1655389272
+lth
+#1655389274
+cd jor
+#1655389278
+cd orthofinder/
+#1655389279
+ls
+#1655389286
+cd fasta0613/OrthoFinder/
+#1655389296
+ls
+#1655389297
+cd Results_Jun14_2/
+#1655389298
+ls
+#1655389304
+cd Orthologues/
+#1655389305
+ls
+#1655389306
+lth
+#1655389315
+cd Orthologues_Cercis_chinensis/
+#1655389317
+ls
+#1655389375
+pm iga.project.nitfix group2paralogs --start_col 1 -h
+#1655389388
+ls
+#1655389400
+pm iga.project.nitfix group2paralogs --start_col 1 --max_group_size 2 Cercis_chinensis__v__Mimosa_pudica.tsv 
+#1655389424
+wc -l Cercis_chinensis__v__Mimosa_pudica.tsv.Mimosa_pudica.paralog 
+#1655389445
+ls $HB/*hist*pl
+#1655389450
+lth
+#1655389466
+ls *ks
+#1655389468
+lth
+#1655389488
+uplht Cercis_chinensis__v__Mimosa_pudica.tsv.Mimosa_pudica.paralog 
+#1655389493
+tolh
+#1655389496
+tolht
+#1655389507
+which uplht
+#1655389508
+vc
+#1655389542
+sc
+#1655389543
+tolht
+#1655389548
+vc
+#1655389573
+ssh -6 [2400:dd07:1003:211:a94:efff:fe51:4d82]
+#1655389603
+ssh -6 yitingshuang@2400:dd07:1003:211:a94:efff:fe51:4d82
+#1655389745
+ls *black*
+#1655389748
+cd ../
+#1655389750
+cd ../self_kaks/
+#1655389752
+ls *black
+#1655389753
+ls *black*
+#1655389759
+uplht Mimosa_pudica.black.id 
+#1655389761
+tolht
+#1655389763
+vc
+#1655389772
+gtp

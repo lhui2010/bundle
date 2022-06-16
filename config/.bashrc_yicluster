@@ -110,6 +110,7 @@ set -euxo pipefail
 ROOT=\$PWD"'
 
 export TERM=xterm
+alias tolht="ssh -6 yitingshuang@2400:dd07:1003:211:a94:efff:fe51:4d82"
 
 downlht (){
         scp -r -6 yitingshuang@[2400:dd07:1003:211:a94:efff:fe51:4d82]:$1 ./
