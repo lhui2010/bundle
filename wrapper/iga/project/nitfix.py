@@ -145,7 +145,7 @@ def group2paralogs(orthogroup=None, max_group_size=10, start_col=3):
             fh.write(paralog_db[species_name])
 
 
-def group2orthologs(orthogroup=None, max_group_size=10, outdir='ortholog_split'):
+def group2orthologs(orthogroup=None, max_group_size=10, outdir='ortholog_split', start_col=3):
     """
     12 min to finish
     Split groupt to parlogs
