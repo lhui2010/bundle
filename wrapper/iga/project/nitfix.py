@@ -126,8 +126,7 @@ def group2paralogs(orthogroup=None, max_group_size=10):
             try:
                 ortho_gene_list = g.split(', ')
             except AttributeError:
-                logging.error(g)
-                exit(1)
+                continue
             if (len(ortho_gene_list) <=1 or len(ortho_gene_list) > max_group_size):
                 continue
             else:
