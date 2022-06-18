@@ -14,6 +14,7 @@ my @e=split/\t/, $_,2;
 $hash{$e[0]} = $e[1];
 #$hash{"GeneID"} = $e[1];
 
+$NA_string = "";
 while(<DICT>)
 {
     chomp;
@@ -21,6 +22,12 @@ while(<DICT>)
 #remove transcripts
     #$e[0]=~s/_T\d+$//;
     $hash{$e[0]} = $e[1];
+
+	if($NA_string eq "")
+	{
+		my @f=split/\t/, $e[1];
+		$NA_string = "\tNA" * int(@f);
+	}
 }
 
 while(<IN>)
@@ -31,7 +38,7 @@ while(<IN>)
 
     $_.="\t$hash{$e[0]}" if exists ($hash{$e[0]});
 
-    $_.="\n";
+    $_.="$NA_string\n";
 
     print;
 }
