@@ -158,9 +158,9 @@ availq() {
     echo -n "Q64C3T_X1       ";   expr 64 -  `bqueues  Q64C3T_X1 |awk '{print $10}' |tail -n 1`      
     echo -n "Q48C2T_X1       ";   expr 48 -  `bqueues  Q48C2T_X1 |awk '{print $10}' |tail -n 1`      
 
-    #    echo "HOST_NAME          STATUS       JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV"
-    #    bhosts |grep "node0[12345]"
-    #    bhosts |grep "node1[0123]"
+        echo "HOST_NAME          STATUS       JL/U    MAX  NJOBS    RUN  SSUSP  USUSP    RSV"
+        bhosts |grep "node0[12345]"
+        bhosts |grep "node1[0123]"
     #    echo ""
     #    echo "                 TotalCpu     UsedCpu    RestCPU"
     #    cpu_total=256

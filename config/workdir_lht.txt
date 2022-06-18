@@ -19,3 +19,30 @@ Previous failed due to the "mRNA:" prefix
 
 
 Wed Jun  8 15:51:23 CST 2022
+
+
+一、工作1
+/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX3
+ 完成了没有文件夹的ortholog Ks 的peak calling。没有筛选para/ortho的共有基因
+
+二、工作2
+/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX3/selfie
+这里是所有MCScanX的自比结果，还差
+
+# 转录组数据
+Zollernia_splendens.Zollernia_splendens.ortho.kaks.peak
+Andira_inermis.Andira_inermis.ortho.kaks.peak
+Angylocalyx_braunii.Angylocalyx_braunii.ortho.kaks.peak
+Umtiza_listeriana.Umtiza_listeriana.ortho.kaks.peak
+Dialium_schlechtneri.Dialium_schlechtneri.ortho.kaks.peak
+Goniorrhachis_marginata.Goniorrhachis_marginata.ortho.kaks.peak
+
+# new added genome
+Styphnolobium_japonicum.Styphnolobium_japonicum.ortho.kaks.peak
+Castanospermum_australe.Castanospermum_australe.ortho.kaks.peak
+Dipteryx_alata.Dipteryx_alata.ortho.kaks.peak
+Sindora_glabra.Sindora_glabra.ortho.kaks.peak
+Bauhinia_variegata.Bauhinia_variegata.ortho.kaks.peak
+Eperua_falcata.Eperua_falcata.ortho.kaks.peak
+
+
