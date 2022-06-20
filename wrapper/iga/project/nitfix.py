@@ -165,7 +165,6 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
         for g in this_species_groups:
             try:
                 ortho_gene_list = g.split(', ')
-
             except AttributeError:
                 continue
             if (len(ortho_gene_list) <= 1 or len(ortho_gene_list) > max_group_size):
@@ -175,7 +174,16 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
     #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
     #cross comparison
     mkdir(outdir)
-    species_pairs = itertools.combinations(orthotable.columns[1:],2)
+    species_pairs_raw = itertools.combinations(orthotable.columns[1:],2)
+    species_pairs = []
+    interest_list = ["Andira_inermis_Pap", "Dialium_schlechtneri_Dia", "Goniorrhachis_marginata_Det", "Umtiza_listeriana_Cae", "Angylocalyx_braunii_Pap", "Dipteryx_odorata_Pap", "Pterodon_emarginatus_Pap", "Zollernia_splendens_Pap", "Dipteryx_alata", "Eperua_falcata"]
+    for pair in species_pairs_raw:
+        for k in interest_list:
+            if k in pair:
+                flag = 1
+        if(flag):
+            species_pairs.append(pair)
+    logging.info("Prepare of species pair complete, now writing to files...")
     for spair in species_pairs:
         qry_list = orthotable[spair[0]]
         ref_list = orthotable[spair[1]]
