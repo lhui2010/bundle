@@ -185,7 +185,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                 flag = 1
         if(flag):
             species_pairs.append(pair)
-    logging.infor(species_pairs)
+    logging.info(species_pairs)
     logging.info("Prepare of species pair complete, now writing to files...")
     for spair in species_pairs:
         qry_list = orthotable[spair[0]]
