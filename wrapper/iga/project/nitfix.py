@@ -12,6 +12,9 @@ import itertools
 from collections import defaultdict
 import os.path as op
 
+from multiprocessing import Pool
+
+
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
 
@@ -145,12 +148,13 @@ def group2paralogs(orthogroup=None, max_group_size=10, start_col=3):
             fh.write(paralog_db[species_name])
 
 
-def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split', start_col=3):
+def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split', start_col=3, threads=1):
     """
     12 min to finish
     Split groupt to parlogs
     Args:
         orthogroup: Orthogroups.tsv produced by OrthoFinder2.5.1
+        threads: now deprecated
     Returns:
     """
     start_col = int(start_col)
@@ -198,20 +202,32 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                 orthodb[species_name][g] = ortho_gene_list
     # logging.info(orthodb)
     # exit(1)
+    # Tired of writing to multiple threads
+    # with Pool(threads) as p:
+    #     p.map(os.system, genblast_cmd_list)
+
     for spair in species_pairs:
         qry_dict = orthodb[spair[0]]
         ref_dict = orthodb[spair[1]]
         pair_name = "{}.{}".format(spair[0], spair[1])
         # if(len(qry_list) != len(ref_list)):
         #     logging.error('unequal length between {} and {}'.format(spair[0], spair[1]))
+
+        iter_list = []
         for orthogroup in qry_dict:
             if orthogroup not in ref_dict:
                 continue
             #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
                 # logging.info(qry_dict[orthogroup])
                 # logging.info(ref_dict[orthogroup])
-            iter_result = itertools.product(qry_dict[orthogroup], ref_dict[orthogroup])
-            for ortho_pair in iter_result:
+            else:
+                iter_list.append([qry_dict[orthogroup], ref_dict[orthogroup]])
+        with Pool(threads) as pool:
+            iter_result = pool.starmap(itertools.product, iter_list)
+        # iter_result = itertools.product(qry_dict[orthogroup], ref_dict[orthogroup])
+        for iter_once_run in iter_result:
+        # for ortho_pair in iter_result:
+            for ortho_pair in iter_once_run:
                 result_db[pair_name] += ("\t".join(ortho_pair)+"\n")
                 # logging.info(pair_name)
         with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
