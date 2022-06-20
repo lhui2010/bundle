@@ -194,6 +194,8 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
             logging.error('unequal length between {} and {}'.format(spair[0], spair[1]))
         for row_id in range(0, len(qry_list)):
             #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
+            logging.info(orthotable[spair[0]][row_id])
+            logging.info(orthotable[spair[1]][row_id])
             iter_result = itertools.product(orthotable[spair[0]][row_id], orthotable[spair[1]][row_id])
             for ortho_pair in iter_result:
                 result_db[pair_name] += ("\t".join(ortho_pair)+"\n")
