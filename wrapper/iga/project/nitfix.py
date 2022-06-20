@@ -196,8 +196,8 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                 continue
             else:
                 orthodb[species_name][g] = ortho_gene_list
-    logging.info(orthodb)
-    exit(1)
+    # logging.info(orthodb)
+    # exit(1)
     for spair in species_pairs:
         qry_dict = orthodb[spair[0]]
         ref_dict = orthodb[spair[1]]
@@ -213,7 +213,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
             iter_result = itertools.product(qry_dict[orthogroup], ref_dict[orthogroup])
             for ortho_pair in iter_result:
                 result_db[pair_name] += ("\t".join(ortho_pair)+"\n")
-                logging.info(pair_name)
+                # logging.info(pair_name)
         with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
             fh.write(result_db[pair_name])
     # mkdir(outdir)
