@@ -155,10 +155,35 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
     """
     start_col = int(start_col)
     max_group_size = int(max_group_size)
-    ortho_db = defaultdict(str)
     orthotable = pd.read_table(orthogroup, dtype=str, sep='\t')
+
+    # Defing variables with prexisting values
+    # Orthodb:
+    #   species name(str)
+    #       orthogroup(str)
+    #           Ortholog of this group(list)
+    orthodb = defaultdict(dict)
+
     columns_len = len(orthotable.columns)
     result_db = defaultdict(str)
+
+    # Step1. GEt combinations only necessary
+    #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
+    #cross comparison
+    mkdir(outdir)
+    species_pairs_raw = itertools.combinations(orthotable.columns[start_col:], 2)
+    species_pairs = []
+    interest_list = ["Andira_inermis_Pap", "Dialium_schlechtneri_Dia", "Goniorrhachis_marginata_Det", "Umtiza_listeriana_Cae", "Angylocalyx_braunii_Pap", "Dipteryx_odorata_Pap", "Pterodon_emarginatus_Pap", "Zollernia_splendens_Pap", "Dipteryx_alata", "Eperua_falcata"]
+    for pair in species_pairs_raw:
+        flag = 0
+        for k in interest_list:
+            if k in pair:
+                flag = 1
+        if(flag):
+            species_pairs.append(pair)
+    logging.info(species_pairs)
+    logging.info("Prepare of species pair complete, now writing to files...")
+
     for col in range(start_col, columns_len):
         species_name = orthotable.columns[col]
         this_species_groups = orthotable[species_name].to_list()
@@ -170,34 +195,22 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
             if (len(ortho_gene_list) <= 1 or len(ortho_gene_list) > max_group_size):
                 continue
             else:
-                ortho_db[species_name] = ortho_gene_list
-    #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
-    #cross comparison
-    mkdir(outdir)
-    species_pairs_raw = itertools.combinations(orthotable.columns[start_col:], 2)
-    species_pairs = []
-    interest_list = ["Andira_inermis_Pap", "Dialium_schlechtneri_Dia", "Goniorrhachis_marginata_Det", "Umtiza_listeriana_Cae", "Angylocalyx_braunii_Pap", "Dipteryx_odorata_Pap", "Pterodon_emarginatus_Pap", "Zollernia_splendens_Pap", "Dipteryx_alata", "Eperua_falcata"]
+                orthodb[species_name][g] = ortho_gene_list
 
-    for pair in species_pairs_raw:
-        flag = 0
-        for k in interest_list:
-            if k in pair:
-                flag = 1
-        if(flag):
-            species_pairs.append(pair)
-    logging.info(species_pairs)
-    logging.info("Prepare of species pair complete, now writing to files...")
     for spair in species_pairs:
-        qry_list = orthotable[spair[0]]
-        ref_list = orthotable[spair[1]]
+        qry_dict = orthodb[spair[0]]
+        ref_dict = orthodb[spair[1]]
         pair_name = "{}.{}".format(spair[0], spair[1])
-        if(len(qry_list) != len(ref_list)):
-            logging.error('unequal length between {} and {}'.format(spair[0], spair[1]))
-        for row_id in range(0, len(qry_list)):
+        # if(len(qry_list) != len(ref_list)):
+        #     logging.error('unequal length between {} and {}'.format(spair[0], spair[1]))
+        for orthogroup in qry_dict:
+            if orthogroup not in ref_dict:
+                continue
+            else:
             #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
-            logging.info(orthotable[spair[0]][row_id])
-            logging.info(orthotable[spair[1]][row_id])
-            iter_result = itertools.product(orthotable[spair[0]][row_id], orthotable[spair[1]][row_id])
+                # logging.info(qry_dict[orthogroup])
+                # logging.info(ref_dict[orthogroup])
+            iter_result = itertools.product(qry_dict[orthogroup], ref_dict[orthogroup])
             for ortho_pair in iter_result:
                 result_db[pair_name] += ("\t".join(ortho_pair)+"\n")
         with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
