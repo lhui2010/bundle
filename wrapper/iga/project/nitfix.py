@@ -156,7 +156,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
     start_col = int(start_col)
     max_group_size = int(max_group_size)
     ortho_db = defaultdict(str)
-    orthotable = pd.read_table(orthogroup, dtype=str)
+    orthotable = pd.read_table(orthogroup, dtype=str, sep='\t')
     columns_len = len(orthotable.columns)
     result_db = defaultdict(str)
     for col in range(start_col, columns_len):
