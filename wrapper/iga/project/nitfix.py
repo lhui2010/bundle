@@ -189,7 +189,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
         this_species_groups = orthotable[species_name].to_list()
         for g in range(0, len(this_species_groups)):
             try:
-                ortho_gene_list = g.split(', ')
+                ortho_gene_list = this_species_groups[g].split(', ')
             except AttributeError:
                 continue
             if (len(ortho_gene_list) <= 1 or len(ortho_gene_list) > max_group_size):
