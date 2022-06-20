@@ -174,7 +174,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
     #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
     #cross comparison
     mkdir(outdir)
-    species_pairs_raw = itertools.combinations(orthotable.columns[1:],2)
+    species_pairs_raw = itertools.combinations(orthotable.columns[start_col:], 2)
     species_pairs = []
     interest_list = ["Andira_inermis_Pap", "Dialium_schlechtneri_Dia", "Goniorrhachis_marginata_Det", "Umtiza_listeriana_Cae", "Angylocalyx_braunii_Pap", "Dipteryx_odorata_Pap", "Pterodon_emarginatus_Pap", "Zollernia_splendens_Pap", "Dipteryx_alata", "Eperua_falcata"]
 
