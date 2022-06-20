@@ -2,20 +2,24 @@
 use strict;
 use warnings;
 
-open DICT, $ARGV[0] or die;
-open IN, $ARGV[1] or die;
+my $final_table = pop @ARGV;
+
+
+#Support multiple dict
+open IN, $final_table or die;
 
 my %hash;
 
-$_=<DICT>;
-#query_name
-chomp;
-my @e=split/\t/, $_,2;
-$hash{$e[0]} = $e[1];
-#$hash{"GeneID"} = $e[1];
+#open DICT, $ARGV[0] or die;
+#  $_=<DICT>;
+#  #query_name
+#  chomp;
+#  my @e=split/\t/, $_,2;
+#  $hash{$e[0]} = $e[1];
+#  #$hash{"GeneID"} = $e[1];
 
-$NA_string = "";
-while(<DICT>)
+my $NA_string = "";
+while(<>)
 {
     chomp;
     my @e=split/\t/, $_,2;
@@ -26,7 +30,7 @@ while(<DICT>)
 	if($NA_string eq "")
 	{
 		my @f=split/\t/, $e[1];
-		$NA_string = "\tNA" * int(@f);
+		$NA_string = "\tNA" x int(@f);
 	}
 }
 
@@ -36,9 +40,15 @@ while(<IN>)
     my @e=split/\t/, $_, 2;
     $e[0]=~s/^gene://;
 
-    $_.="\t$hash{$e[0]}" if exists ($hash{$e[0]});
-
-    $_.="$NA_string\n";
+	if(exists ($hash{$e[0]}))
+	{
+    	$_.="\t$hash{$e[0]}\n";
+	}
+	else
+	{
+		$_.="$NA_string\n";
+	}
 
     print;
 }
+close IN;

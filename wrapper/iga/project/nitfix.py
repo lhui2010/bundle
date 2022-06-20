@@ -145,7 +145,7 @@ def group2paralogs(orthogroup=None, max_group_size=10, start_col=3):
             fh.write(paralog_db[species_name])
 
 
-def group2orthologs(orthogroup=None, max_group_size=10, outdir='ortholog_split', start_col=3):
+def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split', start_col=3):
     """
     12 min to finish
     Split groupt to parlogs
@@ -159,7 +159,7 @@ def group2orthologs(orthogroup=None, max_group_size=10, outdir='ortholog_split',
     orthotable = pd.read_table(orthogroup, dtype=str)
     columns_len = len(orthotable.columns)
     result_db = defaultdict(str)
-    for col in range(1, columns_len):
+    for col in range(start_col, columns_len):
         species_name = orthotable.columns[col]
         this_species_groups = orthotable[species_name].to_list()
         for g in this_species_groups:
@@ -174,6 +174,7 @@ def group2orthologs(orthogroup=None, max_group_size=10, outdir='ortholog_split',
                 ortho_db[species_name] = ortho_gene_list
     #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
     #cross comparison
+    mkdir(outdir)
     species_pairs = itertools.combinations(orthotable.columns[1:],2)
     for spair in species_pairs:
         qry_list = orthotable[spair[0]]
@@ -186,10 +187,12 @@ def group2orthologs(orthogroup=None, max_group_size=10, outdir='ortholog_split',
             iter_result = itertools.product(orthotable[spair[0]][row_id], orthotable[spair[1]][row_id])
             for ortho_pair in iter_result:
                 result_db[pair_name] += ("\t".join(ortho_pair)+"\n")
-    mkdir(outdir)
-    for pair_name in result_db:
         with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
             fh.write(result_db[pair_name])
+    # mkdir(outdir)
+    # for pair_name in result_db:
+    #     with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
+    #         fh.write(result_db[pair_name])
 
 
 def remove_tandem_ortho(ortho=None, bed=None, gap=20):
