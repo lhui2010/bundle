@@ -177,7 +177,9 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
     species_pairs_raw = itertools.combinations(orthotable.columns[1:],2)
     species_pairs = []
     interest_list = ["Andira_inermis_Pap", "Dialium_schlechtneri_Dia", "Goniorrhachis_marginata_Det", "Umtiza_listeriana_Cae", "Angylocalyx_braunii_Pap", "Dipteryx_odorata_Pap", "Pterodon_emarginatus_Pap", "Zollernia_splendens_Pap", "Dipteryx_alata", "Eperua_falcata"]
+
     for pair in species_pairs_raw:
+        flag = 0
         for k in interest_list:
             if k in pair:
                 flag = 1
