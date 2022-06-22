@@ -46,3 +46,9 @@ Bauhinia_variegata.Bauhinia_variegata.ortho.kaks.peak
 Eperua_falcata.Eperua_falcata.ortho.kaks.peak
 
 
+
+### 基于orthogroup的kaks
+/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/orthogroup_kaks/ortholog_split
+预计一周完成。。
+
+Tue Jun 21 09:54:38 CST 2022

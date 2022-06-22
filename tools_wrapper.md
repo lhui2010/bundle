@@ -659,3 +659,6 @@ mmseqs convertalis queryDB targetDB resultDB resultDB.m8
 
 #### getrbh
 $nohup getRBH.pl -x 24 -p mmseqs -q Vitis_vinifera.pep -t Medicago_truncatula.pep -o Vitis_vinifera.pep.Medicago_truncatula.pep.RBH &
+
+#### iqtree
+iqtree2 -B 1000 --modelomatic -s tmp.pep.aln
