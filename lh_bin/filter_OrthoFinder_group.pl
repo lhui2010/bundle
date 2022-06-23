@@ -1,4 +1,4 @@
-
+#!/usr/bin/env perl
 
 my $missing_cutoff=5;
 my $double_cutoff=5;

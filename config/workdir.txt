@@ -23,3 +23,49 @@ $bsub512 -m yi03 -J lh_OF -n 60 "orthofinder -f fasta0613 -t 60 -M msa"
 Job <75425> is submitted to queue <Q104C512G_X4>.
 
 Tue Jun 14 14:46:32 CST 2022
+
+
+### Version Control of Peak files
+
+local:
+total_left_right_ortho.V1.txt: The files used in early analysis (Dec31 version)
+
+/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX3: The files using core ortholog gene (Jun8 version)
+
+### Compiling Selfie results
+
+#### RNA kaks and peak
+ 
+Zollernia_splendens.Zollernia_splendens.ortho.kaks.peak
+Andira_inermis.Andira_inermis.ortho.kaks.peak
+Angylocalyx_braunii.Angylocalyx_braunii.ortho.kaks.peak
+Umtiza_listeriana.Umtiza_listeriana.ortho.kaks.peak
+Dialium_schlechtneri.Dialium_schlechtneri.ortho.kaks.peak
+Goniorrhachis_marginata.Goniorrhachis_marginata.ortho.kaks.peak
+
+selfie ortho and peaks:/nfs/liuhui/projects/phyleg/wgd_rnaseq/results_plotks/download1_rna_result.tgz
+
+#### new genome kaks and peak
+Styphnolobium_japonicum.Styphnolobium_japonicum.ortho.kaks.peak
+Castanospermum_australe.Castanospermum_australe.ortho.kaks.peak
+Dipteryx_alata.Dipteryx_alata.ortho.kaks.peak
+Sindora_glabra.Sindora_glabra.ortho.kaks.peak
+Bauhinia_variegata.Bauhinia_variegata.ortho.kaks.peak
+Eperua_falcata.Eperua_falcata.ortho.kaks.peak
+
+
+Sat Jun 18 14:38:25 CST 2022
+
+
+
+### 算Kaks
+
+转录组和Dip/Eper的kaks (ortholog版）
+/nfs/liuhui/yi02/kaks_peak_0621
+
+### 跑msa
+msa_pipeline
+/nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/data
+
+### mask最后两个基因组
+/nfs/liuhui/projects/phyleg/new_genome_0531/
