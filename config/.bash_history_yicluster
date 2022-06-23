@@ -81639,3 +81639,1783 @@ lt |les
 vk
 #1655798177
 gtp
+#1655798183
+gtps
+#1655798733
+lth
+#1655788878
+ssh yi03
+#1655804671
+bjl
+#1655804674
+tma
+#1655804736
+more /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/workflow/./rules/chain_and_net.smk
+#1655804746
+tma
+#1655804751
+vi /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/workflow/./rules/chain_and_net.smk
+#1655804755
+tma
+#1655804763
+vi /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/workflow/./rules/chain_and_net.smk
+#1655804772
+tma
+#1655804863
+ll results/psl/Senna_septemtrionalis.psl
+#1655804867
+ls
+#1655804870
+cd projects/buzzo/msa_pipeline/
+#1655804870
+lt
+#1655804872
+cd msa_pipeline/
+#1655804873
+ll
+#1655804874
+ll results/psl/Senna_septemtrionalis.psl
+#1655804878
+ll results/psl/
+#1655804881
+tma
+#1655804931
+cd projects/
+#1655804931
+lth
+#1655804933
+cd buzzo/
+#1655804933
+cd msa_pipeline/
+#1655804934
+ls
+#1655804934
+cd msa_pipeline/
+#1655804935
+ls
+#1655804937
+cd logs/
+#1655804940
+cd ..
+#1655804941
+more logs/Senna_septemtrionalis_lastAlign_split_log.txt
+#1655804976
+ll results/genome/*maf
+#1655805062
+ll
+#1655805067
+lth
+#1655796215
+bash legume.sh --use-singularity --threads 30
+#1655805451
+:q
+#1655805074
+tolht 
+#1655804679
+ssh yi03
+#1655804899
+ls data/Senna_septemtrionalis.0.fa data/Senna_septemtrionalis.1.fa data/Senna_septemtrionalis.2.fa data/Senna_septemtrionalis.3.fa data/Senna_septemtrionalis.4.fa data/Senna_septemtrionalis.5.fa data/Senna_septemtrionalis.6.fa| sed 's@.*/@@'| while read l; do echo "lastal -m 10 -j 3 -u 1 -p HOXD70 data/Zenia_insignis data/$l > results/genome/${l%%.fa}.maf";done > results/genome/Senna_septemtrionalis.cmd &&       ParaFly -c results/genome/Senna_septemtrionalis.cmd -CPU 7 &>logs/Senna_septemtrionalis_lastAlign_split_log.txt &&       sed '30,${/^#/d;}' results/genome/Senna_septemtrionalis.0.maf results/genome/Senna_septemtrionalis.1.maf results/genome/Senna_septemtrionalis.2.maf results/genome/Senna_septemtrionalis.3.maf results/genome/Senna_septemtrionalis.4.maf results/genome/Senna_septemtrionalis.5.maf results/genome/Senna_septemtrionalis.6.maf | maf-sort /dev/stdin  | maf-convert psl /dev/stdin |awk '$9!="++"' > results/psl/Senna_septemtrionalis.psl
+#1655863097
+conda activate yanrui
+#1655863103
+conda env list
+#1655863112
+conda activate yr
+#1655863122
+cd yanrui/
+#1655863123
+ls
+#1655863125
+cd mission2/
+#1655863125
+ll
+#1655863138
+ls text/
+#1655863141
+cd text/
+#1655863148
+more  sample.psmc
+#1655863150
+perl /nfs/liuhui/yanrui/psmc/utils/psmc_plot.pl -u 2e-09 -g 1 -p sample.plot sample.psmc
+#1655863160
+conda deactivate
+#1655863164
+perl /nfs/liuhui/yanrui/psmc/utils/psmc_plot.pl -u 2e-09 -g 1 -p sample.plot sample.psmc
+#1655863175
+sudo yum install gnuplot
+#1655863292
+perl /nfs/liuhui/yanrui/psmc/utils/psmc_plot.pl -u 2e-09 -g 1 -p sample.plot sample.psmc
+#1655863295
+lth
+#1655863300
+sz sample.plot.pdf 
+#1655863303
+# Sent -> /Users/liuhui/Downloads/
+#1655863373
+ll
+#1655863412
+more sample_map.log
+#1655863415
+tar -cvzf yanrui_run.tgz run.sh sample.psmc sample.psmcfa sample.plot.pdf 
+#1655863418
+sz yanrui_run.tgz 
+#1655863430
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/12.PopulationHistory/
+#1655863432
+ll
+#1655863637
+/nfs/liuhui/yanrui/bcftools-1.10/bin/bcftools call
+#1655866301
+lsload
+#1655866302
+bhosts 
+#1655866303
+top
+#1655866316
+more logs/Lysidice_rhodostegia_lastAlign_split_log.txt
+#1655866319
+les logs/Lysidice_rhodostegia_lastAlign_split_log.txt
+#1655866330
+more results/psl/Lysidice_rhodostegia.psl
+#1655783569
+top
+#1655866337
+lth
+#1655866339
+cd OrthoFinder/
+#1655866339
+ls
+#1655866342
+cd Results_Jun21/
+#1655866343
+ls
+#1655866344
+cd MultipleSequenceAlignments/
+#1655866345
+ls
+#1655866346
+ll
+#1655866348
+cd ../..
+#1655866349
+lt
+#1655866350
+cd ..
+#1655866351
+lt
+#1655866352
+lth
+#1655866355
+cd ..
+#1655866355
+lth
+#1655866357
+tail nohup.out
+#1655866361
+les nohup.out
+#1655866366
+tp
+#1655866384
+ps ux |less
+#1655866399
+ll
+#1655866401
+cd fasta0613
+#1655866401
+lt
+#1655866403
+cd OrthoFinder/
+#1655866404
+ls
+#1655866405
+cd Results_Jun14_2/
+#1655866407
+cd ../../..
+#1655866411
+cd fasta0616/
+#1655866411
+lt
+#1655866413
+cd OrthoFinder/Results_Jun21/
+#1655866413
+lt
+#1655866418
+cd Orthogroups/
+#1655866419
+lt
+#1655866425
+ll
+#1655866427
+lt
+#1655866435
+orthofinder -h
+#1655866452
+s ../Gene_Trees/
+#1655866455
+ls ../Gene_Trees/
+#1655866459
+bjl
+#1655866463
+jobs
+#1655866463
+ls
+#1655866465
+lt
+#1655866474
+les *GeneCount.tsv
+#1655866652
+tp
+#1655866663
+dvtditr -h
+#1655866666
+top
+#1655866673
+/nfs/apps/miniconda3/libexec/mafft/dvtditr -h
+#1655866676
+/nfs/apps/miniconda3/libexec/mafft/dvtditr
+#1655866683
+ps ux |grep dvtditr
+#1655866304
+tma
+#1655866747
+lth
+#1655866750
+cd calc_peak_rna_0621/
+#1655866751
+lth
+#1655866763
+bjl
+#1655866767
+lt |les
+#1655866862
+lt
+#1655866864
+cd yi02/
+#1655866864
+lt
+#1655866866
+cd kaks_peak_0621/
+#1655866867
+lt
+#1655866869
+lth
+#1655866873
+ls *peak |wc -l
+#1655866900
+cd ..
+#1655866900
+ls
+#1655866902
+lt
+#1655866903
+cd kaks_peak_0621/
+#1655866904
+ls
+#1655866793
+ssh -p 201 yi02
+#1655866843
+ls
+#1655866851
+ls *kaks |wc -l
+#1655866852
+j
+#1655866853
+j rna
+#1655866855
+lth
+#1655866860
+cd ../../..
+#1655866861
+ls
+#1655866861
+vk
+#1655867239
+ll results/genome/*maf
+#1655867313
+more results/genome/Senna_septemtrionalis.cmd
+#1655867337
+more logs/Senna_septemtrionalis_lastAlign_split_log.txt 
+#1655867353
+ll results/psl/
+#1655867392
+more logs/Lysidice_rhodostegia_lastAlign_split_log.txt
+#1655867400
+vi .test/arabidopsis.sh 
+#1655867415
+ll
+#1655867418
+cd logs/
+#1655867418
+lt
+#1655867427
+ll Senna_septemtrionalis_*
+#1655867430
+more Senna_septemtrionalis_*
+#1655867433
+cd -
+#1655867434
+lth
+#1655867562
+more /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/.snakemake/tmp.4yuiwy
+#1655867570
+more /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/.snakemake/tmp.4yuiwy9c/snakejob.align_split.21.sh
+#1655867579
+more .snakemake/tmp.h3z3uiyz/8.jobfailed 
+#1655867583
+more .snakemake/tmp.h3z3uiyz/snakejob.lastdb_index.8.sh 
+#1655867615
+ls
+#1655867616
+ll
+#1655867620
+vi shell 
+#1655867624
+vi legume.sh 
+#1655867771
+more logs/Zenia_insignis.Senna_septemtrionalis.chainPreNet_log.txt
+#1655867780
+vi results/psl/Senna_septemtrionalis.psl
+#1655867816
+head -6837056 results/psl/Senna_septemtrionalis.psl |tail -n 1
+#1655867847
+rm results/psl/Senna_septemtrionalis.psl
+#1655867861
+bjl
+#1655867647
+bash legume.sh --use-singularity --threads 30
+#1655867899
+bkill 75677 75679
+#1655867900
+bjl
+#1655867911
+ls
+#1655867912
+lt
+#1655867931
+cd results/psl/
+#1655867933
+tail *psl
+#1655867937
+tail -n 1 *psl
+#1655867945
+tail Medicago_truncatula.psl 
+#1655867947
+ls
+#1655867950
+tail Duparquetia_orchidacea.psl 
+#1655867952
+ls
+#1655867955
+tail Cercis_chinensis.psl 
+#1655867958
+cd ../..
+#1655867208
+tma
+#1655868034
+bjl
+#1655868038
+tma
+#1655868200
+lth
+#1655868202
+tma
+#1655868691
+ll
+#1655868696
+cd data/
+#1655868696
+ls
+#1655868700
+les Chamaecrista_pumila.fa 
+#1655868714
+mv  Chamaecrista_pumila.fa  Chamaecrista_pumila.unmasked.fa
+#1655868718
+les Cladrastis_platycarpa.fa 
+#1655868723
+mv Chamaecrista_pumila.fa Chamaecrista_pumila.unmasked.fa
+#1655868728
+lth
+#1655868730
+ls
+#1655868742
+mv Cladrastis_platycarpa.fa Cladrastis_platycarpa.unmasked.fa 
+#1655868744
+les Cladrastis_platycarpa.unmasked.fa 
+#1655868746
+les Senna_septemtrionalis.
+#1655868747
+les Senna_septemtrionalis.fa 
+#1655868762
+lth
+#1655869049
+j repeatmask
+#1655869050
+ls
+#1655869052
+cd ..
+#1655869056
+ll Cladrastis_platycarpa.*
+#1655869068
+ll workdir_repeatmask_Cladrastis_platycarpa.fa/Full_mask/
+#1655869084
+ll workdir_repeatmask_Chamaecrista_pumila.fa/
+#1655869085
+ll workdir_repeatmask_Chamaecrista_pumila.fa/Full_mask/
+#1655869096
+ll workdir_repeatmask_Chamaecrista_pumila.fa/Full_mask/full_mask.gff3 
+#1655869099
+les workdir_repeatmask_Chamaecrista_pumila.fa/Full_mask/full_mask.gff3 
+#1655869114
+lth
+#1655869133
+ll Chamaecrista_pumila.fa.repeat.gff
+#1655869136
+rm Chamaecrista_pumila.black.id Chamaecrista_pumila.fa.masked.fa Chamaecrista_pumila.fa.repeat.gff
+#1655869152
+rm Cladrastis_platycarpa.black.id  Cladrastis_platycarpa.fa.masked.fa Cladrastis_platycarpa.fa.repeat.gff 
+#1655869421
+ls
+#1655869402
+les Polygala_tatarinowii.fa 
+#1655869439
+ls
+#1655869457
+for i in *.fa; do grep [atcg] $i > $i.masked_lines; done
+#1655873769
+bjl
+#1655873826
+job
+#1655873828
+jobs
+#1655873830
+lth
+#1655873833
+lt
+#1655873840
+ll
+#1655873846
+cd ../../../
+#1655873848
+cd ..
+#1655873850
+tail nohup.out
+#1655873852
+les nohup.out
+#1655873859
+cd -
+#1655873863
+cd OrthoFinder/Results_Jun21/
+#1655873863
+lt
+#1655873867
+cd P
+#1655873873
+cd Phylogenetic_Hierarchical_Orthogroups/
+#1655873873
+lt
+#1655873875
+lth
+#1655873878
+les N0.tsv 
+#1655873887
+cd ..
+#1655873888
+ls
+#1655873897
+cd MultipleSequenceAlignments/
+#1655873898
+lth
+#1655873905
+les OG0048948.fa 
+#1655873915
+ll |head
+#1655873919
+les OG0000000.fa 
+#1655873927
+cd ..
+#1655873929
+ls
+#1655873937
+lth
+#1655873941
+more Citation.txt 
+#1655873944
+ls
+#1655873950
+cd Phylogenetic_Hierarchical_Orthogroups/
+#1655873951
+lth
+#1655873961
+filter_OrthoFinder_group.pl 
+#1655873973
+vi `which filter_OrthoFinder_group.pl `
+#1655873992
+ls ~/yi03/orthofinder/fasta0616/*pep |wc -l
+#1655874013
+vi `which filter_OrthoFinder_group.pl `
+#1655874058
+lth
+#1655874062
+les OG0000000.fa 
+#1655874067
+les N0.tsv
+#1655874094
+cp `which filter_OrthoFinder_group.pl ` /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl
+#1655874097
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874155
+les N0.tsv
+#1655874165
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874182
+les N0.tsv
+#1655874197
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874239
+les N0.tsv
+#1655874246
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874368
+filter_OrthoFinder_N0.pl N0.tsv > N0.single.tsv
+#1655874371
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874376
+filter_OrthoFinder_N0.pl N0.tsv > N0.single.tsv
+#1655874378
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874383
+filter_OrthoFinder_N0.pl N0.tsv > N0.single.tsv
+#1655874386
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874412
+filter_OrthoFinder_N0.pl N0.tsv > N0.single.tsv
+#1655874416
+les N0.single.tsv 
+#1655874419
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874443
+perl get_production.py local_sort_by_lineage.txt.ID
+#1655874447
+filter_OrthoFinder_N0.pl N0.tsv > N0.single.tsv
+#1655874450
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874457
+les N0.single.tsv
+#1655874460
+les N0.tsv 
+#1655874471
+head N0.tsv  > tmp
+#1655874472
+vi tmp 
+#1655874507
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874515
+filter_OrthoFinder_N0.pl tmp 
+#1655874528
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874560
+filter_OrthoFinder_N0.pl tmp 
+#1655874574
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874582
+filter_OrthoFinder_N0.pl N0.tsv > N0.single.tsv
+#1655874586
+les N0.single.tsv 
+#1655874594
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874664
+filter_OrthoFinder_N0.pl N0.tsv > N0.single.tsv
+#1655874666
+les N0.single.tsv 
+#1655874671
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874674
+les N0.single.tsv 
+#1655874730
+vi N0.single.tsv 
+#1655874757
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874858
+filter_OrthoFinder_N0.pl N0.tsv > N0.single.tsv
+#1655874861
+les N0.single.tsv 
+#1655874866
+vi N0.single.tsv 
+#1655874872
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655874878
+vi N0.single.tsv 
+#1655874883
+filter_OrthoFinder_N0.pl N0.tsv > N0.single.tsv
+#1655874884
+les N0.single.tsv 
+#1655874892
+t N0.single.tsv 
+#1655874948
+vi  N0.single.tsv 
+#1655874956
+t N0.single.tsv 
+#1655875064
+mkdir to_ortho
+#1655875069
+cat ~/yi03/orthofinder/fasta0616/*pep > to_ortho/total.pep
+#1655875077
+logsh
+#1655875082
+cd to_ortho/
+#1655875087
+ln -s ../N0.single.tsv 
+#1655875088
+ls
+#1655875088
+ll
+#1655875092
+group2fasta.py  -h
+#1655875118
+cd /nfs/liuhui/yi03/orthofinder/fasta0616/
+#1655875119
+ls
+#1655875120
+mkdir cds
+#1655875144
+for i in *pep; do cp ../fasta0613_newest/cds/${i%.pep}.cds cds/; done
+#1655875164
+cp ../fasta0613_newest/cds/Sophora_japonica.cds cds/Styphnolobium_japonicum.cds
+#1655875166
+cd -
+#1655875167
+ls
+#1655875167
+lth
+#1655875179
+cat ~/yi03/orthofinder/fasta0616/cds/*cds > total.cds
+#1655875183
+ls
+#1655875184
+ll
+#1655875230
+group2fasta.py  -h
+#1655875237
+vi `which group2fasta.py  `
+#1655875249
+les N0.single.tsv 
+#1655875256
+cd ..
+#1655875264
+mv N0.single.tsv N0.single.tsv.with_count
+#1655875266
+vi `which group2fasta.py  `
+#1655875270
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655875282
+cd -
+#1655875283
+lth
+#1655875286
+cd ..
+#1655875289
+filter_OrthoFinder_N0.pl N0.tsv > N0.single.tsv
+#1655875291
+les N0.single.tsv
+#1655875296
+cd -
+#1655875296
+lt
+#1655875298
+les N0.single.tsv 
+#1655875306
+group2fasta.py  -h
+#1655875319
+group2fasta.py N0.single.tsv total.pep total.cds 
+#1655875503
+vi `which group2fasta.py  `
+#1655868692
+tma
+#1655875577
+lt /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/
+#1655875586
+lt /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/HOG/
+#1655875592
+rm -r /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/HOG/
+#1655875594
+lt /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/HOG/
+#1655875597
+lt /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/ |les
+#1655875605
+tma
+#1655875608
+lt /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/ |les
+#1655875618
+tma
+#1655875647
+lt /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/N0.HOG0000201/
+#1655875651
+les /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/N0.HOG0000201/N0.HOG0000201.total.cds 
+#1655875658
+grep ">" /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/N0.HOG0000201/N0.HOG0000201.total.cds  |wc -l
+#1655875663
+tma
+#1655875687
+ls $BD/*conca*
+#1655875906
+cd -
+#1655875913
+cd /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/N0.HOG0000201/
+#1655875915
+lt
+#1655875916
+tma
+#1655875918
+lt
+#1655875922
+cd ..
+#1655875924
+ls -d */ |wc -l
+#1655875929
+lth
+#1655875523
+group2fasta.py N0.single.tsv total.pep total.cds 
+#1655875938
+les N0.HOG0016797/N0.HOG0016797.total.cds 
+#1655876028
+vi concat_fasta.pl
+#1655876041
+perl  concat_fasta.pl
+#1655876075
+vi test1.fa
+#1655876084
+vi test2.fa
+#1655876104
+ls *.fa
+#1655876111
+perl  concat_fasta.pl --suffix .fa
+#1655876124
+perl  concat_fasta.pl --suffix .fa --outfile concat.phylip --filter sp3 -p > part.txt
+#1655876129
+more part.txt 
+#1655876141
+perl  concat_fasta.pl --suffix .fa --outfile concat.phylip -p > part.txt
+#1655876142
+more part.txt 
+#1655876146
+vi concat.phylip 
+#1655876213
+vi concat_fasta.pl 
+#1655876230
+vi concat.phylip 
+#1655876241
+vi concat_fasta.pl 
+#1655876348
+lsh
+#1655876349
+ls
+#1655876352
+ls N0.HOG0014061
+#1655876355
+ls N0.HOG0014061/
+#1655876361
+ls N0.HOG0016426/
+#1655876364
+head *cds *pep
+#1655876367
+ls
+#1655876368
+vi `which group2fasta.py  `
+#1655876398
+more N0.HOG0015205/N0.HOG0015205.total.cds 
+#1655876407
+vi `which group2fasta.py  `
+#1655876445
+ls
+#1655876448
+ls N0.HOG0013650/
+#1655876462
+mkdir all_single
+#1655876469
+cp N0.HOG00*/*cds all_single/
+#1655876470
+cd all_single/
+#1655876471
+ls
+#1655876473
+ls * |wc -l
+#1655876478
+wc -l ../N0.single.tsv 
+#1655876480
+ls
+#1655876488
+rename '.total.cds' '.pep' *
+#1655876489
+ls
+#1655876491
+les *pep
+#1655876509
+sed -i "s/>.*_/>/ *pep
+#1655876522
+sed -i "s/>.*_/>/" *pep
+#1655876528
+vw
+#1655876532
+mafft
+#1655876534
+mafft -h
+#1655876537
+lth
+#1655876540
+les *pep
+#1655876343
+tma
+#1655876626
+ls
+#1655876630
+ls N0.HOG0011652/
+#1655876642
+rename total.cds pep N0.HOG0011652/N0.HOG0011652.total.cds 
+#1655876645
+ls N0.HOG0011652/
+#1655876659
+rename total.cds pep N0.HOG00*/*cds
+#1655876667
+ls N0.HOG0016425
+#1655876680
+group2fasta.py N0.single.tsv total.cds cds
+#1655876686
+cd ..
+#1655876670
+tma
+#1655876696
+cd all_single/
+#1655876698
+ls *aln |wc -l
+#1655876700
+les *aln
+#1655876719
+cd ..
+#1655876726
+cd $BD/
+#1655876726
+ls
+#1655876729
+cd executables/
+#1655876730
+ll
+#1655876748
+cd -
+#1655876753
+cd /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/
+#1655876757
+vi concat_fasta.pl 
+#1655876779
+cp concat_fasta.pl /nfs/liuhui/bin/bundle/executables/
+#1655876780
+lth
+#1655876783
+cd all_single/
+#1655876785
+ls *aln |wc -l
+#1655876688
+group2fasta.py N0.single.tsv total.cds cds
+#1655877373
+ls
+#1655877468
+ls ~/yi03/orthofinder/fasta0616/*pep |wc -l
+#1655877473
+vi `which filter_OrthoFinder_group.pl `
+#1655877477
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655877519
+filter_OrthoFinder_N0.pl N0.tsv 49 > N0.single.bonafide.tsv
+#1655877521
+cd ..
+#1655877523
+filter_OrthoFinder_N0.pl N0.tsv 49 > N0.single.bonafide.tsv
+#1655877528
+wc -l N0.single.bonafide.tsv 
+#1655877531
+more N0.single.bonafide.tsv 
+#1655877560
+filter_OrthoFinder_N0.pl N0.tsv 25 > N0.single.min25Tax.tsv
+#1655877567
+les N0.single.min25Tax.tsv
+#1655876786
+tma
+#1655877591
+ls */*cds |wc -l
+#1655877592
+ls
+#1655877598
+ls to_ortho/*/*cds |wc -l
+#1655877601
+ls to_ortho/*/*pep |wc -l
+#1655877606
+ls
+#1655877614
+mkdir to_ortho_25Tax
+#1655877620
+cd to_ortho_25Tax/
+#1655877625
+ln -s ../N0.single.min25Tax.tsv 
+#1655877631
+ln -s ../to_ortho/total.cds 
+#1655877633
+ln -s ../to_ortho/total.pep 
+#1655877634
+ls
+#1655877641
+les  N0.single.min25Tax.tsv 
+#1655877792
+cd ../..
+#1655877796
+tma
+#1655877831
+lth
+#1655877845
+filter_OrthoFinder_N0.pl N0.tsv 48 |wc -l
+#1655877853
+filter_OrthoFinder_N0.pl N0.tsv 47 |wc -l
+#1655877857
+filter_OrthoFinder_N0.pl N0.tsv 46 |wc -l
+#1655877860
+filter_OrthoFinder_N0.pl N0.tsv 45 |wc -l
+#1655877864
+filter_OrthoFinder_N0.pl N0.tsv 44 |wc -l
+#1655877868
+filter_OrthoFinder_N0.pl N0.tsv 43 |wc -l
+#1655877873
+filter_OrthoFinder_N0.pl N0.tsv 43 |les
+#1655877880
+filter_OrthoFinder_N0.pl N0.tsv 43 >tmp43
+#1655877884
+t tmp43
+#1655877910
+expr 49 - 6
+#1655877913
+t tmp43
+#1655877926
+vc
+#1655877941
+man column
+#1655877962
+t tmp43
+#1655877967
+vi tmp43 
+#1655877992
+t] tmp43
+#1655877995
+t tmp43
+#1655878044
+tma
+#1655876556
+for i in *pep; do  mafft $i > $i.aln; done
+#1655878061
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655878096
+vi tmp43 
+#1655878111
+t tmp43
+#1655878127
+filter_OrthoFinder_N0.pl N0.tsv 43 >tmp43
+#1655878130
+vi tmp43
+#1655878169
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl 
+#1655878195
+filter_OrthoFinder_N0.pl N0.tsv 43 >tmp43
+#1655878199
+vi tmp43 
+#1655878285
+vi N0.tsv 
+#1655878315
+vi /nfs/liuhui/bin/bundle/lh_bin/filter_OrthoFinder_N0.pl
+#1655878349
+filter_OrthoFinder_N0.pl N0.tsv 43 >tmp43
+#1655878351
+t tmp43
+#1655878448
+head  -1 tmp43
+#1655878462
+cd ~/yi03/orthofinder/fasta061
+#1655878464
+cd ~/yi03/orthofinder/fasta0616/
+#1655878472
+more leg_rep.txt 
+#1655878592
+cd ..
+#1655878596
+mkdir fasta0622
+#1655878760
+ls
+#1655878762
+cd fasta0622/
+#1655878774
+cp ../fasta0613_newest/Polygala_tatarinowii.pep .
+#1655878778
+cd ..
+#1655877656
+group2fasta.py N0.single.min25Tax.tsv total.pep pep
+#1655879464
+ls
+#1655879492
+cd ~/yi03/orthofinder/
+#1655879493
+ls
+#1655879497
+logsh
+#1655879504
+nohup orthofinder -f fasta0622 -b fasta0616 -t 60 -M msa -y &
+#1655879509
+lth
+#1655879512
+tail nohup.out
+#1655879518
+cd fasta0616/
+#1655879519
+ls
+#1655879529
+l *pep > SpeciesIDs.txt
+#1655879532
+ls *pep > SpeciesIDs.txt
+#1655879534
+vi SpeciesIDs.txt 
+#1655879538
+cd -
+#1655879541
+nohup orthofinder -f fasta0622 -b fasta0616 -t 60 -M msa -y &
+#1655879541
+ls
+#1655879543
+tail nohup.out
+#1655879549
+cd -
+#1655879550
+ls
+#1655879562
+ls OrthoFinder/
+#1655879620
+ls OrthoFinder/Results_Jun22_1/
+#1655879624
+ls OrthoFinder/Results_Jun22_1/WorkingDirectory/SpeciesIDs.txt 
+#1655879626
+more OrthoFinder/Results_Jun22_1/WorkingDirectory/SpeciesIDs.txt 
+#1655879631
+cd ..
+#1655879631
+lt
+#1655879651
+ls fasta0616/OrthoFinder/Results_Jun21/
+#1655879653
+ls fasta0616/OrthoFinder/Results_Jun22
+#1655879656
+ls fasta0616/OrthoFinder/Results_Jun22/WorkingDirectory/
+#1655879661
+rm -r fasta0616/OrthoFinder/Results_Jun22/
+#1655879668
+rm -r fasta0616/OrthoFinder/Results_Jun22_1
+#1655879700
+ls
+#1655879702
+tail nohup.out
+#1655879719
+nohup orthofinder -f fasta0622 -b fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory -t 60 -M msa -y &
+#1655879722
+tail on
+#1655879723
+tail nohup.out
+#1655879725
+bjl
+#1655879728
+ls
+#1655879731
+lth
+#1655879733
+tail nohup.out
+#1655879913
+bjl
+#1655879915
+top
+#1655879934
+ls /mnt/yi03/liuhui/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/
+#1655879992
+ls /mnt/yi03/liuhui/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/
+#1655880009
+more shell 
+#1655880094
+ls
+#1655880431
+rm *.[0123456].fa.masked_lines
+#1655880435
+wc -l *.masked_lines
+#1655879461
+tma
+#1655880518
+lth
+#1655880520
+tial nohup.out
+#1655880523
+tail nohup.out
+#1655880529
+tma
+#1655880704
+tail nohup.out
+#1655880726
+ll *masked_liens
+#1655880727
+ll *masked_lines
+#1655880745
+les Cercis_chinensis.fa.masked_lines
+#1655880759
+ll -S *lines
+#1655880775
+les Zenia_insignis.fa.masked_lines 
+#1655880788
+wc -l Zenia_insignis.fa.masked_lines 
+#1655880791
+wc -l Zenia_insignis.fa
+#1655880807
+les Zenia_insignis.fa
+#1655880965
+ll *masked_lines
+#1655880971
+ll -S *lines
+#1655880992
+more Lysidice_rhodostegia.fa.masked_lines 
+#1655881000
+ll -S *lines
+#1655881136
+mkdir problems
+#1655881144
+mv Zenia_insignis.fa.masked_lines Cercis_chinensis.fa.masked_lines Lysidice_rhodostegia.fa.masked_lines Senna_septemtrionalis.fa.masked_lines Cladrastis_platycarpa.unmasked.fa.masked_lines Polygala_tatarinowii.fa.masked_lines Chamaecrista_pumila.unmasked.fa.masked_lines problems/
+#1655881146
+cd problems/
+#1655881147
+ls
+#1655881299
+lth
+#1655881326
+for i in *.fa; do grep -v "^>" $i |grep [atcg]  > $i.masked_lines; done
+#1655881337
+ll
+#1655881345
+lt *masked_lines
+#1655881362
+ls *lines > problems.txt
+#1655881363
+vi problems.txt 
+#1655881385
+mv problems.txt problems.md
+#1655881788
+ll
+#1655882058
+vi problems.md 
+#1655880707
+tma
+#1655882111
+ls
+#1655882116
+cd fasta0622/
+#1655882116
+ls
+#1655882120
+cd -
+#1655882121
+tma
+#1655866304
+ssh yi03
+#1655882577
+j polygala
+#1655882578
+ls
+#1655882581
+cd  ../..
+#1655882581
+ls
+#1655882582
+ll
+#1655882583
+cd assembly_intermediate/
+#1655882584
+ll
+#1655882585
+ll *agp
+#1655882594
+cd ../release/
+#1655882594
+lt
+#1655882596
+ll *agp
+#1655882602
+les Polygala_tatarinowii.repeat.chr.gff 
+#1655882606
+les Polygala_tatarinowii.fa.maksed.fa
+#1655882612
+les Polygala_tatarinowii.fa
+#1655882618
+les Polygala_tatarinowii.repeat.chr.gff 
+#1655882621
+ll ../annotaiton/maker/full_mask.complex.reformat.gff3
+#1655882627
+ll ../annotaiton/maker/repeat.gff 
+#1655882660
+les ../annotaiton/maker/repeat.gff 
+#1655882670
+les full_mask.complex.reformat.gff3 
+#1655882673
+lth
+#1655882676
+les Polygala_tatarinowii.repeat.chr.gff 
+#1655882689
+bedtools maskfasta -soft -fi Polygala_tatarinowii.fa -fo Polygala_tatarinowii.fa.maksed.fa -bed Polygala_tatarinowii.repeat.chr.gff
+#1655882763
+j duparquetia
+#1655882764
+lt
+#1655882765
+cd annotation/
+#1655882766
+lt
+#1655882770
+cd release/
+#1655882771
+lt
+#1655882777
+les *.fa
+#1655882784
+gcd ..
+#1655882784
+ls
+#1655882785
+cd ..
+#1655882786
+ll
+#1655882790
+cd workdir_repeatmask_Duparquetia_orchidacea.fa/
+#1655882790
+ls
+#1655882793
+cd ..
+#1655882795
+ll *masked.fa
+#1655882798
+les *masked.fa
+#1655882810
+j data
+#1655882813
+cd problems/
+#1655882813
+lt
+#1655882831
+vi problems.md 
+#1655882870
+rm ../Polygala_tatarinowii.fa ../Cercis_chinensis.fa ../Lysidice_rhodostegia.
+#1655882885
+tma
+#1655882888
+lt
+#1655882889
+lth
+#1655882891
+lt *fa
+#1655882897
+vi problems.md 
+#1655882908
+lt
+#1655882912
+more problems.md 
+#1655882920
+rm *lines
+#1655882920
+ll
+#1655882934
+mv cechi.chr.repeatmask.fa Cercis_chinensis.fa
+#1655882939
+mv Chamaecrista_pumila.softmask.fa Chamaecrista_pumila.fa
+#1655882946
+mv Cladrastis_platycarpa.fa.masked.fa Cladrastis_platycarpa.fa
+#1655882947
+ll
+#1655882957
+mv lyrho.genome.chr.masked.fa Lysidice_rhodostegia.fa
+#1655882958
+ll
+#1655882964
+mv Polygala_tatarinowii.fa.maksed.fa Polygala_tatarinowii.fa
+#1655882965
+ll
+#1655882970
+wc -l problems.md 
+#1655882981
+lt
+#1655882993
+lth
+#1655883008
+mv sesep.genome.fa.chr.softmask.fa Senna_septemtrionalis.fa
+#1655883018
+mv zeins.genome.chr.softmask.fa Zenia_insignis.fa
+#1655883019
+ll
+#1655883027
+ls *fa |wc
+#1655883029
+wc -l problems.md 
+#1655883030
+for i in *.fa; do grep -v "^>" $i |grep [atcg]  > $i.masked_lines; done
+#1655883206
+ll *lines
+#1655883212
+les Chamaecrista_pumila.fa
+#1655883219
+rm Chamaecrista_pumila.fa
+#1655883567
+lth
+#1655883576
+ll
+#1655883579
+mv chpum.genome.chr.softmask.fa Chamaecrista_pumila.fa.masked_lines 
+#1655883582
+ll *fa |wc -l
+#1655883586
+ll *fa
+#1655883589
+ll *lines
+#1655883592
+ll *lines |wc -l
+#1655883609
+ls -l *.fa *lines |sort
+#1655883615
+ls *.fa *lines |sort
+#1655883631
+mv Chamaecrista_pumila.fa.masked_lines Chamaecrista_pumila.fa
+#1655883632
+ll
+#1655883640
+for i in Chamaecrista_pumila.fa; do grep -v "^>" $i |grep [atcg]  > $i.masked_lines; done
+#1655883656
+ll
+#1655883665
+ll *lines
+#1655883671
+ll *.fa
+#1655883673
+mv *.fa ../
+#1655883681
+tma
+#1655883715
+jobs
+#1655883719
+tail nohup.out
+#1655883723
+les nohup.out
+#1655883684
+ssh yi03
+#1655883755
+ls
+#1655883756
+lt
+#1655883758
+cd ../
+#1655883760
+rm -r problems/
+#1655883762
+ls
+#1655883770
+ll -s *lines |les
+#1655883776
+ll Pisum_sativum.fa
+#1655883778
+ll -s *lines |les
+#1655883790
+ls *lines |wc -l 
+#1655883795
+ls *.fa |grep -v split |wc -l
+#1655883818
+ls *.fa |grep -v [0123456] |wc -l
+#1655883824
+ls *.fa |grep -v [0123456] 
+#1655883832
+rm Chamaecrista_pumila.softmask.fa Chamaecrista_pumila.unmasked.fa Cladrastis_platycarpa.fa.masked.fa Cladrastis_platycarpa.unmasked.fa
+#1655883837
+ls *.fa |grep -v [0123456] |wc -l
+#1655883844
+ls *lines |wc -l 
+#1655883853
+lt |head
+#1655883886
+lt
+#1655883887
+ls
+#1655883925
+tma
+#1655883926
+ls
+#1655883930
+cd yi03
+#1655883930
+ls
+#1655883932
+cd orthofinder/
+#1655883932
+lt
+#1655883937
+cd fasta0622/
+#1655883937
+ls
+#1655883938
+cd ..
+#1655883944
+cd fasta0616/OrthoFinder/Results_Jun21/
+#1655883944
+ls
+#1655883945
+cd Ortho
+#1655883946
+cd Orthogroup
+#1655883946
+ls
+#1655883948
+cd Orthogroups/
+#1655883949
+ls
+#1655883954
+cd ..
+#1655883955
+ll
+#1655883959
+cd Phylogenetic_Hierarchical_Orthogroups/
+#1655883960
+lth
+#1655883971
+more shell 
+#1655883976
+vi `which filter_OrthoFinder_N0.pl`
+#1655883993
+lt
+#1655883994
+lth
+#1655884022
+bjl
+#1655884029
+lsload
+#1655884034
+lth
+#1655884290
+tma
+#1655884295
+ls
+#1655884304
+tail ~/yi03/orthofinder/nohup.out
+#1655884321
+fasttree -
+#1655884330
+tma
+#1655884879
+tail ~/yi03/orthofinder/nohup.out
+#1655884891
+les ~/yi03/orthofinder/nohup.out.1 
+#1655884970
+lt ~/yi03/orthofinder/
+#1655884983
+lt ~/yi03/orthofinder/fasta0616/
+#1655884991
+ls
+#1655884992
+lt
+#1655884994
+ls
+#1655885002
+t N0.single.min25Tax.tsv
+#1655885043
+cd ..
+#1655885044
+ls
+#1655885046
+cd ..
+#1655885046
+ls
+#1655885051
+cd /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/data
+#1655885051
+ls
+#1655885066
+ls *.fa |grep -v [0123456]> tmp
+#1655885067
+vi tmp 
+#1655885081
+for i in `cat tmp`; do chmod -w $i; done
+#1655885082
+ls
+#1655885083
+ll *.fa
+#1655867959
+bash legume.sh --use-singularity --threads 30
+#1655867738
+tp
+#1655885030
+tma
+#1655898640
+grep mRNA_MtrunA17Chr1g0181791_Metru ../Orthologues/Orthologues_Medicago_truncatula/Medicago_truncatula__v__*tsv
+#1655898674
+grep LYRHO00019428-t2_Lyrho ../Orthologues/Orthologues_Lysidice_rhodostegia/Lysidice_rhodostegia__v__Medicago_truncatula.tsv 
+#1655898880
+grep LYRHO00019428 ../Orthologues/Orthologues_Lysidice_rhodostegia/Lysidice_rhodostegia__v__Medicago_truncatula.tsv 
+#1655898899
+grep LYRHO00019428 N0.tsv > LYRHO00019428.g
+#1655898900
+vi LYRHO00019428.g 
+#1655898932
+grep mRNA_MtrunA17Chr7g0263551_Metru ../Orthologues/Orthologues_Medicago_truncatula/Medicago_truncatula__v__*tsv
+#1655899861
+ls
+#1655899866
+vi nod_genes.txt
+#1655899928
+mv nod_genes.txt ../Orthologues/Orthologues_Medicago_truncatula/
+#1655899929
+ls
+#1655899937
+cd ../Orthologues/Orthologues_Medicago_truncatula/
+#1655899937
+ls
+#1655899944
+les *
+#1655899968
+mkdir output
+#1655899991
+for i in `cat nod_genes.txt`; do grep $i *tsv > output/$i.genes; done
+#1655900020
+cd output/
+#1655900020
+ls
+#1655900022
+les *.genes
+#1655900063
+ln -s ../../../Phylogenetic_Hierarchical_Orthogroups/to_ortho/total.pep 
+#1655900063
+ls
+#1655900068
+les *genes
+#1655900080
+cp `select_fasta.pl` .
+#1655900084
+cp `which select_fasta.pl` .
+#1655900085
+vi select_fasta.pl 
+#1655900128
+ls
+#1655900130
+les *genes
+#1655900137
+vi select_fasta.pl 
+#1655900348
+cd /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Orthologues/Orthologues_Medicago_truncatula/output
+#1655900348
+lt
+#1655900350
+cd /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Orthologues/Orthologues_Medicago_truncatula/output/
+#1655900350
+lth
+#1655900354
+les *fas
+#1655900356
+ls
+#1655900363
+perl select_fasta.pl MtrunA17Chr8g0392701.genes total.pep
+#1655900166
+for i in *genes; do select_fasta.pl $i total.pep > $i.fas; done
+#1655900389
+for i in *genes; do bsub512 "perl select_fasta.pl $i total.pep > $i.fas"; done
+#1655900395
+bjl
+#1655900399
+lsload
+#1655900401
+lth
+#1655900403
+bjl
+#1655900407
+lth
+#1655900432
+lth
+#1655900484
+ls
+#1655900490
+more MtrunA17Chr5g0448621.genes 
+#1655900568
+ls ~/yi03/orthofinder/fasta06
+#1655900572
+ls ~/yi03/orthofinder/fasta0616/
+#1655900615
+ls ..
+#1655900640
+grep mRNA_MtrunA17Chr7g0263551_Metru ../Medicago_truncatula__v__Aquilegia_coerulea.tsv 
+#1655900656
+grep MtrunA17Chr5g0448621 ../Medicago_truncatula__v__Aquilegia_coerulea.tsv 
+#1655900688
+lth
+#1655900690
+les *fas
+#1655900698
+cd ..
+#1655900708
+ls
+#1655900715
+grep -f nod_genes.txt Medicago_truncatula__v__Aquilegia_coerulea.tsv 
+#1655900734
+grep -f nod_genes.txt Medicago_truncatula__v__Aquilegia_coerulea.tsv |cut -f2 |les
+#1655900744
+grep -f nod_genes.txt Medicago_truncatula__v__Aquilegia_coerulea.tsv |cut -f2 |wc -l
+#1655900783
+grep MtrunA17Chr5g0448621 Medicago_truncatula__v__Vitis_vinifera.tsv 
+#1655900793
+grep mRNA_MtrunA17Chr2g0328971_Metru Medicago_truncatula__v__Vitis_vinifera.tsv
+#1655900799
+grep mRNA_MtrunA17Chr2g0328971_Metru Medicago_truncatula__v__Averrhoa_carambola.tsv 
+#1655900807
+grep mRNA_MtrunA17Chr2g0328971_Metru Medicago_truncatula__v__Cercis_chinensis.tsv 
+#1655900813
+grep mRNA_MtrunA17Chr2g0328971_Metru Medicago_truncatula__v__Lotus_japonicus.tsv 
+#1655900824
+grep mRNA_MtrunA17Chr2g0328971_Metru Medicago_truncatula__v__Chamaecrista_pumila.tsv 
+#1655900827
+top
+#1655900847
+grep mRNA_MtrunA17Chr2g0328971_Metru ../../Gene_Duplication_Events/
+#1655900851
+grep mRNA_MtrunA17Chr2g0328971_Metru ../../Gene_Duplication_Events/Duplications.tsv 
+#1655900951
+les ../../Gene_Duplication_Events/Duplications.tsv
+#1655900971
+les ../../Species_Tree/SpeciesTree_rooted_node_labels.txt 
+#1655900976
+sz ../../Species_Tree/SpeciesTree_rooted_node_labels.txt 
+#1655900980
+# Sent -> /Users/liuhui/Downloads/
+#1655901087
+les ../../Species_Tree/SpeciesTree_rooted_node_labels.txt 
+#1655901090
+les ../../Gene_Duplication_Events/Duplications.tsv
+#1655901127
+grep mRNA_MtrunA17Chr2g0328971_Metru ../../Gene_Duplication_Events/Duplications.tsv 
+#1655901139
+les ../../Resolved_Gene_Trees/OG0008584_tree.txt 
+#1655901144
+sz ../../Resolved_Gene_Trees/OG0008584_tree.txt 
+#1655901147
+# Sent -> /Users/liuhui/Downloads/
+#1655901332
+cd ../../
+#1655901334
+ls
+#1655901342
+cd ..
+#1655901342
+ls
+#1655901344
+cd -
+#1655901344
+cd WorkingDirectory/
+#1655901345
+ls
+#1655901348
+cd OrthoFinder/
+#1655901348
+ls
+#1655901350
+cd Results_Jun22/
+#1655901350
+ls
+#1655901351
+lt
+#1655901358
+ls Single_Copy_Orthologue_Sequences/
+#1655901362
+ll Orthogroup
+#1655901363
+ll Orthogroups/
+#1655901376
+ll
+#1655901379
+top
+#1655901388
+ll
+#1655901395
+top
+#1655901502
+cd -
+#1655901510
+cd /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Orthologues/Orthologues_Medicago_truncatula/
+#1655901511
+lt
+#1655901512
+lth
+#1655900427
+for i in *genes; do perl select_fasta.pl $i total.pep > $i.fas; done
+#1655900351
+ssh yi03
+#1655883927
+ssh yi03
+#1655946234
+top
+#1655946246
+bjl
+#1655946254
+bpeek 75596 
+#1655946266
+top
+#1655952396
+bhosts 
+#1655952400
+lsload
+#1655952240
+tp
+#1655954875
+jobs
+#1655954878
+jobs
+#1655954880
+lth
+#1655954886
+cd fasta0616/
+#1655954887
+ls
+#1655954900
+cd OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/
+#1655954901
+ls
+#1655954911
+cd ../WorkingDirectory/OrthoFinder/Results_Jun22/
+#1655954912
+ls
+#1655954914
+cd Phylogenetic
+#1655954917
+cd Phylogenetic_Hierarchical_Orthogroups/
+#1655954917
+ls
+#1655954933
+filter_OrthoFinder_N0.pl N0.tsv 25 > N0.single.min25Tax.tsv
+#1655954939
+les N0.single.min25Tax.tsv 
+#1655954942
+t N0.single.min25Tax.tsv 
+#1655954987
+vi N0.single.min25Tax.tsv 
+#1655955000
+t N0.single.min25Tax.tsv 
+#1655955011
+ls
+#1655955048
+cat ~/yi03/orthofinder/fasta0616/*pep ~/yi03/orthofinder/fasta0622/Polygala_tatarinowii.pep > total.pep &
+#1655955073
+cat ~/yi03/orthofinder/fasta0616/cds/*cds ~/yi03/orthofinder/fasta0613_newest/cds/Polygala_tatarinowii.cds > total.cds &
+#1655955074
+lth
+#1655955103
+wc -l /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/Phylogenetic_Hierarchical_Orthogroups/N0.single.min25Tax.tsv 
+#1655955120
+ls /nfs/liuhui/bin/bundle/executables/
+#1655955123
+ll /nfs/liuhui/bin/bundle/executables/concat_fasta.pl 
+#1655955126
+chmod +x /nfs/liuhui/bin/bundle/executables/concat_fasta.pl 
+#1655955127
+gtp

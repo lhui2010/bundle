@@ -2,7 +2,9 @@
 
 my $missing_cutoff=5;
 my $double_cutoff=5;
-my $single_cutoff=40;
+
+#0.7
+my $single_cutoff=34;
 
 #header
 $_=<>;
