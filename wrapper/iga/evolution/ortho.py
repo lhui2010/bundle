@@ -56,7 +56,7 @@ def mcscanx(prefix1=None, prefix2=None, threads=4, min_gene_in_block=5, max_gene
     else:
         workdir = output
     #workdir_sh.format(workdir)
-    if mkdir(workdir):
+    if mkdir(workdir) is False:
         logging.error("{} already present, will exit to avoid rewriting".format(workdir))
         exit(1)
     sh("cp {}.pep  {}/".format(prefix1, workdir))
