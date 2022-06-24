@@ -662,3 +662,6 @@ $nohup getRBH.pl -x 24 -p mmseqs -q Vitis_vinifera.pep -t Medicago_truncatula.pe
 
 #### iqtree
 iqtree2 -B 1000 --modelomatic -s tmp.pep.aln
+
+#### make duplicate
+for i in *.ortho.kaks; do perl -e '$_=$ARGV[0]; my @e=split/\./, $_; `cp $_ $e[1].$e[0].ortho.kaks` if $e[0] ne $e[1]; ' $i; done
