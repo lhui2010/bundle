@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl 
 #https://github.com/santiagosnchez/concat_fasta/blob/master/concat_fasta.pl
 # ©Santiago Sanchez-Ramirez, University of Toronto
 
@@ -114,7 +114,7 @@ for (my $i=0; $i<scalar(@blocks); ++$i){
             $tempHash{$tempLab[$j]} = $tempSeq[$j];
         }
     } else {
-        die "Format error...\n";
+        die "Format error...\n".scalar(@tempSeq)."\n".scalar(@tempLab);
     }
     push @master, {%tempHash};
 }
@@ -198,7 +198,8 @@ elsif ((length($suffix) > 0) and (length($prefix) > 0)){
     die "Suffix/Prefix not specified. Try: concat_fasta.pl -h\n";
 }
 
-open OUTFILE, ">", $outfile;
+#print STDERR $outfile;
+open OUTFILE, ">$outfile" or die;
 
 my $labellength = max(@singLab);
 
@@ -301,7 +302,6 @@ if ($nexfl==1) {
         close OUTFILE;
     }
 }
-
 
 print "Partitions:\n";
 

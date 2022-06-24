@@ -83419,3 +83419,1325 @@ ll /nfs/liuhui/bin/bundle/executables/concat_fasta.pl
 chmod +x /nfs/liuhui/bin/bundle/executables/concat_fasta.pl 
 #1655955127
 gtp
+#1655955132
+gtps
+#1655955180
+concat_fasta.pl -h
+#1655955308
+cd /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/Phylogenetic_Hierarchical_Orthogroups/
+#1655955309
+ls
+#1655955312
+ls -d */ |wc -l
+#1655955630
+group2fasta.py N0.single.min25Tax.tsv total.cds cds &
+#1655954875
+tma
+#1655955667
+iqtree2 -h
+#1655955714
+ls -d */ |wc -l
+#1655955732
+mdkir concatenation
+#1655955738
+mkdir concatenation
+#1655955783
+lth
+#1655955785
+ls -d */ |wc -l
+#1655955818
+cd concatenation/
+#1655955830
+cd ..
+#1655955830
+ls
+#1655955856
+vi `which filter_OrthoFinder_N0.pl`
+#1655955877
+filter_OrthoFinder_N0.pl N0.tsv > N0.single.min34Tax.tsv 
+#1655955881
+les N0.single.min34Tax.tsv 
+#1655955921
+cut -f1  N0.single.min34Tax.tsv  > N0.single.min34Tax.tsv.HOG
+#1655955923
+les N0.single.min34Tax.tsv.HOG 
+#1655955931
+cd concatenation/
+#1655955932
+ls
+#1655956042
+jobs
+#1655956044
+ls
+#1655956051
+cd ..
+#1655956059
+mv concatenation concatenation_min25
+#1655956066
+mkdir concatenation_min34
+#1655956068
+vi `which filter_OrthoFinder_N0.pl`
+#1655956073
+cd concatenation_min34/
+#1655956074
+ls
+#1655956121
+lth
+#1655955709
+tma
+#1655956125
+bjl
+#1655956132
+cd ..
+#1655956133
+ls -d */ |wc -l
+#1655956128
+tma
+#1655956161
+iqtree2 -h
+#1655956408
+wc -l N0.single.min25Tax.tsv 
+#1655956440
+ls -d */ |wc -l
+#1655955088
+group2fasta.py N0.single.min25Tax.tsv total.pep pep
+#1655956564
+cat N0.HOG00*/*pep > concatenation_min25/
+#1655956567
+cp N0.HOG00*/*pep > concatenation_min25/
+#1655956574
+cp N0.HOG00*/*pep  concatenation_min25/
+#1655956577
+cd concatenation_min25/
+#1655956577
+ls
+#1655956584
+sed -i "s/>.*_/>/" *pep
+#1655956588
+ls
+#1655956589
+les *pep
+#1655956613
+concat_fasta.pl  -h
+#1655956642
+concat_fasta.pl  --suffix .pep -outfile concat_min25.fa > part.txt
+#1655956655
+vi `which concat_fasta.pl`
+#1655956682
+les *pep
+#1655956690
+ls
+#1655956695
+rename N0. '' *
+#1655956698
+concat_fasta.pl  --suffix .pep -outfile concat_min25.fa > part.txt
+#1655956704
+vi part.txt 
+#1655956707
+vi `which concat_fasta.pl`
+#1655956752
+concat_fasta.pl  --suffix .pep -outfile concat_min25.fa > part.txt
+#1655956757
+vi `which concat_fasta.pl`
+#1655956804
+ls
+#1655956805
+mkdir tmp
+#1655956806
+cd tmp/
+#1655956812
+ln -s ../HOG0009150.pep 
+#1655956814
+ln -s ../HOG0009158.pep 
+#1655956815
+concat_fasta.pl  --suffix .pep -outfile concat_min25.fa > part.txt
+#1655956823
+rename pep fa *
+#1655956824
+ls
+#1655956828
+concat_fasta.pl  --suffix .fa -outfile concat_min25.fa > part.txt
+#1655956837
+les *fa
+#1655956852
+ls
+#1655956858
+concat_fasta.pl -h
+#1655956864
+rename fa  fasta *
+#1655956865
+concat_fasta.pl -h
+#1655956867
+concat_fasta.pl  --suffix .fa -outfile concat_min25.fa > part.txt
+#1655956873
+concat_fasta.pl  --suffix .fasta -outfile concat_min25.fa > part.txt
+#1655956875
+concat_fasta.pl  --suffix .fasta -outfile concat_min25.fa -p > part.txt
+#1655956879
+ls
+#1655956885
+vi abc.fa
+#1655956895
+vi efg.fa
+#1655956910
+concat_fasta.pl  --suffix .fa -outfile concat_min25.fa > part.txt
+#1655956917
+lth
+#1655956919
+more part.txt 
+#1655956923
+ls
+#1655956940
+concat_fasta.pl  --suffix .fa 
+#1655956945
+more *.fa
+#1655956959
+concat_fasta.pl -h
+#1655956999
+concat_fasta.pl  --suffix .fa -outfile concat_min25.fasta > part.txt
+#1655957001
+lth
+#1655957007
+concat_fasta.pl  --suffix .fa -outfile concat_min25.phylip -p > part.txt
+#1655957009
+lth
+#1655957023
+vi `which concat_fasta.pl`
+#1655957030
+concat_fasta.pl  --suffix .fa -outfile concat_min25.phylip -p > part.txt
+#1655957031
+lth
+#1655956396
+tma
+#1655957045
+cd /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/
+#1655957045
+ls
+#1655957047
+cd Orthogroup
+#1655957048
+cd Orthogroups/
+#1655957048
+ls
+#1655957053
+cd ../Phylogenetic_Hierarchical_Orthogroups/
+#1655957053
+ls
+#1655957061
+cd to_ortho
+#1655957061
+ls
+#1655957070
+ls *fa
+#1655957073
+perl  concat_fasta.pl --suffix .fa --outfile concat.phylip -p > part.txt
+#1655957076
+more concat.phylip 
+#1655957094
+more *.fa
+#1655957098
+tma
+#1655957116
+perl /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/Phylogenetic_Hierarchical_Orthogroups/to_ortho/concat_fasta.pl --suffix .fasta --outfile concat.phylip -p > part.txt
+#1655957132
+which perl
+#1655957140
+ll
+#1655957144
+rm *.fasta
+#1655957145
+cd ..
+#1655957146
+ls
+#1655957149
+cd ..
+#1655957149
+ls
+#1655957153
+cd -
+#1655957153
+ls
+#1655957156
+cd ../concatenation_min34/
+#1655957157
+ls
+#1655957194
+for i in `cat ../N0.single.min34Tax.tsv.HOG `; do cp ../concatenation_min25/$i.pep . ; done
+#1655957205
+ls ../concatenation_min25/ |head
+#1655957217
+cd ../concatenation_min25/
+#1655957222
+rename HOG "N0.HOG" *
+#1655957223
+ls
+#1655957224
+cd -
+#1655957226
+for i in `cat ../N0.single.min34Tax.tsv.HOG `; do cp ../concatenation_min25/$i.pep . ; done
+#1655957240
+ls
+#1655957268
+for i in *pep; do bsub512 "mafft $i > $i.aln"; done
+#1655957273
+bjl
+#1655957289
+for i in `seq 76054 76130`; do bkill $i; done
+#1655957293
+ls
+#1655957297
+rm output.761* error.761*
+#1655957309
+lsload
+#1655957338
+vw
+#1655957367
+man mafft
+#1655957389
+for i in *pep; do echo "mafft $i > $i.aln" > aln.sh; done
+#1655957397
+rm aln.sh 
+#1655957398
+for i in *pep; do echo "mafft $i > $i.aln" >> aln.sh; done
+#1655957400
+vi aln.sh 
+#1655957413
+cat aln.sh | parallel -j 60 {} &
+#1655957413
+lth
+#1655957475
+ll -S *aln |les
+#1655957498
+ll -S *aln | tail -n 113 > tp
+#1655957500
+vi tp 
+#1655957516
+for i in `cat tp`; do mafft $i > $i.aln; done
+#1655957645
+lth
+#1655957650
+cd concatenation_min34/
+#1655957650
+lth
+#1655957662
+ll -S *aln |les
+#1655957593
+for i in `cat tp`; do sed -i "s/U/X/g" $i;  mafft $i > $i.aln; done
+#1655957689
+les *lan
+#1655957691
+les *aln
+#1655957700
+concat_fasta.pl  --suffix .aln -outfile concat_min25.fa > part.txt
+#1655957707
+ll concat_min25.fa
+#1655957710
+lth
+#1655957712
+les part.txt 
+#1655957734
+concat_fasta.pl  --suffix .aln -outfile concat_min25.phylip -p > part.txt
+#1655957738
+lth
+#1655957135
+tma
+#1655957743
+lt
+#1655957757
+tma
+#1655957795
+perl concat_fasta.pl --suffix .fa --outfile tmp.out
+#1655957797
+les tmp.out 
+#1655957803
+concat_fasta.pl --suffix .fa --outfile tmp.out
+#1655957805
+les tmp.out 
+#1655957808
+rm tmp.out 
+#1655957809
+concat_fasta.pl --suffix .fa --outfile tmp.out
+#1655957811
+les tmp.out 
+#1655957816
+les *aln
+#1655957838
+concat_fasta.pl  --suffix .aln -outfile tmp.out > part.txt
+#1655957849
+vi `which concat_fasta.pl`
+#1655957863
+concat_fasta.pl  --suffix .aln -outfile tmp.out > part.txt
+#1655957878
+ls $HB/*con*
+#1655957885
+ls $HB/*fasta*
+#1655957893
+lth
+#1655957903
+mkdir test
+#1655957905
+cd test/
+#1655957908
+ln -s ../N0.HOG0017103.pep.aln
+#1655957911
+ln -s ../N0.HOG0016808.pep.aln
+#1655957912
+ls
+#1655957915
+concat_fasta.pl  --suffix .aln -outfile tmp.out > part.txt
+#1655957922
+vi /nfs/liuhui/bin/bundle/executables/concat_fasta.pl
+#1655958046
+concat_fasta.pl  --suffix .aln -outfile tmp.out > part.txt
+#1655958050
+vi /nfs/liuhui/bin/bundle/executables/concat_fasta.pl
+#1655958077
+concat_fasta.pl  --suffix .aln -outfile tmp.out > part.txt
+#1655958082
+vi /nfs/liuhui/bin/bundle/executables/concat_fasta.pl
+#1655958094
+concat_fasta.pl  --suffix .aln -outfile tmp.out > part.txt
+#1655958101
+vi /nfs/liuhui/bin/bundle/executables/concat_fasta.pl
+#1655958107
+concat_fasta.pl  --suffix .aln -outfile tmp.out > part.txt
+#1655958110
+vi /nfs/liuhui/bin/bundle/executables/concat_fasta.pl
+#1655958121
+concat_fasta.pl  --suffix .aln -outfile tmp.out > part.txt
+#1655958137
+concat_fasta.pl  --suffix .aln --outfile tmp.out > part.txt
+#1655958138
+ls
+#1655958140
+more tmp.out 
+#1655958186
+ls
+#1655958232
+cd ..
+#1655958232
+ls
+#1655958237
+vi `which concat_fasta.pl`
+#1655958259
+concat_fasta.pl  --suffix .aln --outfile super_matrix_min34.aln > part.txt
+#1655958264
+vi `which concat_fasta.pl`
+#1655958288
+lth
+#1655958374
+les N0.HOG0014731.pep.aln
+#1655958390
+grep Xmlis *lan
+#1655958392
+grep Xmlis *aln
+#1655958412
+grep "Umlis *aln
+#1655958416
+grep "Umlis" *aln
+#1655958444
+sed -i "s/>Xmlis/>Umlis/" *aln
+#1655958291
+les super_matrix_min34.aln 
+#1655958455
+concat_fasta.pl  --suffix .aln --outfile super_matrix_min34.aln > part.txt
+#1655958466
+les super_matrix_min34.aln 
+#1655958476
+grep ">" super_matrix_min34.aln  |wc -l
+#1655958489
+grep ">" super_matrix_min34.aln  |les
+#1655958524
+grep ">" super_matrix_min34.aln  |sort |uniq |wc -l
+#1655958531
+grep ">" super_matrix_min34.aln  |wc -l
+#1655958536
+grep ">" super_matrix_min34.aln  |sort |uniq -c
+#1655958544
+ls
+#1655958548
+les *pep
+#1655958567
+sed -i "s/>Xmlis/>Umlis/" *pep
+#1655958593
+for i in N0.HOG0005542.pep N0.HOG0011564.pep N0.HOG0012828.pep N0.HOG0013030.pep N0.HOG0015841.pep N0.HOG0016407.pep N0.HOG0016545.pep; do mafft $i > $i.aln; done
+#1655958600
+concat_fasta.pl  --suffix .aln --outfile super_matrix_min34.aln > part.txt
+#1655958605
+les super_matrix_min34.aln
+#1655958622
+rm *aln
+#1655958624
+ls
+#1655958631
+grep "Xmlis" *pep
+#1655958643
+cat aln.sh | parallel -j 60 {} &
+#1655958690
+concat_fasta.pl  --suffix .aln --outfile super_matrix_min34.aln > part.txt
+#1655958696
+les super_matrix_min34.aln 
+#1655958729
+grep Zospl *aln |wc -l
+#1655958733
+lth
+#1655958744
+fasttree -h
+#1655958813
+echo $OMP_NUM_THREADS
+#1655958834
+lth
+#1655958844
+nohup fasttree < super_matrix_min34.aln > super_matrix_min34.aln.nwk &
+#1655958845
+lth
+#1655958849
+les super_matrix_min34.aln.nwk 
+#1655958860
+fasttree -h
+#1655958872
+lth
+#1655958874
+les super_matrix_min34.aln.nwk 
+#1655958886
+fg
+#1655958889
+rm super_matrix_min34.aln.nwk 
+#1655958894
+nohup fasttree  super_matrix_min34.aln -out super_matrix_min34.aln.nwk &
+#1655958898
+fasttree -h
+#1655958917
+nohup fasttree   -out super_matrix_min34.aln.nwk super_matrix_min34.aln &
+#1655958918
+lth
+#1655957812
+tma
+#1655958952
+top
+#1655958954
+tp
+#1655958964
+tma
+#1655959021
+iqtree2 -h
+#1655959033
+lth
+#1655959031
+tma
+#1655959056
+nohup iqtree2 -B 1000 --modelomatic -s super_matrix_min34.aln &
+#1655959059
+tp
+#1655959067
+iqtree2 -h
+#1655959123
+tail nohup.out 
+#1655959120
+tma
+#1655959126
+tp
+#1655959130
+fg
+#1655959139
+nohup iqtree2 -B 1000 --modelomatic -s super_matrix_min34.aln -nt AUTO &
+#1655959141
+tail nohup.out 
+#1655959128
+tma
+#1655959147
+tp
+#1655959184
+les nohup.out 
+#1655959179
+tma
+#1655959229
+tp
+#1655958921
+tail -f nohup.out 
+#1655959251
+lth
+#1655959255
+les super_matrix_min34.aln.log
+#1655959260
+jobs
+#1655959268
+les nohup.out 
+#1655959241
+tma
+#1655959285
+tp
+#1655959390
+tail nohup.out 
+#1655959386
+tma
+#1655959402
+tp
+#1655959657
+les nohup.out 
+#1655959681
+tail nohup.out 
+#1655959646
+tma
+#1655959751
+lth
+#1655959754
+tail no
+#1655959756
+tail tmp.out 
+#1655960010
+cd ~/bin/
+#1655960010
+ls
+#1655960012
+wget http://www.microbesonline.org/fasttree/FastTreeMP
+#1655960017
+chmod +x FastTreeMP 
+#1655960017
+cd -
+#1655960025
+jobs
+#1655960025
+lth
+#1655960031
+tail *log
+#1655960034
+lth
+#1655960035
+les nohup.out 
+#1655960047
+FastTreeMP -h
+#1655959758
+tma
+#1655960065
+tp
+#1655960071
+export OMP_NUM_THREADS=20
+#1655960074
+jobs
+#1655960074
+fg
+#1655960101
+nohup FastTreeMP -out super_matrix_min34.aln.fasttree.nwk super_matrix_min34.aln 2> fasttree.log &
+#1655960101
+lth
+#1655960068
+tma
+#1655960111
+tp
+#1655960108
+tail -f fasttree.log 
+#1655960148
+FastTree -h
+#1655960157
+FastTree -help
+#1655960178
+lth
+#1655960180
+tail fasttree.log 
+#1655960117
+tma
+#1655960194
+tp
+#1655960244
+ll results/psl/Zenia_insignis.Lysidice_rhodostegia.preNet
+#1655960248
+les .snakemake/log/2022-06-22T111920.247970.snakemake.log
+#1655960255
+les logs/Zenia_insignis.Lysidice_rhodostegia.chainPreNet_log.txt
+#1655960270
+cd data/
+#1655960270
+ls
+#1655960273
+vi Lysidice_rhodostegia.fa 
+#1655960287
+head *.1.fa
+#1655960295
+add_suffix.pl Lysidice_rhodostegia.fa 
+#1655960315
+lth
+#1655960332
+mv Lysidice_rhodostegia.fa.new Lysidice_rhodostegia.fa
+#1655960337
+les Lysidice_rhodostegia.fa 
+#1655960341
+cd -
+#1655960219
+tma
+#1655960488
+tp
+#1655960491
+tma
+#1655960580
+tp
+#1655960631
+head -1 Zenia_insignis.fa  Senna_septemtrionalis.fa Cercis_chinensis.fa Lysidice_rhodostegia.fa Medicago_truncatula.fa Duparquetia_orchidacea.fa
+#1655960598
+tma
+#1655960677
+lth
+#1655960679
+les tmp.out 
+#1655960681
+tma
+#1655960948
+bjl
+#1655960968
+tma
+#1655961200
+tp
+#1655961207
+tma
+#1655961231
+lsload
+#1655960192
+tail -f nohup.out 
+#1655961244
+nohup iqtree2 -B 1000 --modelomatic -s super_matrix_min34.aln -nt 40 &
+#1655961246
+jobs
+#1655961249
+fg 1 
+#1655961255
+jobs
+#1655961259
+tail nohup.out 
+#1655961264
+jobs
+#1655961266
+lth
+#1655961274
+les *model.gz
+#1655961282
+jobs
+#1655961284
+lth
+#1655961234
+tma
+#1655961300
+tp
+#1655961307
+tma
+#1655961560
+bjl
+#1655961564
+tma
+#1655961577
+lth
+#1655961578
+tma
+#1655961692
+bjl
+#1655961696
+tma
+#1655961942
+iqtree2 -h
+#1655961286
+tail -f nohup.out 
+#1655962056
+jobs
+#1655962057
+fg
+#1655962051
+tma
+#1655962275
+iqtree2 -h
+#1655962457
+lth
+#1655962461
+les part.txt 
+#1655962553
+nohup iqtree2 -B 1000 -S part.txt -s super_matrix_min34.aln -nt 40 &
+#1655962555
+tail -f nohup.out 
+#1655962572
+les part.txt
+#1655962601
+cp part.txt iqtree_part.txt
+#1655962602
+vi iqtree_part.txt 
+#1655962772
+nohup iqtree2 -B 1000 -S part.txt -s super_matrix_min34.aln -nt 40 &
+#1655962774
+tail -f nohup.out 
+#1655962788
+vi iqtree_part.txt 
+#1655962973
+nohup iqtree2 -B 1000 -S part.txt -s super_matrix_min34.aln -nt 40 &
+#1655962975
+tail nohup.out 
+#1655962978
+tail -f nohup.out 
+#1655963002
+vi iqtree_part.txt 
+#1655963008
+nohup iqtree2 -B 1000 -S part.txt -s super_matrix_min34.aln -nt 40 &
+#1655963009
+tail -f nohup.out 
+#1655963132
+vi iqtree_part.txt 
+#1655963140
+nohup iqtree2 -B 1000 -S part.txt -s super_matrix_min34.aln -nt 40 &
+#1655963142
+tail -f nohup.out 
+#1655963172
+vi iqtree_part.txt 
+#1655963238
+nohup iqtree2 -B 1000 -S part.txt -s super_matrix_min34.aln -nt 40 &
+#1655963239
+lth
+#1655963240
+tail -f nohup.out 
+#1655963258
+vi iqtree_part.txt 
+#1655963267
+mv iqtree_part.txt iqtree_part.nexus
+#1655963276
+nohup iqtree2 -B 1000 -S iqtree_part.nexus -s super_matrix_min34.aln -nt 40 &
+#1655962459
+tma
+#1655963421
+top
+#1655963278
+tail -f nohup.out 
+#1655960187
+tail -f fasttree.log 
+#1655963684
+ls
+#1655966573
+jobs
+#1655966574
+fg
+#1655963695
+top
+#1655966578
+jobs
+#1655966579
+fg
+#1655966617
+lth
+#1655966635
+cd ../
+#1655963439
+tma
+#1655966642
+cd /nfs/liuhui/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/Phylogenetic_Hierarchical_Orthogroups/
+#1655966643
+lt
+#1655966644
+cd ..
+#1655966644
+ls
+#1655966647
+cd Species_Tree/
+#1655966648
+ll
+#1655966652
+sz SpeciesTree_rooted.txt 
+#1655966656
+# Sent -> /Users/liuhui/Downloads/
+#1655967079
+ls
+#1655967080
+lt
+#1655967090
+ll
+#1655967091
+lt
+#1655967094
+les Orthogroups_for_concatenated_alignment.txt 
+#1655967101
+cd -
+#1655967102
+ls
+#1655967107
+ls
+#1655967126
+ls -d */ |les
+#1655967130
+cd concatenation_min25/tmp/
+#1655967130
+ls
+#1655967134
+cd ..
+#1655967134
+ls
+#1655967136
+les *pep
+#1655967151
+cd ..
+#1655967159
+cp */*.cds concatenation_min25/
+#1655967163
+cd concatenation_min25/
+#1655967163
+ls
+#1655967166
+les *cds
+#1655967225
+les *pep
+#1655967253
+ls *cds |wc -l
+#1655967258
+ls *pep |wc -l
+#1655967353
+sed -i "s/>.*_/>/" *pep
+#1655967356
+sed -i "s/>.*_/>/" *cds
+#1655967361
+les *pep
+#1655967363
+les *cds
+#1655967373
+ls *pep |wc -l
+#1655967377
+ls *cds |wc -l
+#1655967399
+ls N0.HOG00*cds |wc -l
+#1655967404
+ls N0.HOG00*pep |wc -l
+#1655967407
+for i in *pep; do cp ../fasta0613_newest/cds/${i%.pep}.cds cds/; done
+#1655967365
+tar -cvzf ~/zhangrong/super_matrix_0623.25taxa.tgz *.cds *.pep
+#1655967431
+for i in *pep; do cp ../concatenation_min25/${i%.pep}.cds .; done
+#1655967460
+ls *cds |wc -l
+#1655967464
+ls *pep |wc -l
+#1655967489
+les *cds
+#1655967493
+ls *cds |wc -l
+#1655967495
+les *pep
+#1655967505
+grep -v ">" *pep |grep U |le
+#1655967506
+grep -v ">" *pep |grep U |les
+#1655967509
+grep -v ">" *pep |grep U 
+#1655967570
+sed -i "s/U/X/g; s/>X/>U/" *pep
+#1655967582
+les *pep
+#1655967593
+grep Um *pep |head
+#1655967601
+tar -cvzf ~/zhangrong/super_matrix_0623.25taxa.tgz *.cds *.pep
+#1655967673
+tar -czf ~/zhangrong/super_matrix_0623.34taxa.tgz *cds *pep
+#1655967102
+tma
+#1655967707
+cd ~/zhangrong/
+#1655967707
+lt
+#1655967717
+cd -
+#1655967719
+ls
+#1655967730
+cd ..
+#1655967730
+ls
+#1655967736
+cd Results_Jun22/
+#1655967736
+ls
+#1655967741
+cd WorkingDirectory/
+#1655967741
+ls
+#1655967743
+vi Species
+#1655967745
+vi SpeciesIDs.txt 
+#1655967773
+ls ~/yi03/orthofinder/fasta0616/*pep |wc -l
+#1655967784
+vi SpeciesIDs.txt 
+#1655967821
+cd ..
+#1655967821
+ls
+#1655967842
+filter_OrthoFinder_N0.pl N0.tsv 35 > N0.single.min35Tax.tsv
+#1655967856
+cut -f1 N0.single.min35Tax.tsv > N0.single.min35Tax.tsv.ID
+#1655967860
+vi N0.single.min35Tax.tsv.ID
+#1655967865
+lth
+#1655967869
+mkdir concatenation_min35
+#1655967894
+for i in `cat N0.single.min35Tax.tsv.ID`; do cp concatenation_min25/$i.pep concatenation_min25/$i.cds concatenation_min35/; done
+#1655967910
+cd concatenation_min3
+#1655967911
+cd concatenation_min35/
+#1655967912
+ls
+#1655967914
+ls *pep |wc -l
+#1655967918
+ls *cds |wc -l
+#1655967921
+ll -S * |les
+#1655967928
+ll -S * |tail
+#1655967931
+les N0.HOG0016996.pep
+#1655967806
+tma
+#1655967939
+tar -czf ~/zhangrong/super_matrix_0623.35taxa.tgz *cds *pep
+#1655967961
+cd ~/zhangrong/
+#1655967961
+lt
+#1655967995
+rm super_matrix_0623.34taxa.tgz 
+#1655967996
+lth
+#1655968002
+realpath super_matrix_0623.25taxa.tgz super_matrix_0623.35taxa.tgz
+#1655960347
+bash legume.sh --use-singularity --threads 30
+#1655968552
+bjl
+#1655968559
+lth
+#1655968615
+les results/tree/sitefold.txt
+#1655968621
+more /conda-envs/7f25ce2cbdfd37b51b6611c851f39c0e
+#1655968624
+more logs/cds_fold_log.txt
+#1655968648
+lesls results/tree/
+#1655968650
+ls results/tree/
+#1655968653
+les results/tree/topology.tre 
+#1655968605
+tma
+#1655968664
+bjl
+#1655968677
+more /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/.snakemake/tmp.gt3h6_u2/snakejob.cds_fold.53.sh
+#1655968692
+ls
+#1655968694
+ll results
+#1655968696
+ll results/roast/
+#1655968700
+les results/roast/roast.maf 
+#1655968742
+ls *sh
+#1655968743
+vi legume.sh 
+#1655968666
+tma
+#1655968773
+bjobs -l 76229
+#1655968783
+more /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/.snakemake/tmp.8kj580la/snakejob.cds_fold.52.sh
+#1655968753
+bash legume.sh --use-singularity --threads 30
+#1655968816
+more data/Zenia_insignis.gff3
+#1655968818
+cd data/
+#1655968824
+cd -
+#1655968830
+vi config/myconfig.yaml 
+#1655968906
+cd -
+#1655968907
+ls
+#1655968908
+cd ..
+#1655968910
+bash legume.sh --use-singularity --threads 30
+#1655972044
+more logs/filtcols_log.txt
+#1655972072
+more logs/filtcols_log.txt 
+#1655972099
+trimal -in results/tree/roast_noN.fa -out tmp.out -fasta -gt 0.9
+#1655972166
+ll results/tree/roast_noN.fa
+#1655972168
+more results/tree/roast_noN.fa 
+#1655972217
+lt results/tree/
+#1655972227
+rm results/tree/roast_noN.fa 
+#1655972245
+more logs/sitefold2bed_log.txt
+#1655972248
+ls
+#1655972249
+lt
+#1655972260
+vi workflow/Snakefile 
+#1655972273
+vi workflow/rules/call_conservation.smk 
+#1655972313
+more logs/cds_fold_log.txt 
+#1655972320
+wc -l logs/cds_fold_log.txt 
+#1655972326
+les logs/cds_fold_log.txt 
+#1655972346
+cd data/
+#1655972347
+ls
+#1655972350
+rm Zenia_insignis.gff 
+#1655968812
+tma
+#1655972353
+cd /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/data/
+#1655972354
+ls
+#1655972356
+rz 
+#1655972418
+# Received /Volumes/liuhui/total/zeins.gff
+#1655972427
+vi `which longest_transcript_from_gff.py `
+#1655972438
+vi `which select_ID_from_GFF.pl
+#1655972440
+vi `which select_ID_from_GFF.pl`
+#1655972450
+ll
+#1655972459
+mv zeins.gff Zenia_insignis.gff
+#1655972460
+les Zenia_insignis.
+#1655972462
+les Zenia_insignis.gff 
+#1655972469
+longest_transcript_from_gff.py Zenia_insignis.gff 
+#1655972537
+les Zenia_insignis.gff.longest
+#1655972541
+lth
+#1655972547
+les Zenia_insignis.gff.longest_gene
+#1655972560
+les Zenia_insignis.gff
+#1655972567
+ll
+#1655972569
+lth
+#1655972583
+les Zenia_insignis.gff
+#1655972603
+awk '$3=="gene"' Zenia_insignis.gff > Zenia_insignis.format.gff
+#1655972611
+cat Zenia_insignis.gff.longest >> Zenia_insignis.format.gff
+#1655972617
+mv Zenia_insignis.gff Zenia_insignis.gff.raw
+#1655972624
+mv Zenia_insignis.format.gff Zenia_insignis.gff
+#1655972624
+lth
+#1655972627
+les Zenia_insignis.gff
+#1655972634
+cd -
+#1655972639
+cd ..
+#1655972636
+tma
+#1655972680
+bjl
+#1655972688
+bjobs -l 76286
+#1655972698
+more /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/.snakemake/tmp.0d92nkab/snakejob.maf2fold.50.sh
+#1655972708
+bjobs -l 76286
+#1655972715
+more /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/.snakemake/tmp.0d92nkab/snakejob.maf2fold.50.sh
+#1655972728
+more /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/.snakemake/tmp.0d92nkab/snakejob.maf2fa.48.sh 
+#1655972731
+tma
+#1655972740
+cd -
+#1655972743
+cd ..
+#1655972745
+lt results/roast/
+#1655972754
+les results/roast/roast.sitefold.clean.maf 
+#1655972758
+tma
+#1655972770
+bjobs -l 76287
+#1655972777
+tma
+#1655972779
+lt results/roast/
+#1655972781
+tma
+#1655972807
+ls
+#1655972819
+vi workflow/rules/call_conservation.smk 
+#1655972834
+more ../scripts/clean_mafsInRegion_output.py
+#1655972842
+more workflow/scripts/clean_mafsInRegion_output.py
+#1655972640
+bash legume.sh --use-singularity --threads 30
+#1655972928
+lt results/roast/
+#1655972935
+cp workflow/scripts/clean_mafsInRegion_output.py .
+#1655972936
+vi clean_mafsInRegion_output.py 
+#1655972967
+lt results/roast/
+#1655972972
+python clean_mafsInRegion_output.py results/roast/roast.maf tmp.maf
+#1655973003
+ll tmp.maf 
+#1655973040
+more results/tree/sitefold.bed 
+#1655973044
+vi workflow/rules/call_conservation.smk 
+#1655973067
+cp ../scripts/cds_fold.py .
+#1655973074
+cp workflow/scripts/cds_fold.py .
+#1655973075
+vi cds_fold.py 
+#1655973111
+python cds_fold.py 
+#1655973116
+python cds_fold.py  run_main -h
+#1655973122
+vi workflow/rules/call_conservation.smk 
+#1655973129
+vi cds_fold.py 
+#1655973166
+python cds_fold.py  run_main -h
+#1655973181
+python cds_fold.py  run_main data/Zenia_insignis.fa data/Zenia_insignis.gff tmp.out
+#1655973197
+vi cds_fold.py 
+#1655973012
+tma
+#1655973293
+lt /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/
+#1655973297
+les /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/tmp.log 
+#1655973310
+tma
+#1655973316
+vi cds_fold.py 
+#1655973474
+tma
+#1655973476
+lth
+#1655973479
+les tmp.log 
+#1655973488
+les data/Zenia_insignis.gff
+#1655973500
+vi cds_fold.py 
+#1655973591
+les data/Zenia_insignis.gff
+#1655973606
+vi cds_fold.py 
+#1655973658
+tma
+#1655973677
+bjl
+#1655973679
+lth
+#1655973682
+cd logs/
+#1655973682
+lt
+#1655973684
+lth
+#1655973690
+les cds_fold_log.txt 
+#1655973700
+cd -
+#1655973702
+vi cds_fold.py 
+#1655973716
+les data/Zenia_insignis.gff
+#1655973734
+grep cds.ZEINS00027230-t1_Zeins data/Zenia_insignis.gff
+#1655973741
+grep ZEINS00027230-t1 data/Zenia_insignis.gff
+#1655973782
+les tmp.log 
+#1655973790
+cd -
+#1655973790
+ls
+#1655973793
+cd ../data/
+#1655973793
+ls
+#1655973796
+vi Zenia_insignis.fa 
+#1655973801
+vi Zenia_insignis.gff
+#1655973837
+vi Zenia_insignis.fa 
+#1655973839
+tma
+#1655973843
+lt
+#1655973845
+lth
+#1655973847
+cd ..
+#1655973848
+lth
+#1655973851
+les tmp.log 
+#1655973251
+python cds_fold.py  run_main data/Zenia_insignis.fa data/Zenia_insignis.gff tmp.out
+#1655976155
+lt
+#1655976157
+ls
+#1655976158
+ls -t
+#1655976164
+les local_sort_by_lineage.txt.ID.all_pairs 
+#1655985210
+j paralog
+#1655985214
+j orthogroup
+#1655985214
+ls
+#1655985232
+ls *peak
+#1655985215
+ssh yi03
+#1656045901
+bjl
+#1656045903
+ls
+#1656045907
+cd yi03
+#1656045908
+ls
