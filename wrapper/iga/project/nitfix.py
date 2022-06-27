@@ -4,6 +4,7 @@ scripts used in nitfix project
 import logging
 import re
 import coloredlogs
+import ete3
 
 from iga.annotation.gff import Bed
 from iga.apps.base import emain, mkdir, sh, goto_workdir
@@ -301,10 +302,11 @@ cp */*pep tree/
 
 pushd tree
 
+touch run.sh
+rm run.sh
 for i in  *.pep
 do 
-    touch run.sh
-    rm run.sh
+
     echo "mafft $i > $i.aln; iqtree2 -B 1000 -s $i.aln --prefix $i.aln -m LG+G" >> run.sh
 done
 
@@ -377,7 +379,11 @@ def yanrui_count_tree(tree_dir=None, suffix_outgroup='', suffixA='', suffixB='')
     for i in nwk_file:
         # path='tree/' + i
         path = i
-        t = Tree(path)
+        try:
+            t = Tree(path)
+        except ete3.parser.newick.NewickError:
+            logging.error(path)
+            exit(1)
         t_leave_name = [ii for ii in t.iter_leaf_names()]
         out_group_name = [ii for ii in t_leave_name if ii.endswith(outgroup)][0]  ####找到外类群######
         t.set_outgroup(out_group_name)  ####设置外类群，改变系统发育树的拓扑结构#####
