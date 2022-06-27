@@ -425,9 +425,9 @@ def yanrui_count_tree(tree_dir=None, suffix_outgroup='', suffixA='', suffixB='')
                     list_com.append(child)
                 elif spA in k.get_children()[0].name and spA in k.get_children()[1].name:
                     # (C,((A,A),(B,B))) type is independent
-                    list_com.append(child)
+                    list_ind.append(child)
                 elif spB in k.get_children()[0].name and spB in k.get_children()[1].name:
-                    list_com.append(child)
+                    list_ind.append(child)
         if len(list_ind) == 2:
             ind_print += t.write() + "\n"
         elif len(list_com) == 2:
