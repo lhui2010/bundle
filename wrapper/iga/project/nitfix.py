@@ -328,6 +328,29 @@ def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', thre
         suffix1: Abrus_alba -> Abalb
         suffix2:
         suffix_outgroup: Cechi by default
+    InputEg:
+        ==> Castanospermum_australe.Cercis_chinensis.ortho <==
+        CASAUS_g31283.t1_Caaus	CECHI00001252-t1_Cechi
+        CASAUS_g31287.t2_Caaus	CECHI00001259-t1_Cechi
+        CASAUS_g31303.t1_Caaus	CECHI00001266-t1_Cechi
+        CASAUS_g31307.t1_Caaus	CECHI00001274-t1_Cechi
+        CASAUS_g31317.t1_Caaus	CECHI00001279-t1_Cechi
+        CASAUS_g31332.t2_Caaus	CECHI00001295-t1_Cechi
+        CASAUS_g31339.t1_Caaus	CECHI00001302-t1_Cechi
+        CASAUS_g31342.t1_Caaus	CECHI00001307-t1_Cechi
+        CASAUS_g31347.t1_Caaus	CECHI00001309-t1_Cechi
+        CASAUS_g31348.t1_Caaus	CECHI00001311-t1_Cechi
+
+        ==> Phaseolus_lunatus.Cercis_chinensis.ortho <==
+        Pl01G0000288100.1.v1_Phlun	CECHI00012229-t1_Cechi
+        Pl01G0000288200.1.v1_Phlun	CECHI00012232-t1_Cechi
+        Pl01G0000288500.1.v1_Phlun	CECHI00012236-t1_Cechi
+        Pl01G0000288600.3.v1_Phlun	CECHI00012237-t3_Cechi
+        Pl01G0000288700.1.v1_Phlun	CECHI00012239-t1_Cechi
+        Pl01G0000288800.1.v1_Phlun	CECHI00012241-t1_Cechi
+        Pl01G0000288900.1.v1_Phlun	CECHI00012242-t1_Cechi
+        Pl01G0000289000.1.v1_Phlun	CECHI00012243-t1_Cechi
+        Pl01G0000289200.1.v1_Phlun	CECHI00012244-t2_Cechi
 
     Returns:
 
