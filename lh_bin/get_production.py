@@ -11,5 +11,5 @@ sp_list = list(table.species)
 
 for i in range(0,len(sp_list)):
     for j in range(0,len(sp_list)):
-        print("{}.{}".format(sp_list[i].replace(' ', '_'),sp_list[j].replace(' ', '_')))
+        print("{}.{}.ortho.kaks".format(sp_list[i].replace(' ', '_'),sp_list[j].replace(' ', '_')))
 

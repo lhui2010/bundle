@@ -6,7 +6,8 @@ import re
 import coloredlogs
 
 from iga.annotation.gff import Bed
-from iga.apps.base import emain, mkdir
+from iga.annotation.repeat import goto_workdir
+from iga.apps.base import emain, mkdir, sh
 import pandas as pd
 import itertools
 from collections import defaultdict
@@ -14,10 +15,11 @@ import os.path as op
 
 from multiprocessing import Pool
 
+import os
+from ete3 import Tree
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG', logger=logger)
-
 
 symbiosis_gene_fam_sh = r"""
 
@@ -50,7 +52,6 @@ a = pheatmap(RCG, show_rownames=T, col = mycol,
        fontsize_col = 20, angle_col ="45",border_color = 'white')
 
 """
-
 
 
 def unselect(ID=None, table=None):
@@ -104,7 +105,7 @@ def format_ks_plot(ks_plot_output=None):
             line = re.sub('_t_', suffix + "-", line)
             line = re.sub('\t', suffix + "\t", line, 1)
             ks_buff += line
-            #generate ortho file
+            # generate ortho file
             fields = line.split()[0].split('-')
             # logging.error(fields)
             # exit(1)
@@ -137,12 +138,12 @@ def group2paralogs(orthogroup=None, max_group_size=10, start_col=3):
                 ortho_gene_list = g.split(', ')
             except AttributeError:
                 continue
-            if (len(ortho_gene_list) <=1 or len(ortho_gene_list) > max_group_size):
+            if (len(ortho_gene_list) <= 1 or len(ortho_gene_list) > max_group_size):
                 continue
             else:
                 ortho_pair_list = itertools.combinations(ortho_gene_list, 2)
                 for ortho_pair in ortho_pair_list:
-                    paralog_db[species_name] += ("\t".join(ortho_pair)+"\n")
+                    paralog_db[species_name] += ("\t".join(ortho_pair) + "\n")
     for species_name in paralog_db:
         with open("{}.{}.paralog".format(orthogroup, species_name), 'w') as fh:
             fh.write(paralog_db[species_name])
@@ -174,8 +175,8 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
     result_db = defaultdict(str)
 
     # Step1. GEt combinations only necessary
-    #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
-    #cross comparison
+    # https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
+    # cross comparison
     mkdir(outdir)
     species_pairs_raw = itertools.combinations(orthotable.columns[start_col:], 2)
     species_pairs = []
@@ -194,7 +195,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
         for k in interest_list:
             if k in pair:
                 flag = 1
-        if(flag):
+        if (flag):
             species_pairs.append(pair)
     logging.info(species_pairs)
     logging.info("Prepare of species pair complete, now writing to files...")
@@ -228,18 +229,18 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
         for orthogroup in qry_dict:
             if orthogroup not in ref_dict:
                 continue
-            #https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
-                # logging.info(qry_dict[orthogroup])
-                # logging.info(ref_dict[orthogroup])
+            # https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
+            # logging.info(qry_dict[orthogroup])
+            # logging.info(ref_dict[orthogroup])
             else:
                 iter_list.append([qry_dict[orthogroup], ref_dict[orthogroup]])
         with Pool(threads) as pool:
             iter_result = pool.starmap(itertools.product, iter_list)
         # iter_result = itertools.product(qry_dict[orthogroup], ref_dict[orthogroup])
         for iter_once_run in iter_result:
-        # for ortho_pair in iter_result:
+            # for ortho_pair in iter_result:
             for ortho_pair in iter_once_run:
-                result_db[pair_name] += ("\t".join(ortho_pair)+"\n")
+                result_db[pair_name] += ("\t".join(ortho_pair) + "\n")
                 # logging.info(pair_name)
         with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
             fh.write(result_db[pair_name])
@@ -259,7 +260,7 @@ def remove_tandem_ortho(ortho=None, bed=None, gap=20):
         STDOUT!
     """
     bed_file = Bed(bed)
-    #bed_file.add_rank()
+    # bed_file.add_rank()
     with open(ortho) as fh:
         for line in fh:
             (orthoA, orthoB) = line.rstrip().split()
@@ -268,8 +269,144 @@ def remove_tandem_ortho(ortho=None, bed=None, gap=20):
                 rankB = bed_file.select_name(orthoB).rank
             except KeyError:
                 continue
-            if(abs(rankA - rankB) > gap):
+            if (abs(rankA - rankB) > gap):
                 print(line.rstrip())
+
+
+# 0 orthologA-C
+# 1 orthologB-C
+# 2 Pepfile
+# 3 threads
+comWGD_tree_sh = """
+
+ln -s ../{0}
+ln -s ../{1}
+ln -s ../{2}
+
+select_ortholog_1_to_2.pl {0} > {0}.selection
+select_ortholog_1_to_2.pl {1} > {1}.selection
+
+selectItem.pl -k {0}.selection {1}.Cercis_chinensis.ortho.selection  > {0}.{1}.group.txt
+
+group2fasta.py {0}.{1}.group.txt {2} pep
+
+mkdir -p tree
+
+cp */*pep tree/
+
+pushd tree
+
+for i in  *.pep
+do 
+    touch run.sh
+    rm run.sh
+    echo "mafft $i > $i.aln; iqtree2 -B 1000 -s $i.aln --prefix $i.aln -m LG+G" >> run.sh; done
+done
+
+cat run.sh | parallel -j {3} {{}}
+
+popd
+
+"""
+
+
+def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', threads=20, suffix_outgroup='Cechi'):
+    r"""
+    Args:
+        submit to execute
+
+        ortho1: aa.cerchs.ortho
+        ortho2: bb.cercis.ortho where cercis is outgroup
+        pep:  aa.bb.pep  contain peptides of aa, bb, and cechi
+        suffix1: Abrus_alba -> Abalb
+        suffix2:
+        suffix_outgroup: Cechi by default
+
+    Returns:
+
+    """
+    if suffix1 == "":
+        ortho1_list = ortho1.split('.')
+        (ortho1_genera, ortho1_sp) = ortho1_list[0].split('_')
+        suffix1 = ortho1_genera[:2].title() + ortho1_sp[:3]
+    if suffix2 == "":
+        ortho2_list = ortho2.split('.')
+        (ortho2_genera, ortho2_sp) = ortho2_list[0].split('_')
+        suffix2 = ortho2_genera[:2].title() + ortho2_sp[:3]
+    goto_workdir('count_tree', ortho1_list[0] + '.' + ortho2_list[0])
+
+    cmd = comWGD_tree_sh.format(ortho1, ortho2, pep, threads)
+
+    sh(cmd, threads)
+    output_files = yanrui_count_tree('tree', suffix_outgroup, suffix1, suffix2)
+    logging.info("Output files: " + output_files)
+
+
+def yanrui_count_tree(tree_dir=None, suffix_outgroup='', suffixA='', suffixB=''):
+    """
+    输入一个文件，三个参数
+    Count tree topology (C是外群):
+    (C,((A,B),(A,B)))的有116个，共有WGD
+    (C,((A,A),(B,B)))的有755个，分别WGD
+    输出三个文件：
+    结果会包含不同类型的树结构。
+    不符合上述两种噢的输出到other里面
+    Args:
+        tree_dir:
+        suffix_outgroup:
+        prefix:
+
+    Returns:
+    """
+
+    nwk_file = [i for i in os.listdir(tree_dir) if i.endswith('treefile')]
+
+    outgroup = suffix_outgroup
+    spA = suffixA
+    spB = suffixB
+
+    com_print = ""
+    ind_print = ""
+    other_print = ""
+    for i in nwk_file:
+        # path='tree/' + i
+        path = i
+        t = Tree(path)
+        t_leave_name = [ii for ii in t.iter_leaf_names()]
+        out_group_name = [ii for ii in t_leave_name if ii.endswith(outgroup)][0]  ####找到外类群######
+        t.set_outgroup(out_group_name)  ####设置外类群，改变系统发育树的拓扑结构#####
+        list_ind = []
+        list_com = []
+        for k in t.traverse():
+            if k.is_leaf():
+                continue
+            else:
+                child = k.get_children()[0].name + k.get_children()[1].name  ####获取节点名字#####
+                if spA in child and spB in child:
+                    # (C,((A,B),(A,B))) type is common
+                    list_com.append(child)
+                elif spA in k.get_children()[0].name and spA in k.get_children()[1].name:
+                    # (C,((A,A),(B,B))) type is independent
+                    list_com.append(child)
+                elif spB in k.get_children()[0].name and spB in k.get_children()[1].name:
+                    list_com.append(child)
+        if len(list_ind) == 2:
+            ind_print += t.write() + "\n"
+        elif len(list_com) == 2:
+            com_print += t.write() + "\n"
+        else:
+            other_print += t.write() + "\n"
+
+    output_ind = "{}.{}.{}.indWGD".format(outgroup, spA, spB)
+    output_com = "{}.{}.{}.comWGD".format(outgroup, spA, spB)
+    output_other = "{}.{}.{}.otherWGD".format(outgroup, spA, spB)
+    with open(output_ind, "w") as fh_ind, \
+            open(output_com, "w") as fh_com, \
+            open(output_other, "w") as fh_other:
+        fh_ind.write(ind_print)
+        fh_com.write(com_print)
+        fh_other.write(other_print)
+    return [output_ind, output_com, output_other]
 
 
 emain()

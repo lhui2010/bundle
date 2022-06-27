@@ -9,3 +9,4 @@ bcbio-gff
 sklearn
 pandas
 itertools
+ete3
