@@ -292,6 +292,9 @@ selectItem.pl -k {0}.selection {1}.selection  > {0}.{1}.group.txt
 
 group2fasta.py {0}.{1}.group.txt {2} pep
 
+touch tree
+rm -r tree/
+
 mkdir -p tree
 
 cp */*pep tree/
