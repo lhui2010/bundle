@@ -345,7 +345,10 @@ def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', thre
     cmd = comWGD_tree_sh.format(ortho1, ortho2, pep, threads)
 
     sh(cmd)
-    output_files = yanrui_count_tree('tree', suffix_outgroup, suffix1, suffix2)
+    output_files = yanrui_count_tree(tree_dir='tree',
+                                     suffix_outgroup=suffix_outgroup,
+                                     suffixA=suffix1,
+                                     suffixB=suffix2)
     logging.info("Output files: ")
     logging.infor(output_files)
 
