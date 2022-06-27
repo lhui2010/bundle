@@ -277,6 +277,7 @@ def remove_tandem_ortho(ortho=None, bed=None, gap=20):
 # 1 orthologB-C
 # 2 Pepfile
 # 3 threads
+# 4 orthogroup type (mcscanx or orthofinder)
 comWGD_tree_sh = """
 
 touch {0} && rm {0}
@@ -286,15 +287,22 @@ ln -s ../{0}
 ln -s ../{1}
 ln -s ../{2}
 
-select_ortholog_1_to_2.pl {0} > {0}.selection
-select_ortholog_1_to_2.pl {1} > {1}.selection
+BIN=select_ortholog_1_to_2.pl
+
+if [ {4} == "orthofinder" ]
+then
+    BIN=select_ortholog_1_to_2.orthogroup.pl
+fi
+
+$BIN {0} > {0}.selection
+$BIN {1} > {1}.selection
 
 selectItem.pl -k {0}.selection {1}.selection  > {0}.{1}.group.txt
 
 group2fasta.py {0}.{1}.group.txt {2} pep
 
 touch tree
-rm -r tree/
+rm -rf tree
 
 mkdir -p tree
 
@@ -317,7 +325,8 @@ popd
 """
 
 
-def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', threads=20, suffix_outgroup='Cechi'):
+def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', threads=20, suffix_outgroup='Cechi',
+                mode='mcscanx'):
     r"""
     Args:
         submit to execute
@@ -328,6 +337,7 @@ def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', thre
         suffix1: Abrus_alba -> Abalb
         suffix2:
         suffix_outgroup: Cechi by default
+        mode: [mcscanx|orthofinder], default mcscanx
     InputEg:
         ==> Castanospermum_australe.Cercis_chinensis.ortho <==
         CASAUS_g31283.t1_Caaus	CECHI00001252-t1_Cechi
@@ -351,7 +361,23 @@ def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', thre
         Pl01G0000288900.1.v1_Phlun	CECHI00012242-t1_Cechi
         Pl01G0000289000.1.v1_Phlun	CECHI00012243-t1_Cechi
         Pl01G0000289200.1.v1_Phlun	CECHI00012244-t2_Cechi
+    bash_eg:
+        for QRY in Castanospermum_australe.ortho Cladrastis_platycarpa.ortho
+            do
+                for REF in *.ortho
+                do
+                    if [ $QRY == $REF ]
+                    then
+                        continue
+                    fi
+                    cat /ds3200_1/users_root/yitingshuang/lh/fasta0613/${QRY%.ortho}.pep \
+                        /ds3200_1/users_root/yitingshuang/lh/fasta0613/${REF%.ortho}.pep \
+                        /ds3200_1/users_root/yitingshuang/lh/fasta0613/Cercis_chinensis.pep  > ${QRY}.${REF}.pep
 
+                    bsub -R "span[hosts=1]" -q Q104C512G_X4  -o ${QRY}.${REF}.log -e ${QRY}.${REF}.err -n 10
+                    "python -m iga.project.nitfix comWGD_tree ${QRY} ${REF} ${QRY}.${REF}.pep --threads 10"
+                 done
+             done
     Returns:
 
     """
@@ -365,7 +391,7 @@ def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', thre
         suffix2 = ortho2_genera[:2].title() + ortho2_sp[:3]
     goto_workdir('count_tree', ortho1_list[0] + '.' + ortho2_list[0])
 
-    cmd = comWGD_tree_sh.format(ortho1, ortho2, pep, threads)
+    cmd = comWGD_tree_sh.format(ortho1, ortho2, pep, threads, mode)
 
     sh(cmd)
     output_files = yanrui_count_tree(tree_dir='tree',
