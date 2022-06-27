@@ -285,7 +285,7 @@ ln -s ../{2}
 select_ortholog_1_to_2.pl {0} > {0}.selection
 select_ortholog_1_to_2.pl {1} > {1}.selection
 
-selectItem.pl -k {0}.selection {1}.Cercis_chinensis.ortho.selection  > {0}.{1}.group.txt
+selectItem.pl -k {0}.selection {1}.selection  > {0}.{1}.group.txt
 
 group2fasta.py {0}.{1}.group.txt {2} pep
 
