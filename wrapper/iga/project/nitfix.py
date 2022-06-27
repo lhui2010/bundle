@@ -350,7 +350,7 @@ def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', thre
                                      suffixA=suffix1,
                                      suffixB=suffix2)
     logging.info("Output files: ")
-    logging.infor(output_files)
+    logging.info(output_files)
 
 
 def yanrui_count_tree(tree_dir=None, suffix_outgroup='', suffixA='', suffixB=''):
