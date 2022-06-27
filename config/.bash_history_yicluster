@@ -84747,3 +84747,1039 @@ git stash
 gtp
 #1656061353
 vw
+#1656061368
+gtps
+#1656062290
+cd
+#1656062290
+cd yi03
+#1656062291
+ls
+#1656062292
+cd orthofinder/
+#1656062292
+ls
+#1656062295
+cd fasta0622/
+#1656062295
+ls
+#1656062309
+cd ../fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/
+#1656062310
+more guid_tree_edited.tre 
+#1656062294
+ssh yi03
+#1656062995
+bjl
+#1656063003
+tma
+#1656063783
+ls
+#1656063784
+ll
+#1656063802
+cd ..
+#1656063803
+ls
+#1656063806
+vi README.md
+#1656063812
+cd ..
+#1656063815
+ls
+#1656063854
+ls ~/yi03/orthofinder/fasta0616/Populus_trichocarpa.pep ~/yi03/orthofinder/fasta0622/Polygala_tatarinowii.pep 
+#1656063971
+ls
+#1656063975
+cd ..
+#1656063976
+cd results_dir/
+#1656063977
+ls
+#1656063978
+cd legume_0624_6sp/
+#1656063979
+ll
+#1656063980
+lt
+#1656063985
+cd psl/
+#1656063985
+ls
+#1656063986
+lt
+#1656063988
+les *psl
+#1656063994
+cd ../toast/
+#1656063994
+lt
+#1656063996
+les *maf
+#1656064007
+cd ..
+#1656064008
+lth
+#1656064011
+cd tree/
+#1656064011
+lt
+#1656064016
+les sitefold.bed 
+#1656064018
+cd raxml/
+#1656064018
+lt
+#1656064025
+les RAxML_bestTree.roast_mincol_maxlen 
+#1656064030
+cd ..
+#1656064031
+lt
+#1656064037
+cd ..
+#1656064038
+ls
+#1656064038
+lt
+#1656064044
+cd toast/
+#1656064044
+lt
+#1656064047
+les *maf
+#1656064127
+cd ../roast/
+#1656064128
+lt
+#1656064130
+les roast.maf 
+#1656064152
+which phast
+#1656064156
+ls ~/projects/buzzo/phast/phast-1.6/bin
+#1656064168
+ls ~/projects/buzzo/phast/phast-1.6/bin/msa_view -h
+#1656064170
+ls ~/projects/buzzo/phast/phast-1.6/bin/msa_view 
+#1656064172
+~/projects/buzzo/phast/phast-1.6/bin/msa_view 
+#1656064173
+~/projects/buzzo/phast/phast-1.6/bin/msa_view  -h
+#1656064208
+nohup msa_view roast.maf --in-format maf > roast.maf.fa &
+#1656064209
+lth
+#1656064212
+more no
+#1656064215
+lt
+#1656064220
+ msa_view roast.maf --in-format maf > roast.maf.fa 
+#1656064226
+msa_view
+#1656064227
+msa_view -h
+#1656064248
+nohup msa_view roast.maf --in-format MAF > roast.maf.fa  &
+#1656064249
+lt
+#1656064254
+bjl
+#1656064258
+lth
+#1656069518
+more roast.maf.fa 
+#1656069571
+mafSplit -h
+#1656069589
+which maf-cut 
+#1656069596
+which msa_view
+#1656069600
+ls ~/projects/buzzo/phast/phast-1.6/bin/
+#1656069618
+find ~/projects/buzzo/phast/phast-1.6/ -name "mafSplit"
+#1656069778
+pushd ~/projects/buzzo/phast/
+#1656069778
+ls
+#1656069780
+wget http://www.bx.psu.edu/miller_lab/dist/multiz-tba.012109.tar.gz
+#1656069804
+j phast
+#1656069805
+ls
+#1656069806
+cd ..
+#1656069806
+ls
+#1656069809
+rz 
+#1656069815
+# Received /Users/liuhui/Downloads/multiz-tba.012109.tar.gz
+#1656069817
+tar -xvzf multiz-tba.012109.tar.gz 
+#1656069819
+cd multiz-tba.012109/
+#1656069819
+ls
+#1656069821
+make -j 10
+#1656069827
+module load boost
+#1656069830
+module load gcc
+#1656069831
+make -j 10
+#1656069859
+which gcc
+#1656069864
+module load gcc
+#1656069865
+which gcc
+#1656063064
+ssh yi03
+#1656069885
+cd /nfs/liuhui/projects/buzzo/phast/multiz-tba.012109/
+#1656069886
+ls
+#1656069888
+make -j 10
+#1656069892
+module load gcc
+#1656069893
+make -j 10
+#1656069899
+module purge
+#1656069901
+make -j 10
+#1656069986
+cd ..
+#1656069986
+rz
+#1656069990
+# Received /Users/liuhui/Downloads/multiz-20190527.tar.gz
+#1656069993
+tar -xvzf multiz-20190527.tar.gz 
+#1656069995
+cd multiz-20190527/
+#1656069996
+ls
+#1656069997
+make -j 10
+#1656070000
+ls
+#1656070009
+rm -r ../multiz-tba.012109*
+#1656070096
+cd ..
+#1656070097
+rsync -aP rsync://hgdownload.soe.ucsc.edu/genome/admin/exe/linux.x86_64/ ./
+#1656070181
+ls
+#1656070192
+mkdir ucsc_tools
+#1656070200
+ls bla
+#1656070201
+ls blat/
+#1656070204
+rmdir blat/
+#1656070204
+ls
+#1656070216
+rm addCols   axtSwap           bedGeneParts         bedPileUps              bigBedInfo             bigWigCat         blastToPsl       chainMergeSort  chainToPsl ameme     axtToMaf          bedGraphPack         bedRemoveOverlap        bigBedNamedItems       bigWigCluster     blastXmlToPsl    chainNet        chainToPslBasic
+#1656070224
+rm autoDtd   axtToPsl          bedGraphToBigWig     bedRestrictToPositions  bigBedSummary          bigWigCorrelate   calc             chainPreNet autoSql   bamToPsl          bedIntersect         bedSort                 bigBedToBed            bigWigInfo        catDir           chainScore autoXml   barChartMaxLimit  bedItemOverlapCount  bedToBigBed             bigGenePredToGenePred  bigWigMerge       catUncomment     chainSort ave       bedClip           bedJoinTabOffset     bedToExons              bigHeat                bigWigSummary     chainAntiRepeat  chainSplit aveCols   bedCommonRegions  bedJoinTabOffset.py  bedToGenePred           bigMafToMaf            bigWigToBedGraph  chainBridge      chainStitchId axtChain  bedCoverage       bedMergeAdjacent     bedToPsl                bigPslToPsl            bigWigToWig       chainCleaner     chainSwap axtSort   bedExtendRanges   bedPartition         bedWeedOverlapping      bigWigAverageOverBed   binFromRange      chainFilter      chainToAxt
+#1656070225
+ls
+#1656070231
+cd ucsc_tools/
+#1656070247
+rsync -aP rsync://hgdownload.soe.ucsc.edu/genome/admin/exe/linux.x86_64/mafSplit .
+#1656070268
+ls
+#1656070274
+mv mafSplit ../multiz-20190527
+#1656070276
+cd ../
+#1656070277
+rmdir ucsc_tools/
+#1656070278
+ls
+#1656070279
+ll
+#1656070285
+vc
+#1656070289
+cd multiz-20190527/
+#1656070290
+addpwd 
+#1656070292
+sc
+#1656070291
+tma
+#1656070296
+ls
+#1656070299
+sc
+#1656070309
+cd ../msa_pipeline/
+#1656070309
+ls
+#1656070311
+cd msa_pipeline/
+#1656070311
+ls
+#1656070317
+cd results_dir/legume_0624_6sp/
+#1656070318
+ls
+#1656070322
+cd roast/
+#1656070322
+lt
+#1656070333
+mafSplit -h
+#1656070334
+mafSplit 
+#1656070354
+ls
+#1656070357
+mafSplit -byTarget roast.maf
+#1656070379
+mafSplit -byTarget outRoot roast.maf
+#1656070386
+ll
+#1656070402
+more ../genome/Zenia_insignis.size 
+#1656070408
+vi split.bed
+#1656070453
+maf_sort -h
+#1656070455
+maf_sort 
+#1656070461
+maf_sort --help
+#1656070438
+mafSplit -byTarget split.bed outRoot roast.maf
+#1656070465
+which maf_sort
+#1656070469
+ls
+#1656070471
+ll
+#1656070477
+les outRoot000.maf 
+#1656070486
+head -1 *maf
+#1656070491
+les *maf
+#1656070499
+head -3 outRoot0*maf
+#1656070509
+s
+#1656070510
+ls
+#1656070511
+ll
+#1656070468
+tma
+#1656070531
+maf_sort Zenia_insignis outRoot007.maf
+#1656070582
+maf_sort outRoot007.maf
+#1656070586
+maf_sort outRoot007
+#1656070589
+maf_sort outRoot
+#1656070598
+maf_sort outRoot outRoot0*.maf
+#1656070614
+maf_sort outRoot007.maf tmp.out
+#1656070623
+les tmp.out
+#1656070624
+lth
+#1656070647
+which maf_sort
+#1656070702
+maf_sort -h
+#1656070719
+lt
+#1656070790
+maf_sort
+#1656070798
+maf_sort outRoot006.maf tmp.out
+#1656070802
+lt
+#1656070824
+which maf_sort
+#1656070829
+vi ~/projects/buzzo/phast/multiz-20190527/maf_sort.c
+#1656070926
+conda env list
+#1656070936
+module load cactus
+#1656070946
+which maf_sort
+#1656070954
+lt
+#1656070957
+maf_sort outRoot000.maf 
+#1656070966
+touch abc
+#1656070967
+maf_sort outRoot000.maf abc 
+#1656070972
+more abc 
+#1656070979
+les outRoot000.maf 
+#1656071021
+msa_view outRoot000.maf --in-format MAF > outRoot000.maf.fa
+#1656071040
+les outRoot000.maf.fa 
+#1656071064
+cd ../..
+#1656071065
+ls
+#1656071066
+cd ..
+#1656071066
+ls
+#1656071068
+bjl
+#1656070950
+tma
+#1656071080
+bjobs -l 76451
+#1656071085
+j repeat_mask
+#1656071086
+lth
+#1656071089
+ll *masked.fa
+#1656071091
+lt *masked.fa
+#1656071094
+lt *masked.fa|head
+#1656071096
+lth
+#1656071102
+lt workdir_repeatmask_Melilotus_albus.fa/
+#1656071104
+lt workdir_repeatmask_Melilotus_albus.fa/Full_mask/
+#1656071111
+bpeek 76451
+#1656071420
+bjl
+#1656071428
+lth
+#1656071436
+lt workdir_repeatmask_Astragalus_sinicus.fa/Full_mask/
+#1656071447
+lt workdir_repeatmask_Melilotus_albus.fa/Full_mask/
+#1656071452
+tma
+#1656070297
+ssh yi03
+#1656071476
+tma
+#1656117754
+realpath Melilotus_albus.fa.masked.fa Astragalus_sinicus.fa.masked.fa
+#1656117761
+cd data/
+#1656117765
+cp /nfs/liuhui/projects/phyleg/repeat_mask/Melilotus_albus.fa.masked.fa /nfs/liuhui/projects/phyleg/repeat_mask/Astragalus_sinicus.fa.masked.fa .
+#1656117817
+lth
+#1656117820
+les Astragalus_sinicus.fa.masked.fa
+#1656117826
+les Melilotus_albus.fa.masked.fa
+#1656117836
+mv Melilotus_albus.fa.masked.fa Melilotus_albus.fa
+#1656117842
+mv Astragalus_sinicus.fa.masked.fa Astragalus_sinicus.fa
+#1656117843
+lth
+#1656117847
+head -1 Astragalus_sinicus.fa Melilotus_albus.fa
+#1656117858
+vi work.list 
+#1656117890
+cd yi03
+#1656117891
+ls
+#1656117893
+cd orthofinder/
+#1656117893
+ls
+#1656117898
+cd fasta0613_newest/
+#1656117898
+ls
+#1656117907
+cd fasta_gff3/
+#1656117908
+ll
+#1656117912
+ll Poplus
+#1656117914
+ll Poplus*
+#1656117919
+ll Pop*
+#1656118003
+ls
+#1656118083
+les Populus_trichocarpa.fa 
+#1656118175
+j trianlt
+#1656118178
+j triangle
+#1656118179
+lth
+#1656118180
+ls
+#1656118189
+cd temp/
+#1656118189
+ll
+#1656118222
+history |grep 3.53
+#1656118227
+history |grep 3\.53
+#1656118104
+wget http://ftp.ensemblgenomes.org/pub/plants/release-53/fasta/populus_trichocarpa/dna/Populus_trichocarpa.Pop_tri_v3.dna_sm.toplevel.fa.gz
+#1656118384
+rm Populus_trichocarpa.Pop_tri_v3.dna_sm.toplevel.fa.gz 
+#1656118388
+ls
+#1656118394
+vi work.list 
+#1656118399
+cd ../config/
+#1656118400
+ls
+#1656118403
+cp myconfig.yaml myconfig.yaml.test
+#1656118404
+vi myconfig.yaml
+#1656118726
+ls
+#1656118727
+cd ..
+#1656118728
+ls
+#1656118736
+cd data/
+#1656118737
+ls
+#1656118752
+mkdir all_fa
+#1656118754
+mv *.fa all_fa/
+#1656118755
+ls
+#1656118764
+mv local_sort_by_lineage.txt.ID missing.md temp/
+#1656118764
+ls
+#1656118775
+for i in `cat work.list`; do mv all_fa/$i .; done
+#1656118776
+ls
+#1656118778
+cd all_fa/
+#1656118778
+ls
+#1656118790
+cd ..
+#1656118793
+ls *.fa |wc -l
+#1656118794
+ls
+#1656118795
+cd all_fa/
+#1656118796
+ls
+#1656118816
+cp ~/yi03/orthofinder/fasta0613_newest/fasta_gff3/Populus_trichocarpa.fa . &
+#1656118816
+ls
+#1656118824
+ll Populus_trichocarpa.fa 
+#1656118827
+cd ..
+#1656118827
+ls
+#1656118829
+cd ..
+#1656118830
+ls
+#1656118833
+vi legume.sh 
+#1656118869
+ls
+#1656119567
+vi config/myconfig.yaml
+#1656119640
+ls
+#1656118386
+tma
+#1656119649
+bhosts 
+#1656119652
+lsload
+#1656119659
+bjl
+#1656119675
+bkill 75594 75596
+#1656119676
+tma
+#1656119797
+bjl
+#1656117747
+ssh yi03
+#1656122349
+bjl
+#1650354245
+R
+#1656119929
+tolht 
+#1656292264
+tma
+#1656292273
+bjl
+#1656292285
+cd ../..
+#1656292286
+ls
+#1656292287
+cd ..
+#1656292288
+lth
+#1656292291
+cd benchmark/
+#1656292292
+ls
+#1656292293
+lth
+#1656292320
+cd -
+#1656292381
+cd results
+#1656292382
+ls
+#1656292383
+lt
+#1656292385
+lt psl/
+#1656292277
+tma
+#1656292419
+bjl
+#1656292435
+cd ..
+#1656292436
+lt results/psl/Zenia_insignis.Spatholobus_suberectus_refTarget.chainNet.
+#1656292437
+lt results/psl/Zenia_insignis.Spatholobus_suberectus_refTarget.chainNet.*
+#1656119683
+bash legume.sh --use-singularity --threads 100
+#1656292421
+tma
+#1656292478
+bjl
+#1656292484
+tma
+#1656292501
+bhosts 
+#1656292510
+ll
+#1656292514
+cd Results_Jun24/
+#1656292516
+ls
+#1656292524
+cd ~/yi03
+#1656292532
+ln -s /mnt/yi03/liuhui/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun24 50_sp_result
+#1656292535
+cd 50_sp_result/
+#1656292536
+lt
+#1656292609
+cd Orthologues/
+#1656292609
+ls
+#1656292612
+cd Orthologues_Cercis_chinensis/
+#1656292613
+ls
+#1656292637
+vi `which filter_OrthoFinder_group.pl `
+#1656292644
+ls
+#1656292650
+les Cercis_chinensis__v__Chamaecrista_pumila.tsv 
+#1656292700
+mkdir ~/WGD_gene_tree
+#1656292703
+cd ..
+#1656292718
+cp -r Orthologues_Cercis_chinensis ~/WGD_gene_tree/
+#1656292503
+tma
+#1656292733
+j mcscanx3
+#1656292918
+cd
+#1656292922
+cd WGD_gene_tree/
+#1656292923
+ls
+#1656292926
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Castanospermum_australe.Cercis_chinensis/Castanospermum_australe.Cercis_chinensis.ortho
+#1656292963
+cp ~/projects/phyleg/mcscanX2/work.Phaseolus_lunatus.Cercis_chinensis/*.ortho .
+#1656292964
+ll
+#1656293008
+cp ~/yi03/orthofinder/fasta0613_newest/Castanospermum_australe.pep ~/yi03/orthofinder/fasta0613_newest/Phaseolus_lunatus.pep ~/yi03/orthofinder/fasta0613_newest/Cercis_chinensis.pep .
+#1656293010
+ll
+#1656293039
+which stat2matrix.py
+#1656293044
+lt $HB |les
+#1656293066
+vi `which ortholog2ortho.pl`
+#1656293080
+lt $HB |les
+#1656293103
+ls ~/projects/phyleg/*pl
+#1656293106
+vi ~/projects/phyleg/*pl
+#1656293121
+vi ~/projects/phyleg/03.fig3/*pl
+#1656293125
+ll ~/projects/phyleg/03.fig3/*pl
+#1656293128
+ll ~/projects/phyleg/03.fig3/*/*pl
+#1656293131
+ll ~/projects/phyleg/03.fig3/
+#1656293134
+ll ~/projects/phyleg/03.fig3/D/
+#1656293151
+ll ~/projects/phyleg/04.fig4/*pl
+#1656293156
+cp ~/projects/phyleg/04.fig4/dup2col.pl .
+#1656293159
+cp dup2col.pl $HB/
+#1656293160
+ls
+#1656293164
+chmod +x dup2col.pl 
+#1656293164
+ll
+#1656293171
+perl dup2col.pl Castanospermum_australe.Cercis_chinensis.ortho |les
+#1656293199
+vi dup2col.pl 
+#1656293229
+perl dup2col.pl Castanospermum_australe.Cercis_chinensis.ortho |les
+#1656293241
+vi dup2col.pl 
+#1656293278
+perl dup2col.pl Castanospermum_australe.Cercis_chinensis.ortho |les
+#1656293279
+vi dup2col.pl 
+#1656293288
+perl dup2col.pl Castanospermum_australe.Cercis_chinensis.ortho |les
+#1656293298
+perl dup2col.pl Castanospermum_australe.Cercis_chinensis.ortho > Castanospermum_australe.Cercis_chinensis.ortho.selection
+#1656293303
+lt
+#1656293347
+perl dup2col.pl Phaseolus_lunatus.Cercis_chinensis.ortho > Phaseolus_lunatus.Cercis_chinensis.ortho.selection
+#1656293348
+lth
+#1656293352
+les *selection
+#1656293367
+selectItem.pl -k Phaseolus_lunatus.Cercis_chinensis.ortho.selection Castanospermum_australe.Cercis_chinensis.ortho.selection |wc -l
+#1656293369
+selectItem.pl -k Phaseolus_lunatus.Cercis_chinensis.ortho.selection Castanospermum_australe.Cercis_chinensis.ortho.selection |less
+#1656293386
+selectItem.pl -k Phaseolus_lunatus.Cercis_chinensis.ortho.selection Castanospermum_australe.Cercis_chinensis.ortho.selection  > trio_group1.txt
+#1656293387
+vi trio_group1.txt 
+#1656293413
+ll *pep
+#1656293418
+cat *pep > trio1.pep
+#1656293430
+group2fasta.py trio_group1.txt trio1.pep pep
+#1656293446
+les trio_group1.txt 
+#1656293459
+vi `which group2fasta.py`
+#1656293532
+group2fasta.py trio_group1.txt trio1.pep pep
+#1656293591
+ls
+#1656293597
+ls CECHI00003478-t1_Cechi/
+#1656293607
+mkdir tree
+#1656293613
+cp CECHI000*/*pep tree/
+#1656293623
+cd tree/
+#1656293626
+lsload
+#1656293630
+ll
+#1656293635
+more CECHI00019963-t1_Cechi.pep 
+#1656293643
+sed -i "s/>.*_/>/" *cds
+#1656293646
+sed -i "s/>.*_/>/" *pep
+#1656293658
+sed -i "s/U/X/g; s/>X/>U/" *pep
+#1656293686
+for i in *pep; do echo "mafft $i > $i.aln; iqtree -b 1000 $i" >> run.sh; done
+#1656293689
+vi run.sh 
+#1656293709
+vw
+#1656293728
+iqtree2 -h
+#1656293815
+rm run.sh ; for i in *pep; do echo "mafft $i > $i.aln; iqtree -B 1000 -s $i --prefix $i -m LG" >> run.sh; done
+#1656293819
+vi run.sh 
+#1656293838
+vi shell
+#1656293840
+logsh
+#1656293847
+nohup cat run.sh | parallel -j 60 {} &
+#1656293848
+top
+#1656293862
+fg
+#1656293873
+lth
+#1656293882
+rm *aln *log
+#1656293885
+lth
+#1656294710
+rm pre hat3.seed 
+#1656294710
+lth
+#1656294715
+cd ..
+#1656294716
+cp CECHI000*/*pep tree/
+#1656294725
+cd -
+#1656294737
+which iqtree
+#1656294739
+which iqtree2
+#1656294750
+iqtree2 -h
+#1656294991
+vw
+#1656295000
+rm run.sh 
+#1656295003
+for i in *pep; do echo "mafft $i > $i.aln; iqtree2 -B 1000 $i -m LG+G" >> run.sh; done
+#1656295007
+logsh
+#1656295013
+nohup cat run.sh | parallel -j 60 {} &
+#1656295017
+fg
+#1656295024
+lth
+#1656295027
+ls *aln
+#1656295030
+les *aln
+#1656295034
+lth
+#1656295057
+rm run.sh ; for i in *pep; do echo "mafft $i > $i.aln; iqtree -B 1000 -s $i --prefix $i -m LG+G" >> run.sh; done 
+#1656295059
+logsh
+#1656295084
+rm run.sh ; for i in *pep; do echo "mafft $i > $i.aln; iqtree2 -B 1000 -s $i --prefix $i -m LG+G" >> run.sh; done 
+#1656295088
+nohup cat run.sh | parallel -j 60 {} &
+#1656295091
+fg
+#1656295112
+grep Pl09G0000103100.1.v1_Phlun *
+#1656295122
+mafft CECHI00002924-t1_Cechi.pep > CECHI00002924-t1_Cechi.pep.aln
+#1656295131
+lth
+#1656295134
+les CECHI00002924-t1_Cechi.pep.aln 
+#1656295143
+rm *aln *log
+#1656295144
+lth
+#1656295152
+ls *pep.*
+#1656295156
+rm *pep.*
+#1656295159
+rm run.sh ; for i in *pep; do echo "mafft $i > $i.aln; iqtree2 -B 1000 -s $i --prefix $i -m LG+G" >> run.sh; done 
+#1656295164
+vi run.sh 
+#1656295195
+rm run.sh ; for i in *pep; do echo "mafft $i > $i.aln; iqtree2 -B 1000 -s $i.aln --prefix $i.aln -m LG+G" >> run.sh; done 
+#1656295198
+lth
+#1656295206
+rm hat3.seed pre 
+#1656295210
+nohup cat run.sh | parallel -j 60 {} &
+#1656295267
+top
+#1656295270
+bjl
+#1656295271
+lsload
+#1656295274
+top
+#1656295353
+lsload
+#1656295354
+top
+#1656295556
+bjl
+#1656295558
+lsload
+#1656295556
+tail no
+#1656295561
+lth
+#1656295566
+ll *treefile |wc -l
+#1656295569
+ls *.aln |wc -l
+#1656295593
+vi yanrui_count_tree.py
+#1656295637
+les *pep
+#1656295644
+vi yanrui_count_tree.py
+#1656295659
+python yanrui_count_tree.py 
+#1656295664
+vi yanrui_count_tree.py
+#1656295669
+more CECHI00013997-t1_Cechi.pep.aln.treefile
+#1656295684
+sz CECHI00013997-t1_Cechi.pep.aln.treefile
+#1656295687
+# Sent -> /Users/liuhui/Downloads/
+#1656295721
+vi yanrui_count_tree.py
+#1656296136
+python yanrui_count_tree.py
+#1656296140
+vi yanrui_count_tree.py
+#1656296150
+python yanrui_count_tree.py
+#1656296151
+vi yanrui_count_tree.py
+#1656296155
+python yanrui_count_tree.py
+#1656296157
+vi yanrui_count_tree.py
+#1656296193
+python yanrui_count_tree.py
+#1656296201
+lth
+#1656296207
+wc -l Cechi.Caaus.Phlun.comWGD Cechi.Caaus.Phlun.indWGD
+#1656296217
+vi yanrui_count_tree.py
+#1656296337
+py
+#1656296339
+python yanrui_count_tree.py
+#1656296369
+ls
+#1656296372
+lth
+#1656296377
+les Cechi.Caaus.Phlun.otherWGD 
+#1656296390
+wc -l Cechi.Caaus.Phlun.*
+#1656296516
+head Cechi.Caaus.Phlun.otherWGD
+#1656296595
+tail shell 
+#1656296597
+tail run.sh 
+#1656296934
+ls
+#1656296938
+more shell 
+#1656296944
+vi yanrui_count_tree.py 
+#1656297095
+ls
+#1656297103
+lcd ..
+#1656297103
+ls
+#1656297104
+cd ..
+#1656297105
+ls
+#1656297110
+mkdir test
+#1656297114
+mv CECHI000* test/
+#1656297116
+ls
+#1656297135
+mkdir 01.mcscanx_ortho
+#1656297143
+cp *ortho 01.mcscanx_ortho/
+#1656297148
+les *selection
+#1656297193
+ls
+#1656297194
+ll
+#1656297197
+cd 01.mcscanx_ortho/
+#1656297197
+ls
+#1656297200
+cd -
+#1656297208
+mv dup2col.pl select_ortholog_1_to_2.pl
+#1656297215
+vi select_ortholog_1_to_2.pl 
+#1656297228
+chd
+#1656297230
+cp select_ortholog_1_to_2.pl $HB/
+#1656297231
+ll
+#1656297231
+gtp

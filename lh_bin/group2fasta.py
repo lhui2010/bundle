@@ -29,6 +29,7 @@ with open (group_file )  as fh_group:
     #header
     fh_group.readline()
     for line in fh_group:
+        line = line.replace(',', ', ')
         genes=line.split()
         group_id = genes.pop(0)
         group_id=re.sub(":", "", group_id)
