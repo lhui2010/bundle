@@ -370,8 +370,8 @@ def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', thre
                     then
                         continue
                     fi
-                    cat /ds3200_1/users_root/yitingshuang/lh/fasta0613/${QRY\%.ortho}.pep \
-                        /ds3200_1/users_root/yitingshuang/lh/fasta0613/${REF\%.ortho}.pep \
+                    cat /ds3200_1/users_root/yitingshuang/lh/fasta0613/${QRY％.ortho}.pep \
+                        /ds3200_1/users_root/yitingshuang/lh/fasta0613/${REF％.ortho}.pep \
                         /ds3200_1/users_root/yitingshuang/lh/fasta0613/Cercis_chinensis.pep  > ${QRY}.${REF}.pep
 
                     bsub -R "span[hosts=1]" -q Q104C512G_X4  -o ${QRY}.${REF}.log -e ${QRY}.${REF}.err -n 10
