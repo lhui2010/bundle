@@ -2,11 +2,10 @@
 Repeat annotation utils
 """
 import logging
-import os
 
 import os.path as op
 
-from iga.apps.base import emain, conda_act, bsub, get_prefix, sh, waitjob
+from iga.apps.base import emain, conda_act, bsub, get_prefix, sh, waitjob, mkdir, goto_workdir_cmd
 
 
 # def repeat_mask():
@@ -48,7 +47,7 @@ def repeatmasker(genome=None, species='', denovo='T', threads=30, wait='T'):
     :return:
     """
 
-    cmd = goto_workdir('repeatmask', sample=genome)
+    cmd = goto_workdir_cmd('repeatmask', sample=genome)
     genome = "../{}".format(genome)
     if species != '':
         cmd += "\nmkdir -p species_lib.out && RepeatMasker {0} -species {1} -pa {2} -dir species_lib.out\n".format(
@@ -130,17 +129,6 @@ def post_repeatmasker(dir=None, genome=None, wait="T"):
         waitjob(jobid)
 
 
-def goto_workdir(program, sample=''):
-    """
-    :param program:
-    :param sample:
-    :return:
-    """
-    folder_name = 'workdir_{}_{}'.format(program, sample)
-    cmd = "mkdir -p {0}; cd {0}\n".format(folder_name)
-    return cmd
-
-
 def edta(genome=None, threads=20):
     """
     :param genome:
@@ -149,7 +137,7 @@ def edta(genome=None, threads=20):
     abs_genome = op.abspath(genome)
     rel_genome = op.basename(genome)
     cmd = conda_act.format('EDTA')
-    cmd += goto_workdir('edta', op.basename(rel_genome))
+    cmd += goto_workdir_cmd('edta', op.basename(rel_genome))
     cmd += 'EDTA.pl --anno 1  --genome {0} --threads {1} \
     >edta_anno.out 2>edta_anno.err'.format(abs_genome, threads)
     bsub(cmd, name='EDTA{}'.format(rel_genome), cpus=threads)

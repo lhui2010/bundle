@@ -6,8 +6,7 @@ import re
 import coloredlogs
 
 from iga.annotation.gff import Bed
-from iga.annotation.repeat import goto_workdir
-from iga.apps.base import emain, mkdir, sh
+from iga.apps.base import emain, mkdir, sh, goto_workdir_cmd
 import pandas as pd
 import itertools
 from collections import defaultdict
@@ -333,7 +332,7 @@ def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', thre
         ortho2_list = ortho2.split('.')
         (ortho2_genera, ortho2_sp) = ortho2_list[0].split('_')
         suffix2 = ortho2_genera[:2].title() + ortho2_sp[:3]
-    goto_workdir('count_tree', ortho1_list[0] + '.' + ortho2_list[0])
+    goto_workdir_cmd('work.count_tree', ortho1_list[0] + '.' + ortho2_list[0])
 
     cmd = comWGD_tree_sh.format(ortho1, ortho2, pep, threads)
 

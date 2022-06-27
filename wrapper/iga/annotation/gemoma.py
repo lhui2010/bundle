@@ -5,8 +5,7 @@ import logging
 from os.path import abspath
 
 from iga.annotation.maker import maker_rename_gff
-from iga.annotation.repeat import goto_workdir
-from iga.apps.base import conda_act, bsub, waitjob, get_prefix, emain, abspath_list, sh
+from iga.apps.base import conda_act, bsub, waitjob, get_prefix, emain, abspath_list, sh, goto_workdir_cmd
 
 # 0 input_genome
 # 1 ortho_genome

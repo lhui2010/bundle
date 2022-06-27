@@ -1023,5 +1023,31 @@ def emain():
         print(help_print)
 
 
+def goto_workdir_cmd(program, sample=''):
+    """
+    bash go
+    :param program:
+    :param sample:
+    :return:
+    """
+    folder_name = 'workdir_{}_{}'.format(program, sample)
+    cmd = "mkdir -p {0}; cd {0}\n".format(folder_name)
+    return cmd
+
+
+def goto_workdir(program, sample=''):
+    """
+    python go
+    :param program:
+    :param sample:
+    :return:
+    """
+    folder_name = 'workdir_{}_{}'.format(program, sample)
+    mkdir(folder_name)
+    os.chdir(folder_name)
+
+
 if __name__ == "__main__":
     emain()
+
+
