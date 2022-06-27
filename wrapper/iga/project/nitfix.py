@@ -278,6 +278,9 @@ def remove_tandem_ortho(ortho=None, bed=None, gap=20):
 # 3 threads
 comWGD_tree_sh = """
 
+touch {0} && rm {0}
+touch {1} && rm {1}
+touch {2} && rm {2}
 ln -s ../{0}
 ln -s ../{1}
 ln -s ../{2}
