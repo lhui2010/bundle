@@ -85783,3 +85783,369 @@ cp select_ortholog_1_to_2.pl $HB/
 ll
 #1656297231
 gtp
+#1656297237
+gtps
+#1656297242
+cd 01.mcscanx_ortho/
+#1656297243
+ll
+#1656297273
+cp ~/projects/phyleg/mcscanX2/work.*.Cercis_chinensis/*.ortho .
+#1656297299
+ll
+#1656297300
+lth
+#1656297302
+ls
+#1656297321
+les ~/yi03/orthofinder/leg_rep_list.txt 
+#1656297338
+rm ~/yi03/orthofinder/leg_rep_list.txt 
+#1656297365
+les ~/leg_rep_list.txt 
+#1656297369
+rm ~/leg_rep_list.txt 
+#1656297369
+cd
+#1656297372
+downlht /ds3200_1/users_root/yitingshuang/lh/leg_rep_list.txt
+#1656297376
+cd -
+#1656297376
+ls
+#1656297382
+mkdir temp
+#1656297383
+mv * temp/
+#1656297384
+cd temp/
+#1656297403
+for i in `cat ~/leg_rep_list.txt`; do mv ${i}.Cercis_chinensis.ortho ../; done
+#1656297502
+for i in /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Styphnolobium_japonicum.Cercis_chinensis/Styphnolobium_japonicum.Cercis_chinensis.ortho /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Sindora_glabra.Cercis_chinensis/Sindora_glabra.Cercis_chinensis.ortho /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Bauhinia_variegata.Cercis_chinensis/Bauhinia_variegata.Cercis_chinensis.ortho; do downlht $i; done
+#1656297505
+ll
+#1656297506
+lth
+#1656297513
+for i in `cat ~/leg_rep_list.txt`; do mv ${i}.Cercis_chinensis.ortho ../; done
+#1656297516
+lth
+#1656297517
+cd ..
+#1656297517
+ls
+#1656297526
+history  |less
+#1656297630
+lth
+#1656297632
+ls *pl
+#1656297638
+ls *ortho |wc -l
+#1656297639
+ll
+#1656297648
+expr 35 + 8 
+#1656297653
+ ls ..
+#1656297658
+ls
+#1656297757
+ls ../*pl
+#1656298301
+ls ../*py
+#1656298306
+ls
+#1656298311
+ls ..
+#1656298327
+vi ../tree/*py
+#1656299515
+iqtree2 -h
+#1656299651
+cd ../test/
+#1656299651
+ls
+#1656299652
+lth
+#1656299656
+cd ../tree/
+#1656299657
+lth
+#1656299662
+les *indWGD
+#1656299764
+cd ../test/
+#1656299764
+ls
+#1656299765
+gtp
+#1656299770
+lth
+#1656299772
+ls
+#1656299773
+ls *pep
+#1656299774
+cd ..
+#1656299775
+ls
+#1656299778
+ls *pep
+#1656299781
+ll
+#1656299789
+python -m iga.project.nitfix -h
+#1656299799
+python -m iga.project.nitfix comWGD_tree -h
+#1656299806
+ls
+#1656299822
+python -m iga.project.nitfix comWGD_tree Castanospermum_australe.Cercis_chinensis.ortho Phaseolus_lunatus.Cercis_chinensis.ortho trio1.pep 
+#1656299842
+lth
+#1656300484
+gtp
+#1656300491
+python -m iga.project.nitfix comWGD_tree Castanospermum_australe.Cercis_chinensis.ortho Phaseolus_lunatus.Cercis_chinensis.ortho trio1.pep 
+#1656300505
+which select_ortholog_1_to_2.pl
+#1656300513
+lth
+#1656300515
+ls workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/
+#1656300519
+lt workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/
+#1656300545
+head workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/*selection
+#1656300566
+gtp
+#1656300571
+python -m iga.project.nitfix comWGD_tree Castanospermum_australe.Cercis_chinensis.ortho Phaseolus_lunatus.Cercis_chinensis.ortho trio1.pep 
+#1656300580
+lt workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/
+#1656300616
+gtp
+#1656300692
+ls
+#1656300694
+cd yi03
+#1656300695
+lth
+#1656300621
+python -m iga.project.nitfix comWGD_tree Castanospermum_australe.Cercis_chinensis.ortho Phaseolus_lunatus.Cercis_chinensis.ortho trio1.pep 
+#1656300698
+cd orthofinder/
+#1656300698
+lth
+#1656300732
+ls
+#1656300734
+ls workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/
+#1656300745
+ls workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/tr
+#1656300747
+ls workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/tree/
+#1656300751
+ll workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/tree/ |less
+#1656300756
+gtp
+#1656300779
+cd ~/
+#1656300780
+ls
+#1656300781
+lth
+#1656300782
+cd WGD_gene_tree/
+#1656300783
+ls
+#1656300784
+lt
+#1656300789
+cd test/
+#1656300789
+lt
+#1656300790
+lth
+#1656300792
+cd ../tree/
+#1656300793
+lth
+#1656300796
+head *WGD
+#1656300807
+wc -l *WGD
+#1656300771
+python -m iga.project.nitfix comWGD_tree Castanospermum_australe.Cercis_chinensis.ortho Phaseolus_lunatus.Cercis_chinensis.ortho trio1.pep 
+#1656300974
+gtp
+#1656300979
+python -m iga.project.nitfix comWGD_tree Castanospermum_australe.Cercis_chinensis.ortho Phaseolus_lunatus.Cercis_chinensis.ortho trio1.pep 
+#1656301102
+ls workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/tree/CECHI00021443-t1_Cechi.pep.aln.treefile
+#1656301108
+lt workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/tree/CECHI00021443-t1_Cechi.pep.aln.treefile |head
+#1656301113
+lt workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/tree/* |head
+#1656301118
+lt workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/tree/* |less
+#1656301231
+gtp
+#1656301238
+lth
+#1656300966
+tp
+#1656301538
+gtp
+#1656301547
+top
+#1656301561
+lth
+#1656301568
+cd ../workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/tree/
+#1656301572
+ls *treefile |wc -l
+#1656301589
+lth
+#1656301600
+more CECHI00011897-t1_Cechi.pep.aln.log 
+#1656301614
+cd ../..
+#1656301615
+lth
+#1656301618
+head *ortho
+#1656301659
+bjl
+#1656301661
+lth
+#1656301699
+vi `which select_ortholog_1_to_2.pl`
+#1656301759
+ls `which select_ortholog_1_to_2.pl`
+#1656301768
+cp /nfs/liuhui/bin/bundle/lh_bin/select_ortholog_1_to_2.pl /nfs/liuhui/bin/bundle/lh_bin/select_ortholog_1_to_2.orthogroup.pl
+#1656301771
+vi /nfs/liuhui/bin/bundle/lh_bin/select_ortholog_1_to_2.orthogroup.pl
+#1656301793
+ll ~/
+#1656301800
+lt  ~/ |head
+#1656301858
+cd ~/yi03/
+#1656301864
+mv 50_sp_result orthofinder_50_sp_result
+#1656301865
+cd -
+#1656301876
+les ~/yi03/orthofinder_50_sp_result/Orthologues/Orthologues_Cercis_chinensis/Cercis_chinensis__v__*
+#1656301242
+python -m iga.project.nitfix comWGD_tree Castanospermum_australe.Cercis_chinensis.ortho Phaseolus_lunatus.Cercis_chinensis.ortho trio1.pep 
+#1656301921
+vi /nfs/liuhui/bin/bundle/lh_bin/select_ortholog_1_to_2.orthogroup.pl
+#1656302062
+perl  /nfs/liuhui/bin/bundle/lh_bin/select_ortholog_1_to_2.orthogroup.pl ~/yi03/orthofinder_50_sp_result/Orthologues/Orthologues_Cercis_chinensis/Cercis_chinensis__v__Castanospermum_australe.tsv |less
+#1656302064
+vi /nfs/liuhui/bin/bundle/lh_bin/select_ortholog_1_to_2.orthogroup.pl
+#1656302069
+perl  /nfs/liuhui/bin/bundle/lh_bin/select_ortholog_1_to_2.orthogroup.pl ~/yi03/orthofinder_50_sp_result/Orthologues/Orthologues_Cercis_chinensis/Cercis_chinensis__v__Castanospermum_australe.tsv |less
+#1656302073
+perl  /nfs/liuhui/bin/bundle/lh_bin/select_ortholog_1_to_2.orthogroup.pl ~/yi03/orthofinder_50_sp_result/Orthologues/Orthologues_Cercis_chinensis/Cercis_chinensis__v__Castanospermum_australe.tsv |wc -l
+#1656302086
+ls
+#1656302088
+cd ..
+#1656302088
+ls
+#1656302091
+cd -
+#1656302091
+ls
+#1656302103
+mkdir mkdir 02.orthogroup_ortho
+#1656302108
+rmdir mkdir/
+#1656302110
+cd 02.orthogroup_ortho/
+#1656302110
+ls
+#1656302113
+cp ~/yi03/orthofinder_50_sp_result/Orthologues/Orthologues_Cercis_chinensis/Cercis_chinensis__v__* .
+#1656302184
+ls
+#1656302189
+ls test/
+#1656302196
+cp tree/yanrui_count_tree.py  $HB/
+#1656302197
+lth
+#1656302207
+cd workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/tree/
+#1656302213
+ln -s ../../tree/yanrui_count_tree.py 
+#1656302216
+python yanrui_count_tree.py 
+#1656302232
+gtp
+#1656302237
+lth
+#1656302242
+les Cechi.Caaus.Phlun.indWGD 
+#1656302245
+cd ..
+#1656302246
+ls
+#1656302246
+cd ..
+#1656302247
+ls
+#1656302247
+lth
+#1656302250
+ls 02.orthogroup_ortho/
+#1656302254
+cd ..
+#1656302255
+ls
+#1656302257
+bhosts 
+#1656302263
+ls
+#1656302277
+cd WGD_gene_tree/
+#1656302282
+python -m iga.project.nitfix comWGD_tree Castanospermum_australe.Cercis_chinensis.ortho Phaseolus_lunatus.Cercis_chinensis.ortho trio1.pep  
+#1656306411
+wc -l workdir_count_tree_Castanospermum_australe.Phaseolus_lunatus/*WGD
+#1656306499
+gtp
+#1656306518
+ls
+#1656306521
+uplht 01.mcscanx_ortho/
+#1656307143
+python -m iga.project.nitfix comWGD_tree -h
+#1656307652
+cd 02.orthogroup_ortho/
+#1656307652
+ls
+#1656307664
+lt $HB |head
+#1656307671
+select_ortholog_1_to_2.orthogroup.pl Cercis_chinensis__v__Cladrastis_platycarpa.tsv |les
+#1656307769
+ls
+#1656307772
+cd ..
+#1656307774
+uplht 02.orthogroup_ortho/
+#1656302288
+tp
+#1656307846
+ls
+#1656307781
+top
+#1656309022
+gtp
