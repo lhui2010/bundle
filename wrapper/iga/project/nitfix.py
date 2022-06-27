@@ -302,7 +302,7 @@ for i in  *.pep
 do 
     touch run.sh
     rm run.sh
-    echo "mafft $i > $i.aln; iqtree2 -B 1000 -s $i.aln --prefix $i.aln -m LG+G" >> run.sh; done
+    echo "mafft $i > $i.aln; iqtree2 -B 1000 -s $i.aln --prefix $i.aln -m LG+G" >> run.sh
 done
 
 cat run.sh | parallel -j {3} {{}}
