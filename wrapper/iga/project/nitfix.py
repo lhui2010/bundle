@@ -404,7 +404,7 @@ def yanrui_count_tree(tree_dir=None, suffix_outgroup='', suffixA='', suffixB='')
     other_print = ""
     for i in nwk_file:
         # path='tree/' + i
-        path = i
+        path = op.join(tree_dir, i)
         try:
             t = Tree(path)
         except ete3.parser.newick.NewickError:
