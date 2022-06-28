@@ -106,7 +106,7 @@ for my $f(@f)
     }
 }
 
-print("QRY\tREF\tindWGD\tcomWGD\n");
+print("QRY\tREF\tTopologyType\tsubfam\n");
 for my $k(sort keys %hash)
 {
     #for my $l (sort keys %{$hash{$k}})
@@ -116,7 +116,8 @@ for my $k(sort keys %hash)
         #print $l;
         if(exists $hash{$k}{$l})
         {
-            print($k, "\t", $l, "\t", $hash{$k}{$l}{"ind"}, "\t", $hash{$k}{$l}{"com"}, "\t", $subfam_hash{$l}, "\n");
+            print($k, "\t", $l, "\t", $hash{$k}{$l}{"ind"}, "\tind\t", $subfam_hash{$l}, "\n");
+            print($k, "\t", $l, "\t", $hash{$k}{$l}{"com"}, "\tcom\t", $subfam_hash{$l}, "\n");
         }
     }
 }
