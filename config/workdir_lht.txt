@@ -1,3 +1,10 @@
+
+/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX3_clean_self
+repeat overlap 基因准备好了，待过滤!
+
+Wed Jun 29 17:18:47 CST 2022
+
+
 1. Get WGD peaks of all genome vs genome comparison. [PhyLeg] Location: /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX3
 有问题的
 Cladrastis_platycarpa （不知道为什么，和有些属共有，有些属不共有）
@@ -52,3 +59,6 @@ Eperua_falcata.Eperua_falcata.ortho.kaks.peak
 预计一周完成。。
 
 Tue Jun 21 09:54:38 CST 2022
+
+
+
