@@ -226,8 +226,8 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
         # print(spair)
         qry_dict = orthodb[spair[0]]
         ref_dict = orthodb[spair[1]]
-        logging.info(qry_dict)
-        logging.info(ref_dict)
+        # logging.info(qry_dict)
+        # logging.info(ref_dict)
         pair_name = "{}.{}".format(spair[0], spair[1])
         # if(len(qry_list) != len(ref_list)):
         #     logging.error('unequal length between {} and {}'.format(spair[0], spair[1]))
@@ -249,7 +249,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
             # for ortho_pair in iter_result:
             for ortho_pair in iter_once_run:
                 result_db[pair_name] += ("\t".join(ortho_pair) + "\n")
-                logging.info(pair_name)
+                # logging.info(pair_name)
         with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
             fh.write(result_db[pair_name])
     # mkdir(outdir)
