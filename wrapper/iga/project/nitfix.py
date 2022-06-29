@@ -185,12 +185,10 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                      "Goniorrhachis_marginata_Det",
                      "Umtiza_listeriana_Cae",
                      "Angylocalyx_braunii_Pap",
-                     "Dipteryx_odorata_Pap",
-                     "Pterodon_emarginatus_Pap",
                      "Zollernia_splendens_Pap",
                      "Dipteryx_alata",
                      "Eperua_falcata"]
-    interest_list2 = ["Castanospermum_australe"]
+    # interest_list2 = ["Castanospermum_australe"]
     for pair in species_pairs_raw:
         flag = 0
         for k in interest_list:
@@ -198,7 +196,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                 flag = 1
         if (flag):
             species_pairs.append(pair)
-    species_pairs = itertools.product(interest_list2, interest_list)
+    # species_pairs = itertools.product(interest_list2, interest_list)
     # logging.info(species_pairs)
     logging.info("Prepare of species pair complete, now writing to files...")
 
