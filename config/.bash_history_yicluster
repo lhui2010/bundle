@@ -87448,3 +87448,9 @@ vi shell
 vi select_CDS_overlap_repeat.pl 
 #1656492637
 gtp
+#1656492645
+gtps
+#1656492665
+cp select_CDS_overlap_repeat.pl $HB/
+#1656492671
+chmod +x /nfs/liuhui/bin/bundle/lh_bin/select_CDS_overlap_repeat.pl 
