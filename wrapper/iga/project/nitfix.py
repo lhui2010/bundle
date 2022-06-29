@@ -220,7 +220,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
     # with Pool(threads) as p:
     #     p.map(os.system, genblast_cmd_list)
     species_pairs = list(species_pairs)
-    logging.info(list(species_pairs))
+    logging.info(species_pairs)
     # print(species_pairs)
     for spair in species_pairs:
         # print(spair)
