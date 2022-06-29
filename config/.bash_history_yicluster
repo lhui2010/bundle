@@ -87454,3 +87454,163 @@ gtps
 cp select_CDS_overlap_repeat.pl $HB/
 #1656492671
 chmod +x /nfs/liuhui/bin/bundle/lh_bin/select_CDS_overlap_repeat.pl 
+#1656492673
+gtps
+#1656492679
+mv select_CDS_overlap_repeat.pl .Wed Jun 29 16:39:52 CST 2022
+#1656492679
+for i in *.gene.bed; do bedtools coverage -a $i -b ${i%.gene.bed}.repeat.gff > ${i}.xrepeat.coverage; done
+#1656492696
+lth
+#1656492715
+for i in *.gene.bed; do bsub "bedtools coverage -a $i -b ${i%.gene.bed}.fa.repeat.gff -s > ${i}.xrepeat.coverage"; done
+#1656492717
+bjl
+#1656492728
+ls
+#1656492759
+lth
+#1656492761
+bjl
+#1656492843
+for i in *coverage; do bsub "select_CDS_coverage.pl ${i} > ${i}.ID"; done
+#1656492845
+lth
+#1656492870
+bjl
+#1656492871
+lth
+#1656492899
+ll *ID |les
+#1656492907
+select_CDS_coverage.pl
+#1656492923
+for i in *coverage; do bsub "select_CDS_overlap_repeat.pl ${i} > ${i}.ID"; done
+#1656492924
+lth
+#1656492927
+bjl
+#1656492930
+lth
+#1656492980
+ll -S *coverage |tail
+#1656492985
+less Trifolium_subterraneum.gene.bed.xrepeat.coverage
+#1656492991
+head Trifolium_subterraneum.gene.bed
+#1656493000
+le Trifolium_subterraneum.gff3 
+#1656493002
+les Trifolium_subterraneum.gff3 
+#1656493046
+grep Tsud_chr1.g00040.1.am.mkhc_Trsub ~/yi03/orthofinder/fasta0613/Trifolium_subterraneum.pep 
+#1656493054
+les Trifolium_subterraneum.gff3 
+#1656493076
+more shell 
+#1656493087
+i=Trifolium_subterraneum.gff3 
+#1656493098
+python -m jcvi.formats.gff bed --type=exon --key=Parent ${i} -o ${i%.gff3}.gene.bed
+#1656493114
+ls Trifolium_subterraneum.gene.bed
+#1656493116
+ll Trifolium_subterraneum.gene.bed
+#1656493123
+i=Trifolium_subterraneum.gene.bed
+#1656493133
+bedtools coverage -a $i -b ${i%.gene.bed}.fa.repeat.gff -s > ${i}.xrepeat.coverage
+#1656493150
+select_CDS_overlap_repeat.pl ${i}.xrepeat.coverage > ${i}.xrepeat.coverage.ID
+#1656493154
+ll -S *coverage |tail
+#1656493162
+ll *ID |les
+#1656493165
+ll -S *ID |les
+#1656493171
+ll -S *ID |tail
+#1656493200
+head Bauhinia_variegata.gene.bed Bauhinia_variegata.fa.repeat.gff 
+#1656493215
+ll -S *ID |tail
+#1656493219
+ll -S *ID |tail -n 12
+#1656493223
+les Amphicarpaea_edgeworthii.gene.bed.xrepeat.coverage.ID
+#1656493254
+for i in  Bauhinia_variegata   Cercis_chinensis   Chamaecrista_pumila   Cladrastis_platycarpa   Duparquetia_orchidacea   Lysidice_rhodostegia   Senna_septemtrionalis   Sindora_glabra   Styphnolobium_japonicum   Zenia_insignis  ; do head ${i}.repeat.gff; done
+#1656493258
+for i in  Bauhinia_variegata   Cercis_chinensis   Chamaecrista_pumila   Cladrastis_platycarpa   Duparquetia_orchidacea   Lysidice_rhodostegia   Senna_septemtrionalis   Sindora_glabra   Styphnolobium_japonicum   Zenia_insignis  ; do head ${i}.fa.repeat.gff; done
+#1656493273
+cp `which add_suffix.pl ` .
+#1656493275
+vi add_suffix.pl 
+#1656493321
+for i in  Bauhinia_variegata   Cercis_chinensis   Chamaecrista_pumila   Cladrastis_platycarpa   Duparquetia_orchidacea   Lysidice_rhodostegia   Senna_septemtrionalis   Sindora_glabra   Styphnolobium_japonicum   Zenia_insignis  ; do perl add_suffix.pl ${i}.fa.repeat.gff; done
+#1656493340
+ll *new
+#1656493343
+head *new
+#1656493349
+vi add_suffix.pl 
+#1656493444
+for i in  Bauhinia_variegata   Cercis_chinensis   Chamaecrista_pumila   Cladrastis_platycarpa   Duparquetia_orchidacea   Lysidice_rhodostegia   Senna_septemtrionalis   Sindora_glabra   Styphnolobium_japonicum   Zenia_insignis  ; do perl add_suffix.pl ${i}.fa.repeat.gff; done
+#1656493460
+head *new
+#1656493473
+head Zenia_insignis.fa.repeat.gff Zenia_insignis.fa.repeat.gff.new 
+#1656493483
+vi add_suffix.pl 
+#1656493516
+vi Zenia_insignis.fa.repeat.gff
+#1656493520
+vi add_suffix.pl 
+#1656493604
+for i in  Bauhinia_variegata   Cercis_chinensis   Chamaecrista_pumila   Cladrastis_platycarpa   Duparquetia_orchidacea   Lysidice_rhodostegia   Senna_septemtrionalis   Sindora_glabra   Styphnolobium_japonicum   Zenia_insignis  ; do perl add_suffix.pl ${i}.fa.repeat.gff; done
+#1656493633
+lth
+#1656493637
+head *new
+#1656493652
+for i in *new; do mv $i ${i%.new}; done
+#1656493666
+head *new
+#1656493724
+for i in Cercis_chinensis.fa.repeat.gff Chamaecrista_pumila.fa.repeat.gff Cladrastis_platycarpa.fa.repeat.gff Lysidice_rhodostegia.fa.repeat.gff Senna_septemtrionalis.fa.repeat.gff Zenia_insignis.fa.repeat.gff; do head $i; done
+#1656493728
+more shell 
+#1656493774
+head Cercis_chinensis.gene.bed
+#1656493787
+vi Styphnolobium_japonicum.gene.bed
+#1656493829
+ll -S *ID
+#1656493861
+for i in Bauhinia_variegata.gene.bed Cercis_chinensis.gene.bed Chamaecrista_pumila.gene.bed Cladrastis_platycarpa.gene.bed Duparquetia_orchidacea.gene.bed Lysidice_rhodostegia.gene.bed Senna_septemtrionalis.gene.bed Sindora_glabra.gene.bed Styphnolobium_japonicum.gene.bed Zenia_insignis.gene.bed; do bsub "bedtools coverage -a $i -b ${i%.gene.bed}.fa.repeat.gff -s > ${i}.xrepeat.coverage"; done
+#1656493863
+bjl
+#1656493866
+more shell 
+#1656493902
+lth
+#1656493903
+bjl
+#1656493907
+tma
+#1656493924
+for i in *coverage; do bsub "select_CDS_overlap_repeat.pl ${i} > ${i}.ID"; done
+#1656493928
+lth
+#1656493931
+bjl
+#1656493933
+lth
+#1656493937
+ll -S *ID
+#1656493957
+ll -S *ID |wc -l
+#1656494094
+ls
+#1656494176
+gtp
