@@ -16,6 +16,12 @@
 #OG0000003       CECHI00010634-t1_Cechi  rna-XM_027487692.1_Abpre
 #OG0000003       CECHI00002886-t1_Cechi  rna-XM_027512995.1_Abpre
 #
+my $count_per_group =2;
+if (int(@ARGV)>1)
+{
+    $count_per_group = pop @ARGV;
+}
+
 
 my $qry = $ARGV[0];
 my %hash;
@@ -33,16 +39,16 @@ while(<>)
     next if ($e[1] =~/,/);
 
     my @qry_list = split/,/, $e[2];
-    if(int(@qry_list) == 2)
+    if(int(@qry_list) == $count_per_group)
     {
         $hash{$e[1]} = $e[2];
-        $count{$e[1]} +=2;
+        $count{$e[1]} +=$count_per_group;
     }
 }
 
 for my $k (sort keys %hash)
 {
-    print "$k\t$hash{$k}\n" if $count{$k} == 2;
+    print "$k\t$hash{$k}\n" if $count{$k} == $count_per_group;
 }
 
 
