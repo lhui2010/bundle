@@ -214,7 +214,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                 continue
             else:
                 orthodb[species_name][g] = ortho_gene_list
-    # logging.info(orthodb)
+    logging.info(orthodb)
     # exit(1)
     # Tired of writing to multiple threads
     # with Pool(threads) as p:
