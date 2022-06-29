@@ -149,7 +149,7 @@ def group2paralogs(orthogroup=None, max_group_size=18, start_col=3):
             fh.write(paralog_db[species_name])
 
 
-def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split', start_col=3, threads=5):
+def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split', start_col=3, threads=5, interest_sp=''):
     """
     12 min to finish
     Split groupt to parlogs
@@ -188,6 +188,8 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                      "Zollernia_splendens_Pap",
                      "Dipteryx_alata",
                      "Eperua_falcata"]
+    if interest_sp != '':
+        interest_list = [interest_sp]
     # interest_list2 = ["Castanospermum_australe"]
     for pair in species_pairs_raw:
         flag = 0
