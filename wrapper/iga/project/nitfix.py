@@ -230,6 +230,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
         iter_list = []
         for orthogroup in qry_dict:
             if orthogroup not in ref_dict:
+                logging.info("pass" + orthogroup)
                 continue
             # https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
             # logging.info(qry_dict[orthogroup])
