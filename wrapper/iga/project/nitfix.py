@@ -190,7 +190,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                      "Zollernia_splendens_Pap",
                      "Dipteryx_alata",
                      "Eperua_falcata"]
-    interest_list2 = ["Castnospermum_australe"]
+    interest_list2 = ["Castanospermum_australe"]
     for pair in species_pairs_raw:
         flag = 0
         for k in interest_list:
