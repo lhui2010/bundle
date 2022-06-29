@@ -149,13 +149,13 @@ def group2paralogs(orthogroup=None, max_group_size=18, start_col=3):
             fh.write(paralog_db[species_name])
 
 
-def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split', start_col=3, threads=1):
+def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split', start_col=3, threads=5):
     """
     12 min to finish
     Split groupt to parlogs
     Args:
         orthogroup: Orthogroups.tsv produced by OrthoFinder2.5.1
-        threads: now OK
+        threads: now OK, 3 or 5 is enough.
     Returns:
     """
 
@@ -212,8 +212,6 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                 continue
             else:
                 orthodb[species_name][g] = ortho_gene_list
-    # logging.info(orthodb)
-    # exit(1)
     species_pairs = list(species_pairs)
     logging.info(species_pairs)
     # print(species_pairs)
@@ -221,8 +219,6 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
         # print(spair)
         qry_dict = orthodb[spair[0]]
         ref_dict = orthodb[spair[1]]
-        # logging.info(qry_dict)
-        # logging.info(ref_dict)
         pair_name = "{}.{}".format(spair[0], spair[1])
         # if(len(qry_list) != len(ref_list)):
         #     logging.error('unequal length between {} and {}'.format(spair[0], spair[1]))
@@ -233,8 +229,6 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                 # logging.info("pass" + orthogroup)
                 continue
             # https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
-            # logging.info(qry_dict[orthogroup])
-            # logging.info(ref_dict[orthogroup])
             else:
                 iter_list.append([qry_dict[orthogroup], ref_dict[orthogroup]])
         with Pool(threads) as pool:
