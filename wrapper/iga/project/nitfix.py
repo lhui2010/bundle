@@ -116,7 +116,7 @@ def format_ks_plot(ks_plot_output=None):
         fh.write(ortho_buff)
 
 
-def group2paralogs(orthogroup=None, max_group_size=10, start_col=3):
+def group2paralogs(orthogroup=None, max_group_size=18, start_col=3):
     """
     12 min to finish
     Split groupt to parlogs
