@@ -249,7 +249,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
         # for iter_once_run in list(iter_result):
             for ortho_pair in iter_result:
             # for ortho_pair in iter_once_run:
-                logging.info(ortho_pair)
+            #     logging.info(ortho_pair)
                 result_db[pair_name] += ("\t".join(ortho_pair) + "\n")
                 # logging.info(pair_name)
         with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
