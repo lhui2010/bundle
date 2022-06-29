@@ -214,12 +214,12 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                 continue
             else:
                 orthodb[species_name][g] = ortho_gene_list
-    logging.info(orthodb)
+    # logging.info(orthodb)
     # exit(1)
     # Tired of writing to multiple threads
     # with Pool(threads) as p:
     #     p.map(os.system, genblast_cmd_list)
-
+    logging.info(list(species_pairs))
     for spair in species_pairs:
         qry_dict = orthodb[spair[0]]
         ref_dict = orthodb[spair[1]]
