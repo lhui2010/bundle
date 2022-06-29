@@ -221,9 +221,9 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
     #     p.map(os.system, genblast_cmd_list)
     species_pairs = list(species_pairs)
     logging.info(list(species_pairs))
-    print(species_pairs)
+    # print(species_pairs)
     for spair in species_pairs:
-        print(spair)
+        # print(spair)
         qry_dict = orthodb[spair[0]]
         ref_dict = orthodb[spair[1]]
         logging.info(qry_dict)
@@ -235,7 +235,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
         iter_list = []
         for orthogroup in qry_dict:
             if orthogroup not in ref_dict:
-                logging.info("pass" + orthogroup)
+                # logging.info("pass" + orthogroup)
                 continue
             # https://stackoverflow.com/questions/12935194/permutations-between-two-lists-of-unequal-length
             # logging.info(qry_dict[orthogroup])
