@@ -191,7 +191,6 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                      "Dipteryx_alata",
                      "Eperua_falcata"]
     interest_list2 = ["Castnospermum_australe"]
-    species_pairs_raw = itertools.product(interest_list2, species_pairs_raw)
     for pair in species_pairs_raw:
         flag = 0
         for k in interest_list:
@@ -199,6 +198,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                 flag = 1
         if (flag):
             species_pairs.append(pair)
+    species_pairs = itertools.product(interest_list2, species_pairs_raw)
     logging.info(species_pairs)
     logging.info("Prepare of species pair complete, now writing to files...")
 
