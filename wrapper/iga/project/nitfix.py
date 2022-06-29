@@ -221,8 +221,9 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
     #     p.map(os.system, genblast_cmd_list)
     logging.info(list(species_pairs))
     species_pairs = list(species_pairs)
+    print(species_pairs)
     for spair in species_pairs:
-        logging.info(spair)
+        print(spair)
         qry_dict = orthodb[spair[0]]
         ref_dict = orthodb[spair[1]]
         logging.info(qry_dict)
