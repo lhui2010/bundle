@@ -155,7 +155,7 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
     Split groupt to parlogs
     Args:
         orthogroup: Orthogroups.tsv produced by OrthoFinder2.5.1
-        threads: now deprecated
+        threads: now OK
     Returns:
     """
 
