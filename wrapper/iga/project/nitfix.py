@@ -223,6 +223,8 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
     for spair in species_pairs:
         qry_dict = orthodb[spair[0]]
         ref_dict = orthodb[spair[1]]
+        logging.info(qry_dict)
+        logging.info(ref_dict)
         pair_name = "{}.{}".format(spair[0], spair[1])
         # if(len(qry_list) != len(ref_list)):
         #     logging.error('unequal length between {} and {}'.format(spair[0], spair[1]))
