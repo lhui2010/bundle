@@ -236,9 +236,9 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
             # logging.info(ref_dict[orthogroup])
             else:
                 iter_list.append([qry_dict[orthogroup], ref_dict[orthogroup]])
-        with Pool(threads) as pool:
-            iter_result = pool.starmap(itertools.product, iter_list)
-        # iter_result = itertools.product(qry_dict[orthogroup], ref_dict[orthogroup])
+        # with Pool(threads) as pool:
+        #     iter_result = pool.starmap(itertools.product, iter_list)
+        iter_result = itertools.product(qry_dict[orthogroup], ref_dict[orthogroup])
         for iter_once_run in iter_result:
             # for ortho_pair in iter_result:
             for ortho_pair in iter_once_run:
