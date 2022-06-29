@@ -245,10 +245,11 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
         # with Pool(threads) as pool:
         #     iter_result = pool.starmap(itertools.product, iter_list)
             iter_result = itertools.product(qry_dict[orthogroup], ref_dict[orthogroup])
-            logging.info(list(iter_result))
+            # logging.info(list(iter_result))
         for iter_once_run in iter_result:
             # for ortho_pair in iter_result:
             for ortho_pair in iter_once_run:
+                logging.info(ortho_pair)
                 result_db[pair_name] += ("\t".join(ortho_pair) + "\n")
                 # logging.info(pair_name)
         with open(op.join(outdir, pair_name + ".ortho"), 'w') as fh:
