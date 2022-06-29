@@ -214,9 +214,6 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
                 orthodb[species_name][g] = ortho_gene_list
     # logging.info(orthodb)
     # exit(1)
-    # Tired of writing to multiple threads
-    # with Pool(threads) as p:
-    #     p.map(os.system, genblast_cmd_list)
     species_pairs = list(species_pairs)
     logging.info(species_pairs)
     # print(species_pairs)
@@ -240,12 +237,12 @@ def group2orthologs(orthogroup=None, max_group_size=18, outdir='ortholog_split',
             # logging.info(ref_dict[orthogroup])
             else:
                 iter_list.append([qry_dict[orthogroup], ref_dict[orthogroup]])
-        # with Pool(threads) as pool:
-        #     iter_result = pool.starmap(itertools.product, iter_list)
-            iter_result = itertools.product(qry_dict[orthogroup], ref_dict[orthogroup])
+        with Pool(threads) as pool:
+            iter_result = pool.starmap(itertools.product, iter_list)
+            # iter_result = itertools.product(qry_dict[orthogroup], ref_dict[orthogroup])
             # logging.info(list(iter_result))
-        # for iter_once_run in list(iter_result):
-            for ortho_pair in iter_result:
+        for iter_once_run in list(iter_result):
+            for ortho_pair in iter_once_run:
             # for ortho_pair in iter_once_run:
             #     logging.info(ortho_pair)
                 result_db[pair_name] += ("\t".join(ortho_pair) + "\n")
