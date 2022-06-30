@@ -84,6 +84,43 @@ my %subfam_hash = ("Medicago_truncatula" => "Papilionoideae",
 "Bauhinia_variegata" => "Cercidoideae", 
 "Cercis_chinensis" => "Cercidoideae"); 
 
+# %subfam_hash = ("Medicago_truncatula" => "grey0", 
+# "Melilotus_albus" => "grey0", 
+# "Trifolium_subterraneum" => "grey0", 
+# "Pisum_sativum" => "grey0", 
+# "Cicer_arietinum" => "grey0", 
+# "Astragalus_sinicus" => "grey0", 
+# "Glycyrrhiza_uralensis" => "grey0", 
+# "Lotus_japonicus" => "grey0", 
+# "Vigna_unguiculata" => "grey0", 
+# "Phaseolus_lunatus" => "grey0", 
+# "Lablab_purpureus" => "grey0", 
+# "Glycine_soja" => "grey0", 
+# "Amphicarpaea_edgeworthii" => "grey0", 
+# "Cajanus_cajan" => "grey0", 
+# "Spatholobus_suberectus" => "grey0", 
+# "Abrus_precatorius" => "grey0", 
+# "Arachis_duranensis" => "grey0", 
+# "Aeschynomene_evenia" => "grey0", 
+# "Dalbergia_odorifera" => "grey0", 
+# "Nissolia_schottii" => "grey0", 
+# "Lupinus_albus" => "grey0", 
+# "Ammopiptanthus_nanus" => "grey0", 
+# "Cladrastis_platycarpa" => "grey0", 
+# "Styphnolobium_japonicum" => "grey0", 
+# "Castanospermum_australe" => "grey0", 
+# "Dipteryx_alata" => "grey0", 
+# "Chamaecrista_pumila" => "cyan2", 
+# "Senna_septemtrionalis" => "cyan2", 
+# "Faidherbia_albida" => "cyan2", 
+# "Mimosa_pudica" => "cyan2", 
+# "Zenia_insignis" => "dodgerblue1", 
+# "Duparquetia_orchidacea" => "green3", 
+# "Eperua_falcata" => "magenta2", 
+# "Sindora_glabra" => "magenta2", 
+# "Lysidice_rhodostegia" => "magenta2", 
+# "Bauhinia_variegata" => "gold1", 
+# "Cercis_chinensis" => "gold1"); 
 for my $f(@f)
 {
     my @e=split/\./, $f;
@@ -106,7 +143,7 @@ for my $f(@f)
     }
 }
 
-print("QRY\tREF\tTopologyType\tsubfam\n");
+print("QRY\tREF\tCount\tTreeType\tsubfam\n");
 for my $k(sort keys %hash)
 {
     #for my $l (sort keys %{$hash{$k}})
