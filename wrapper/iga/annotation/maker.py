@@ -109,7 +109,7 @@ def prep_genblast(genome=None, protein=None, rank=3, chunk=100, output=''):
         os.chdir(protein_i + '.run')
         final_prefix = protein_i
         cmd = prep_genblast_sh.format(abs_ref, "../" + protein_i, final_prefix, rank)
-        job_list.append(bsub(cmd, name='genblast'))
+        job_list.append(bsub(cmd, name='genblast', queue='Q64C1T_X4'))
     waitjob(job_list)
     if output == '':
         output = ".".join([abs_ref, rel_pt, '.gff'])
