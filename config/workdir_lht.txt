@@ -1,3 +1,13 @@
+/ds3200_1/users_root/yitingshuang/lh/projects/buzzo/EDTA/rest_goods
+跑上了好基因组的EDTA
+
+Fri Jul  1 15:45:17 CST 2022
+
+
+/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX3_clean_self/03.combine_with_orthogroup_result
+过滤好的paralog Ks 和peak 结果。
+
+Thu Jun 30 16:30:41 CST 2022
 
 /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX3_clean_self
 repeat overlap 基因准备好了，待过滤!

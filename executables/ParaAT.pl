@@ -369,6 +369,10 @@ if ($KaKs_Calculator) {
     @Commands = KaKsCommands(\@SeqFiles);
     $NumberOfCommands = @Commands;
     print "\nCalculating Ka and Ks by KaKs_Calculator:\n";
+    for my $c(@Commands)
+    {
+        print $c, "\n";
+    }
     RunMultiProcesses(\@Commands);
 }
 
