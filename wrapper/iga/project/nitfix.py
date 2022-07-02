@@ -387,13 +387,13 @@ def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', thre
     Returns:
 
     """
+    ortho1_list = ortho1.split('.')
+    (ortho1_genera, ortho1_sp) = ortho1_list[0].split('_')
+    ortho2_list = ortho2.split('.')
+    (ortho2_genera, ortho2_sp) = ortho2_list[0].split('_')
     if suffix1 == "":
-        ortho1_list = ortho1.split('.')
-        (ortho1_genera, ortho1_sp) = ortho1_list[0].split('_')
         suffix1 = ortho1_genera[:2].title() + ortho1_sp[:3]
     if suffix2 == "":
-        ortho2_list = ortho2.split('.')
-        (ortho2_genera, ortho2_sp) = ortho2_list[0].split('_')
         suffix2 = ortho2_genera[:2].title() + ortho2_sp[:3]
     goto_workdir('count_tree', ortho1_list[0] + '.' + ortho2_list[0])
 
