@@ -379,6 +379,11 @@ def comWGD_tree(ortho1=None, ortho2=None, pep=None, suffix1='', suffix2='', thre
                     "python -m iga.project.nitfix comWGD_tree ${QRY} ${REF} ${QRY}.${REF}.pep --threads 10"
                  done
              done
+    # collect results
+        cp workdir_count_tree_*/*WGD results/
+        for i in Nissolia_schottii Castanospermum_australe Cladrastis_platycarpa Pisum_sativum Styphnolobium_japonicum;
+        do count_WGD_gene_tree.pl ${i}.*WGD > ${i}.count;
+        done
     Returns:
 
     """

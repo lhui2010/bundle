@@ -66,14 +66,20 @@ def get_gene_age(dir=None, topology_file=None):
         basal_group = topo_list[i]
         basal_group_list = basal_group.split(',')
 
-        line_tag = "{}|{}".format(prefix_group, basal_group)
+        line_tag = "..{}|{}..".format(prefix_group[-20:], basal_group[:20])
         for gene in gene_dict:
             flag = 0
-#Find duplicate in prefix but become 1-to-1 ortholog in basal groups. i.e. Find it's duplication date
+#Find duplicate (m-to-1, not 1-to-1 orthologs) in prefix but become 1-to-1 ortholog in basal groups. i.e. Find it's duplication date
             for pg in prefix_group_list:
                 if gene in duplicate_dict[pg]:
                     flag += 1
                     break
+# incase of gene loss events
+            for pg in prefix_group_list:
+                if gene in singlecopy_dict[pg]:
+                    flag = 0
+                    break
+# m-to-1 in prefix, but become 1-to-1 in basal groups
             for bg in basal_group_list:
                 if gene in singlecopy_dict[bg]:
                     flag += 10
