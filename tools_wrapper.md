@@ -668,3 +668,58 @@ iqtree2 -B 1000 --modelomatic -s tmp.pep.aln
 #### make duplicate
 for i in *.ortho.kaks; do perl -e '$_=$ARGV[0]; my @e=split/\./, $_; `cp $_ $e[1].$e[0].ortho.kaks` if $e[0] ne $e[1]; ' $i; done
 
+#### EVM
+
+```
+#!/bin/bash
+#BSUB -J evm      # job name
+#BSUB -n 5                   # number of tasks in job
+#BSUB -q Q104C512G_X4              # queue
+#BSUB -e errors.%J     # error file name in which %J is replaced by the job ID
+#BSUB -o output.%J     # output file name in which %J is replaced by the job ID
+
+set -euxo pipefail
+
+ROOT=$PWD
+
+
+REF=falcon_ref.fa
+GFF=combined.gff
+#PEP=pep.gff
+EST=est.gff
+
+    #--protein_alignments ${PEP} \
+###$EVM_HOME/EvmUtils/partition_EVM_inputs.pl --genome ${REF} --gene_predictions ${ROOT}/${GFF} \
+###    --transcript_alignments ${EST} \
+###    --segmentSize 1000000 \
+###    --overlapSize 100000 --partition_listing partitions_list.out
+###
+###
+###    #--protein_alignments ${PEP} \
+###$EVM_HOME/EvmUtils/write_EVM_commands.pl --genome ${REF} --weights `pwd`/weights.txt \
+###    --gene_predictions $ROOT/${GFF}  \
+###    --transcript_alignments ${EST} \
+###    --output_file_name evm.out  --partitions partitions_list.out >  commands.list
+###
+###$EVM_HOME/EvmUtils/execute_EVM_commands.pl commands.list | tee run.log
+
+##cat commands.list | while read line
+##do
+##  bsub -q Q104C512G_X4  -o output.%J -e error.%J "${line}"
+##done
+
+
+$EVM_HOME/EvmUtils/recombine_EVM_partial_outputs.pl --partitions partitions_list.out --output_file_name evm.out
+ #
+ $EVM_HOME/EvmUtils/convert_EVM_outputs_to_GFF3.pl  --partitions partitions_list.out --output evm.out  --genome ${REF}
+```
+
+#### Setting threads for openblas
+
+```
+export MKL_NUM_THREADS="2"
+export MKL_DOMAIN_NUM_THREADS="MKL_BLAS=2"
+export OMP_NUM_THREADS="1"
+export MKL_DYNAMIC="FALSE"
+export OMP_DYNAMIC="FALSE"
+```
