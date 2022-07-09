@@ -89792,3 +89792,143 @@ chd change_col.pl
 cp change_col.pl $HB/
 #1657351642
 gtp
+#1657351652
+gtps
+#1657351666
+lth
+#1657351669
+perl change_col.pl  -h
+#1657351712
+for i in Bauhinia_variegata Castanospermum_australe Styphnolobium_japonicum Sindora_glabra; do mv Medicago_truncatula.$i.anchors Medicago_truncatula.$i.anchors.1; perl change_col.pl Medicago_truncatula.$i.anchors.1 > Medicago_truncatula.$i.anchors; done
+#1657351713
+lth
+#1657351725
+head Medicago_truncatula.Sindora_glabra.anchors Medicago_truncatula.Styphnolobium_japonicum.anchors Medicago_truncatula.Castanospermum_australe.anchors Medicago_truncatula.Bauhinia_variegata.anchors change_col.pl Cercis_chinensis.Sindora_glabra.anchors Cercis_chinensis.Styphnolobium_japonicum.anchors Cercis_chinensis.Castanospermum_australe.anchors Cercis_chinensis.Bauhinia_variegata.anchors
+#1657351750
+mv Cercis_chinensis.Styphnolobium_japonicum.anchors.1 Cercis_chinensis.Styphnolobium_japonicum.anchors
+#1657351758
+mv Medicago_truncatula.Styphnolobium_japonicum.anchors.1 Medicago_truncatula.Styphnolobium_japonicum.anchors
+#1657351759
+lth
+#1657351763
+bash quota_cercis.sh 
+#1657351851
+lth
+#1657351856
+grep Lalb_Chr00c01g0403971_Lualb *bed
+#1657351863
+grep Lalb_Chr00c01g0403971_Lualb *anchors
+#1657351874
+les Medicago_truncatula.Lupinus_albus.anchors 
+#1657351883
+vi Cercis_chinensis.Lupinus_albus.anchors
+#1657351896
+vi Lupinus_albus.bed 
+#1657351911
+bash quota_cercis.sh 
+#1657352129
+lth
+#1657352200
+merge_bed_to_bedpe.py -h
+#1657352451
+cp `which merge_bed_to_bedpe.py ` format_anchors_to_csy.py
+#1657352452
+vi format_anchors_to_csy.py 
+#1657352487
+python -m jcvi.compara.synteny simple
+#1657352534
+python -m jcvi.compara.synteny simple --rich --bed --cords --qbed Cercis_chinensis.bed --sbed Medicago_truncatula.bed Cercis_chinensis.Medicago_truncatula.1x2.anchors 
+#1657352541
+python -m jcvi.compara.synteny simple --rich --bed --coords --qbed Cercis_chinensis.bed --sbed Medicago_truncatula.bed Cercis_chinensis.Medicago_truncatula.1x2.anchors 
+#1657352547
+less Cercis_chinensis.Medicago_truncatula.1x2.simple.bed 
+#1657352556
+wc -l Cercis_chinensis.Medicago_truncatula.1x2.simple.bed 
+#1657352562
+less Cercis_chinensis.Medicago_truncatula.1x2.simple
+#1657352806
+more shell 
+#1657352813
+logsh
+#1657352832
+vi format_anchors_to_csy.py 
+#1657353000
+vi format_anchors_to_csy.py 
+#1657353145
+python format_anchors_to_csy.py 
+#1657353146
+python format_anchors_to_csy.py  -h
+#1657353161
+python format_anchors_to_csy.py  -o Cercis_chinensis.Medicago_truncatula.1x2.anchors Cercis_chinensis.bed Medicago_truncatula.bed > tmp.out
+#1657353167
+vi format_anchors_to_csy.py 
+#1657353182
+python format_anchors_to_csy.py  -o Cercis_chinensis.Medicago_truncatula.1x2.anchors Cercis_chinensis.bed Medicago_truncatula.bed > tmp.out
+#1657353185
+les tmp.out 
+#1657353194
+vi format_anchors_to_csy.py 
+#1657353284
+les *simple
+#1657353291
+vi format_anchors_to_csy.py 
+#1657353666
+les *anchors
+#1657353770
+more quota_cercis.sh 
+#1657353989
+python -m jcvi.compara.synteny screen -h
+#1657354159
+cp ~/.local/lib/python3.8/site-packages/jcvi/compara/synteny.py  ~/.local/lib/python3.8/site-packages/jcvi/compara/synteny.py.1
+#1657354160
+vi ~/.local/lib/python3.8/site-packages/jcvi/compara/synteny.py
+#1657354380
+lth
+#1657354383
+les format_anchors_to_csy.py 
+#1657354396
+les Cercis_chinensis.Bauhinia_variegata.1x2
+#1657354548
+vi select_block.pl
+#1657354766
+perl select_block.pl Cercis_chinensis.Bauhinia_variegata.1x2 Cercis_chinensis.Bauhinia_variegata.anchors|les
+#1657354769
+vi select_block.pl
+#1657354781
+perl select_block.pl Cercis_chinensis.Bauhinia_variegata.1x2 Cercis_chinensis.Bauhinia_variegata.anchors|les
+#1657354783
+vi select_block.pl
+#1657354791
+perl select_block.pl Cercis_chinensis.Bauhinia_variegata.1x2 Cercis_chinensis.Bauhinia_variegata.anchors|les
+#1657354802
+head Cercis_chinensis.Bauhinia_variegata.1x2
+#1657354807
+vi select_block.pl 
+#1657354822
+perl select_block.pl Cercis_chinensis.Bauhinia_variegata.1x2 Cercis_chinensis.Bauhinia_variegata.anchors|les
+#1657354830
+perl select_block.pl Cercis_chinensis.Bauhinia_variegata.1x2 Cercis_chinensis.Bauhinia_variegata.anchors|head
+#1657354834
+head Cercis_chinensis.Bauhinia_variegata.1x2.anchors 
+#1657354849
+vi select_block.pl 
+#1657354859
+head Cercis_chinensis.Bauhinia_variegata.1x2.anchors 
+#1657354861
+perl select_block.pl Cercis_chinensis.Bauhinia_variegata.1x2 Cercis_chinensis.Bauhinia_variegata.anchors|head
+#1657354871
+perl select_block.pl Cercis_chinensis.Bauhinia_variegata.1x2 Cercis_chinensis.Bauhinia_variegata.anchors|wc -l 
+#1657354875
+wc -l Cercis_chinensis.Bauhinia_variegata.1x2.anchors 
+#1657354879
+chd
+#1657354888
+head Cercis_chinensis.Bauhinia_variegata.1x2 Cercis_chinensis.Bauhinia_variegata.anchors >> select_block.pl 
+#1657354889
+vi select_block.pl 
+#1657354915
+chd
+#1657354918
+cp select_block.pl $HB/
+#1657354919
+gtp
