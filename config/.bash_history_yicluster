@@ -87614,3 +87614,2181 @@ ll -S *ID |wc -l
 ls
 #1656494176
 gtp
+#1656494181
+gtps
+#1656482704
+ssh yi03
+#1656549568
+ls
+#1656549570
+j filter
+#1656549570
+lth
+#1656549566
+cd yi03
+#1656549567
+ll
+#1656549571
+cd orthofinder_50_sp_result/
+#1656549572
+lt
+#1656549574
+cd Phylogenetic
+#1656549577
+cd Phylogenetic_Hierarchical_Orthogroups/
+#1656549577
+ls
+#1656549592
+ls ll concatenation_min25/
+#1656549594
+ll concatenation_min25/
+#1656549688
+cd
+#1656549689
+cd zhangrong/
+#1656549690
+ls
+#1656549691
+ll
+#1656549698
+ realpath *gz
+#1656549575
+ssh yi03
+#1656550574
+bjl
+#1656550579
+tma
+#1656550577
+bjl
+#1656556450
+j fig3
+#1656556451
+ls
+#1656556455
+mkdir A
+#1656556456
+cd A/
+#1656556576
+ls
+#1656556578
+ll
+#1656558076
+bjl
+#1656558078
+tma
+#1656563411
+j mcscanX2
+#1656563436
+les error.6*
+#1656564443
+bjl
+#1656572822
+les error.6*
+#1656550585
+ssh yi03
+#1656572855
+bhosts 
+#1656572858
+bjl
+#1656572862
+tma
+#1656572886
+cd ..
+#1656572887
+ls
+#1656572896
+mkdir 05.genblast
+#1656572898
+cd 05.genblast/
+#1656572910
+ls
+#1656573018
+ll
+#1656572821
+cd /nfs/liuhui/projects/phyleg/04.fig4/05.genblast/
+#1656572825
+cp ~/projects/buzzo/msa_pipeline/msa_pipeline/data/*.fa .
+#1656572861
+ls
+#1656572863
+chmod -w *
+#1656572867
+cp ~/projects/buzzo/msa_pipeline/msa_pipeline/data/all_fa/*.fa .
+#1656572881
+rm Medicago_truncatula.fa 
+#1656572883
+ls
+#1656572896
+python -m iga.apps.blast
+#1656572901
+python -m iga.apps.genblasst
+#1656572902
+python -m iga.apps.genblass
+#1656572904
+python -m iga.apps.genblast
+#1656572911
+python -m iga.apps
+#1656572935
+python -m iga.annotation.genblast
+#1656572939
+python -m iga.annotation.genblast run -h
+#1656573019
+python -m iga.annotation.maker -h
+#1656573025
+python -m iga.annotation.maker prep_genblast -h
+#1656573085
+gtp
+#1656573127
+ls $HB/*cat*
+#1656573137
+find $HB -name "*cat*"
+#1656573143
+ll /nfs/liuhui/bin/bundle/lh_bin/catfile.pl
+#1656573145
+vi /nfs/liuhui/bin/bundle/lh_bin/catfile.pl 
+#1656573185
+ls
+#1656573192
+python -m iga.annotation.maker prep_genblast -h
+#1656573235
+for i in *.fa; do bsub512 "python -m iga.annotation.maker prep_genblast $i Medicago_truncatula.pep"; done 
+#1656573237
+logsh
+#1656573239
+bjl
+#1656573274
+bjobs -l 77126 |les
+#1656573277
+ls
+#1656573280
+les error.771*
+#1656573336
+bjl
+#1656573415
+ls *.fa > genome_list
+#1656573415
+vi genome_list 
+#1656573421
+ls
+#1656573424
+rm output.771* error.771*
+#1656573425
+ls
+#1656573429
+bjl
+#1656573436
+les Dipteryx_alata.fa*gff
+#1656573441
+ls Dipteryx_alata.fa*pep/
+#1656573445
+ls Dipteryx_alata.fa*pep/10.fa.run/
+#1656573451
+ll Dipteryx_alata.fa*pep/10.fa.run/
+#1656573455
+ll Dipteryx_alata.fa*pep/10.fa
+#1656573457
+ll Dipteryx_alata.fa*pep/
+#1656573460
+ll Dipteryx_alata.fa*pep/10.fa
+#1656573462
+ll Dipteryx_alata.fa*pep/10.fa.run
+#1656573467
+ls
+#1656573475
+rm -rf Dipteryx_alata.fa.genblast.Medicago_truncatula.pep Dipteryx_alata.fa.Medicago_truncatula.pep..gff
+#1656573477
+ls
+#1656573539
+for i in *.fa; do echo "python -m iga.annotation.maker prep_genblast $i Medicago_truncatula.pep --chunk 20& sleep 10m;" >> run.sh; done 
+#1656573540
+vi run.sh 
+#1656573577
+nohup bash run.sh &
+#1656573577
+lth
+#1656573579
+bjl
+#1656573582
+lth
+#1656573584
+les nohup.out 
+#1656573589
+cd Abrus_precatorius.fa.genblast.Medicago_truncatula.pep/
+#1656573589
+ll
+#1656573594
+cd -
+#1656573594
+ls
+#1656573595
+bjl
+#1656573601
+cd -
+#1656573601
+ls
+#1656573602
+ll
+#1656573606
+ll 6.fa.run/
+#1656573609
+bjl
+#1656573611
+cd ..
+#1656573613
+ll */*DNA
+#1656573615
+ls
+#1656573617
+cd -
+#1656573618
+ls
+#1656573620
+ll 10.fa.run/
+#1656573621
+bjl
+#1656573628
+ls */*err*
+#1656573630
+ls
+#1656573631
+lt
+#1656573637
+ll 7.fa.run/
+#1656573643
+ll 1.fa.run/
+#1656573647
+jobs
+#1656573648
+fg
+#1656573649
+bjl
+#1656573657
+bkill 77254 77256 77263 77267
+#1656573658
+ls
+#1656573659
+bjl
+#1656573661
+cd ..
+#1656573662
+ls
+#1656573669
+bjl
+#1656573676
+lth
+#1656573679
+les nohup.out 
+#1656573712
+ls
+#1656573719
+rm -rf Abrus_precatorius.fa.genblast.Medicago_truncatula.pep 
+#1656573720
+ll Abrus_precatorius.fa.Medicago_truncatula.pep..gff
+#1656573721
+rm Abrus_precatorius.fa.Medicago_truncatula.pep..gff 
+#1656573722
+ls
+#1656573723
+vi run.sh 
+#1656573040
+ssh yi04
+#1656574085
+vi run.sh 
+#1656574094
+nohup bash run.sh &
+#1656574095
+bjl
+#1656574098
+ls
+#1656574100
+cd *pep
+#1656574101
+ll
+#1656574104
+ll 1.fa.run/
+#1656574110
+bjl
+#1656574105
+genblast
+#1656574107
+formatdb 
+#1656574114
+ssh yi03
+#1656574201
+bjl
+#1656574204
+ls
+#1656574210
+ls *.fa.run/ |les
+#1656574228
+ls
+#1656574229
+vi ru
+#1656574231
+cd ..
+#1656574232
+vi run.sh 
+#1656574350
+bjl
+#1656574445
+bjl
+#1656574449
+lth
+#1656574451
+les nohup.out 
+#1656574447
+tma
+#1656574863
+ssh yi0-3
+#1656574856
+cd yi03
+#1656574856
+ls
+#1656574857
+ll
+#1656574865
+nohup cp -r orthofinder_50_sp_result ~/ &
+#1656574870
+tma
+#1656574874
+cd ..
+#1656574876
+ll orthofinder_50_sp_result/
+#1656574880
+ll orthofinder_50_sp_result/Resolved_Gene_Trees/
+#1656574883
+ll orthofinder_50_sp_result/
+#1656576131
+bjl
+#1656574865
+ssh yi03
+#1656580205
+conda activate wgdi
+#1656580211
+cd projects/buzzo/
+#1656580212
+ls
+#1656580213
+ll
+#1656580215
+mkdir wgdi
+#1656580217
+cd wgdi/
+#1656580217
+ls
+#1656580222
+wgdi -ak ? >> total.conf
+#1656622660
+bjl
+#1656622701
+btop 78035
+#1656622702
+bjl
+#1656622720
+ls
+#1656622738
+ss yi03
+#1656622781
+lsload
+#1656622823
+tolht 
+#1656623590
+cd projects/
+#1656623591
+ls
+#1656626123
+top
+#1656627315
+cd yi03
+#1656627346
+ls
+#1656627397
+ls ~/
+#1656626832
+ssh yi03
+#1656627831
+cd ..
+#1656622742
+ssh yi03
+#1656623600
+ssh yi03
+#1656626046
+ssh yi03
+#1656635697
+top
+#1656635635
+lsloa
+#1656635640
+lsload
+#1656635660
+tp
+#1656635896
+ls
+#1656638544
+cd $HB
+#1656638565
+ls
+#1656639333
+ls
+#1656647084
+lsload
+#1656647106
+bjl
+#1656647114
+bjobs |wc -l
+#1656647118
+bjl
+#1656647139
+j genblast
+#1656647300
+top
+#1656647294
+top
+#1656647242
+cd projects/
+#1656647242
+ls
+#1656647248
+cd phyleg
+#1656647256
+ls
+#1656647264
+ls 04.fig4/4
+#1656647266
+ls 04.fig4/
+#1656647284
+cd 05.genblast
+#1656647290
+cd 04.fig4/05.genblast/
+#1656647290
+ls
+#1656647327
+more run.sh
+#1656647342
+bjobs |grep genblast > tmp
+#1656647343
+vi tmp 
+#1656647373
+for i in `cat tmp`; do bkill $i; done
+#1656647420
+bjl
+#1656647432
+vi tmp 
+#1656647438
+bjl
+#1656647516
+tma
+#1656635724
+ssh yi03
+#1656647672
+jobs
+#1656647673
+fg
+#1656647675
+jobs
+#1656647456
+for i in `cat tmp`; do bkill $i; done
+#1656647471
+ls
+#1656647485
+mkdir delme
+#1656647489
+mv *genblast*pep delme/
+#1656647490
+ls
+#1656647493
+mv *gff delme/
+#1656647494
+ls
+#1656647500
+mv delme ~/
+#1656647503
+nohup rm -rf ~/delme/ &
+#1656647508
+cd ..
+#1656647766
+bjl
+#1656647670
+tma
+#1656647511
+uplht 05.genblast/
+#1656649788
+bjl
+#1656650577
+bjl
+#1656378389
+bash legume.sh --use-singularity --threads 100
+#1656655088
+ls
+#1656647776
+ssh -p 201 yi02
+#1656655034
+ll
+#1656655035
+ls
+#1656655039
+rm *gff
+#1656655044
+cd 
+#1656655046
+cd projects/buzzo/
+#1656655046
+ls
+#1656655047
+ll
+#1656655053
+cd dupgene_finder/
+#1656655053
+ll
+#1656655058
+more shell 
+#1656655080
+cd DupGen_finder/
+#1656655081
+ls
+#1656655084
+ll
+#1656655086
+ls *sh
+#1656655088
+ll
+#1656655090
+cd ..
+#1656655099
+ll
+#1656655103
+ls output/
+#1656655110
+cat >>run.sh
+#1656655128
+vi `which DupGen_finder.pl`
+#1656655132
+ls
+#1656655134
+vi DupGen_finder/DupGen_finder.pl
+#1656655191
+cp  DupGen_finder/DupGen_finder.pl DupGen_finder/DupGen_finder.pl.1
+#1656655192
+vi DupGen_finder/DupGen_finder.pl
+#1656655206
+ll 
+#1656655208
+les *gff
+#1656655219
+les Mtr.gff 
+#1656655235
+les *gff
+#1656655031
+tma
+#1656655370
+cd /nfs/liuhui/projects/buzzo/dupgene_finder/
+#1656655372
+rz
+#1656655378
+# Received /Users/liuhui/all_50.txt.prefix
+#1656655381
+ls
+#1656655382
+mkdir test
+#1656655387
+mv Mtr* test/
+#1656655388
+ls
+#1656655391
+mv Cch.gff test/
+#1656655391
+ls
+#1656655401
+rm Medicago_truncatula.Cercis_chinensis.gff 
+#1656655401
+ll
+#1656655406
+mv output test/
+#1656655410
+mv shell run.sh test/
+#1656655411
+ls
+#1656655412
+ll
+#1656655418
+vi all_50.txt.prefix 
+#1656655433
+head test/Mtr.gff 
+#1656655444
+more test/shell 
+#1656655460
+lth
+#1656655464
+les all_50.txt.prefix 
+#1656655482
+cut -f1 all_50.txt.prefix  > all_50.txt.prefix.id
+#1656655483
+vi all_50.txt.prefix.id 
+#1656655530
+les ~/projects/phyleg/mcscanX2/work.Medicago_truncatula.Cercis_chinensis/Medicago_truncatula.Cercis_chinensis.gff
+#1656655581
+mkdir input
+#1656655582
+for i in `cat all_50.txt.prefix.id`; do cp ~/projects/phyleg/mcscanX2/work.Medicago_truncatula.${i}/Medicago_truncatula.${i}.blast ~/projects/phyleg/mcscanX2/work.Medicago_truncatula.${i}/Medicago_truncatula.${i}.gff input/; done
+#1656655847
+for i in Arabidopsis_thaliana Averrhoa_carambola Oryza_sativa Populus_trichocarpa Vitis_vinifera; do cp ~/projects/phyleg/04.fig4/04.triangle_localization/work.Medicago_truncatula.${i} input/; done
+#1656655862
+for i in Arabidopsis_thaliana Averrhoa_carambola Oryza_sativa Populus_trichocarpa Vitis_vinifera; do cp ~/projects/phyleg/04.fig4/04.triangle_localization/work.Medicago_truncatula.${i}/Medicago_truncatula.${i}.blast input/; done
+#1656655875
+for i in Arabidopsis_thaliana Averrhoa_carambola Oryza_sativa Populus_trichocarpa Vitis_vinifera; do cp ~/projects/phyleg/04.fig4/04.triangle_localization/work.Medicago_truncatula.${i}/Medicago_truncatula.${i}.gff input/; done
+#1656655378
+tma
+#1656655893
+ls
+#1656655896
+c dyi03
+#1656655897
+ls
+#1656655900
+cd yi03
+#1656655901
+ll
+#1656655903
+cd orthofinder
+#1656655903
+ls
+#1656655905
+ll
+#1656655912
+d
+#1656655914
+cd 
+#1656655919
+ln -s /nfs/liuhui/projects/phyleg_orthofinder/fasta0613 fasta0613_newest
+#1656655904
+ssh yi03 
+#1656655957
+ln -s ~/fasta0613_newest/Aquilegia_coerulea.pep 
+#1656655968
+ln -s ~/fasta0613_newest/cds/Aquilegia_coerulea.cds 
+#1656655974
+ln -s ~/fasta0613_newest/fasta_gff3/Aquilegia_coerulea.gff3 
+#1656655980
+ln -s ~/fasta0613_newest/fasta_gff3/Medicago_truncatula.gff3 
+#1656655988
+ln -s ~/fasta0613_newest/cds/Medicago_truncatula.cds 
+#1656656000
+ln -s ~/fasta0613_newest/Medicago_truncatula.pep 
+#1656656002
+ls
+#1656656016
+history |grep mcscanx |tail
+#1656656022
+history |grep mcscanX |tail
+#1656656036
+history |grep -i mcscanx |grep iga |tail
+#1656656046
+bhosts 
+#1656656067
+ls
+#1656656080
+bsub512 -J mcscanx_Aqui -n 20 "python -m iga.evolution.ortho mcscanx --threads 20 Medicago_truncatula Aquilegia_coerulea"
+#1656656084
+cd input/
+#1656656084
+ll
+#1656656086
+ll -S
+#1656656090
+cd ..
+#1656656127
+cd input/
+#1656656134
+les Medicago_truncatula.Spatholobus_suberectus.blast 
+#1656656142
+les Medicago_truncatula.Spatholobus_suberectus.gff 
+#1656656176
+ls
+#1656656178
+les *blast
+#1656656340
+for i in done/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Styphnolobium_japonicum.Medicago_truncatula/Styphnolobium_japonicum.Medicago_truncatula.blast/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Styphnolobium_japonicum.Medicago_truncatula/Styphnolobium_japonicum.Medicago_truncatula.gff/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Sindora_glabra.Medicago_truncatula/Sindora_glabra.Medicago_truncatula.blast/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Sindora_glabra.Medicago_truncatula/Sindora_glabra.Medicago_truncatula.gff/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Castanospermum_australe.Medicago_truncatula/Castanospermum_australe.Medicago_truncatula.blast/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Castanospermum_australe.Medicago_truncatula/Castanospermum_australe.Medicago_truncatula.gff/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Bauhinia_variegata.Medicago_truncatula/Bauhinia_variegata.Medicago_truncatula.blast/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Bauhinia_variegata.Medicago_truncatula/Bauhinia_variegata.Medicago_truncatula.gff; do downlht $i; done
+#1656656344
+ls
+#1656656345
+lth
+#1656656366
+for i in done/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Styphnolobium_japonicum.Medicago_truncatula/Styphnolobium_japonicum.Medicago_truncatula.blast/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Styphnolobium_japonicum.Medicago_truncatula/Styphnolobium_japonicum.Medicago_truncatula.gff/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Sindora_glabra.Medicago_truncatula/Sindora_glabra.Medicago_truncatula.blast/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Sindora_glabra.Medicago_truncatula/Sindora_glabra.Medicago_truncatula.gff/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Castanospermum_australe.Medicago_truncatula/Castanospermum_australe.Medicago_truncatula.blast/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Castanospermum_australe.Medicago_truncatula/Castanospermum_australe.Medicago_truncatula.gff/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Bauhinia_variegata.Medicago_truncatula/Bauhinia_variegata.Medicago_truncatula.blast/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Bauhinia_variegata.Medicago_truncatula/Bauhinia_variegata.Medicago_truncatula.gff; do downlht $i; done
+#1656656404
+for i in done/ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Styphnolobium_japonicum.Medicago_truncatula/Styphnolobium_japonicum.Medicago_truncatula.blast /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Styphnolobium_japonicum.Medicago_truncatula/Styphnolobium_japonicum.Medicago_truncatula.gff /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Sindora_glabra.Medicago_truncatula/Sindora_glabra.Medicago_truncatula.blast /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Sindora_glabra.Medicago_truncatula/Sindora_glabra.Medicago_truncatula.gff /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Castanospermum_australe.Medicago_truncatula/Castanospermum_australe.Medicago_truncatula.blast /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Castanospermum_australe.Medicago_truncatula/Castanospermum_australe.Medicago_truncatula.gff /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Bauhinia_variegata.Medicago_truncatula/Bauhinia_variegata.Medicago_truncatula.blast /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Bauhinia_variegata.Medicago_truncatula/Bauhinia_variegata.Medicago_truncatula.gff; do downlht $i; done
+#1656656426
+for i in /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Styphnolobium_japonicum.Medicago_truncatula/Styphnolobium_japonicum.Medicago_truncatula.blast /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Styphnolobium_japonicum.Medicago_truncatula/Styphnolobium_japonicum.Medicago_truncatula.gff /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Sindora_glabra.Medicago_truncatula/Sindora_glabra.Medicago_truncatula.blast /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Sindora_glabra.Medicago_truncatula/Sindora_glabra.Medicago_truncatula.gff /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Castanospermum_australe.Medicago_truncatula/Castanospermum_australe.Medicago_truncatula.blast /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Castanospermum_australe.Medicago_truncatula/Castanospermum_australe.Medicago_truncatula.gff /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Bauhinia_variegata.Medicago_truncatula/Bauhinia_variegata.Medicago_truncatula.blast /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/work.Bauhinia_variegata.Medicago_truncatula/Bauhinia_variegata.Medicago_truncatula.gff; do downlht $i; done
+#1656656544
+vi mv.sh
+#1656656591
+bash mv.sh 
+#1656656591
+lth
+#1656656596
+lt |les
+#1656656643
+for i in `cat ../all_50.txt.prefix.id`; do ls Medicago_truncatula.${i}.blast Medicago_truncatula.${i}.gff ; done
+#1656656649
+for i in `cat ../all_50.txt.prefix.id`; do ls Medicago_truncatula.${i}.blast Medicago_truncatula.${i}.gff > /dev/null; done
+#1656656655
+ls *Aqui*
+#1656656664
+cd ..
+#1656656664
+bjl
+#1656656667
+ls
+#1656656668
+lth
+#1656656670
+cd work.Medicago_truncatula.Aquilegia_coerulea/
+#1656656671
+lt
+#1656656674
+cd 0
+#1656656680
+ls *gff
+#1656656681
+cd -
+#1656656682
+ls
+#1656656686
+mkdir test2
+#1656656695
+mv test2 input/
+#1656656695
+cd input/
+#1656656698
+cd test2/
+#1656656702
+ln -s ../Medicago_truncatula.Cajanus_cajan.gff 
+#1656656702
+ls
+#1656656703
+les Medicago_truncatula.Cajanus_cajan.gff 
+#1656656711
+les ../Medicago_truncatula.Cajanus_cajan.blast 
+#1656656716
+les Medicago_truncatula.Cajanus_cajan.gff 
+#1656656732
+les ../../test/*
+#1656656767
+ll ../../test/*
+#1656656780
+ll ../../test/*blast
+#1656656820
+cp ../../test/Mtr.blast .
+#1656656824
+ls
+#1656656825
+ll
+#1656656833
+les *gff
+#1656655934
+tma
+#1656656904
+cd /nfs/liuhui/projects/buzzo/dupgene_finder/input/test2/
+#1656656905
+rz
+#1656656909
+# Received /Users/liuhui/dup_gene_finder
+#1656656911
+lth
+#1656656913
+vi dup_gene_finder 
+#1656656928
+awk '{print $4"\t"$2}' dup_gene_finder > dup_gene_finder.tab
+#1656656930
+vi dup_gene_finder.tab 
+#1656656942
+les *gff
+#1656656967
+vi rename_gff.pl
+#1656656995
+les dup_gene_finder
+#1656657000
+les dup_gene_finder.tab 
+#1656657003
+vi rename_gff.pl
+#1656657034
+ls
+#1656657040
+vi rename_gff.pl
+#1656657162
+perl rename_gff.pl Medicago_truncatula.Cajanus_cajan.gff |head
+#1656657170
+vi rename_gff.pl
+#1656657188
+perl rename_gff.pl Medicago_truncatula.Cajanus_cajan.gff |head
+#1656657192
+vi rename_gff.pl
+#1656657197
+perl rename_gff.pl Medicago_truncatula.Cajanus_cajan.gff |head
+#1656657201
+vi rename_gff.pl
+#1656657221
+perl rename_gff.pl Medicago_truncatula.Cajanus_cajan.gff  > tmp
+#1656657223
+les tmp 
+#1656657234
+cd ..
+#1656657239
+cd -
+#1656657249
+mv rename_gff.pl rename_gff_for_dupgene_finder.pl 
+#1656657250
+vi rename_gff_for_dupgene_finder.pl 
+#1656657267
+more dup_gene_finder
+#1656657269
+more dup_gene_finder.tab 
+#1656657273
+vi rename_gff_for_dupgene_finder.pl 
+#1656657316
+ls
+#1656657316
+lt
+#1656657390
+mkdir ../
+#1656657392
+cd ..
+#1656657394
+mkdir raw_gff
+#1656657397
+mv *gff raw_gff/
+#1656657412
+cp test2/dup_gene_finder.tab test2/dup_gene_finder test2/rename_gff_for_dupgene_finder.pl raw_gff/
+#1656657413
+cd raw_gff/
+#1656657413
+ls
+#1656657460
+perl rename_gff_for_dupgene_finder.pl Medicago_truncatula.Averrhoa_carambola.gff  > tmp.out
+#1656657462
+les tmp.out 
+#1656657480
+for i in *gff; do perl rename_gff_for_dupgene_finder.pl $i > ../$i; done
+#1656657508
+vi Medicago_truncatula.Styphnolobium_japonicum.gff 
+#1656657555
+cp Medicago_truncatula.Styphnolobium_japonicum.gff  ../
+#1656657567
+cp Medicago_truncatula.Duparquetia_orchidacea.gff ../
+#1656657571
+vi ../Medicago_truncatula.Duparquetia_orchidacea.
+#1656657572
+vi ../Medicago_truncatula.Duparquetia_orchidacea.gff 
+#1656657596
+ls
+#1656657604
+grep mRNA" *gff |head
+#1656657610
+grep mRNA *gff |head
+#1656657620
+for i in *gff; do grep mRNA: $i |head -1 ; done
+#1656657645
+les ../../test/*gff
+#1656657662
+les ../../test/*blast
+#1656657667
+ls
+#1656657670
+cd ..
+#1656657673
+ls *gff |wc
+#1656657678
+ls -d *gff |wc
+#1656657680
+ls *blast |wc
+#1656657684
+ls -d *gff |les
+#1656657686
+cd ..
+#1656657687
+ls
+#1656657689
+bjl
+#1656657691
+lth
+#1656657693
+lt work.Medicago_truncatula.Aquilegia_coerulea/
+#1656657742
+ls
+#1656657744
+cd input/
+#1656657744
+ls
+#1656657749
+cd test2/
+#1656657749
+ls
+#1656657754
+les dup_gene_finder
+#1656657764
+cut -f1,2 dup_gene_finder > rename.sh
+#1656657765
+vi rename
+#1656657766
+vi rename.sh 
+#1656657780
+cd ..
+#1656657781
+ls
+#1656657794
+cp test2/rename.sh .
+#1656657797
+bash rename.sh 
+#1656657798
+ls
+#1656657817
+ls ../test/
+#1656657824
+mv Mtr.Medicago_truncatula.blast Mtr.blast
+#1656657829
+mv Mtr.Medicago_truncatula.gff Mtr.gff
+#1656657829
+ls
+#1656656910
+tma
+#1656657851
+bjl
+#1656657905
+cp ../test/run.sh .
+#1656657906
+vi run.sh 
+#1656657913
+which DupGen_finder.pl
+#1656657916
+conda env list
+#1656657930
+ls
+#1656657937
+cd ../DupGen_finder/
+#1656657938
+ls
+#1656657939
+addpwd
+#1656657941
+sc
+#1656657942
+cd -
+#1656657948
+vc
+#1656657959
+sc
+#1656657962
+which MCScanX
+#1656657966
+vc
+#1656657972
+ls
+#1656657973
+vi run.sh 
+#1656658004
+ls *.blast > qry_list
+#1656658005
+vi qry_list 
+#1656658025
+bjl
+#1656658034
+ls
+#1656658035
+cd raw_gff/
+#1656658036
+ls
+#1656658049
+logsh
+#1656658057
+cd ..
+#1656658063
+logsh
+#1656658067
+cd -
+#1656658068
+ls
+#1656658079
+bjl
+#1656658080
+cd ..
+#1656658081
+ls
+#1656658082
+cd ..
+#1656658082
+lt
+#1656658083
+lt work.Medicago_truncatula.Aquilegia_coerulea/
+#1656658086
+lt work.Medicago_truncatula.Aquilegia_coerulea/ |head
+#1656658104
+ls work.Medicago_truncatula.Aquilegia_coerulea/*.blast
+#1656658111
+cp work.Medicago_truncatula.Aquilegia_coerulea/Medicago_truncatula.Aquilegia_coerulea.blast work.Medicago_truncatula.Aquilegia_coerulea/Medicago_truncatula.Aquilegia_coerulea.gff input/
+#1656658114
+cd input/
+#1656658120
+mv Medicago_truncatula.Aquilegia_coerulea.gff raw_gff/
+#1656658121
+cd raw_gff/
+#1656658121
+ls
+#1656658128
+more shell 
+#1656658135
+i=Medicago_truncatula.Aquilegia_coerulea.gff
+#1656658139
+perl rename_gff_for_dupgene_finder.pl $i > ../$i
+#1656658140
+cd ..
+#1656658140
+lth
+#1656658143
+bash rename.sh 
+#1656658151
+ls
+#1656658153
+lth
+#1656658159
+les Mtr.Aco.gff 
+#1656658165
+ls
+#1656658167
+vi run.sh 
+#1656658179
+vi *list
+#1656658189
+vi run.sh 
+#1656658195
+ls *list
+#1656658197
+vi run.sh 
+#1656658224
+which bsub512
+#1656658229
+vi run.sh 
+#1656658256
+bash run.sh 
+#1656658257
+bjl
+#1656658266
+bhosts 
+#1656658267
+bjl
+#1656658269
+ls
+#1656658443
+bjl
+#1656658447
+ls output.Mtr.Ac
+#1656658448
+ls output.Mtr.Aca/
+#1656658463
+ls
+#1656658468
+ll output.Mtr.* |les
+#1656658474
+les *err
+#1656658477
+ll *err |les
+#1656658491
+tar -cvzf dupgene_finder_results.tgz output.Mtr.*
+#1656658750
+lth
+#1656658797
+ls
+#1656658815
+mkdir outputs
+#1656658818
+mv output.* outputs/
+#1656658821
+cp rename.sh outputs/
+#1656658822
+cd outputs/
+#1656658823
+ls
+#1656658824
+vi rename.sh 
+#1656658855
+awk '{print $1"  "$3"  "$2"  "$4}' rename.sh > emaner.sh
+#1656658857
+vi emaner.sh 
+#1656658880
+bash emaner.sh 
+#1656658882
+ls
+#1656658908
+grep Angy rename.sh 
+#1656658918
+grep Angy emaner.sh 
+#1656658951
+mv output.Medicago_truncatula.Angylocalyx_brauniius_precatorius output.Medicago_truncatula.Abrus_precatorius
+#1656658963
+grep Dip emaner.sh 
+#1656658977
+mv output.Medicago_truncatula.Dipteryx_alatabergia_odorifera output.Medicago_truncatula.Dalbergia_odorifera
+#1656658978
+ls
+#1656658991
+lt output.Medicago_truncatula.Cercis_chinensis/Mtr*
+#1656659050
+grep mRNA_MtrunA17Chr5g0448621_Metru output.Medicago_truncatula.Cercis_chinensis/Mtr.wgd.pairs
+#1656659059
+grep mRNA_MtrunA17Chr5g0448621_Metru output.Medicago_truncatula.Cercis_chinensis/Mtr.*pairs
+#1656659071
+grep mRNA_MtrunA17Chr5g0448621_Metru output.Medicago_truncatula.*/*wgd.pairs
+#1656659087
+cd output.Medicago_truncatula.Aquilegia_coerulea/
+#1656659093
+grep MtrunA17Chr5g0448621 *
+#1656659099
+cd -
+#1656659107
+grep mRNA_MtrunA17Chr5g0448621_Metru output.Medicago_truncatula.*/*wgd.pairs
+#1656659109
+ls
+#1656659119
+grep mRNA_MtrunA17Chr5g0448621_Metru output.Medicago_truncatula.*/*wgd.pairs
+#1656659161
+ls output.Medicago_truncatula.*/Mtr.wgd.pairs
+#1656659166
+grep mRNA_MtrunA17Chr5g0448621_Metru output.Medicago_truncatula.*/Mtr.wgd.pairs
+#1656659187
+grep MtrunA17Chr5g0448621 output.Medicago_truncatula.*/Mtr.wgd.pairs
+#1656659196
+grep MtrunA17Chr5g0448621 output.Medicago_truncatula.*/Mtr.wgd.genes
+#1656659206
+grep MtrunA17Chr5g0448621 output.Medicago_truncatula.*/Mtr.wgd.pairs
+#1656659288
+cd ..
+#1656659295
+tar -cvzf dupgene_finder_results.tgz outputs/
+#1656657852
+tma
+#1656659305
+cd ..
+#1656659308
+lth
+#1656659302
+tar -czf dupgene_finder_results.tgz outputs/
+#1656659311
+tma
+#1656659334
+lth
+#1656659335
+sz dup
+#1656659336
+Cancelled.
+#1656659337
+# Cancelled transfer
+#1656659338
+lth
+#1656659341
+sz dupgene_finder_results.tgz 
+#1656659418
+# Sent -> /Users/liuhui/Downloads/
+#1656659437
+lt
+#1656659443
+lth
+#1656659447
+cd outputs/
+#1656659500
+ls
+#1656659512
+grep mRNA:MtrunA17Chr1g0147041_Metru */Mtr.wgd.pairs
+#1656659553
+ls output.Medicago_truncatula.Chamaecrista_pumila/
+#1656659565
+grep mRNA:MtrunA17Chr1g0147041_Metru */Mtr.dispersed.pairs
+#1656661405
+ls
+#1656661409
+ls output.Medicago_truncatula.Cercis_chinensis/
+#1656661414
+for i in mRNA_MtrunA17Chr1g0147041_Metru; mRNA_MtrunA17Chr3g0117921_Metru
+#1656661414
+mRNA_MtrunA17Chr5g0428261_Metru
+#1656661448
+for i in mRNA:MtrunA17Chr1g0147041_Metru mRNA:MtrunA17Chr3g0117921_Metru mRNA:MtrunA17Chr5g0428261_Metru mRNA:MtrunA17Chr7g0263361_Metru; do grep $i output.Medicago_truncatula.*/Mtr.tandem.pairs; done
+#1656661476
+for i in MtrunA17Chr1g0147041_Metru MtrunA17Chr3g0117921_Metru MtrunA17Chr5g0428261_Metru MtrunA17Chr7g0263361_Metru; do grep $i output.Medicago_truncatula.*/Mtr.tandem.pairs; done
+#1656661493
+for i in MtrunA17Chr1g0147041_Metru MtrunA17Chr3g0117921_Metru MtrunA17Chr5g0428261_Metru MtrunA17Chr7g0263361_Metru; do grep $i output.Medicago_truncatula.Cercis_chinensis/Mtr.wgd.pairs ; done
+#1656661501
+for i in MtrunA17Chr1g0147041_Metru MtrunA17Chr3g0117921_Metru MtrunA17Chr5g0428261_Metru MtrunA17Chr7g0263361_Metru; do grep $i output.Medicago_truncatula.Cercis_chinensis/Mtr.*.pairs ; done
+#1656659439
+tma
+#1656662307
+j mcscanx
+#1656662309
+lth
+#1656662392
+cd work.Cercis_chinensis.Medicago_truncatula/
+#1656662392
+ls
+#1656662394
+lth
+#1656662398
+ls
+#1656662405
+les Cercis_chinensis.Medicago_truncatula.anchors 
+#1656662567
+cd ../work.Zenia_insignis.Medicago_truncatula/
+#1656662572
+les Zenia_insignis.Medicago_truncatula.anchors 
+#1656662710
+cd ..
+#1656662722
+cd work.Cladrastis_platycarpa.Medicago_truncatula/
+#1656662728
+les Cladrastis_platycarpa.Medicago_truncatula.anchors 
+#1656662804
+cd ..
+#1656662812
+cd work.Cercis_chinensis.Cladrastis_platycarpa/
+#1656662814
+les *.anchors
+#1656662840
+cd ../work.Cercis_chinensis.Zenia_insignis/
+#1656662842
+les *.anchors
+#1656662983
+cd ../work.Zenia_insignis.Medicago_truncatula/
+#1656662985
+les *.anchors
+#1656721425
+top
+#1656721426
+bjl
+#1656722135
+ls
+#1656722137
+lth
+#1656722139
+cd results
+#1656722139
+lt
+#1656722143
+cd ../
+#1656722145
+cd results_dir/
+#1656722146
+ll
+#1656722152
+cd -
+#1656722153
+ls
+#1656722154
+vi legume.sh 
+#1656722174
+lt
+#1656722187
+ls results
+#1656722189
+jobs
+#1656722190
+ps ux
+#1656722208
+ls results
+#1656722215
+ls results/psl/
+#1656722233
+ls results/psl/ > tmp
+#1656722234
+vi tmp
+#1656722248
+cp -r results results_dir/legume_results_25_fabaceae
+#1656723582
+ls
+#1656723587
+lth
+#1656723593
+cd orthofinder_50_sp_result/
+#1656723593
+ll
+#1656723597
+cd Orthologues/
+#1656723598
+ls
+#1656723600
+cd Orthologues_Cercis_chinensis/
+#1656723601
+ls
+#1656723610
+j 05.f
+#1656723614
+vk
+#1656723623
+cd
+#1656723624
+ls
+#1656723639
+history |grep Pisum_sativum.count
+#1656723651
+lt
+#1656723652
+lth
+#1656723656
+cd WGD_gene_tree/
+#1656723656
+ls
+#1656723658
+cd ..
+#1656723683
+mv WGD_gene_tree ~/projects/phyleg/
+#1656723689
+ls
+#1656723696
+ls *pdf
+#1656723698
+rm *pdf
+#1656723699
+lth
+#1656723703
+rm tmp
+#1656723706
+rm formatdb.log perform.txt 
+#1656723707
+lt
+#1656723708
+lth
+#1656723718
+cd projects/phyleg
+#1656723718
+lt
+#1656723723
+ls
+#1656723734
+mv WGD_gene_tree 06.WGD_gene_tree
+#1656723735
+cd 06.WGD_gene_tree/
+#1656723736
+ls
+#1656723738
+cd 02.orthogroup_ortho/
+#1656723738
+ls
+#1656723760
+cd ..
+#1656723760
+ls
+#1656723767
+cd 01.mcscanx_ortho/
+#1656723769
+ls *sh
+#1656723770
+ls
+#1656723773
+les *orhto
+#1656723776
+les *ortho
+#1656723779
+cd ..
+#1656723779
+ls
+#1656723788
+cd 02.orthogroup_ortho/
+#1656723789
+ls
+#1656723803
+python -m iga.project.nitfix
+#1656723820
+python -m iga.project.nitfix comWGD_tree
+#1656723843
+ls *pep
+#1656722132
+ssh yi03
+#1656722120
+tma
+#1656723593
+ssh yi03
+#1656748206
+vi /etc/shadow
+#1656748212
+sudoedit /etc/shadow
+#1656748225
+sudo passwd yanhui
+#1656748276
+vi /etc/passwd
+#1656748302
+cd /nfs/
+#1656748303
+ll
+#1656748309
+ls yanhui1/
+#1656748349
+sudoedit /etc/sudoers
+#1656898732
+bhosts 
+#1656898734
+lsload
+#1656898737
+bjl
+#1656900283
+ll results_dir/
+#1656900285
+cd ..
+#1656900285
+ls
+#1656900288
+cd ..
+#1656900289
+cd -
+#1656900290
+ll
+#1656900291
+cd msa_pipeline/
+#1656900292
+ll
+#1656900296
+cd config/
+#1656900297
+ls
+#1656900300
+vi myconfig.yaml
+#1656900308
+ls ../data/
+#1656900317
+vi myconfig.yaml
+#1656900342
+cp myconfig.yaml ../results_dir/legume_results_25_fabaceae/
+#1656900344
+ls
+#1656900347
+cd ..
+#1656900351
+ls
+#1656900352
+ll
+#1656900358
+cd -
+#1656900359
+ls
+#1656900362
+vi myconfig.yaml
+#1656900383
+cd ..
+#1656900383
+ls
+#1656900274
+tma
+#1656920074
+ls
+#1656920077
+cd projects/
+#1656920079
+dc 
+#1656920088
+mkdir chensiyun
+#1656920119
+ls
+#1656920124
+cp ~/projects/phyleg/mcscanX2/work.Cercis_chinensis.*/*.anchors chensiyun/ &
+#1656920128
+cp ~/projects/phyleg/mcscanX2/work.Cercis_chinensis.*/*.kaks chensiyun/ &
+#1656920130
+cd chensiyun/
+#1656920131
+ll
+#1656920143
+les *anchors
+#1656920184
+ll
+#1656920192
+ll *.*_*_*.kaks
+#1656920199
+rm *.*_*_*.kaks
+#1656920200
+ls
+#1656920238
+les *.anchors
+#1656920248
+cd ..
+#1656920255
+les ~/projects/phyleg/mcscanX2/work.Cercis_chinensis.*/*.collinearity
+#1656920262
+cd -
+#1656920262
+ls
+#1656920625
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/
+#1656920628
+downlht /ds3200_1/users_root/yitingshuang/lh/projects/phyleg/mcscanX_new_genome/new_genome_anchors_kaks.tgz
+#1656920632
+tar -xvzf new_genome_anchors_kaks.tgz 
+#1656920637
+mv work.*/* .
+#1656920641
+ls work.*/
+#1656920645
+rmdir work.*/
+#1656920646
+ls
+#1656920649
+rm new_genome_anchors_kaks.tgz 
+#1656920656
+les 
+#1656920658
+les Sindora_glabra.Cercis_chinensis.anchors 
+#1656920672
+ls
+#1656921191
+cd
+#1656921192
+cd projects/
+#1656921193
+ls
+#1656921194
+cd phyleg
+#1656921194
+ls
+#1656921295
+lth
+#1656921302
+cd mcscanX2
+#1656921312
+mkdir ../mcscanX2_results
+#1656921367
+bsub -m yi04 "cp work*/*.anchors work*/error.* work*/*pdf ../mcscanX2_results/"
+#1656921371
+ll ../mcscanX2_results
+#1656921513
+bjl
+#1656921613
+ls workdir.Glycine_soja.Phaseolus_lunatus
+#1656921617
+ls workdir_Glycine_soja.Phaseolus_lunatus
+#1656921642
+ls work.Glycine_soja.Phaseolus_lunatus
+#1656921644
+lt work.Glycine_soja.Phaseolus_lunatus
+#1656921652
+les work.Glycine_soja.Phaseolus_lunatus/error.496*
+#1656921685
+bjl
+#1656921692
+cd ../mcscanX2_results/
+#1656921757
+bhosts 
+#1656921759
+lsload
+#1656921763
+bjl
+#1656921770
+tma
+#1656921815
+lt results/toast/Zenia_insignis.Polygala_tatarinowii.toast2.maf 
+#1656921820
+bjl
+#1656921823
+bhosts 
+#1656921826
+bjl
+#1656921928
+ls
+#1656921929
+top
+#1656921949
+bjl
+#1656921954
+ls
+#1656921957
+lth
+#1656921961
+ls
+#1656921965
+ls |w c-l
+#1656921967
+ls |wc -l
+#1656923971
+cd results_dir/
+#1656923972
+ls
+#1656923975
+cd legume_results_25_fabaceae/
+#1656923975
+ls
+#1656923982
+cd toast/
+#1656923983
+ls
+#1656923987
+les Zenia_insignis.Medicago_truncatula.toast2.maf 
+#1656924038
+find ~/zhangrong/ -name "NIN_Zn.bed"
+#1656923965
+tma
+#1656924047
+history |less
+#1656924099
+find ~/projects/buzzo/phast/ -name NIN_Zn.bed
+#1656924062
+tma
+#1656924109
+history |less
+#1656924153
+cp ~/zhangrong/maf_filter/NIN_Zn.bed  .
+#1656924154
+ls
+#1656924161
+logsh
+#1656924182
+mafSplit NIN_Zn.bed tmp.out Zenia_insignis.Medicago_truncatula.toast2.maf 
+#1656924214
+more tmp.o
+#1656924219
+lth
+#1656924229
+les tmpchr05_Zeins.00.maf 
+#1656924237
+ll tmpchr05_Zeins.*
+#1656924241
+les tmpchr05_Zeins.00.maf
+#1656984255
+bjl
+#1656924139
+tma
+#1657088297
+cd
+#1657088298
+cd projects/
+#1657088298
+ls
+#1657088301
+cd phyleg
+#1657088302
+lt
+#1657088302
+cd
+#1657088303
+lth
+#1657088306
+cd orthofinder_50_sp_result/
+#1657088309
+ls
+#1657088310
+ll
+#1657088314
+cd Phylogenetic_h
+#1657088316
+cd Phylogenetic_Hierarchical_Orthogroups/
+#1657088316
+lth
+#1657088320
+ls
+#1657088322
+cd orthologs/
+#1657088322
+ls
+#1657088330
+les N0.tsv 
+#1657088332
+cd ortholog_split/
+#1657088333
+ls
+#1657088335
+ll
+#1657088336
+cd ../
+#1657088338
+ls
+#1657088340
+ll
+#1657088341
+cd ..
+#1657088342
+ls
+#1657088346
+ls -d */
+#1657088353
+ls -d */ |grep -v N0.HOG
+#1657088357
+cd for_replace_result/
+#1657088357
+ls
+#1657088361
+ll
+#1657088498
+cd temp/
+#1657088498
+ls
+#1657088511
+ll N0.format.n0.tsv.Datisca_glomerata.paralog 
+#1657088520
+ll N0.tsv.Pisum_sativum.paralog 
+#1657088525
+wc -l N0.tsv.Pisum_sativum.paralog 
+#1657088532
+uplht  N0.tsv.Pisum_sativum.paralog 
+#1657102696
+cd ../..
+#1657102697
+ls
+#1657102711
+grep mRNA_MtrunA17Chr2g0321871_Metru N*.tsv
+#1657102875
+grep mRNA_MtrunA17Chr2g0321871_Metru ../WorkingDirectory/SpeciesIDs.txt 
+#1657102957
+grep mRNA_MtrunA17Chr2g0321871_Metru ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/SequenceIDs.txt 
+#1657102983
+grep mRNA_MtrunA17Chr2g0321871_Metru ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/clusters_OrthoFinder_I1.5.txt
+#1657102990
+grep 31_10425 ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/clusters_OrthoFinder_I1.5.txt
+#1657102993
+les ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/clusters_OrthoFinder_I1.5.txt
+#1657103000
+les ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/clusters_OrthoFinder_I1.5.txt_id_pairs.txt 
+#1657103008
+grep 31_10425 ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/clusters_OrthoFinder_I1.5.txt_id_pairs.txt 
+#1657103043
+grep 31_10425 ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/Blast31_49.txt.gz 
+#1657103047
+les ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/Blast31_49.txt.gz
+#1657103064
+zcat ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/Blast31_49.txt.gz  |grep 31_10425
+#1657103096
+for i in ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/Blast*_31.txt.gz ; do echo $i; zcat $i |grep 31_10425 ; done
+#1657103134
+ls ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/Blast*31*.txt.gz 
+#1657103143
+les ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/Blast*31*.txt.gz 
+#1657103158
+cd ~/yi03/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun22/WorkingDirectory/
+#1657103158
+ll
+#1657103160
+ls
+#1657103164
+ls *gz |wc -l
+#1657103221
+cd ~/yi03/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/WorkingDirectory/
+#1657103221
+ls
+#1657103224
+ls *gz |wc -l
+#1657103250
+grep mRNA_MtrunA17Chr2g0321871_Metru SequenceIDs.txt 
+#1657103257
+grep 45_10425 clusters_OrthoFinder_I1.5.txt
+#1657103259
+grep 45_10425 clusters_OrthoFinder_I1.5.txt_id_pairs.txt 
+#1657103273
+cd -
+#1657103274
+ls
+#1657103276
+cd ../..
+#1657103276
+ls
+#1657103295
+cd -
+#1657103296
+ls
+#1657103305
+grep 45_10425 clusters_OrthoFinder_I1.5.txt_id_pairs.txt 
+#1657103318
+cd -
+#1657103328
+cd /nfs/liuhui/yi03/orthofinder/fasta0613/OrthoFinder/Results_Jun14_2/WorkingDirectory/
+#1657103331
+grep mRNA_MtrunA17Chr2g0321871_Metru SequenceIDs.txt 
+#1657103381
+for i in Blast*.txt.gz ; do echo $i; zcat $i |grep 45_10425 ; done
+#1657103395
+c
+#1657103396
+cd
+#1657103397
+cd yi03
+#1657103398
+ls
+#1657103399
+lt
+#1657103400
+cd orthofinder
+#1657103401
+lt
+#1657103407
+les output.75428 
+#1657103413
+les nohup.out
+#1657103904
+ls
+#1657103910
+cd ../orthofinder_50_sp_result/WorkingDirectory/
+#1657103910
+ls
+#1657103915
+more SpeciesTree_rooted_ids.txt 
+#1657103919
+ls
+#1657103920
+cd ..
+#1657103922
+cd Species_Tree/
+#1657103922
+ls
+#1657103923
+more SpeciesTree_rooted_node_labels.txt 
+#1657104623
+sz SpeciesTree_rooted_node_labels.txt
+#1657104627
+# Sent -> /Users/liuhui/Downloads/
+#1656900288
+ssh yi03
+#1657161276
+j anchors
+#1657161278
+bjl
+#1657161267
+ls
+#1656900385
+bash legume.sh --use-singularity --threads 100
+#1657161268
+tma
+#1657161283
+ssh yi03
+#1657161321
+j anchors
+#1657161322
+j anchor
+#1657161323
+ls
+#1657161325
+lth
+#1657161330
+j anchor
+#1657161334
+cd ../../
+#1657161435
+j outgroup
+#1657161437
+ls
+#1657161441
+cd ..
+#1657161442
+ls
+#1657161461
+grep mRNA_MtrunA17Chr3g0110261  work.Medicago_truncatula.*/*anchors
+#1657161472
+grep mRNA_MtrunA17Chr3g0110261  work.Medicago_truncatula.*/*kask
+#1657161473
+grep mRNA_MtrunA17Chr3g0110261  work.Medicago_truncatula.*/*kaks
+#1657162092
+grep Yangtao2006823_Avcar work.Medicago_truncatula.*/*kaks
+#1657162172
+grep Chr1g0159321 work.Medicago_truncatula.*/*kaks
+#1657162208
+grep PNT37427_Potri work.Medicago_truncatula.*/*kaks
+#1657240891
+bjl
+#1657240876
+bj
+#1657240876
+bjl
+#1657240885
+ls
+#1657240895
+ls results_dir/
+#1657241000
+ls ../../../data/
+#1657241037
+cd ../../..
+#1657241061
+cp config/myconfig.yaml results_dir/legume_results_26_fabales/
+#1657241070
+vi config/
+#1657241104
+cp config/myconfig.yaml config/myconfig.yaml.2
+#1657241110
+vi config/myconfig.yaml
+#1657240917
+cp -r results results_dir/legume_results_26_fabales/
+#1657240893
+ssh yi03
+#1657240878
+tma
+#1657278693
+ll results_dir/
+#1657278700
+ll results_dir/legume_results_26_fabales/
+#1657278705
+ll results_dir/legume_results_26_fabales/phylop/
+#1657278693
+ssh yi03
+#1657330281
+tma
+#1657330329
+ls results
+#1657330331
+ls results/psl/
+#1657330336
+les results/psl/Populus_trichocarpa.psl 
+#1657330286
+ssh yi03
+#1657335695
+python -m jcvi.compara.quota
+#1657335719
+ls
+#1657335720
+lth
+#1657335734
+python -m jcvi.compara.quota
+#1657335744
+j anchors
+#1657335745
+ls
+#1657335754
+lth
+#1657335795
+cd projects/chensiyun/
+#1657335795
+ls
+#1657335808
+ls *anchors
+#1657335826
+ls ~/projects/phyleg/mcscanX2/work.Cercis_chinensis.*/*bed
+#1657335849
+cp /nfs/liuhui/projects/phyleg/mcscanX2/work.Cercis_chinensis.Zenia_insignis/Cercis_chinensis.bed .
+#1657335858
+ls ~/projects/phyleg/mcscanX2/work.Cercis_chinensis.*/*bed |grep -v Cercis_chinensis.bed
+#1657335867
+for i in `ls ~/projects/phyleg/mcscanX2/work.Cercis_chinensis.*/*bed |grep -v Cercis_chinensis.bed`; do cp $i .; done
+#1657335876
+ls
+#1657335891
+python -m jcvi.compara.quota
+#1657335903
+les Cercis_chinensis.Medicago_truncatula.anchors 
+#1657335909
+les Medicago_truncatula.bed 
+#1657335914
+vi Medicago_truncatula.bed 
+#1657335954
+vi *Medicago_truncatula*anchors
+#1657336032
+python -m jcvi.compara.quota --qbed Cercis_chinensis.bed --sbed Medicago_truncatula.bed  Cercis_chinensis.Medicago_truncatula.anchors --quota 1:2--verbose --screen > tmp.out
+#1657336050
+python -m jcvi.compara.quota --qbed Cercis_chinensis.bed --sbed Medicago_truncatula.bed  Cercis_chinensis.Medicago_truncatula.anchors --quota 1:2 --verbose --screen > tmp.out
+#1657336058
+less tmp.out 
+#1657336060
+rm tmp.out 
+#1657336066
+lth
+#1657336070
+les Cercis_chinensis.Medicago_truncatula.1x2
+#1657336075
+less Cercis_chinensis.Medicago_truncatula.1x2.anchors
+#1657336088
+les Cercis_chinensis.Medicago_truncatula.1x2
+#1657336101
+les Cercis_chinensis.Medicago_truncatula.1x2.anchors 
+#1657336139
+grep -v # Cercis_chinensis.Medicago_truncatula.1x2.anchors  |cut -f1 |sort |uniq -c > tmp.out
+#1657336145
+grep -v '#' Cercis_chinensis.Medicago_truncatula.1x2.anchors  |cut -f1 |sort |uniq -c > tmp.out
+#1657336147
+vi tmp.out 
+#1657336155
+sort -k1,1n tmp.out  |head
+#1657336158
+sort -k1,1n tmp.out  |tail
+#1657336218
+less Cercis_chinensis.Medicago_truncatula.anchors 
+#1657336714
+lth
+#1657336728
+python -m jcvi.compara.quota -h
+#1657336735
+python -m jcvi.compara.e
+#1657336739
+python -m jcvi.compara.quota abc
+#1657336747
+python -m jcvi.compara
+#1657336749
+python -m jcvi
+#1657336776
+python -m jcvi.e
+#1657336778
+python -m jcvi
+#1657336780
+python -m jcvi.compara
+#1657336783
+python -m jcvi.compara.synteny
+#1657336785
+python -m jcvi.compara.synteny abc
+#1657336796
+ls ~/
+#1657336797
+ls ~/bin/
+#1657336798
+ls
+#1657336838
+vi ~/.local/lib/python3.8/site-packages/jcvi/compara/quota.py 
+#1657336886
+python -m jcvi.compara.synteny screen
+#1657336937
+vi ~/.local/lib/python3.8/site-packages/jcvi/compara/synteny.py 
+#1657336964
+python -m jcvi.compara.synteny 
+#1657336968
+python -m jcvi.compara.synteny simple
+#1657337144
+vi ~/.local/lib/python3.8/site-packages/jcvi/compara/synteny.py 
+#1657337186
+lth
+#1657337194
+head Cercis_chinensis.Medicago_truncatula.1x2.anchors Cercis_chinensis.Medicago_truncatula.anchors
+#1657337334
+les tmp.out 
+#1657337350
+grep "2 " tmp.out  |wc -l
+#1657337353
+grep "1 " tmp.out  |wc -l
+#1657337357
+grep "3 " tmp.out  |wc -l
+#1657337497
+les tmp.out 
+#1657337510
+grep CECHI00000022-t1_Cechi Cercis_chinensis.Medicago_truncatula.anchors
+#1657337595
+bhosts 
+#1657348200
+les tmp.out 
+#1657348212
+grep MtrunA17Chr5g0448621 Cercis_chinensis.Medicago_truncatula.anchors
+#1657348221
+grep MtrunA17Chr5g0448621 Cercis_chinensis.Medicago_truncatula.1x2.anchors 
+#1657348240
+lth
+#1657350656
+cd quota_align/
+#1657350657
+ls
+#1657350696
+vi leg_35.txt 
+#1657350739
+for i in `cat leg_35.txt`; do echo "python -m jcvi.compara.quota --qbed Cercis_chinensis.bed --sbed $i.bed  Cercis_chinensis.$i.anchors --quota 1:2 --verbose --screen > Cercis_chinensis.$i.anchors.quota_log" >> quota_run.sh; done
+#1657350742
+vi quota_
+#1657350744
+vi quota_run.sh 
+#1657350752
+mv quota_run.sh quota_cercis.sh
+#1657350754
+cd ..
+#1657350760
+mv quota_align ~/projects/buzzo/
+#1657350764
+cd ~/projects/buzzo/
+#1657350764
+lt
+#1657350765
+cd quota_align/
+#1657350765
+lt
+#1657350767
+ls
+#1657350771
+ch
+#1657350772
+chd
+#1657350773
+ll *sh
+#1657350777
+vi quota_cercis.sh 
+#1657350792
+ls
+#1657350812
+vi leg_35.txt 
+#1657350823
+vi quota_
+#1657350826
+vi quota_cercis.sh 
+#1657350831
+rm quota_cercis.sh 
+#1657350834
+for i in `cat leg_35.txt`; do echo "python -m jcvi.compara.quota --qbed Cercis_chinensis.bed --sbed $i.bed  Cercis_chinensis.$i.anchors --quota 1:2 --verbose --screen > Cercis_chinensis.$i.anchors.quota_log" >> quota_run.sh; done
+#1657350855
+vi quota_run.sh 
+#1657350868
+mv quota_run.sh quota_cercis.sh
+#1657350869
+ll *sh
+#1657350871
+vi quota_cercis.sh 
+#1657350917
+bash quota_cercis.sh 
+#1657350927
+vi Cercis_chinensis.Medicago_truncatula.anchors
+#1657350936
+les Medicago_truncatula.bed 
+#1657350945
+les *Medicago*anchors
+#1657350960
+sed -i "s/mRNA:/mRNA_/g" *Medicago*anchors
+#1657350968
+bash quota_cercis.sh 
+#1657351199
+lth
+#1657351202
+bash quota_cercis.sh 
+#1657351208
+rm *log
+#1657351212
+vi quota_cercis.sh 
+#1657351222
+bash quota_cercis.sh 
+#1657351225
+vi quota_cercis.sh 
+#1657351236
+bash quota_cercis.sh 
+#1657351312
+es *bed
+#1657351317
+les Bauhinia_variegata.bed 
+#1657351326
+les *Bauhinia*
+#1657351335
+grep BAUVAR_g17813.t2_Bavar *bed
+#1657351346
+les Cercis_chinensis.Bauhinia_variegata.anchors
+#1657351370
+head *anchors
+#1657351380
+head -1 Cercis*anchors
+#1657351388
+lth
+#1657351441
+les *anchors
+#1657351486
+vi change_col.pl
+#1657351539
+perl change_col.pl
+#1657351544
+perl change_col.plCercis_chinensis.Lysidice_rhodostegia.1x2.anchors |les
+#1657351552
+perl change_col.pl Cercis_chinensis.Lysidice_rhodostegia.1x2.anchors |les
+#1657351560
+vi change_col.pl
+#1657351572
+perl change_col.pl Cercis_chinensis.Lysidice_rhodostegia.1x2.anchors |les
+#1657351574
+vi change_col.pl
+#1657351579
+perl change_col.pl Cercis_chinensis.Lysidice_rhodostegia.1x2.anchors |les
+#1657351615
+for i in Bauhinia_variegata Castanospermum_australe Styphnolobium_japonicum Sindora_glabra; do mv Cercis_chinensis.$i.anchors Cercis_chinensis.$i.anchors.1; perl change_col.pl Cercis_chinensis.$i.anchors.1 > Cercis_chinensis.$i.anchors; done
+#1657351616
+lth
+#1657351620
+les Cercis_chinensis.Bauhinia_variegata.anchors
+#1657351628
+vi change_col.pl 
+#1657351635
+chd change_col.pl 
+#1657351640
+cp change_col.pl $HB/
+#1657351642
+gtp
