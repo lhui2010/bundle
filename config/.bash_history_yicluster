@@ -89966,3 +89966,145 @@ rm format_anchors_to_csy.py
 ln -s /nfs/liuhui/bin/bundle/lh_bin/format_anchors_to_csy.py 
 #1657355168
 gtp
+#1657355172
+gtps
+#1657355180
+lth
+#1657355184
+vi format_anchors_to_csy.py 
+#1657355424
+les *.anchors
+#1657355426
+vi format_anchors_to_csy.py 
+#1657355504
+head *anchors
+#1657355508
+vi format_anchors_to_csy.py 
+#1657355879
+pytho  format_anchors_to_csy.py  -h
+#1657355882
+python  format_anchors_to_csy.py  -h
+#1657355884
+vi format_anchors_to_csy.py 
+#1657355897
+python  format_anchors_to_csy.py  -h
+#1657355899
+vi format_anchors_to_csy.py 
+#1657355952
+python  format_anchors_to_csy.py  -h
+#1657355954
+vi format_anchors_to_csy.py 
+#1657356033
+python  format_anchors_to_csy.py  -h
+#1657356040
+lth
+#1657356050
+more shell 
+#1657356068
+rm Cercis_canadensis.bed 
+#1657356069
+ls
+#1657356126
+python -m jcvi.compara.synteny simple --rich --bed --coords --qbed Cercis_chinensis.bed --sbed Bauhinia_variegata.bed Cercis_chinensis.Bauhinia_variegata.1x2.anchors > Cercis_chinensis.Bauhinia_variegata.1x2.anchors.simple
+#1657356138
+head Cercis_chinensis.Bauhinia_variegata.1x2.anchors Cercis_chinensis.Bauhinia_variegata.1x2.anchors.simple
+#1657356145
+more shell 
+#1657356163
+more Cercis_chinensis.Bauhinia_variegata.1x2.anchors.simple 
+#1657356166
+lth
+#1657356171
+more Cercis_chinensis.Bauhinia_variegata.1x2.simple
+#1657356175
+head Cercis_chinensis.Bauhinia_variegata.1x2.anchors Cercis_chinensis.Bauhinia_variegata.1x2.simple
+#1657356183
+python format_anchors_to_csy.py -h
+#1657356214
+python format_anchors_to_csy.py Medicago_truncatula.bed Bauhinia_variegata.bed -o Cercis_chinensis.Bauhinia_variegata.1x2.anchors -s Cercis_chinensis.Bauhinia_variegata.1x2.simple
+#1657356220
+logsh
+#1657356255
+vi format_anchors_to_csy.py 
+#1657356262
+python format_anchors_to_csy.py Medicago_truncatula.bed Bauhinia_variegata.bed -o Cercis_chinensis.Bauhinia_variegata.1x2.anchors -s Cercis_chinensis.Bauhinia_variegata.1x2.simple
+#1657356285
+python format_anchors_to_csy.py Cercis_chinensis.bed Bauhinia_variegata.bed -o Cercis_chinensis.Bauhinia_variegata.1x2.anchors -s Cercis_chinensis.Bauhinia_variegata.1x2.simple
+#1657356292
+python format_anchors_to_csy.py Cercis_chinensis.bed Bauhinia_variegata.bed -o Cercis_chinensis.Bauhinia_variegata.1x2.anchors -s Cercis_chinensis.Bauhinia_variegata.1x2.simple > test.out
+#1657356304
+mv test.out test.txt
+#1657356306
+sz test.txt 
+#1657356310
+# Sent -> /Users/liuhui/Downloads/
+#1657356328
+les test.txt 
+#1657356583
+vi shell 
+#1657356599
+ll *pl
+#1657356606
+ vi shell 
+#1657356686
+vi format_anchors_to_csy.py 
+#1657356759
+vi shell 
+#1657356880
+bash shell 
+#1657356882
+vi shell 
+#1657356890
+bash shell 
+#1657356900
+lth
+#1657356903
+ll *INPUT
+#1657356907
+vi shell 
+#1657356914
+bash shell 
+#1657356921
+lth
+#1657356924
+les *Input
+#1657356939
+ls *Input
+#1657356945
+les Cercis_chinensis.Bauhinia_variegata.1x2.anchors
+#1657356958
+les Cercis_chinensis.Zenia_insignis.1x2.anchors 
+#1657356962
+vi format_anchors_to_csy.py 
+#1657356978
+bash shell 
+#1657356986
+lth
+#1657356989
+les *Input
+#1657356998
+vi format_anchors_to_csy.py 
+#1657357034
+bash shell 
+#1657357042
+les *Input
+#1657357124
+vi format_anchors_to_csy.py 
+#1657357196
+bash shell 
+#1657357212
+vi format_anchors_to_csy.py 
+#1657357235
+bash shell 
+#1657357239
+vi format_anchors_to_csy.py 
+#1657357253
+bash shell 
+#1657357261
+vi format_anchors_to_csy.py 
+#1657357268
+bash shell 
+#1657357276
+vi format_anchors_to_csy.py 
+#1657357282
+bash shell 

@@ -56,9 +56,9 @@ class BedIO():
             print_buf += self.bed_line[k] + "\n"
         return print_buf
 
-def read_ortho(ortho_file):
+def read_anchors(anchors_file):
     this_dict = collections.OrderedDict()
-    with open(ortho_file) as fh:
+    with open(anchors_file) as fh:
         for line in fh:
             mylist = line.rstrip().split()
             this_dict[mylist[0]] = mylist[1]
@@ -83,19 +83,28 @@ def main():
     parser = argparse.ArgumentParser(description='Merge two bed into one bedpe')
     parser.add_argument("QRY_BED", help="Fasta of query fasta files")
     parser.add_argument("REF_BED", help="Fasta of reference fasta files")
-    parser.add_argument("-o", "--ortho", default='', help="specifying .anchors file")
+    parser.add_argument("-o", "--anchors", default='', help="specifying .anchors file")
     parser.add_argument("-s", "--simple", default='', help="specifying .simple file")
     args = parser.parse_args()  
 
     QRY_BED = args.QRY_BED
     REF_BED = args.REF_BED
-    ORTHO = args.ortho
+    ANCHORS = args.anchors
     SIMPLE = args.simple
-    ortho_applied = 0
+    anchors_applied = 0
 
     qry_bed = BedIO(QRY_BED)
     ref_bed = BedIO(REF_BED)
     key_list = []
+
+#Pv01 DAGchainer 123 456
+    block_prefix = {}
+# 54
+    block_N_pairs = {}
+#matches=chr:start:end
+    block_suffix = {}
+
+    program="MCScanX"
 
 
     if(SIMPLE):
@@ -107,19 +116,32 @@ def main():
             fh.readline()
             for line in fh:
                 (Block, Chr, Start, End, Span, StartGene, EndGene, GeneSpan, Orientation) = line.rstrip().split()
-                if Block in simple_dict:
-                    simple_dict
+                if Block in block_prefix:
+                    block_suffix[Block] = "matches={}:{}:{}".format(Chr, int(Start)-1, int(End))
+                else:
+                    block_prefix[Block] = "{}\t{}\t{}\t{}".format(Chr, program, int(Start)-1, int(End))
 
 
-    if(ORTHO):
-        with open(args.ortho) as fh:
-            block_id = 0
-            block_prefix = "{}-{}-block-".format(QRY_BED.replace('.bed', ''), REF_BED.replace('.bed', ''))
+    if(ANCHORS):
+        #### Alignment 0: score=250.0 e_value=5e-11 N=6 MtrunA17Chr0c01_Metru&chr11_Zeins plus
+        with open(args.anchors) as fh:
+            block_id = -1
+            block_prefix_tag = "{}-{}-block-".format(QRY_BED.replace('.bed', ''), REF_BED.replace('.bed', ''))
             for line in fh:
+                Orientation = ""
                 if(line.startswith("#")):
-                    print(line.rstrip())
-
-                    block +=1;
+                    block_id += 1
+                    this_block_name = block_prefix_tag + str(block_id)
+                    mylist = line.rstrip().split()
+                    if(mylist[-1] == 'plus'):
+                        Orientation = '+'
+                    elif(mylist[-1] == 'minus'):
+                        Orientation = '-'
+                    else:
+                        print("Unknown orientation for {}".format(line))
+                        exit(1)
+                    gene_pair_count = mylist[-3].replace('N=', '')
+                    print("{}\t{}\t{}\t{}".format(block_prefix[this_block_name], gene_pair_count, Orientation, block_suffix[this_block_name]) + ";median_Ks=6")
                 else:
                     (qry_gene, ref_gene, score) = line.rstrip().split()
                     new_line = "{}\t{}".format(qry_bed.chr_start_end[qry_gene], ref_bed.chr_start_end[ref_gene])
