@@ -89932,3 +89932,37 @@ chd
 cp select_block.pl $HB/
 #1657354919
 gtp
+#1657354925
+gtps
+#1657354931
+lth
+#1657354944
+perl select_block.pl Cercis_chinensis.Bauhinia_variegata.1x2 Cercis_chinensis.Bauhinia_variegata.anchors > Cercis_chinensis.Bauhinia_variegata.1x2.anchors
+#1657354946
+les Cercis_chinensis.Bauhinia_variegata.1x2.anchors 
+#1657354953
+les Cercis_chinensis.Bauhinia_variegata.anchors
+#1657354955
+les Cercis_chinensis.Bauhinia_variegata.1x2.anchors 
+#1657354984
+head -1  Cercis_chinensis.Bauhinia_variegata.1x2.anchors 
+#1657354998
+head -1 Cercis_chinensis.Medicago_truncatula.1x2.simple
+#1657355001
+head -2 Cercis_chinensis.Medicago_truncatula.1x2.simple
+#1657355129
+lth
+#1657355140
+ln -s /nfs/liuhui/bin/bundle/lh_bin/select_block.pl 
+#1657355141
+rm select_block.pl 
+#1657355155
+cp format_anchors_to_csy.py $HB/
+#1657355163
+ln -s /nfs/liuhui/bin/bundle/lh_bin/format_anchors_to_csy.py 
+#1657355166
+rm format_anchors_to_csy.py 
+#1657355167
+ln -s /nfs/liuhui/bin/bundle/lh_bin/format_anchors_to_csy.py 
+#1657355168
+gtp
