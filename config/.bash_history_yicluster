@@ -90108,3 +90108,2705 @@ bash shell
 vi format_anchors_to_csy.py 
 #1657357282
 bash shell 
+#1657357289
+gtps
+#1657357303
+cd /nfs/liuhui/projects/buzzo/quota_align/
+#1657357304
+lth
+#1657357305
+ll *INput
+#1657357308
+ll *Input
+#1657357314
+pushd ~/projects/chensiyun/
+#1657357315
+ls
+#1657357317
+mkdir temp
+#1657357318
+mv * temp/
+#1657357319
+ls
+#1657357324
+popd
+#1657357328
+ll *Input
+#1657357332
+cp *Input /nfs/liuhui/projects/chensiyun/
+#1657357339
+ls /nfs/liuhui/projects/chensiyun/*Input
+#1657501361
+ls
+#1657501368
+cd results
+#1657501368
+ls
+#1657501370
+ll
+#1657501396
+bjl
+#1657501358
+tma
+#1657501410
+ls
+#1657501413
+cd yi03
+#1657501416
+ll
+#1657501420
+cd orthofinder_50_sp_result/
+#1657501420
+ls
+#1657501421
+ll
+#1657501426
+cd Gene_Duplication_Events/
+#1657501426
+ls
+#1657501428
+les Duplications.tsv 
+#1657501524
+grep MtrunA17Chr5g0448621 Duplications.tsv 
+#1657502669
+cd 
+#1657502672
+cd yi03
+#1657502672
+ls
+#1657502674
+cd orthofinder
+#1657502674
+ls
+#1657502678
+cd fasta0613_newest/
+#1657502678
+ls
+#1657502693
+cd
+#1657502695
+cd projects/
+#1657502695
+ls
+#1657502699
+cd buzzo/
+#1657502700
+ls
+#1657502701
+lth
+#1657502703
+cd qu
+#1657502704
+cd quota_align/
+#1657502704
+ls
+#1657502708
+grep Chr5g0401131 Medicago_truncatula.bed 
+#1657502716
+cd phylop/
+#1657502717
+ls
+#1657502731
+grep Chr5g0401131 Zenia_insignis.bed 
+#1657502746
+grep Chr5g0401131 Medicago_truncatula.Zenia_insignis.anchors 
+#1657502752
+grep ZEINS00003381-t1_Zeins Zenia_insignis.bed 
+#1657502785
+vi ZnSHR.bed
+#1657502869
+grep Chr7g0245601 Medicago_truncatula.bed
+#1657502878
+grep Chr7g0245601 Medicago_truncatula.Zenia_insignis.anchors 
+#1657502930
+les Medicago_truncatula.Zenia_insignis.anchors 
+#1657503027
+grep ZEINS00020990-t1_Zeins Zenia_insignis.bed 
+#1657503035
+grep ZEINS00032531-t1_Zeins Zenia_insignis.bed 
+#1657503046
+les chr07_Zeins.phylop.final.bed 
+#1657503058
+vi ZnSHR.bed
+#1657503141
+bedtools intersect -wo -a ZnSHR.bed -b chr07_Zeins.phylop.final.bed 
+#1657503147
+vi ZnSHR.bed 
+#1657503155
+bedtools intersect -wo -a ZnSHR.bed -b chr07_Zeins.phylop.final.bed 
+#1657503188
+vi ZnSHR.bed 
+#1657503196
+les chr07_Zeins.phylop.final.bed 
+#1657503210
+ll chr07_Zeins.phylop.final.bed 
+#1657503222
+more ZnSHR.bed 
+#1657503225
+ls
+#1657503258
+bedtools intersect -wo -a ZnSHR.bed -b chr14_Zeins.phylop.final.bed  > ZnSHR_with_two_outgroups. bed
+#1657503275
+bedtools intersect -wo -a ZnSHR.bed -b chr14_Zeins.phylop.final.bed  > ZnSHR_with_two_outgroups.bed
+#1657503313
+les ZnSHR_with_two_outgroups.
+#1657503320
+rm ZnSHR_with_two_outgroups.
+#1657503323
+les ZnSHR_with_two_outgroups.bed 
+#1657503354
+mkdir previous
+#1657503355
+cd previous/
+#1657503355
+ls
+#1657503411
+ln -s  ../../../results_dir/legume_results_25_fabaceae/phylop/chr14_Zeins.phylop.final.bed chr14.fabaceae.phylop.bed
+#1657503428
+ln -s  ../../../results_dir/legume_results_26_fabales/phylop/chr14_Zeins.phylop.final.bed chr14.fabales.phylop.bed 
+#1657503455
+ln -s ../chr14_Zeins.phylop.final.bed chr14.add_populus.bed
+#1657503466
+ln -s ../ZnSHR.bed 
+#1657503466
+ll
+#1657503490
+bedtools intersect
+#1657503523
+for i in chr14*bed; do bedtools intersect -wb -a ZnSHR.bed -b $i  > $i.SHR.bed; done
+#1657503574
+lth
+#1657503580
+les chr14.fabales.phylop.bed.SHR.bed 
+#1657503612
+find $HB/ -iname "*fst*"
+#1657503760
+ls
+#1657503762
+lth
+#1657503769
+les chr14.add_populus.bed.SHR.bed 
+#1657503804
+for i in *SHR.bed; do cut -f7,8,9,10 $i > $i.cut; done
+#1657503806
+les *cut
+#1657503845
+vi `which merge_redun.pl `
+#1657503859
+ls
+#1657503860
+ll
+#1657503862
+lth
+#1657503867
+vi *cut
+#1657503912
+rm ZnSHR.bed.cut 
+#1657503918
+ll *cut 
+#1657503936
+vi chr14.fabales.phylop.bed.SHR.bed.cut
+#1657503954
+vi chr14.fabaceae.phylop.bed.SHR.bed.cut 
+#1657503965
+vi chr14.add_populus.bed.SHR.bed.cut 
+#1657503985
+selectItem.pl -k chr14.fabales.phylop.bed.SHR.bed.cut chr14.fabaceae.phylop.bed.SHR.bed.cut |les
+#1657503995
+selectItem.pl -k chr14.fabales.phylop.bed.SHR.bed.cut chr14.fabaceae.phylop.bed.SHR.bed.cut > tmp1
+#1657504023
+selectItem.pl -k tmp1 chr14.add_populus.bed.SHR.bed.cut > SHR.all_in_three.bed.raw
+#1657504026
+vi *raw
+#1657504050
+cut -f1,2,4,6 SHR.all_in_three.bed.raw | sed "s/::/\t/g" > SHR.all_in_three.bed
+#1657504052
+les SHR.all_in_three.bed
+#1657504066
+les *raw
+#1657504081
+vi *raw
+#1657504090
+cut -f1,2,4,6 SHR.all_in_three.bed.raw | sed "s/::/\t/g" > SHR.all_in_three.bed
+#1657504094
+les SHR.all_in_three.bed
+#1657504133
+head SHR.all_in_three.bed
+#1657504134
+R
+#1657504207
+vi SHR.all_in_three.bed
+#1657504246
+head SHR.all_in_three.bed
+#1657502662
+tma
+#1657504351
+cd /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/results/phylop/previous/
+#1657504352
+lt
+#1657504356
+tma
+#1657504361
+lth
+#1657504364
+sz SHR.all_in_three.bed.pdf
+#1657504367
+# Sent -> /Users/liuhui/Downloads/
+#1657504384
+tma
+#1657504565
+lth
+#1657504570
+sz SHR.all_in_three.bed.pdf
+#1657504573
+# Sent -> /Users/liuhui/Downloads/
+#1657504591
+tma
+#1657504654
+lth
+#1657504661
+rm SHR.all_in_three.bed.pdf
+#1657504664
+sz *pdf
+#1657504667
+# Sent -> /Users/liuhui/Downloads/
+#1657504688
+tma
+#1657504762
+lth
+#1657504769
+sz *pdf
+#1657504772
+# Sent -> /Users/liuhui/Downloads/
+#1657504248
+R
+#1657504925
+ls
+#1657504944
+lth
+#1657504946
+les *cut
+#1657504964
+ls
+#1657504965
+ll
+#1657504986
+les ../../../results_dir/legume_results_25_fabaceae/toast/NIN_Zn.bed 
+#1657504998
+les ../../../results_dir/legume_results_25_fabaceae/toast/tmpchr05_Zeins.00.maf 
+#1657505003
+les ../../../results_dir/legume_results_25_fabaceae/toast/tmpchr05_Zeins.01.maf 
+#1657505023
+les ../../../results_dir/legume_results_25_fabaceae/toast/NIN_Zn.bed 
+#1657505027
+les ../../../results_dir/legume_results_25_fabaceae/toast/tmpchr05_Zeins.01.maf 
+#1657505054
+les ../../../results_dir/legume_results_25_fabaceae/toast/NIN_Zn.bed 
+#1657505096
+ls
+#1657505098
+lth
+#1657505104
+les SHR.all_in_three.bed
+#1657504856
+tma
+#1657505215
+cd -
+#1657505216
+ls
+#1657505220
+j quota
+#1657505220
+ls
+#1657505403
+grep mRNA_MtrunA17Chr5g0448621_Metru Medicago_truncatula.Zenia_insignis.anchors 
+#1657505411
+grep MtrunA17Chr5g0448621_Metru Medicago_truncatula.Zenia_insignis.anchors 
+#1657505418
+grep ZEINS00023322-t1_Zeins Zenia_insignis.bed 
+#1657505427
+ls
+#1657505435
+less Cercis_chinensis.Medicago_truncatula.1x2.simple
+#1657505492
+tma
+#1657505751
+j toast
+#1657505753
+lth
+#1657505761
+more NIN_Zn.bed 
+#1657505764
+les tmpchr05_Zeins.01.maf 
+#1657505837
+j zhangrong
+#1657505838
+ls
+#1657505839
+lt
+#1657505842
+cd maf
+#1657505844
+cd maf_filter/
+#1657505845
+lt
+#1657505850
+les tmpchr05_Zeins.01.maf 
+#1657505856
+more NIN_Zn.bed 
+#1657505923
+j quota
+#1657505925
+grep ZEINS00023322-t1_Zeins Zenia_insignis.bed 
+#1657505859
+les tmpchr05_Zeins.01.maf 
+#1657506158
+ls
+#1657506159
+ll
+#1657506160
+cd ..
+#1657506161
+ls
+#1657506162
+ll
+#1657506172
+ll */
+#1657506185
+cd maf2fas/
+#1657506186
+lt
+#1657506188
+more trained.mod 
+#1657506189
+lt
+#1657506190
+les error.71531 
+#1657506203
+ll Zenia_insignis.fa
+#1657506208
+lt
+#1657506209
+more output.71531 
+#1657506217
+halPhyloPTrain.py All_ref2.hal Zenia_insignis.fa Zenia_insignis.bed trained.mod
+#1657506222
+module load cactus
+#1657506223
+halPhyloPTrain.py All_ref2.hal Zenia_insignis.fa Zenia_insignis.bed trained.mod
+#1657506245
+vi /nfs/apps/packages/cactus-bin-v2.0.5/bin/halPhyloPTrain.py
+#1657506266
+bsub512 "halPhyloPTrain.py All_ref2.hal Zenia_insignis Zenia_insignis.bed trained.mod"
+#1657506267
+t
+#1657506268
+lt
+#1657506272
+bjl
+#1657506275
+lt
+#1657506277
+bjl
+#1657506278
+lt
+#1657506283
+more error.78921
+#1657506332
+rm vi Zenia_insignis.bed 
+#1657506337
+ll
+#1657506389
+les Zenia_insignis.gff3 
+#1657506409
+i=Zenia_insignis.gff3; python -m jcvi.formats.gff bed --type=CDS --key=ID ${i} -o ${i%.gff3}.cds.bed
+#1657506421
+module purge
+#1657506422
+i=Zenia_insignis.gff3; python -m jcvi.formats.gff bed --type=CDS --key=ID ${i} -o ${i%.gff3}.cds.bed
+#1657506450
+lth
+#1657506454
+les Zenia_insignis.cds.bed 
+#1657506466
+vi Zenia_insignis.cds.bed 
+#1657506501
+halPhyloPTrain.py All_ref2.hal Zenia_insignis.fa Zenia_insignis.cds.bed trained.mod
+#1657506505
+module load cactus
+#1657506506
+halPhyloPTrain.py All_ref2.hal Zenia_insignis.fa Zenia_insignis.cds.bed trained.mod
+#1657506557
+halPhyloPTrain.py All_ref2.hal Zenia_insignis Zenia_insignis.cds.bed trained.mod
+#1657506636
+vi Zenia_insignis.cds.bed 
+#1657506657
+halPhyloPTrain.py All_ref2.hal Zenia_insignis Zenia_insignis.cds.bed trained.mod
+#1657507098
+les tmpchr05_Zeins.01.maf 
+#1657507100
+ls
+#1657507102
+lt
+#1657507114
+top
+#1657507760
+lt
+#1657507837
+les Zenia_insignis.cds.bed
+#1657517712
+ls
+#1657518474
+j quota
+#1657518475
+ls
+#1657518479
+vi quota_cercis.sh 
+#1657518498
+vi quota_medicago.sh 
+#1657518504
+vi quota_cercis.sh 
+#1657518524
+cp quota_medicago.sh quota_medicago.sh.1
+#1657518526
+vi quota_medicago.sh.1 
+#1657518596
+rm quota_medicago.sh; for i in `cat quota_medicago.sh.1`; do echo "python -m jcvi.compara.quota --qbed Medicago_truncatula.bed --sbed $i.bed  Medicago_truncatula.$i.anchors --quota 1:2 " >> quota_medicago.sh; done
+#1657518598
+vi quota_medicago.sh
+#1657518751
+bash quota_medicago.sh
+#1657518892
+vi Medicago_truncatula.Zenia_insignis.anchors 
+#1657518900
+vi Medicago_truncatula.bed 
+#1657518903
+vi Medicago_truncatula.Zenia_insignis.anchors 
+#1657518914
+vi shell 
+#1657518920
+grep Zenia quota_medicago.sh
+#1657518923
+python -m jcvi.compara.quota --qbed Medicago_truncatula.bed --sbed Zenia_insignis.bed  Medicago_truncatula.Zenia_insignis.anchors --quota 2:2
+#1657518931
+ls
+#1657518932
+lth
+#1657518936
+vi shell 
+#1657518949
+mkdir temp
+#1657518952
+cd temp/
+#1657518952
+ls
+#1657518956
+cd -
+#1657518957
+ls
+#1657518962
+mkdir Medicago_process
+#1657518964
+cd Medicago_process/
+#1657518966
+cp ../shell .
+#1657518983
+for i in ../Medicago_truncatula.*.*x*; do ln -s $i; done
+#1657518984
+ls
+#1657518992
+for i in ../Medicago_truncatula.*.anchors; do ln -s $i; done
+#1657518992
+ls
+#1657519003
+vi shell 
+#1657519032
+for i in ../*bed;do ln -s $i; done
+#1657519033
+ls
+#1657519037
+vi shell 
+#1657519052
+ll ../format_anchors_to_csy.py 
+#1657519055
+ln -s ../format_anchors_to_csy.py 
+#1657519057
+vi shell 
+#1657519069
+ls *.anchors > ref_list.txt
+#1657519069
+vi ref_list.txt 
+#1657519120
+j polygala
+#1657519121
+ls
+#1657519130
+cd ../
+#1657519131
+ls
+#1657519133
+cd work.Medicago_truncatula.Polygala_tatarinowii/
+#1657519133
+ls
+#1657519135
+ls *.anchors
+#1657519139
+ls *.anchors *.kaks
+#1657519330
+j triangle
+#1657519671
+lth
+#1657519770
+ln -s ../Medicago_truncatula.Polygala_tatarinowii.anchors 
+#1657519774
+les Medicago_truncatula.Polygala_tatarinowii.anchors 
+#1657519793
+ls
+#1657519798
+ls *sh
+#1657519808
+les shell 
+#1657519815
+ls *sh
+#1657519821
+cd ..
+#1657519822
+ls
+#1657519832
+lt Medicago_truncatula.*anchors |head -7
+#1657519857
+vi quota_medicago.sh
+#1657519903
+python -m jcvi.compara.quota --qbed Medicago_truncatula.bed --sbed Polygala_tatarinowii.bed  Medicago_truncatula.Polygala_tatarinowii.anchors --quota 2:4
+#1657519914
+cd -
+#1657519922
+ln -s ../Medicago_truncatula.Polygala_tatarinowii.2x4 
+#1657519924
+ln -s ../Medicago_truncatula.Polygala_tatarinowii.anchors 
+#1657519926
+ls
+#1657519933
+vUvi ref_list.txt 
+#1657519935
+vi ref_list.txt 
+#1657519961
+vi shell 
+#1657519975
+ll ../format_anchors_to_csy.py 
+#1657519978
+ln -s ../format_anchors_to_csy.py 
+#1657519981
+vi shell 
+#1657520004
+bash shell 
+#1657520020
+vi shell 
+#1657520040
+bash shell 
+#1657520046
+ll Medicago_truncatula.Abrus_precatorius.1x2.anchors
+#1657520048
+vi shell 
+#1657520078
+bash shell 
+#1657520114
+ll Medicago_truncatula.Aeschynomene_evenia.1x2.anchors
+#1657520116
+vi shell 
+#1657520581
+cp /nfs/liuhui/projects/Polygala_tatarinowii/synteny/work.Cercis_chinensis.Polygala_tatarinowii/Polygala_tatarinowii.bed ../
+#1657520597
+ln -s ../Polygala_tatarinowii.bed 
+#1657520605
+ll Polygala_tatarinowii.bed 
+#1657520609
+ls
+#1657520616
+vi shell 
+#1657520620
+bash shell 
+#1657520761
+ll Medicago_truncatula.Lysidice_rhodostegia.*
+#1657520784
+ll Medicago_truncatula.Melilotus_albus.*
+#1657520819
+lth
+#1657520835
+grep mRNA_MtrunA17Chr1g0147041_Metru *Input
+#1657520893
+grep mRNA_MtrunA17Chr1g0147041_Metru ../*kaks
+#1657521132
+grep mRNA_MtrunA17Chr1g0147041_Metru Medicago_truncatula.Cercis_chinensis.anchors 
+#1657521160
+grep mRNA_MtrunA17Chr1g0147041_Metru Medicago_truncatula.Cercis_chinensis.*Input
+#1657521166
+les Medicago_truncatula.Cercis_chinensis.*Input
+#1657521195
+cp ../Cercis_chinensis.Medicago_truncatula.KaryotypeInput Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657521199
+grep mRNA_MtrunA17Chr1g0147041_Metru Medicago_truncatula.Cercis_chinensis.*Input
+#1657521213
+grep CECHI00002578-t1_Cechi Medicago_truncatula.Cercis_chinensis.*Input
+#1657521374
+grep mRNA_MtrunA17Chr3g0126851_Metru Medicago_truncatula.Zenia_insignis.*Input
+#1657521390
+grep mRNA_MtrunA17Chr1g0147041_Metru Medicago_truncatula.Zenia_insignis.*Input
+#1657521585
+grep mRNA_MtrunA17Chr1g0147041_Metru Medicago_truncatula.Polygala_tatarinowii.*Input
+#1657521599
+les Medicago_*Poly*INput
+#1657521602
+les Medicago_*Poly*Input
+#1657521612
+grep mRNA_MtrunA17Chr3g0126851_Metru Medicago_truncatula.Polygala_tatarinowii.KaryotypeInput 
+#1657521624
+grep POTAT00026144-t2_Potat Medicago_truncatula.Polygala_tatarinowii.KaryotypeInput
+#1657522160
+grep mRNA_MtrunA17Chr1g0147041_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput 
+#1657522165
+grep CECHI00002578-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657522238
+grep mRNA_MtrunA17Chr1g0181391_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657522241
+grep CECHI00002180-t3_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657522316
+grep mRNA_MtrunA17Chr5g0428261_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657522320
+grep CECHI00003034-t2_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657522413
+grep MtrunA17Chr5g0448621_Metru Medicago_truncatula.Zenia_insignis.anchors 
+#1657522997
+les Medicago_truncatula.Cercis_chinensis.*Input
+#1657523006
+grep -v MCScanX Medicago_truncatula.Cercis_chinensis.*Input |les
+#1657523056
+vi [1] "mRNA_MtrunA17Chr5g0432441_Metru N6"
+#1657523065
+lth
+#1657523071
+vi N6_candidate.txt
+#1657523107
+tt Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657523121
+selectItem.pl 0 5 N6_candidate.txt Medicago_truncatula.Cercis_chinensis.KaryotypeInput > N6_candidate.txt.addKaryo
+#1657523125
+les N6_candidate.txt.addKaryo 
+#1657523153
+selectItem.pl 1 1 N6_candidate.txt.addKaryo Medicago_truncatula.Cercis_chinensis.KaryotypeInput |les
+#1657523161
+selectItem.pl 1 1 N6_candidate.txt.addKaryo Medicago_truncatula.Cercis_chinensis.KaryotypeInput |cut -f2 |uniq -c |less
+#1657523171
+selectItem.pl 1 1 N6_candidate.txt.addKaryo Medicago_truncatula.Cercis_chinensis.KaryotypeInput |cut -f2 |sort  |uniq -c |less
+#1657523179
+les N6_candidate.txt.addKaryo 
+#1657523182
+selectItem.pl 1 1 N6_candidate.txt.addKaryo Medicago_truncatula.Cercis_chinensis.KaryotypeInput |cut -f2 |sort  |uniq -c |less
+#1657523232
+grep CECHI00017064-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657523249
+grep mRNA_MtrunA17Chr4g0036041_Metru Medicago_truncatula.Bauhinia_variegata.KaryotypeInput 
+#1657523266
+grep mRNA_MtrunA17Chr4g0036041_Metru Medicago_truncatula.Zenia_insignis.KaryotypeInput 
+#1657523271
+grep ZEINS00023437-t1_Zeins Medicago_truncatula.Zenia_insignis.KaryotypeInput
+#1657523293
+grep mRNA_MtrunA17Chr4g0036041_Metru ../Medicago_truncatula.Averrhoa_carambola.anchors 
+#1657523346
+grep mRNA_MtrunA17Chr4g0036041_Metru ../Medicago_truncatula.Populus_trichocarpa.anchors 
+#1657523481
+vi test.txt
+#1657523523
+selectItem.pl N6_candidate.txt test.txt 
+#1657523526
+vi test.txt 
+#1657523547
+sort test.txt  > MtAcronymID.txt
+#1657523553
+sort test.txt |uniq  > MtAcronymID.txt
+#1657523555
+vi MtAcronymID.txt 
+#1657523566
+selectItem.pl N6_candidate.txt MtAcronymID.txt 
+#1657523572
+vi MtAcronymID.txt 
+#1657523585
+selectItem.pl N6_candidate.txt MtAcronymID.txt 
+#1657523762
+les N6_candidate.txt.addKaryo
+#1657523787
+selectItem.pl N6_candidate.txt MtAcronymID.txt> N6_candidate.txt.withAcronymID
+#1657523790
+vi N6_candidate.txt.withAcronymID
+#1657523798
+les N6_candidate.txt.addKaryo 
+#1657523801
+tt N6_candidate.txt.addKaryo 
+#1657523806
+tt N6_candidate.txt.withAcronymID
+#1657523827
+selectItem.pl 0 5 N6_candidate.txt.withAcronymID N6_candidate.txt.addKaryo |less
+#1657523832
+selectItem.pl 0 5 N6_candidate.txt.withAcronymID N6_candidate.txt.addKaryo |les
+#1657523922
+vi 
+#1657523937
+selectItem.pl 0 5 N6_candidate.txt.withAcronymID N6_candidate.txt.addKaryo |cut -f6> N6_candidate.txt.withAcronymID.ccortho
+#1657523940
+les N6_candidate.txt.withAcronymID.ccortho
+#1657523947
+selectItem.pl 0 5 N6_candidate.txt.withAcronymID N6_candidate.txt.addKaryo |les
+#1657523956
+selectItem.pl 0 5 N6_candidate.txt.withAcronymID N6_candidate.txt.addKaryo |cut -f1> N6_candidate.txt.withAcronymID.ccortho
+#1657523959
+les N6_candidate.txt.withAcronymID.ccortho
+#1657523964
+selectItem.pl 0 5 N6_candidate.txt.withAcronymID N6_candidate.txt.addKaryo |cut -f2> N6_candidate.txt.withAcronymID.ccortho
+#1657523967
+les N6_candidate.txt.withAcronymID.ccortho
+#1657523978
+selectItem.pl N6_candidate.txt.withAcronymID.ccortho N6_candidate.txt.addKaryo |cut -f2 |les
+#1657523984
+selectItem.pl 0 1 N6_candidate.txt.withAcronymID.ccortho N6_candidate.txt.addKaryo |cut -f2 |les
+#1657523994
+selectItem.pl 0 1 N6_candidate.txt.withAcronymID.ccortho N6_candidate.txt.addKaryo |les
+#1657524003
+selectItem.pl 0 1 N6_candidate.txt.withAcronymID.ccortho N6_candidate.txt.addKaryo |cut -f2 |sort |uniq -c
+#1657524011
+grep CECHI00001536-t1_Cechi N6_candidate.txt.addKaryo
+#1657524034
+vi N6_candidate.txt.withAcronymID.ccortho 
+#1657524037
+vi N6_candidate.txt.withAcronymID
+#1657524045
+vi N6_candidate.txt.withAcronymID 
+#1657524061
+cp N6_candidate.txt.withAcronymID  N6_candidate.txt.withAcronymID.noWGD
+#1657524067
+vi N6_candidate.txt.withAcronymID.noWGD
+#1657524121
+selectItem.pl 0 1 N6_candidate.txt.withAcronymID.ccortho Medicago_truncatula.Cercis_chinensis.KaryotypeInput |cut -f2 |sort |uniq -c |les
+#1657524131
+selectItem.pl 0 1 N6_candidate.txt.withAcronymID.ccortho Medicago_truncatula.Cercis_chinensis.KaryotypeInput |cut -f2 |sort |uniq -c |grep " 2"
+#1657524149
+les N6_candidate.txt.withAcronymID.ccortho
+#1657524169
+les Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657524200
+vi N6_candidate.txt.withAcronymID.ccorthoWGD
+#1657524221
+selectItem.pl 0 1 N6_candidate.txt.withAcronymID.ccorthoWGD Medicago_truncatula.Cercis_chinensis.KaryotypeInput |les
+#1657524238
+selectItem.pl 0 1 N6_candidate.txt.withAcronymID.ccorthoWGD Medicago_truncatula.Cercis_chinensis.KaryotypeInput |cut -f6 |les
+#1657524254
+selectItem.pl 0 1 N6_candidate.txt.withAcronymID.ccorthoWGD Medicago_truncatula.Cercis_chinensis.KaryotypeInput |cut -f6 > N6_candidate.txt.withAcronymID.ccorthoWGD.txt
+#1657524264
+mv N6_candidate.txt.withAcronymID.ccorthoWGD.txt N6_candidate.txt.withAcronymID.ccorthoWGD.Medicago
+#1657524267
+les N6_candidate.txt.withAcronymID.ccorthoWGD.Medicago
+#1657524281
+les  N6_candidate.txt.withAcronymID
+#1657524290
+unselectItem.pl N6_candidate.txt.withAcronymID.ccorthoWGD.Medicago N6_candidate.txt.withAcronymID
+#1657524344
+lth
+#1657524387
+vi MtAcronymID.txt.info
+#1657524481
+unselectItem.pl N6_candidate.txt.withAcronymID.ccorthoWGD.Medicago N6_candidate.txt.withAcronymID > N6_candidate.txt.withAcronymID.noWGD
+#1657524485
+vi N6_candidate.txt.withAcronymID.noWGD 
+#1657524499
+selectItem.pl N6_candidate.txt.withAcronymID.noWGD MtAcronymID.txt.info
+#1657524737
+grep MtrunA17Chr1g0147041 N6_candidate.txt.withAcronymID.ccorthoWGD.Medicago
+#1657524958
+grep MtrunA17Chr5g0428261  Medicago_truncatula.Cercis_chinensis.KaryotypeInput 
+#1657524963
+grep CECHI00003034-t2_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657525200
+grep Chr1g0159321 Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657525207
+grep Chr1g0159321 Medicago_truncatula.Bauhinia_variegata.KaryotypeInput 
+#1657525214
+grep BAUVAR_g22821.t1_Bavar Medicago_truncatula.Bauhinia_variegata.KaryotypeInput
+#1657525225
+grep BAUVAR_g22821.t1_Bavar Medicago_truncatula.Sindora_glabra.KaryotypeInput 
+#1657525231
+grep Chr1g0159321 Medicago_truncatula.Sindora_glabra.KaryotypeInput 
+#1657525273
+grep Chr3g0126011 Medicago_truncatula.Cercis_chinensis.anchors 
+#1657525280
+grep Chr3g0126011 Medicago_truncatula.*anchors |less
+#1657525285
+grep Chr3g0126011 Medicago_truncatula.*anchors 
+#1657526439
+les Medicago_truncatula.Cercis_chinensis.KaryotypeInput 
+#1657526451
+grep -v MCS Medicago_truncatula.Cercis_chinensis.KaryotypeInput  |cut -f2,6 |les
+#1657526516
+grep -v MCS Medicago_truncatula.Cercis_chinensis.KaryotypeInput  |cut -f2,6 |sort -u -k1,1 |les
+#1657526523
+grep -v MCS Medicago_truncatula.Cercis_chinensis.KaryotypeInput  |cut -f2,6 |sort -u -k1,1 -t"\t" |les
+#1657526533
+grep -v MCS Medicago_truncatula.Cercis_chinensis.KaryotypeInput  |cut -f2,6 |sort -u -k1,1 -t\t |les
+#1657526541
+grep -v MCS Medicago_truncatula.Cercis_chinensis.KaryotypeInput  |cut -f2,6 |sort -u -k1,1 |les
+#1657526545
+grep -v MCS Medicago_truncatula.Cercis_chinensis.KaryotypeInput  |cut -f2,6 |sort -k1,1 |les
+#1657526562
+grep -v MCS Medicago_truncatula.Cercis_chinensis.KaryotypeInput  |cut -f2 |sort |uniq -c |les
+#1657526568
+grep -v MCS Medicago_truncatula.Cercis_chinensis.KaryotypeInput  |cut -f2 |sort |uniq -c |grep " 2" |les
+#1657526587
+grep -v MCS Medicago_truncatula.Cercis_chinensis.KaryotypeInput  |cut -f2 |sort |uniq -c |grep " 2" > Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDCCName
+#1657526590
+les Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDCCName
+#1657526604
+grep -v MCS Medicago_truncatula.Cercis_chinensis.KaryotypeInput  |cut -f2 |sort |uniq -c |grep " 2" |awk '{print $2}' > Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDCCName
+#1657526605
+les Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDCCName
+#1657526628
+selectItem.pl 0 1 Medicago_truncatula.Cercis_chinensis.KaryotypeInput|cut -f6 > Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657526647
+selectItem.pl 0 1 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDCCName  Medicago_truncatula.Cercis_chinensis.KaryotypeInput |cut -f6 > Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657526650
+les Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657526706
+grep MtrunA17Chr2g029165 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657526723
+grep MtrunA17Chr8g0352611 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657526732
+grep MtrunA17Chr8g0381261 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657526771
+grep MtrunA17Chr2g029165 Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657526775
+grep CECHI00005894-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657526844
+grep MtrunA17Chr8g0352611 *KaryotypeInput
+#1657526867
+les *KaryotypeInput
+#1657526891
+grep Chr8g0352611 *KaryotypeInput
+#1657527004
+les Medicago_truncatula.Duparquetia_orchidacea.KaryotypeInput 
+#1657527013
+grep Chr8g0352611 Medicago_truncatula.Duparquetia_orchidacea.KaryotypeInput
+#1657527016
+grep Chr8g0352611 Medicago_truncatula.Duparquetia_orchidacea.anchors 
+#1657527041
+grep DUORC00035512-t1_Duorc Medicago_truncatula.Duparquetia_orchidacea.anchors
+#1657527196
+grep MtrunA17Chr8g0352611 Medicago_truncatula.*anchors
+#1657527207
+grep MtrunA17Chr8g0381261 Medicago_truncatula.*anchors
+#1657527217
+grep MtrunA17Chr8g0381261 Medicago_truncatula.*Input
+#1657527229
+lth
+#1657527232
+grep MtrunA17Chr8g0381261 Medicago_truncatula.*Input Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657527240
+grep MtrunA17Chr8g0381261 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657527280
+grep MtrunA17Chr8g0381261 Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657527284
+grep CECHI00018361-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657527293
+grep MtrunA17Chr8g0381261 Medicago_truncatula.Bauhinia_variegata.
+#1657527295
+grep MtrunA17Chr8g0381261 Medicago_truncatula.Bauhinia_variegata.KaryotypeInput 
+#1657527299
+grep BAUVAR_g17354.t1_Bavar Medicago_truncatula.Bauhinia_variegata.KaryotypeInput
+#1657527307
+grep BAUVAR_g17354.t1_Bavar Medicago_truncatula.Duparquetia_orchidacea.KaryotypeInput 
+#1657527316
+grep MtrunA17Chr8g0381261 Medicago_truncatula.Duparquetia_orchidacea.KaryotypeInput 
+#1657527320
+grep DUORC00003828-t1 Medicago_truncatula.Duparquetia_orchidacea.KaryotypeInput
+#1657527329
+grep DUORC00003828-t1 Medicago_truncatula.Polygala_tatarinowii.KaryotypeInput 
+#1657527336
+grep MtrunA17Chr8g0381261 Medicago_truncatula.Polygala_tatarinowii.KaryotypeInput 
+#1657527348
+grep MtrunA17Chr8g0381261 ../Medicago_truncatula.Averrhoa_carambola.anchors 
+#1657527397
+grep Yangtao2013459_Avcar ../Medicago_truncatula.Averrhoa_carambola.anchors
+#1657527474
+grep MtrunA17Chr8g0381261 ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657527673
+lth
+#1657527677
+grep MtrunA17Chr5g0445131 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657527685
+grep MtrunA17Chr5g0445131 Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657527691
+grep MtrunA17Chr5g0445131 Medicago_truncatula.Polygala_tatarinowii.KaryotypeInput 
+#1657527707
+grep CECHI00011579-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657527726
+grep MtrunA17Chr5g0445131 ../Medicago_truncatula.Averrhoa_carambola.anchors 
+#1657527730
+grep Yangtao2000830_Avcar ../Medicago_truncatula.Averrhoa_carambola.anchors
+#1657527777
+grep CECHI00011579-t1_Cechi Medicago_truncatula.Duparquetia_orchidacea.KaryotypeInput 
+#1657527782
+grep CECHI00011579-t1_Cechi Medicago_truncatula.Zenia_insignis.KaryotypeInput 
+#1657527790
+grep MtrunA17Chr5g0445131 ../Medicago_truncatula.Duparquetia_orchidacea.K
+#1657527801
+grep MtrunA17Chr5g0445131 Medicago_truncatula.Duparquetia_orchidacea.KaryotypeInput 
+#1657527806
+grep MtrunA17Chr5g0445131 Medicago_truncatula.Zenia_insignis.KaryotypeInput 
+#1657527814
+grep ZEINS00026735-t1_Zeins Medicago_truncatula.Zenia_insignis.KaryotypeInput
+#1657527819
+grep ZEINS00027644-t1_Zeins Medicago_truncatula.Zenia_insignis.KaryotypeInput
+#1657527873
+lth
+#1657527876
+grep MtrunA17Chr7g0222521 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657527903
+grep MtrunA17Chr7g0222521 Medicago_truncatula.Cercis_chinensis.KaryotypeInput Medicago_truncatula.Polygala_tatarinowii.KaryotypeInput Medicago_truncatula.Duparquetia_orchidacea.KaryotypeInput ../Medicago_truncatula.Averrhoa_carambola.anchors 
+#1657527920
+grep MtrunA17Chr7g0222521 Medicago_truncatula.Duparquetia_orchidacea.KaryotypeInput 
+#1657527925
+grep MtrunA17Chr7g0222521 Medicago_truncatula.Zenia_insignis.KaryotypeInput 
+#1657527932
+grep MtrunA17Chr7g0222521 Medicago_truncatula.Bauhinia_variegata.KaryotypeInput 
+#1657527988
+pgrep MtrunA17Chr7g0222521 *KaryotypeInput |les
+#1657527992
+grep MtrunA17Chr7g0222521 *KaryotypeInput |les
+#1657527998
+grep MtrunA17Chr7g0222521 *KaryotypeInput |cut -f1
+#1657528069
+grep MtrunA17Chr7g0222521 ../Medicago_truncatula.Averrhoa_carambola.anchors ../Medicago_truncatula.Arabidopsis_thaliana.anchors ../Medicago_truncatula.Vitis_vinifera.anchors ../Medicago_truncatula.Populus_trichocarpa.anchors ../Medicago_truncatula.Oryza_sativa.anchors 
+#1657528298
+grep mRNA_MtrunA17Chr1g0186821_Metru ../Medicago_truncatula.Averrhoa_carambola.anchors ../Medicago_truncatula.Arabidopsis_thaliana.anchors ../Medicago_truncatula.Vitis_vinifera.anchors ../Medicago_truncatula.Populus_trichocarpa.anchors ../Medicago_truncatula.Oryza_sativa.anchors 
+#1657528310
+grep Yangtao2009058_Avcar ../Medicago_truncatula.Averrhoa_carambola.anchors
+#1657528317
+lth
+#1657528322
+grep mRNA_MtrunA17Chr1g0186821_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657528393
+grep mRNA_MtrunA17Chr1g0186821_Metru Medicago_truncatula.Senna_septemtrionalis.KaryotypeInput 
+#1657528401
+grep SESEP00019913-t1_Sesep Medicago_truncatula.Senna_septemtrionalis.KaryotypeInput 
+#1657528410
+grep SESEP00009821-t1_Sesep Medicago_truncatula.Senna_septemtrionalis.KaryotypeInput
+#1657528489
+grep MtrunA17Chr3g0123331 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657528508
+grep MtrunA17Chr1g0186821 ../Medicago_truncatula.Averrhoa_carambola.anchors ../Medicago_truncatula.Arabidopsis_thaliana.anchors ../Medicago_truncatula.Vitis_vinifera.anchors ../Medicago_truncatula.Populus_trichocarpa.anchors ../Medicago_truncatula.Oryza_sativa.anchors 
+#1657528514
+grep Yangtao2009058_Avcar ../Medicago_truncatula.Averrhoa_carambola.anchors
+#1657528525
+grep MtrunA17Chr1g0186821 *KaryotypeInput |les
+#1657528548
+grep BAUVAR_g17996.t1_Bavar Medicago_truncatula.Bauhinia_variegata.KaryotypeInput 
+#1657528652
+grep BAUVAR_g17996.t1_Bavar Medicago_truncatula.Zenia_insignis.KaryotypeInput 
+#1657528656
+grep BAUVAR_g17996.t1_Bavar Medicago_truncatula.Duparquetia_orchidacea.
+#1657528657
+grep BAUVAR_g17996.t1_Bavar Medicago_truncatula.Duparquetia_orchidacea.KaryotypeInput 
+#1657528667
+grep MtrunA17Chr1g0186821 *KaryotypeInput |les
+#1657528706
+grep MtrunA17Chr1g0186821 ../Medicago_truncatula.Averrhoa_carambola.anchors ../Medicago_truncatula.Arabidopsis_thaliana.anchors ../Medicago_truncatula.Vitis_vinifera.anchors ../Medicago_truncatula.Populus_trichocarpa.anchors ../Medicago_truncatula.Oryza_sativa.anchors 
+#1657528719
+grep MtrunA17Chr1g0186821 ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657528821
+grep MtrunA17Chr3g0123331 ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657528825
+grep MtrunA17Chr3g0123331 ../Medicago_truncatula.Averrhoa_carambola.anchors 
+#1657528836
+grep MtrunA17Chr3g0123331 *KaryotypeInput |les
+#1657528839
+grep MtrunA17Chr3g0123331 *KaryotypeInput
+#1657528851
+grep MtrunA17Chr3g0123331 ../*anchors
+#1657528875
+grep MtrunA17Chr3g0123331 Medicago_truncatula.Bauhinia_variegata.anchors 
+#1657528923
+lth
+#1657528927
+grep mRNA_MtrunA17Chr4g0008841_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName 
+#1657528936
+grep mRNA_MtrunA17Chr4g0008841_Metru *Input |les
+#1657528991
+grep MtrunA17Chr4g0008841 ../Medicago_truncatula.Averrhoa_carambola.anchors ../Medicago_truncatula.Arabidopsis_thaliana.anchors ../Medicago_truncatula.Vitis_vinifera.anchors ../Medicago_truncatula.Populus_trichocarpa.anchors ../Medicago_truncatula.Oryza_sativa.anchors 
+#1657528997
+grep Yangtao2002659_Avcar ../Medicago_truncatula.Averrhoa_carambola.anchors
+#1657529011
+grep MtrunA17Chr4g0008841 ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657529028
+grep Yangtao2016054_Avcar ../Medicago_truncatula.Averrhoa_carambola.anchors 
+#1657529039
+grep Yangtao2016054_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657529102
+lth
+#1657529105
+mRNA_MtrunA17Chr4g0042561_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657529113
+grep mRNA_MtrunA17Chr4g0042561_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName 
+#1657529122
+grep mRNA_MtrunA17Chr4g0042561_Metru *Input |les
+#1657529206
+grep mRNA_MtrunA17Chr4g0042561_Metru ../Medicago_truncatula.Averrhoa_carambola.anchors ../Medicago_truncatula.Arabidopsis_thaliana.anchors ../Medicago_truncatula.Vitis_vinifera.anchors ../Medicago_truncatula.Populus_trichocarpa.anchors ../Medicago_truncatula.Oryza_sativa.anchors 
+#1657529212
+grep Yangtao2013145_Avcar ../Medicago_truncatula.Averrhoa_carambola.anchors
+#1657529224
+grep mRNA_MtrunA17Chr4g0042561_Metru ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657529231
+grep Yangtao2013145_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657529284
+lth
+#1657529287
+grep MtrunA17Chr5g0427961 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657529294
+grep MtrunA17Chr5g0427961 *Input |les
+#1657529309
+grep MtrunA17Chr5g0427961 Medicago_truncatula.Bauhinia_variegata.KaryotypeInput
+#1657529314
+grep BAUVAR_g24154.t2_Bavar Medicago_truncatula.Bauhinia_variegata.KaryotypeInput
+#1657529328
+grep MtrunA17Chr5g0427961 ../Medicago_truncatula.Averrhoa_carambola.anchors 
+#1657529333
+grep Yangtao2021028_Avcar ../Medicago_truncatula.Averrhoa_carambola.anchors
+#1657529338
+grep MtrunA17Chr5g0427961 ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657529343
+grep Yangtao2021028_Avcar ../Medicago_truncatula.Averrhoa_carambola.anchors
+#1657529350
+grep Yangtao2021028_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657529467
+lth
+#1657529470
+grep MtrunA17Chr7g0252331 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657529475
+grep MtrunA17Chr7g0252331 *Input |les
+#1657529521
+grep MtrunA17Chr7g0252331 ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657529529
+grep MtrunA17Chr7g0252331 ../Medicago_truncatula.Averrhoa_carambola.anchors 
+#1657529538
+grep MtrunA17Chr7g0252331 ../Medicago_truncatula.*kaks
+#1657529605
+grep MtrunA17Chr7g0252331 *Input |les
+#1657529842
+lth
+#1657529847
+grep MtrunA17Chr7g0267461 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657529856
+grep MtrunA17Chr7g0267461 *Input |les
+#1657529901
+grep MtrunA17Chr7g0267461 ../Medicago_truncatula.Averrhoa_carambola.anchors ../Medicago_truncatula.Arabidopsis_thaliana.anchors ../Medicago_truncatula.Vitis_vinifera.anchors ../Medicago_truncatula.Populus_trichocarpa.anchors ../Medicago_truncatula.Oryza_sativa.anchors 
+#1657529908
+grep Yangtao2002846_Avcar ../Medicago_truncatula.Averrhoa_carambola.anchors
+#1657529917
+grep Yangtao2002846_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657529985
+lth
+#1657529990
+grep MtrunA17Chr8g0376381 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657529998
+grep MtrunA17Chr8g0376381 *Input |les
+#1657530020
+grep MtrunA17Chr8g0376381 ../Medicago_truncatula.Averrhoa_carambola.anchors ../Medicago_truncatula.Arabidopsis_thaliana.anchors ../Medicago_truncatula.Vitis_vinifera.anchors ../Medicago_truncatula.Populus_trichocarpa.anchors ../Medicago_truncatula.Oryza_sativa.anchors 
+#1657530027
+grep MtrunA17Chr8g0376381 ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657530036
+grep Yangtao2017646_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657531986
+grep MtrunA17Chr6g0469911 ../Medicago_truncatula.Averrhoa_carambola.
+#1657531987
+grep MtrunA17Chr6g0469911 ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657531990
+grep MtrunA17Chr6g0469911 ../Medicago_truncatula.Averrhoa_carambola.anchors 
+#1657531997
+grep MtrunA17Chr6g0469911 *Input |les
+#1657532310
+grep MtrunA17Chr7g0256321 *Input |les
+#1657532319
+lth
+#1657532323
+grep MtrunA17Chr7g0256321 Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName
+#1657532327
+grep MtrunA17Chr7g0256321 *Input |les
+#1657532355
+grep MtrunA17Chr7g0256321 Medicago_truncatula.Sindora_glabra.KaryotypeInput
+#1657532363
+grep SINGLA_g33481.t1_Sigla Medicago_truncatula.Sindora_glabra.KaryotypeInput
+#1657532377
+grep MtrunA17Chr7g0256321 *Input |les
+#1657532388
+grep MtrunA17Chr7g0256321 Medicago_truncatula.Senna_septemtrionalis.KaryotypeInput |les
+#1657532391
+grep MtrunA17Chr7g0256321 Medicago_truncatula.Senna_septemtrionalis.KaryotypeInput 
+#1657532396
+grep SESEP00001394-t1_Sesep Medicago_truncatula.Senna_septemtrionalis.KaryotypeInput
+#1657532407
+grep SESEP00001394-t1_Sesep Medicago_truncatula.Chamaecrista_pumila.KaryotypeInput 
+#1657532415
+grep MtrunA17Chr7g0256321 Medicago_truncatula.Chamaecrista_pumila.KaryotypeInput 
+#1657532438
+grep MtrunA17Chr7g0256321 ../*anchors
+#1657532461
+grep MtrunA17Chr7g0256321 ../*ortho.kaks
+#1657532590
+grep mRNA_MtrunA17Chr1g0171771_Metru Medicago_truncatula.Chamaecrista_pumila.KaryotypeInput
+#1657532599
+grep mRNA_MtrunA17Chr1g0171771_Metru *Input |les
+#1657532604
+grep mRNA_MtrunA17Chr1g0171771_Metru *Input 
+#1657532622
+grep mRNA_MtrunA17Chr1g0171771_Metru ../*ortho.kaks
+#1657532773
+grep evm.model.scaffold_222.1814_Daodo Medicago_truncatula.Astragalus_sinicus.anchors 
+#1657532864
+grep MtrunA17Chr7g0256321 ../*ortho.kaks
+#1657532882
+grep Yangtao2003199_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657517708
+ssh yi03
+#1657501378
+ssh yi03
+#1657539591
+ls
+#1657539592
+cd projects/
+#1657539592
+ls
+#1657539593
+ll
+#1657539597
+cd phyleg
+#1657539597
+lt
+#1657539685
+j quota
+#1657539689
+cd Medicago_process/
+#1657539689
+ls
+#1657539701
+vi other_genes.txt
+#1657539713
+grep MtrunA17_Chr5g0401131 *INput
+#1657539715
+grep MtrunA17_Chr5g0401131 *Input
+#1657539721
+grep MtrunA17Chr5g0401131 *Input
+#1657539812
+grep CECHI00004352-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657539996
+grep MtrunA17Chr5g0401131 *Input |cut -f6 |les
+#1657540007
+grep MtrunA17Chr5g0401131 *Input |cut -f6  > MtSHR_ortho.txt
+#1657540003
+ls
+#1657540005
+cd projects/
+#1657540009
+cd ../yi03
+#1657540010
+ls
+#1657540012
+cd orthofinder
+#1657540015
+cd ../orthofinder_50_sp_result/
+#1657540015
+ls
+#1657540026
+cd Phylogenetic_Hierarchical_Orthogroups/
+#1657540026
+ls
+#1657540039
+nohup cp total.cds total.pep  ~/ &
+#1657540017
+ssh yi03
+#1657540066
+ls
+#1657540068
+lth
+#1657540121
+ssh yi03
+#1657540105
+tma
+#1657540307
+ps ux |grep select
+#1657540333
+select_fasta.pl MtSHR_ortho.txt ~/total.pep > MtSHR_ortho.txt.fa  
+#1657540348
+les MtSHR_ortho.txt.fa
+#1657540354
+mafft MtSHR_ortho.txt.fa > MtSHR_ortho.txt.fa.aln
+#1657540356
+lth
+#1657540417
+cp ~/projects/buzzo/msa_pipeline/msa_pipeline/results_dir/legume_results_26_fabales/tree/neutral.tre .
+#1657540418
+ls
+#1657540419
+vi neutral.tre 
+#1657540421
+lth
+#1657540434
+phyloP --mode CONACC --method LRT --wig-scores neutral.tre MtSHR_ortho.txt.fa.aln > MtSHR_ortho.txt.fa.aln.wig
+#1657540458
+cp ~/projects/buzzo/msa_pipeline/msa_pipeline/results_dir/legume_results_26_fabales/tree/neutral.mod .
+#1657540465
+les neutral.mod 
+#1657540467
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.aln > MtSHR_ortho.txt.fa.aln.wig
+#1657540489
+vi MtSHR_ortho.txt
+#1657540496
+more neutral.mod
+#1657540524
+les ~/projects/buzzo/msa_pipeline/msa_pipeline/results_dir/legume_results_26_fabales/conservation_raw/chr01_Zeins.maf
+#1657540537
+vi MtSHR_ortho.txt
+#1657540557
+cp /nfs/liuhui/bin/bundle/rename.sh .
+#1657540559
+vi rename.sh 
+#1657540672
+mv rename.sh rename.txt
+#1657540681
+cp `which replace.pl ` .
+#1657540683
+vi replace.pl 
+#1657540704
+les *aln
+#1657540707
+vi replace.pl 
+#1657540736
+perl replace.pl rename.txt 
+#1657540739
+vi replace.pl 
+#1657540748
+lth
+#1657540753
+perl replace.pl rename.txt MtSHR_ortho.txt.fa.aln 
+#1657540757
+lth
+#1657540760
+vi replace.pl 
+#1657540767
+perl replace.pl rename.txt MtSHR_ortho.txt.fa.aln 
+#1657540773
+vi replace.pl 
+#1657540781
+perl replace.pl rename.txt MtSHR_ortho.txt.fa.aln 
+#1657540782
+vi replace.pl 
+#1657540788
+perl replace.pl rename.txt MtSHR_ortho.txt.fa.aln 
+#1657540790
+vi replace.pl 
+#1657540802
+perl replace.pl rename.txt MtSHR_ortho.txt.fa.aln 
+#1657540805
+vi replace.pl 
+#1657540813
+perl replace.pl rename.txt MtSHR_ortho.txt.fa.aln 
+#1657540818
+vi replace.pl 
+#1657540825
+perl replace.pl rename.txt MtSHR_ortho.txt.fa.aln 
+#1657540826
+vi replace.pl 
+#1657540840
+perl replace.pl rename.txt MtSHR_ortho.txt.fa.aln 
+#1657540842
+vi replace.pl 
+#1657540884
+ls
+#1657540888
+vi *mod
+#1657540900
+tail -n 1 *mod > leg_25.txt
+#1657540901
+vi leg_25.txt 
+#1657540937
+vi replace.pl 
+#1657541120
+lth
+#1657541125
+perl replace.pl leg_25.txt rename.txt MtSHR_ortho.txt.fa.aln |les
+#1657541127
+vi replace.pl 
+#1657541136
+perl replace.pl leg_25.txt rename.txt MtSHR_ortho.txt.fa.aln 
+#1657541148
+vi MtSHR_ortho.txt.fa.aln
+#1657541152
+vi replace.pl 
+#1657541184
+vi rename.txt 
+#1657541187
+vi replace.pl 
+#1657541227
+perl replace.pl leg_25.txt rename.txt MtSHR_ortho.txt.fa.aln 
+#1657541239
+vi replace.pl 
+#1657541265
+perl replace.pl leg_25.txt rename.txt MtSHR_ortho.txt.fa.aln 
+#1657541267
+vi replace.pl 
+#1657541275
+lth
+#1657541276
+vi leg_25.txt 
+#1657541281
+vi rename.txt 
+#1657541292
+vi replace.pl 
+#1657541310
+perl replace.pl leg_25.txt rename.txt MtSHR_ortho.txt.fa.aln 
+#1657541312
+vi replace.pl 
+#1657541322
+perl replace.pl leg_25.txt rename.txt MtSHR_ortho.txt.fa.aln 
+#1657541329
+vi replace.pl 
+#1657541336
+vi rename.txt 
+#1657541342
+perl replace.pl leg_25.txt rename.txt MtSHR_ortho.txt.fa.aln 
+#1657541351
+vi rename.txt 
+#1657541355
+vi replace.pl 
+#1657541365
+perl replace.pl leg_25.txt rename.txt MtSHR_ortho.txt.fa.aln 
+#1657541369
+lth
+#1657541374
+perl replace.pl leg_25.txt rename.txt MtSHR_ortho.txt.fa.aln > MtSHR_ortho.txt.fa.aln.rename
+#1657541375
+logsh
+#1657541381
+les MtSHR_ortho.txt.fa.aln.rename
+#1657541387
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.aln > MtSHR_ortho.txt.fa.aln.wig
+#1657541399
+grep ">" MtSHR_ortho.txt.fa.aln |wc -l
+#1657541401
+grep ">" MtSHR_ortho.txt.fa.aln 
+#1657541414
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.aln.rename > MtSHR_ortho.txt.fa.aln.wig
+#1657541421
+more neutral.mod MtSHR_ortho.txt.fa.aln.rename
+#1657541428
+grep ">" MtSHR_ortho.txt.fa.aln.rename
+#1657541432
+grep ">" MtSHR_ortho.txt.fa.aln.rename |wc -l
+#1657541421
+tma
+#1657541469
+head /nfs/liuhui/projects/buzzo/msa_pipeline/msa_pipeline/results/conservation_raw/chr01_Zeins.maf
+#1657541592
+phyloP -h
+#1657541610
+phyloP -i FASTA --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.aln.rename > MtSHR_ortho.txt.fa.aln.wig
+#1657541632
+mroe MtSHR_ortho.txt.fa.aln.rename
+#1657541634
+more MtSHR_ortho.txt.fa.aln.rename
+#1657541649
+grep Ammopiptanthus_nanus neutral.mod 
+#1657541662
+cp  MtSHR_ortho.txt.fa.aln.rename MtSHR_ortho.txt.fa.aln.rename.fasta
+#1657541665
+phyloP -i FASTA --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.aln.rename > MtSHR_ortho.txt.fa.aln.wig
+#1657541687
+phyloP -i FASTA --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.aln.rename
+#1657541691
+more neutral.mod MtSHR_ortho.txt.fa.aln.rename
+#1657541699
+phyloP -i FASTA --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.aln.rename.fasta 
+#1657541880
+ipython
+#1657541955
+vi fa2maf.py
+#1657541971
+lth
+#1657541979
+python fa2maf.py > MtSHR_ortho.txt.fa.maf
+#1657541983
+les MtSHR_ortho.txt.fa.maf
+#1657542129
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.maf 
+#1657542138
+vi MtSHR_ortho.txt.fa.maf 
+#1657542169
+les ~/projects/buzzo/msa_pipeline/msa_pipeline/results_dir/legume_results_26_fabales/conservation_raw/chr01_Zeins.maf
+#1657542190
+vi MtSHR_ortho.txt.fa.maf 
+#1657542238
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.maf 
+#1657542261
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.maf > with_polygala.wig
+#1657542278
+cp MtSHR_ortho.txt.fa.maf MtSHR_ortho.txt.fa.fabaceae.maf
+#1657542281
+vi MtSHR_ortho.txt.fa.fabaceae.maf 
+#1657542299
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.fabaceae.maf > no_polygala.wig
+#1657542381
+cp ~/projects/buzzo/msa_pipeline/msa_pipeline/workflow/scripts/phylopwig2bed.py .
+#1657542404
+for i in *wig; do  phylopwig2bed.py  $i > $i.bed; done
+#1657542410
+for i in *wig; do python phylopwig2bed.py  $i > $i.bed; done
+#1657542415
+vi phylopwig2bed.py 
+#1657542445
+for i in *wig; do python phylopwig2bed.py  $i  $i.bed; done
+#1657542453
+vi phylopwig2bed.py 
+#1657542469
+for i in *wig; do python phylopwig2bed.py  $i  $i.bed; done
+#1657542474
+vi phylopwig2bed.py 
+#1657542528
+for i in *wig; do python phylopwig2bed.py  $i  $i.bed; done
+#1657542530
+vi phylopwig2bed.py 
+#1657542549
+les *wig
+#1657542562
+vi phylopwig2bed.py 
+#1657542581
+python fa2maf.py > MtSHR_ortho.txt.fa.maf
+#1657542595
+ll *wig
+#1657542597
+python phylopwig2bed.py no_polygala.wig
+#1657542603
+python phylopwig2bed.py no_polygala.wig no_polygala.wig.bed
+#1657542607
+les no_polygala.wig.bed 
+#1657542617
+vi phylopwig2bed.py 
+#1657542629
+python phylopwig2bed.py no_polygala.wig no_polygala.wig.bed
+#1657542631
+les no_polygala.wig.bed 
+#1657542652
+les ~/projects/buzzo/msa_pipeline/msa_pipeline/results_dir/legume_results_26_fabales/conservation_raw/chr01_Zeins.maf
+#1657542673
+python phylopwig2bed.py with_polygala.wig with_polygala.wig.bed
+#1657542679
+les *wig.bed |les
+#1657542684
+paste *wig.bed |les
+#1657542702
+ll *wig.bed
+#1657542706
+rm MtSHR_ortho.txt.fa.aln.wig.bed
+#1657542708
+les no_polygala.wig.bed 
+#1657542711
+les with_polygala.wig.bed
+#1657542720
+les no_polygala.wig.bed 
+#1657542724
+paste *wig.bed |les
+#1657542744
+grep MtSHR *wig
+#1657542752
+vi no_polygala.wig
+#1657542758
+vi no_polygala.wig.bed
+#1657542767
+vi phylopwig2bed.py 
+#1657542775
+python phylopwig2bed.py with_polygala.wig with_polygala.wig.bed
+#1657542777
+python phylopwig2bed.py no_polygala.wig no_polygala.wig.bed
+#1657542781
+grep SHR *wig.bed
+#1657542784
+vi phylopwig2bed.py 
+#1657542804
+mv phylopwig2bed.py  phylopwig2bed.py.1
+#1657542806
+cp ~/projects/buzzo/msa_pipeline/msa_pipeline/workflow/scripts/phylopwig2bed.py .
+#1657542807
+vi phylopwig2bed.py
+#1657542811
+python phylopwig2bed.py no_polygala.wig no_polygala.wig.bed
+#1657542813
+python phylopwig2bed.py with_polygala.wig with_polygala.wig.bed
+#1657542816
+les *wig.bed
+#1657542824
+grep SHR *wig.bed
+#1657542831
+ll *wig.bed
+#1657542843
+vi phylopwig2bed.py
+#1657542857
+vi *wig
+#1657542862
+ll *wig
+#1657542866
+rm MtSHR_ortho.txt.fa.aln.wig 
+#1657542868
+vi no_polygala.wig
+#1657542882
+les *wig.bed
+#1657542890
+grep SHR *wig.bed |les
+#1657542908
+vi MtSHR_ortho.txt.fa.maf 
+#1657542930
+for i in *wig.bed; do grep SHR $i > $i.SHR; done
+#1657542932
+les *.SHR
+#1657542936
+paste *SHR |les
+#1657542943
+ll *SHR
+#1657542954
+grep SHR with_polygala.wig.bed
+#1657542958
+vi with_polygala.wig.bed
+#1657542971
+vi phylopwig2bed.py
+#1657543032
+wget https://github.com/bedops/bedops/releases/download/v2.4.40/bedops_linux_x86_64-v2.4.40.tar.bz2
+#1657543041
+tar -xvzjf bedops_linux_x86_64-v2.4.40.tar.bz2 
+#1657543044
+tar -xvjf bedops_linux_x86_64-v2.4.40.tar.bz2 
+#1657543083
+./bin/wig2bed
+#1657543085
+./bin/wig2bed -h
+#1657543098
+ll *wig
+#1657543101
+./bin/wig2bed < no_polygala.wig
+#1657543105
+cd bin/
+#1657543115
+export PATH=/nfs/liuhui/projects/buzzo/quota_align/Medicago_process/bin:$PATH
+#1657543116
+cd -
+#1657543121
+wig2bed < no_polygala.wig
+#1657543135
+wig2bed < with_polygala.wig
+#1657543140
+wig2bed < no_polygala.wig > no_polygala.wig.bed
+#1657543149
+wig2bed < with_polygala.wig > with_polygala.wig.bed
+#1657543150
+lth
+#1657543157
+les paste with_polygala.wig.bed no_polygala.wig.bed |les
+#1657543161
+paste with_polygala.wig.bed no_polygala.wig.bed |les
+#1657543185
+selectItem.pl -k  1 1  no_polygala.wig with_polygala.wig  > tmp.out
+#1657543193
+selectItem.pl -k  1 1  no_polygala.wig.bed with_polygala.wig.bed  > tmp.out
+#1657543195
+logsh
+#1657543204
+les tmp.out 
+#1657543256
+les no_polygala.wig.bed
+#1657543273
+les tmp.out 
+#1657543278
+les *maf
+#1657543289
+ls *maf
+#1657543304
+cp MtSHR_ortho.txt.fa.fabaceae.maf MtSHR_ortho.txt.fa.fabaceae.maf.tmp
+#1657543307
+vi MtSHR_ortho.txt.fa.fabaceae.maf.tmp
+#1657543368
+vi *maf
+#1657543398
+more shell 
+#1657543409
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.fabaceae.maf > no_polygala.wig
+#1657543412
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.maf > with_polygala.wig
+#1657543413
+logsh
+#1657543424
+wig2bed < with_polygala.wig > with_polygala.wig.bed
+#1657543426
+wig2bed < no_polygala.wig > no_polygala.wig.bed
+#1657543427
+logsh
+#1657543434
+selectItem.pl -k  1 1  no_polygala.wig.bed with_polygala.wig.bed  > tmp.out
+#1657543436
+logsh
+#1657543443
+vi MtSHR_ortho.txt
+#1657543446
+vi *mfa
+#1657543448
+vi *maf
+#1657543453
+vi tmp
+#1657543508
+les tmp.out 
+#1657543516
+les no_polygala.wig.bed with_polygala.wig.bed
+#1657543523
+wig2bed < with_polygala.wig > with_polygala.wig.bed
+#1657543526
+les  with_polygala.wig.bed
+#1657543530
+les with_polygala.wig
+#1657543542
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.maf > with_polygala.wig
+#1657543546
+les MtSHR_ortho.txt.fa.maf
+#1657543564
+ll *maf*format
+#1657543567
+ll *maf*
+#1657543571
+vi MtSHR_ortho.txt.fa.maf
+#1657543590
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.maf > with_polygala.wig
+#1657543597
+wig2bed < with_polygala.wig > with_polygala.wig.bed
+#1657543599
+selectItem.pl -k  1 1  no_polygala.wig.bed with_polygala.wig.bed  > tmp.out
+#1657543602
+les tmp.out 
+#1657543607
+vi tmp.out 
+#1657543791
+lth
+#1657543794
+vi tmp.SHR_region2.txt 
+#1657543812
+vi with_polygala.wig
+#1657543816
+vi *maf
+#1657543909
+ll *maf
+#1657543920
+grep ">" MtSHR_ortho.txt.fa |wc -l
+#1657543929
+les MtSHR_ortho.txt.fa.maf 
+#1657544010
+grep Medtr5g015490 ../*.kaks
+#1657544022
+ls ../
+#1657544025
+ls ../*kaks
+#1657544057
+grep MtrunA17Chr5g0401131 ../Medicago_truncatula.Averrhoa_carambola.anchors 
+#1657544063
+grep MtrunA17Chr5g0401131 ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks 
+#1657544113
+grep MtrunA17Chr6g0469911 ../Medicago_truncatula.Populus_trichocarpa.anchors 
+#1657544119
+grep Medtr5g015490 ../Medicago_truncatula.Populus_trichocarpa.anchors
+#1657544144
+ls *SHR*
+#1657544147
+more MtSHR_ortho.txt
+#1657544161
+grep MtrunA17Chr5g0401131 ../*kaks
+#1657544215
+lth
+#1657544219
+vi with_polygala.wig
+#1657544222
+vi *maf
+#1657544228
+paste with_polygala.wig.bed no_polygala.wig.bed |les
+#1657544234
+les tmp.out 
+#1657544255
+mv tmp.out no_polygala_with_polygala.phyloP.wig.bed
+#1657544258
+les no_polygala_with_polygala.phyloP.wig.bed
+#1657544677
+grep MtrunA17Chr5g0401131 ../*anchors |les
+#1657544703
+grep MtrunA17Chr5g0401131  ../Medicago_truncatula.Averrhoa_carambola.anchors ../Medicago_truncatula.Arabidopsis_thaliana.anchors ../Medicago_truncatula.Vitis_vinifera.anchors ../Medicago_truncatula.Populus_trichocarpa.anchors ../Medicago_truncatula.Oryza_sativa.anchors 
+#1657544720
+ll *SHR*
+#1657544736
+vi MtSHR_ortho.txt
+#1657544761
+select_fasta.pl MtSHR_ortho.txt ~/total.pep > MtSHR_ortho.txt.fa
+#1657544770
+vi MtSHR_ortho.txt.fa
+#1657544829
+mafft MtSHR_ortho.txt.fa > MtSHR_ortho.txt.fa.aln
+#1657544843
+python fa2maf.py > MtSHR_ortho.txt.fa.maf
+#1657544846
+vi MtSHR_ortho.txt.fa.maf
+#1657544917
+vi fa2maf.py 
+#1657544923
+vi MtSHR_ortho.txt.fa.aln.rename.fasta
+#1657544931
+vi leg_25.txt 
+#1657544977
+vi rename.txt 
+#1657544984
+perl replace.pl leg_25.txt rename.txt MtSHR_ortho.txt.fa.aln > MtSHR_ortho.txt.fa.aln.rename
+#1657544996
+logsh
+#1657545005
+python fa2maf.py > MtSHR_ortho.txt.fa.maf
+#1657545008
+les MtSHR_ortho.txt.fa.maf
+#1657545017
+vi MtSHR_ortho.txt.fa.aln.rename
+#1657545026
+vi fa2maf.py 
+#1657545035
+rm MtSHR_ortho.txt.fa.aln.rename.fasta 
+#1657545036
+python fa2maf.py > MtSHR_ortho.txt.fa.maf
+#1657545041
+vi MtSHR_ortho.txt.fa.maf 
+#1657545120
+cp MtSHR_ortho.txt.fa.maf MtSHR_ortho.txt.fa.fabaceae.maf
+#1657545127
+cp MtSHR_ortho.txt.fa.maf MtSHR_ortho.txt.fa.outgroup.maf
+#1657545191
+mafft -h
+#1657545196
+lth
+#1657545198
+les MtSHR_ortho.txt.fa.outgroup.maf 
+#1657545215
+cp MtSHR_ortho.txt.fa.outgroup.maf  tmp.out2
+#1657545217
+vi tmp.out2
+#1657545232
+t tmp.out2
+#1657545274
+vi tmp.out2
+#1657545315
+t tmp.out2
+#1657545331
+vi tmp.out2
+#1657545341
+t tmp.out2
+#1657545913
+vi tmp.out2
+#1657545953
+grep MtrunA17Chr5g0401131 *Input |les
+#1657545973
+grep Lj2g0006824.1.Lj1.0v1_Lojap *Input
+#1657545982
+grep MtrunA17Chr5g0401131 *Input |les
+#1657545994
+lth
+#1657546011
+fasttree < MtSHR_ortho.txt.fa.aln.rename > MtSHR_ortho.txt.fa.aln.rename.nwk
+#1657546018
+sz MtSHR_ortho.txt.fa.aln.rename.nwk 
+#1657546021
+# Sent -> /Users/liuhui/Downloads/
+#1657588134
+j quota
+#1657588135
+lth
+#1657588139
+cd Medicago_process/
+#1657588140
+ls
+#1657588146
+grep MtrunA17Chr7g0260971 *Input |les
+#1657588159
+grep MtrunA17Chr7g0260971 Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657588166
+grep CECHI00012424-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657588221
+vi lbd16.txt
+#1657588297
+les lbd16.txt 
+#1657588321
+selectItem.pl lbd16.txt ~/total.pep > lbd16.txt.fa
+#1657588330
+select_fasta.pl lbd16.txt ~/total.pep > lbd16.txt.fa
+#1657588345
+mafft lbd16.txt.fa > lbd16.txt.fa.aln
+#1657588359
+fasttree < lbd16.txt.fa.aln > lbd16.txt.fa.aln.tre
+#1657588366
+sz lbd16.txt.fa.aln.tre
+#1657588370
+# Sent -> /Users/liuhui/Downloads/
+#1657588535
+lth
+#1657588541
+les lbd16.txt.fa
+#1657588556
+select_fasta.pl lbd16.txt ~/total.cds > lbd16.txt.cds
+#1657588594
+cp lbd16.txt lbd16.ortho
+#1657588597
+vi lbd16.ortho 
+#1657588622
+python -m iga.evolution.ortho kaks
+#1657588638
+python -m iga.evolution.ortho kaks lbd16.ortho lbd16.txt.cds lbd16.f
+#1657588643
+bjl
+#1657588650
+bkill 78946
+#1657588681
+python -m iga.evolution.ortho kaks lbd16.ortho lbd16.txt.cds lbd16.txt.fa --use_grid F
+#1657588684
+lth
+#1657588688
+more lbd16.ortho.kaks 
+#1657589049
+lth
+#1657589056
+mkdir temp
+#1657589059
+mv lbd16.* temp/
+#1657589060
+lth
+#1657589067
+lt |les
+#1657589093
+rz
+#1657589097
+# Received /Users/liuhui/Downloads/nod_genes.txt.addinfo
+#1657589103
+lt |les
+#1657589110
+selectItem.pl nod_genes.txt.addinfo Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName |les
+#1657589143
+les Medicago_truncatula.Bauhinia_variegata.KaryotypeInput 
+#1657589157
+grep -vi mcscanx Medicago_truncatula.Bauhinia_variegata.KaryotypeInput  |cut -f2,6 |les
+#1657589170
+grep -vi mcscanx Medicago_truncatula.Bauhinia_variegata.KaryotypeInput  |cut -f6 |sort |uniq -c |les
+#1657589200
+grep -vi mcscanx Medicago_truncatula.Bauhinia_variegata.KaryotypeInput  |cut -f6 |sort |uniq -c |grep " 2" |awk '{print $2}' > Medicago_truncatula.Bauhinia_variegata.KaryotypeInput.Bauhinia_wgd
+#1657589203
+les Medicago_truncatula.Bauhinia_variegata.KaryotypeInput.Bauhinia_wgd
+#1657589219
+selectItem.pl 0 1 Medicago_truncatula.Bauhinia_variegata.KaryotypeInput.Bauhinia_wgd Medicago_truncatula.Bauhinia_variegata.KaryotypeInput |les
+#1657589224
+selectItem.pl 0 5 Medicago_truncatula.Bauhinia_variegata.KaryotypeInput.Bauhinia_wgd Medicago_truncatula.Bauhinia_variegata.KaryotypeInput |les
+#1657589245
+selectItem.pl 0 5 Medicago_truncatula.Bauhinia_variegata.KaryotypeInput.Bauhinia_wgd Medicago_truncatula.Bauhinia_variegata.KaryotypeInput|cut -f2 |sort |uniq > Medicago_truncatula.Bauhinia_variegata.KaryotypeInput.Medicago_wgd
+#1657589252
+wc -l Medicago_truncatula.Bauhinia_variegata.KaryotypeInput.Medicago_wgd
+#1657589253
+les Medicago_truncatula.Bauhinia_variegata.KaryotypeInput.Medicago_wgd 
+#1657589261
+selectItem.pl nod_genes.txt.addinfo Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName |wc -l
+#1657589276
+selectItem.pl nod_genes.txt.addinfo Medicago_truncatula.Bauhinia_variegata.KaryotypeInput.Medicago_wgd  |wc -l
+#1657589382
+selectItem.pl nod_genes.txt.addinfo Medicago_truncatula.Bauhinia_variegata.KaryotypeInput.Medicago_wgd > tmp1
+#1657589391
+selectItem.pl nod_genes.txt.addinfo Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName >> tmp1
+#1657589396
+sort tmp1 |uniq |wc
+#1657589426
+unselectItem.pl tmp1 nod_genes.txt.addinfo |les
+#1657589475
+rz
+#1657589481
+# Cancelled transfer
+#1657589504
+rz
+#1657589507
+# Received /Users/liuhui/Downloads/single_copy_nod_genes.txt
+#1657589509
+les single_copy_nod_genes.txt 
+#1657589525
+cat tmp1 single_copy_nod_genes.txt > tmp2
+#1657589529
+unselectItem.pl tmp2 nod_genes.txt.addinfo |les
+#1657589539
+grep MtrunA17Chr5g0445131 *Input |les
+#1657589601
+unselectItem.pl tmp2 nod_genes.txt.addinfo > tmp3
+#1657589603
+les tmp3 
+#1657589614
+grep MtrunA17Chr1g0200811 *Input |les
+#1657589631
+grep MtrunA17Chr1g0200811 *MedName
+#1657589656
+grep MtrunA17Chr1g0200811 Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657589660
+grep CECHI00000151-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657589781
+grep MtrunA17Chr1g0200811 ../*kaks
+#1657589805
+grep Yangtao2009505_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657589831
+ls *kaks
+#1657590049
+grep MtrunA17Chr5g0401131 Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657590056
+grep CECHI00004352-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657590095
+grep MtrunA17Chr1g0200811 Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657590151
+grep MtrunA17Chr1g0200811 Medicago_truncatula.Zenia_insignis.KaryotypeInput 
+#1657590158
+grep ZEINS00026963-t1_Zeins Medicago_truncatula.Zenia_insignis.KaryotypeInput
+#1657590162
+grep ZEINS00028608-t2_Zeins Medicago_truncatula.Zenia_insignis.KaryotypeInput
+#1657590180
+grep mRNA_MtrunA17Chr1g0200811_Metru ../*kaks
+#1657590208
+grep CECHI00000151-t1_Cechi ../Cercis_chinensis.Averrhoa_carambola.ortho.kaks 
+#1657590230
+grep Yangtao2009505_Avcar ../Cercis_chinensis.Averrhoa_carambola.ortho.kaks
+#1657590296
+les tmp3 
+#1657590304
+les tmp1
+#1657590315
+rz
+#1657590319
+# Received /Users/liuhui/Downloads/gene_pav.nodulation.txt.mrca.format.sort.info.txt
+#1657590329
+selectItem.pl tmp3 gene_pav.nodulation.txt.mrca.format.sort.info.txt |les
+#1657590389
+grep mRNA_MtrunA17Chr4g0030801_Metru ../*kaks
+#1657590397
+les tmp1
+#1657590403
+lth
+#1657590417
+selectItem.pl tmp3 gene_pav.nodulation.txt.mrca.format.sort.info.txt > candidate_genes.with_info
+#1657590420
+les candidate_genes.with_info 
+#1657590557
+grep MtrunA17Chr8g0352611 ../*kaks
+#1657590567
+grep MtrunA17Chr8g0352611 *Input |les
+#1657590572
+grep MtrunA17Chr8g0352611 *Input 
+#1657590582
+les candidate_genes.with_info 
+#1657590591
+grep MtrunA17Chr8g0381261 ../*kaks
+#1657590603
+vi candidate_genes.with_info 
+#1657590626
+grep Yangtao2013459_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657590632
+grep Yangtao2013459_Avcar ../Medicago_truncatula.Averrhoa_carambola.anchors 
+#1657590644
+grep PNT14833_Potri ../Medicago_truncatula.Populus_trichocarpa.ortho.kaks
+#1657590652
+vi candidate_genes.with_info 
+#1657590693
+grep MtrunA17Chr5g0445131 ../*kaks
+#1657590706
+grep Yangtao2000830_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657590716
+grep Yangtao2000830_Avcar ../*.Averrhoa_carambola.ortho.kaks
+#1657590734
+grep CECHI00011579-t1_Cechi ../Cercis_chinensis.Averrhoa_carambola.ortho.kaks
+#1657590791
+les candidate_genes.with_info 
+#1657590794
+vi candidate_genes.with_info 
+#1657590815
+grep MtrunA17Chr7g0222521 ../*kaks
+#1657590821
+grep MtrunA17Chr7g0222521 *Input |les
+#1657590836
+vi candidate_genes.with_info 
+#1657590913
+grep MtrunA17Chr3g0123331 *Input
+#1657590915
+vi candidate_genes.with_info 
+#1657590935
+grep mRNA_MtrunA17Chr5g0427961_Metru ../*kaks
+#1657590981
+vi candidate_genes.with_info 
+#1657591007
+grep MtrunA17Chr7g0252331 ../*kaks
+#1657591052
+grep Yangtao2022054_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657591073
+grep MtrunA17Chr7g0267461 ../*kaks
+#1657591091
+vi candidate_genes.with_info 
+#1657591347
+grep mRNA_MtrunA17Chr8g0376381_Metru ../*kaks
+#1657591381
+grep MtrunA17Chr3g0110971 ../*kaks
+#1657591388
+grep MtrunA17Chr3g0110971 *Input |les
+#1657591416
+grep MtrunA17Chr1g0149821 ../*kaks
+#1657591437
+les candidate_genes.with_info 
+#1657591469
+vi candidate_genes.with_info 
+#1657592274
+grep mRNA_MtrunA17Chr1g0198151_Metru ../*kaks
+#1657592369
+grep Yangtao2022778_Avcar ../*kaks
+#1657592402
+vi candidate_genes.with_info 
+#1657592441
+grep mRNA_MtrunA17Chr1g0213481_Metru ../*kaks
+#1657592451
+grep Yangtao2019456_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657592453
+vi candidate_genes.with_info 
+#1657592483
+grep mRNA_MtrunA17Chr2g0299371_Metru ../*kaks
+#1657592488
+grep mRNA_MtrunA17Chr2g0299371_Metru *Input
+#1657592493
+vi candidate_genes.with_info 
+#1657592625
+grep  mRNA_MtrunA17Chr4g0071111_Metru ../*kaks
+#1657592653
+grep MtrunA17Chr4g0071111 nod_genes.txt.addinfo 
+#1657592689
+vi candidate_genes.with_info 
+#1657592703
+grep mRNA_MtrunA17Chr8g0386011_Metru ../*kaks
+#1657592706
+grep mRNA_MtrunA17Chr8g0386011_Metru ../*Input
+#1657592708
+vi candidate_genes.with_info 
+#1657592768
+grep mRNA_MtrunA17Chr8g0386011_Metru ../*Input
+#1657592772
+grep mRNA_MtrunA17Chr8g0386011_Metru ../*kaks
+#1657592822
+vi candidate_genes.with_info 
+#1657592879
+grep MtrunA17Chr1g0200811 ../*kaks
+#1657592894
+grep POTAT00015408-t1_Pota ../Medicago_truncatula.Polygala_tatarinowii.ortho.kaks
+#1657592929
+grep Yangtao2009505_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657592942
+grep PNT07902_Potri ../Medicago_truncatula.Populus_trichocarpa.ortho.kaks
+#1657592962
+vi candidate_genes.with_info 
+#1657592984
+grep mRNA_MtrunA17Chr3g0094861_Metru ../*anchors
+#1657592989
+grep mRNA_MtrunA17Chr3g0094861_Metru ../*kaks
+#1657592996
+grep mRNA_MtrunA17Chr3g0094861_Metru *Input |les
+#1657593023
+grep mRNA_MtrunA17Chr3g0094861_Metru Medicago_truncatula.Castanospermum_australe.KaryotypeInput
+#1657593036
+grep CASAUS_g34716.t2_Caaus Medicago_truncatula.Castanospermum_australe.KaryotypeInput
+#1657593041
+les Medicago_truncatula.Castanospermum_australe.KaryotypeInput
+#1657593069
+grep mRNA_MtrunA17Chr3g0094861_Metru *Input |les
+#1657593093
+vi candidate_genes.with_info 
+#1657593121
+grep MtrunA17Chr5g0439571 *Input
+#1657593133
+grep MtrunA17Chr5g0439571 ../*kaks
+#1657593183
+grep MtrunA17Chr5g0439561 ../*kaks
+#1657593237
+grep Yangtao2005355_Avcar ../*kaks
+#1657593260
+grep PNT05102_Potri ../Medicago_truncatula.Populus_trichocarpa.ortho.kaks
+#1657593292
+vi candidate_genes.with_info 
+#1657593314
+grep MtrunA17Chr1g0210281 ../*kaks
+#1657593322
+grep MtrunA17Chr1g0210281 *Input |les
+#1657593354
+grep MtrunA17Chr1g0210281 Medicago_truncatula.Castanospermum_australe.KaryotypeInput
+#1657593359
+grep CASAUS_g16014.t1_Caaus Medicago_truncatula.Castanospermum_australe.KaryotypeInput
+#1657593395
+vi candidate_genes.with_info 
+#1657593417
+grep MtCNGC15c ../*kaks
+#1657593422
+grep MtCNGC15c *Input |les
+#1657593424
+grep MtCNGC15c *Input 
+#1657593432
+grep mRNA_MtrunA17Chr2g0326871_Metru  ../*kaks
+#1657593441
+grep mRNA_MtrunA17Chr2g0326871_Metru  *Input |les
+#1657593445
+grep mRNA_MtrunA17Chr2g0326871_Metru  *Input 
+#1657593459
+grep CLPLA00009851-t1_Clpla Medicago_truncatula.Cladrastis_platycarpa.KaryotypeInput
+#1657593573
+vi candidate_genes.with_info 
+#1657593648
+grep mRNA_MtrunA17Chr3g0087791_Metru  ../*kaks
+#1657593655
+grep mRNA_MtrunA17Chr3g0087791_Metru *Input |les
+#1657593658
+grep mRNA_MtrunA17Chr3g0087791_Metru *Input 
+#1657593717
+grep mRNA_MtrunA17Chr7g0273011_Metru *Input |les
+#1657593725
+grep mRNA_MtrunA17Chr7g0273011_Metru Medicago_truncatula.Abrus_precatorius.KaryotypeInput
+#1657593730
+grep rna-XM_027496255.1_Abpre Medicago_truncatula.Abrus_precatorius.KaryotypeInput
+#1657593764
+grep mRNA_MtrunA17Chr7g0273011_Metru *Input |les
+#1657593777
+grep mRNA_MtrunA17Chr7g0273011_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657593781
+grep CECHI00012761-t1_CechiMedicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657593785
+grep CECHI00012761-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657593793
+vi candidate_genes.with_info 
+#1657593819
+grep MtrunA17Chr7g0256321 ../*kaks
+#1657593827
+grep MtrunA17Chr1g0171771 ../*kaks
+#1657593832
+grep MtrunA17Chr1g0171771 *Input |les
+#1657594105
+vi candidate_genes.with_info 
+#1657594159
+grep mRNA_MtrunA17Chr3g0123461_Metru ../*kaks
+#1657594169
+grep mRNA_MtrunA17Chr3g0123461_Metru *Input |les
+#1657594188
+grep mRNA_MtrunA17Chr3g0123461_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657594228
+vi candidate_genes.with_info 
+#1657594264
+grep mRNA_MtrunA17Chr3g0123461_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657594271
+grep CECHI00018348-t2_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657594278
+grep mRNA_MtrunA17Chr3g0123461_Metru *Input |les
+#1657594294
+grep mRNA_MtrunA17Chr3g0123461_Metru Medicago_truncatula.Zenia_insignis.KaryotypeInput
+#1657594298
+grep ZEINS00025732-t2_Zeins Medicago_truncatula.Zenia_insignis.KaryotypeInput
+#1657594313
+grep mRNA_MtrunA17Chr7g0227971_Metru ../*kaks
+#1657594321
+grep mRNA_MtrunA17Chr7g0227971_Metru *Input |les
+#1657594361
+vi candidate_genes.with_info 
+#1657594390
+gerp MtrunA17Chr3g0144381 ../*kaks
+#1657594393
+grep MtrunA17Chr3g0144381 ../*kaks
+#1657594403
+grep MtrunA17Chr3g0144381 *Input |les
+#1657594474
+vi candidate_genes.with_info 
+#1657595245
+grep mRNA_MtrunA17Chr4g0040951_Metru  ../*anchor
+#1657595248
+grep mRNA_MtrunA17Chr4g0040951_Metru  ../*kaks
+#1657595262
+grep mRNA_MtrunA17Chr4g0040951_Metru  *Input |les
+#1657595272
+grep mRNA_MtrunA17Chr4g0040951_Metru  Medicago_truncatula.Sindora_glabra.KaryotypeInput 
+#1657595285
+grep PNS91257_Potri ../Medicago_truncatula.Populus_trichocarpa.ortho.kaks
+#1657595309
+grep SINGLA_g29725.t1_Sigla Medicago_truncatula.Sindora_glabra.KaryotypeInput
+#1657595358
+grep mRNA_MtrunA17Chr4g0040951_Metru  *Input |les
+#1657595364
+vi candidate_genes.with_info 
+#1657595406
+grep mRNA_MtrunA17Chr5g0437411_Metru ../*.kaks
+#1657595416
+grep Yangtao2017729_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657595426
+grep mRNA_MtrunA17Chr5g0437411_Metru *Input |les
+#1657595441
+ll Medicago_truncatula.Lysidice_rhodostegia.*Input
+#1657595443
+grep mRNA_MtrunA17Chr5g0437411_Metru *Input |les
+#1657595455
+grep mRNA_MtrunA17Chr5g0437411_Metru Medicago_truncatula.Sindora_glabra.*Input
+#1657595460
+grep SINGLA_g25914.t1_Sigla Medicago_truncatula.Sindora_glabra.*Input
+#1657595467
+grep SINGLA_g8178.t1_Sigla Medicago_truncatula.Sindora_glabra.*Input
+#1657595501
+grep mRNA_MtrunA17Chr2g0278251_Metru Medicago_truncatula.Sindora_glabra.*Input
+#1657595509
+grep mRNA_MtrunA17Chr2g0278251_Metru ../*kaks
+#1657595562
+grep mRNA_MtrunA17Chr5g0437411_Metru ../*.kaks
+#1657595618
+vi candidate_genes.with_info 
+#1657595639
+grep mRNA_MtrunA17Chr7g0231221_Metru  ../*kaks
+#1657595645
+grep mRNA_MtrunA17Chr7g0231221_Metru *Input |les
+#1657595739
+vi candidate_genes.with_info 
+#1657595792
+grep mRNA_MtrunA17Chr4g0071571_Metru  ../*kaks
+#1657595797
+grep mRNA_MtrunA17Chr4g0071571_Metru  *Input |les
+#1657595856
+grep mRNA_MtrunA17Chr2g0298971_Metru Medicago_truncatula.Cercis_chinensis.*MedName
+#1657595923
+les Medicago_truncatula.Cercis_chinensis.*MedName
+#1657595975
+vi candidate_genes.with_info 
+#1657595989
+grep mRNA_MtrunA17Chr6g0484671_Metru  *Input
+#1657595998
+grep mRNA_MtrunA17Chr6g0484671_Metru  ../*kaks
+#1657596008
+grep SOPJAP_g24867.t1_Sojap Medicago_truncatula.Styphnolobium_japonicum.KaryotypeInput
+#1657596094
+vi candidate_genes.with_info 
+#1657596110
+grep mRNA_MtrunA17Chr8g0379011_Metru ../*kaks
+#1657596151
+grep Yangtao2018299_Avcar ../Medicago_truncatula.Averrhoa_carambola.ortho.kaks
+#1657596174
+grep mRNA_MtrunA17Chr8g0379011_Metru *Input |les
+#1657596208
+grep mRNA_MtrunA17Chr8g0379011_Metru Medicago_truncatula.Sindora_glabra.KaryotypeInput
+#1657596215
+grep SINGLA_g28363.t1_Sigla Medicago_truncatula.Sindora_glabra.KaryotypeInput
+#1657596252
+grep mRNA_MtrunA17Chr2g0283791_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName 
+#1657596255
+grep mRNA_MtrunA17Chr2g0283791_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657596261
+grep mRNA_MtrunA17Chr2g0283791_Metru ../*kaks
+#1657596271
+grep mRNA_MtrunA17Chr2g0283791_Metru *Input |les
+#1657596299
+grep mRNA_MtrunA17Chr2g0283791_Metru Medicago_truncatula.Senna_septemtrionalis.KaryotypeInput
+#1657596303
+grep SESEP00018925-t2_Sesep Medicago_truncatula.Senna_septemtrionalis.KaryotypeInput
+#1657596312
+vi candidate_genes.with_info 
+#1657596327
+grep mRNA_MtrunA17Chr2g0332661_Metru  ../*kaks
+#1657596335
+grep mRNA_MtrunA17Chr2g0332661_Metru  *Input |les
+#1657596350
+grep mRNA_MtrunA17Chr2g0332661_Metru  Medicago_truncatula.Polygala_tatarinowii.KaryotypeInput
+#1657596354
+grep POTAT00006053-t1_Potat Medicago_truncatula.Polygala_tatarinowii.KaryotypeInput
+#1657596435
+vi candidate_genes.with_info 
+#1657596469
+grep mRNA_MtrunA17Chr3g0105081_Metru ../*kaks
+#1657596474
+grep mRNA_MtrunA17Chr3g0105081_Metru *Input |les
+#1657596477
+grep mRNA_MtrunA17Chr3g0105081_Metru *Input 
+#1657596566
+vi candidate_genes.with_info 
+#1657596592
+grep mRNA_MtrunA17Chr5g0439631_Metru ../*kaks
+#1657596596
+grep mRNA_MtrunA17Chr5g0439631_Metru *Input |le
+#1657596597
+grep mRNA_MtrunA17Chr5g0439631_Metru *Input |les
+#1657596665
+vi candidate_genes.with_info 
+#1657596678
+grep mRNA_MtrunA17Chr4g0043751_Metru ../*kaks
+#1657596684
+grep mRNA_MtrunA17Chr4g0043751_Metru ../*Input |les
+#1657596691
+grep mRNA_MtrunA17Chr4g0043751_Metru *Input |les
+#1657613855
+lth
+#1657613858
+vi gene_pav.nodulation.txt.mrca.format.sort.info.txt 
+#1657613869
+j shr
+#1657613875
+cd
+#1657613875
+ls
+#1657613885
+cd /nfs/liuhui/projects/buzzo/quota_align/Medicago_process/temp/
+#1657613885
+lt
+#1657613887
+cd ..
+#1657613887
+ls
+#1657613889
+ll *SHR*
+#1657613892
+lt *SHR*
+#1657613898
+les MtSHR_ortho.txt.fa 
+#1657613914
+les MtSHR_ortho.txt.fa.aln.rename
+#1657613941
+vi MtSHR_ortho.txt.fa.maf
+#1657613944
+les MtSHR_ortho.txt.fa.maf
+#1657613951
+vi MtSHR_ortho.txt.fa.maf
+#1657614025
+vi MtSHR_ortho.txt.fa.outgroup.maf 
+#1657614075
+lt *maf
+#1657614080
+vi MtSHR_ortho.txt.fa.outgroup.maf 
+#1657614169
+vi MtSHR_ortho.txt.fa.fabaceae.maf
+#1657614173
+lt tmp*
+#1657614174
+vi tmp3
+#1657614181
+vi tmp2
+#1657614183
+vi tmp1
+#1657614188
+vi MtSHR_ortho.txt.fa.fabaceae.maf
+#1657614218
+find . -iname "*SHR*"
+#1657614228
+lt*SHR*
+#1657614230
+lt *SHR*
+#1657614249
+vi MtSHR_ortho.txt.fa.fabaceae.maf.tmp
+#1657614259
+vi  MtSHR_ortho.txt.fa.aln.rename
+#1657614265
+vi MtSHR_ortho.txt.fa.maf 
+#1657614279
+vi MtSHR_ortho.txt.fa.fabaceae.maf 
+#1657614287
+vi MtSHR_ortho.txt.fa.outgroup.maf 
+#1657614298
+les MtSHR_ortho.txt.fa.outgroup.maf 
+#1657614314
+cp MtSHR_ortho.txt.fa.outgroup.maf  MtSHR_ortho.txt.fa.outgroup.order.maf
+#1657614316
+vi MtSHR_ortho.txt.fa.outgroup.order.maf
+#1657614403
+les MtSHR_ortho.txt.fa.outgroup.order.maf
+#1657614439
+sed "s/\s\+/\t/" MtSHR_ortho.txt.fa.outgroup.order.maf |les
+#1657614450
+sed "s/\s\+/\t/g" MtSHR_ortho.txt.fa.outgroup.order.maf > MtSHR_ortho.txt.fa.outgroup.order.maf.tab
+#1657614453
+t MtSHR_ortho.txt.fa.outgroup.order.maf.tab
+#1657617764
+vi MtSHR_ortho.txt.fa.outgroup.order.maf
+#1657617781
+vi  MtSHR_ortho.txt.fa.outgroup.order.maf
+#1657617802
+cp MtSHR_ortho.txt.fa.outgroup.order.maf MtSHR_ortho.txt.fa.outgroup.order.maf.outgroup
+#1657617825
+cp MtSHR_ortho.txt.fa.outgroup.order.maf MtSHR_ortho.txt.fa.outgroup.order.maf.Fabaceae
+#1657617828
+vi MtSHR_ortho.txt.fa.outgroup.order.maf.outgroup 
+#1657617840
+vi MtSHR_ortho.txt.fa.outgroup.order.maf.Fabaceae
+#1657617854
+more shell 
+#1657617867
+vi neutral.mod 
+#1657617879
+cp neutral.mod neutral.mod.1
+#1657617880
+vi neutral.mod 
+#1657617997
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.outgroup.order.maf.Fabaceae > MtSHR_ortho.txt.fa.outgroup.order.maf.Fabaceae.wig
+#1657618029
+phyloP --mode CONACC --method LRT --wig-scores neutral.mod MtSHR_ortho.txt.fa.outgroup.order.maf.outgroup > MtSHR_ortho.txt.fa.outgroup.order.maf.outgroup.wig
+#1657618038
+ls -d */
+#1657618043
+cd bin/
+#1657618048
+export PATH=/nfs/liuhui/projects/buzzo/quota_align/Medicago_process/bin:$PATH
+#1657618049
+cd -
+#1657618065
+wig2bed < MtSHR_ortho.txt.fa.outgroup.order.maf.Fabaceae.wig > MtSHR_ortho.txt.fa.outgroup.order.maf.Fabaceae.wig.bed
+#1657618077
+wig2bed < MtSHR_ortho.txt.fa.outgroup.order.maf.outgroup.wig > MtSHR_ortho.txt.fa.outgroup.order.maf.outgroup.wig.bed
+#1657618128
+selectItem.pl -k 1 1 MtSHR_ortho.txt.fa.outgroup.order.maf.Fabaceae.wig.bed MtSHR_ortho.txt.fa.outgroup.order.maf.outgroup.wig.bed |les
+#1657618190
+vi MtSHR_ortho.txt.fa.outgroup.order.maf
+#1657618194
+vi tmp
+#1657618235
+selectItem.pl -k 1 1 MtSHR_ortho.txt.fa.outgroup.order.maf.Fabaceae.wig.bed MtSHR_ortho.txt.fa.outgroup.order.maf.outgroup.wig.bed |les
+#1657618302
+vi MtSHR_ortho.txt.fa.outgroup.order
+#1657618307
+vi MtSHR_ortho.txt.fa.outgroup
+#1657618316
+vi MtSHR_ortho.txt.fa
+#1657618330
+vi MtSHR_ortho.txt.fa.aln.rename
+#1657618364
+les *maf
+#1657618374
+les MtSHR_ortho.txt.fa.aln
+#1657618384
+les MtSHR_ortho.txt.fa.aln.rename
+#1657618387
+sz  MtSHR_ortho.txt.fa.aln.rename
+#1657618391
+# Sent -> /Users/liuhui/Downloads/
+#1657618602
+lth
+#1657618604
+les MtSHR_ortho.txt.fa.aln.rename
+#1657618611
+selectItem.pl -k 1 1 MtSHR_ortho.txt.fa.outgroup.order.maf.Fabaceae.wig.bed MtSHR_ortho.txt.fa.outgroup.order.maf.outgroup.wig.bed |les
+#1657618692
+vi tmp
+#1657618720
+selectItem.pl -k 1 1 MtSHR_ortho.txt.fa.outgroup.order.maf.Fabaceae.wig.bed MtSHR_ortho.txt.fa.outgroup.order.maf.outgroup.wig.bed |les
+#1657618811
+selectItem.pl -k 1 1 MtSHR_ortho.txt.fa.outgroup.order.maf.Fabaceae.wig.bed MtSHR_ortho.txt.fa.outgroup.order.maf.outgroup.wig.bed  >MtSHR_ortho.txt.fa.combine.txt
+#1657618814
+tt MtSHR_ortho.txt.fa.combine.txt
+#1657618823
+awk '$5>$10' MtSHR_ortho.txt.fa.combine.txt |les
+#1657618917
+awk '$5>$10' MtSHR_ortho.txt.fa.combine.txt | awk '{print $_;print $5-$10}' |les
+#1657676279
+grep MtrunA17Chr3g0126011  Medicago_truncatula.Bauhinia_variegata.KaryotypeInput.Medicago_wgd
+#1657676298
+grep MtrunA17Chr3g0126011  Medicago_truncatula.Cercis_chinensis.KaryotypeInput.MedWGDMedName 
+#1657676301
+grep MtrunA17Chr3g0126011  Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657676306
+grep MtrunA17Chr3g0126011  ../*kaks
+#1657676422
+grep Chr1g0159321 ../*kaks
+#1657676462
+grep Chr1g0159321 Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657676468
+grep Chr1g0159321 Medicago_truncatula.Bauhinia_variegata.KaryotypeInput
+#1657676474
+grep BAUVAR_g22821.t1_Bavar Medicago_truncatula.Bauhinia_variegata.KaryotypeInput
+#1657676706
+grep MtrunA17Chr3g0125981 Medicago_truncatula.Bauhinia_variegata.KaryotypeInput
+#1657676712
+grep BAUVAR_g22821.t1_Bavar Medicago_truncatula.Bauhinia_variegata.KaryotypeInput
+#1657677019
+grep MtrunA17Chr4g0030801 ../*kaks
+#1657677026
+grep POTAT00021160-t3_Potat ../*kaks
+#1657677105
+grep MtrunA17Chr4g0030801 *Input |les
+#1657677137
+grep MtrunA17Chr4g0030801 Medicago_truncatula.Sindora_glabra.KaryotypeInput
+#1657677147
+grep "SINGLA_g130.t1_Sigla\|SINGLA_g5065.t2_Sigla" Medicago_truncatula.Sindora_glabra.KaryotypeInput
+#1657677380
+grep mRNA_MtrunA17Chr4g0044681_Metru ../*Input |les
+#1657677382
+grep mRNA_MtrunA17Chr4g0044681_Metru ../*Input 
+#1657677385
+grep mRNA_MtrunA17Chr4g0044681_Metru ../*kaks
+#1657677393
+grep mRNA_MtrunA17Chr4g0044681_Metru *Input |les
+#1657677396
+grep mRNA_MtrunA17Chr4g0044681_Metru *Input 
+#1657677470
+les *Input
+#1657677491
+grep CECHI00007085-t1_Cechi ../*kaks
+#1657677501
+grep CECHI00007086-t1_Cechi ../*kaks
+#1657677521
+grep POTAT00016500-t1_Potat ../*kaks
+#1657677610
+grep CECHI00007086-t1_Cechi ../*Input |les
+#1657677835
+grep MtrunA17Chr4g0050851 ../*kaks
+#1657677840
+grep MtrunA17Chr4g0050851 *Input
+#1657677858
+grep MtrunA17Chr4g0050811 *Input
+#1657677977
+grep SESEP00012138-t4_Sesep *Input
+#1657677979
+grep SESEP00012138-t4_Sesep ../*Input
+#1657678957
+grep MtrunA17Chr4g0050851 *Input
+#1657678985
+grep CASAUS_g8730.t1_Caaus *Input
+#1657679557
+les *Input
+#1657680478
+grep CECHI00006536 ../*Input
+#1657680558
+grep DUORC00012872 *Input
+#1657680566
+grep DUORC00012872 ../*bed
+#1657680584
+grep 4g50811 *Input |les
+#1657680612
+grep 4g0050811 *Dupar*Input |les
+#1657680615
+grep 4g0050811 *Dupar*Input 
+#1657680722
+grep 4g0050811 *Zenia*Input 
+#1657680754
+grep Zenia_insignis_ZEINS00008041 ../*bed
+#1657680761
+grep ZEINS00008041 ../*bed
+#1657680774
+grep ZEINS00007331-t1 ../*bed
+#1657680797
+grep 4g0050811 *Cercis*Input 
+#1657680882
+grep CECHI00006531-t1_Cechi ../*bed
+#1657687539
+grep MtrunA17Chr4g0044681  *Input
+#1657687671
+grep MtrunA17Chr4g0044681  ../*kaks
+#1657687696
+grep 
+#1657687706
+grep mRNA_MtrunA17Chr4g0050851 *Input
+#1657687821
+grep Cercis_chinensis_CECHI00007086 ../*anchors
+#1657687828
+grep CECHI00007086 ../*kaks
+#1657687839
+grep Cercis_chinensis_CECHI00007085 ../*anchors
+#1657687854
+grep CECHI00007086-t1_Cechi  *input |les
+#1657687858
+grep CECHI00007086-t1_Cechi  *Input |les
+#1657687863
+grep CECHI00007086-t1_Cechi  *Input 
+#1657687885
+grep MtrunA17Chr4g0044651 *Input
+#1657687996
+grep CECHI00004454 *Input 
+#1657688002
+grep CECHI00004454 ../*anchors
+#1657688061
+grep CECHI00007086-t1_Cechi  *Input 
+#1657688072
+grep CECHI00007084-t1_Cechi  *Input 
+#1657688075
+grep CECHI00007085-t1_Cechi  *Input 
+#1657688187
+grep CECHI00007085-t1_Cechi ../*Input
+#1657688191
+grep CECHI00007086-t1_Cechi ../*Input
+#1657688231
+grep CECHI00007085-t1_Cechi ../*Input
+#1657688234
+grep CECHI00007084-t1_Cechi ../*Input
+#1657688534
+grep CECHI00007085-t1_Cechi ../*Input
+#1657688644
+les *Pisum*Input
+#1657688888
+grpe 
+#1657688897
+grep Psat7g125720.5_Pisat ../Pisum_sativum.bed 
+#1657693403
+grep MtrunA17_Chr4g0050811 *Input
+#1657693406
+grep MtrunA17_Chr4g0050851 *Input
+#1657693410
+grep MtrunA17Chr4g0050811 *Input
+#1657693440
+grep MtrunA17Chr4g0050811 *Input |cut -f6 > MtrunA17Chr4g0050811_ortho.txt
+#1657693443
+vi MtrunA17Chr4g0050811_ortho.txt 
+#1657693457
+grep SESEP00012136-t1_Sesep *Input
+#1657693483
+sort MtrunA17Chr4g0050811_ortho.txt |uniq |wc -l
+#1657693484
+wc -l MtrunA17Chr4g0050811_ortho.txt
+#1657693488
+man grep
+#1657693544
+for i in `cat MtrunA17Chr4g0050811_ortho.txt`; do grep -A 5 -B 5  $i ../*bed >> MtrunA17Chr4g0050811_ortho.txt.beds; done
+#1657693557
+vi MtrunA17Chr4g0050811_ortho.txt.beds 
+#1657693692
+cp MtrunA17Chr4g0050811_ortho.txt MtrunA17Chr4g0050811_ortho.txt.rename
+#1657693695
+vi MtrunA17Chr4g0050811_ortho.txt.rename 
+#1657693925
+les *Pisum*Input
+#1657694040
+grep mRNA_MtrunA17Chr2g0278621_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657694044
+grep CECHI00006536-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657694050
+grep CECHI00006536-t1_Cechi ../*anchors
+#1657694054
+grep CECHI00006536-t1_Cechi ../*kaks
+#1657694069
+lth
+#1657694071
+vi MtrunA17Chr4g0050811_ortho.txt.beds
+#1657694086
+ls *pl
+#1657694090
+j quota
+#1657694090
+lth
+#1657694093
+ls *pl *py
+#1657694097
+more shell 
+#1657694108
+ls Medicago_process/*pl
+#1657694110
+ls Medicago_process/*py
+#1657694113
+cd -
+#1657694130
+cp fa2maf.py $HB/
+#1657694132
+vi phylopwig2bed.py
+#1657694145
+cp  phylopwig2bed.py /nfs/liuhui/bin/bundle/executables/
+#1657694147
+gtp
