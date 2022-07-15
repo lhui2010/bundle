@@ -93792,3 +93792,449 @@ bjl
 gtp
 #1657847371
 vk
+#1657847438
+gtps
+#1657847468
+cd ../..
+#1657847469
+ls
+#1657847481
+cd Results_Jun21/WorkingDirectory/
+#1657847481
+ls
+#1657847486
+ls -d */
+#1657847490
+cd fasta0715/
+#1657847490
+ls
+#1657847522
+for i in Begonia_masoniana Carpinus_viminea Cannabis_sativa Datisca_glomerata Myrica_rubra Parasponia_andersonii; do cp ~/fasta0613_newest/fasta_gff3/$i.fa .; done
+#1657847626
+for i in Begonia_masoniana Carpinus_viminea Cannabis_sativa Datisca_glomerata Myrica_rubra Parasponia_andersonii; do cp ~/fasta0613_newest/fasta_gff3/$i.gff3 .; done
+#1657847641
+for i in Begonia_masoniana Carpinus_viminea Cannabis_sativa Datisca_glomerata Myrica_rubra Parasponia_andersonii; do cp ~/fasta0613_newest/cds/$i.cds .; done
+#1657847648
+ll
+#1657847709
+for i in Medicago_truncatula Cercis_chinensis; do cp ~/fasta0613_newest/$i.pep ~/fasta0613_newest/cds/$i.cds ~/fasta0613_newest/fasta_gff3/$i.gff3 .; done
+#1657847713
+ll
+#1657847749
+cp -r ~/projects/Polygala_tatarinowii/synteny/work.Medicago_truncatula.Polygala_tatarinowii ~/projects/Polygala_tatarinowii/synteny/work.Cercis_chinensis.Polygala_tatarinowii/ . &
+#1657847749
+lth
+#1657847758
+jobs
+#1657847762
+lth
+#1657847765
+ls
+#1657847781
+python -m iga.evolution.ortho mcscanx
+#1657847791
+python -m iga.evolution.ortho mcscanx -h
+#1657847812
+ls *pep
+#1657847905
+for i in Medicago_truncatula Cercis_chinensis; do for j in Begonia_masoniana Carpinus_viminea Cannabis_sativa Datisca_glomerata Myrica_rubra Parasponia_andersonii; do bsub512 -n 4 -J mcscanx.$i.$j "python -m iga.evolution.ortho mcscanx --threads 10 $i $j"; done; done
+#1657847911
+logsh
+#1657847914
+vk
+#1657847926
+bjl
+#1657847929
+bhosts 
+#1657847931
+bjl
+#1657847942
+lsload
+#1657847951
+bjl
+#1657847959
+lsload
+#1657847968
+lth
+#1657847973
+ls
+#1657848285
+which R
+#1657849288
+jobs
+#1657849290
+bjl
+#1657849294
+lth
+#1657849302
+les error.79141
+#1657849310
+bjl
+#1657849319
+popd
+#1657849327
+j medicago_
+#1657849329
+lt
+#1657849336
+ll *Input
+#1657849370
+cat Medicago_truncatula.*Input > Medicago_truncatula.all.KaryotypeInput.txt
+#1657849516
+lth
+#1657849519
+cd CBS1/
+#1657849519
+ls
+#1657849520
+lt
+#1657849526
+les cbs_of2_ortho.txt 
+#1657849531
+les syn_ortho.txt 
+#1657849549
+les cbs_rename.txt
+#1657849596
+grep 
+#1657849600
+les cbs_rename.txt
+#1657849620
+cat ../../*.bed > total.bed
+#1657849639
+cat ../../*.bed.sort > total.bed
+#1657849685
+les cbs_rename.txt
+#1657849693
+cut -f1 cbs_rename.txt > cbs_rename.txt.ID
+#1657849705
+grep -A 10 -B 10 -f cbs_rename.txt.ID total.bed > cbs_rename.txt.beds
+#1657849711
+les cbs_rename.txt.beds
+#1657849724
+ls ../*pl
+#1657849729
+vi ../format_to_gggennes.pl 
+#1657849739
+vi ../replace.pl 
+#1657849767
+cp ../replace.pl .
+#1657849769
+vi replace.pl 
+#1657849818
+lth
+#1657849851
+replace.pl cbs_rename.txt cbs_ortho.fa.aln.tre |les
+#1657849864
+vi replace.pl 
+#1657849876
+cp `which replace.pl` .
+#1657849877
+vi replace.pl 
+#1657849906
+perl replace.pl cbs_rename.txt cbs_ortho.fa.aln.tre |les
+#1657849948
+perl replace.pl cbs_rename.txt cbs_ortho.fa.aln.tre > cbs_ortho.fa.aln.tre.rename
+#1657849957
+perl replace.pl cbs_rename.txt.beds > cbs_rename.txt.beds.rename
+#1657849978
+perl replace.pl cbs_rename.txt cbs_rename.txt.beds > cbs_rename.txt.beds.rename
+#1657849981
+logsh
+#1657849987
+lth
+#1657849995
+ll ../format_to_gggennes.pl 
+#1657849998
+cp ../format_to_gggennes.pl  .
+#1657850005
+perl format_to_gggennes.pl cbs_rename.txt.beds.rename > cbs_rename.txt.beds.rename.format
+#1657850008
+les cbs_rename.txt.beds.rename.format 
+#1657850012
+vi format_to_gggennes.pl 
+#1657850028
+perl format_to_gggennes.pl cbs_rename.txt.beds.rename > cbs_rename.txt.beds.rename.format
+#1657850030
+les cbs_rename.txt.beds.rename.format 
+#1657850042
+vi cbs_rename.txt.beds.rename
+#1657850052
+vi format_to_gggennes.pl 
+#1657850081
+replace.pl cbs_rename.txt cbs_rename.txt.beds > cbs_rename.txt.beds.rename
+#1657850084
+les cbs_rename.txt.beds.rename
+#1657850090
+perl format_to_gggennes.pl cbs_rename.txt.beds.rename > cbs_rename.txt.beds.rename.format
+#1657850092
+les cbs_rename.txt.beds.rename.format 
+#1657850113
+vi format_to_gggennes.pl 
+#1657850133
+perl format_to_gggennes.pl cbs_rename.txt.beds.rename > cbs_rename.txt.beds.rename.format
+#1657850134
+les cbs_rename.txt.beds.rename.format 
+#1657850170
+lth
+#1657850174
+les cbs_rename.txt.beds.rename.format 
+#1657850259
+vi gggenes.R
+#1657850279
+ls /nfs/liuhui/bin/bundle/Rscripts/
+#1657850282
+head /nfs/liuhui/bin/bundle/Rscripts/ks_hist.R 
+#1657850290
+lth
+#1657850292
+vi gggenes.R 
+#1657850364
+Rscript gggenes.R cbs_rename.txt.beds.rename.format
+#1657850410
+R
+#1657850419
+which R
+#1657850438
+R
+#1657850447
+lth
+#1657850452
+Rscript gggenes.R cbs_rename.txt.beds.rename.format
+#1657850465
+vi gggenes.R 
+#1657850473
+Rscript gggenes.R cbs_rename.txt.beds.rename.format
+#1657850488
+lth
+#1657850490
+sz cbs_rename.txt.beds.rename.format.pdf
+#1657850493
+# Sent -> /Users/liuhui/Downloads/
+#1657850524
+bedtools -h
+#1657850676
+ls
+#1657850686
+les total.bed 
+#1657850696
+les ../leg_25.txt 
+#1657850720
+rm total.bed 
+#1657850721
+for i in `cat ../leg_25.txt`; do cat ../../*.bed.sort >> total.bed; done
+#1657850795
+more shell 
+#1657850803
+grep -A 10 -B 10 -f cbs_rename.txt.ID total.bed > cbs_rename.txt.beds
+#1657850843
+logs
+#1657850844
+logsh 
+#1657850846
+lth
+#1657850863
+les cbs_rename.txt.beds
+#1657850873
+perl format_to_gggennes.pl cbs_rename.txt.beds.rename > cbs_rename.txt.beds.rename.format
+#1657850876
+Rscript gggenes.R cbs_rename.txt.beds.rename.format
+#1657850915
+sz cbs_rename.txt.beds.rename.format.pdf
+#1657850918
+# Sent -> /Users/liuhui/Downloads/
+#1657850970
+les cbs_rename.txt.beds.rename.format
+#1657850981
+lth
+#1657850996
+les cbs_rename.txt.beds.rename.format
+#1657851013
+vi cbs_rename.txt.beds.rename
+#1657851021
+vi cbs_rename.txt.beds
+#1657851032
+vi cbs_rename.txt.ID
+#1657851042
+grep VIT_216s0050g01290.1_Vivin total.bed 
+#1657851076
+vi cbs_rename.txt.ID
+#1657851137
+cd ../..
+#1657851156
+more ~/outgroup_list.txt 
+#1657851196
+for i in Averrhoa_carambola Populus_trichocarpa  Oryza_sativa Arabidopsis_thaliana Aquilegia_coerulea; do ln -s ~/fasta0613_newest/fasta_gff3/${i}.gff3; done
+#1657851199
+ll *gff3
+#1657851208
+for i in *gff3; do ls ${i%.gff3}.bed ; done
+#1657851211
+vw
+#1657851225
+for i in *gff3; do python -m jcvi.formats.gff bed --type=mRNA --key=ID ${i} -o ${i%.gff3}.bed; done
+#1657851307
+les leg35_x_leg35.txt 
+#1657851309
+cd -
+#1657851311
+les ../leg_25.txt 
+#1657851324
+vi ../leg_25.txt 
+#1657851342
+les ../../leg_35.txt 
+#1657851372
+selectItem.pl ../leg_25.txt ../../leg_35.txt  |les
+#1657851382
+selectItem.pl ../leg_25.txt ../../leg_35.txt  >leg_HC_25.txt
+#1657851392
+vi leg_HC_25.txt 
+#1657851442
+lth
+#1657851457
+rm total.bed 
+#1657851460
+for i in `cat leg_HC_25.txt`; do cat ../../*.bed.sort >> total.bed; done
+#1657851532
+les total.bed 
+#1657851548
+cd -
+#1657851555
+ls *bed |wc
+#1657851557
+ls *bed.sort |wc
+#1657851589
+for i in Averrhoa_carambola Populus_trichocarpa  Oryza_sativa Arabidopsis_thaliana Aquilegia_coerulea; do sort -k1,1V -k2,2n $i.bed > $i.bed.sort; done
+#1657851592
+cd -
+#1657851602
+rm total.bed; for i in `cat leg_HC_25.txt`; do cat ../../*.bed.sort >> total.bed; done
+#1657851653
+lht
+#1657851654
+lth
+#1657851658
+more shell 
+#1657851664
+grep -A 10 -B 10 -f cbs_rename.txt.ID total.bed > cbs_rename.txt.beds
+#1657851763
+vi cbs_rename.txt.beds
+#1657851768
+perl format_to_gggennes.pl cbs_rename.txt.beds.rename > cbs_rename.txt.beds.rename.format
+#1657851776
+replace.pl cbs_rename.txt cbs_rename.txt.beds > cbs_rename.txt.beds.rename
+#1657851783
+logsh
+#1657851794
+perl format_to_gggennes.pl cbs_rename.txt.beds.rename > cbs_rename.txt.beds.rename.format
+#1657851796
+vi *format
+#1657851813
+vi cbs_rename.txt.beds.rename
+#1657851821
+vi cbs_rename.txt.beds
+#1657851842
+les cbs_rename.txt
+#1657851874
+tail cbs_rename.txt
+#1657851876
+les total.bed 
+#1657851904
+for i in `cat leg_HC_25.txt`; do ls ../../*.bed.sort; done
+#1657851914
+for i in `cat leg_HC_25.txt`; do echo ../../*.bed.sort; done
+#1657851932
+rm total.bed; for i in `cat leg_HC_25.txt`; do cat ../../$i.bed.sort >> total.bed; done
+#1657851942
+more shell 
+#1657851963
+vi shell 
+#1657851978
+bash shell 
+#1657851981
+lth
+#1657851984
+vi cbs_rename.txt.beds.rename.format
+#1657851991
+Rscript gggenes.R cbs_rename.txt.beds.rename.format
+#1657852002
+vi shell 
+#1657852005
+lth
+#1657852010
+sz cbs_rename.txt.beds.rename.format.pdf
+#1657852012
+# Sent -> /Users/liuhui/Downloads/
+#1657852034
+vi shell 
+#1657852036
+vi cbs_rename.txt.beds.rename.format
+#1657852053
+lth
+#1657852057
+vi gggenes.R 
+#1657853965
+Rscript gggenes.R cbs_rename.txt.beds.rename.format
+#1657853972
+sz cbs_rename.txt.beds.rename.format.pdf
+#1657853975
+# Sent -> /Users/liuhui/Downloads/
+#1657854006
+lth
+#1657854012
+llth
+#1657854015
+ll *tre
+#1657854016
+ll *tre*
+#1657854022
+sz cbs_ortho.fa.aln.tre.rename
+#1657854024
+# Sent -> /Users/liuhui/Downloads/
+#1657862729
+lth
+#1657867087
+more shell 
+#1657867097
+cd ..
+#1657867141
+grep mRNA_MtrunA17Chr3g0134711_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657867146
+grep CECHI00003581-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657867178
+grep CECHI00003581-t1_Cechi Medicago_truncatula.Sindora_glabra.KaryotypeInput 
+#1657867189
+grep mRNA_MtrunA17Chr3g0134711_Metru Medicago_truncatula.Sindora_glabra.KaryotypeInput 
+#1657867200
+grep "SINGLA_g23464.t1_Sigla\|SINGLA_g9373.t1_Sigla"Medicago_truncatula.Sindora_glabra.KaryotypeInput
+#1657867209
+grep "SINGLA_g23464.t1_Sigla\|SINGLA_g9373.t1_Sigla" Medicago_truncatula.Sindora_glabra.KaryotypeInput
+#1657867266
+grep "MtrunA17Chr4g0030191" Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657867271
+grpe CECHI00010968-t2_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657867275
+grep CECHI00010968-t2_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657867315
+grep mRNA_MtrunA17Chr4g0030801_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657867438
+ls -d */
+#1657867778
+mkdir DNF2
+#1657867780
+cd DNF2/
+#1657867786
+cd ../CBS1/
+#1657867787
+more shell 
+#1657867808
+cp replace.pl $HB/replace_add_suffix.pl
+#1657867812
+vi format_to_gggennes.pl 
+#1657867832
+cp format_to_gggennes.pl  $HB/
+#1657867837
+vi gggenes.R 
+#1657867841
+cp gggenes.R $HB/
+#1657867843
+gtp

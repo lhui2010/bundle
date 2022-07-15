@@ -1,6 +1,7 @@
 
 # 伊老师让加外类群...
-/nfs/liuhui/Results_Jun21/WorkingDirectory
+OF2: /nfs/liuhui/Results_Jun21/WorkingDirectory
+MCSCANX: /nfs/liuhui/Results_Jun21/WorkingDirectory/fasta0715
 Fri Jul 15 09:09:38 CST 2022
 
 /nfs/liuhui/projects/buzzo/quota_align/Medicago_process
