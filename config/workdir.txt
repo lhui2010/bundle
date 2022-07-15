@@ -1,3 +1,15 @@
+
+# 伊老师让加外类群...
+/nfs/liuhui/Results_Jun21/WorkingDirectory
+Fri Jul 15 09:09:38 CST 2022
+
+/nfs/liuhui/projects/buzzo/quota_align/Medicago_process
+搞基因重复
+
+Thu Jul 14 14:23:38 CST 2022
+
+
+
 check Last orthofinder run
 1. remove recent polyploid species: Glycine, Lupinus
     1-50

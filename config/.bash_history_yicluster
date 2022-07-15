@@ -92810,3 +92810,985 @@ vi phylopwig2bed.py
 cp  phylopwig2bed.py /nfs/liuhui/bin/bundle/executables/
 #1657694147
 gtp
+#1657694152
+gtps
+#1657694159
+lth
+#1657694164
+vi MtrunA17Chr4g0050811_ortho.txt.beds
+#1657694183
+head MtrunA17Chr4g0050811_ortho.txt.beds > format_to_gggennes.pl
+#1657694184
+vi format_
+#1657694190
+vi format_to_gggennes.pl 
+#1657694330
+les MtrunA17Chr4g0050811_ortho.txt.rename 
+#1657694348
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657694530
+les MtrunA17Chr4g0050811_ortho.txt.beds
+#1657694539
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657694570
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |sort -k1,1 -k2,2 |les
+#1657694615
+cd ..
+#1657694630
+for i in *bed; do sort -k1,1V -k2,2n $i > $i.sort; done
+#1657694662
+cd -
+#1657694674
+rm MtrunA17Chr4g0050811_ortho.txt.beds; for i in `cat MtrunA17Chr4g0050811_ortho.txt`; do grep -A 5 -B 5  $i ../*bed.sort >> MtrunA17Chr4g0050811_ortho.txt.beds; done
+#1657694682
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |sort -k1,1 -k2,2 |les
+#1657694708
+vi MtrunA17Chr4g0050811_ortho.txt.rename
+#1657694714
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |sort -k1,1 -k2,2 |les
+#1657694726
+grep -A  rna-XM_027491829.1_Abpre  ../Abrus_precatorius.bed
+#1657694730
+grep -A 5 rna-XM_027491829.1_Abpre  ../Abrus_precatorius.bed
+#1657694734
+grep -A B rna-XM_027491829.1_Abpre  ../Abrus_precatorius.bed
+#1657694739
+grep -B 5 rna-XM_027491829.1_Abpre  ../Abrus_precatorius.bed
+#1657694754
+grep -A5 -B5 rna-XM_027491829.1_Abpre  ../Abrus_precatorius.bed
+#1657694758
+grep -A5 -B5 rna-XM_027491829.1_Abpre  ../Abrus_precatorius.bed.sort
+#1657694775
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |sort -k1,1 -k2,2n |les
+#1657694792
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657694897
+grep Cercis MtrunA17Chr4g0050811_ortho.txt.rename
+#1657694913
+grep CECHI00006536-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657694937
+vi MtrunA17Chr4g0050811_ortho.txt
+#1657694944
+rm MtrunA17Chr4g0050811_ortho.txt.beds; for i in `cat MtrunA17Chr4g0050811_ortho.txt`; do grep -A 5 -B 5  $i ../*bed.sort >> MtrunA17Chr4g0050811_ortho.txt.beds; done
+#1657694949
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657694966
+vi MtrunA17Chr4g0050811_ortho.txt.rename
+#1657694973
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657694980
+vi MtrunA17Chr4g0050811_ortho.txt.rename
+#1657694985
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657694996
+vi MtrunA17Chr4g0050811_ortho.txt.beds
+#1657695006
+replace.pl MtrunA17Chr4g0050811_ortho.txt MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657695025
+perl format_to_gggennes.pl MtrunA17Chr4g0050811_ortho.txt.beds > MtrunA17Chr4g0050811_ortho.txt.beds.format
+#1657695031
+rm MtrunA17Chr4g0050811_ortho.txt.beds.format
+#1657695037
+vi MtrunA17Chr4g0050811_ortho.txt
+#1657695048
+vi MtrunA17Chr4g0050811_ortho.txt.rename 
+#1657695050
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657695060
+vi MtrunA17Chr4g0050811_ortho.txt.beds
+#1657695092
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657695104
+vi MtrunA17Chr4g0050811_ortho.txt.beds
+#1657695109
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657695141
+grep CECHI00006536-t1_Cechi MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds
+#1657695143
+vi MtrunA17Chr4g0050811_ortho.txt.rename
+#1657695152
+replace.pl MtrunA17Chr4g0050811_ortho.txt.rename MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657695189
+vi SEN1.rename
+#1657695229
+cat MtrunA17Chr4g0050811_ortho.txt.rename SEN1.rename > SEN0_SEN1.rename
+#1657695234
+replace.pl SEN0_SEN1.rename MtrunA17Chr4g0050811_ortho.txt.beds |les
+#1657695293
+replace.pl SEN0_SEN1.rename MtrunA17Chr4g0050811_ortho.txt.beds  > SEN0_SEN1.rename.input.0
+#1657695295
+vi format_to_gggennes.pl 
+#1657695460
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input
+#1657695462
+vi format_to_gggennes.pl 
+#1657695478
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input
+#1657695482
+les SEN0_SEN1.rename.input
+#1657695488
+vi format_to_gggennes.pl 
+#1657695512
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input
+#1657695514
+les SEN0_SEN1.rename.input
+#1657695516
+vi format_to_gggennes.pl 
+#1657695543
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input
+#1657695545
+les SEN0_SEN1.rename.input
+#1657695550
+vi format_to_gggennes.pl 
+#1657695555
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input
+#1657695559
+les SEN0_SEN1.rename.input
+#1657695568
+vi format_to_gggennes.pl 
+#1657695603
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input
+#1657695609
+sz SEN0_SEN1.rename.input
+#1657695624
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657696834
+vi SEN0_SEN1.rename.input
+#1657696864
+vi format_to_gggennes.pl 
+#1657697075
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input
+#1657697076
+sz 
+#1657697079
+sz SEN0_SEN1.rename.input
+#1657697083
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657697187
+les SEN0_SEN1.rename.input.0
+#1657697200
+vi format_to_gggennes.pl 
+#1657697213
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input
+#1657697215
+sz SEN0_SEN1.rename.input
+#1657697221
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657697252
+vi gene_pav.nodulation.txt.mrca.format.sort.info.txt 
+#1657697255
+vi format_to_gggennes.pl 
+#1657697298
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input
+#1657697304
+mv SEN0_SEN1.rename.input SEN0_SEN1.rename.input3
+#1657697309
+sz SEN0_SEN1.rename.input3 
+#1657697312
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657697344
+vi format_to_gggennes.pl 
+#1657697351
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input
+#1657697357
+mv SEN0_SEN1.rename.input SEN0_SEN1.rename.input3
+#1657697358
+sz SEN0_SEN1.rename.input3 
+#1657697360
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657697415
+vi SEN0_SEN1.rename
+#1657697474
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input3
+#1657697480
+replace.pl SEN0_SEN1.rename MtrunA17Chr4g0050811_ortho.txt.beds  > SEN0_SEN1.rename.input.0
+#1657697483
+perl format_to_gggennes.pl SEN0_SEN1.rename.input.0 > SEN0_SEN1.rename.input3
+#1657697488
+sz SEN0_SEN1.rename.input3 
+#1657697491
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657697604
+logsh
+#1657697617
+vi MtrunA17Chr4g0050811_ortho.txt
+#1657697708
+les MtrunA17Chr4g0050811_ortho.txt
+#1657697716
+lth
+#1657697719
+les MtrunA17Chr4g0050811_ortho.txt.rename 
+#1657697725
+les SEN0_SEN1.rename
+#1657697737
+cut -f1 SEN0_SEN1.rename > SEN0_SEN1.rename.ID
+#1657697740
+vi SEN0_SEN1.rename.ID 
+#1657697755
+select_fasta.pl SEN0_SEN1.rename.ID ~/total.pep   > SEN0_SEN1.pep
+#1657697762
+mafft SEN0_SEN1.pep > SEN0_SEN1.pep.aln
+#1657697764
+lth
+#1657697771
+fasttree < SEN0_SEN1.pep.aln > SEN0_SEN1.pep.aln.tre
+#1657697792
+replace.pl SEN0_SEN1.rename.ID SEN0_SEN1.pep.aln.tre > SEN0_SEN1.pep.aln.format.tre
+#1657697799
+replace.pl SEN0_SEN1.rename SEN0_SEN1.pep.aln.tre > SEN0_SEN1.pep.aln.format.tre
+#1657697803
+sz SEN0_SEN1.pep.aln.format.tre
+#1657697806
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657697828
+vi SEN0_SEN1.rename
+#1657697873
+replace.pl SEN0_SEN1.rename2 SEN0_SEN1.pep.aln.tre > SEN0_SEN1.pep.aln.format.tre
+#1657697878
+sz SEN0_SEN1.pep.aln.format.tre
+#1657697881
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657698057
+grep CECHI00006536 ../Cercis_chinensis.Polygala_tatarinowii.anchors 
+#1657698077
+grep "POTAT00020576-t1_Potat\|POTAT00009169-t1_Potat\|POTAT00010040-t1_Potat" ../Cercis_chinensis.Polygala_tatarinowii.anchors
+#1657698095
+vi potat.txt
+#1657698106
+lth
+#1657698111
+select_fasta.pl potat.txt ~/total.pep >> SEN0_SEN1.pep
+#1657698121
+mafft SEN0_SEN1.pep > SEN0_SEN1.pep.aln
+#1657698122
+fasttree < SEN0_SEN1.pep.aln > SEN0_SEN1.pep.aln.tre
+#1657698130
+replace.pl SEN0_SEN1.rename2 SEN0_SEN1.pep.aln.tre > SEN0_SEN1.pep.aln.format.tre
+#1657698137
+sz SEN0_SEN1.pep.aln.format.tre
+#1657698140
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657698432
+grep EVM0008308.1_R0_Amnan *Input
+#1657698634
+grep CECHI00006536 ../*Zenia*Input
+#1657698845
+vw
+#1657698854
+lth
+#1657698863
+iqtree2 -B 1000 --modelomatic -s SEN0_SEN1.pep.aln
+#1657699671
+sz SEN0_SEN1.pep.aln.treefile 
+#1657699674
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657699993
+lth
+#1657700021
+for i in mRNA_MtrunA17Chr2g0278621_Metru mRNA_MtrunA17Chr6g0479471_Metru; do select_fasta.pl $i ~/total.pep >> SEN0_SEN1.pep; done
+#1657700035
+mafft SEN0_SEN1.pep > SEN0_SEN1.pep.aln
+#1657700039
+fasttree < SEN0_SEN1.pep.aln > SEN0_SEN1.pep.aln.tre
+#1657700055
+replace.pl SEN0_SEN1.rename2 SEN0_SEN1.pep.aln.tre > SEN0_SEN1.pep.aln.format2.tre
+#1657700060
+sz SEN0_SEN1.pep.aln.format2.tre
+#1657700062
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657700163
+for i in mRNA_MtrunA17Chr2g0278621_Metru mRNA_MtrunA17Chr6g0479471_Metru; do grep $i *Input; done
+#1657700221
+grep ZEINS00008038-t1_Zeins Medicago_truncatula.Zenia_insignis.KaryotypeInput
+#1657700242
+grep mRNA_MtrunA17Chr2g0278621_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657700292
+grep CECHI00006536-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657700539
+for i in ZEINS00027057-t1_Zeins ZEINS00030183-t1_Zeins; do select_fasta.pl $i ~/total.pep >> SEN0_SEN1.pep; done
+#1657700555
+mafft SEN0_SEN1.pep > SEN0_SEN1.pep.aln
+#1657700558
+fasttree < SEN0_SEN1.pep.aln > SEN0_SEN1.pep.aln.tre
+#1657700569
+replace.pl SEN0_SEN1.rename2 SEN0_SEN1.pep.aln.tre > SEN0_SEN1.pep.aln.format3.tre
+#1657700573
+sz SEN0_SEN1.pep.aln.format3.tre 
+#1657700575
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/PhyLegR/
+#1657700750
+grep mRNA_MtrunA17Chr2g0278621_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657700760
+grep CECHI00006536-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1657701031
+j lysidic
+#1657701037
+j lyrho
+#1657701039
+cd -
+#1657701043
+cd /nfs/liuhui/projects/buzzo/quota_align/Medicago_process/
+#1657701210
+grep mRNA_MtrunA17Chr2g0278621_Metru
+#1657701214
+grep mRNA_MtrunA17Chr2g0278621_Metru ../*bed
+#1657701857
+grep mRNA_MtrunA17Chr4g0050851_Metru ../*bed
+#1657702735
+ls
+#1657702740
+cd projects/
+#1657702743
+mkdir yanhui
+#1657702745
+cd yanhui/n
+#1657702746
+cd yanhui/
+#1657702747
+ls
+#1657702751
+ll
+#1657702752
+lt
+#1657702759
+mkdir genblast
+#1657702760
+cd genblast/
+#1657702763
+ls
+#1657702764
+cd yi03
+#1657702765
+ls
+#1657702769
+cd orthofinder
+#1657702769
+ll
+#1657702773
+cd fasta0613_newest/
+#1657702773
+ls
+#1657702774
+cd fasta_gff3/
+#1657702775
+ls
+#1657702785
+cp *.fa /nfs/liuhui/projects/yanhui/genblast/ &
+#1657702798
+cp ../Medicago_truncatula.pep  /nfs/liuhui/projects/yanhui/genblast/ &
+#1657702810
+cd /nfs/liuhui/projects/yanhui/genblast/
+#1657702812
+ll
+#1657702819
+fg
+#1657702823
+rm *.fa
+#1657702854
+ll
+#1657702867
+cp ~/projects/buzzo/msa_pipeline/msa_pipeline/data/*.fa . &
+#1657702867
+lt
+#1657702999
+j mask
+#1657703000
+lth
+#1657702958
+j repeat
+#1657703005
+ll *masked.fa
+#1657703007
+ll *masked.fa |wc -l
+#1657703016
+cd -
+#1657702999
+cd -
+#1657703003
+jobs
+#1657703081
+ll
+#1657703088
+rm Medicago_truncatula.fa
+#1657703093
+ll
+#1657703221
+rename .fa .masked.fa
+#1657703224
+rename .fa .masked.fa *.fa
+#1657703225
+ll
+#1657703231
+chmod -w *.masked.fa
+#1657703231
+ll
+#1657703252
+cp ~/projects/phyleg/repeat_mask/*.masked.fa .
+#1657703260
+lth
+#1657703271
+les ~/leg_rep_list.txt 
+#1657703291
+for i in `cat ~/leg_rep_list.txt `; do cp ~/projects/phyleg/repeat_mask/$i.masked.fa . ; done
+#1657703298
+for i in `cat ~/leg_rep_list.txt `; do cp ~/projects/phyleg/repeat_mask/$i.fa.masked.fa . ; done
+#1657703426
+lth
+#1657703433
+rm *fa.masked.fa
+#1657703439
+for i in `cat ~/leg_rep_list.txt `; do cp ~/projects/phyleg/repeat_mask/$i.fa.masked.fa ./$i.masked.fa ; done
+#1657703688
+lth
+#1657703706
+rm Senna_septemtrionalis.genome.fa.chr.softmask.fa Chamaecrista_pumila.genome.chr.softmask.fa 
+#1657703707
+lth
+#1657703708
+ls
+#1657703710
+ls *.fa
+#1657703714
+ls *.fa |wc
+#1657703722
+expr 39 + 6
+#1657703766
+rm Medicago_truncatula.masked.fa
+#1657703772
+ll Medicago_truncatula.pep
+#1657703881
+bhosts 
+#1657703923
+lsload
+#1657760950
+bjl
+#1657760957
+bjobs -u yanhui
+#1657763808
+j 
+#1657763813
+bjobs -u yanhui
+#1657763819
+cd -
+#1657763820
+ll
+#1657763822
+lth
+#1657763825
+bjl
+#1657779797
+j process_med
+#1657779802
+j medicago_process
+#1657779803
+ls
+#1657779807
+vk 
+#1657779820
+lth
+#1657779827
+mkdir SEN1
+#1657779835
+mv *SEN* SEN1/
+#1657779838
+lth
+#1657779848
+mv MtrunA17Chr4g0050811_ortho.txt* SEN1/
+#1657779848
+ll
+#1657779850
+ll *pl
+#1657779852
+vi format_
+#1657779854
+vi format_to_gggennes.pl 
+#1657780267
+pushd ~/projects/buzzo/dupgene_finder/
+#1657780268
+ls
+#1657780274
+cd DupGen_finder/
+#1657780275
+ll
+#1657780276
+lt
+#1657780280
+ls da
+#1657780281
+ls data/
+#1657780283
+cd ..
+#1657780283
+ll
+#1657780290
+cd input/
+#1657780290
+ls
+#1657780296
+cd outputs/
+#1657780296
+ls
+#1657780308
+les output.Medicago_truncatula.Polygala_tatarinowii/
+#1657780311
+cd output.Medicago_truncatula.Polygala_tatarinowii/
+#1657780311
+ls
+#1657780312
+ll
+#1657780336
+grep MtrunA17Chr4g0050851 *pairs
+#1657780444
+grep MtrunA17Chr5g0432401 *pairs
+#1657780479
+grep MtrunA17Chr6g0469911 *pairs
+#1657780545
+grep Medtr6g052300 *pairs
+#1657780568
+grep MtrunA17Chr6g0469911 *pairs
+#1657780605
+grep MtrunA17_Chr6g0469771 *pairs
+#1657780610
+grep MtrunA17Chr6g0469771 *pairs
+#1657780750
+grep "MtrunA17Chr6g0469771_Metru\|MtrunA17Chr6g0469911"  /nfs/liuhui/projects/buzzo/quota_align/Medicago_truncatula.bed
+#1657780758
+grep -A 5 -B 5 "MtrunA17Chr6g0469771_Metru\|MtrunA17Chr6g0469911"  /nfs/liuhui/projects/buzzo/quota_align/Medicago_truncatula.bed
+#1657782830
+popd
+#1657782831
+ls
+#1657782976
+grep CECHI00000436 ../*Input |les
+#1657782980
+grep CECHI00000436 ../*Input 
+#1657782983
+grep CECHI00000437 ../*Input 
+#1657783039
+mkdir CBS1
+#1657783047
+cat > CBS1/syn_ortho.txt
+#1657783086
+grep mRNA_MtrunA17Chr6g0469771 *Input |les
+#1657783089
+grep mRNA_MtrunA17Chr6g0469771 *Input 
+#1657783097
+cat >> CBS1/syn_ortho.txt 
+#1657783117
+grep mRNA_MtrunA17Chr6g0469911 *Input
+#1657783124
+grep mRNA_MtrunA17Chr6g0469911 *Input |cut -f6 |les
+#1657783128
+grep mRNA_MtrunA17Chr6g0469911 *Input |cut -f6 |wc
+#1657783132
+grep mRNA_MtrunA17Chr6g0469911 *Input |cut -f6 |sort |uniq |wc -l
+#1657783146
+grep mRNA_MtrunA17Chr6g0469911 *Input |cut -f6 >> CBS1/syn_ortho.txt 
+#1657783149
+cd CBS1/
+#1657783150
+ll
+#1657783158
+sort syn_ortho.txt |uniq |wc
+#1657783159
+wc syn_ortho.txt 
+#1657783239
+rz
+#1657783245
+# Cancelled transfer
+#1657783271
+rz
+#1657783276
+# Received /Users/liuhui/Downloads/cbs_of2_ortho.txt
+#1657783277
+ll
+#1657783286
+grep single cbs_of2_ortho.txt |les
+#1657783300
+bjobs yanhui |les
+#1657783304
+bjobs -u yanhui |les
+#1657783319
+grep single cbs_of2_ortho.txt |cut -f1,2 |les
+#1657783403
+grep single cbs_of2_ortho.txt |cut -f1,3 |head -25 > cbs_rename.txt
+#1657783405
+vi cbs_rename.txt 
+#1657783453
+grep single cbs_of2_ortho.txt |cut -f1,3 |tail -n +25 |les
+#1657783459
+grep single cbs_of2_ortho.txt |cut -f1,3 |tail -n +26 |les
+#1657783467
+grep single cbs_of2_ortho.txt |cut -f1,3 |tail -n +26 |cut -f2 |les
+#1657783480
+grep single cbs_of2_ortho.txt |cut -f1,3 |tail -n +26 |cut -f2 |sed "s/$/\tCBS2/" >> cbs_rename.txt 
+#1657783482
+vi cbs_rename.txt 
+#1657783488
+lt
+#1657783587
+les cbs_of2_ortho.txt 
+#1657783600
+vi syn_ortho.txt 
+#1657783606
+cd ..
+#1657783610
+ls
+#1657783611
+cd -
+#1657783611
+ls
+#1657783618
+unselectItem.pl syn_ortho.txt cbs_of2_ortho.txt 
+#1657783626
+unselectItem.pl cbs_of2_ortho.txt syn_ortho.txt 
+#1657783633
+unselectItem.pl 1 0 cbs_of2_ortho.txt syn_ortho.txt 
+#1657783638
+head cbs_of2_ortho.txt syn_ortho.txt
+#1657783645
+unselectItem.pl 2 0 cbs_of2_ortho.txt syn_ortho.txt 
+#1657783653
+grep CECHI00000436 *
+#1657783669
+grep DUORC00005412-t1 cbs_of2_ortho.txt 
+#1657783836
+for i in CECHI00000436 CECHI00000437 BAUVAR_g1175.t1_Bavar mRNA_MtrunA17Chr6g0469761_Metru ZEINS00027101-t1_Zeins Ae.00009881_Amedg SOPJAP_g24226.t1_Sojap rna-XM_016111781.2_Ardur rna14825_Cacaj DUORC00005412-t1 rna-XM_028325647.1_Glsoj rna-XM_028349645.1_Glsoj LYRHO00006124-t1_Lyrho SINGLA_g22745.t1_Sigla SOPJAP_g24225.t1_Sojap; do grep $i cbs_of2_ortho.txt ; done
+#1657783876
+cd ..
+#1657783903
+grep mRNA_MtrunA17Chr6g0469771 *Input |les
+#1657783915
+grep mRNA_MtrunA17Chr6g0469771 *Input |cut -f2,6 |les
+#1657783924
+grep mRNA_MtrunA17Chr6g0469771 *Input |cut -f2,6 > CBS1/syn_ortho.txt 
+#1657783947
+grep mRNA_MtrunA17Chr6g0469911 *Input |cut -f2,6 >> CBS1/syn_ortho.txt
+#1657783950
+cd -
+#1657783951
+lth
+#1657783953
+vi syn_ortho.txt 
+#1657784066
+awk '{print $2"\t"$1}' syn_ortho.txt  >> cbs_rename.txt 
+#1657784067
+lth
+#1657784069
+vi cbs_rename.txt 
+#1657784085
+vi cbs_rename.txt.1
+#1657784101
+unselectItem.pl cbs_rename.txt cbs_rename.txt.1 
+#1657784111
+grep rna-XM_016111781.2_Ardur cbs_rename.txt
+#1657784125
+grep rna14825_Cacaj cbs_rename.txt
+#1657784131
+grep DUORC00005412-t1 cbs_rename.txt
+#1657784136
+grep rna-XM_028325647.1_Glsoj cbs_rename.txt
+#1657784140
+grep rna-XM_028349645.1_Glsoj cbs_rename.txt
+#1657784145
+grep LYRHO00006124-t1_Lyrho cbs_rename.txt
+#1657784152
+grep LYRHO00006124-t1 cbs_rename.txt
+#1657784161
+grep SINGLA_g22745.t1_Sigla cbs_rename.txt
+#1657784166
+grep SOPJAP_g24225.t1_Sojap cbs_rename.txt
+#1657784176
+grep SINGLA_g22745.t1 cbs_rename.txt
+#1657784182
+vi $HB/ortholog*
+#1657784194
+cp /nfs/liuhui/bin/bundle/lh_bin/ortholog2ortho.pl  .
+#1657784195
+vi ortholog2ortho.pl 
+#1657784238
+lt
+#1657784243
+perl ortholog2ortho.pl cbs_rename.txt |les
+#1657784255
+mv  cbs_rename.txt cbs_rename.txt.2
+#1657784259
+perl ortholog2ortho.pl cbs_rename.txt.2 > cbs_rename.txt
+#1657784278
+grep "SINGLA_g22745.t1\|LYRHO00006124-t1_Lyrho" cbs_rename.txt.1 
+#1657784288
+grep "SINGLA_g22745.t1\|LYRHO00006124-t1_Lyrho" cbs_rename.txt.1 >> cbs_rename.txt
+#1657784291
+wc cbs_rename.txt
+#1657784295
+grep ',' cbs_rename.txt
+#1657784301
+sort cbs_rename.txt |wc
+#1657784305
+sort cbs_rename.txt |uniq |wc
+#1657784308
+vi cbs_rename.txt
+#1657784393
+select_fasta.pl potat.txt ~/total.pep >> SEN0_SEN1.pep
+#1657784411
+select_fasta.pl cbs_rename.txt ~/total.pep > cbs_ortho.fa
+#1657784428
+mafft  cbs_ortho.fa > cbs_ortho.fa.aln
+#1657784431
+lth
+#1657784436
+vi cbs_ortho.fa.aln 
+#1657784454
+fasttree < cbs_ortho.fa.aln > cbs_ortho.fa.aln.tre
+#1657784463
+sz cbs_ortho.fa.aln.tre
+#1657784466
+# Sent -> /Users/liuhui/Downloads/
+#1657784519
+vi cbs_ortho.fa.aln 
+#1657784525
+ll
+#1657784528
+vi cbs_of2_ortho.txt 
+#1657784558
+vi cbs_of2_ortho.txt
+#1657784573
+vi cbs_rename.txt
+#1657784581
+vi cbs_of2_ortho.txt
+#1657784600
+lt
+#1657784612
+vi cbs_of2_ortho.txt 
+#1657784646
+grep duplicate cbs_of2_ortho.txt |cut -f1,3 > tmp
+#1657784654
+mv tmp duplicate_of_of2.txt
+#1657784655
+vi duplicate_of_of2.txt 
+#1657784717
+cat duplicate_of_of2.txt >> cbs_rename.txt
+#1657784719
+select_fasta.pl cbs_rename.txt ~/total.pep > cbs_ortho.fa
+#1657784735
+mafft  cbs_ortho.fa > cbs_ortho.fa.aln
+#1657784737
+fasttree < cbs_ortho.fa.aln > cbs_ortho.fa.aln.tre
+#1657784748
+sz cbs_ortho.fa.aln.tre
+#1657784751
+# Sent -> /Users/liuhui/Downloads/
+#1657702767
+ssh yi03
+#1657845702
+j
+#1657845679
+ls
+#1657845683
+ll
+#1657845684
+cd orthofinder_50_sp_result/
+#1657845685
+ls
+#1657845689
+ll WorkingDirectory/
+#1657845693
+cd ..
+#1657845694
+ll
+#1657845700
+cd /mnt/yi03/liuhui/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jun24/
+#1657845701
+ls
+#1657845702
+ll
+#1657845725
+more ../../../WorkingDirectory/SpeciesIDs.txt 
+#1657845753
+diff ../../../WorkingDirectory/SpeciesIDs.txt WorkingDirectory/SpeciesIDs.txt 
+#1657845761
+ls
+#1657845768
+ls WorkingDirectory/
+#1657845790
+ls ../../*49.txt.gz
+#1657845791
+ls
+#1657845800
+lt
+#1657845803
+ls WorkingDirectory/
+#1657845806
+cd ../..
+#1657845807
+ls
+#1657845811
+cd ../..
+#1657845812
+ls
+#1657845815
+cd ../../
+#1657845817
+ls
+#1657845821
+cd fasta0622/
+#1657845821
+ls
+#1657845822
+ll
+#1657845824
+cd ..
+#1657845830
+mkdir fasta0715
+#1657845833
+cd fasta0715/
+#1657845839
+cp ../fasta0622/Polygala_tatarinowii.pep .
+#1657845870
+ls
+#1657845872
+cp ../fasta0613_newest/
+#1657845877
+ls ../fasta0612
+#1657845880
+ls ..
+#1657845882
+lt ..
+#1657845891
+more ../outgroup_list.txt 
+#1657845943
+ls
+#1657845944
+for i in Begonia_masoniana Carpinus_viminea Cannabis_sativa Datisca_glomerata Myrica_rubra Parasponia_andersonii; do cp ../fasta0613_newest/$i.pep .; done
+#1657845953
+pll
+#1657845954
+ll
+#1657845959
+ls * |wc -l
+#1657845962
+cd ..
+#1657845963
+ls
+#1657845964
+lt
+#1657845969
+more shell 
+#1657846003
+le sno
+#1657846004
+les nohup.out
+#1657846034
+bhosts 
+#1657846036
+lsload
+#1657846060
+ls
+#1657846063
+ll
+#1657846070
+ls fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/
+#1657846090
+ls
+#1657846108
+mv fasta0715 ~/
+#1657846112
+ln -s ~/fasta0715/
+#1657846158
+mkdir -p ~/Results_Jun21/WorkingDirectory
+#1657846161
+ls fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/
+#1657846185
+ls -d fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/*/
+#1657846225
+rmdir ~/Results_Jun21/WorkingDirectory/
+#1657846234
+nohup cp  -r fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/  ~/Results_Jun21/WorkingDirectory &
+#1657846242
+bjobs -u yanhui |less
+#1657846296
+bjl
+#1657846300
+jobs
+#1657846305
+cd ~/Results_Jun21/
+#1657846306
+ls
+#1657846309
+cd w
+#1657846312
+cd WorkingDirectory/
+#1657846313
+lt
+#1657846314
+lth
+#1657846503
+jobs
+#1657846569
+bjl
+#1657846570
+jobs
+#1657846572
+lt
+#1657846575
+lth
+#1657846581
+ls *gz |wc -l
+#1657846588
+ls fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/*gz |wc -l
+#1657846593
+cd -
+#1657846615
+cd /mnt/yi03/liuhui/orthofinder/
+#1657846619
+ls fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/*gz |wc -l
+#1657846621
+cd -
+#1657846622
+lth
+#1657846759
+jobs
+#1657846764
+ls *gz |wc -l
+#1657846766
+lth
+#1657846997
+mv ../../fasta0715 .
+#1657846998
+ls
+#1657847130
+lth
+#1657847137
+ls -d */
+#1657847188
+ls -d /mnt/yi03/liuhui/orthofinder/fasta0616/OrthoFinder/Results_Jun21/WorkingDirectory/*/
+#1657847200
+ls
+#1657847272
+bhosts 
+#1657847285
+bsub512 -n 60 "orthofinder -f fasta0715 -b . -t 60 -M msa -y "
+#1657847287
+bjl
+#1657847295
+lth
+#1657847298
+ls OrthoFinder
+#1657847308
+lth
+#1657847311
+logsh
+#1657847316
+bjl
+#1657847321
+lth
+#1657847322
+bjl
+#1657847326
+bpeek 79134
+#1657847352
+bjl
+#1657847362
+gtp
+#1657847371
+vk
