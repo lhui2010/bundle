@@ -479,4 +479,32 @@ def yanrui_count_tree(tree_dir=None, suffix_outgroup='', suffixA='', suffixB='')
     return [output_ind, output_com, output_other]
 
 
-emain()
+def plotTD(orthoFile=None, all_bed=None, total_pep=None, flank=10):
+    """
+    Args:
+        orthoFile:
+            MtgeneA   Castanospermum.geneA
+            MtgeneB   Castanospermum.geneB
+        all_bed:
+            cat Mt.bed Cast.bed > total.bed
+        total_pep:
+            cat Mt.pep Cast.pep > total.pep
+    Calculate:
+        1. fasttree of MtGeneA, MtGeneB and all homologs.
+        2. find flanking upstream and downstream of ten genes of Mt gene A
+        3. Use gggenes to plot location of MtGeneA and MtGeneB
+    Returns:
+    """
+    # Step1. create rename dict and reformat genes file. Used in rename nwk, beds.
+    xx.rename
+    # Step2. generate tree plot and rename with rename dict
+    iqtree
+    # Step3. get flanking genes with bed tools.
+    bedtools
+    # Step4. Reformat bed by replace .*: and .*- in column1.
+    perl
+    # Step5. Rename bed with rename dict.
+
+
+if __name__ == "__main__":
+    emain()
