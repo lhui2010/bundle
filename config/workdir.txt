@@ -1,3 +1,10 @@
+/nfs/liuhui/bin/genblast_v139/Abrus_precatorius.fa.genblast.test.pep/100.fa.run
+测试是否还要超大中间文件（genblat）
+
+# /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul15
+带NFC
+
+Wed Jul 20 11:40:39 CST 2022
 
 # 伊老师让加外类群...
 OF2: /nfs/liuhui/Results_Jun21/WorkingDirectory

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # from Yan Rui
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
@@ -18,8 +19,11 @@ class get_message():
         arg = par.parse_args()
         self.query = arg.query
         self.file = arg.file
-        os.mkdir('result')
-        os.mkdir('result/midfile')
+        try: 
+            os.mkdir('result')
+            os.mkdir('result/midfile')
+        except FileExistsError:
+            pass
     def bio(self,path,way):
         if way == 'prot':
             t=[]
@@ -58,18 +62,19 @@ class get_message():
         e = input('设定e值：')
         ident = int(input('最小序列一致性:'))
         try:
-            os.system(f"makeblastdb -in {self.query} -out result/midfile/db -dbtype prot")
+            os.system(f"makeblastdb -in {self.file} -out result/midfile/db -dbtype prot")
         except:
             print('构建本地数据库出错')
         # 调用本地blast
         try:
             outfile = 'result/midfile/blast_out.file'
             os.system(
-                f'blastp -query {self.file} -db result/midfile/db -out {outfile} -outfmt "6 qseqid qstart qend sacc score pident " -evalue {e}')
+                f'blastp -query {self.query} -db result/midfile/db -out {outfile} -outfmt "6 qseqid qstart qend sacc score pident " -evalue {e}')
         except:
             print('blast出错')
         df = pd.read_table(outfile, names=['条带编号', '起始位点', '终止位点', '酶编号', '得分', '一致性'])
-        self.blast_name = list(set([i for i in df[df['一致性'] > ident]['条带编号']]))
+        #self.blast_name = list(set([i for i in df[df['一致性'] > ident]['条带编号']]))
+        self.blast_name = list(set([i for i in df[df['一致性'] > ident]['酶编号']]))
         print('blast 条数：', len(self.blast_name))
         print('                                                 ')
     def Hmmer_pipeline(self):
