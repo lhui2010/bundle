@@ -98852,3 +98852,113 @@ cp sed.sh $BD/
 gtp
 #1658543789
 gtps
+#1658543853
+gtps
+#1658543864
+lth
+#1658543872
+les 56sp_min70_cds.astral.rooted.tre 
+#1658543846
+more shell 
+#1658543857
+orthofinder  -ft OrthoFinder/Results_Jul15/WorkingDirectory/  -s OrthoFinder/56sp_min70_cds.astral.rooted.tre 
+#1658543890
+orthofinder  -ft OrthoFinder/Results_Jul15/  -s OrthoFinder/56sp_min70_cds.astral.rooted.tre 
+#1658543918
+cd -
+#1658543932
+cd OrthoFinder/
+#1658543942
+vi sed.sh 
+#1658544042
+rm 56sp_min70_cds.astral.rooted.tre 
+#1658543878
+tma
+#1658544079
+rz
+#1658544083
+# Received /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/11.Phylogeny/56物种/56sp_min70_cds.astral.rooted.tre
+#1658544050
+lth
+#1658544056
+bash sed.sh 56sp_min70_cds.astral.rooted.tre 
+#1658544057
+lth
+#1658544059
+vi 56sp_min70_cds.astral.rooted.tre 
+#1658544067
+cd ..
+#1658544072
+ll OrthoFinder
+#1658544083
+rm -r OrthoFinder/Results_Jul23/
+#1658544084
+tma
+#1658544224
+vi /nfs/liuhui/bin/bundle/clean_download.genome.md
+#1658544320
+vi `which cds2aa.pl `
+#1658544348
+vi /nfs/liuhui/bin/bundle/clean_download.genome.md
+#1658544441
+lth
+#1658544086
+orthofinder  -ft OrthoFinder/Results_Jul15/  -s OrthoFinder/56sp_min70_cds.astral.rooted.tre 
+#1658544443
+vi 56sp_min70_cds.astral.rooted.tre 
+#1658544473
+lt
+#1658544476
+bjl
+#1658544479
+cd Results_Jul23/
+#1658544480
+lt
+#1658544482
+cd -
+#1658544476
+pushd /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/
+#1658544476
+lt
+#1658544487
+cd Orthologues/Orthologues_Medicago_truncatula/
+#1658544487
+lt
+#1658544597
+gtp
+#1658544610
+cp /nfs/liuhui/bin/bundle/bash_template/get_gene_age.sh .
+#1658544610
+vi get_gene_age.sh 
+#1658544704
+gtp
+#1658544714
+cp /nfs/liuhui/bin/bundle/bash_template/nod_genes.txt* .
+#1658544717
+ll
+#1658544718
+lth
+#1658544722
+vi get_gene_age.sh 
+#1658544744
+vi /nfs/liuhui/bin/bundle/lh_bin/calc_mrca.R 
+#1658544759
+head /nfs/liuhui/bin/bundle/Rscripts/get_ks_peak.R 
+#1658544766
+vi /nfs/liuhui/bin/bundle/lh_bin/calc_mrca.R 
+#1658544813
+more ../../Species_Tree/SpeciesTree_rooted_node_labels.txt 
+#1658544819
+vi /nfs/liuhui/bin/bundle/lh_bin/calc_mrca.R 
+#1658544864
+lth
+#1658544869
+vi get_gene_age.sh 
+#1658545091
+touch all_50.txt.tac2
+#1658545098
+bash get_gene_age.sh 
+#1658545103
+vi /nfs/liuhui/bin/bundle/lh_bin/get_gene_age.py
+#1658545109
+gtp

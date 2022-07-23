@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 
 from iga.apps.base import sh, emain
 from collections import defaultdict
