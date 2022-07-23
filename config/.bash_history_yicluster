@@ -98962,3 +98962,9 @@ bash get_gene_age.sh
 vi /nfs/liuhui/bin/bundle/lh_bin/get_gene_age.py
 #1658545109
 gtp
+#1658545114
+gtps
+#1658545119
+bash get_gene_age.sh 
+#1658545135
+vi /nfs/liuhui/bin/bundle/lh_bin/calc_mrca.R
