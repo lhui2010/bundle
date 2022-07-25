@@ -98968,3 +98968,753 @@ gtps
 bash get_gene_age.sh 
 #1658545135
 vi /nfs/liuhui/bin/bundle/lh_bin/calc_mrca.R
+#1658545150
+bash get_gene_age.sh 
+#1658545160
+vi get_gene_age.sh 
+#1658545172
+vi /nfs/liuhui/bin/bundle/lh_bin/calc_mrca.R 
+#1658545176
+lth
+#1658545180
+vi gene_pav.txt
+#1658545182
+s
+#1658545183
+ll
+#1658545186
+lth
+#1658545214
+vi /nfs/liuhui/bin/bundle/lh_bin/calc_mrca.R 
+#1658545254
+mkdir temp
+#1658545261
+ls
+#1658545267
+vi get_gene_age.sh 
+#1658545300
+ll *sh
+#1658545302
+vi get_gene_age.sh 
+#1658545310
+get_gene_age.py get_gene_age . all_50.txt.tac2  > gene_pav.txt
+#1658545314
+ll gene_pav.txt 
+#1658545319
+get_gene_age.py
+#1658545323
+get_gene_age.py get_gene_age
+#1658545330
+get_gene_age.py get_gene_age . all_50.txt.tac2 
+#1658545335
+vi get_gene_age.sh 
+#1658545341
+vi /nfs/liuhui/bin/bundle/lh_bin/get_gene_age.py
+#1658545400
+gtp
+#1658545411
+cp /nfs/liuhui/bin/bundle/bash_template/ortholog2ortho.*pl .
+#1658545415
+bash get_gene_age.sh 
+#1658545419
+lth
+#1658545422
+ls
+#1658545430
+vi get_gene_age.sh 
+#1658545445
+cp `which get_gene_age.py` .
+#1658545450
+cp `which calc_mrca.R ` .
+#1658545452
+bash get_gene_age.sh 
+#1658545457
+vi get_gene_age.
+#1658545458
+vi get_gene_age.sh 
+#1658545463
+vi get_gene_age.py 
+#1658545469
+ls *tsv
+#1658545474
+mkdir temp
+#1658545485
+mv *v__*_*_*.tsv temp/
+#1658545487
+ls
+#1658545490
+ls *tsv |wc -l
+#1658545506
+mv Medicago_truncatula__v__Eperua_falcata.tsv Medicago_truncatula__v__Dipteryx_alata.tsv temp/
+#1658545515
+head get_gene_age.sh 
+#1658545518
+python get_gene_age.py get_gene_age . all_50.txt.tac2
+#1658545524
+vi get_gene_age.py 
+#1658545557
+vi get_gene_age.sh 
+#1658545563
+bash get_gene_age.sh 
+#1658553599
+vi calc_mrca.R 
+#1658553632
+Rscript calc_mrca.R gene_pav.txt 
+#1658553657
+vi calc_mrca.R 
+#1658553664
+lth
+#1658553685
+Rscript calc_mrca.R gene_pav.txt > gene_pav.txt.mrca
+#1658553862
+vi get_gene_age.sh 
+#1658553982
+bash get_gene_age.sh 
+#1658554473
+lth
+#1658554479
+les gene_pav.nodulation.txt.mrca.format.sort.info.txt 
+#1658554488
+les gene_pav.txt.mrca.format 
+#1658554544
+grep -v "A17MT\|A17CP" gene_pav.txt.mrca.format  |wc -l
+#1658554549
+wc -l gene_pav.txt.mrca.format 
+#1658554558
+grep -v "A17MT\|A17CP" gene_pav.txt.mrca.format > grep -v "A17MT\|A17CP" gene_pav.txt.mrca.format.nucl
+#1658554573
+grep -v "A17MT\|A17CP" gene_pav.txt.mrca.format > gene_pav.txt.mrca.format.nucl
+#1658554577
+wc -l gene_pav.txt.mrca.format.nucl 
+#1658554580
+wc -l gene_pav.txt.mrca.format
+#1658554587
+vi get_gene_age.sh 
+#1658554618
+selectItem.pl -h gene_pav.txt.mrca.format.nucl nod_genes.txt |les
+#1658554635
+les nod_genes.txt.addinfo 
+#1658554644
+vi get_gene_age.sh 
+#1658554654
+add_func.pl nod_genes.txt.addinfo gene_pav.txt.mrca.format.nucl |les
+#1658554666
+add_func.pl nod_genes.txt.addinfo gene_pav.txt.mrca.format.nucl |grep NIN
+#1658554674
+vi `which add_func.pl `
+#1658554712
+les nod_genes.txt.addinfo
+#1658554719
+add_func.pl nod_genes.txt.addinfo gene_pav.txt.mrca.format.nucl |grep -i nin
+#1658554724
+add_func.pl nod_genes.txt.addinfo gene_pav.txt.mrca.format.nucl |les
+#1658554742
+add_func.pl nod_genes.txt.addinfo gene_pav.txt.mrca.format.nucl |grep MtrunA17Chr5g0448621
+#1658554751
+grep MtrunA17Chr5g0448621 nod_genes.txt.addinfo
+#1658554763
+vi `which add_func.pl `
+#1658554774
+vi nod_genes.txt.addinfo 
+#1658554813
+lth
+#1658554820
+les gene_pav.txt.mrca.format
+#1658554846
+sort -k2,2V -k1,1 gene_pav.txt.mrca.format |les
+#1658554855
+vi gene_pav.txt.mrca.format
+#1658555001
+lth
+#1658555014
+rm gene_pav.txt.mrca.format.txt
+#1658555021
+cp gene_pav.txt.mrca.format.nucl gene_pav.txt.mrca.format.nucl.txt
+#1658555025
+vi gene_pav.txt.mrca.format.nucl.txt
+#1658544483
+tma
+#1658477236
+ssh yi03 
+#1658555569
+sort -k2,2V -k1,1 gene_pav.txt.mrca.format.nucl.txt |les
+#1658555575
+les gene_pav.txt.mrca.format.nucl.txt
+#1658555588
+sort -k2,2V -k1,1 gene_pav.txt.mrca.format.nucl > gene_pav.txt.mrca.format.nucl.txt 
+#1658555592
+les gene_pav.txt.mrca.format.nucl.txt
+#1658555598
+cp gene_pav.txt.mrca.format.nucl gene_pav.txt.mrca.format.nucl.txt
+#1658555603
+vi gene_pav.txt.mrca.format.nucl.txt
+#1658555632
+sort -k2,2V -k1,1 gene_pav.txt.mrca.format.nucl.txt > gene_pav.txt.mrca.format.nucl.txt.sort
+#1658555635
+les gene_pav.txt.mrca.format.nucl.txt.sort
+#1658555795
+lth
+#1658555799
+vi gene_pav.txt
+#1658555924
+grep "^mRNA_MtrunA17Chr3g0107231_Metru" gene_pav.txt |wc -l
+#1658555932
+grep "^mRNA_MtrunA17Chr3g0107231_Metru" gene_pav.txt | cut -f1
+#1658555934
+grep "^mRNA_MtrunA17Chr3g0107231_Metru" gene_pav.txt | cut -f2
+#1658555947
+grep "^mRNA_MtrunA17Chr3g0107231_Metru" gene_pav.txt | cut -f2 |wc
+#1658555956
+expr 56 - 8 - 1 
+#1658556000
+vi get_star.pl
+#1658556014
+les gene_pav.txt
+#1658556036
+vi gene_pav.txt
+#1658556045
+vi get_star.pl
+#1658556373
+vi gene_pav.txt
+#1658556381
+vi get_star.pl
+#1658556618
+perl -e 'my %abc; print $abc{123}, "\n";'
+#1658556619
+vi get_star.pl
+#1658556762
+les gene_pav.txt
+#1658556766
+vi get_star.pl
+#1658556820
+ls
+#1658556838
+samtools faidx ~/test/Medicago_truncatula.pep 
+#1658556848
+cut -f1 ~/test/Medicago_truncatula.pep.fai > all_med.txt
+#1658556849
+vi all_
+#1658556852
+vi all_med.txt 
+#1658556879
+cut -f1 ~/test/Medicago_truncatula.pep.fai|grep -v CP |grep -v Mt > all_med.txt
+#1658556881
+vi all_med.txt 
+#1658556887
+cut -f1 ~/test/Medicago_truncatula.pep.fai|grep -v CP |grep -v MT > all_med.txt
+#1658556888
+vi all_med.txt 
+#1658556909
+vi get_star.pl
+#1658556963
+perl get_star.pl gene_pav.txt |head
+#1658556988
+les gene_pav.txt.mrca.format.nucl.txt
+#1658556996
+vi get_star.pl
+#1658557008
+lth
+#1658557019
+selectItem.pl all_med.txt gene_pav.txt > gene_pav.nucl.txt
+#1658557027
+lth
+#1658557042
+perl get_star.pl gene_pav.nucl.txt |head
+#1658557058
+vi get_star.pl
+#1658557102
+perl get_star.pl gene_pav.nucl.txt > tmp.out
+#1658557107
+les tmp.out 
+#1658557156
+les nod_genes.txt.addinfo 
+#1658555584
+tma
+#1658557482
+vi nod_gene_acrynomy.txt
+#1658557547
+grep -Pv "^\t" nod_gene_acrynomy.txt > gene_dict.txt
+#1658557580
+cat nod_genes.txt.addinfo >> gene_dict.txt 
+#1658557583
+vi gene_dict.txt 
+#1658557599
+grep -Pv "^\t" nod_gene_acrynomy.txt > gene_dict.txt
+#1658557602
+vi gene_dict.txt 
+#1658557704
+lth
+#1658557709
+cat nod_genes.txt.addinfo >> gene_dict.txt 
+#1658557719
+add_func.pl gene_dict.txt gene_pav.nucl.txt |les
+#1658557732
+mv tmp.out gene_pav.nucl.txt.star
+#1658557745
+logsh
+#1658557750
+lth
+#1658557767
+les gene_pav.nucl.txt.star
+#1658557810
+add_func.pl gene_dict.txt all_med.txt > all_med.add_acrynym.txt
+#1658557812
+logsh
+#1658557819
+les all_med.add_acrynym.txt 
+#1658557856
+vi `which add_func.pl`
+#1658557877
+cp `which add_func.pl` .
+#1658557878
+vi add_func.pl 
+#1658557891
+perl add_func.pl gene_dict.txt all_med.txt > all_med.add_acrynym.txt
+#1658557924
+les all_med.add_acrynym.txt 
+#1658557930
+vi add_func.pl 
+#1658557945
+perl add_func.pl gene_dict.txt all_med.txt > all_med.add_acrynym.txt
+#1658557947
+les all_med.add_acrynym.txt 
+#1658557985
+cp add_func.pl add_func.null.pl 
+#1658557991
+vi add_func.null.pl
+#1658558030
+perl add_func.null.pl gene_pav.nucl.txt.star all_med.add_acrynym.txt > all_med.add_acrynym.add_star.txt
+#1658558033
+vi all_med.add_acrynym.add_star.txt 
+#1658558079
+les gene_pav.txt.mrca.format.nucl.txt.sort 
+#1658558124
+add_func.pl gene_pav.txt.mrca.format.nucl.txt.sort all_med.add_acrynym.txt |les
+#1658558142
+add_func.pl gene_pav.txt.mrca.format.nucl.txt.sort all_med.add_acrynym.txt |sort -k3,3 |head
+#1658558179
+add_func.pl gene_pav.txt.mrca.format.nucl.txt.sort all_med.add_acrynym.txt | cut -f4 |sort -k1,1 |head
+#1658558182
+add_func.pl gene_pav.txt.mrca.format.nucl.txt.sort all_med.add_acrynym.txt | cut -f4 |sort -k1,1 |tail
+#1658558190
+add_func.pl gene_pav.txt.mrca.format.nucl.txt.sort all_med.add_acrynym.txt | cut -f4 |sort -k1,1 |grep -v "NA" |tail
+#1658558196
+add_func.pl gene_pav.txt.mrca.format.nucl.txt.sort all_med.add_acrynym.txt | cut -f4 |sort -k1,1V |grep -v "NA" |tail
+#1658558221
+add_func.pl gene_pav.txt.mrca.format.nucl.txt.sort all_med.add_acrynym.txt > all_med.add_acrynym.add_age.txt
+#1658558250
+perl add_func.null.pl gene_pav.nucl.txt.star all_med.add_acrynym.add_age.txt > all_med.add_acrynym.add_age.add_star.txt
+#1658558253
+les all_med.add_acrynym.add_age.add_star.txt
+#1658558269
+tail shell 
+#1658558275
+logsh
+#1658558868
+les all_med.add_acrynym.add_age.add_star.txt 
+#1658558904
+vi shell 
+#1658558929
+vi `which add_func.pl`
+#1658558949
+vi shell 
+#1658558951
+bash shell 
+#1658558953
+lth
+#1658558956
+les all_med.add_acrynym.add_age.add_star.txt 
+#1658558972
+vi all_med.add_acrynym.add_age.add_star.txt 
+#1658558897
+tma
+#1658559042
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Species_Tree/SpeciesTree_rooted_node_labels.txt
+#1658559058
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658560475
+lth
+#1658560477
+vi all_med.add_acrynym.add_age.add_star.txt 
+#1658560496
+vi node_label_to_gene_age.pl
+#1658560749
+seq 12 1
+#1658560756
+seq -w12 1
+#1658560758
+man seq
+#1658560767
+seq 12 -1 1
+#1658560793
+vi node_label_to_gene_age.pl
+#1658560824
+vi tmp
+#1658560835
+awk '{print $2"\t"$1}' tmp 
+#1658560841
+vi node_label_to_gene_age.pl
+#1658561010
+lth
+#1658561016
+vi node_label_to_gene_age.pl
+#1658561064
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561082
+vi node_label_to_gene_age.pl
+#1658561090
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561103
+vi node_label_to_gene_age.pl
+#1658561181
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561183
+vi node_label_to_gene_age.pl
+#1658561206
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561214
+vi node_label_to_gene_age.pl
+#1658561220
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561232
+vi node_label_to_gene_age.pl
+#1658561277
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561287
+vi node_label_to_gene_age.pl
+#1658561309
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561317
+vi node_label_to_gene_age.pl
+#1658561335
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561339
+vi node_label_to_gene_age.pl
+#1658561345
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561353
+vi node_label_to_gene_age.pl
+#1658561356
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561362
+vi node_label_to_gene_age.pl
+#1658561395
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561397
+vi node_label_to_gene_age.pl
+#1658561410
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561413
+vi node_label_to_gene_age.pl
+#1658561439
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561446
+vi node_label_to_gene_age.pl
+#1658561466
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561472
+vi node_label_to_gene_age.pl
+#1658561479
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt |les
+#1658561491
+vi node_label_to_gene_age.pl
+#1658561500
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt > tmp
+#1658561504
+les tmp 
+#1658561507
+vi tmp 
+#1658561533
+vi node_label_to_gene_age.pl
+#1658561595
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt > tmp
+#1658561597
+vi tmp 
+#1658561610
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt > tmp
+#1658561612
+vi node_label_to_gene_age.pl
+#1658561615
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt > tmp
+#1658561617
+vi tmp 
+#1658561646
+vi all_med.add_acrynym.add_age.add_star.txt
+#1658561680
+vi shell 
+#1658561684
+vi `which add_func.pl`
+#1658561703
+vi shell 
+#1658561717
+bash shell 
+#1658561718
+lth
+#1658561721
+les all_med.add_acrynym.add_age.add_star.format_age.txt 
+#1658561754
+vi node_label_to_gene_age.pl
+#1658561767
+bash shell 
+#1658561768
+lth
+#1658561770
+les all_med.add_acrynym.add_age.add_star.format_age.txt
+#1658561778
+t all_med.add_acrynym.add_age.add_star.format_age.txt
+#1658561819
+ln -s all_med.add_acrynym.add_age.add_star.format_age.txt Medicago_gene_age.v1.xls
+#1658561823
+realpath Medicago_gene_age.v1.xls
+#1658561826
+ls $PWD/Medicago_gene_age.v1.xls
+#1658560507
+tma
+#1658561864
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/Medicago_gene_age.v1.xls
+#1658561871
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658561881
+vi node_label_to_gene_age.pl
+#1658561883
+ll
+#1658561891
+vi get_star.pl 
+#1658561915
+bash shell 
+#1658561912
+tma
+#1658561957
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/Medicago_gene_age.v1.xls
+#1658561961
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658561946
+vi shell 
+#1658561951
+bash shell 
+#1658561955
+vi shell 
+#1658561957
+vi get_
+#1658561959
+vi get_star.pl 
+#1658561966
+bash shell 
+#1658561979
+tma
+#1658562010
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/Medicago_gene_age.v1.xls
+#1658562013
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658561997
+vi get_star.pl 
+#1658562007
+bash shell 
+#1658562031
+tma
+#1658562049
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/Medicago_gene_age.v1.xls
+#1658562051
+a
+#1658562052
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658562057
+lth
+#1658562059
+vi all_med.add_acrynym.add_age.add_star.txt
+#1658562111
+vi all_med.add_acrynym.add_age.txt 
+#1658562144
+vi add_func.pl 
+#1658562149
+vi shell 
+#1658562154
+bash shell 
+#1658562052
+tma
+#1658562195
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/Medicago_gene_age.v1.xls
+#1658562198
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658562248
+vi get_star.pl 
+#1658562632
+lth
+#1658562636
+vi all_med.add_acrynym.add_age.add_star.txt 
+#1658562645
+vi all_med.add_acrynym.add_age.add_star.format_age.txt 
+#1658562654
+vi all_med.add_acrynym.add_age.add_star.txt 
+#1658562684
+vi node_label_to_gene_age.pl
+#1658562851
+bash shell 
+#1658562862
+lth
+#1658562866
+les Medicago_gene_age.v1.xls 
+#1658562880
+grep mRNA_MtrunA17Chr0c01g0489461_Metru gene_pav.txt
+#1658562884
+grep mRNA_MtrunA17Chr0c01g0489461_Metru gene_pav.txt.mrca
+#1658562275
+tma
+#1658562951
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/Medicago_gene_age.v1.xls
+#1658562954
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658563061
+grep MtrunA17Chr3g0142631 gene_pav.txt.mrca
+#1658563136
+vi calc_mrca.R 
+#1658563156
+vi gene_pav.txt
+#1658563168
+vi calc_mrca.R 
+#1658563255
+vi shell 
+#1658563261
+ls *sh
+#1658563263
+vi get_gene_age.
+#1658563265
+vi get_gene_age.sh 
+#1658563091
+tma
+#1658563277
+Rscript calc_mrca.R gene_pav.txt >gene_pav.txt.mrca
+#1658563754
+sed 's/^\[1\] "//; s/"//g' gene_pav.txt.mrca > gene_pav.txt.mrca.format
+#1658564371
+lth
+#1658564596
+vi get_gene_age.sh 
+#1658564610
+vi shell 
+#1658564616
+bash shell 
+#1658564620
+lth
+#1658564660
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/Medicago_gene_age.v1.xls
+#1658564664
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658564677
+les all_med.add_acrynym.add_age.add_star.txt
+#1658564736
+vi shell 
+#1658564767
+grep -v "A17MT\|A17CP" gene_pav.txt.mrca.format > gene_pav.txt.mrca.format.nucl
+#1658564776
+vi gene_pav.txt.mrca.format.nucl
+#1658564807
+lth
+#1658564809
+vi shell 
+#1658564820
+bash shell 
+#1658564843
+vi gene_pav.txt.mrca.format.nucl
+#1658564847
+vi shell 
+#1658564856
+bash shell 
+#1658564864
+vi gene_pav.txt.mrca.format.nucl all_med.add_acrynym.txt
+#1658564881
+vi gene_pav.txt.mrca.format.nucl
+#1658564888
+vi add_func.pl
+#1658564912
+lth
+#1658564709
+tma
+#1658564956
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/Medicago_gene_age.v1.xls
+#1658564965
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658564989
+vi all_med.add_acrynym.add_age.add_star.txt 
+#1658564999
+vi gene_pav.txt.mrca.format.nucl
+#1658565002
+head gene_pav.txt.mrca.format.nucl.txt
+#1658565008
+vi gene_pav.txt.mrca.format.nucl.txt
+#1658565027
+sed "s/ /\t/" gene_pav.txt.mrca.format.nucl > gene_pav.txt.mrca.format.nucl.txt
+#1658565031
+logsh
+#1658565037
+vi shell 
+#1658565045
+vi get_gene_age.sh 
+#1658565050
+vi shell 
+#1658565054
+bash shell 
+#1658565095
+vi shell 
+#1658565103
+bash shell 
+#1658565021
+tma
+#1658565148
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/Medicago_gene_age.v1.xls
+#1658565150
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658713776
+grep "^mRNA_MtrunA17Chr7g0256321 gene_pav.txt
+#1658713781
+grep "^mRNA_MtrunA17Chr7g0256321" gene_pav.txt
+#1658713843
+grep "^mRNA_MtrunA17Chr1g0171771_Metru" gene_pav.txt |les
+#1658713960
+mkdir NOO1
+#1658713963
+cd NOO1/
+#1658713979
+echo mRNA_MtrunA17Chr7g0256321_Metru mRNA_MtrunA17Chr1g0171771_Metru > gene_list.txt
+#1658713795
+tma
+#1658714024
+cd /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Ju
+#1658714024
+ll
+#1658714027
+cd /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul15/
+#1658714028
+lt
+#1658714032
+cd Orthologues/
+#1658714032
+ls
+#1658714036
+cd Orthologues_Medicago_truncatula/
+#1658714036
+ls
+#1658714045
+j process
+#1658714047
+lth
+#1658714050
+cd SHR/
+#1658714051
+ls
+#1658714053
+ls *sh
+#1658714055
+cd ..
+#1658714057
+ls */*sh
+#1658714062
+more GmP7/tree.sh 
+#1658714074
+cp GmP7/tree.sh $BD/
+#1658714077
+vi /nfs/liuhui/bin/bundle/tree.sh 
+#1658714091
+chmod +x /nfs/liuhui/bin/bundle/tree.sh 
+#1658714093
+gtp

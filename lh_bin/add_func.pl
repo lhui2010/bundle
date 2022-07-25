@@ -30,7 +30,7 @@ while(<>)
 	if($NA_string eq "")
 	{
 		my @f=split/\t/, $e[1];
-		$NA_string = "\tNA" x int(@f);
+		$NA_string = "\t\'" x 2;#int(@f);
 	}
 }
 
