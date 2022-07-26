@@ -556,6 +556,8 @@ def correct_gene_age(gene=None):
     Returns:
 
     """
+    if type(gene) is list:
+        gene = " ".join(gene)
     cmd1 = correct_gene_age_sh1.format(gene)
     sh(cmd1)
     rooted_tree = input()
