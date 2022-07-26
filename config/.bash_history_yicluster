@@ -99718,3 +99718,281 @@ vi /nfs/liuhui/bin/bundle/tree.sh
 chmod +x /nfs/liuhui/bin/bundle/tree.sh 
 #1658714093
 gtp
+#1658714098
+gtps
+#1658714069
+lth
+#1658714082
+cd ..
+#1658714093
+grep "^mRNA_MtrunA17Chr1g0171771_Metru" gene_pav.txt > NOO1/tmp
+#1658714100
+grep "^mRNA_MtrunA17Chr7g0256321" gene_pav.txt > NOO1/tmp2
+#1658714102
+grep "^mRNA_MtrunA17Chr1g0171771_Metru" gene_pav.txt > NOO1/tmp
+#1658714106
+cd NOO1/
+#1658714107
+lt
+#1658714113
+cat tmp tmp2 > tmp3
+#1658714114
+vi tmp3
+#1658714124
+cat tmp tmp2 |cut -f3 > tmp3
+#1658714125
+vi tmp3
+#1658714134
+cat tmp tmp2 |cut -f3 |grep -v "^NA" > tmp3
+#1658714135
+vi tmp3
+#1658714157
+sort tmp3 |uniq > tmp3.uniq
+#1658714159
+wc -l tmp3.uniq 
+#1658714161
+lth
+#1658714166
+cat tmp3.uniq >> gene_list.txt 
+#1658714169
+tree.sh gene_list.txt 
+#1658714183
+lth
+#1658714188
+realpath gene_list.txt.fa.aln.tre
+#1658714104
+tma
+#1658714228
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/NOO1/gene_list.txt.fa.aln.tre
+#1658714233
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658714257
+les tmp
+#1658714267
+les tmp2
+#1658714328
+vi gene_list.txt.fa
+#1658714331
+vi gene_list.txt
+#1658714339
+tree.sh gene_list.txt 
+#1658714289
+tma
+#1658716106
+lth
+#1658716108
+ls -d */
+#1658716085
+lth
+#1658716118
+tma
+#1658716132
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/NOO1/gene_list.txt.fa.aln.tre
+#1658716138
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658716692
+tma
+#1658716718
+grep mRNA_MtrunA17Chr7g0256321 Medicago_truncatula.Polygala_tatarinowii.KaryotypeInput 
+#1658716724
+grep mRNA_MtrunA17Chr7g0256321 ../*anchors
+#1658716756
+grep PNS97769_Potri ../Medicago_truncatula.Populus_trichocarpa.anchors
+#1658716815
+grep PNS97769_Potri ../Medicago_truncatula.Cercis_chinensis.anchors 
+#1658716821
+grep mRNA_MtrunA17Chr7g0256321_Metru ../Medicago_truncatula.Cercis_chinensis.anchors 
+#1658716825
+grep CECHI00001681-t1_Cechi ../Medicago_truncatula.Cercis_chinensis.anchors
+#1658716840
+grep mRNA_MtrunA17Chr7g0256321_Metru ../Medicago_truncatula.Vitis_vinifera.anchors
+#1658716845
+grpe VIT_208s0007g05740.1_Vivin ../Medicago_truncatula.Vitis_vinifera.anchors
+#1658716848
+grep VIT_208s0007g05740.1_Vivin ../Medicago_truncatula.Vitis_vinifera.anchors
+#1658716903
+grep mRNA_MtrunA17Chr1g0171771_Metru ../Medicago_truncatula.*anchors
+#1658716999
+grep SOPJAP_g8645.t1_Sojap ../Medicago_truncatula.Styphnolobium_japonicum.anchors
+#1658717018
+grep "evm.model.scaffold_222.1814_Daodo\|evm.model.scaffold_30.42_Daodo" ../Medicago_truncatula.Dalbergia_odorifera.anchors
+#1658717111
+grep mRNA_MtrunA17Chr1g0171771_Metru ../Medicago_truncatula.Castanospermum_australe.anchors
+#1658717206
+grep mRNA_MtrunA17Chr1g0171771_Metru ../Medicago_truncatula.Duparquetia_orchidacea.anchors 
+#1658717217
+grep mRNA_MtrunA17Chr1g0171771_Metru ../Medicago_truncatula.Zenia_insignis.anchors 
+#1658717237
+grep mRNA_MtrunA17Chr1g0171771_Metru ../Medicago_truncatula.Vitis_vinifera.anchors 
+#1658717252
+grep mRNA_MtrunA17Chr1g0171771_Metru ../Medicago_truncatula.Mimosa_pudica.anchors 
+#1658717257
+grep mRNA_MtrunA17Chr1g0171771_Metru ../Medicago_truncatula.Chamaecrista_pumila.anchors 
+#1658717263
+grep mRNA_MtrunA17Chr1g0171771_Metru ../Medicago_truncatula.Senna_septemtrionalis.anchors 
+#1658717313
+grep "mRNA_MtrunA17Chr7g0256321_Metru\|mRNA_MtrunA17Chr1g0171771_Metru" ../Medicago_truncatula.Senna_septemtrionalis.anchors  ../Medicago_truncatula.Chamaecrista_pumila.anchors ../Medicago_truncatula.Mimosa_pudica.anchors ../Medicago_truncatula.Faidherbia_albida.anchors 
+#1658717335
+grep CHPUM00002099-t4_Chpum ../Cercis_chinensis.Chamaecrista_pumila.anchors 
+#1658717346
+grep CECHI00001681-t1_Cechi ../Cercis_chinensis.Chamaecrista_pumila.anchors 
+#1658717373
+grep CECHI00001681-t1_Cechi ../Cercis_chinensis.Faidherbia_albida.anchors 
+#1658717383
+grep CECHI00001681-t1_Cechi ../Cercis_chinensis.Senna_septemtrionalis.anchors 
+#1658717998
+tma
+#1658731881
+grep "^mRNA_MtrunA17Chr7g0264181" ../gene_pav.txt |les
+#1658732011
+mkdir LOG1_LOG2
+#1658732022
+grep "^mRNA_MtrunA17Chr7g0264181" ../gene_pav.txt > LOG1_LOG2/mtlog1.txt
+#1658732038
+grep "^mRNA_MtrunA17_Chr1g0181131" ../gene_pav.txt > LOG1_LOG2/mtlog1.txt
+#1658732040
+grep "^mRNA_MtrunA17Chr7g0264181" ../gene_pav.txt > LOG1_LOG2/mtlog1.txt
+#1658732043
+grep "^mRNA_MtrunA17_Chr1g0181131" ../gene_pav.txt > LOG1_LOG2/mtlog2.txt
+#1658732045
+cd LOG1_LOG2/
+#1658732045
+lt
+#1658732047
+cd -
+#1658732054
+grep "^mRNA_MtrunA17Chr1g0181131" ../gene_pav.txt > LOG1_LOG2/mtlog2.txt
+#1658732055
+cd -
+#1658732056
+lt
+#1658732057
+les *
+#1658732072
+cut -f3 * |sed "s/,/\r/g" |sort |uniq > ortho.txt
+#1658732074
+vi ortho.txt 
+#1658732089
+cut -f3 * |sed "s/.*-+-//; s/,/\n/g" |sort |uniq > ortho.txt
+#1658732090
+vi ortho.txt 
+#1658732102
+cut -f3 * |sed "s/.*-+-//; s/,/\n/g" |sort |uniq |grep -v "^NA" > ortho.txt
+#1658732103
+vi ortho.txt 
+#1658732151
+echo mRNA_MtrunA17Chr1g0181131_Metru mRNA_MtrunA17Chr7g0264181_Metru >> ortho.txt 
+#1658732152
+vi ortho.txt 
+#1658732159
+tree.sh ortho.txt 
+#1658732196
+lth
+#1658732208
+ln -s ortho.txt.fa.aln.tre mtlog1_log2.tre
+#1658732212
+ls $PWD/mtlog1_log2.tre
+#1658732252
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/NOO1/LOG1_LOG2/mtlog1_log2.tre
+#1658732258
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658732533
+lth
+#1658732539
+cp ortho.txt ortho.txt.1
+#1658732540
+vi ortho.txt
+#1658732588
+tree.sh ortho.txt 
+#1658732569
+tma
+#1658732640
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/NOO1/LOG1_LOG2/mtlog1_log2.tre
+#1658732642
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658732669
+vi ortho.txt
+#1658732674
+tree.sh ortho.txt 
+#1658732704
+tma
+#1658732725
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/NOO1/LOG1_LOG2/mtlog1_log2.tre
+#1658732727
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658732731
+vi ortho.txt
+#1658732735
+tree.sh ortho.txt 
+#1658732767
+tma
+#1658732784
+sz /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/NOO1/LOG1_LOG2/mtlog1_log2.tre
+#1658732786
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658732787
+tma
+#1658793238
+lth
+#1658793243
+les ortho.txt.fa.aln.tre 
+#1658793569
+cd ..
+#1658793571
+mv LOG1_LOG2 ../
+#1658793573
+cd ..
+#1658793589
+grep "^mRNA_MtrunA17Chr1g0147021" gene_pav.txt |le
+#1658793591
+grep "^mRNA_MtrunA17Chr1g0147021" gene_pav.txt |les
+#1658793657
+j process
+#1658793664
+grep mRNA_MtrunA17Chr1g0147021_Metru ../*anchors
+#1658793686
+grep "VIT_215s0046g00340.3_Vivin\|VIT_216s0098g01830.1_Vivin" ../Medicago_truncatula.Vitis_vinifera.anchors
+#1658793667
+grep "^mRNA_MtrunA17Chr7g0275771_Metru" gene_pav.txt |les
+#1658793706
+grep "^mRNA_MtrunA17Chr3g0119761_Metru" gene_pav.txt |les
+#1658793747
+mkdir -p VsENBP1-like
+#1658793773
+for i in mRNA_MtrunA17Chr1g0147021 mRNA_MtrunA17Chr7g0275771_Metru mRNA_MtrunA17Chr3g0119761_Metru; do grep "^${i}" gene_pav.txt > VsENBP1-like/ortho.txt; done
+#1658793778
+for i in mRNA_MtrunA17Chr1g0147021 mRNA_MtrunA17Chr7g0275771_Metru mRNA_MtrunA17Chr3g0119761_Metru; do grep "^${i}" gene_pav.txt >> VsENBP1-like/ortho.txt; done
+#1658793781
+cd VsENBP1-like/
+#1658793781
+ll
+#1658793789
+vi clean_ortho.sh
+#1658793826
+les ortho.txt 
+#1658793829
+vi clean_ortho.sh
+#1658793849
+bash clean_ortho.sh ortho.txt 
+#1658793850
+lt
+#1658793853
+les ortho.txt.clean 
+#1658793856
+vi clean_ortho.sh
+#1658793869
+bash clean_ortho.sh ortho.txt 
+#1658793870
+les ortho.txt.clean 
+#1658793874
+vi ortho.txt.clean 
+#1658793881
+lt
+#1658793884
+chd
+#1658793884
+ll
+#1658793889
+cp clean_ortho.sh $BD/
+#1658793890
+gtp
