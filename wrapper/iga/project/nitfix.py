@@ -531,12 +531,15 @@ def yanrui_count_tree(tree_dir=None, suffix_outgroup='', suffixA='', suffixB='')
 #     # Step5. Rename bed with rename dict.
 
 
+#0 gene list
+#1 gene alias
 correct_gene_age_sh1 = r"""
 get_homo_ortho2.sh {0} > homo_ortho.txt
 get_syn_ortho.sh {0} > syn_ortho.txt
 cat homo_ortho.txt syn_ortho.txt > raw_ortho.txt
 tree.sh raw_ortho.txt
-echo "Manual rooting for raw_ortho.txt.fa.aln.tre" 
+ln -s raw_ortho.txt {1}.tre
+echo "Manual rooting for {1}.tre" 
 """
 
 correct_gene_age_sh2 = r"""
@@ -558,11 +561,12 @@ def correct_gene_age(gene=None):
     """
     if type(gene) is list:
         gene = " ".join(gene)
-    cmd1 = correct_gene_age_sh1.format(gene)
+    gene_alias = os.path.basename(os.getcwd())
+    cmd1 = correct_gene_age_sh1.format(gene, gene_alias)
     sh(cmd1)
-    rooted_tree = input()
-    cmd2 = correct_gene_age_sh2
-    sh(cmd2)
+    # rooted_tree = input()
+    # cmd2 = correct_gene_age_sh2
+    # sh(cmd2)
 
 
 if __name__ == "__main__":
