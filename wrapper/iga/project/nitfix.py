@@ -478,32 +478,89 @@ def yanrui_count_tree(tree_dir=None, suffix_outgroup='', suffixA='', suffixB='')
         fh_other.write(other_print)
     return [output_ind, output_com, output_other]
 
+# def automatic_get_root
+# import ete3
+# from ete3 import Tree
+#
+#
+# def get_out_group(gene_tree=None,suffix=None):
+#     with open(suffix) as fh:
+#         suffix_list = fh.readlines()
+#     tt = Tree(gene_tree)
+#
+#     root = None
+# # Only one root is needed
+#     del_list = []
+#
+#     for s in suffix_list:
+#         for k in t.traverse():
+#             if k.is_leaf():
+#                 if("_".s in k.name):
+#                     if root is None:
+#                         root = k
+#                         logging.info("Rooting on: ", k.name)
+#                         continue
+#                     else:
+#                         del_list
+#
 
-def plotTD(orthoFile=None, all_bed=None, total_pep=None, flank=10):
+# def plotTD(orthoFile=None, all_bed=None, total_pep=None, flank=10):
+#     """
+#     Args:
+#         orthoFile:
+#             MtgeneA   Castanospermum.geneA
+#             MtgeneB   Castanospermum.geneB
+#         all_bed:
+#             cat Mt.bed Cast.bed > total.bed
+#         total_pep:
+#             cat Mt.pep Cast.pep > total.pep
+#     Calculate:
+#         1. fasttree of MtGeneA, MtGeneB and all homologs.
+#         2. find flanking upstream and downstream of ten genes of Mt gene A
+#         3. Use gggenes to plot location of MtGeneA and MtGeneB
+#     Returns:
+#     """
+#     # Step1. create rename dict and reformat genes file. Used in rename nwk, beds.
+#     xx.rename
+#     # Step2. generate tree plot and rename with rename dict
+#     iqtree
+#     # Step3. get flanking genes with bed tools.
+#     bedtools
+#     # Step4. Reformat bed by replace .*: and .*- in column1.
+#     perl
+#     # Step5. Rename bed with rename dict.
+
+
+correct_gene_age_sh1 = r"""
+get_homo_ortho2.sh {0} > homo_ortho.txt
+get_syn_ortho.sh {0} > syn_ortho.txt
+cat homo_ortho.txt syn_ortho.txt > raw_ortho.txt
+tree.sh raw_ortho.txt
+echo "Manual rooting for raw_ortho.txt.fa.aln.tre" 
+"""
+
+correct_gene_age_sh2 = r"""
+#. is directory; root is suffix for tree; 2 is branch length; 1 is minimum taxa (not used currently); output is out dir
+cut_long_internal_branches.py . root 2 1 output > long_branch.txt
+unselectItem.pl long_branch.txt raw_ortho.txt  >clean_ortho.txt
+tree.sh clean_ortho.txt
+bash /nfs/liuhui/bin/bundle/bash_template/dlcpar.sh clean_ortho.txt.fa.aln.tre.root.tre
+"""
+
+
+def correct_gene_age(gene=None):
     """
     Args:
-        orthoFile:
-            MtgeneA   Castanospermum.geneA
-            MtgeneB   Castanospermum.geneB
-        all_bed:
-            cat Mt.bed Cast.bed > total.bed
-        total_pep:
-            cat Mt.pep Cast.pep > total.pep
-    Calculate:
-        1. fasttree of MtGeneA, MtGeneB and all homologs.
-        2. find flanking upstream and downstream of ten genes of Mt gene A
-        3. Use gggenes to plot location of MtGeneA and MtGeneB
+        gene:
+
     Returns:
+
     """
-    # Step1. create rename dict and reformat genes file. Used in rename nwk, beds.
-    xx.rename
-    # Step2. generate tree plot and rename with rename dict
-    iqtree
-    # Step3. get flanking genes with bed tools.
-    bedtools
-    # Step4. Reformat bed by replace .*: and .*- in column1.
-    perl
-    # Step5. Rename bed with rename dict.
+    cmd1 = correct_gene_age_sh1.format(gene)
+    sh(cmd1)
+    rooted_tree = input()
+    cmd2 = correct_gene_age_sh2
+    sh(cmd2)
 
 
 if __name__ == "__main__":
