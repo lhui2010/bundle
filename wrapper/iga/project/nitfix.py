@@ -561,6 +561,8 @@ def correct_gene_age(gene=None):
     """
     if type(gene) is list:
         gene = " ".join(gene)
+    elif ',' in gene:
+        gene = gene.replace(',', ' ')
     gene_alias = os.path.basename(os.getcwd())
     cmd1 = correct_gene_age_sh1.format(gene, gene_alias)
     sh(cmd1)
