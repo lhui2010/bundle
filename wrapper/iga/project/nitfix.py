@@ -538,7 +538,7 @@ get_homo_ortho2.sh {0} > homo_ortho.txt
 get_syn_ortho.sh {0} > syn_ortho.txt
 cat homo_ortho.txt syn_ortho.txt > raw_ortho.txt
 tree.sh raw_ortho.txt
-ln -s raw_ortho.txt {1}.tre
+ln -s raw_ortho.txt.fa.aln.tre {1}.tre
 echo "Manual rooting for {1}.tre" 
 """
 
