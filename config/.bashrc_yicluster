@@ -295,3 +295,5 @@ export PATH=/mnt/mobile/linuxnd:$PATH
 # added by DupGen_finder
 # PATH=/nfs/liuhui/projects/buzzo/dupgene_finder/DupGen_finder:$PATH
 export PATH=/nfs/liuhui/projects/buzzo/phast/multiz-20190527:$PATH
+#export PATH=/nfs/liuhui/projects/buzzo/dlcpar/dlcpar-2.0.1/bin:$PATH
+export PATH=/nfs/liuhui/bin/yayang_phylogenomics_pipeline-master:$PATH

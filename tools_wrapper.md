@@ -723,3 +723,10 @@ export OMP_NUM_THREADS="1"
 export MKL_DYNAMIC="FALSE"
 export OMP_DYNAMIC="FALSE"
 ```
+
+
+#### Sed
+
+$sed '/^>/!s/U/X/g' abc                                                                         │remote: Total 6 (delta 5), reused 0 (delta 0), pack-reused 0
+>Uabc                                                                                           │Unpacking objects: 100% (6/6), 483 bytes | 5.00 KiB/s, done.
+XXA                                                                                             │From gitlab.com:lhui2010/bundle

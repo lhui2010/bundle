@@ -1,0 +1,8 @@
+set -x
+#Sat Jul 23 14:29:05 CST 2022
+perl get_star.pl gene_pav.nucl.txt > gene_pav.nucl.txt.star
+#Sat Jul 23 14:30:12 CST 2022
+add_func.pl gene_dict.txt all_med.txt > all_med.add_acrynym.txt
+perl add_func.pl gene_pav.txt.mrca.format.nucl.txt all_med.add_acrynym.txt > all_med.add_acrynym.add_age.txt
+perl add_func.null.pl gene_pav.nucl.txt.star all_med.add_acrynym.add_age.txt > all_med.add_acrynym.add_age.add_star.txt
+perl node_label_to_gene_age.pl all_med.add_acrynym.add_age.add_star.txt > all_med.add_acrynym.add_age.add_star.format_age.txt
