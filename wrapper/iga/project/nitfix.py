@@ -797,6 +797,7 @@ def _get_dups(recon_file, locus_tree):
     logging.info(recon_file)
     logging.info(locus_tree)
     tree = Tree(locus_tree, format=1)
+    result = ""
     with open(recon_file) as fh:
         for line in fh:
             (gene_tree_node, sp_tree_node, type) = line.rstrip().split()
@@ -806,9 +807,9 @@ def _get_dups(recon_file, locus_tree):
                 # this_node = tree.search_nodes(name=sp_tree_node)[0]
                 children0_metru = list(filter(lambda x: 'Metru' in x, this_node.children[0].get_leaf_names()))
                 children1_metru = list(filter(lambda x: 'Metru' in x, this_node.children[1].get_leaf_names()))
+                logging.debug(line)
                 logging.debug(children0_metru)
                 logging.debug(children1_metru)
-                result = ""
                 if len(children0_metru) > 0 and len(children1_metru) > 0:
                     result += "{}\t{}\t{}\n".format(sp_tree_node, ",".join(children0_metru), ",".join(children1_metru))
     return result
