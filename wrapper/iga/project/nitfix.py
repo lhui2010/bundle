@@ -776,7 +776,8 @@ def _pre_dlcpar(tree_file):
                 leaf_name_str = " ".join(leaf_list)
                 if "_Metru" not in leaf_name_str and len(leaf_list) > cutoff:
                     logging.debug(leaf_name_str)
-                    tree.remove_child(st)
+                    # tree.remove_child(st)
+                    st.detach()
                     break
     tree.write(format=1, outfile=tree_file + ".filter")
     return 0
