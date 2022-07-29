@@ -103408,3 +103408,425 @@ ln -s ../correct_gene_age.input
 ll
 #1659064172
 conda deactivate
+#1659064174
+gtps
+#1659064182
+vw
+#1659064254
+lt
+#1659064274
+ps ux |grep vim
+#1659064277
+kill 43891
+#1659064260
+vi head correct_gene_age.input > test.sh
+#1659064284
+head correct_gene_age.input > test.input
+#1659064285
+vi test.sh
+#1659064289
+rm test.sh 
+#1659064290
+vi test.sh
+#1659064303
+bash test.sh  test.input 
+#1659064307
+vi test.sh
+#1659064327
+bash test.sh  test.input 
+#1659064331
+vi test.sh
+#1659064406
+lt
+#1659064408
+bash test.sh test.input 
+#1659064414
+vi *input
+#1659064419
+vi test.sh
+#1659064427
+bash test.sh test.input 
+#1659064430
+vi test.sh
+#1659064442
+bash test.sh test.input 
+#1659064454
+vi test.sh
+#1659064468
+echo -e "abc\teft"
+#1659064471
+echo -e "abc\teft"|cut -f1
+#1659064472
+echo -e "abc\teft"|cut -f2
+#1659064474
+vi test.sh
+#1659064487
+bash test.sh test.input 
+#1659064494
+vi test.sh
+#1659064506
+bash test.sh test.input 
+#1659064510
+vi test.sh
+#1659064527
+bash test.sh test.input 
+#1659064528
+vi tmp 
+#1659064533
+lt
+#1659064535
+vi test.input 
+#1659064538
+vi tmp 
+#1659064547
+vi test.input 
+#1659064552
+vi test.sh 
+#1659064590
+bash test.sh test.input 
+#1659064595
+vi test.sh 
+#1659064601
+bash test.sh test.input 
+#1659064605
+vi test.sh 
+#1659064657
+lt
+#1659064661
+bash test.sh test.input 
+#1659063610
+tma
+#1659064683
+gtp
+#1659064705
+wait 1m ;gtp
+#1659064804
+bash test.sh test.input 
+#1659065424
+lt
+#1659065426
+cd mRNA_MtrunA17Chr0c01g0488951_Metru/
+#1659065426
+lt
+#1659065434
+wc -l raw_ortho.txt
+#1659065436
+cd -
+#1659065440
+vi test.sh 
+#1659065554
+ll
+#1659065559
+grep mRNA_MtrunA17Chr5g0403831_Metru correct_gene_age.input 
+#1659065569
+grep "^mRNA_MtrunA17Chr5g0403831_Metru" correct_gene_age.input 
+#1659065597
+tail ../shell 
+#1659065610
+grep "^mRNA_MtrunA17Chr5g0403831_Metru" correct_gene_age.input > test.input 
+#1659065610
+ll
+#1659065614
+bash test.sh test.input 
+#1659065969
+gtp
+#1659065998
+bvi test.sh 
+#1659066000
+vi test.sh 
+#1659066004
+bash test.sh test.input 
+#1659066267
+cd -
+#1659066269
+ls
+#1659066277
+cd mRNA_MtrunA17Chr5g0403831_Metru/
+#1659066278
+lt
+#1659066282
+pwd
+#1659064688
+tma
+#1659066287
+j mRNA_MtrunA17Chr5g0403831_Metru
+#1659066287
+lt
+#1659066290
+sz mRNA_MtrunA17Chr5g0403831_Metru.tre 
+#1659066293
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659066403
+gtp
+#1659066409
+lth
+#1659066413
+cd ..
+#1659066413
+lt
+#1659066418
+vi test.sh 
+#1659066427
+bash tmp.sh 
+#1659066430
+tam
+#1659066433
+cd ..
+#1659066434
+bash test.sh test.input 
+#1659066624
+gtp
+#1659066629
+bash test.sh test.input 
+#1659066746
+gtp
+#1659066431
+tma
+#1659066836
+lt
+#1659066840
+cd mRNA_MtrunA17Chr5g0403831_Metru/
+#1659066841
+lt
+#1659066848
+more mRNA_MtrunA17Chr5g0403831_Metru.tre.root.shrink.txt
+#1659066855
+vi mRNA_MtrunA17Chr5g0403831_Metru.tre.root 
+#1659066857
+tma
+#1659066926
+conda activate treeshrink
+#1659066933
+ll /nfs/liuhui/.conda/envs/treeshrink/bin/x86_64-conda_cos6-linux-gnu-gfortran
+#1659067023
+vi test.s
+#1659066969
+mamba install -c smirarab treeshrink
+#1659067026
+vi test.sh
+#1659067049
+bash test.sh 
+#1659067054
+vi test.sh
+#1659067057
+bash test.sh 
+#1659067058
+vi test.sh
+#1659067063
+bash test.sh 
+#1659067066
+man unset
+#1659067124
+vi test.sh
+#1659067129
+bash test.sh 
+#1659067132
+vi test.sh
+#1659067137
+bash test.sh 
+#1659067141
+vi test.sh
+#1659067145
+bash test.sh 
+#1659067220
+vi test.sh
+#1659067226
+bash test.sh 
+#1659067298
+gtp
+#1659067311
+gtp
+#1659067304
+tma
+#1659069771
+tp
+#1659069792
+j mRNA_MtrunA17Chr5g0403831_Metru
+#1659069793
+lth
+#1659069799
+les clean_ortho.txt.fa.aln.log 
+#1659069819
+mkdir temp
+#1659069820
+cd temp/
+#1659069823
+ln -s ../clean_ortho.txt.fa.aln
+#1659070617
+j mRNA_MtrunA17Chr5g0403831_Metru
+#1659070618
+lt
+#1659070620
+cd temp/
+#1659070620
+lt
+#1659070621
+vw
+#1659070631
+raxmlHPC-PTHREADS-AVX2 -h |les
+#1659070830
+tma
+#1659070865
+tp
+#1659070874
+j
+#1659070838
+ssh yi03
+#1659070880
+cd ..
+#1659070880
+lth
+#1659070883
+les *log
+#1659070912
+lt
+#1659070915
+cd temp/
+#1659070916
+lt
+#1659070920
+tma
+#1659070925
+lt
+#1659070927
+les *log
+#1659070932
+more *treefile
+#1659070987
+cd ..
+#1659070987
+lt
+#1659070994
+more *shrink.txt
+#1659071004
+les *shrink.txt.root
+#1659071011
+les mRNA_MtrunA17Chr5g0403831_Metru.tre.root.shrink.root
+#1659071017
+les clean_ortho.txt
+#1659071031
+les clean_ortho.txt.fa
+#1659071035
+les clean_ortho.txt.fa.aln
+#1659071042
+lth
+#1659071046
+les *log
+#1659071057
+tma
+#1659071067
+tp
+#1659071069
+lth
+#1659071072
+tail *log
+#1659071074
+cd -
+#1659071075
+lt
+#1659071077
+tail *log
+#1659071111
+more *shrink.txt
+#1659071115
+more ../*shrink.txt
+#1659071128
+tma
+#1659071210
+gtp
+#1659071215
+vw
+#1659071238
+lt
+#1659071245
+i=clean_ortho.txt.fa.aln
+#1659071261
+bjl
+#1659071262
+bhosts 
+#1659071273
+bsub512 -J raxml -n 40 "raxmlHPC-PTHREADS-AVX2 -f a -x  32431 -p 43213 -# 100 -m PROTGAMMAAUTO -T 40 -s ${i} -n ${i%.*}"
+#1659071275
+bjl
+#1659071278
+logsh
+#1659071282
+lt
+#1659071284
+bjl
+#1659071285
+lt
+#1659071294
+bjl
+#1659071301
+bsub512 -J raxml -n 40 "raxmlHPC-PTHREADS-AVX2 -f a -x  32431 -p 43213 -# 100 -m PROTGAMMAAUTO -T 40 -s ${i} -n ${i%.*}"
+#1659071302
+bjl
+#1659071304
+bj
+#1659071310
+bjobs -l 80530
+#1659071312
+bjl
+#1659071317
+lt
+#1659071322
+lsload
+#1659071334
+raxmlHPC-PTHREADS-AVX2 -f a -x  32431 -p 43213 -# 100 -m PROTGAMMAAUTO -T 40 -s ${i} -n ${i%.*}
+#1659071342
+bsub512 "raxmlHPC-PTHREADS-AVX2 -f a -x  32431 -p 43213 -# 100 -m PROTGAMMAAUTO -T 40 -s ${i} -n ${i%.*}"
+#1659071343
+bjl
+#1659071344
+bj
+#1659071351
+lt
+#1659071353
+more output.80531 
+#1659071597
+lt
+#1659071606
+rm RAxML_info.clean_ortho.txt.fa 
+#1659071613
+bsub512 "raxmlHPC-PTHREADS-AVX2 -f a -x  32431 -p 43213 -# 100 -m PROTGAMMAAUTO -T 40 -s ${i} -n ${i%.*}"
+#1659071614
+lt
+#1659071616
+rm output.80531 error.80531 
+#1659071616
+lt
+#1659071619
+bjl
+#1659071621
+lt
+#1659071625
+more RAxML_info.clean_ortho.txt.fa 
+#1659071636
+lth
+#1659071639
+bjl
+#1659071645
+tail clean_ortho.txt.fa.aln.log 
+#1659071648
+lth
+#1659071655
+tail RAxML_info.clean_ortho.txt.fa 
+#1659071661
+les RAxML_info.clean_ortho.txt.fa 
+#1659071670
+lth
+#1659071675
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659071822
+lth
+#1659071827
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659071848
+lth
+#1659071851
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659071853
+tma
+#1659071858
+lth
