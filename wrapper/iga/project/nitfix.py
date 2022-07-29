@@ -704,6 +704,8 @@ def _progressive_root_tree(tree_fn, outgroup_list):
         mrca_node = tree.get_common_ancestor(outgroup_name)
         mrca_outgroup_descends = list(filter(lambda x: x.is_leaf(),
                                              mrca_node.get_descendants()))
+        logging.info(mrca_outgroup_descends)
+        logging.info(outgroup_name)
         if len(mrca_outgroup_descends) == len(outgroup_name):
             # is monophyly
             tree.set_set_outgroup(mrca_node)
