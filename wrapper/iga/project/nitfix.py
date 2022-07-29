@@ -772,9 +772,9 @@ def _pre_dlcpar(tree_file):
         else:
             children_list2 = s.get_children()
             for st in children_list2:
-                logging.debug(st)
                 leaf_list = st.get_leaf_names()
                 leaf_name_str = " ".join(leaf_list)
+                logging.debug(leaf_name_str)
                 if "_Metru" not in leaf_name_str and len(leaf_list) > cutoff:
                     tree.prune(st)
                     break
