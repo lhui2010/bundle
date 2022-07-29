@@ -770,7 +770,7 @@ def _pre_dlcpar(tree_file):
         if s.is_leaf():
             continue
         else:
-            children_list2 = tree.get_children()
+            children_list2 = s.get_children()
             for st in children_list2:
                 logging.debug(st)
                 leaf_list = st.get_leaf_names()
