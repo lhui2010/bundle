@@ -673,7 +673,7 @@ def correct_gene_age(gene=None):
         sh(cmd2)
 
     # Step4: new tree with iqtree2
-    clean_tree = gene_alias + "clean.tre"
+    clean_tree = gene_alias + ".clean.tre"
     if not os.path.exists(clean_tree):
         cmd3 = correct_gene_age_sh2.format(longbranch_ids, gene_alias)
         print('bug')
