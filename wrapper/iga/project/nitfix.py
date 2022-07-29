@@ -682,6 +682,7 @@ def correct_gene_age(gene=None):
 
     # Step5: root iqtree2
     root_clean_tree = clean_tree + ".root"
+    logging.debug(clean_tree)
     _progressive_root_tree(clean_tree, outgroup_list)
 
     # Step5
