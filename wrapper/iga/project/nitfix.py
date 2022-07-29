@@ -709,11 +709,11 @@ def _progressive_root_tree(tree_fn, outgroup_list):
             logging.info(outgroup_name)
             if len(mrca_outgroup_descends) == len(outgroup_name):
                 # is monophyly
-                tree.set_set_outgroup(mrca_node)
+                tree.set_outgroup(mrca_node)
                 tree.write(format=1, outfile=tree_fn+".root")
                 return 0
         elif len(outgroup_name) == 1:
-            tree.set_set_outgroup(outgroup_name[0])
+            tree.set_outgroup(outgroup_name[0])
             tree.write(format=1, outfile=tree_fn + ".root")
             return 0
         else:
