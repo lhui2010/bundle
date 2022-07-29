@@ -553,6 +553,7 @@ tree_shrink_sh = r"""
 set +e
 source activate treeshrink
 run_treeshrink.py  -o . -O {0}.shrink -q 0.1 -t {0}
+sed -i "s/\s\+/\n/" {0}.shrink.txt
 echo "{0}.shrink.txt"
 source deactivate
 """
@@ -665,15 +666,18 @@ def correct_gene_age(gene=None):
     cmd3 = correct_gene_age_sh2.format(longbranch_ids, gene_alias)
     sh(cmd3)
 
+    dlcpar_input = clean_tree + '.filter'
+    _pre_dlcpar(clean_tree)
+
     # 0 rooted tree; MtCLE36.clean.tre
     # output
     # {0}.dlcdp.locus.recon
     # {0}.dlcdp.locus.tree
-    cmd4 = dlcpar_sh.format(clean_tree)
+    recon_file = dlcpar_input + ".dlcdp.locus.recon"
+    locus_tree = dlcpar_input + ".dlcdp.locus.tree"
+    cmd4 = dlcpar_sh.format(dlcpar_input)
     sh(cmd4)
 
-    recon_file = clean_tree + ".dlcdp.locus.recon"
-    locus_tree = clean_tree + ".dlcdp.locus.tree"
     _get_dups(recon_file, locus_tree)
 
 
@@ -727,6 +731,33 @@ def _progressive_root_tree(tree_fn, outgroup_list):
     logging.error("No outgroup found for {}".format(tree_fn))
     exit(1)
     return 1
+
+
+def _pre_dlcpar(tree_file):
+    """
+    Remove paralogous branches (Larger than 10) that underwent GDs but do not contain Metru nodes.
+    Args:
+        tree_file:
+
+    Returns:tree_file + .filter
+
+    """
+    cutoff = 10
+    tree = Tree(tree_file)
+    children_list1 = tree.get_children()
+    for s in children_list1:
+        if s.is_leaf():
+            continue
+        else:
+            children_list2 = tree.get_children()
+            for st in children_list2:
+                leaf_list = st.get_leaf_names()
+                leaf_name_str = " ".join(leaf_list)
+                if "Metru" not in leaf_name_str and len(leaf_list) > cutoff:
+                    tree.prune(st)
+                    break
+    tree.write(format=1, outfile=tree_file + ".filter")
+    return 0
 
 
 def _get_dups(recon_file, locus_tree):
