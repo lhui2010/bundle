@@ -550,6 +550,7 @@ echo "Manual rooting for {1}.tre"
 # 0 tree file; -q is set to 0.1 by default
 # Output: {0}.shrink.tre {0}.shrink.txt
 tree_shrink_sh = r"""
+set +e
 source activate treeshrink
 run_treeshrink.py  -o . -O {0}.shrink -q 0.1 -t {0}
 echo "{0}.shrink.txt"
@@ -575,6 +576,7 @@ source activate dlcpar
 # wait 300s then kill dlcpar as it is extreme slow on complex situations.
 timeout 300 bash $BD/bash_template/dlcpar.sh {0}
 echo "{0}.dlcdp.locus.tree"
+source deactivate
 """
 
 # 0: recon file. VsENBP1-like.rooted.tre.dlcdp.locus.recon
