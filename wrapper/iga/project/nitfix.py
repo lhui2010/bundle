@@ -533,7 +533,10 @@ def yanrui_count_tree(tree_dir=None, suffix_outgroup='', suffixA='', suffixB='')
 
 #0 gene list
 #1 gene alias
+# output:
+# {1}.tre
 correct_gene_age_sh1 = r"""
+set -euxo pipefail
 get_homo_ortho2.sh {0} > homo_ortho.txt
 get_syn_ortho.sh {0} > syn_ortho.txt
 cat homo_ortho.txt syn_ortho.txt > raw_ortho.txt
@@ -542,12 +545,76 @@ ln -s raw_ortho.txt.fa.aln.tre {1}.tre
 echo "Manual rooting for {1}.tre" 
 """
 
+# Progressive rooting
+
+# 0 tree file; -q is set to 0.1 by default
+# Output: {0}.shrink.tre {0}.shrink.txt
+tree_shrink_sh = r"""
+source activate treeshrink
+run_treeshrink.py  -o . -O {0}.shrink -q 0.1 -t {0}
+echo "{0}.shrink.txt"
+source deactivate
+"""
+
+# 0 : genes need to be removed;
+# 1: gene alias
 correct_gene_age_sh2 = r"""
 #. is directory; root is suffix for tree; 2 is branch length; 1 is minimum taxa (not used currently); output is out dir
-cut_long_internal_branches.py . root 2 1 output > long_branch.txt
-unselectItem.pl long_branch.txt raw_ortho.txt  >clean_ortho.txt
-tree.sh clean_ortho.txt
-bash /nfs/liuhui/bin/bundle/bash_template/dlcpar.sh clean_ortho.txt.fa.aln.tre.root.tre
+# cut_long_internal_branches.py . root 2 1 output > long_branch.txt
+unselectItem.pl {0} raw_ortho.txt  >clean_ortho.txt
+tree_iq2.sh clean_ortho.txt
+ln -s clean_ortho.txt.fa.aln.treefile {1}.clean.tre
+"""
+
+# 0 rooted tree; MtCLE36.clean.tre
+# output
+# {0}.dlcdp.locus.recon
+# {0}.dlcdp.locus.tree
+dlcpar_sh = r"""
+source activate dlcpar
+# wait 300s then kill dlcpar as it is extreme slow on complex situations.
+timeout 300 bash $BD/bash_template/dlcpar.sh {0}
+echo "{0}.dlcdp.locus.tree"
+"""
+
+# 0: recon file. VsENBP1-like.rooted.tre.dlcdp.locus.recon
+# 1: locus tree file. VsENBP1-like.rooted.tre.dlcdp.locus.tree
+# output:
+# MedicagoGene  DuplicationHistory  Orthologues
+# MetruABC      N5:MetruABC,MetruDD|MetruEFT;N12MetruABC|MetruDD    AtABC,OrABC.
+check_overlap_sh = r"""
+python xx.py {0} {1}
+"""
+
+
+""" deprecated
+tt = ete3.Tree("VsENBP1-like.rooted.tre.dlcdp.locus.tree", format=1)
+
+for t in tt.traverse():
+    if t.name == "n4":
+        break
+        
+
+tt.get_common_ancestor("mRNA_MtrunA17Chr1g0147021_Metru", "mRNA_MtrunA17Chr7g0275771_M
+etru")
+
+
+
+list(filter(lambda x:'Metru' in x, t.children[0].get_leaf_names()))
+['mRNA_MtrunA17Chr1g0147021_Metru']
+
+list(filter(lambda x:'Metru' in x, t.children[1].get_leaf_names()))
+['mRNA_MtrunA17Chr7g0275771_Metru']
+
+
+
+activate dlcpar 
+dlcpar dp -s ${sp_tree} -S ${sp_map} ${gene_tree} --output_format 3t
+
+activate treeshrink
+$run_treeshrink.py -t VsENBP1-like.all.tre -q 0.1
+
+
 """
 
 
@@ -564,11 +631,104 @@ def correct_gene_age(gene=None):
     elif ',' in gene:
         gene = gene.replace(',', ' ')
     gene_alias = os.path.basename(os.getcwd())
+
+    # tt = Tree(raw_tree)
+    outgroup_list = ["Orsat",
+"Aqcoe",
+"Vivin",
+"Artha,Potri,Avcar",
+"Daglo,Bemas,Casat,Paand",
+"Myrub,Cavim",
+"Potat",
+"Cechi,Bavar,Lyrho,Sigla",
+"Duorc",
+"Zeins",
+"Mipud,Faalb,Sesep,Chpum"]
+
+    raw_tree = gene_alias + '.tre'
     cmd1 = correct_gene_age_sh1.format(gene, gene_alias)
     sh(cmd1)
+
+    root_tree = raw_tree + ".root"
+    _progressive_root_tree(raw_tree, outgroup_list)
+    # output raw_tree + ".root
+
+    # Step2 cut longbranch
+    longbranch_ids = root_tree + '.shrink.txt'
+    cmd2 = tree_shrink_sh.format(root_tree)
+    sh(cmd2)
+
+    # Step3: new tree with iqtree2
+    clean_tree = gene_alias + "clean.tre"
+    cmd3 = correct_gene_age_sh2.format(longbranch_ids, gene_alias)
+    sh(cmd3)
+
+    # 0 rooted tree; MtCLE36.clean.tre
+    # output
+    # {0}.dlcdp.locus.recon
+    # {0}.dlcdp.locus.tree
+    cmd4 = dlcpar_sh.format(clean_tree)
+    sh(cmd4)
+
+    recon_file = clean_tree + ".dlcdp.locus.recon"
+    locus_tree = clean_tree + ".dlcdp.locus.tree"
+    _get_dups(recon_file, locus_tree)
+
+
     # rooted_tree = input()
     # cmd2 = correct_gene_age_sh2
     # sh(cmd2)
+
+
+def _progressive_root_tree(tree_fn, outgroup_list):
+    """
+    Args:
+        tree: ETE3 tree object
+        outgroup_list: ["Orsat",
+
+    Returns:
+
+    """
+    tree = Tree(tree_fn)
+    tree_labels = tree.get_leaf_names()
+    outgroup_name = []
+    for og in outgroup_list:
+        og_list = og.split(',')
+        # split og into suffix
+        for split_og in og_list:
+            split_og_list = [ii for ii in tree_labels if ii.endswith(split_og)]  ####找到外类群######
+            outgroup_name += split_og_list
+        if len(outgroup_name) > 0:
+            break
+    if len(outgroup_name) > 0:
+        mrca_node = tree.get_common_ancestor(outgroup_name)
+        mrca_outgroup_descends = list(filter(lambda x: x.is_leaf(),
+                                             mrca_node.get_descendants()))
+        if len(mrca_outgroup_descends) == len(outgroup_name):
+            # is monophyly
+            tree.set_set_outgroup(mrca_node)
+            tree.write(format=1, outfile=tree_fn+".root")
+            return 0
+        else:
+            # is polyphyly
+            logging.error("Polytomy found in outgroup")
+            exit(1)
+            return 1
+    # No outgroup found. Return 1
+    logging.error("No outgroup found")
+    exit(1)
+    return 1
+
+
+def _get_dups(recon_file, locus_tree):
+    """
+    Args:
+        recon_file:    # {0}.dlcdp.locus.recon
+        locus_tree:    # {0}.dlcdp.locus.tree
+    Returns:
+    """
+    logging.info(recon_file)
+    logging.info(locus_tree)
 
 
 if __name__ == "__main__":
