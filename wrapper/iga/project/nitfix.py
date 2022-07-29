@@ -648,27 +648,47 @@ def correct_gene_age(gene=None):
 "Zeins",
 "Mipud,Faalb,Sesep,Chpum"]
 
-    raw_tree = gene_alias + '.tre'
-    cmd1 = correct_gene_age_sh1.format(gene, gene_alias)
-    sh(cmd1)
+    debug = 1
 
+    # Step1 Build initial fasttree
+    raw_tree = gene_alias + '.tre'
+    if not os.path.exists(raw_tree):
+        cmd1 = correct_gene_age_sh1.format(gene, gene_alias)
+    if not debug:
+        sh(cmd1)
+
+    # Step2 root fasttree
     root_tree = raw_tree + ".root"
-    _progressive_root_tree(raw_tree, outgroup_list)
+    if not os.path.exists(root_tree):
+        _progressive_root_tree(raw_tree, outgroup_list)
+    if not debug:
+        _progressive_root_tree(raw_tree, outgroup_list)
     # output raw_tree + ".root
 
-    # Step2 cut longbranch
+    # Step3 cut longbranch
     longbranch_ids = root_tree + '.shrink.txt'
-    cmd2 = tree_shrink_sh.format(root_tree)
-    sh(cmd2)
+    if not os.path.exists(longbranch_ids):
+        cmd2 = tree_shrink_sh.format(root_tree)
+    if not debug:
+        sh(cmd2)
 
-    # Step3: new tree with iqtree2
+    # Step4: new tree with iqtree2
     clean_tree = gene_alias + "clean.tre"
-    cmd3 = correct_gene_age_sh2.format(longbranch_ids, gene_alias)
-    sh(cmd3)
+    if not os.path.exists(clean_tree):
+        cmd3 = correct_gene_age_sh2.format(longbranch_ids, gene_alias)
+        print('bug')
+    if not debug:
+        sh(cmd3)
 
-    dlcpar_input = clean_tree + '.filter'
-    _pre_dlcpar(clean_tree)
+    # Step5: root iqtree2
+    root_clean_tree = clean_tree + ".root"
+    _progressive_root_tree(clean_tree, outgroup_list)
 
+    # Step5
+    dlcpar_input = root_clean_tree + '.filter'
+    _pre_dlcpar(root_clean_tree)
+
+    # Step6
     # 0 rooted tree; MtCLE36.clean.tre
     # output
     # {0}.dlcdp.locus.recon
