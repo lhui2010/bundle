@@ -101970,3 +101970,1441 @@ sed '/^>/!s/U/X/g' abc
 gtp
 #1658887901
 vw
+#1658887911
+lth
+#1658887949
+gtps
+#1658887920
+sed '/^>/!s/U/X/g' total.pep.withUinSeq > total.pep
+#1658887941
+cd -
+#1658887951
+j MtNPF2.6
+#1658887951
+lt
+#1658887956
+python -m iga.project.nitfix correct_gene_age  mRNA_MtrunA17Chr7g0240271_Metru mRNA_MtrunA17Chr7g0240131_Metru mRNA_MtrunA17Chr7g0235521_Metru mRNA_MtrunA17Chr7g0240181_Metru mRNA_MtrunA17Chr7g0240211_Metru mRNA_MtrunA17Chr7g0240151_Metru mRNA_MtrunA17Chr7g0240281_Metru mRNA_MtrunA17Chr4g0060001_Metru
+#1658887314
+tma
+#1658888061
+j npf
+#1658888061
+lt
+#1658888065
+sz MtNPF2.6.tre 
+#1658888067
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658888451
+grep mRNA_MtrunA17Chr7g0240271_Metru ../Medicago_truncatula.Cercis_chinensis.anchors
+#1658888462
+grep CECHI00010388-t1_Cechi
+#1658888465
+grep CECHI00010388-t1_Cechi ../Medicago_truncatula.Cercis_chinensis.anchors
+#1658888473
+grep CECHI00008363-t1_Cechi
+#1658888479
+grep CECHI00008363-t1_Cechi ../Medicago_truncatula.Cercis_chinensis.anchors 
+#1658888487
+grep CECHI00008363-t1_Cechi ../*anchors
+#1658888517
+cd ..
+#1658888526
+mkdir MtMATE56
+#1658888527
+cd MtMATE56/
+#1658888528
+lt
+#1658888542
+grep mRNA_MtrunA17Chr5g0397991_Metru ../gene_pav.txt |les
+#1658888555
+grep "^mRNA_MtrunA17Chr5g0397991_Metru" ../gene_pav.txt |les
+#1658888565
+grep "^mRNA_MtrunA17Chr5g0397991_Metru" ../gene_pav.txt |grep duplicate
+#1658888585
+python -m iga.project.nitfix correct_gene_age  mRNA_MtrunA17Chr5g0397991_Metru,mRNA_MtrunA17Chr6g0473701_Metru,mRNA_MtrunA17Chr1g0203791_Metru
+#1658888662
+lth
+#1658888427
+tma
+#1658888706
+j mate
+#1658888707
+lt
+#1658888710
+sz MtMATE56.tre 
+#1658888713
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658888907
+cd ..
+#1658888909
+mkdir MtPMT3_1
+#1658888910
+cd MtPMT3_1/
+#1658888936
+grep "^mRNA_MtrunA17Chr5g0403831_Metru" ../gene_pav.txt |les
+#1658888961
+grep "^mRNA_MtrunA17Chr5g0403831_Metru" ../gene_pav.txt |grep single
+#1658888983
+grep "^mRNA_MtrunA17Chr5g0403831_Metru" ../gene_pav.txt |grep duplicate
+#1658889010
+python -m iga.project.nitfix correct_gene_age  mRNA_MtrunA17Chr5g0403831_Metru,mRNA_MtrunA17Chr8g0373531_Metru,mRNA_MtrunA17Chr5g0432581_Metru
+#1658888945
+tma
+#1658889130
+j pmt3_1
+#1658889130
+lt
+#1658889134
+sz MtPMT3_1.tre 
+#1658889137
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658889760
+cd 
+#1658889761
+cd -
+#1658889763
+cd ..
+#1658889765
+mkdir MtMATE14
+#1658889766
+cd MtMATE14/
+#1658889766
+lt
+#1658889733
+cd ../MtMATE14
+#1658889747
+grep "^mRNA_MtrunA17Chr5g0412771_Metru" ../gene_pav.txt |les
+#1658889764
+python -m iga.project.nitfix correct_gene_age  mRNA_MtrunA17Chr8g0368001_Metru,mRNA_MtrunA17Chr5g0412771_Metru
+#1658889768
+tma
+#1658889860
+lt
+#1658889863
+sz MtMATE14.tre 
+#1658889866
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658889909
+lt
+#1658889916
+cp raw_ortho.txt clean_ortho.txt
+#1658889918
+vi clean_ortho.txt 
+#1658889937
+tree.sh clean_ortho.txt 
+#1658889976
+lth
+#1658889983
+ln -s clean_ortho.txt.fa.aln.tre MtMATE14.clean.tre
+#1658889985
+sz MtMATE14.clean.tre
+#1658889989
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658890023
+vi clean_ortho.txt
+#1658890032
+tree.sh clean_ortho.txt 
+#1658890068
+lth
+#1658890076
+sz ]MtMATE14.clean.tre
+#1658890077
+Cancelled.
+#1658890078
+# Cancelled transfer
+#1658890079
+sz ]MtMATE14.clean.tre
+#1658890080
+**0100000063f694
+#1658890111
+j mate14
+#1658890111
+Š**0100000063f694
+#1658890111
+lt
+#1658890115
+sz MtMATE14.clean.tre
+#1658890118
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658890153
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658890225
+vi clean_ortho.txt
+#1658890231
+tree.sh clean_ortho.txt 
+#1658890259
+lth
+#1658890261
+sz MtMATE14.clean.tre
+#1658890264
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658902540
+cd ..
+#1658902542
+mkdir MtNPF4.5
+#1658902543
+cd MtNPF4.5/
+#1658902555
+grep "^mRNA_MtrunA17Chr5g0415961_Metru" ../gene_pav.txt |les
+#1658902579
+grep "^mRNA_MtrunA17Chr5g0415961_Metru" ../gene_pav.txt |grep single
+#1658902582
+grep "^mRNA_MtrunA17Chr5g0415961_Metru" ../gene_pav.txt |grep duplicate
+#1658902655
+grep mRNA_MtrunA17Chr5g0415961_Metru ../Medicago_truncatula.Cercis_chinensis.anchors 
+#1658902664
+grep "CECHI00008355-t1_Cechi\|CECHI00005338-t1_Cechi" ../Medicago_truncatula.Cercis_chinensis.anchors
+#1658902681
+grep "CECHI00008355-t1_Cechi\|CECHI00005338-t1_Cechi" Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1658902706
+get_homo_ortho.sh mRNA_MtrunA17Chr8g0362711_Metru
+#1658902576
+tma
+#1658902816
+j npf4.5
+#1658902817
+lt
+#1658902820
+wc -l raw_ortho.txt
+#1658902822
+lt
+#1658902740
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr5g0415961_Metru,mRNA_MtrunA17Chr8g0362711_Metru,mRNA_MtrunA17Chr4g0060061_Metru,mRNA_MtrunA17Chr4g0060071_Metru,mRNA_MtrunA17Chr4g0060051_Metru
+#1658902791
+lt
+#1658902794
+vi homo_ortho.txt 
+#1658902835
+lt
+#1658902825
+tma
+#1658902877
+lt
+#1658902880
+sz MtNPF4.5.tre 
+#1658902882
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658902899
+wc -l raw_ortho.txt
+#1658902985
+cat raw_ortho.txt |sort |uniq > clean_ortho.txt
+#1658902987
+vi clean_ortho.txt 
+#1658903033
+tree.sh clean_ortho.txt 
+#1658903239
+lt
+#1658903244
+ln -s clean_ortho.txt.fa.aln.tre MtNPF4.5.clena.tre
+#1658903250
+mv MtNPF4.5.clena.tre MtNPF4.5.clean.tre
+#1658903253
+sz MtNPF4.5.clean.tre
+#1658903256
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658903490
+lth
+#1658903568
+cd ..
+#1658903574
+mkdir MtCLE17
+#1658903575
+cd MtCLE17
+#1658903575
+lt
+#1658903545
+cd ../MtCLE
+#1658903547
+cd ../MtCLE17/
+#1658903547
+lt
+#1658903552
+get_homo_ortho.sh mRNA_MtrunA17Chr5g0439531_Metru
+#1658903622
+grep mRNA_MtrunA17Chr3g0119251_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1658903571
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr3g0119251_Metru,mRNA_MtrunA17Chr5g0439531_Metru
+#1658903625
+grep CECHI00016492-t1_Cechi Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1658903629
+t
+#1658903581
+tma
+#1658903633
+lt
+#1658903635
+sz MtCLE17.tre 
+#1658903638
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658903718
+grep mRNA_MtrunA17Chr5g0439531_Metru
+#1658903725
+grep mRNA_MtrunA17Chr5g0439531_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1658903767
+cd ..
+#1658903770
+mkdir MtCPS2
+#1658903771
+cd MtCPS2/
+#1658903783
+get_homo_ortho.sh mRNA_MtrunA17Chr7g0218031_Metru
+#1658903803
+vi `which get_homo_ortho.sh`;
+#1658903813
+get_homo_ortho.sh mRNA_MtrunA17Chr7g0218031_Metru
+#1658903819
+get_homo_ortho.sh mRNA_MtrunA17Chr7g0218031_Metru |grep single
+#1658903834
+get_homo_ortho.sh mRNA_MtrunA17Chr7g0218031_Metru |grep duplicate
+#1658903895
+grep mRNA_MtrunA17Chr7g0218031_Metru Medicago_truncatula.Cercis_chinensis.KaryotypeInput
+#1658903901
+grep mRNA_MtrunA17Chr7g0218031_Metru ../*anchors
+#1658903900
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr7g0218031_Metru,mRNA_MtrunA17Chr7g0259881_Metru,mRNA_MtrunA17Chr8g0370481_Metru,mRNA_MtrunA17Chr5g0411111_Metru,mRNA_MtrunA17Chr7g0218001_Metru,mRNA_MtrunA17Chr7g0218041_Metru
+#1658904056
+lth
+#1658903713
+tma
+#1658904098
+lt
+#1658904102
+cd ../MtCPS2/
+#1658904103
+lt
+#1658904106
+sz MtCPS2.tre 
+#1658904109
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658904324
+lt
+#1658904338
+vi selection.txt
+#1658904354
+selectItem.pl selection.txt raw_ortho.txt> clean_ortho.txt
+#1658904360
+grep Orsat raw_ortho.txt >> clean_ortho.txt 
+#1658904363
+tree.sh clean_ortho.txt 
+#1658904580
+lt
+#1658904586
+ln -s clean_ortho.txt.fa.aln.tre MtCPS2.clean.tre
+#1658904588
+sz MtCPS2.clean.tre
+#1658904591
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658905057
+cd ..
+#1658905063
+mkdir MtNAD1
+#1658905064
+cd MtNAD1/
+#1658905077
+get_homo_ortho.sh mRNA_MtrunA17Chr7g0222521_Metru |grep duplicate
+#1658905080
+get_homo_ortho.sh mRNA_MtrunA17Chr7g0222521_Metru 
+#1658905095
+get_syn_ortho.sh mRNA_MtrunA17Chr7g0222521_Metru
+#1658905146
+grep CLPLA00027793-t1_Clpla ../*anchors
+#1658905167
+for i in Ae06g352011.1_Aeeve evm.model.ctg1550.45_Assin CLPLA00027793-t1_Clpla evm.model.scaffold_14.208_Daod Glyur000039s00004246.1_Glura Labpu1816S11032_LABPU_Lapur Lj1g0024952.1.Lj1.0v1_Lojap mRNA_Lalb_Chr10g0091971_Lualb Mimpu2850S09251_Mipud Pl08G0000019000.1.v1_Phlun SOPJAP_g9962.t1_Sojap Vigun05g017600.1.v1.2_Viung ZEINS00020863-t1_Zeins; do grep ${i} ../Medicago_truncatula.*anchors; done
+#1658905157
+get_homo_ortho.sh mRNA_MtrunA17Chr7g0222521_Metru 
+#1658905176
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr7g0222521_Metru
+#1658905094
+tma
+#1658905238
+j nad1
+#1658905238
+lt
+#1658905241
+sz MtNAD1.tre 
+#1658905245
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658905372
+cd ..
+#1658905384
+mkdir MtNCR808
+#1658905387
+cd MtNCR808/
+#1658905387
+lt
+#1658905374
+j ncr808
+#1658905379
+get_homo_ortho.sh mRNA_MtrunA17Chr8g0368311_Metru
+#1658905385
+get_syn_ortho.sh mRNA_MtrunA17Chr8g0368311_Metru
+#1658905392
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr8g0368311_Metru
+#1658905411
+tma
+#1658905445
+lt
+#1658905448
+sz MtNCR808.tre
+#1658905451
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658905474
+cd ..
+#1658905475
+mkdir MtRRB20
+#1658905476
+cd MtRRB20/
+#1658905476
+lt
+#1658905489
+get_homo_ortho.sh mRNA_MtrunA17Chr8g0376881_Metru
+#1658905520
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr8g0376881_Metru,mRNA_MtrunA17Chr3g0123131_Metru
+#1658905565
+lt
+#1658905512
+tma
+#1658905609
+j RRB
+#1658905609
+lt
+#1658905613
+sz MtRRB7.ortho.fa.aln.tre 
+#1658905615
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658905649
+lt
+#1658905675
+tma
+#1658905684
+cd ../MtRRB20/
+#1658905684
+lt
+#1658905688
+sz MtRRB20.tre
+#1658905690
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658905733
+get_homo_ortho.sh mRNA_MtrunA17Chr8g0392601_Metru
+#1658905751
+get_homo_ortho.sh mRNA_MtrunA17Chr8g0392601_Metru |grep duplicate
+#1658905787
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr6g0483331_Metru,mRNA_MtrunA17Chr6g0483341_Metru,mRNA_MtrunA17Chr6g0483281_Metru,mRNA_MtrunA17Chr6g0483161_Metru,mRNA_MtrunA17Chr6g0483261_Metru,mRNA_MtrunA17Chr6g0483221_Metru,mRNA_MtrunA17Chr6g0483241_Metru,mRNA_MtrunA17Chr8g0392601_Metru
+#1658905795
+lt
+#1658905801
+rm homo_ortho.txt 
+#1658905802
+cd ..
+#1658905803
+lth
+#1658905806
+tma
+#1658905768
+tma
+#1658905850
+cd ..
+#1658905850
+lt
+#1658905851
+lth
+#1658905863
+mkdir MtMATE36
+#1658905867
+cd MtMATE36
+#1658905867
+lt
+#1658905834
+cd MtMATE36/
+#1658905868
+tma
+#1658905884
+lth
+#1658905888
+wc -l *txt
+#1658905894
+lth
+#1658905909
+grep '>' raw_ortho.txt.fa |wc
+#1658905909
+lt
+#1658905919
+lth
+#1658905920
+lt
+#1658905837
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr6g0483331_Metru,mRNA_MtrunA17Chr6g0483341_Metru,mRNA_MtrunA17Chr6g0483281_Metru,mRNA_MtrunA17Chr6g0483161_Metru,mRNA_MtrunA17Chr6g0483261_Metru,mRNA_MtrunA17Chr6g0483221_Metru,mRNA_MtrunA17Chr6g0483241_Metru,mRNA_MtrunA17Chr8g0392601_Metru
+#1658905926
+tma
+#1658905975
+lt
+#1658905977
+sz MtMATE36.tre
+#1658905980
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658906167
+cd ..
+#1658906173
+mkdir MtGT-9
+#1658906174
+cd MtGT-9/
+#1658906174
+lt
+#1658906187
+get_homo_ortho.sh mRNA_MtrunA17Chr1g0201941_Metru
+#1658906200
+get_homo_ortho.sh mRNA_MtrunA17Chr1g0201941_Metru |grep duplicate
+#1658906276
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr1g0201941_Metru mRNA_MtrunA17Chr1g0201911_Metru
+#1658906205
+tma
+#1658906382
+j MtGT-9
+#1658906383
+lt
+#1658906385
+sz MtGT-9.tre 
+#1658906387
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658906555
+vi selection.txt
+#1658906571
+selectItem.pl selection.txt raw_ortho.txt > clean_ortho.txt
+#1658906577
+grep Orsat raw_ortho.txt >> clean_ortho.txt 
+#1658906578
+lth
+#1658906590
+tma
+#1658906628
+lt
+#1658906640
+ln -s clean_ortho.txt.fa.aln.tre MtGT-9.clean.tre
+#1658906641
+lt
+#1658906652
+tma
+#1658906654
+lt
+#1658906655
+lth
+#1658906663
+lt
+#1658906664
+lth
+#1658906584
+tree.sh clean_ortho.txt 
+#1658906684
+lt
+#1658906687
+sz MtGT-9.clean.tre 
+#1658906689
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658906770
+lt
+#1658906774
+mv clean_ortho.txt clean_ortho.txt.1
+#1658906777
+grep -v CJ030_MR3G023982_Morub
+#1658906782
+grep -v CJ030_MR3G023982_Morub clean_ortho.txt.1  > clean_ortho.txt
+#1658906784
+tma
+#1658906857
+lth
+#1658906865
+sz MtGT-9.clean.tre
+#1658906868
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658907057
+lt
+#1658907062
+cp clean_ortho.txt clean_ortho.txt.2
+#1658907064
+vi clean_ortho.txt.2 
+#1658907073
+tree.sh clean_ortho.txt.2 
+#1658907095
+tma
+#1658907213
+lt
+#1658907216
+sz clean_ortho.txt.2.fa.aln.tre
+#1658907218
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658907261
+vi clean_ortho.txt.2 
+#1658907270
+vi clean_ortho.txt
+#1658907274
+tree.sh clean_ortho.txt.2 
+#1658907297
+tma
+#1658907354
+sz clean_ortho.txt.2.fa.aln.tre
+#1658907357
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658907599
+cd ..
+#1658907601
+mkdir MtGA2ox1
+#1658907602
+cd MtGA2ox1/
+#1658907612
+get_homo_ortho.sh mRNA_MtrunA17Chr2g0313111_Metru
+#1658907637
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr2g0313111_Metru,mRNA_MtrunA17Chr8g0358941_Metru
+#1658907636
+tma
+#1658909265
+j GAox
+#1658909266
+lt
+#1658909269
+sz MtGA2ox1.tre
+#1658909272
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658909489
+lt
+#1658909487
+cd ..
+#1658909487
+mkdir MtSymCRK
+#1658909489
+cd MtSymCRK/
+#1658909489
+lt
+#1658909503
+get_homo_ortho.sh mRNA_MtrunA17Chr3g0119041_Metru
+#1658909520
+get_homo_ortho.sh mRNA_MtrunA17Chr3g0119041_Metru |grep dup
+#1658909589
+grep CECHI00016501-t2_Cechi Medicago_truncatula.Cercis_chinensis.anchors 
+#1658909597
+grep CECHI00016500-t2_Cechi Medicago_truncatula.Cercis_chinensis.anchors 
+#1658909610
+grep CECHI00016503-t2_Cechi Medicago_truncatula.Cercis_chinensis.anchors 
+#1658909615
+grep CECHI00016499-t2_Cechi Medicago_truncatula.Cercis_chinensis.anchors 
+#1658909535
+get_homo_ortho.sh mRNA_MtrunA17Chr3g0119041_Metru |les
+#1658909611
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr3g0119041_Metru
+#1658909636
+lth
+#1658909524
+tma
+#1658909682
+cd ../MtSymCRK/
+#1658909683
+lt
+#1658909685
+sz MtSymCRK.tre
+#1658909688
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658909977
+cd ..
+#1658909983
+mkdir MtNRAMP
+#1658909986
+cd MtNRAMP/
+#1658909992
+get_homo_ortho.sh mRNA_MtrunA17Chr3g0124971_Metru
+#1658910018
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr3g0124971_Metru,mRNA_MtrunA17Chr3g0124991_Metru
+#1658910111
+lth
+#1658910014
+tma
+#1658910155
+j MtNRAMP
+#1658910156
+lt
+#1658910159
+sz MtNRAMP.tre 
+#1658910163
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658910258
+cp raw_ortho.txt clean_ortho.txt
+#1658910260
+vi clean_ortho.txt 
+#1658910276
+tree.sh clean_ortho.txt 
+#1658910290
+tma
+#1658910359
+lth
+#1658910371
+ln -s clean_ortho.txt.fa.aln.tre MtNRAMP.clean.tre
+#1658910374
+sz MtNRAMP.clean.tre
+#1658910377
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658910631
+lt
+#1658910634
+vi clean_ortho.txt
+#1658910639
+vi selection.txt
+#1658910648
+selectItem.pl selection.txt raw_ortho.txt > clean_ortho2.txt
+#1658910654
+grep Orsat raw_ortho.txt >> clean_ortho2.txt 
+#1658910657
+tree.sh clean_ortho2.txt 
+#1658910682
+lt
+#1658910377
+tma
+#1658910724
+lt
+#1658910730
+ln -s clean_ortho2.txt.fa.aln.tre MtNRAMP.clean2.tre
+#1658910732
+sz MtNRAMP.clean2.tre
+#1658910735
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658910788
+lt
+#1658910790
+vi remove.txt
+#1658910805
+unselectItem.pl clean_ortho2.txt > clean_ortho3.txt
+#1658910808
+tma
+#1658910813
+lt
+#1658910772
+tree.sh clean_ortho3.txt 
+#1658910839
+lth
+#1658910810
+vi clean_ortho3.txt
+#1658910842
+tma
+#1658910864
+unselectItem.pl remove.txt clean_ortho2.txt > clean_ortho3.txt
+#1658910866
+more clean_ortho3.txt
+#1658910830
+tree.sh clean_ortho3.txt 
+#1658910868
+tma
+#1658910889
+lth
+#1658910899
+ln -s clean_ortho3.txt.fa.aln.tre MtNRAMP.clean3.tre 
+#1658910902
+sz MtNRAMP.clean3.tre 
+#1658910905
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658911551
+lt
+#1658911553
+lth
+#1658911563
+vi MtNRAMP.clean3.tre 
+#1658911566
+lt
+#1658911671
+cd ..
+#1658911673
+mkdir MtCLE04
+#1658911674
+cd MtCLE04/
+#1658911674
+lt
+#1658911655
+j cle04
+#1658911667
+get_homo_ortho.sh mRNA_MtrunA17Chr5g0400771_Metru
+#1658911719
+grep mRNA_MtrunA17Chr5g0400771_Metru Medicago_truncatula.Cercis_chinensis.anchors 
+#1658911688
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr5g0400771_Metru
+#1658911693
+tma
+#1658911749
+lt
+#1658911752
+sz MtCLE04.tre
+#1658911754
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658911837
+mkdir ../MtESL6_4
+#1658911801
+j MtESL6_4
+#1658911801
+lt
+#1658911808
+cd ..
+#1658911813
+cd MtESL16_4
+#1658911838
+tma
+#1658911866
+cd ../MtESL6_4/
+#1658911833
+j MtESL6_4
+#1658911834
+lt
+#1658911846
+get_homo_ortho.sh mRNA_MtrunA17Chr5g0404181_Metru
+#1658911856
+get_homo_ortho.sh mRNA_MtrunA17Chr5g0404181_Metru |grep duplicate
+#1658911876
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr5g0404181_Metru,mRNA_MtrunA17Chr7g0221631_Metru,mRNA_MtrunA17Chr7g0259451_Metru
+#1658911870
+tma
+#1658912056
+lth
+#1658912058
+sz MtESL6_4.tre
+#1658912060
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658912078
+date
+#1658912113
+sudo yum -y install ntpdate
+#1658912194
+sudo su
+#1658912531
+lt
+#1658912602
+tma
+#1658912648
+lt
+#1658912652
+lth
+#1658912655
+bjl
+#1658912657
+lth
+#1658912662
+lt
+#1658912622
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr5g0404181_Metru mRNA_MtrunA17Chr8g0373181_Metru
+#1658912710
+lth
+#1658912663
+tma
+#1658912715
+sz MtESL6_4.tre
+#1658912718
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658913144
+lt
+#1658913163
+cd ..
+#1658913164
+mkdir MtnsLTP95
+#1658913165
+cd MtnsLTP95/
+#1658913165
+lt
+#1658913168
+cd ../MtnsLTP95
+#1658913168
+lt
+#1658913180
+get_homo_ortho.sh mRNA_MtrunA17Chr5g0429901_Metru
+#1658913193
+get_homo_ortho.sh mRNA_MtrunA17Chr5g0429901_Metru |grep duplicate
+#1658913215
+python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr5g0429901_Metru,mRNA_MtrunA17Chr2g0278981_Metru,mRNA_MtrunA17Chr2g0278971_Metru
+#1658913342
+lt
+#1658913166
+tma
+#1658913385
+lth
+#1658913388
+sz MtnsLTP95.tre 
+#1658913391
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658971640
+cd ../VsENBP1-like/
+#1658971640
+lt
+#1658971689
+les VsENBP1-like.rooted.dlcsearch.locus.recon
+#1658971908
+les VsENBP1-like.rooted.tre 
+#1658971915
+grep Morub VsENBP1-like.rooted.tre 
+#1658971927
+les VsENBP1-like.rooted.tre 
+#1658971932
+les VsENBP1-like.rooted.dlcsearch.locus.recon
+#1658971954
+les VsENBP1-like.rooted.dlcsearch.locus.tree 
+#1658971965
+les VsENBP1-like.rooted.dlcsearch.locus.recon
+#1658971981
+les VsENBP1-like.rooted.dlcsearch.locus.tree 
+#1658972002
+vi VsENBP1-like.rooted.dlcsearch.locus.tree 
+#1658972077
+vi VsENBP1-like.rooted.dlcsearch.daughters 
+#1658972092
+vi VsENBP1-like.rooted.dlcsearch.coal.recon 
+#1658972166
+vi VsENBP1-like.rooted.dlcsearch.info 
+#1658972178
+vi VsENBP1-like.rooted.dlcsearch.locus.recon 
+#1658972562
+conda activate dlcpar
+#1658972567
+dlcpar dp
+#1658972630
+dlcpar convert -h
+#1658972711
+ll
+#1658972722
+les ../SpeciesTree_rooted_node_labels.ordered.txt.tre 
+#1658972728
+cp  ../SpeciesTree_rooted_node_labels.ordered.txt.tre  .
+#1658972730
+vi dlcpar.sh 
+#1658972738
+vi ../SpeciesTree_rooted_node_labels.txt 
+#1658972752
+more dlcpar.sh 
+#1658972761
+ls
+#1658972778
+dlcpar convert ---3t_to_lct -s ../SpeciesTree_rooted_node_labels.txt dlcpar.txt.smap VsENBP1-like.rooted.tre 
+#1658972785
+dlcpar convert ---3t_to_lct -s ../SpeciesTree_rooted_node_labels.txt -S dlcpar.txt.smap VsENBP1-like.rooted.tre 
+#1658972846
+dlcpar convert ---3t_to_lct -s ../SpeciesTree_rooted_node_labels.txt -S dlcpar.txt.smap VsENBP1-like.rooted.dlcsearch.coal.tree 
+#1658972865
+dlcpar convert -h
+#1658972895
+dlcpar convert ---3t_to_lct -s ../SpeciesTree_rooted_node_labels.txt -S dlcpar.txt.smap  VsENBP1-like.rooted.dlcsearch
+#1658972898
+dlcpar convert ---3t_to_lct -s ../SpeciesTree_rooted_node_labels.txt -S dlcpar.txt.smap  VsENBP1-like.rooted.dlcsearch.coal.tree 
+#1658972925
+dlcpar convert --3t_to_lct -s ../SpeciesTree_rooted_node_labels.txt -S dlcpar.txt.smap  VsENBP1-like.rooted.dlcsearch.coal.tree 
+#1658972956
+dlcpar convert --3t_to_lct -s ../SpeciesTree_rooted_node_labels.txt -S dlcpar.txt.smap  VsENBP1-like.rooted.dlcsearch
+#1658972959
+dlcpar convert --3t_to_lct -s ../SpeciesTree_rooted_node_labels.txt -S dlcpar.txt.smap  VsENBP1-like.rooted.dlcsearch.coal.tree 
+#1658972967
+vi VsENBP1-like.rooted.dlcsearch.coal.tree
+#1658973029
+grep n40 *
+#1658973040
+dlcpar convert --3t_to_lct -s ../SpeciesTree_rooted_node_labels.txt -S dlcpar.txt.smap  VsENBP1-like.rooted.dlcsearch.coal.tree 
+#1658973045
+more dlcpar.sh 
+#1658973104
+sp_tree=../SpeciesTree_rooted_node_labels.txt                                                   â”‚/nfs/liuhui/projects/buzzo/quota_align/Medicago_process
+#1658973110
+sp_tree=../SpeciesTree_rooted_node_labels.txt
+#1658973112
+sp_map=dlcpar.txt.smap
+#1658973118
+gene_tree=VsENBP1-like.rooted.tre 
+#1658973180
+dlcpar dp -s ${sp_tree} -S ${sp_map} ${gene_tree} --output_format lct
+#1658973206
+lth
+#1658973213
+les VsENBP1-like.rooted.tre.dlcdp.lct.recon
+#1658973228
+les VsENBP1-like.rooted.tre.dlcdp.lct.tree
+#1658973237
+les VsENBP1-like.rooted.tre.dlcdp.lct.order
+#1658973247
+les VsENBP1-like.rooted.tre.dlcdp.lct.recon
+#1658973259
+grep D *dlcdp*
+#1658973398
+vi VsENBP1-like.rooted.tre.dlcdp.lct.recon
+#1658973482
+vi VsENBP1-like.rooted.tre.dlcdp.lct.order 
+#1658973523
+vi VsENBP1-like.rooted.tre.dlcdp.lct.recon 
+#1658973528
+vi VsENBP1-like.rooted.tre.dlcdp.lct.order 
+#1658973530
+vi VsENBP1-like.rooted.tre.dlcdp.lct.recon 
+#1658973647
+vi VsENBP1-like.rooted.dlcsearch.locus.recon 
+#1658973731
+grep dup$ VsENBP1-like.rooted.dlcsearch.locus.recon 
+#1658973798
+j VsENBP
+#1658973798
+ls
+#1658973810
+echo VsENBP1-like.rooted.dlcsearch.coal.tree
+#1658973815
+les VsENBP1-like.rooted.dlcsearch.coal.tree
+#1658973841
+les VsENBP1-like.rooted.dlcsearch.locus.tree 
+#1658973848
+echo VsENBP1-like.rooted.dlcsearch.locus.tree
+#1658971636
+tma
+#1658974445
+j vsebpn
+#1658974445
+lth
+#1658974448
+j vs
+#1658974449
+lt
+#1658974455
+sz VsENBP1-like.rooted.dlcsearch.locus.tree
+#1658974458
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658974542
+grep dup$ VsENBP1-like.rooted.dlcsearch.locus.recon  |grep -P "N2\t"
+#1658974589
+ls
+#1658974605
+dlcpar dp -s ${sp_tree} -S ${sp_map} ${gene_tree} 
+#1658974634
+lth
+#1658974651
+vi VsENBP1-like.rooted.tre.dlcdp.lct.recon
+#1658974776
+dlcpar dp -s ${sp_tree} -S ${sp_map} ${gene_tree} --output_format 3t
+#1658974800
+lth
+#1658974812
+vi *dlcdp.locus.recon
+#1658974819
+ls *dlcdp.locus.recon
+#1658974825
+grep dup *dlcdp.locus.recon
+#1658974838
+vi *dlcdp.locus.tree
+#1658974850
+vi *dlcdp.recon.tree
+#1658974869
+vi *dlcdp.coal.tree
+#1658974873
+vi *dlcdp.locus.tree
+#1658974888
+grep dup *dlcdp.locus.recon
+#1658974893
+grep dup *dlcdp.locus.tree
+#1658974900
+realpath *dlcdp.locus.tree
+#1658974528
+tma
+#1658974910
+sz VsENBP1-like.rooted.tre.dlcdp.locus.tree
+#1658974913
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1658975931
+ll
+#1658975934
+cd test/
+#1658975935
+lt
+#1658975939
+ls *sh
+#1658975946
+cd VsENBP1-like.all.txt.fa.aln.tre.rename_treeshrink/
+#1658975946
+lt
+#1658975952
+les output.root
+#1658975956
+more output.txt 
+#1658975958
+cd ..
+#1658975962
+conda deactivate 
+#1658975970
+conda activate treeshrink
+#1658975979
+lth
+#1658975982
+more shell 
+#1658975997
+lth
+#1658975183
+tma
+#1658976075
+cd test/
+#1658976078
+mkdir treeshrink
+#1658976079
+cd treeshrink/
+#1658976080
+wget https://github.com/uym2/TreeShrink/blob/master/test_data.zip
+#1658976083
+unzip test_data.zip 
+#1658976086
+ll
+#1658976089
+unzip test_data.zip 
+#1658976099
+les test_data.zip 
+#1658976114
+vi test_data.zip 
+#1658976128
+rm test_data.zip 
+#1658976129
+wget https://github.com/uym2/TreeShrink/raw/master/test_data.zip
+#1658976134
+unzip test_data.zip 
+#1658976145
+conda activate treeshrink
+#1658976155
+run_treeshrink.py  -t test_data/mm10.trees
+#1658976169
+more test_data/mm10_treeshrink/output.t
+#1658976172
+more test_data/mm10_treeshrink/output.txt 
+#1658976182
+more test_data/mm10_treeshrink/output_summary.txt 
+#1658976225
+more test_data/mm10_treeshrink/output.trees 
+#1658976228
+les test_data/mm10_treeshrink/output.trees 
+#1658976285
+les test_data/mm10.trees 
+#1658976332
+cp ../../VsENBP1-like.rooted.tre .
+#1658976334
+vi VsENBP1-like.rooted.tre 
+#1658976362
+cp ../../total_ortho.txt.fa.aln.tre .
+#1658976364
+vi total_ortho.txt.fa.aln.tre 
+#1658976396
+lth
+#1658976397
+rz
+#1658976405
+# Received /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/VsENBP1-like.all.tre
+#1658976407
+lt
+#1658976411
+les total_ortho.txt.fa.aln.tre 
+#1658976420
+run_treeshrink.py  -t total_ortho.txt.fa.aln.tre 
+#1658976429
+more total_ortho.txt.fa.aln_treeshrink/output.t
+#1658976430
+more total_ortho.txt.fa.aln_treeshrink/output.txt 
+#1658976570
+run_treeshrink.py -m per-gene -t total_ortho.txt.fa.aln.tre 
+#1658976578
+more total_ortho.txt.fa.aln_treeshrink/output1.txt 
+#1658976596
+run_treeshrink.py -q "0.1" -t total_ortho.txt.fa.aln.tre 
+#1658976601
+more total_ortho.txt.fa.aln_treeshrink/output2.t
+#1658976602
+more total_ortho.txt.fa.aln_treeshrink/output2.txt 
+#1658976612
+more total_ortho.txt.fa.aln_treeshrink/output2.tre 
+#1658976629
+ll
+#1658976645
+run_treeshrink.py -t VsENBP1-like.all.tre
+#1658976653
+more VsENBP1-like.all_treeshrink/output.txt 
+#1658976659
+run_treeshrink.py -t VsENBP1-like.all.tre -q 0.1
+#1658976664
+more VsENBP1-like.all_treeshrink/output1.txt 
+#1658976696
+conda deactivate
+#1658976701
+conda deactivate
+#1658983573
+wc -l  ../../*/raw_ortho.txt
+#1658976698
+tma
+#1658983658
+cd ..
+#1658983659
+rz
+#1658983672
+# Received /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/MtNPF4.5.clean.tre
+#1658983704
+for i in  ../../*/raw_ortho.txt; do echo $i; cat $i |sort |uniq |wc -l; done
+#1658983744
+les ../../MtMATE36/MtMATE36.tre 
+#1658983749
+grep Orsat ../../MtMATE36/MtMATE36.tre 
+#1658983686
+tma
+#1658983785
+lth
+#1658983790
+rm MtNPF4.5.clean.tre 
+#1658983790
+rz
+#1658983799
+# Received /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/MtMATE36.root.tre
+#1658983800
+lth
+#1658983802
+les MtMATE36.root.tre 
+#1658983819
+conda activate dlcpar
+#1658983831
+lth
+#1658983839
+dlcpar dp -s ${sp_tree} -S ${sp_map} MtMATE36.root.tre --output_format 3t
+#1658983859
+more ../../SpeciesTree_rooted_node_labels.
+#1658983867
+ln -s ../../SpeciesTree_rooted_node_labels.txt  ../SpeciesTree_rooted_node_labels.txt
+#1658983869
+dlcpar dp -s ${sp_tree} -S ${sp_map} MtMATE36.root.tre --output_format 3t
+#1658983874
+ls ../SpeciesTree_rooted_node_labels.txt 
+#1658983877
+rm ../SpeciesTree_rooted_node_labels.txt 
+#1658983892
+cp ../../SpeciesTree_rooted_node_labels.txt .
+#1658983907
+sp_tree=SpeciesTree_rooted_node_labels.txt
+#1658983913
+dlcpar dp -s ${sp_tree} -S ${sp_map} MtMATE36.root.tre --output_format 3t
+#1658983920
+cp ../dlcpar.txt.smap .
+#1658983808
+tma
+#1658984212
+lth
+#1658983921
+dlcpar dp -s ${sp_tree} -S ${sp_map} MtMATE36.root.tre --output_format 3t
+#1658984370
+dlcpar ilp -s ${sp_tree} -S ${sp_map} MtMATE36.root.tre --output_format 3t -I .coal.tree -O .cldilp -x1234
+#1658984426
+mamba install pulp
+#1658984601
+dlcpar ilp -s ${sp_tree} -S ${sp_map} MtMATE36.root.tre --output_format 3t -I .coal.tree -O .cldilp -x1234
+#1658984606
+which python
+#1658984608
+python
+#1658543516
+ssh yi03
+#1658985027
+conda activate dlcpar
+#1658985029
+mamba install coin-or-cbc
+#1658985085
+dlcpar ilp -s ${sp_tree} -S ${sp_map} MtMATE36.root.tre --output_format 3t -I .coal.tree -O .cldilp -x1234
+#1658985092
+vi /nfs/liuhui/.conda/envs/dlcpar/lib/python2.7/site-packages/dlcpar/ilprecon.py
+#1658985176
+which python 
+#1658985177
+python -m pip install -U git+https://github.com/coin-or/pulp
+#1658985229
+python -m pip install pulp
+#1658985242
+python
+#1658985296
+python -m pip install -U git+https://github.com/coin-or/pulp
+#1658985355
+cd projects/buzzo/
+#1658985359
+mkdir pulp
+#1658985360
+cd pulp/
+#1658985364
+git clone https://github.com/coin-or/pulp.git
+#1658985395
+python -m pip install -U git+https://github.com/coin-or/pulp
+#1658988093
+dlcpar ilp -s ${sp_tree} -S ${sp_map} MtMATE36.root.tre --output_format 3t -I .coal.tree -O .cldilp -x1234
+#1658988102
+echo $sp_tree
+#1658988106
+sp_tree=SpeciesTree_rooted_node_labels.txt
+#1658988111
+sp_map=dlcpar.txt.smap
+#1658988113
+dlcpar ilp -s ${sp_tree} -S ${sp_map} MtMATE36.root.tre --output_format 3t -I .coal.tree -O .cldilp -x1234
+#1658988122
+j test
+#1658988146
+j vsebpn
+#1658988151
+j VsENBP
+#1658988153
+cd test/
+#1658988154
+ls
+#1658988161
+ll MtMA*
+#1658988163
+dlcpar ilp -s ${sp_tree} -S ${sp_map} MtMATE36.root.tre --output_format 3t -I .coal.tree -O .cldilp -x1234
+#1658984257
+tma
+#1658988526
+vw
+#1658990541
+tma
+#1659057707
+grep Epfal $BD/rename.sh
+#1659057717
+grep Gomar /nfs/liuhui/bin/bundle/rename.sh 
+#1659059765
+lth
+#1659059766
+ll *nwk
+#1659059769
+ll *tre
+#1659059772
+rz
+#1659059784
+# Received /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/MtCLE04.tre
+#1659059809
+rm MtCLE04.tre 
+#1659059810
+rz
+#1659059813
+# Received /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/MtCLE04.root.tre
+#1659059840
+lth
+#1659060823
+conda activate treeshrink
+#1659060830
+run_treeshrink.py -h
+#1659060850
+lth
+#1659060878
+run_treeshrink.py  -o . -O MtCLE04.root.tre. -q 0.1 -t MtCLE04.root.tre 
+#1659060881
+lth
+#1659060887
+more MtCLE04.root.tre..txt
+#1659061586
+j vsenbp
+#1659061587
+lth
+#1659061594
+more VsENBP1-like.rooted.tre.dlcdp.locus.recon
+#1659061600
+grep dup VsENBP1-like.rooted.tre.dlcdp.locus.recon
+#1659061677
+ls VsENBP1-like.rooted.tre.dlcdp.locus.tree 
+#1659061691
+vi $BD/bash_template/dlcpar.sh
+#1659061703
+more dlcpar.sh 
+#1658988184
+dlcpar ilp -s ${sp_tree} -S ${sp_map} MtMATE36.root.tre --output_format 3t -x1234
+#1659061705
+tma
+#1659061755
+vi $BD/bash_template/dlcpar.sh
+#1659061944
+vi tmp.sh
+#1659061971
+bash tmp.sh 
+#1659062690
+which tree.sh
+#1659062701
+cp /nfs/liuhui/bin/bundle/tree.sh /nfs/liuhui/bin/bundle/tree_iq2.sh
+#1659062706
+vi /nfs/liuhui/bin/bundle/tree_iq2.sh 
+#1659062718
+iqtree2 -h
+#1659062797
+l
+#1659062798
+ll
+#1659062800
+conda deactivate
+#1659062849
+vi /nfs/liuhui/bin/bundle/tree_iq2.sh 
+#1659062867
+cd -
+#1659062877
+mta
+#1659057918
+ipython
+#1659062894
+lth
+#1659062878
+tma
+#1659062904
+j MtCLE04
+#1659062905
+lt
+#1659062923
+tree_iq2.sh raw_ortho.txt.fa.aln
+#1659062941
+vi /nfs/liuhui/bin/bundle/tree_iq2.sh 
+#1659062956
+iqtree2 -B 1000 --modelomatic -s raw_ortho.txt.fa.aln
+#1659063080
+les raw_ortho.txt.fa.aln.treefile
+#1659063604
+lt
+#1659063606
+cd ..
+#1659063607
+ls
+#1659063612
+cd ../..
+#1659063613
+ls
+#1659063618
+les gene_pav.txt
+#1659063668
+grep dup gene_pav.txt |cut -f1,3 |sed "s/-+-.*//" |sort |uniq > correct_gene_age.input
+#1659063698
+wc -l correct_gene_age.input  
+#1659063700
+les correct_gene_age.input 
+#1659063772
+vi $HB/GAP.pl
+#1659063826
+perl -ne 'my $r=()=$_ =~ /,/g; if($r <= 4)(print;)' correct_gene_age.input |les
+#1659063838
+perl -ne 'my $r=()=$_ =~ /,/g; if($r <= 4){print;}' correct_gene_age.input |les
+#1659063869
+perl -ne 'my $r=()=$_ =~ /,/g; if($r <= 4){print;}' correct_gene_age.input |grep -v MT\|CP |les
+#1659063877
+perl -ne 'my $r=()=$_ =~ /,/g; if($r <= 4){print;}' correct_gene_age.input |grep -v "MT\|CP" |les
+#1659063913
+perl -ne 'my $r=()=$_ =~ /,/g; if($r <= 4){print;}' correct_gene_age.input |grep -v "MT\|CP" |grep mRNA_MtrunA17Chr8g0393051_Metru
+#1659063961
+grep "^mRNA_MtrunA17Chr8g0393051_Metru" gene_pav.txt |les
+#1659064011
+perl -ne 'my $r=()=$_ =~ /,/g; if($r <= 4){print;}' correct_gene_age.input |grep -v "MT\|CP" |les
+#1659064023
+cp correct_gene_age.input correct_gene_age.input.raw
+#1659064036
+logsh
+#1659064080
+mv correct_gene_age.input correct_gene_age.input.filter
+#1659064087
+mv correct_gene_age.input.filter correct_gene_age.input.raw
+#1659064089
+vi shell 
+#1659064104
+lth
+#1659064116
+perl -ne 'my $r=()=$_ =~ /,/g; if($r <= 4){print;}' correct_gene_age.input.raw |grep -v "MT\|CP" > correct_gene_age.input
+#1659064117
+lth
+#1659064121
+vi correct_gene_age.input
+#1659064153
+mkdir gene_age
+#1659064155
+cd gene_age/
+#1659064157
+ln -s ../correct_gene_age.input
+#1659064158
+ll
+#1659064172
+conda deactivate
