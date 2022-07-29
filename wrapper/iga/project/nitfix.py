@@ -699,7 +699,9 @@ def correct_gene_age(gene=None):
     cmd4 = dlcpar_sh.format(dlcpar_input)
     sh(cmd4)
 
-    _get_dups(recon_file, locus_tree)
+    # Step 7
+    result = _get_dups(recon_file, locus_tree)
+    print(result, end="")
 
 
     # rooted_tree = input()
@@ -773,13 +775,15 @@ def _pre_dlcpar(tree_file):
             children_list2 = s.get_children()
             for st in children_list2:
                 leaf_list = st.get_leaf_names()
-                leaf_name_str = " ".join(leaf_list)
+                leaf_name_str = ",".join(leaf_list)
                 if "_Metru" not in leaf_name_str and len(leaf_list) > cutoff:
                     logging.debug(leaf_name_str)
                     # tree.remove_child(st)
-                    st.detach()
+                    # st.detach()
                     break
-    tree.write(format=1, outfile=tree_file + ".filter")
+    # tree.write(format=1, outfile=tree_file + ".filter")
+    outfile = tree_file + ".filter"
+    sh('pxrmt -t {} -n {} > {}'.format(tree_file, leaf_name_str, outfile))
     return 0
 
 
@@ -792,6 +796,21 @@ def _get_dups(recon_file, locus_tree):
     """
     logging.info(recon_file)
     logging.info(locus_tree)
+    tree = Tree(locus_tree, format=1)
+    with open(recon_file) as fh:
+        for line in fh:
+            (gene_tree_node, sp_tree_node, type) = line.rstrip().split()
+            if type == "dup" and re.search(r"N\d+", sp_tree_node):
+                # duplication node and happens on internal
+                this_node = tree&sp_tree_node
+                children0_metru = list(filter(lambda x: 'Metru' in x, this_node.children[0].get_leaf_names()))
+                children1_metru = list(filter(lambda x: 'Metru' in x, this_node.children[1].get_leaf_names()))
+                result = ""
+                if len(children0_metru) > 0 and len(children1_metru) > 0:
+                    result += "{}\t{}\t{}\n".format(sp_tree_node, ",".join(children0_metru), ",".join(children1_metru))
+    return result
+
+
 
 
 if __name__ == "__main__":
