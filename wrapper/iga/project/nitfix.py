@@ -802,7 +802,8 @@ def _get_dups(recon_file, locus_tree):
             (gene_tree_node, sp_tree_node, type) = line.rstrip().split()
             if type == "dup" and re.search(r"N\d+", sp_tree_node):
                 # duplication node and happens on internal
-                this_node = tree&sp_tree_node
+                #this_node = tree&sp_tree_node
+                this_node = tree.search_nodes(name=sp_tree_node)[0]
                 children0_metru = list(filter(lambda x: 'Metru' in x, this_node.children[0].get_leaf_names()))
                 children1_metru = list(filter(lambda x: 'Metru' in x, this_node.children[1].get_leaf_names()))
                 result = ""
