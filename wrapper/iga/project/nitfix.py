@@ -711,11 +711,11 @@ def _progressive_root_tree(tree_fn, outgroup_list):
             return 0
         else:
             # is polyphyly
-            logging.error("Polytomy found in outgroup")
+            logging.error("Polytomy found in outgroup for {}".format(tree_fn))
             exit(1)
             return 1
     # No outgroup found. Return 1
-    logging.error("No outgroup found")
+    logging.error("No outgroup found for {}".format(tree_fn))
     exit(1)
     return 1
 
