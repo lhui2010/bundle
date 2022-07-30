@@ -683,12 +683,14 @@ def correct_gene_age(gene=None, threads=20):
 
     # Step5: root iqtree2
     root_clean_tree = clean_tree + ".root"
-    logging.debug(clean_tree)
-    _progressive_root_tree(clean_tree, outgroup_list)
+    if not os.path.exists(root_clean_tree):
+        logging.debug(clean_tree)
+        _progressive_root_tree(clean_tree, outgroup_list)
 
     # Step5
     dlcpar_input = root_clean_tree + '.filter'
-    _pre_dlcpar(root_clean_tree)
+    if not os.path.exists(dlcpar_input):
+        _pre_dlcpar(root_clean_tree)
 
     # Step6
     # 0 rooted tree; MtCLE36.clean.tre
@@ -697,8 +699,9 @@ def correct_gene_age(gene=None, threads=20):
     # {0}.dlcdp.locus.tree
     recon_file = dlcpar_input + ".dlcdp.locus.recon"
     locus_tree = dlcpar_input + ".dlcdp.locus.tree"
-    cmd4 = dlcpar_sh.format(dlcpar_input)
-    sh(cmd4)
+    if not os.path.exists(recon_file):
+        cmd4 = dlcpar_sh.format(dlcpar_input)
+        sh(cmd4)
 
     # Step 7
     result = _get_dups(recon_file, locus_tree)
