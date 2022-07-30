@@ -648,28 +648,26 @@ def correct_gene_age(gene=None):
 "Zeins",
 "Mipud,Faalb,Sesep,Chpum"]
 
-    debug = 1
+    # debug = 1
 
     # Step1 Build initial fasttree
     raw_tree = gene_alias + '.tre'
     if not os.path.exists(raw_tree):
         cmd1 = correct_gene_age_sh1.format(gene, gene_alias)
-    if not debug:
         sh(cmd1)
 
     # Step2 root fasttree
     root_tree = raw_tree + ".root"
     if not os.path.exists(root_tree):
         _progressive_root_tree(raw_tree, outgroup_list)
-    if not debug:
-        _progressive_root_tree(raw_tree, outgroup_list)
+    # if not debug:
+    #     _progressive_root_tree(raw_tree, outgroup_list)
     # output raw_tree + ".root
 
     # Step3 cut longbranch
     longbranch_ids = root_tree + '.shrink.txt'
     if not os.path.exists(longbranch_ids):
         cmd2 = tree_shrink_sh.format(root_tree)
-    if not debug:
         sh(cmd2)
 
     # Step4: new tree with iqtree2
@@ -677,7 +675,6 @@ def correct_gene_age(gene=None):
     if not os.path.exists(clean_tree):
         cmd3 = correct_gene_age_sh2.format(longbranch_ids, gene_alias)
         print('bug')
-    if not debug:
         sh(cmd3)
 
     # Step5: root iqtree2
