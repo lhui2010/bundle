@@ -796,6 +796,7 @@ def _get_dups(recon_file, locus_tree):
     # logging.info(recon_file)
     # logging.info(locus_tree)
     tree = Tree(locus_tree, format=1)
+    # Duplication nodes
     result = ""
     with open(recon_file) as fh:
         for line in fh:
@@ -810,10 +811,29 @@ def _get_dups(recon_file, locus_tree):
                 # logging.debug(children0_metru)
                 # logging.debug(children1_metru)
                 if len(children0_metru) > 0 and len(children1_metru) > 0:
-                    result += "{}\t{}\t{}\n".format(sp_tree_node, ",".join(children0_metru), ",".join(children1_metru))
+                    treecp = tree.copy()
+                    cut_node = treecp&gene_tree_node
+                    cut_node.detach()
+                    outgroup_genes = treecp.get_leaf_names()
+                    result += "{}\t{}\t{}\t{}\t{}\n".format(
+                        sp_tree_node,
+                        ",".join(children0_metru),
+                        ",".join(children1_metru),
+                        ",".join(this_node.children[0].get_leaf_names()),
+                        ",".join(this_node.children[1].get_leaf_names()),
+                        ",".join(outgroup_genes)
+                    )
+    if result == "" and len(list(filter(lambda x: 'Metru' in x, tree.get_leaf_names()))) == 1:
+        # No duplication at all. Report all genes and the outgroup
+        result += "{}\t{}\t{}\t{}\t{}\n".format(
+                        tree.children[0].name,
+                        "-",
+                        "-",
+                        "-",
+                        "-",
+                        ",".join(tree.get_leaf_names()))
+
     return result
-
-
 
 
 if __name__ == "__main__":
