@@ -783,7 +783,7 @@ def _pre_dlcpar(tree_file):
                 leaf_list = st.get_leaf_names()
                 leaf_name_str = ",".join(leaf_list)
                 if "_Metru" not in leaf_name_str and len(leaf_list) > cutoff:
-                    #logging.debug(leaf_name_str)
+                    logging.debug("Removing node", leaf_name_str)
                     # tree.remove_child(st)
                     # st.detach()
                     break
