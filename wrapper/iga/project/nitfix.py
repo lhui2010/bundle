@@ -774,6 +774,7 @@ def _pre_dlcpar(tree_file):
     cutoff = 10
     tree = Tree(tree_file)
     children_list1 = tree.get_children()
+    flag = ""
     for s in children_list1:
         if s.is_leaf():
             continue
@@ -784,12 +785,13 @@ def _pre_dlcpar(tree_file):
                 leaf_name_str = ",".join(leaf_list)
                 if "_Metru" not in leaf_name_str and len(leaf_list) > cutoff:
                     logging.debug("Removing node", leaf_name_str)
+                    flag = leaf_name_str
                     # tree.remove_child(st)
                     # st.detach()
                     break
     # tree.write(format=1, outfile=tree_file + ".filter")
     outfile = tree_file + ".filter"
-    sh('pxrmt -t {} -n {} > {}'.format(tree_file, leaf_name_str, outfile))
+    sh('pxrmt -t {} -n {} > {}'.format(tree_file, flag, outfile))
     return 0
 
 
