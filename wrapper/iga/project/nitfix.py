@@ -655,42 +655,52 @@ def correct_gene_age(gene=None, threads=20):
 
     # debug = 1
 
+    prev_step =0
     # Step1 Build initial fasttree
     raw_tree = gene_alias + '.tre'
-    if not os.path.exists(raw_tree):
+    if not os.path.exists(raw_tree) or prev_step:
         cmd1 = correct_gene_age_sh1.format(gene, gene_alias)
         sh(cmd1)
+        prev_step = 1
 
     # Step2 root fasttree
     root_tree = raw_tree + ".root"
-    if not os.path.exists(root_tree):
+    if not os.path.exists(root_tree) or prev_step:
         _progressive_root_tree(raw_tree, outgroup_list)
+        prev_step = 1
     # if not debug:
     #     _progressive_root_tree(raw_tree, outgroup_list)
     # output raw_tree + ".root
 
     # Step3 cut longbranch
     longbranch_ids = root_tree + '.shrink.txt'
-    if not os.path.exists(longbranch_ids):
+    if not os.path.exists(longbranch_ids) or prev_step:
         cmd2 = tree_shrink_sh.format(root_tree)
         sh(cmd2)
+        prev_step = 1
 
     # Step4: new tree with iqtree2
     clean_tree = gene_alias + ".clean.tre"
-    if not os.path.exists(clean_tree):
+    if not os.path.exists(clean_tree) or prev_step:
+        logging.info("Running step 4")
         cmd3 = correct_gene_age_sh2.format(longbranch_ids, gene_alias, threads)
         sh(cmd3)
+        prev_step = 1
+    else:
+        logging.info("Passing step 4")
 
     # Step5: root iqtree2
     root_clean_tree = clean_tree + ".root"
-    if not os.path.exists(root_clean_tree):
+    if not os.path.exists(root_clean_tree) or prev_step:
         logging.debug(clean_tree)
         _progressive_root_tree(clean_tree, outgroup_list)
+        prev_step = 1
 
     # Step5
     dlcpar_input = root_clean_tree + '.filter'
-    if not os.path.exists(dlcpar_input):
+    if not os.path.exists(dlcpar_input) or prev_step:
         _pre_dlcpar(root_clean_tree)
+        prev_step = 1
 
     # Step6
     # 0 rooted tree; MtCLE36.clean.tre
@@ -699,14 +709,15 @@ def correct_gene_age(gene=None, threads=20):
     # {0}.dlcdp.locus.tree
     recon_file = dlcpar_input + ".dlcdp.locus.recon"
     locus_tree = dlcpar_input + ".dlcdp.locus.tree"
-    if not os.path.exists(recon_file):
+    if not os.path.exists(recon_file) or prev_step:
         cmd4 = dlcpar_sh.format(dlcpar_input)
         sh(cmd4)
 
     # Step 7
-    result = _get_dups(recon_file, locus_tree)
-    with open(gene_alias + '.dups', 'w') as fh:
-        fh.write(result)
+    if not os.path.exists(gene_alias + ".dups") or prev_step:
+        result = _get_dups(recon_file, locus_tree)
+        with open(gene_alias + '.dups', 'w') as fh:
+            fh.write(result)
     #print(result, end="")
 
 
