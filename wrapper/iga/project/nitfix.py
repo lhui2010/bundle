@@ -802,7 +802,7 @@ def _pre_dlcpar(tree_file):
                     break
     # tree.write(format=1, outfile=tree_file + ".filter")
     outfile = tree_file + ".filter"
-    sh('pxrmt -t {} -n {} > {}'.format(tree_file, flag, outfile))
+    sh('pxrmt -t {} -n "{}" > {}'.format(tree_file, flag, outfile))
     return 0
 
 
