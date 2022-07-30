@@ -560,11 +560,13 @@ source deactivate
 
 # 0 : genes need to be removed;
 # 1: gene alias
+# 2: threads
 correct_gene_age_sh2 = r"""
 #. is directory; root is suffix for tree; 2 is branch length; 1 is minimum taxa (not used currently); output is out dir
 # cut_long_internal_branches.py . root 2 1 output > long_branch.txt
 unselectItem.pl {0} raw_ortho.txt  >clean_ortho.txt
-tree_iq2.sh clean_ortho.txt
+# tree_iq2.sh clean_ortho.txt
+tree_raxml.sh clean_ortho.txt {2}
 ln -s clean_ortho.txt.fa.aln.treefile {1}.clean.tre
 """
 
@@ -621,8 +623,11 @@ $run_treeshrink.py -t VsENBP1-like.all.tre -q 0.1
 """
 
 
-def correct_gene_age(gene=None):
+def correct_gene_age(gene=None, threads=20):
     """
+    submit to execute
+    eg:
+    correct_gene_age geneA,geneB,geneC
     Args:
         gene:
 
@@ -673,8 +678,7 @@ def correct_gene_age(gene=None):
     # Step4: new tree with iqtree2
     clean_tree = gene_alias + ".clean.tre"
     if not os.path.exists(clean_tree):
-        cmd3 = correct_gene_age_sh2.format(longbranch_ids, gene_alias)
-        print('bug')
+        cmd3 = correct_gene_age_sh2.format(longbranch_ids, gene_alias, threads)
         sh(cmd3)
 
     # Step5: root iqtree2
