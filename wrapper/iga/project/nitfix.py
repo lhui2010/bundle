@@ -835,7 +835,7 @@ def _get_dups(recon_file, locus_tree):
                     cut_node = treecp&gene_tree_node
                     cut_node.detach()
                     outgroup_genes = treecp.get_leaf_names()
-                    result += "{}\t{}\t{}\t{}\t{}\n".format(
+                    result += "{}\t{}\t{}\t{}\t{}\t{}\n".format(
                         sp_tree_node,
                         ",".join(children0_metru),
                         ",".join(children1_metru),
@@ -845,7 +845,7 @@ def _get_dups(recon_file, locus_tree):
                     )
     if result == "" and len(list(filter(lambda x: 'Metru' in x, tree.get_leaf_names()))) == 1:
         # No duplication at all. Report all genes and the outgroup
-        result += "{}\t{}\t{}\t{}\t{}\n".format(
+        result += "{}\t{}\t{}\t{}\t{}\t{}\n".format(
                         tree.children[0].name,
                         "-",
                         "-",
