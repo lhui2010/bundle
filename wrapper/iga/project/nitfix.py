@@ -806,7 +806,7 @@ def _pre_dlcpar(tree_file):
     return 0
 
 
-def _get_dups(recon_file, locus_tree):
+def _get_dups(recon_file=None, locus_tree=None):
     """
     Args:
         recon_file:    # {0}.dlcdp.locus.recon
