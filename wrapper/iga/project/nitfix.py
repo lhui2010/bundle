@@ -806,7 +806,7 @@ def _pre_dlcpar(tree_file):
     return 0
 
 
-def _get_dups(recon_file=None, locus_tree=None):
+def _get_dups(recon_file, locus_tree):
     """
     Args:
         recon_file:    # {0}.dlcdp.locus.recon
@@ -854,6 +854,18 @@ def _get_dups(recon_file=None, locus_tree=None):
                         ",".join(tree.get_leaf_names()))
 
     return result
+
+
+def get_dups(recon_file=None, locus_tree=None):
+    """
+    Input: dlcpar output
+    Args:
+        recon_file:    # {0}.dlcdp.locus.recon
+        locus_tree:    # {0}.dlcdp.locus.tree
+    Returns: print duplication result in STDOUT
+    """
+    result = _get_dups(recon_file, locus_tree)
+    print(result)
 
 
 if __name__ == "__main__":
