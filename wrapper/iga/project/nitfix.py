@@ -817,6 +817,7 @@ def _get_dups(recon_file, locus_tree):
     # logging.info(recon_file)
     # logging.info(locus_tree)
     tree = Tree(locus_tree, format=1)
+    spec_nodes = []
     # Duplication nodes
     result = ""
     with open(recon_file) as fh:
@@ -844,12 +845,19 @@ def _get_dups(recon_file, locus_tree):
                         ",".join(this_node.children[1].get_leaf_names()),
                         ",".join(outgroup_genes)
                     )
+            elif type == "spec" and re.search(r"N\d+", sp_tree_node):
+                spec_nodes.append(int(sp_tree_node[1:]))
     if result == "" and len(list(filter(lambda x: 'Metru' in x, tree.get_leaf_names()))) == 1:
         # No duplication at all. Report all genes and the outgroup
-        if tree.children[0].name.startswith("n"):
-            outgroup = tree.children[1].name
-        else:
-            outgroup = tree.children[0].name
+        # Find outgroup. Or the earliest specieation event
+        outgroup = sorted(spec_nodes)[0]
+        outgroup = "N" + str(outgroup)
+        # child1_len = tree.children[1].get_leaf_names()
+        # child0_len = tree.children[0].get_leaf_names()
+        # if child0_len < child1_len:
+        #     outgroup = ",".join(tree.children[0].get_leaf_names())
+        # else:
+        #     outgroup = ",".join(tree.children[0].name
         result += "{}\t{}\t{}\t{}\t{}\t{}\n".format(
                         outgroup,
                         "-",
