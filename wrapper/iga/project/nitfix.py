@@ -846,8 +846,12 @@ def _get_dups(recon_file, locus_tree):
                     )
     if result == "" and len(list(filter(lambda x: 'Metru' in x, tree.get_leaf_names()))) == 1:
         # No duplication at all. Report all genes and the outgroup
+        if tree.children[0].name.startswith("n"):
+            outgroup = tree.children[1].name
+        else:
+            outgroup = tree.children[0].name
         result += "{}\t{}\t{}\t{}\t{}\t{}\n".format(
-                        tree.children[0].name,
+                        outgroup,
                         "-",
                         "-",
                         "-",
