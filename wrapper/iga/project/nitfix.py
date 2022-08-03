@@ -555,7 +555,7 @@ source activate treeshrink
 run_treeshrink.py  -o . -O {0}.shrink -q 0.1 -t {0}
 sed -i "s/\s\+/\n/" {0}.shrink.txt
 echo "{0}.shrink.txt"
-source deactivate
+conda deactivate
 """
 
 # 0 : genes need to be removed;
@@ -576,6 +576,7 @@ ln -s clean_ortho.txt.fa.aln.treefile {1}.clean.tre
 # {0}.dlcdp.locus.tree
 dlcpar_sh = r"""
 source activate dlcpar
+set +e
 # wait 300s then kill dlcpar as it is extreme slow on complex situations.
 timeout 300 bash $BD/bash_template/dlcpar.sh {0}
 if ! [ -s {0}.dlcdp.locus.recon ]
@@ -589,7 +590,7 @@ then
     fi
 fi
 echo "{0}.dlcdp.locus.tree"
-source deactivate
+conda deactivate
 """
 
 # 0: recon file. VsENBP1-like.rooted.tre.dlcdp.locus.recon
