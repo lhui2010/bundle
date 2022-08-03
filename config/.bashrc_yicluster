@@ -297,3 +297,5 @@ export PATH=/mnt/mobile/linuxnd:$PATH
 export PATH=/nfs/liuhui/projects/buzzo/phast/multiz-20190527:$PATH
 #export PATH=/nfs/liuhui/projects/buzzo/dlcpar/dlcpar-2.0.1/bin:$PATH
 export PATH=/nfs/liuhui/bin/yayang_phylogenomics_pipeline-master:$PATH
+export PATH=/nfs/liuhui/bin/bundle/bash_template:$PATH
+export PATH=/nfs/liuhui/bin/pal2nal.v14:$PATH

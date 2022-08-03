@@ -103830,3 +103830,3417 @@ les RAxML_bootstrap.clean_ortho.txt.fa
 tma
 #1659071858
 lth
+#1659071878
+gtps
+#1659071886
+lth
+#1659071888
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659071941
+bjl
+#1659071947
+tp
+#1659071946
+ssh -p 201 yi02
+#1659071962
+lt
+#1659071974
+tp
+#1659071973
+ssh yi03
+#1659071985
+lt
+#1659071987
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659071992
+tma
+#1659072010
+more shell 
+#1659072037
+lt
+#1659072043
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659072100
+lt
+#1659072102
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659072135
+tma
+#1659072287
+lth
+#1659069851
+iqtree2 -m LG+G -B 1000 -s clean_ortho.txt.fa.aln 
+#1659072290
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659072299
+lt
+#1659072321
+lth
+#1659072323
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659072325
+lth
+#1659072328
+bj
+#1659072334
+bpeek 80532
+#1659072343
+lth
+#1659072352
+tail RAxML_info.clean_ortho.txt.fa 
+#1659072357
+les RAxML_info.clean_ortho.txt.fa 
+#1659072376
+lth
+#1659072381
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659072384
+les RAxML_info.clean_ortho.txt.fa 
+#1659072401
+tp
+#1659072400
+ssh yi03
+#1659072407
+tp
+#1659072407
+ssh -p 201 yi02
+#1659072410
+les RAxML_info.clean_ortho.txt.fa 
+#1659072414
+lth
+#1659072418
+les RAxML_info.clean_ortho.txt.fa 
+#1659072686
+echo "40min for iqtree2 -m LG+G" >> shell
+#1659072687
+lth
+#1659072646
+tma
+#1659072692
+lt
+#1659072701
+sz clean_ortho.txt.fa.aln.treefile 
+#1659072705
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659072813
+more ../*shrink.txt
+#1659072820
+grep Faial926S27862_FAIAL_Faalb *txt
+#1659072823
+grep Faial926S27862_FAIAL_Faalb *txt.fa
+#1659072830
+lt
+#1659072833
+cd ..
+#1659072834
+lt
+#1659072840
+vi mRNA_MtrunA17Chr5g0403831_Metru.tre.root.shrink.txt 
+#1659072853
+sed "s/\s+/\n" mRNA_MtrunA17Chr5g0403831_Metru.tre.root.shrink.txt
+#1659072858
+sed "s/\s+/\n/" mRNA_MtrunA17Chr5g0403831_Metru.tre.root.shrink.txt
+#1659072861
+sed "s/\s+/\r/" mRNA_MtrunA17Chr5g0403831_Metru.tre.root.shrink.txt
+#1659072863
+sed "s/\s+/\n/" mRNA_MtrunA17Chr5g0403831_Metru.tre.root.shrink.txt
+#1659072866
+sed "s/\s\+/\n/" mRNA_MtrunA17Chr5g0403831_Metru.tre.root.shrink.txt
+#1659072955
+lt
+#1659072960
+cd temp/
+#1659072960
+lt
+#1659072964
+vi clean_ortho.txt.fa.aln.treefile 
+#1659072991
+pxrr -g OS10T0360100-01_Orsat -t clean_ortho.txt.fa.aln.treefile > clean_ortho.txt.fa.aln.treefile.root
+#1659072994
+vi clean_ortho.txt.fa.aln.treefile.root
+#1659073015
+source activate dlcpar
+#1659073094
+tma
+#1659073105
+j mRNA_MtrunA17Chr5g0403831_Metru/temp
+#1659073105
+lt
+#1659073106
+cd ..
+#1659073107
+lt
+#1659073112
+tail clean_ortho.txt.fa.aln.log 
+#1659073126
+les RAxML_info.clean_ortho.txt.fa 
+#1659073138
+bjl
+#1659073118
+tma
+#1659073142
+bpeek 79134
+#1659073143
+bj
+#1659073148
+bpeek 80532
+#1659073027
+timeout 300 bash $BD/bash_template/dlcpar.sh clean_ortho.txt.fa.aln.treefile.root 
+#1659073359
+lt
+#1659073367
+cd ..
+#1659073378
+cd -
+#1659073379
+lt
+#1659073471
+pxrmt -t clean_ortho.txt.fa.aln.treefile.root -n Bma007629.1_Bemas,CJ030_MR7G011560_Morub,VIT_203s0063g02250.1_Vivin,PNT41360_Potri,PNT20811_Potri,Yangtao2008502_Avcar,BAUVAR_g27779.t1_Bavar,BAUVAR_g9264.t1_Bavar,ZEINS00023540-t8_Zeins,ZEINS00006759-t1_Zeins,DUORC00001873-t1_Duorc,LYRHO00000363-t1_Lyrho,SINGLA_g26880.t1_Sigla,CASAUS_g6595.t1_Caaus,EVM0026561.1_R0_Amnan,CLPLA00022476-t1_Clpla,SOPJAP_g38218.t1_Sojap,Nissc3812S08472_Nisch,rna-XM_016096550.2_Ardur,evm.model.scaffold_320.302_Daodo,rna-XM_004507358.3_Ciari,Lj3g0016925.1.Lj1.0v1_Lojap,mRNA_Lalb_Chr01g0002661_Lualb,mRNA_Lalb_Chr03g0025771_Lualb,rna-XM_027498521.1_Abpre,rna11001_Cacaj,rna-XM_028333779.1_Glsoj,rna-XM_028338563.1_Glsoj,Ae.00025053_Amedg,Vigun11g173500.1.v1.2_Viung,Labpu1502S09899_LABPU_Lapur,Pl11G0000053600.1.v1_Phlun > clean_ortho.txt.fa.aln.treefile.root.prune
+#1659073474
+vi clean_ortho.txt.fa.aln.treefile.root.prune
+#1659073501
+timeout 300 bash $BD/bash_template/dlcpar.sh clean_ortho.txt.fa.aln.treefile.root.prune 
+#1659073520
+les clean_ortho.txt.fa.aln.treefile.root.dlcdp.locus.recon 
+#1659073521
+lt
+#1659073527
+more clean_ortho.txt.fa.aln.treefile.root.prune.dlcdp.locus.recon
+#1659073531
+grep dup clean_ortho.txt.fa.aln.treefile.root.prune.dlcdp.locus.recon
+#1659073535
+grep dup clean_ortho.txt.fa.aln.treefile.root.prune.dlcdp.locus.recon |grep N
+#1659073758
+lth
+#1659073765
+sz clean_ortho.txt.fa.aln.treefile.root.prune.dlcdp.locus.tree 
+#1659073769
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659073851
+les /nfs/liuhui/bin/bundle/bash_template/gene_age/node_label_to_gene_age.pl 
+#1659074355
+grep CJ030_MR7G011560_Morub
+#1659074359
+grep CJ030_MR7G011560_Morub ../homo_ortho.txt 
+#1659074363
+grep CJ030_MR7G011560_Morub ../syn_ortho.txt 
+#1659074379
+grep Pl11G0000053600.1.v1_Phlun
+#1659074382
+grep Pl11G0000053600.1.v1_Phlun ../syn_ortho.txt 
+#1659074417
+get_homo_ortho.sh mRNA_MtrunA17Chr5g0403831_Metru
+#1659074507
+grep mRNA_MtrunA17Chr5g0403831_Metru ../../../../../Gene_Duplication_Events/Duplications.tsv  |les
+#1659074591
+grep mRNA_MtrunA17Chr5g0403831_Metru ../../../../../Gene_Duplication_Events/Duplications.tsv  > mRNA_MtrunA17Chr5g0403831_Metru.GD
+#1659074598
+vi mRNA_MtrunA17Chr5g0403831_Metru.GD 
+#1659075459
+lth
+#1659075318
+tma
+#1659075902
+vi `which tree_iq2.sh`
+#1659075465
+ipython
+#1659075909
+tma
+#1659075916
+vi `which tree_iq2.sh`
+#1659075919
+tma
+#1659075925
+vi `which tree_iq2.sh`
+#1659067317
+bash test.sh test.input 
+#1659075990
+gtp
+#1659076015
+more test.input 
+#1659075937
+tma
+#1659076101
+bjl
+#1659076103
+lt
+#1659076107
+cd ..
+#1659076116
+cd /nfs/liuhui/Results_Jun21/WorkingDirectory/OrthoFinder/Results_Jul23/Orthologues/Orthologues_Medicago_truncatula/gene_age/mRNA_MtrunA17Chr5g0403831_Metru/
+#1659076116
+lt
+#1659076120
+bpeek 80532
+#1659076124
+bacct 80532
+#1659076134
+bjobs -l  80532
+#1659076148
+lth
+#1659076158
+conda deactivate
+#1659076163
+i=clean_ortho.txt.fa.aln
+#1659076165
+bsub512 "raxmlHPC-PTHREADS-AVX2 -f a -x  32431 -p 43213 -# 100 -m PROTGAMMAAUTO -T 40 -s ${i} -n ${i%.*}"
+#1659076166
+lth
+#1659076167
+bjl
+#1659076170
+lth
+#1659076171
+bjl
+#1659076172
+lth
+#1659076180
+raxmlHPC-PTHREADS-AVX2 -f a -x  32431 -p 43213 -# 100 -m PROTGAMMAAUTO -T 40 -s ${i} -n ${i%.*}
+#1659076184
+bsub512 "raxmlHPC-PTHREADS-AVX2 -f a -x  32431 -p 43213 -# 100 -m PROTGAMMAAUTO -T 40 -s ${i} -n ${i%.*}"
+#1659076185
+lt
+#1659076188
+bjl
+#1659076189
+bj
+#1659076196
+bjobs -l 80523
+#1659076197
+bjobs -l 80534
+#1659076211
+bsub512 "cd $PWD;raxmlHPC-PTHREADS-AVX2 -f a -x  32431 -p 43213 -# 100 -m PROTGAMMAAUTO -T 40 -s ${i} -n ${i%.*}"
+#1659076214
+bjl
+#1659076217
+lth
+#1659076218
+bj
+#1659076222
+bjl
+#1659076223
+lt
+#1659076227
+more RAxML_info.clean_ortho.txt.fa 
+#1659076255
+lt
+#1659076263
+rm RAxML_info.clean_ortho.txt.fa 
+#1659076267
+bsub512 "cd $PWD;raxmlHPC-PTHREADS-AVX2 -f a -x  32431 -p 43213 -# 100 -m PROTGAMMAAUTO -T 40 -s ${i} -n ${i%.*}"
+#1659076269
+bjl
+#1659076273
+bj
+#1659076273
+lt
+#1659076276
+tail RAxML_info.clean_ortho.txt.fa 
+#1659076279
+les RAxML_info.clean_ortho.txt.fa 
+#1659076282
+bjl
+#1659076283
+les RAxML_info.clean_ortho.txt.fa 
+#1659076291
+bjl
+#1659076302
+cat >> ../shell
+#1659076307
+lth
+#1659076312
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659076314
+lth
+#1659076318
+bjl
+#1659076320
+tma
+#1659076363
+lth
+#1659076375
+logsh
+#1659076383
+lth
+#1659076384
+bjl
+#1659076386
+lth
+#1659076390
+les RAxML_bootstrap.clean_ortho.txt.fa 
+#1659076394
+tma
+#1659078732
+bjl
+#1659078733
+lth
+#1659078748
+les RAxML_bipartitions.clean_ortho.txt.fa 
+#1659078757
+more RAxML_bipartitions.clean_ortho.txt.fa
+#1659078763
+lth
+#1659078766
+sz RAxML_bipartitions.clean_ortho.txt.fa 
+#1659078769
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659079178
+lth
+#1659079257
+tma
+#1659079268
+les RAxML_bipartitions.clean_ortho.txt.fa 
+#1659079390
+more  RAxML_bipartitions.clean_ortho.txt.fa 
+#1659079453
+lth
+#1659079791
+tma
+#1659079796
+cd ..
+#1659079797
+lt
+#1659079800
+more test.input 
+#1659079831
+grep "^mRNA_MtrunA17Chr5g0412771_Metru" correct_gene_age.input 
+#1659079838
+grep "^mRNA_MtrunA17Chr5g0412771_Metru" correct_gene_age.input  > test.input2
+#1659079854
+more test.sh 
+#1659079864
+lt
+#1659073152
+tma
+#1659080086
+cd ..
+#1659080086
+lt
+#1659080093
+more test.input2 
+#1659080098
+cd mRNA_MtrunA17Chr5g0412771_Metru/
+#1659080098
+lt
+#1659080103
+more clean_ortho.txt.fa.aln.log 
+#1659080109
+lt
+#1659080112
+wc -l clean_ortho.txt
+#1659080117
+more mRNA_MtrunA17Chr5g0412771_Metru.tre.root.shrink.txt
+#1659080121
+lt
+#1659080309
+les clean_ortho.txt.fa.aln.log 
+#1659080312
+lth
+#1659080317
+tma
+#1659080321
+lt
+#1659080328
+les *.treefile
+#1659080333
+les clean_ortho.txt.fa.aln.log 
+#1659080340
+lth
+#1659080450
+les *.treefile
+#1659076020
+bash test.sh test.input 
+#1659080569
+les *tree_file
+#1659080570
+lt
+#1659080578
+more test.input
+#1659080584
+cd mRNA_MtrunA17Chr5g0403831_Metru/
+#1659080585
+lt
+#1659080614
+les mRNA_MtrunA17Chr5g0403831_Metru.clean.tre 
+#1659080679
+echo mRNA_MtrunA17Chr5g0403831_Metru.clean.tre 
+#1659080680
+ipython
+#1659081088
+ls
+#1659081089
+ll
+#1659081093
+cd ..
+#1659081094
+cd -
+#1659081095
+bjl
+#1659081099
+chmod -w *.*
+#1659081099
+ls
+#1659081100
+cd ..
+#1659081100
+ls
+#1659081102
+cd -
+#1659081102
+lth
+#1659081107
+rm mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.filter
+#1659081383
+cd ..
+#1659081384
+vi test.sh 
+#1659081394
+gtp
+#1659081400
+bash test.sh test.input 
+#1659081446
+gtp
+#1659081452
+bash test.sh test.input 
+#1659081471
+gtp
+#1659080551
+tma
+#1659081505
+lt
+#1659081507
+cd ..
+#1659081507
+lt
+#1659081510
+cd mRNA_MtrunA17Chr5g0412771_Metru/
+#1659081510
+lt
+#1659081521
+cd ..
+#1659081524
+more test.input
+#1659081529
+cd mRNA_MtrunA17Chr5g0403831_Metru/
+#1659081529
+lt
+#1659081535
+more mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter
+#1659081545
+more mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root
+#1659081556
+diff mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root
+#1659081476
+bash test.sh test.input 
+#1659081625
+gtp
+#1659081639
+bash test.sh test.input 
+#1659081686
+gtp
+#1659081692
+bash test.sh test.input 
+#1659081708
+more mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter.dlcdp.locus.recon
+#1659081715
+more */mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter.dlcdp.locus.recon
+#1659081720
+more */mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter.dlcdp.locus.recon |grep dup
+#1659081731
+cd -
+#1659081733
+lt
+#1659081737
+cd mRNA_MtrunA17Chr5g0403831_Metru/
+#1659081738
+lt
+#1659081740
+lth
+#1659081619
+tma
+#1659081771
+j mRNA_MtrunA17Chr5g0403831_Metru__
+#1659081772
+lt
+#1659081780
+j mRNA_MtrunA17Chr5g0403831_Metru__
+#1659081781
+j mRNA_MtrunA17Chr5g0403831_Metru
+#1659081784
+lt
+#1659081791
+les mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter
+#1659081831
+gtp
+#1659081843
+cd ..
+#1659081844
+bash test.sh test.input 
+#1659081890
+lt
+#1659081891
+cd -
+#1659081894
+lt
+#1659081986
+gtp
+#1659081997
+bash test.sh test.input 
+#1659082000
+cd ..
+#1659082000
+bash test.sh test.input 
+#1659082236
+gtp
+#1659082245
+bash test.sh test.input 
+#1659082394
+gtp
+#1659082399
+bash test.sh test.input 
+#1659079874
+bash test.sh test.input2 
+#1659082423
+les mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter
+#1659082428
+cd -
+#1659082435
+cd mRNA_MtrunA17Chr5g0403831_Metru/
+#1659082436
+lt
+#1659082438
+lth
+#1659082442
+les mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter.dlcdp.info
+#1659082450
+more mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter
+#1659082649
+lth
+#1659082651
+vi *treefile
+#1659081839
+tma
+#1659082677
+lth
+#1659082680
+sz mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter 
+#1659082683
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659082722
+conda activate dlcpar
+#1659082744
+bash $BD/bash_template/dlcpar.sh mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter
+#1659082754
+more mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.dlcdp.locus.recon
+#1659082756
+lth
+#1659082762
+more mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter.dlcdp.info
+#1659082710
+tma
+#1659082933
+pxrmt -t clean_ortho.txt.fa.aln.treefile.root -n ""
+#1659082943
+lth
+#1659082950
+cd mRNA_MtrunA17Chr5g0403831_Metru/
+#1659082950
+lt
+#1659082977
+tma
+#1659083039
+pxrmt -t mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root -n CJ030_MR7G011560_Morub,Bma007629.1_Bemas,rna-XM_027498521.1_Abpre,Ae.00025053_Amedg,Labpu1502S09899_LABPU_Lapur,Pl11G0000053600.1.v1_Phlun,Vigun11g173500.1.v1.2_Viung,rna-XM_028333779.1_Glsoj,rna-XM_028338563.1_Glsoj,rna11001_Cacaj,rna-XM_004507358.3_Ciari,Lj3g0016925.1.Lj1.0v1_Lojap,mRNA_Lalb_Chr01g0002661_Lualb,mRNA_Lalb_Chr03g0025771_Lualb,rna-XM_016096550.2_Ardur,evm.model.scaffold_320.302_Daodo,Nissc3812S08472_Nisch,EVM0026561.1_R0_Amnan,CLPLA00022476-t1_Clpla,SOPJAP_g38218.t1_Sojap,CASAUS_g6595.t1_Caaus,DUORC00001873-t1_Duorc,LYRHO00000363-t1_Lyrho,SINGLA_g26880.t1_Sigla,BAUVAR_g27779.t1_Bavar,BAUVAR_g9264.t1_Bavar,ZEINS00023540-t8_Zeins,ZEINS00006759-t1_Zeins,Yangtao2008502_Avcar,PNT41360_Potri,PNT20811_Potri,VIT_203s0063g02250.1_Vivin > mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter2
+#1659083042
+diff mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter2
+#1659083044
+lth
+#1659083049
+tma
+#1659083060
+lth
+#1659083054
+bash $BD/bash_template/dlcpar.sh mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter2 
+#1659083064
+vi *filter2
+#1659083073
+lt
+#1659083077
+lth
+#1659083068
+tma
+#1659083126
+lth
+#1659083135
+grep dup mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter2.dlcdp.coal.recon
+#1659083142
+grep dup mRNA_MtrunA17Chr5g0403831_Metru.clean.tre.root.filter2.dlcdp.locus.recon 
+#1659083849
+gtp
+#1659083873
+cd ..
+#1659083876
+conda deactivate
+#1659083881
+bash test.sh test.input 
+#1659084058
+gtp
+#1659084064
+bash test.sh test.input 
+#1659084107
+lt
+#1659084108
+lth
+#1659084218
+gtp
+#1659084224
+bash test.sh test.input 
+#1659084302
+gtp
+#1659084308
+bash test.sh test.input 
+#1659084354
+vi test.sh 
+#1659084458
+gtp
+#1659084463
+bash test.sh test.input 
+#1659083870
+tma
+#1659080460
+les clean_ortho.txt.fa.aln.log
+#1659084112
+ipython
+#1659148505
+jobs
+#1659148508
+pt
+#1659148509
+tp
+#1659148514
+kill 27083
+#1659148516
+tp
+#1659148521
+lth
+#1659149266
+lt
+#1659149268
+vi correct_gene_age.input 
+#1659149305
+cd ..
+#1659149305
+lt
+#1659149306
+more shell 
+#1659150653
+perl -ne 'my $r=()=$_ =~ /,/g; if($r <= 9){print;}' correct_gene_age.input.raw |grep -v "MT\|CP" > correct_gene_age.input
+#1659150658
+wc -l correct_gene_age.input
+#1659150690
+vi most_dup.pl
+#1659151131
+perl most_dup.pl correct_gene_age.input |les
+#1659151133
+vi most_dup.pl
+#1659151138
+perl most_dup.pl correct_gene_age.input |les
+#1659151158
+perl most_dup.pl correct_gene_age.input |wc -l
+#1659151165
+perl most_dup.pl correct_gene_age.input |cut -f1 |sort |uniq |wc -l
+#1659151186
+mv correct_gene_age.input correct_gene_age.input.1
+#1659151193
+perl most_dup.pl correct_gene_age.input.1 > correct_gene_age.input
+#1659151195
+logsh
+#1659151208
+cd -
+#1659151209
+lth
+#1659151212
+cd -
+#1659151212
+ls
+#1659151214
+vi most_dup.pl
+#1659151225
+cd -
+#1659151225
+lth
+#1659151228
+ll
+#1659151231
+ll *input
+#1659151234
+les correct_gene_age.input 
+#1659151259
+man split
+#1659151274
+vw
+#1659151280
+man split
+#1659151317
+ll 
+#1659151320
+chmod -w ../correct_gene_age.input
+#1659151322
+split -n -l 1000  correct_gene_age.input  correct_gene_age.input
+#1659151329
+lt
+#1659151332
+wc -l correct_gene_age.input 
+#1659151334
+man split
+#1659151369
+split  correct_gene_age.input  correct_gene_age.input.split
+#1659151370
+lth
+#1659151372
+ls
+#1659151378
+rm *split*
+#1659151381
+man split
+#1659151409
+split -d 01  correct_gene_age.input  correct_gene_age.input.split.
+#1659151424
+split -d  correct_gene_age.input  correct_gene_age.input.split
+#1659151425
+ls
+#1659151432
+les correct_gene_age.input.split00 
+#1659151447
+vi test.sh 
+#1659151465
+cp test.sh gene_age_pipe.sh
+#1659151471
+vi gene_age_pipe.sh 
+#1659151479
+cp gene_age_pipe.sh  /nfs/liuhui/bin/bundle/bash_template/
+#1659151486
+export PATH=/nfs/liuhui/bin/bundle/bash_template/:$PATH
+#1659151493
+ll /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe.sh 
+#1659151497
+chmod +x /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe.sh 
+#1659151500
+vi /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe.sh 
+#1659151506
+ll
+#1659151511
+vi run.sh
+#1659151577
+vi /nfs/liuhui/bin/bundle/bash_template/get_gene_age.sh 
+#1659151591
+mv /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe.sh /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe2.sh
+#1659151594
+vi /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe2.sh
+#1659151617
+which bsub512
+#1659151629
+vi /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe2.sh
+#1659151663
+vi run.sh
+#1659151694
+bash run.sh 
+#1659151704
+vi /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe2.sh
+#1659151716
+cd -
+#1659151718
+ls
+#1659151720
+lt
+#1659151723
+lt *.dir/
+#1659151730
+cd *.dir/
+#1659151731
+lt
+#1659151732
+cd mRNA_MtrunA17Chr0c01g0488941_Metru/
+#1659151732
+lt
+#1659151734
+bjl
+#1659151736
+cd ..
+#1659151736
+lt
+#1659151740
+cd -
+#1659151742
+bjl
+#1659151753
+bjobs -l 80550
+#1659151801
+vi /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe2.sh
+#1659151824
+man bsub
+#1659151867
+bsub512 pwd
+#1659151868
+bjl
+#1659151870
+bj
+#1659151877
+lth
+#1659151879
+lt
+#1659151880
+bjl
+#1659151886
+bjobs -l 80551
+#1659151896
+lt ~/ |head
+#1659151900
+lt
+#1659151907
+df -h
+#1659151906
+ssh -p 201 yi02
+#1659151916
+ssh yi03
+#1659151920
+df -h
+#1659151956
+sudo /etc/init.d/openlava restart
+#1659151918
+ssh yi04
+#1659151975
+sudo /etc/init.d/openlava restart
+#1659151989
+ssh -p 201 yi02
+#1659148494
+tma
+#1659152007
+j gene_age
+#1659152007
+ls
+#1659152008
+lt
+#1659152010
+vi run.sh 
+#1659152014
+bj
+#1659152020
+lt correct_gene_age.input.split00.dir/
+#1659152026
+rm -r correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr0c01g0488941_Metru/
+#1659152029
+lt
+#1659152032
+rm -r correct_gene_age.input.split00.dir
+#1659152036
+vi run.sh 
+#1659152038
+bash run.sh 
+#1659152046
+cd /nfs/liuhui/bin/bundle/bash_template/
+#1659152047
+addpwd
+#1659152048
+cd -
+#1659152048
+sc
+#1659152051
+lth
+#1659152058
+lt correct_gene_age.input.split00.dir/
+#1659152061
+rm -r correct_gene_age.input.split00.dir/
+#1659152062
+lt
+#1659152063
+bash run.sh 
+#1659152068
+bjobs -l 80552
+#1659152077
+bjl
+#1659152080
+bjobs
+#1659152083
+sudo /etc/init.d/openlava restart
+#1659152087
+bjl
+#1659152091
+bhosts 
+#1659152148
+sudo firewall-cmd  --reload
+#1659152158
+bhosts 
+#1659152168
+bjobs
+#1659152139
+ssh -p 201 yi02
+#1659152172
+bhosts 
+#1659152199
+ssh -p 201 yi02
+#1659152208
+sudo su
+#1659152319
+sudo service firewalld stop
+#1659152310
+ssh -p 201 yi02
+#1659152325
+bhosts 
+#1659152330
+ls
+#1659152573
+bjobs
+#1659152578
+sudo su
+#1659153056
+bsub512 pwd
+#1659153058
+bjl
+#1659153062
+bj
+#1659153066
+lth
+#1659153070
+sudo su
+#1659153090
+sudo service firewalld start
+#1659153086
+ssh -p 201 yi02
+#1659153094
+bhosts 
+#1659153109
+sudo su
+#1659153230
+bjl
+#1659153238
+cd ../..
+#1659153242
+rm -r correct_gene_age.input.split00.dir/
+#1659153243
+lt
+#1659153245
+bash run.sh 
+#1659153251
+bjobs -l 80654
+#1659153266
+lt
+#1659153272
+lt correct_gene_age.input.split00.dir/
+#1659153273
+lt correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr0c01g0488941_Metru/
+#1659153280
+bjobs -l 80654
+#1659153300
+vi run.sh 
+#1659153309
+vi /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe2.sh
+#1659153336
+cd -
+#1659153336
+ls
+#1659153337
+ll
+#1659153369
+grep mRNA_MtrunA17Chr0c01g0488941_Metru ../correct_gene_age.input.split00 
+#1659153400
+bsub512 "cd $PWD && python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru"
+#1659153405
+bjl
+#1659153407
+lt
+#1659153410
+more error.80655 
+#1659153416
+ls
+#1659153419
+vi error.80655 
+#1659153457
+ll
+#1659153465
+cd $PWD && python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru
+#1659153476
+ls
+#1659153478
+lt
+#1659153480
+more output.80655 
+#1659153485
+lt
+#1659153572
+gtp
+#1659153582
+bsub512 "cd $PWD && python -m iga.project.nitfix correct_gene_age mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru"  
+#1659153583
+bjl
+#1659153585
+lt
+#1659153587
+rm output.80655 error.80655 
+#1659153587
+bjl
+#1659153590
+which bsub512
+#1659153599
+vi /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe2.sh
+#1659153605
+lt
+#1659153609
+more raw_ortho.txt
+#1659153611
+lt
+#1659153614
+wc -l raw_ortho.txt syn_ortho.txt 
+#1659153621
+grep ">" raw_ortho.txt.fa |wc -l
+#1659153624
+lt
+#1659153627
+grep ">" raw_ortho.txt.fa |wc -l
+#1659153630
+lt
+#1659153647
+l
+#1659153648
+lt
+#1659153657
+grep ">" raw_ortho.txt.fa.aln |wc -l
+#1659153659
+lth
+#1659153660
+bjl
+#1659153232
+tma
+#1659153665
+ssh -p 201
+#1659153669
+tp
+#1659153668
+ssh -p 201 yi02
+#1659153715
+les *aln
+#1659153723
+cd ..
+#1659153724
+ls
+#1659153725
+cd ..
+#1659153726
+lt
+#1659153730
+vi /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe2.sh
+#1659153742
+vi correct_gene_age.input.split08
+#1659153746
+cd ..
+#1659153747
+ls
+#1659153749
+ls *pl
+#1659153750
+cd -
+#1659153754
+vi most_dup.pl 
+#1659153798
+cd -
+#1659153799
+lth
+#1659153801
+cd correct_gene_age.input.split00.dir/
+#1659153802
+lth
+#1659153804
+cd mRNA_MtrunA17Chr0c01g0488941_Metru/
+#1659153804
+lt
+#1659153813
+les clean_ortho.txt.fa.aln.treefile 
+#1659153817
+more clean_ortho.txt.fa.aln.treefile 
+#1659153830
+lt
+#1659153837
+more *root
+#1659153838
+lth
+#1659153840
+lt
+#1659153847
+more *shrink.txt
+#1659153849
+lt
+#1659153905
+les clean_ortho.txt.fa.aln.log 
+#1659153938
+lth
+#1659153711
+tma
+#1659154070
+j gene_age
+#1659154071
+lt
+#1659154077
+cd ..
+#1659154078
+vi most_dup.pl 
+#1659154314
+perl most_dup.pl correct_gene_age.input.1  |wc -l
+#1659154316
+vi most_dup.pl 
+#1659154322
+perl most_dup.pl correct_gene_age.input.1  |wc -l
+#1659154336
+perl most_dup.pl correct_gene_age.input.1  > correct_gene_age.input
+#1659154352
+mv correct_gene_age.input correct_gene_age.input.unfiltered_found_genes
+#1659154354
+perl most_dup.pl correct_gene_age.input.1  > correct_gene_age.input
+#1659154355
+vi correct_gene_age.input
+#1659154359
+cd -
+#1659154359
+lt
+#1659154365
+rm correct_gene_age.input.split*
+#1659154367
+ls
+#1659154368
+lt
+#1659154411
+split -d  correct_gene_age.input  correct_gene_age.input.split
+#1659154412
+ls
+#1659154417
+logsh
+#1659154421
+lth
+#1659154423
+ls
+#1659154424
+ll
+#1659154431
+vi correct_gene_age.input.split00
+#1659154440
+vi gene_age_pipe.sh 
+#1659154446
+vi run.sh 
+#1659154452
+bjl
+#1659154454
+tma
+#1659154458
+tp
+#1659154457
+ssh -p 201 yi02
+#1659154487
+tma
+#1659154542
+ls
+#1659154555
+cat correct_gene_age.input |sed "s/,/\r/g" |les
+#1659154559
+cat correct_gene_age.input |sed "s/,/\n/g" |les
+#1659154567
+cat correct_gene_age.input |sed "s/\s+/\n/g;s/,/\n/g" |les
+#1659154571
+cat correct_gene_age.input |sed "s/\t/\n/g;s/,/\n/g" |les
+#1659154577
+cat correct_gene_age.input |sed "s/\t/\n/g;s/,/\n/g" |sort |uniq |wc -l
+#1659154612
+cat correct_gene_age.input |sed "s/\t/\n/g;s/,/\n/g" |les
+#1659154618
+lth
+#1659154619
+tma
+#1659154624
+lt
+#1659154630
+cd correct_gene_age.input.split00.dir/
+#1659154630
+lt
+#1659154632
+cd mRNA_MtrunA17Chr0c01g0488941_Metru/
+#1659154632
+lt
+#1659154640
+sz mRNA_MtrunA17Chr0c01g0488941_Metru.tre.root
+#1659154642
+# Cancelled transfer
+#1659154646
+sz mRNA_MtrunA17Chr0c01g0488941_Metru.tre.root.shrink.root
+#1659154650
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659154817
+bjl
+#1659154818
+tma
+#1659154834
+cd ../..
+#1659154834
+ls
+#1659154858
+grep MtrunA17Chr5g0448621 correct_gene_age.input
+#1659157140
+bjl
+#1659153941
+les clean_ortho.txt.fa.aln.log 
+#1659157152
+lt
+#1659158366
+bjl
+#1659158368
+lth
+#1659158374
+les *.treefile
+#1659158378
+less *.treefile
+#1659158883
+lth
+#1659158897
+vw
+#1659158924
+which tree_iq2.sh
+#1659158932
+cp ~/bin/bundle/tree_iq2.sh ~/bin/bundle/tree_raxml.sh
+#1659158935
+cw
+#1659158936
+vw
+#1659158952
+vi /nfs/liuhui/bin/bundle/tree_raxml.sh 
+#1659158983
+ls ../../mRNA_MtrunA17Chr*/
+#1659158990
+ls ../../mRNA_MtrunA17Chr*/RAxML*
+#1659159015
+les ../../mRNA_MtrunA17Chr5g0403831_Metru/RAxML_bipartitionsBranchLabels.clean_ortho.txt.fa
+#1659159256
+more ../../mRNA_MtrunA17Chr5g0403831_Metru/RAxML_bipartitionsBranchLabels.clean_ortho.txt.fa
+#1659159271
+more ../../mRNA_MtrunA17Chr5g0403831_Metru/RAxML_bipartitions.clean_ortho.txt.fa 
+#1659159325
+vi /nfs/liuhui/bin/bundle/tree_raxml.sh 
+#1659159656
+bjl
+#1659159657
+lth
+#1659159668
+les clean_ortho.txt.fa.aln.treefile
+#1659159672
+les clean_ortho.txt.fa.aln.log 
+#1659159728
+ll
+#1659159733
+cd ..
+#1659159739
+mkdir mRNA_MtrunA17Chr0c01g0488941_Metru_1
+#1659159741
+cd mRNA_MtrunA17Chr0c01g0488941_Metru_1/
+#1659159741
+lt
+#1659159749
+gtp
+#1659159759
+grep         # print('bug')
+#1659159775
+grep "^mRNA_MtrunA17Chr0c01g0488941_Metru" ../../correct_gene_age.input
+#1659159806
+bsub512 -n 20 "cd $PWD && python -m iga.project.nitfix correct_gene_age --threads 20 mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru"
+#1659159808
+logsh
+#1659159810
+lth
+#1659159811
+bjl
+#1659159817
+lt
+#1659159819
+lth
+#1659159821
+lt
+#1659159822
+bjl
+#1659159823
+lt
+#1659159883
+ltbjl
+#1659159884
+bjl
+#1659159889
+lt
+#1659159925
+bjl
+#1659159940
+lt
+#1659159950
+lth
+#1659159962
+lt |les
+#1659159965
+lth
+#1659159968
+bjl
+#1659159972
+les RAxML_info.clean_ortho.txt.fa
+#1659160010
+lth
+#1659157141
+tma
+#1659160068
+grep ">" ~/total.pep |wc -l
+#1659160077
+ll ~/total.pep ~/total.cds
+#1659160021
+vw
+#1659160087
+lt
+#1659160089
+lth
+#1659160105
+select_fasta.pl clean_ortho.txt ~/total.cds > clean_ortho.txt.cds
+#1659160129
+vw
+#1659160145
+pal2nal.pl clean_ortho.txt.fa.aln clean_ortho.txt.cds 
+#1659152332
+sudo su
+#1659160082
+tma
+#1659160229
+cd $HB
+#1659160230
+cd -
+#1659160232
+cd ~/bin/
+#1659160235
+rz
+#1659160244
+# Received /Users/liuhui/Downloads/pal2nal.v14.tar.gz
+#1659160246
+tar -xvzf pal2nal.v14.tar.gz 
+#1659160249
+cd pal2nal.v14/
+#1659160249
+ls
+#1659160252
+addpwd
+#1659160252
+sc
+#1659160255
+perl pal2nal.pl 
+#1659160258
+sc
+#1659160259
+lth
+#1659160262
+pal2nal.pl clean_ortho.txt.fa.aln clean_ortho.txt.cds 
+#1659160279
+pal2nal.pl clean_ortho.txt.fa.aln clean_ortho.txt.cds  > clean_ortho.txt.cds.aln
+#1659160283
+lth
+#1659160418
+bjl
+#1659160421
+lth
+#1659160430
+les clean_ortho.txt.cds.aln 
+#1659160457
+lth
+#1659160467
+les ../mRNA_MtrunA17Chr0c01g0488941_Metru/*log
+#1659160256
+tma
+#1659160530
+bjl
+#1659160537
+top
+#1659160573
+lth
+#1659160575
+lt
+#1659160577
+bjl
+#1659161397
+bj
+#1659161450
+ls
+#1659161465
+bj
+#1659161492
+tp
+#1659161489
+ssh -p 201 yi02
+#1659162641
+bj
+#1659162657
+j _1
+#1659162661
+lth
+#1659162681
+more *.locus.recon
+#1659162710
+lt |tail
+#1659164717
+bj
+#1659165027
+cd ../..
+#1659165027
+ls
+#1659165031
+vi run.sh 
+#1659165036
+vi gene_age_pipe.sh 
+#1659165038
+vi run.sh 
+#1659165047
+vi `which gene_age_pipe2.sh`
+#1659165090
+gtp
+#1659165098
+vi `which gene_age_pipe2.sh`
+#1659165100
+lt
+#1659165104
+bjl
+#1659165111
+mv correct_gene_age.input.split00.dir correct_gene_age.input.split00.dir.test
+#1659165112
+bj
+#1659165114
+bkill 80656
+#1659165015
+tma
+#1659165120
+j split00.dir
+#1659165136
+j gene_age
+#1659165136
+lth
+#1659165121
+lth
+#1659165139
+cd correct_gene_age.input.split00.dir.test/
+#1659165140
+lt
+#1659165142
+cd *_1
+#1659165143
+lt
+#1659165153
+les mRNA_MtrunA17Chr0c01g0488941_Metru_1.clean.tre.root.filter
+#1659165165
+les mRNA_MtrunA17Chr0c01g0488941_Metru_1.clean.tre.root
+#1659165212
+sz mRNA_MtrunA17Chr0c01g0488941_Metru_1.clean.tre.root
+#1659165215
+# Sent -> /Users/liuhui/Downloads/
+#1659165341
+gtp
+#1659165350
+lt
+#1659165359
+rm mRNA_MtrunA17Chr0c01g0488941_Metru_1.clean.tre.root.filter 
+#1659165411
+bsub512  "cd $PWD && python -m iga.project.nitfix correct_gene_age --threads 20 mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru"
+#1659165412
+lt
+#1659165415
+lth
+#1659165417
+bjl
+#1659165418
+lt
+#1659165431
+bj
+#1659165432
+lt
+#1659165440
+les *filter
+#1659165444
+les phyx.logfile 
+#1659165448
+python -m iga.project.nitfix correct_gene_age --threads 20 mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru
+#1659165452
+gtp
+#1659165458
+bhosts 
+#1659165460
+lsload
+#1659165464
+bsub512  "cd $PWD && python -m iga.project.nitfix correct_gene_age --threads 20 mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru"
+#1659165466
+bjl
+#1659165467
+bj
+#1659165500
+lt
+#1659165503
+more output.80664 
+#1659165507
+lth
+#1659165519
+les output.80664 
+#1659165530
+python -m iga.project.nitfix correct_gene_age --threads 20 mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru
+#1659165614
+gtp
+#1659165669
+python -m iga.project.nitfix correct_gene_age --threads 20 mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru
+#1659165903
+gtp
+#1659165908
+python -m iga.project.nitfix correct_gene_age --threads 20 mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru
+#1659165920
+lt
+#1659165924
+rm mRNA_MtrunA17Chr0c01g0488941_Metru_1.clean.tre.root.filter 
+#1659165925
+python -m iga.project.nitfix correct_gene_age --threads 20 mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru
+#1659165965
+gtp
+#1659165971
+python -m iga.project.nitfix correct_gene_age --threads 20 mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru
+#1659165975
+rm mRNA_MtrunA17Chr0c01g0488941_Metru_1.clean.tre.root.filter 
+#1659165976
+python -m iga.project.nitfix correct_gene_age --threads 20 mRNA_MtrunA17Chr5g0421781_Metru,mRNA_MtrunA17Chr5g0421821_Metru,mRNA_MtrunA17Chr5g0421911_Metru,mRNA_MtrunA17Chr0c01g0488941_Metru,mRNA_MtrunA17Chr0c01g0489051_Metru,mRNA_MtrunA17Chr5g0422301_Metru,mRNA_MtrunA17Chr5g0422111_Metru,mRNA_MtrunA17Chr5g0422031_Metru
+#1659166025
+ls
+#1659166027
+cd ..
+#1659166027
+ls
+#1659166028
+cd ..
+#1659166029
+ls
+#1659166035
+ll
+#1659166051
+wc -l *split0[012345678]
+#1659166056
+vi run.sh 
+#1659166062
+vi `which gene_age_pipe2.sh`
+#1659166088
+lt
+#1659166172
+vi run.sh 
+#1659166179
+ls
+#1659166189
+mkdir temp
+#1659166193
+mv correct_gene_age.input.split00.dir.test temp/
+#1659166193
+ls
+#1659166198
+ls *split*
+#1659166203
+vi run.sh 
+#1659166219
+bash run.sh 
+#1659166223
+vi run.sh 
+#1659166227
+vi `which gene_age_pipe2.sh`
+#1659166232
+vi run.sh 
+#1659166168
+tma
+#1659166237
+bjl
+#1659166243
+bjg > tmp
+#1659166249
+cd
+#1659166251
+bjg > tmp
+#1659166252
+vi tmp
+#1659166268
+bjg > tmp
+#1659166269
+vi tmp
+#1659166286
+for i in `cat tmp`; do bkill $i; done
+#1659166287
+bj
+#1659166293
+ls
+#1659166298
+lt
+#1659166300
+lt correct_gene_age.input.split00.dir/
+#1659166306
+lt correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr0c01g0489161_Metru/
+#1659166292
+tma
+#1659166313
+bjl
+#1659166341
+ls -d correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr0c0*331_Metru
+#1659166345
+ls  correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr0c0*331_Metru/
+#1659166348
+lt  correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr0c0*331_Metru/
+#1659166361
+ls -d correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr0c0*331_Metru/
+#1659166365
+les correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr0c01g0489331_Metru/clean_ortho.txt
+#1659166370
+bjl
+#1659166376
+vi `which gene_age_pipe2.sh`
+#1659166382
+bjl
+#1659166387
+bkill 80676
+#1659166388
+ls
+#1659166390
+lt
+#1659166395
+rm -r correct_gene_age.input.split00.dir/
+#1659166396
+bjl
+#1659166398
+ll
+#1659166402
+vi run.sh 
+#1659166407
+vi `which gene_age_pipe2.sh`
+#1659166324
+tma
+#1659167659
+bjl
+#1659167672
+vi /nfs/liuhui/bin/bundle/tree_raxml.sh 
+#1659167680
+tma
+#1659167694
+vi `which gene_age_pipe2.sh`
+#1659167699
+tma
+#1659167701
+bjl
+#1659167708
+bjobs |wc -l
+#1659167710
+bhosts 
+#1659167716
+tma
+#1659167752
+bhosts 
+#1659167759
+bjl
+#1659167769
+bjg |wc -l
+#1659167775
+tma
+#1659167799
+bjl
+#1659167926
+vw
+#1659168150
+bjl
+#1659168154
+bjg |wc -l
+#1659168156
+bhosts 
+#1659168163
+bjl
+#1659168171
+tp
+#1659168170
+ssh yi03
+#1659169615
+bjl
+#1659169629
+bjg
+#1659169651
+bjg|wc -l
+#1659169661
+bhosts 
+#1659169669
+lsload
+#1659169678
+top
+#1659169676
+ssh yi03
+#1659169715
+bjobs -u guwei
+#1659170714
+bjl
+#1659170718
+bjg |wc
+#1659170719
+bjl
+#1659170733
+bhosts 
+#1659170737
+bjl
+#1659170740
+bjg |wc -l
+#1659170741
+tma
+#1659170813
+bjl
+#1659172014
+bjg |wc -l
+#1659172015
+tma
+#1659172036
+bjl
+#1659172073
+tma
+#1659172077
+j gene_age
+#1659172078
+lth
+#1659172083
+cd *dir
+#1659172083
+ls
+#1659172087
+ls */*dups |wc -l
+#1659172092
+lt
+#1659181533
+bjl
+#1659181575
+j geneage
+#1659181576
+lth
+#1659181580
+cd correct_gene_age.input.split00.dir/
+#1659181580
+lth
+#1659181595
+cd mRNA_MtrunA17Chr1g0147351_Metru/
+#1659181596
+lth
+#1659181600
+cd ..
+#1659181602
+ll
+#1659181604
+lt
+#1659181624
+ls mRNA_MtrunA17Chr0c01g0489171_Metru/
+#1659181635
+lt mRNA_MtrunA17Chr0c01g0489171_Metru/ |head
+#1659181655
+more mRNA_MtrunA17Chr0c01g0489171_Metru/*coal.recon
+#1659181664
+more mRNA_MtrunA17Chr0c01g0489171_Metru/*locus.recon
+#1659181669
+grep dup mRNA_MtrunA17Chr0c01g0489171_Metru/*locus.recon
+#1659181711
+cd mRNA_MtrunA17Chr0c01g0489171_Metru/
+#1659181712
+lt
+#1659181722
+grep Medtr homo_ortho.txt 
+#1659181729
+les homo_ortho.txt 
+#1659181737
+wc -l homo_ortho.txt 
+#1659181744
+grep Metru homo_ortho.txt 
+#1659181752
+lth
+#1659181788
+vi mRNA_MtrunA17Chr0c01g0489171_Metru.clean.tre.root mRNA_MtrunA17Chr0c01g0489171_Metru.tre.root.filter
+#1659181811
+lth
+#1659181814
+ll *filter
+#1659181820
+grep Metru *filter
+#1659181841
+ls *filter
+#1659181851
+ipyth
+#1659181854
+ipython
+#1659182576
+fg
+#1659182584
+cd ..
+#1659182584
+ls
+#1659182587
+cd ..
+#1659182587
+ls
+#1659182605
+grep Chr0c correct_gene_age.input |les
+#1659182731
+grep Chr0c correct_gene_age.input |head -1
+#1659182771
+cd ..
+#1659182778
+ls
+#1659182780
+lth
+#1659182789
+les correct_gene_age.input.1
+#1659182819
+tail -n +146 correct_gene_age.input.1 > correct_gene_age.input.no_Chr0c
+#1659182826
+les correct_gene_age.input.no_Chr0c 
+#1659182849
+perl most_dup.pl correct_gene_age.input.no_Chr0c correct_gene_age.input.no_Chr0c.mostdups
+#1659182888
+perl most_dup.pl correct_gene_age.input.no_Chr0c >correct_gene_age.input.no_Chr0c.mostdups
+#1659182910
+unselectItem.pl correct_gene_age.input correct_gene_age.input.no_Chr0c.mostdups 
+#1659182916
+unselectItem.pl correct_gene_age.input correct_gene_age.input.no_Chr0c.mostdups  |wc -l
+#1659183069
+unselectItem.pl correct_gene_age.input correct_gene_age.input.no_Chr0c.mostdups> secondrun.txt
+#1659183277
+bjg|wc -l
+#1659183279
+bjl
+#1659183296
+bhosts ;lsload
+#1659166415
+bash run.sh 
+#1659325588
+bjl
+#1659325591
+bjg |wc -l
+#1659325592
+tma
+#1659325597
+bjg |wc -l
+#1659325599
+bjl
+#1659325627
+bjobs -l 81621 |les
+#1659325636
+bhosts 
+#1659325639
+bjl
+#1659325645
+lsload
+#1659325655
+bhosts 
+#1659325659
+bjl
+#1659325662
+bjobs -l 81621 |les
+#1659325664
+bjg |wc -l
+#1659325669
+top
+#1659329487
+bjg |wc -l
+#1659329505
+cd fasta0613_newest/
+#1659329505
+lt
+#1659329510
+les Astragalus_sinicus.pep 
+#1659329650
+lth
+#1659329656
+cd correct_gene_age.input.split00.dir/
+#1659329657
+ls
+#1659329661
+ll */*dups |les
+#1659329675
+more mRNA_MtrunA17Chr0c19g0493781_Metru/mRNA_MtrunA17Chr0c19g0493781_Metru.dups
+#1659329711
+cd mRNA_MtrunA17Chr0c19g0493781_Metru/
+#1659329711
+lt
+#1659329713
+lth
+#1659329719
+ll *locus.tree
+#1659329648
+tma
+#1659329728
+j mRNA_MtrunA17Chr0c19g0493781
+#1659329728
+lt
+#1659329732
+sz mRNA_MtrunA17Chr0c19g0493781_Metru.clean.tre.root.filter.dlcdp.locus.tree
+#1659329736
+# Sent -> /Users/liuhui/Downloads/
+#1659329893
+cd ..
+#1659329893
+les mRNA_MtrunA17Chr0c19g0493781_Metru/mRNA_MtrunA17Chr0c19g0493781_Metru.dups
+#1659329884
+tma
+#1659329908
+lth
+#1659335699
+lt
+#1659335794
+les *root
+#1659335865
+j astragalus
+#1659335866
+ls
+#1659335868
+ll
+#1659335871
+cd ..
+#1659335871
+ls
+#1659335876
+cd ziyunying/
+#1659335876
+ll
+#1659335886
+cd
+#1659335887
+cd fasta0613_newest/
+#1659335887
+ls
+#1659335929
+python "import ete3; tree = ete3.Tree("mRNA_MtrunA17Chr0c19g0493781_Metru.clean.tre.root"); print(tree)"
+#1659335952
+python -c "import ete3; tree = ete3.Tree("mRNA_MtrunA17Chr0c19g0493781_Metru.clean.tre.root"); print(tree)"
+#1659335976
+python -c 'import ete3; tree = ete3.Tree("mRNA_MtrunA17Chr0c19g0493781_Metru.clean.tre.root"); print(tree)'
+#1659336002
+  
+#1659335912
+tar -cvzf Assin.tgz Astragalus_sinicus.pep cds/Astragalus_sinicus.cds fasta_gff3/Astragalus_sinicus.fa fasta_gff3/Astragalus_sinicus.gff3 
+#1659336043
+lth
+#1659336154
+lth
+#1659336158
+cd -
+#1659336158
+lt
+#1659336176
+cd ..
+#1659336045
+sz Assin.tgz 
+#1659336191
+# Sent -> /Users/liuhui/Downloads/
+#1659336205
+ls */*/RAxML_bipartitions.clean_ortho.txt.fa |wc -l
+#1659336220
+ls */*/*.dups |wc -l
+#1659336232
+ll -S */*/*.dups  > tmp
+#1659336235
+vi tmp 
+#1659336251
+tail -n 1 tmp 
+#1659336265
+more correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr1g0161991_Metru/mRNA_MtrunA17Chr1g0161991_Metru.dups
+#1659336350
+lth
+#1659336361
+cd correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr1g0161991_Metru/
+#1659336361
+lt
+#1659336362
+lth
+#1659336370
+more *locus.tree
+#1659336380
+lth
+#1659336424
+python -m iga.project.nitfix _get_dups -h
+#1659336441
+ls *locus*
+#1659336448
+python -m iga.project.nitfix _get_dups *locus.recon *locus.tree
+#1659336526
+gtp
+#1659336532
+python -m iga.project.nitfix _get_dups *locus.recon *locus.tree
+#1659336536
+lth
+#1659336538
+les *dups
+#1659337023
+lth
+#1659337027
+gtp
+#1659337035
+python -m iga.project.nitfix get_dups *locus.recon *locus.tree
+#1659337091
+cd ../..
+#1659337094
+ls */*
+#1659337108
+ls correct_gene_age.input*/*/*dups > dups_list.txt
+#1659337236
+vi dups_list.txt 
+#1659337442
+`head -1 dups_list.txt `
+#1659337456
+vi dups_list.txt 
+#1659337466
+cd correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr0c29g0493981_Metru/
+#1659337468
+cd -
+#1659337471
+vi dups_list.txt 
+#1659337490
+pushd correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr0c12g0493661_Metru
+#1659337493
+popd
+#1659337495
+lth
+#1659337504
+mv dups_list.txt fix_dups_no_outgroups.txt
+#1659337508
+mv fix_dups_no_outgroups.txt fix_dups_no_outgroups.sh
+#1659336338
+tma
+#1659337836
+j jul23
+#1659337836
+ls
+#1659337839
+cd WorkingDirectory/
+#1659337847
+cd ../Species_Tree/
+#1659337851
+sz SpeciesTree_rooted_node_labels.txt 
+#1659337872
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659337509
+bash fix_dups_no_outgroups.sh 
+#1659338095
+more correct_gene_age.input*/*/*dups > current_dups.txt
+#1659338112
+vi current_dups.txt 
+#1659338171
+les current_dups.txt 
+#1659338181
+grep "^N" current_dups.txt  |sort -k1,1V |les
+#1659338225
+les current_dups.txt 
+#1659338233
+vi current_dups.txt 
+#1659338270
+cd correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr1g0160161_Metru/
+#1659338270
+lt
+#1659338271
+lth
+#1659338274
+more *dups
+#1659338304
+ll *root *filter
+#1659338084
+tma
+#1659338317
+j correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr1g0160161_Metru/mRNA_MtrunA17Chr1g016
+#1659338322
+j correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr1g0160161_Metru/
+#1659338323
+lth
+#1659338326
+tma
+#1659338345
+sz *locus.tree mRNA_MtrunA17Chr1g0160161_Metru.clean.tre.root              
+#1659338348
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659338443
+les *root
+#1659338453
+les *clean.tre
+#1659338460
+ll *clean.tre
+#1659338462
+sz *clean.tre
+#1659338465
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659338566
+les mRNA_MtrunA17Chr1g0160161_Metru.clean.tre
+#1659338876
+grep "^N" current_dups.txt  |sort -k1,1V |les
+#1659338880
+cd ../..
+#1659338882
+grep "^N" current_dups.txt  |sort -k1,1V |les
+#1659338873
+tma
+#1659339716
+cd ../..
+#1659339717
+grep "^N" current_dups.txt  |sort -k1,1V |les
+#1659340119
+grep "^N13" current_dups.txt  |sort -k1,1V |head -1 
+#1659340127
+grep "^N13" current_dups.txt  |sort -k1,1V |head -1 |cut -f4
+#1659340128
+grep "^N13" current_dups.txt  |sort -k1,1V |head -1 |cut -f5
+#1659340186
+grep "^N13" current_dups.txt  |sort -k1,1V |head -2 |tail -n 1 |cut -f5
+#1659340188
+grep "^N13" current_dups.txt  |sort -k1,1V |head -2 |tail -n 1 |cut -f4
+#1659340216
+grep "^N13" current_dups.txt  |sort -k1,1V |head -3 |tail -n 1 |cut -f4
+#1659340218
+grep "^N13" current_dups.txt  |sort -k1,1V |head -3 |tail -n 1 |cut -f5
+#1659340246
+vi current_dups.txt 
+#1659340328
+cd correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr1g0169831_Metru/
+#1659340328
+lt
+#1659340334
+sz *tre.root
+#1659340337
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659340526
+lth
+#1659340527
+vi *dups
+#1659340553
+cd -
+#1659340557
+j process
+#1659340572
+grep CECHI00010467-t1_Cechi
+#1659340576
+grep CECHI00010467-t1_Cechi ../*anchors
+#1659340600
+grep CECHI00010467-t1_Cechi *Input
+#1659340610
+grep mRNA_MtrunA17Chr4g0010021_Metru
+#1659340613
+grep mRNA_MtrunA17Chr4g0010021_Metru *Input
+#1659340644
+grep mRNA_MtrunA17Chr1g0169831_Metru
+#1659340647
+grep mRNA_MtrunA17Chr1g0169831_Metru *Input
+#1659340665
+grep LYRHO00022308-t4_Lyrho
+#1659340667
+grep LYRHO00022308-t4_Lyrho *
+#1659340673
+grep LYRHO00022308-t4_Lyrho *Input
+#1659340675
+grep LYRHO00022308-t4_Lyrho *anchors
+#1659340679
+grep LYRHO00022308-t4_Lyrho ../*anchors
+#1659340550
+tma
+#1659340965
+lth
+#1659340971
+sz *dlcdp.locus.tree
+#1659340974
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659343661
+lth
+#1659343669
+bjg |wc -l
+#1659343687
+lth
+#1659336136
+tma
+#1659344960
+j medicago
+#1659344969
+for i in evm.model.ctg156.22_Assin evm.model.ctg152.1_Assin evm.model.ctg150.2_Assin evm.model.ctg153.4_Assin; do grep ${i} *Input; done
+#1659344975
+tma
+#1659344979
+j gene_age
+#1659344980
+ls
+#1659344985
+cd ../../Orthologues_Astragalus_sinicus/
+#1659344985
+ls
+#1659344994
+for i in evm.model.ctg156.22_Assin evm.model.ctg152.1_Assin evm.model.ctg150.2_Assin evm.model.ctg153.4_Assin; do grep ${i} Astragalus_sinicus__v__Medicago_truncatula.tsv ; done
+#1659345036
+for i in evm.model.ctg156.22_Assin evm.model.ctg152.1_Assin evm.model.ctg150.2_Assin evm.model.ctg153.4_Assin; do grep ${i} *tsv; done
+#1659345086
+mdkir evm.model.ctg156.22_Assin
+#1659345111
+mkdir xubingyan
+#1659345169
+for i in evm.model.ctg156.22_Assin evm.model.ctg152.1_Assin evm.model.ctg150.2_Assin evm.model.ctg153.4_Assin; do grep  ${i} *tsv|cut -f2,3 >> xubingyan/genes.txt; done
+#1659345171
+cd xubingyan/
+#1659345171
+ls
+#1659345172
+vi genes.txt 
+#1659345193
+sort genes.txt |uniq |wc -l
+#1659345198
+sort genes.txt |uniq > genes.txt.uniq
+#1659345202
+tree.sh genes.txt.uniq 
+#1659345309
+lth
+#1659345365
+python -m iga.project.nitfix progressive_root -h
+#1659345375
+lt
+#1659345380
+sz genes.txt.uniq.fa.aln.tre 
+#1659345383
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659345513
+ll
+#1659345518
+vi cluster2.txt
+#1659345538
+select_fasta.pl cluster2.txt genes.txt.uniq.fa > cluster2.txt.fa
+#1659345546
+unselectItem.pl cluster2.txt genes.txt > cluster1.txt
+#1659345547
+lth
+#1659345554
+select_fasta.pl cluster1.txt genes.txt.uniq.fa > cluster1.txt.fa
+#1659345554
+lt
+#1659345584
+for  i in cluster*fa; do mafft ${i} > ${i}.aln; fasttree < ${i}.aln > ${i}.aln.tre; done
+#1659345662
+lth
+#1659345666
+sz cluster*tre
+#1659345668
+# Sent -> /Users/liuhui/OneDrive/LH_KIB/Research/LegumePhylogenomics/21.NodulationGenes/
+#1659350352
+j age
+#1659350353
+lth
+#1659350362
+cd ../../Orthologues_Astragalus_sinicus/
+#1659350363
+ls
+#1659350381
+python -m iga.project.nitfix -h
+#1659350406
+more ../Orthologues_Medicago_truncatula/shell 
+#1659350411
+more ../Orthologues_Medicago_truncatula/*.sh
+#1659350425
+touch abc
+#1659350429
+get_gene_age.py get_gene_age . abc > gene_pav.txt
+#1659350431
+lth
+#1659350441
+vi `which get_gene_age.py`
+#1659350480
+more gene_pav.txt 
+#1659350484
+ls
+#1659350488
+get_gene_age.py get_gene_age . abc > gene_pav.txt
+#1659350493
+vi `which get_gene_age.py`
+#1659350508
+cp ../Orthologues_Medicago_truncatula/*pl .
+#1659350511
+cp ../Orthologues_Medicago_truncatula/*R .
+#1659350512
+get_gene_age.py get_gene_age . abc > gene_pav.txt
+#1659350516
+vi gene_pav.txt 
+#1659350519
+vi `which get_gene_age.py`
+#1659350536
+ll *pl
+#1659350540
+vi `which get_gene_age.py`
+#1659350554
+get_gene_age.py get_gene_age . abc > gene_pav.txt
+#1659350574
+lth
+#1659350586
+les gene_pav.txt 
+#1659350591
+ls *txt
+#1659350594
+ls xubingyan/
+#1659350613
+for i in evm.model.ctg156.22_Assin evm.model.ctg152.1_Assin evm.model.ctg150.2_Assin evm.model.ctg153.4_Assin; do echo $i >> xubingyan.txt; done
+#1659350614
+vi xubingyan
+#1659350616
+vi xubingyan.txt 
+#1659350639
+for i in `cat xubingyan.txt `; do grep "^${i}" gene_pav.txt | head; done
+#1659350662
+vi xubingyan.txt 
+#1659350665
+vi `which get_gene_age.py`
+#1659350694
+for i in `cat xubingyan.txt `; do grep "^${i}" gene_pav.txt | grep "Orsat\|Aqcoe\|Vivit"; done
+#1659350750
+more xubingyan
+#1659350751
+more xubingyan.txt 
+#1659350762
+grep evm.model.ctg156.22_Assin gene_pav.txt 
+#1659350772
+grep "^evm.model.ctg156.22_Assin" gene_pav.txt 
+#1659350799
+grep "^evm.model.ctg156.22_Assin" gene_pav.txt > xubingyan/evm.model.ctg156.22_Assin.txt
+#1659350802
+lth
+#1659350808
+for i in `cat xubingyan.txt `; do grep "^${i}" gene_pav.txt | grep "Orsat\|Aqcoe\|Vivit"; done
+#1659350837
+grep "^evm.model.ctg152.1_Assin" gene_pav.txt > xubingyan/evm.model.ctg152.1_Assin.txt
+#1659350878
+for i in evm.model.ctg150.2_Assin evm.model.ctg153.4_Assin; do grep "^${i}" gene_pav.txt >> xubingyan/evm.model.ctg150.2_Assin.evm.model.ctg153.4_Assin.txt; done
+#1659350881
+cd xubingyan/
+#1659350881
+lt
+#1659350886
+les evm.model.ctg152.1_Assin.txt 
+#1659350902
+mkdir temp
+#1659350905
+mv cluster* genes.txt* temp/
+#1659350905
+ll
+#1659350922
+for i in e*txt; do cut -f1,3 ${i} > ${i}.cut; done
+#1659350923
+vi *cut
+#1659350966
+for i in e*txt; do cut -f1,3 ${i} |sed "s/\t/\n/; s/-+-/\n/; s/,/\n/g"|sort |uniq > ${i}.cut; done
+#1659350968
+les *cut
+#1659350980
+for i in e*txt; do cut -f1,3 ${i} |sed "s/\t/\n/; s/-+-/\n/; s/,/\n/g"|sort |uniq |grep -v "^NA$" > ${i}.cut; done
+#1659350981
+les *cut
+#1659350987
+lt
+#1659350990
+ll *cut
+#1659350998
+for i in *cut; do tree.sh ${i}; done
+#1659351067
+lth
+#1659351071
+sz evm*tre
+#1659351080
+# Sent -> /Users/liuhui/Downloads/
+#1659357102
+j age
+#1659357103
+lth
+#1659357106
+cd ../
+#1659357208
+cd ../Orthologues_Astragalus_sinicus/xubingyan/
+#1659357209
+lth
+#1659357216
+grep Medtr *cut
+#1659357218
+ll *cut
+#1659357227
+grep "Metru" *cut
+#1659357241
+grep "CECHI" *cut
+#1659357345
+grep "Malbus" *cut
+#1659357435
+which rename.sh
+#1659357438
+vi `which rename.sh`
+#1659357457
+vi /nfs/liuhui/bin/bundle/rename.sh 
+#1659357471
+grep Lojap *cut
+#1659357481
+vi /nfs/liuhui/bin/bundle/rename.sh 
+#1659357496
+grep Gluar *cut
+#1659357505
+grep Glura *cut
+#1659357517
+grep Ciari *cut
+#1659357526
+grep Pisat *cut
+#1659357541
+grep Trsub *cut
+#1659357564
+grep Mealb *cut
+#1659357614
+grep Abpre *cut
+#1659357666
+grep Spsub *cut
+#1659357677
+grep Amedg *cut
+#1659357821
+grep Orsat *cut
+#1659357825
+grep Aqcoe *cut
+#1659357832
+grep Vivin *cut
+#1659357995
+grep Clpla *cut
+#1659358063
+grep Sojap *cut
+#1659358070
+gerp Zeins *cut
+#1659358074
+grep Zeins *cut
+#1659358142
+grep Caaus *cut
+#1659358151
+grep Sesep *cut
+#1659358160
+grep Chpum *cut
+#1659358172
+grep Duorc *cut
+#1659358185
+grep Bavar *cut
+#1659358194
+grep Lyrho *cut
+#1659358206
+grep Sigla *cut
+#1659358231
+grep Avcar *cut
+#1659358241
+grep Avcar *Potri
+#1659358246
+grep Potri *cut
+#1659358264
+grep Artha *cut
+#1659358272
+grep Daglo *cut
+#1659358342
+grep Vivin *cut
+#1659404725
+cd bin/
+#1659404725
+ls
+#1659404727
+cd ../projects/
+#1659404728
+ls
+#1659404729
+cd buzzo/
+#1659404729
+ls
+#1659404731
+mkdir simphy
+#1659404732
+cd simphy/
+#1659404733
+ls
+#1659404735
+wget https://github.com/adamallo/SimPhy/releases/download/v1.0.2/SimPhy_1.0.2.tar.gz
+#1659404740
+tar -xvzf SimPhy_1.0.2.tar.gz 
+#1659404742
+cd SimPhy_1.0.2/
+#1659404742
+ls
+#1659404744
+cd bin/
+#1659404744
+ls
+#1659404747
+ll
+#1659404752
+chmod -x simphy_mac64 
+#1659404757
+chmod +x simphy_lnx64
+#1659404758
+./simphy_lnx64 
+#1659404927
+ ls
+#1659404928
+simphy -rs 100 -rl u:10,501 -rg 1 -sb l:-14,1 -sl u:10,51 -st u:100000,10000000 -si u:1,6 -so l:0,0.1 -gb u:-25,-15 -gt f:gb -ld l:gb,0.4 -lb f:ld -lt l:gt,0.4 -lk 1 -sp l:12,0.5 -sg f:1 -hs l:1.5,1 -hl l:1.2,1 -hg l:1.4,1 -su e:10000000 -o SimPhy_complex -om 1 -v 1 -od 1 -cs 22
+#1659404932
+./simphy_lnx64 -rs 100 -rl u:10,501 -rg 1 -sb l:-14,1 -sl u:10,51 -st u:100000,10000000 -si u:1,6 -so l:0,0.1 -gb u:-25,-15 -gt f:gb -ld l:gb,0.4 -lb f:ld -lt l:gt,0.4 -lk 1 -sp l:12,0.5 -sg f:1 -hs l:1.5,1 -hl l:1.2,1 -hg l:1.4,1 -su e:10000000 -o SimPhy_complex -om 1 -v 1 -od 1 -cs 22
+#1659405012
+ls
+#1659405013
+cd ..
+#1659405014
+ll
+#1659405018
+ll configuration_files/
+#1659405027
+more configuration_files/SimPhy_controlfile.conf 
+#1659405032
+ll manual/
+#1659405034
+ll scripts/
+#1659405036
+ll src/
+#1659405039
+ll
+#1659405161
+cd ..
+#1659405166
+mkdir jprime
+#1659405167
+cd jprime/
+#1659405168
+ll
+#1659405169
+wget https://github.com/arvestad/jprime/releases/download/v0.3.7/jprime-0.3.7.jar
+#1659405173
+ll
+#1659405176
+java -jar jprime-0.3.7.jar 
+#1659405199
+git clone https://github.com/arvestad/jprime.git
+#1659405369
+ll
+#1659405372
+wget https://raw.githubusercontent.com/arvestad/jprime/tree/master/jprime/sample_data/dlrs_example_1.stree
+#1659405396
+rz
+#1659405446
+# Cancelled transfer
+#1659405459
+ls
+#1659405608
+top
+#1659405611
+tp
+#1659406681
+j jprime
+#1659406682
+lth
+#1659406685
+les *mcmc
+#1659406700
+les *mcmc.info
+#1659405511
+java -jar jprime-0.3.7.jar Delirious -o dlrs_example_1.mcmc -i 1000000 -t 200 -sm JTT jprime/sample_data/dlrs_example_1.stree jprime/sample_data/dlrs_example_1.fa jprime/sample_data/dlrs_example_1.map 
+#1659407532
+evolver
+#1659409619
+sudo  brew install gdal
+#1659411185
+bjl
+#1659411188
+bjg |wc -l
+#1659411190
+top
+#1659417316
+mamba create -n mapchina r-base
+#1659417319
+mamba create -n mapchina r-base ggplot
+#1659417867
+conda activate mapchina
+#1659417891
+mamba install r-geojsonsf 
+#1659417945
+mamba install r-sf
+#1659418699
+R
+#1659419579
+lth
+#1659419590
+vi test.Rscript
+#1659419621
+Rscript test.Rscript 
+#1659419625
+vi test.Rscript
+#1659419643
+Rscript test.Rscript 
+#1659419647
+R
+#1659419711
+mamba install r-showtext
+#1659420136
+lt
+#1659420138
+vi test.Rscript 
+#1659420142
+Rscript test.Rscript 
+#1659420146
+vi test.Rscript 
+#1659420171
+Rscript test.Rscript 
+#1659420175
+vi test.Rscript 
+#1659420203
+Rscript test.Rscript 
+#1659420209
+R
+#1659420214
+mamba install r-dplyr
+#1659420246
+R
+#1659420250
+Rscript test.Rscript 
+#1659420283
+vi test.Rscript 
+#1659420305
+Rscript test.Rscript 
+#1659420316
+vi test.Rscript 
+#1659420321
+Rscript test.Rscript 
+#1659420373
+vi test.Rscript 
+#1659420385
+Rscript test.Rscript 
+#1659420391
+vi test.Rscript 
+#1659420397
+Rscript test.Rscript 
+#1659420405
+vi test.Rscript 
+#1659420409
+Rscript test.Rscript 
+#1659420418
+vi test.Rscript 
+#1659420464
+Rscript test.Rscript 
+#1659420561
+vi test.Rscript 
+#1659420576
+Rscript test.Rscript 
+#1659420581
+vi test.Rscript 
+#1659420650
+Rscript test.Rscript 
+#1659420656
+R
+#1659420665
+mamba install r-tidyverse
+#1659420755
+Rscript test.Rscript 
+#1659420788
+R
+#1659420812
+which R
+#1659420814
+Rscript test.Rscript 
+#1659420855
+more test.Rscript 
+#1659420856
+R
+#1659420884
+ls /nfs/liuhui/.conda/envs/mapchina/share/proj/
+#1659420892
+ll /nfs/liuhui/.conda/envs/mapchina/share/proj/
+#1659420899
+ll /nfs/liuhui/.conda/envs/mapchina/share/proj/CH 
+#1659420901
+more /nfs/liuhui/.conda/envs/mapchina/share/proj/CH 
+#1659420933
+R
+#1659420994
+mamba intall GDAL Error 1: PROJ: proj_create_from_database
+#1659420997
+mamba install gdal
+#1659421548
+Rscript test.Rscript 
+#1659421554
+R
+#1659422507
+lth
+#1659422510
+les current_dups.txt 
+#1659422588
+grep "." correct_gene_age.input*/*/*dups > current_dups.txt
+#1659422594
+les current_dups.txt 
+#1659422608
+grep '.' tmp 
+#1659422611
+ls
+#1659422617
+vi test.input
+#1659422622
+grep '.' test.input
+#1659422626
+vi test.input
+#1659422630
+lth
+#1659422632
+vi current_dups.txt 
+#1659422652
+sort -k2,2V |les
+#1659422658
+sort -k2,2V current_dups.txt |les
+#1659423012
+gtp
+#1659423019
+sort -k2,2V current_dups.txt |les
+#1659423154
+cd correct_gene_age.input.split01.dir/mRNA_MtrunA17Chr1g0179821_Metru/
+#1659423154
+lt
+#1659423159
+le *locus.recon
+#1659423164
+more *locus.recon
+#1659423177
+grep spec *locus.recon |sort -k2,2V
+#1659423179
+grep spec *locus.recon |sort -k2,2V |head
+#1659423633
+gtp
+#1659423643
+python -m iga.project.nitfix get_dups *locus.recon *locus.tree
+#1659422502
+tma
+#1659423673
+j mRNA_MtrunA17Chr1g0179821_Metru
+#1659423673
+lth
+#1659423688
+sz mRNA_MtrunA17Chr1g0179821_Metru.clean.tre.root.filter.dlcdp.locus.tree mRNA_MtrunA17Chr1g0179821_Metru.clean.tre
+#1659423691
+# Sent -> /Users/liuhui/Downloads/
+#1659426909
+vi tmp
+#1659426914
+sort tmp |uniq |wc
+#1659428271
+mmaba create -n msprime msprime
+#1659428275
+mamba create -n msprime msprime
+#1659428673
+conda activate msprime
+#1659428717
+msp --version
+#1659428786
+mamba install install -c conda-forge msprime
+#1659428791
+mamba install  -c conda-forge msprime
+#1659428822
+msp --version
+#1659428825
+python
+#1659428889
+conda activate msprime
+#1659428897
+mamba install h5py==2.6.0
+#1659429042
+msp --version
+#1659429180
+python
+#1659492191
+bjl
+#1659492194
+bjg |wc -l
+#1659496972
+grep "." correct_gene_age.input*/*/*dups > current_dups.txt
+#1659496975
+cd ../..
+#1659496976
+grep "." correct_gene_age.input*/*/*dups > current_dups.txt
+#1659496959
+tma
+#1659496985
+j gene_age
+#1659496991
+sort -k2,2V current_dups.txt |les
+#1659496997
+vi current_dups.txt 
+#1659497004
+sort -k2,2V current_dups.txt |les
+#1659497031
+vi current_dups.txt 
+#1659497054
+ln -s ../nod_genes.txt.addinfo 
+#1659497056
+les nod_genes.txt.addinfo 
+#1659497070
+selectItem.pl -k 0 1 nod_genes.txt.addinfo current_dups.txt |les
+#1659497076
+les current_dups.txt 
+#1659497079
+selectItem.pl -k 0 1 nod_genes.txt.addinfo current_dups.txt 
+#1659497087
+selectItem.pl -k 0 1 nod_genes.txt.addinfo current_dups.txt |cut -f1,2,3,4,5
+#1659497090
+selectItem.pl -k 0 1 nod_genes.txt.addinfo current_dups.txt |cut -f1,2,3,4,5,6
+#1659497101
+selectItem.pl -k 0 1 nod_genes.txt.addinfo current_dups.txt |cut -f1,2,3,4,10,11
+#1659497120
+selectItem.pl -k 0 1 nod_genes.txt.addinfo current_dups.txt |cut -f1,2,7,8
+#1659497123
+selectItem.pl -k 0 1 nod_genes.txt.addinfo current_dups.txt |cut -f1,2,7,8,9
+#1659497153
+selectItem.pl -k 0 1 nod_genes.txt.addinfo current_dups.txt |cut -f1,2,3,7,8
+#1659497167
+grep mRNA_MtrunA17Chr1g0156811_Metru current_dups.txt
+#1659497174
+grep mRNA_MtrunA17Chr1g0177091_Metru current_dups.txt 
+#1659497180
+grep mRNA_MtrunA17Chr1g0184911_Metru current_dups.txt 
+#1659497190
+grep Chr1g nod_genes.txt.addinfo |wc
+#1659497192
+grep Chr1g nod_genes.txt.addinfo |les
+#1659497203
+ls
+#1659497207
+grep mRNA_MtrunA17Chr1g0149821_Metru *split
+#1659497209
+grep mRNA_MtrunA17Chr1g0149821_Metru *split*
+#1659497216
+cd correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr1g0149821_Metru/
+#1659497216
+lt
+#1659497224
+les error.80920 
+#1659497241
+sz mRNA_MtrunA17Chr1g0149821_Metru.clean.tre 
+#1659497244
+# Sent -> /Users/liuhui/Downloads/
+#1659497393
+rz
+#1659497396
+# Received /Users/liuhui/Downloads/mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root
+#1659497397
+lt
+#1659497484
+top
+#1659497487
+tp
+#1659497586
+j age
+#1659497590
+grep CHIT5 nod_genes.txt.addinfo 
+#1659497419
+python -m iga.project.nitfix correct_gene_age --threads 1 .
+#1659497667
+lt
+#1659497677
+rm *dlcdp.*
+#1659497678
+lt
+#1659497680
+vi *filter
+#1659497693
+vi filter.txt
+#1659497718
+sed "s/\n/,/g" filter.txt 
+#1659497723
+sed "s/\r/,/g" filter.txt 
+#1659497742
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root -n "ZEINS00014386-t1_Zeins,CECHI00007911-t1_Cechi,SOPJAP_g27367.t1_Sojap,CLPLA00007744-t1_Clpla,Ae.00013646_Amedg,Glyur001645s00024582.1_Glura,Psat4g032080.1_Pisat,Nissc2298S18256_Nisch,Ae01g24430.1_Aeeve,Yangtao2001654_Avcar,PNS93882_Potri,rna-XM_027482596.1_Abpre,PNS93885_Potri" > mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter 
+#1659497744
+lth
+#1659497883
+cd correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr1g0149821_Metru/
+#1659497883
+lt
+#1659497890
+sz mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter 
+#1659497892
+# Sent -> /Users/liuhui/Downloads/
+#1659497927
+tma
+#1659497751
+python -m iga.project.nitfix correct_gene_age --threads 1 .
+#1659497942
+lt
+#1659498010
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root -n "ZEINS00014386-t1_Zeins,CECHI00007911-t1_Cechi,SOPJAP_g27367\.t1_Sojap,CLPLA00007744-t1_Clpla,Ae.00013646_Amedg,Glyur001645s00024582\.1_Glura,Psat4g032080\.1_Pisat,Nissc2298S18256_Nisch,Ae01g24430\.1_Aeeve,Yangtao2001654_Avcar,PNS93882_Potri,rna-XM_027482596\.1_Abpre,PNS93885_Potri" > mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter 
+#1659498012
+vi *filter
+#1659498032
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root -n "ZEINS00014386-t1_Zeins,CECHI00007911-t1_Cechi,SOPJAP_g27367.t1_Sojap,CLPLA00007744-t1_Clpla,Ae.00013646_Amedg,Glyur001645s00024582.1_Glura,Psat4g032080.1_Pisat,Nissc2298S18256_Nisch,Ae01g24430.1_Aeeve,Yangtao2001654_Avcar,PNS93882_Potri,rna-XM_027482596.1_Abpre,PNS93885_Potri" > mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter 
+#1659498045
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter -n SOPJAP_g27367.t1_Sojap
+#1659498079
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter -n Psat4g032080.1_Pisat
+#1659498086
+pxrmt -h
+#1659498114
+vi namesf
+#1659498136
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root -f namesf
+#1659498211
+which pxmrt
+#1659498216
+which pxrmt
+#1659498219
+vi /nfs/apps/miniconda3/bin/pxrmt
+#1659498299
+lt
+#1659498308
+cp mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.1
+#1659498310
+vi mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root
+#1659498374
+vi namesf 
+#1659498387
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root -f namesf
+#1659498414
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root -t Ae_00013646_Amedg
+#1659498421
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root -n Ae_00013646_Amedg
+#1659498446
+vi mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root
+#1659498453
+cp mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.1 mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root
+#1659498455
+vi mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root
+#1659498473
+vi namesf 
+#1659498481
+cp namesf namesf.2
+#1659498482
+vi namesf 
+#1659498490
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root -f namesf
+#1659498510
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root -f namesf > mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter
+#1659498512
+vi mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter
+#1659498540
+les error.80920 
+#1659498589
+lth
+#1659498600
+python -m iga.project.nitfix correct_gene_age --threads 1 .
+#1659498618
+vi *filter
+#1659498629
+lt
+#1659498633
+rm *dlcdp.*
+#1659498654
+lth
+#1659498658
+sz mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter
+#1659498661
+# Sent -> /Users/liuhui/Downloads/
+#1659498712
+lth
+#1659498809
+lt
+#1659498811
+lth
+#1659498826
+cd ../..
+#1659498830
+ls -d */*/ |wc -l
+#1659498840
+ls
+#1659498850
+ls -d correct_gene_age.input*/mRNA*/ |wc -l
+#1659498856
+wc -l correct_gene_age.input
+#1659498867
+ls -d correct_gene_age.input*/mRNA*/homo_ortho.txt |wc -l
+#1659498878
+wc -l current_dups.txt 
+#1659498911
+cd -
+#1659498912
+lth
+#1659498634
+python -m iga.project.nitfix correct_gene_age --threads 1 .
+#1659498919
+vi mRNA_MtrunA17Chr1g0149821_Metru.dups
+#1659499081
+lt
+#1659499124
+cd ../..
+#1659499132
+for i in mRNA_MtrunA17Chr3g0140491_Metru mRNA_MtrunA17Chr3g0140461_Metru mRNA_MtrunA17Chr4g0065451_Metru mRNA_MtrunA17Chr4g0065461_Metru; do grep $i nod_genes.txt.addinfo ; done
+#1659499136
+vi nod_genes.txt.addinfo 
+#1659499145
+lth
+#1659499147
+cd -
+#1659499151
+d ..
+#1659499151
+ls
+#1659499152
+cd ..
+#1659499154
+cd -
+#1659499158
+lth
+#1659499163
+chmod -w mRNA_MtrunA17Chr1g0149821_Metru.dups 
+#1659499165
+cp mRNA_MtrunA17Chr1g0149821_Metru.dups mRNA_MtrunA17Chr1g0149821_Metru.dups.1
+#1659499171
+mv mRNA_MtrunA17Chr1g0149821_Metru.dups.manual
+#1659499178
+mv mRNA_MtrunA17Chr1g0149821_Metru.dups.1 mRNA_MtrunA17Chr1g0149821_Metru.dups.manual
+#1659499178
+lt
+#1659499188
+cd ../../..
+#1659499189
+ls
+#1659499193
+cd gene_age/
+#1659499193
+ls
+#1659499197
+les correct_gene_age.input
+#1659499204
+grep Chr1g nod_genes.txt.addinfo |les
+#1659499214
+bjl
+#1659499219
+bjobs -l 83032
+#1659499236
+bj
+#1659499238
+bjl
+#1659499244
+bjobs -l 83032
+#1659501463
+cd -
+#1659501479
+cd correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr1g0149821_Metru/
+#1659501479
+lt
+#1659501496
+vi /nfs/liuhui/bin/bundle/bash_template/dlcpar.sh 
+#1659501508
+cp /nfs/liuhui/bin/bundle/bash_template/dlcpar.sh  .
+#1659501509
+vi dlcpar.sh 
+#1659501514
+conda activate dlcpar
+#1659501516
+vi dlcpar.sh 
+#1659501527
+dlcpar -h
+#1659501528
+vi dlcpar.sh 
+#1659501560
+lt
+#1659501571
+rm *dlcdp*
+#1659502128
+tp
+#1659502132
+kill 29662
+#1659501575
+bash dlcpar.sh  mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter
+#1659502136
+vi dlcpar.sh 
+#1659502147
+bash dlcpar.sh  mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter
+#1659502151
+vi dlcpar.sh 
+#1659502166
+bash dlcpar.sh  mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter
+#1659502174
+more mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.dlcdp.locus.recon
+#1659502176
+lt
+#1659502181
+more mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter.dlcsearch.locus.recon 
+#1659502184
+grep dup mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter.dlcsearch.locus.recon
+#1659502194
+sz mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter.dlcsearch.locus.tree 
+#1659502197
+# Sent -> /Users/liuhui/Downloads/
+#1659502236
+grep dup mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter.dlcsearch.locus.recon |grep N |sort -k2,2V
+#1659502391
+conda deactivate
+#1659502400
+ll *locus.recon
+#1659502407
+rm *.dlcdp.*
+#1659502408
+python -m iga.project.nitfix get_dups *locus.recon *locus.tree
+#1659502455
+lt
+#1659502469
+mkdir test
+#1659502470
+cd test/
+#1659502475
+ln -s ../mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root
+#1659502477
+bash dlcpar.sh  mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root 
+#1659502481
+bash ../dlcpar.sh  mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root 
+#1659502484
+conda deactivate
+#1659502488
+conda activate dlcpar
+#1659502489
+bash ../dlcpar.sh  mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root 
+#1659502499
+more *locus.recon
+#1659502505
+grep dup mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter.dlcsearch.locus.recon |grep N |sort -k2,2V
+#1659502517
+grep dup *.dlcsearch.locus.recon |grep N |sort -k2,2V
+#1659502531
+ll *locus.tre
+#1659502533
+ll *locus.tree
+#1659502536
+sz *locus.tree
+#1659502538
+# Sent -> /Users/liuhui/Downloads/
+#1659503791
+lt
+#1659503800
+vi remove.txt
+#1659503817
+lt
+#1659503823
+pxrmt -t mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root -f remove.txt > mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter
+#1659503834
+bash /nfs/liuhui/bin/bundle/bash_template/dlcpar.sh  mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter 
+#1659503851
+ls
+#1659503852
+lt
+#1659503861
+vi *dlcdp.info
+#1659503866
+vi *root
+#1659503902
+rm *.dlcdp.*
+#1659504015
+tp
+#1659504047
+ls
+#1659504064
+ls correct_gene_age.input*/*/*homo.txt > finished.txt
+#1659504074
+ls correct_gene_age.input*/*/*homo*.txt > finished.txt
+#1659504082
+vi finished.txt 
+#1659504090
+vi correct_gene_age.input
+#1659504092
+vi finished.txt 
+#1659504144
+selectItem.pl 0 1 nod_genes.txt.addinfo finished.txt 
+#1659503903
+bash /nfs/liuhui/bin/bundle/bash_template/dlcpar.sh  mRNA_MtrunA17Chr1g0149821_Metru.clean.tre.root.filter 
+#1659504154
+ls correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr1g0147041_Metru/
+#1659504164
+lt correct_gene_age.input.split00.dir/mRNA_MtrunA17Chr1g0147041_Metru/ |head
+#1659504181
+vi tmp1
+#1659504216
+for i in `cat tmp`; do ls ${i}/RAxML* |wc -l
+#1659504241
+for i in `cat tmp`; do ls ${i}/RAxML_bipartitions.clean_ortho.txt.fa; done
+#1659504247
+vi tmp
+#1659504275
+vi tmp1 
+#1659504281
+for i in `cat tmp1`; do ls ${i}/RAxML_bipartitions.clean_ortho.txt.fa; done
+#1659504324
+for i in `cat tmp1`; do ls ${i}/*clean.tre.root; done
+#1659504345
+cd correct_gene_age.input.split01.dir/mRNA_MtrunA17Chr1g0181391_Metru/
+#1659504346
+lt
+#1659504349
+les error.82039 
+#1659504359
+tail -n 4 error.82039 
+#1659504375
+lt
+#1659504387
+pxrr -g "VIT_208s0040g02130.1_Vivin,VIT_206s0004g03090.1_Vivin" -t raw_ortho.txt.fa.aln.tre
+#1659504409
+pxrr -g "VIT_208s0040g02130.1_Vivin,VIT_206s0004g03090.1_Vivin,rna-XM_012713942.2_Ciari" -t raw_ortho.txt.fa.aln.tre
+#1659504535
+sz raw_ortho.txt.fa.aln.tre 
+#1659504537
+# Sent -> /Users/liuhui/Downloads/
+#1659504605
+pxrr -g "VIT_208s0040g02130.1_Vivin,VIT_206s0004g03090.1_Vivin" -t raw_ortho.txt.fa.aln.tre > raw_ortho.txt.fa.aln.pxrr.tre
+#1659504608
+sz raw_ortho.txt.fa.aln.pxrr.tre
+#1659504611
+# Sent -> /Users/liuhui/Downloads/
+#1659504694
+cd -
+#1659504702
+grep Chr1g0181391_Metru nod_genes.txt.addinfo 
+#1659504725
+lt
+#1659504726
+cd -
+#1659504727
+lt
+#1659504738
+bash $BD/bash_template/dlcpar.sh raw_ortho.txt.fa.aln.pxrr.tre 
+#1659504743
+conda activate msprime
+#1659504746
+conda deactivate
+#1659504753
+conda activate dlcpar
+#1659504788
+wc -l remove.txt 
+#1659504918
+pgrep mRNA_MtrunA17Chr7g0263921_Metru
+#1659504927
+pgrep mRNA_MtrunA17Chr7g0263921_Metru ../../../nod_genes.txt.addinfo 
+#1659504929
+grep mRNA_MtrunA17Chr7g0263921_Metru ../../../nod_genes.txt.addinfo 
+#1659504941
+grep mRNA_MtrunA17Chr1g0181391_Metru ../../../nod_genes.txt.addinfo 
+#1659504755
+bash $BD/bash_template/dlcpar.sh raw_ortho.txt.fa.aln.pxrr.tre 
+#1659506119
+ls ../*sh
+#1659506123
+more ../dlcpar.sh 
+#1659506137
+cp  ../dlcpar.sh /nfs/liuhui/bin/bundle/bash_template/dlcpar_search.sh
+#1659506150
+bash /nfs/liuhui/bin/bundle/bash_template/dlcpar_search.sh raw_ortho.txt.fa.aln.pxrr.tre 
+#1659506155
+lt
+#1659506172
+grep N *locus.recon |sort -k2,2V
+#1659506176
+grep N *locus.recon |sort -k2,2V |grep dup
+#1659506193
+ls *locus.tree
+#1659506198
+sz raw_ortho.txt.fa.aln.pxrr.tre.dlcsearch.locus.tree
+#1659506201
+# Sent -> /Users/liuhui/Downloads/
+#1659506286
+lt
+#1659506851
+vi tmp.sh
+#1659506867
+bash tmp.sh 
+#1659506868
+vi tmp.sh
+#1659506883
+bash tmp.sh 
+#1659506884
+vi tmp.sh
+#1659507148
+conda deactivate
+#1659507393
+gtp
+#1659507431
+ll
+#1659507433
+lt
+#1659507439
+vi test.sh
+#1659507491
+bash test.sh 
+#1659507526
+lt
+#1659507563
+ll
+#1659507568
+les error.82039 
+#1659507571
+lt
+#1659507573
+tma
+#1659507600
+les error.82039 
+#1659507611
+cd ../..
+#1659507612
+lth
+#1659507628
+vi finished.txt 
+#1659507659
+lt
+#1659507662
+cd ..
+#1659507663
+lt
+#1659507691
+for i in `cat finished.txt `; do ls ${i}/RAxML_bipartitions.clean_ortho.txt.fa 2>>failed.txt; done
+#1659507707
+vi failed.txt 
+#1659507827
+for i in `cat finished.txt `; do ls -sl ${i}/*.dlcdp.locus.recon 2>> failed.txt >> dlcdp.txt; done
+#1659507847
+vi failed.txt 
+#1659507856
+ls correct_gene_age.input.split02.dir/mRNA_MtrunA17Chr1g0210811_Metru/
+#1659507861
+vi dlcdp.txt 
+#1659507889
+ls -sl correct_gene_age.input*/*/*.dlcdp.locus.recon > dlcdp.txt 
+#1659507894
+vi dlcdp.txt 
+#1659507899
+ls -Sl correct_gene_age.input*/*/*.dlcdp.locus.recon > dlcdp.txt 
+#1659507902
+vi dlcdp.txt 
+#1659507999
+mamba install coin-or-cbc
+#1659508110
+les ~/.conda/environments.txt 
+#1659508132
+conda env info
+#1659508153
+conda list
+#1659507956
+vi failed.txt 
+#1659508211
+lth
+#1659508220
+cat failed.txt dlcdp.txt  |sort |uniq |wc -l
+#1659508228
+cat failed.txt dlcdp.txt  |sort |uniq  > failed0803.txt
+#1659508231
+vi failed0803.txt 
+#1659508285
+ls
+#1659508288
+mkdir rerun
+#1659508415
+pushd ~/projects/buzzo/dlcpar/
+#1659508416
+ls
+#1659508419
+uplht dlcpar-2.0.1
+#1659508422
+uplht dlcpar-2.0.1.tar.gz 
+#1659508304
+for i in `cat failed0803.txt`; do cp -r ${i} rerun/; done
+#1659508536
+ls rerun/
+#1659508546
+ls rerun/mRNA_MtrunA17Chr0c01g0489361_Metru/
+#1659508568
+uplht rerun
+#1659508910
+ls *sh
+#1659508912
+vi run.sh 
+#1659508914
+vi gene_age_pipe.sh 
+#1659508938
+vi /nfs/liuhui/bin/bundle/bash_template/gene_age_pipe2.sh 

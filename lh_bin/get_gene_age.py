@@ -28,7 +28,7 @@ def get_gene_age(dir=None, topology_file=None):
     """.format(dir)
     single_extensions = ['tsv.1-to-1', 'tsv.1-to-m']
     duplicate_extensions = ['tsv.m-to-1', 'm-to-m']
-    #sh(cmd)
+    sh(cmd)
 # Step1. Prepare input
     for f in os.listdir(dir):
         for extension in single_extensions:
