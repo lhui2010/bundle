@@ -586,6 +586,7 @@ then
         rm {0}.dlcdp.locus.recon {0}.dlcdp.locus.tree
         ln -s {0}.dlcsearch.locus.recon {0}.dlcdp.locus.recon
         ln -s {0}.dlcsearch.locus.tree {0}.dlcdp.locus.tree
+    fi
 fi
 echo "{0}.dlcdp.locus.tree"
 source deactivate
