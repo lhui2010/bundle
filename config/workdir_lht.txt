@@ -1,3 +1,13 @@
+
+
+/ds3200_1/users_root/yitingshuang/lh/rerun/mRNA_MtrunA17Chr0c01g0489151_Metru
+
+有些gene age失败了，而且有点多，换一个更松的标准来定
+Wed Aug  3 15:27:28 CST 2022
+
+
+
+
 /ds3200_1/users_root/yitingshuang/lh/projects/buzzo/EDTA/rest_goods
 跑上了好基因组的EDTA
 
