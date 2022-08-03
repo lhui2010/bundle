@@ -578,6 +578,15 @@ dlcpar_sh = r"""
 source activate dlcpar
 # wait 300s then kill dlcpar as it is extreme slow on complex situations.
 timeout 300 bash $BD/bash_template/dlcpar.sh {0}
+if ! [ -s {0}.dlcdp.locus.recon ]
+then
+    timeout 300 bash $BD/bash_template/dlcpar_search.sh {0}
+    if [ -s {0}.dlcsearch.locus.recon ]
+    then
+        rm {0}.dlcdp.locus.recon {0}.dlcdp.locus.tree
+        ln -s {0}.dlcsearch.locus.recon {0}.dlcdp.locus.recon
+        ln -s {0}.dlcsearch.locus.tree {0}.dlcdp.locus.tree
+fi
 echo "{0}.dlcdp.locus.tree"
 source deactivate
 """
