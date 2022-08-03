@@ -719,7 +719,7 @@ def correct_gene_age(gene=None, threads=20):
     # {0}.dlcdp.locus.tree
     recon_file = dlcpar_input + ".dlcdp.locus.recon"
     locus_tree = dlcpar_input + ".dlcdp.locus.tree"
-    if not os.path.exists(recon_file) or prev_step:
+    if not os.path.exists(recon_file) or prev_step or os.stat(locus_tree).st_size == 0:
         cmd4 = dlcpar_sh.format(dlcpar_input)
         sh(cmd4)
 
