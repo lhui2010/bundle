@@ -774,6 +774,7 @@ def _progressive_root_tree(tree_fn, outgroup_list):
                 pxrr_n = ",".join(outgroup_name)
                 pxrr_cmd = "pxrr -g {0} -t {1} > {1}".format(pxrr_n, tree_fn)
                 sh(pxrr_cmd)
+                return 1
         elif len(outgroup_name) == 1:
             tree.set_outgroup(outgroup_name[0])
             # TODO: change format to 0 to allow output of support value
