@@ -769,6 +769,11 @@ def _progressive_root_tree(tree_fn, outgroup_list):
                 tree.set_outgroup(mrca_node)
                 tree.write(format=1, outfile=tree_fn+".root")
                 return 0
+            else:
+                logging.info("Tring pxrr")
+                pxrr_n = ",".join(outgroup_name)
+                pxrr_cmd = "pxrr -g {0} -t {1} > {1}".format(pxrr_n, tree_fn)
+                sh(pxrr_cmd)
         elif len(outgroup_name) == 1:
             tree.set_outgroup(outgroup_name[0])
             # TODO: change format to 0 to allow output of support value
