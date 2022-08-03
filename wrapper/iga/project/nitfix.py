@@ -766,7 +766,11 @@ def _progressive_root_tree(tree_fn, outgroup_list):
         else:
             # is polyphyly
             logging.error("Polytomy found in outgroup for outgroup {} in {}".format(og,tree_fn))
-            exit(1)
+            # exit(1)
+            logging.info("Tring pxrr")
+            pxrr_n = ",".join(outgroup_name)
+            pxrr_cmd = "pxrr -g {0} -t {1} > {1}".format(pxrr_n, tree_fn)
+            sh(pxrr_cmd)
             return 1
     # No outgroup found. Return 1
     logging.error("No outgroup found for {}".format(tree_fn))
