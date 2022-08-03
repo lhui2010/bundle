@@ -772,7 +772,7 @@ def _progressive_root_tree(tree_fn, outgroup_list):
             else:
                 logging.info("Tring pxrr")
                 pxrr_n = ",".join(outgroup_name)
-                pxrr_cmd = "pxrr -g {0} -t {1} > {1}".format(pxrr_n, tree_fn)
+                pxrr_cmd = "pxrr -g {0} -t {1} > {1}.root".format(pxrr_n, tree_fn)
                 sh(pxrr_cmd)
                 return 1
         elif len(outgroup_name) == 1:
@@ -786,7 +786,7 @@ def _progressive_root_tree(tree_fn, outgroup_list):
             # exit(1)
             logging.info("Tring pxrr")
             pxrr_n = ",".join(outgroup_name)
-            pxrr_cmd = "pxrr -g {0} -t {1} > {1}".format(pxrr_n, tree_fn)
+            pxrr_cmd = "pxrr -g {0} -t {1} > {1}.root".format(pxrr_n, tree_fn)
             sh(pxrr_cmd)
             return 1
     # No outgroup found. Return 1
